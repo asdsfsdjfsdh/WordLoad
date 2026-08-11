@@ -54,6 +54,7 @@ export interface Question {
   blanks: number[];
   note?: string;
   tier: DifficultyTier;
+  answer: string; // 完整正确答案（打字判定用）
 }
 
 export interface Session {

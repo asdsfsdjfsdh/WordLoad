@@ -107,5 +107,6 @@ export function buildQuestion(opts: {
     blanks,
     note: note ? `${note.note}（区分 ${note.counterpart}）` : opts.example ?? undefined,
     tier: opts.tier,
+    answer: text,
   };
 }
