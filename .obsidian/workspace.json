@@ -185,6 +185,10 @@
   },
   "active": "19869fa98569c4eb",
   "lastOpenFiles": [
+    "db/pipeline/confusable.spec.ts",
+    "db/pipeline/_dbg.ts",
+    "db/pipeline/confusable.ts",
+    "db/pipeline/generate-pairs.ts",
     "db/data/README.md",
     "db/vitest.config.ts",
     "db/pipeline/quality.spec.ts",
@@ -193,9 +197,6 @@
     "db/pipeline/import.ts",
     "db/pipeline/quality.ts",
     "db/pipeline/difficulty.ts",
-    "db/pipeline/types.ts",
-    "db/pipeline",
-    "db/data/tb_voc_examples.json",
     "欢迎.md",
     "项目计划-v1.md"
   ]

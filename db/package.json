@@ -10,6 +10,7 @@
     "seed": "tsx seed/seed.ts",
     "pipeline:import": "tsx pipeline/import.ts",
     "pipeline:check": "tsx pipeline/check.ts",
+    "pipeline:pairs": "tsx pipeline/generate-pairs.ts",
     "test": "vitest run",
     "typecheck": "echo \"(db types come from prisma client)\""
   },
