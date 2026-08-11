@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import type { DifficultyTier, GameMode, Question, Session } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
-import { allocMix, buildQuestion } from './question-builder';
+import { allocMix, buildQuestion, rotateSense } from './question-builder';
 
 const SESSION_SIZE = 30;
 
@@ -10,6 +10,23 @@ const SESSION_SIZE = 30;
 export interface SessionPlan {
   session: Session;
   items: { seq: number; wordId: string; senseIdx: number; source: 'new' | 'review' | 'wrongbook' }[];
+}
+
+// 词池元素：BankWord + 完整 Word（含义项与易混对）
+interface PoolWord {
+  bankId: number;
+  wordId: string;
+  stage: number;
+  word: {
+    id: string;
+    text: string;
+    phoneticAm: string | null;
+    phoneticEn: string | null;
+    tier: string;
+    senses: { idx: number; meaning: string; example: string }[];
+    confusableA: { wordB: { text: string }; type: string }[];
+    confusableB: { wordA: { text: string }; type: string }[];
+  };
 }
 
 @Injectable()
@@ -28,7 +45,7 @@ export class QuestionsService {
     const bank = await this.prisma.wordBank.findUnique({ where: { code: bankCode } });
     if (!bank) throw new Error(`词书不存在: ${bankCode}`);
 
-    const pool = await this.prisma.bankWord.findMany({
+    const pool = (await this.prisma.bankWord.findMany({
       where: { bankId: bank.id, stage: stageId },
       include: {
         word: {
@@ -39,7 +56,7 @@ export class QuestionsService {
           },
         },
       },
-    });
+    })) as PoolWord[];
     if (pool.length === 0) throw new Error(`阶段 ${stageId} 无词池`);
 
     // 词级进度 → 划分新词 / 复习 / 错题本
@@ -57,6 +74,14 @@ export class QuestionsService {
       else if (p && p.reviewStage > 0) review.push(bw);
       else fresh.push(bw);
     }
+
+    // SRS 掺入：复习池按到期优先（nextReviewAt 越早越优先，未到期最后）
+    const dueFirst = (bw: (typeof pool)[number]): number => {
+      const p = progressByWord.get(bw.wordId);
+      if (!p?.nextReviewAt) return 0;
+      return p.nextReviewAt.getTime() - Date.now();
+    };
+    review.sort((a, b) => dueFirst(a) - dueFirst(b));
 
     // 空白池兜底：错题本空则补新词
     const mix = allocMix(SESSION_SIZE);
@@ -76,8 +101,25 @@ export class QuestionsService {
       return c.slice(0, k);
     };
 
-    const chosen = [...pick(wrongbook, wb), ...pick(review, r), ...pick(fresh, n)];
+    // 复习池：优先取已到期（nextReviewAt <= now）的词，不足则取最早
+    const pickReview = (k: number): PoolWord[] => {
+      if (k <= 0) return [];
+      const now = Date.now();
+      const overdue = review.filter((bw) => {
+        const p = progressByWord.get(bw.wordId);
+        return p?.nextReviewAt && p.nextReviewAt.getTime() <= now;
+      });
+      const source = overdue.length >= k ? overdue : review;
+      return pick(source, k);
+    };
+
+    const chosen: typeof pool = [
+      ...pick(wrongbook, wb),
+      ...pickReview(r),
+      ...pick(fresh, n),
+    ];
     shuffle(chosen);
+
     // 记录每题来源（结算时写 item.type）
     const sourceOf = new Map<string, 'new' | 'review' | 'wrongbook'>(
       [...fresh, ...review, ...wrongbook].map((bw) => [
@@ -107,12 +149,65 @@ export class QuestionsService {
       }
     }
 
+    // 易混对比：会话内互为易混的词尽量相邻排布（利于形成对比记忆）
+    {
+      const set = new Set(chosen.map((c) => c.word.text));
+      const visited = new Set<string>();
+      const reordered: PoolWord[] = [];
+      for (const bw of chosen) {
+        if (visited.has(bw.word.text)) continue;
+        visited.add(bw.word.text);
+        reordered.push(bw);
+        // 若搭档也在本关且未排入，立即紧邻其后
+        const pair = pairIndex.get(bw.word.text);
+        if (pair && set.has(pair.counterpart) && !visited.has(pair.counterpart)) {
+          const mate = chosen.find((c) => c.word.text === pair.counterpart);
+          if (mate) {
+            visited.add(pair.counterpart);
+            reordered.push(mate);
+          }
+        }
+      }
+      chosen.splice(0, chosen.length, ...reordered);
+    }
+
+    // 义项级进度 → 义项轮换（多义词均匀覆盖各义项）
+    const senseProgress = await this.prisma.userSenseProgress.findMany({
+      where: { userId, wordId: { in: chosen.map((c) => c.word.id) } },
+    });
+    const senseProgressByWord = new Map<string, typeof senseProgress>();
+    for (const sp of senseProgress) {
+      const list = senseProgressByWord.get(sp.wordId) ?? [];
+      list.push(sp);
+      senseProgressByWord.set(sp.wordId, list);
+    }
+
+    const senseIdxOf = (wordId: string, senseCount: number): number => {
+      if (senseCount <= 1) return 0;
+      const sps = senseProgressByWord.get(wordId) ?? [];
+      // 未测过的义项优先（lastTestedAt=0）；已测的按 reviewStage 低优先，同级按最近到期优先
+      const now = Date.now();
+      const states = Array.from({ length: senseCount }, (_, idx) => {
+        const sp = sps.find((x) => x.senseIdx === idx);
+        return {
+          idx,
+          reviewStage: sp?.reviewStage ?? 0,
+          lastTestedAt: sp ? now - (sp.nextReviewAt?.getTime() ?? 0) : 0,
+        };
+      });
+      return rotateSense(states);
+    };
+
+    // 每题确定的义项（义项轮换）
+    const senseIdxOfQuestion = chosen.map(
+      (bw) => senseIdxOf(bw.word.id, bw.word.senses.length) as number,
+    );
+
     const questions: Question[] = chosen.map((bw, seq) => {
       const w = bw.word;
       const senses = w.senses;
-      // 义项轮换：暂取义项 0；鉴权接入后按 user_sense_progress 的 reviewStage/lastTestedAt 轮换
-      const senseIdx = 0;
-      const sense = senses[0];
+      const senseIdx = senseIdxOfQuestion[seq] ?? 0;
+      const sense = senses[senseIdx] ?? senses[0];
       const confusable = pairIndex.get(w.text);
       const promptBase =
         mode === 'dictation' ? (w.phoneticAm ?? w.phoneticEn ?? '') : (sense?.meaning ?? w.text);
@@ -132,7 +227,7 @@ export class QuestionsService {
     const items = chosen.map((bw, seq) => ({
       seq,
       wordId: bw.word.id,
-      senseIdx: 0,
+      senseIdx: senseIdxOfQuestion[seq] ?? 0,
       source: sourceOf.get(bw.word.id) ?? ('new' as const),
     }));
 

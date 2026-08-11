@@ -1,7 +1,9 @@
 // 打字核心：题目渲染 + 输入判定 + 结果回调
 // 纯 UI 组件，不依赖 Phaser（特效层里程碑 6 接入）
+// 支持双模式：zh2en（释义 prompt）与 dictation（语音播放 + 音标提示）
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
-import type { Question } from '@word-journey/shared';
+import type { GameMode, Question } from '@word-journey/shared';
+import { getTts } from '../lib/tts';
 
 export interface AnswerRecord {
   seq: number;
@@ -11,19 +13,31 @@ export interface AnswerRecord {
 
 interface Props {
   questions: Question[];
+  mode: GameMode;
   onComplete: (answers: AnswerRecord[]) => void;
 }
 
-export function TypingCore({ questions, onComplete }: Props) {
+export function TypingCore({ questions, mode, onComplete }: Props) {
   const [index, setIndex] = useState(0);
   const [input, setInput] = useState('');
   const [answered, setAnswered] = useState<AnswerRecord[]>([]);
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
+  const [replayKey, setReplayKey] = useState(0);
   const startedAt = useRef(Date.now());
   const inputRef = useRef<HTMLInputElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const q = questions[index];
+
+  // 听写：每次切题自动朗读（用户手势（点开始）后触发，满足 autoplay）
+  useEffect(() => {
+    startedAt.current = Date.now();
+    if (mode === 'dictation' && q) {
+      const tts = getTts();
+      tts.speak(q.answer);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, mode, replayKey]);
 
   useEffect(() => {
     if (feedback === null) inputRef.current?.focus();
@@ -35,6 +49,7 @@ export function TypingCore({ questions, onComplete }: Props) {
 
   const commit = (correct: boolean) => {
     const elapsedMs = Date.now() - startedAt.current;
+    getTts().stop();
     const record = { seq: q.seq, correct, elapsedMs };
     const next = [...answered, record];
     setAnswered(next);
@@ -66,12 +81,25 @@ export function TypingCore({ questions, onComplete }: Props) {
         <div className="mb-2 text-xs text-slate-500">
           {index + 1} / {questions.length}
         </div>
-        <div className="text-2xl font-semibold text-slate-100">{q.prompt}</div>
+        {mode === 'dictation' ? (
+          <div className="flex items-center justify-center gap-3">
+            <div className="text-2xl font-semibold text-slate-100">{q.prompt}</div>
+            <button
+              onClick={() => setReplayKey((k) => k + 1)}
+              className="rounded-lg border border-slate-600 px-3 py-1 text-sm text-slate-300 hover:bg-slate-800"
+              title="重播语音"
+            >
+              🔊 重播
+            </button>
+          </div>
+        ) : (
+          <div className="text-2xl font-semibold text-slate-100">{q.prompt}</div>
+        )}
         {q.note && <div className="mt-3 text-sm text-amber-400">{q.note}</div>}
       </div>
 
       {/* 挖空模板 */}
-      <div className="text-5xl font-bold tracking-widest text-cyan-400">
+      <div className="text-4xl font-bold tracking-widest text-cyan-400">
         {q.template.split('').map((c, i) => (
           <span key={i} className={c === '_' ? 'text-slate-600' : ''}>
             {c}
