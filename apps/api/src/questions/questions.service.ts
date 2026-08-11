@@ -5,15 +5,25 @@ import { PrismaService } from '../prisma/prisma.service';
 import { allocMix, buildQuestion } from './question-builder';
 
 const SESSION_SIZE = 30;
-const UNKNOWN_USER = 0; // 鉴权接入前临时：全量视为新词
+
+// 出题结果：会话 + 每题来源标记（结算落库用）
+export interface SessionPlan {
+  session: Session;
+  items: { seq: number; wordId: string; senseIdx: number; source: 'new' | 'review' | 'wrongbook' }[];
+}
 
 @Injectable()
 export class QuestionsService {
   constructor(private readonly prisma: PrismaService) {}
 
   // 生成一次战斗会话的完整题目（不落库，落库归结算模块）
-  async buildSession(opts: { bankCode: string; stageId: number; mode: GameMode }): Promise<Session> {
-    const { bankCode, stageId, mode } = opts;
+  async buildSession(opts: {
+    userId: number;
+    bankCode: string;
+    stageId: number;
+    mode: GameMode;
+  }): Promise<SessionPlan> {
+    const { userId, bankCode, stageId, mode } = opts;
 
     const bank = await this.prisma.wordBank.findUnique({ where: { code: bankCode } });
     if (!bank) throw new Error(`词书不存在: ${bankCode}`);
@@ -32,9 +42,9 @@ export class QuestionsService {
     });
     if (pool.length === 0) throw new Error(`阶段 ${stageId} 无词池`);
 
-    // 词级进度（当前鉴权前视为空 → 全部新词）
+    // 词级进度 → 划分新词 / 复习 / 错题本
     const progress = await this.prisma.userWordProgress.findMany({
-      where: { userId: UNKNOWN_USER },
+      where: { userId },
     });
     const progressByWord = new Map(progress.map((p) => [p.wordId, p]));
 
@@ -68,6 +78,17 @@ export class QuestionsService {
 
     const chosen = [...pick(wrongbook, wb), ...pick(review, r), ...pick(fresh, n)];
     shuffle(chosen);
+    // 记录每题来源（结算时写 item.type）
+    const sourceOf = new Map<string, 'new' | 'review' | 'wrongbook'>(
+      [...fresh, ...review, ...wrongbook].map((bw) => [
+        bw.wordId,
+        fresh.includes(bw)
+          ? 'new'
+          : review.includes(bw)
+            ? 'review'
+            : 'wrongbook',
+      ]),
+    );
 
     // 词对索引：同关内互为易混补抽候选
     const pairIndex = new Map<string, { counterpart: string; note: string }>();
@@ -108,7 +129,23 @@ export class QuestionsService {
       });
     });
 
-    return { sessionId: `${bankCode}-${stageId}-${Date.now()}`, bankId: String(bank.id), stageId, mode, questions };
+    const items = chosen.map((bw, seq) => ({
+      seq,
+      wordId: bw.word.id,
+      senseIdx: 0,
+      source: sourceOf.get(bw.word.id) ?? ('new' as const),
+    }));
+
+    return {
+      session: {
+        sessionId: `${bankCode}-${stageId}-${Date.now()}`,
+        bankId: String(bank.id),
+        stageId,
+        mode,
+        questions,
+      },
+      items,
+    };
   }
 }
 

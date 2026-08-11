@@ -1,6 +1,8 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
-import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Controller, Get, Param, Query, Req, UseGuards } from '@nestjs/common';
+import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import type { Request } from 'express';
 import type { GameMode, Session } from '@word-journey/shared';
+import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
 import { QuestionsService } from './questions.service';
 
 @ApiTags('questions')
@@ -9,15 +11,24 @@ export class QuestionsController {
   constructor(private readonly questions: QuestionsService) {}
 
   @Get(':bankCode/:stageId')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: '生成一次战斗会话的题目' })
   @ApiOkResponse({ description: 'Session（题目列表）' })
   async buildSession(
+    @Req() req: Request & { user: JwtUser },
     @Param('bankCode') bankCode: string,
     @Param('stageId') stageId: string,
     @Query('mode') mode: GameMode = 'zh2en',
   ): Promise<Session> {
     const id = Number.parseInt(stageId, 10);
     if (!Number.isInteger(id) || id < 1) throw new Error('stageId 非法');
-    return this.questions.buildSession({ bankCode, stageId: id, mode });
+    const plan = await this.questions.buildSession({
+      userId: req.user.sub,
+      bankCode,
+      stageId: id,
+      mode,
+    });
+    return plan.session;
   }
 }

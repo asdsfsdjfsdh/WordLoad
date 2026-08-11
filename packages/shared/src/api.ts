@@ -6,6 +6,24 @@ export type GameMode = 'zh2en' | 'dictation';
 
 export type QuestionType = 'fill-blank' | 'sense-match';
 
+// 认证
+export interface AuthUser {
+  id: number;
+  username: string;
+  coins: number;
+  character?: {
+    level: number;
+    hpLv: number;
+    atkLv: number;
+    defLv: number;
+  };
+}
+
+export interface AuthTokens {
+  accessToken: string;
+  refreshToken: string;
+}
+
 export interface Bank {
   id: string;
   code: string;
@@ -44,6 +62,20 @@ export interface Session {
   stageId: number;
   mode: GameMode;
   questions: Question[];
+}
+
+// 创建会话请求
+export interface CreateSessionRequest {
+  bankCode: string;
+  stageId: number;
+  mode: GameMode;
+}
+
+// 单题答案（客户端上报）
+export interface AnswerInput {
+  seq: number;
+  correct: boolean;
+  elapsedMs: number;
 }
 
 export interface SubmitResult {

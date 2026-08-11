@@ -77,16 +77,17 @@ model BankWord {
 
 // 用户
 model User {
-  id           Int       @id @default(autoincrement())
-  username     String    @unique @db.VarChar(32)
-  passwordHash String    @db.VarChar(255)
-  coins        Int       @default(0)
-  createdAt    DateTime  @default(now())
-  character    UserCharacter?
-  wordProgress UserWordProgress[]
-  senseProgress UserSenseProgress[]
-  materials    UserMaterial[]
-  sessions     LearningSession[]
+  id               Int       @id @default(autoincrement())
+  username         String    @unique @db.VarChar(32)
+  passwordHash     String    @db.VarChar(255)
+  coins            Int       @default(0)
+  refreshTokenHash String?   @db.VarChar(255) // refresh 轮换：存 token 哈希，旧 token 失效
+  createdAt        DateTime  @default(now())
+  character        UserCharacter?
+  wordProgress     UserWordProgress[]
+  senseProgress    UserSenseProgress[]
+  materials        UserMaterial[]
+  sessions         LearningSession[]
 }
 
 // 角色三围
