@@ -1,5 +1,10 @@
 // 会话结算：落库会话+逐题 → 计算评级/经验/金币/掉落 → 更新词级+义项级 SRS → 角色经验/材料
-import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import type { DropItem, Rating, SessionFinish } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { QuestionsService, type SessionPlan } from '../questions/questions.service';
@@ -35,7 +40,7 @@ export class SessionsService {
     const bank = await this.prisma.wordBank.findUnique({
       where: { code: opts.bankCode },
     });
-    if (!bank) throw new Error(`词书不存在: ${opts.bankCode}`);
+    if (!bank) throw new NotFoundException(`词书不存在: ${opts.bankCode}`);
 
     const session = await this.prisma.learningSession.create({
       data: {
@@ -75,8 +80,23 @@ export class SessionsService {
     // 幂等保护：已结算的会话禁止重复提交（防刷 XP/金币/材料）
     if (session.result) throw new BadRequestException('会话已结算');
 
-    // 用真实词集合 + 现有义项数校验 senseIdx 上限
+    // 用真实词集合 + 现有义项数校验 senseIdx 上限；typed 提供时以服务端比对结果为准
+    const wordIds = [...new Set(session.items.map((i) => i.wordId))];
+    const wordRows = await this.prisma.word.findMany({
+      where: { id: { in: wordIds } },
+      select: { id: true, text: true },
+    });
+    const textByWord = new Map(wordRows.map((w) => [w.id, w.text]));
+
     const answerBySeq = new Map(answers.map((a) => [a.seq, a]));
+
+    const resolveCorrect = (item: { wordId: string; seq: number }): boolean => {
+      const a = answerBySeq.get(item.seq);
+      const typed = a?.typed;
+      if (typed === undefined || typed === null) return a?.correct ?? false;
+      const truth = textByWord.get(item.wordId) ?? '';
+      return typed.trim().toLowerCase() === truth.trim().toLowerCase();
+    };
 
     const itemUpdates: {
       seq: number;
@@ -87,7 +107,7 @@ export class SessionsService {
     let elapsedTotal = 0;
     for (const item of session.items) {
       const a = answerBySeq.get(item.seq);
-      const isCorrect = a?.correct ?? false;
+      const isCorrect = resolveCorrect(item);
       const ms = a?.elapsedMs ?? 0;
       itemUpdates.push({ seq: item.seq, correct: isCorrect, elapsedMs: ms });
       if (isCorrect) correct++;
@@ -102,16 +122,29 @@ export class SessionsService {
     const coins = computeCoins(
       session.items.map((it) => ({
         seq: it.seq,
-        correct: answerBySeq.get(it.seq)?.correct ?? false,
+        correct: resolveCorrect(it),
         elapsedMs: answerBySeq.get(it.seq)?.elapsedMs ?? 0,
       })),
       rating,
     );
     const drops = rollDrops(rating);
 
-    // 逐题落库
-    await this.prisma.$transaction([
-      this.prisma.learningSession.update({
+    // 批量预取当前词级进度（事务外只读，事务内 upsert 原子化）
+    const curProgress = await this.prisma.userWordProgress.findMany({
+      where: { userId, wordId: { in: wordIds } },
+    });
+    const curByWord = new Map(curProgress.map((p) => [p.wordId, p]));
+    const materialIdByCode = new Map(
+      (
+        await this.prisma.material.findMany({
+          where: { code: { in: drops.map((d) => d.materialCode) } },
+        })
+      ).map((m) => [m.code, m.id]),
+    );
+
+    // 单个事务完成：会话/逐题 + 词级&义项级 SRS + 角色/金币/材料（失败整体回滚）
+    const { newMastered, mastered } = await this.prisma.$transaction(async (tx) => {
+      await tx.learningSession.update({
         where: { id: session.id },
         data: {
           result: true,
@@ -122,121 +155,114 @@ export class SessionsService {
           monstersCleared: correct,
           bossCleared: perfectBonus,
         },
-      }),
-      ...itemUpdates.map((u) =>
-        this.prisma.learningSessionItem.updateMany({
-          where: { sessionId: session.id, seq: u.seq },
-          data: { answered: true, correct: u.correct, elapsedMs: u.elapsedMs },
-        }),
-      ),
-    ]);
-
-    // 词级 + 义项级进度更新
-    let newMastered = 0;
-    const mastered: string[] = [];
-    for (const item of session.items) {
-      const a = answerBySeq.get(item.seq);
-      const correctNow = a?.correct ?? false;
-
-      const cur = await this.prisma.userWordProgress.findUnique({
-        where: { userId_wordId: { userId, wordId: item.wordId } },
       });
-      const srs = srsSchedule(
-        cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null,
-        correctNow,
+
+      await Promise.all(
+        itemUpdates.map((u) =>
+          tx.learningSessionItem.updateMany({
+            where: { sessionId: session.id, seq: u.seq },
+            data: { answered: true, correct: u.correct, elapsedMs: u.elapsedMs },
+          }),
+        ),
       );
-      const wasMastered = (cur?.mastery ?? 0) >= 100;
-      const mastery = Math.min(100, srs.reviewStage * 20);
-      if (!wasMastered && mastery >= 100) {
-        newMastered++;
-        mastered.push(item.wordId);
+
+      let newMastered = 0;
+      const mastered: string[] = [];
+      for (const item of session.items) {
+        const correctNow = resolveCorrect(item);
+
+        const cur = curByWord.get(item.wordId);
+        const srs = srsSchedule(
+          cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null,
+          correctNow,
+        );
+        const wasMastered = (cur?.mastery ?? 0) >= 100;
+        const mastery = Math.min(100, srs.reviewStage * 20);
+        if (!wasMastered && mastery >= 100) {
+          newMastered++;
+          mastered.push(item.wordId);
+        }
+        const now = Date.now();
+        const next = new Date(now + intervalDays(srs.reviewStage) * 86400000);
+        const nextOrNull = srs.reviewStage > 0 ? next : null;
+
+        await tx.userWordProgress.upsert({
+          where: { userId_wordId: { userId, wordId: item.wordId } },
+          create: {
+            userId,
+            wordId: item.wordId,
+            stage: session.stageId,
+            correctCount: correctNow ? 1 : 0,
+            wrongCount: correctNow ? 0 : 1,
+            inWrongBook: !correctNow,
+            inVocabBook: true,
+            mastery,
+            reviewStage: srs.reviewStage,
+            nextReviewAt: nextOrNull,
+            ease: srs.ease,
+          },
+          update: {
+            correctCount: { increment: correctNow ? 1 : 0 },
+            wrongCount: { increment: correctNow ? 0 : 1 },
+            inWrongBook: correctNow ? false : true,
+            inVocabBook: true,
+            mastery,
+            reviewStage: srs.reviewStage,
+            nextReviewAt: nextOrNull,
+            ease: srs.ease,
+          },
+        });
+
+        // 义项级 SRS
+        await tx.userSenseProgress.upsert({
+          where: {
+            userId_wordId_senseIdx: { userId, wordId: item.wordId, senseIdx: item.senseIdx },
+          },
+          create: {
+            userId,
+            wordId: item.wordId,
+            senseIdx: item.senseIdx,
+            reviewStage: srs.reviewStage,
+            nextReviewAt: nextOrNull,
+            ease: srs.ease,
+            correctCount: correctNow ? 1 : 0,
+            lastTestedAt: new Date(now),
+          },
+          update: {
+            reviewStage: srs.reviewStage,
+            nextReviewAt: nextOrNull,
+            ease: srs.ease,
+            correctCount: { increment: correctNow ? 1 : 0 },
+            lastTestedAt: new Date(now),
+          },
+        });
       }
-      const next = new Date(Date.now() + intervalDays(srs.reviewStage) * 86400000);
 
-      await this.prisma.userWordProgress.upsert({
-        where: { userId_wordId: { userId, wordId: item.wordId } },
-        create: {
-          userId,
-          wordId: item.wordId,
-          stage: session.stageId,
-          correctCount: correctNow ? 1 : 0,
-          wrongCount: correctNow ? 0 : 1,
-          inWrongBook: !correctNow,
-          inVocabBook: true,
-          mastery,
-          reviewStage: srs.reviewStage,
-          nextReviewAt: srs.reviewStage > 0 ? next : null,
-          ease: srs.ease,
-        },
-        update: {
-          correctCount: { increment: correctNow ? 1 : 0 },
-          wrongCount: { increment: correctNow ? 0 : 1 },
-          inWrongBook: correctNow ? false : true,
-          inVocabBook: true,
-          mastery,
-          reviewStage: srs.reviewStage,
-          nextReviewAt: srs.reviewStage > 0 ? next : null,
-          ease: srs.ease,
-        },
-      });
-
-      // 义项级 SRS
-      await this.prisma.userSenseProgress.upsert({
-        where: {
-          userId_wordId_senseIdx: { userId, wordId: item.wordId, senseIdx: item.senseIdx },
-        },
-        create: {
-          userId,
-          wordId: item.wordId,
-          senseIdx: item.senseIdx,
-          reviewStage: srs.reviewStage,
-          nextReviewAt: srs.reviewStage > 0 ? next : null,
-          ease: srs.ease,
-          correctCount: correctNow ? 1 : 0,
-        },
-        update: {
-          reviewStage: srs.reviewStage,
-          nextReviewAt: srs.reviewStage > 0 ? next : null,
-          ease: srs.ease,
-          correctCount: { increment: correctNow ? 1 : 0 },
-        },
-      });
-    }
-
-    // 角色经验 + 金币 + 材料
-    const materialRows = await this.prisma.material.findMany({
-      where: { code: { in: drops.map((d) => d.materialCode) } },
-    });
-    const materialIdByCode = new Map(materialRows.map((m) => [m.code, m.id]));
-    await this.prisma.$transaction([
-      this.prisma.user.update({
+      // 角色经验 + 金币 + 材料
+      await tx.user.update({
         where: { id: userId },
         data: { coins: { increment: coins } },
-      }),
-      this.prisma.userCharacter.upsert({
+      });
+      await tx.userCharacter.upsert({
         where: { userId },
         create: { userId, exp: xp },
         update: { exp: { increment: xp } },
-      }),
-      ...drops
-        .filter((d) => materialIdByCode.has(d.materialCode))
-        .map((d) =>
-          this.prisma.userMaterial.upsert({
-            where: {
-              userId_materialId: {
-                userId,
-                materialId: materialIdByCode.get(d.materialCode) as number,
-              },
-            },
-            create: {
+      });
+      for (const d of drops.filter((d) => materialIdByCode.has(d.materialCode))) {
+        await tx.userMaterial.upsert({
+          where: {
+            userId_materialId: {
               userId,
               materialId: materialIdByCode.get(d.materialCode) as number,
-              count: d.count,
             },
-            update: { count: { increment: d.count } },
-          }),
-        ),
-    ]);
+          },
+          create: { userId, materialId: materialIdByCode.get(d.materialCode) as number, count: d.count },
+          update: { count: { increment: d.count } },
+        });
+      }
+
+      return { newMastered, mastered };
+    });
 
     return {
       rating,

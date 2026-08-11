@@ -9,6 +9,7 @@ export interface AnswerRecord {
   seq: number;
   correct: boolean;
   elapsedMs: number;
+  typed: string;
 }
 
 interface Props {
@@ -50,7 +51,7 @@ export function TypingCore({ questions, mode, onComplete }: Props) {
   const commit = (correct: boolean) => {
     const elapsedMs = Date.now() - startedAt.current;
     getTts().stop();
-    const record = { seq: q.seq, correct, elapsedMs };
+    const record = { seq: q.seq, correct, elapsedMs, typed: input.trim() };
     const next = [...answered, record];
     setAnswered(next);
     setFeedback(correct ? 'correct' : 'wrong');

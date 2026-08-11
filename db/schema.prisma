@@ -123,13 +123,14 @@ model UserWordProgress {
 
 // 义项级 SRS（义项轮换排程）
 model UserSenseProgress {
-  id           Int      @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   userId       Int
   wordId       String
   senseIdx     Int
-  reviewStage  Int      @default(0)
+  reviewStage  Int       @default(0)
   nextReviewAt DateTime?
-  ease         Float    @default(2.5)
+  lastTestedAt DateTime? @db.DateTime(3)
+  ease         Float     @default(2.5)
   correctCount Int      @default(0)
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   word         Word     @relation(fields: [wordId], references: [id])

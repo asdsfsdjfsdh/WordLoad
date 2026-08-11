@@ -77,6 +77,8 @@ export interface AnswerInput {
   seq: number;
   correct: boolean;
   elapsedMs: number;
+  // 用户实际输入（可选）：提供后服务端以它与标准答案比对为准，忽略 correct 字段
+  typed?: string;
 }
 
 export interface SubmitResult {

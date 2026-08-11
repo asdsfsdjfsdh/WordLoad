@@ -1,5 +1,5 @@
 // 词书与阶段：大厅列表 + 阶段地图（tier / 词数 / 解锁状态 / 最佳评级）
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import type { Bank, DifficultyTier, Rating, StageInfo } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 
@@ -12,21 +12,37 @@ export class BanksService {
       include: { bankWords: true },
       orderBy: { id: 'asc' },
     });
-    const mastered = await this.prisma.userWordProgress.findMany({
+
+    // wordId → 所属词书（per-book 统计用）
+    const bankOfWord = new Map<string, number>();
+    for (const b of banks) {
+      for (const bw of b.bankWords) bankOfWord.set(bw.wordId, b.id);
+    }
+
+    // 掌握/待复习：按词书聚合（词→词书 归属映射）
+    const progress = await this.prisma.userWordProgress.findMany({
       where: { userId },
-      select: { mastery: true, nextReviewAt: true },
+      select: { wordId: true, mastery: true, nextReviewAt: true },
     });
-    const learnedToday = await this.prisma.learningSessionItem.count({
-      where: {
-        session: {
-          userId,
-          createdAt: { gte: startOfDay() },
-        },
-      },
+    const masteredByBank = new Map<number, number>();
+    const dueByBank = new Map<number, number>();
+    for (const p of progress) {
+      const bid = bankOfWord.get(p.wordId);
+      if (bid === undefined) continue;
+      if (p.mastery >= 100) masteredByBank.set(bid, (masteredByBank.get(bid) ?? 0) + 1);
+      if (p.nextReviewAt && p.nextReviewAt.getTime() <= Date.now())
+        dueByBank.set(bid, (dueByBank.get(bid) ?? 0) + 1);
+    }
+
+    // 今日已学：按词书聚合（会话逐题计数）
+    const sessionsToday = await this.prisma.learningSession.findMany({
+      where: { userId, createdAt: { gte: startOfDay() } },
+      select: { bankId: true, _count: { select: { items: true } } },
     });
-    const dueReviews = mastered.filter(
-      (p) => p.nextReviewAt && p.nextReviewAt.getTime() <= Date.now(),
-    ).length;
+    const learnedByBank = new Map<number, number>();
+    for (const s of sessionsToday) {
+      learnedByBank.set(s.bankId, (learnedByBank.get(s.bankId) ?? 0) + s._count.items);
+    }
 
     // 每个词书：已结算过的 stage 集合（用于解锁链）
     const clearedByBank = new Map<number, Set<number>>();
@@ -53,9 +69,9 @@ export class BanksService {
         code: b.code,
         name: b.name,
         totalWords: b.bankWords.length,
-        masteredWords: mastered.filter((p) => p.mastery >= 100).length,
-        dueReviews,
-        learnedToday,
+        masteredWords: masteredByBank.get(b.id) ?? 0,
+        dueReviews: dueByBank.get(b.id) ?? 0,
+        learnedToday: learnedByBank.get(b.id) ?? 0,
         unlockedStages: Math.max(1, unlocked),
         totalStages: stageIds.length,
       };
@@ -68,7 +84,7 @@ export class BanksService {
       where: { code: bankCode },
       include: { bankWords: true },
     });
-    if (!bank) throw new Error(`词书不存在: ${bankCode}`);
+    if (!bank) throw new NotFoundException(`词书不存在: ${bankCode}`);
 
     const sessions = await this.prisma.learningSession.findMany({
       where: { userId, bankId: bank.id },

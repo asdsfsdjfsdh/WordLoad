@@ -6,6 +6,8 @@ export interface AnswerInput {
   seq: number;
   correct: boolean;
   elapsedMs: number;
+  // 用户实际输入（可选）：提供后服务端以它与标准答案比对为准，忽略 correct 字段
+  typed?: string;
 }
 
 // SRS 排程：SM-2 简化版。正确提升等级并延长间隔，错误降级重置

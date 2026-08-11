@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query, Req, UseGuards } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param, Query, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import type { Request } from 'express';
 import type { GameMode, Session } from '@word-journey/shared';
@@ -22,7 +22,7 @@ export class QuestionsController {
     @Query('mode') mode: GameMode = 'zh2en',
   ): Promise<Session> {
     const id = Number.parseInt(stageId, 10);
-    if (!Number.isInteger(id) || id < 1) throw new Error('stageId 非法');
+    if (!Number.isInteger(id) || id < 1) throw new BadRequestException('stageId 非法');
     const plan = await this.questions.buildSession({
       userId: req.user.sub,
       bankCode,

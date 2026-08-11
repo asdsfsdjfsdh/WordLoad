@@ -39,6 +39,23 @@ export class ApiError extends Error {
   }
 }
 
+let refreshInFlight: Promise<boolean> | null = null;
+
+// 单飞刷新：并发 401 共享同一次 refresh，避免旧 token 被后发请求失效误登出
+async function refreshOnce(): Promise<boolean> {
+  if (refreshInFlight) return refreshInFlight;
+  const auth = loadAuth();
+  if (!auth?.refreshToken) return false;
+  refreshInFlight = (async () => {
+    try {
+      return await tryRefresh(auth);
+    } finally {
+      refreshInFlight = null;
+    }
+  })();
+  return refreshInFlight;
+}
+
 async function request<T>(
   path: string,
   init?: RequestInit & { token?: string; noRefresh?: boolean },
@@ -55,8 +72,8 @@ async function request<T>(
   });
 
   if (res.status === 401 && auth?.refreshToken && !init?.noRefresh) {
-    // 尝试 refresh 一次
-    const ok = await tryRefresh(auth);
+    // 尝试 refresh 一次（所有并发请求共享同一刷新）
+    const ok = await refreshOnce();
     if (ok) return request<T>(path, { ...init, noRefresh: true });
   }
   if (!res.ok) {

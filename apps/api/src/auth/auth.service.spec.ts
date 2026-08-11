@@ -1,6 +1,6 @@
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UnauthorizedException } from '@nestjs/common';
+import { ConflictException, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcryptjs';
 import { AuthService } from './auth.service';
 import { PrismaService } from '../prisma/prisma.service';
@@ -11,6 +11,10 @@ const prisma = {
     findFirst: jest.fn(),
     create: jest.fn(),
     update: jest.fn(),
+  },
+  userCharacter: {
+    findUnique: jest.fn(),
+    create: jest.fn(),
   },
 } as unknown as PrismaService;
 
@@ -44,9 +48,9 @@ describe('AuthService', () => {
     character: { level: 1, hpLv: 1, atkLv: 1, defLv: 1 },
   };
 
-  it('register：用户名已存在抛 401', async () => {
+  it('register：用户名已存在抛 409', async () => {
     (prisma.user.findUnique as jest.Mock).mockResolvedValue(userRow);
-    await expect(auth.register('alice', 'pass123456')).rejects.toThrow(UnauthorizedException);
+    await expect(auth.register('alice', 'pass123456')).rejects.toThrow(ConflictException);
   });
 
   it('register：新用户创建并返回 token 与 user', async () => {
@@ -89,13 +93,40 @@ describe('AuthService', () => {
     await expect(auth.refresh('stale-token')).rejects.toThrow(UnauthorizedException);
   });
 
-  it('initCharacter：更新三围并返回 user（含角色）', async () => {
-    (prisma.user.update as jest.Mock).mockResolvedValue({
+  it('initCharacter：仅首次创建三围，重复调用不覆盖', async () => {
+    // 首次：无角色 → 创建
+    (prisma.userCharacter.findUnique as jest.Mock).mockResolvedValue(null);
+    (prisma.userCharacter.create as jest.Mock).mockResolvedValue({});
+    (prisma.user.findUnique as jest.Mock).mockResolvedValue({
       ...userRow,
       character: { level: 1, hpLv: 2, atkLv: 3, defLv: 1 },
     });
     const u = await auth.initCharacter(1, 2, 3, 1);
+    expect(prisma.userCharacter.create).toHaveBeenCalled();
     expect(u.character?.hpLv).toBe(2);
     expect(u.character?.atkLv).toBe(3);
+
+    // 二次：已有角色 → 不覆盖
+    (prisma.userCharacter.create as jest.Mock).mockClear();
+    (prisma.userCharacter.findUnique as jest.Mock).mockResolvedValue({ id: 1 });
+    (prisma.user.findUnique as jest.Mock).mockResolvedValue({
+      ...userRow,
+      character: { level: 5, hpLv: 5, atkLv: 5, defLv: 5 },
+    });
+    const again = await auth.initCharacter(1, 1, 1, 1);
+    expect(prisma.userCharacter.create).not.toHaveBeenCalled();
+    expect(again.character?.hpLv).toBe(5);
+  });
+
+  it('login：连续失败触发限流 429', async () => {
+    (prisma.user.findUnique as jest.Mock).mockResolvedValue(null);
+    for (let i = 0; i < 11; i++) {
+      try {
+        await auth.login('mallory', 'badpass');
+      } catch {
+        /* 前 10 次 401，第 11 次起 429 */
+      }
+    }
+    await expect(auth.login('mallory', 'badpass')).rejects.toThrow('尝试次数过多');
   });
 });

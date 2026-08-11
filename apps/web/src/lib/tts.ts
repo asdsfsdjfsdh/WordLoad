@@ -62,7 +62,8 @@ export function getTts(): TtsProvider {
 }
 
 export interface VoiceAvailability {
-  usable: boolean;
+  // null = 语音列表仍在异步加载，尚未确定
+  usable: boolean | null;
   reason?: string; // 不可用原因（浏览器不支持 / 无英文语音）
 }
 
@@ -70,13 +71,28 @@ export interface VoiceAvailability {
 export function checkVoiceAvailability(): VoiceAvailability {
   const tts = getTts();
   if (!tts.isAvailable()) return { usable: false, reason: '当前浏览器不支持语音合成' };
-  // SpeechSynthesis.getVoices 早期可能为空，触发一次加载回调
-  if (tts.listVoices().length === 0) {
-    // 兼容：高分 Chrome 首次调用返回空，等 voiceschanged 后再判定
-    const synth = typeof window !== 'undefined' ? window.speechSynthesis : null;
-    if (synth) {
-      synth.onvoiceschanged = () => undefined;
-    }
-  }
-  return { usable: true };
+  const hasEnglish = tts.listVoices().some((v) => v.lang.toLowerCase().startsWith('en'));
+  if (hasEnglish) return { usable: true };
+  // 列表为空 = Chrome 首次调用尚未异步加载 voices，交给 ensureVoiceAvailable 收敛
+  return tts.listVoices().length === 0
+    ? { usable: null }
+    : { usable: false, reason: '未检测到可用的英文语音，听写模式不可用' };
+}
+
+// 异步收敛：等待 voices 加载完成（onvoiceschanged / 超时兜底），返回是否可用英文语音
+export async function ensureVoiceAvailable(timeoutMs = 2000): Promise<boolean> {
+  const tts = getTts();
+  if (!tts.isAvailable()) return false;
+  const hasEnglish = (): boolean =>
+    tts.listVoices().some((v) => v.lang.toLowerCase().startsWith('en'));
+  if (hasEnglish()) return true;
+  return new Promise((resolve) => {
+    const synth = window.speechSynthesis;
+    const done = (ok: boolean): void => {
+      synth.onvoiceschanged = null;
+      resolve(ok);
+    };
+    synth.onvoiceschanged = () => done(hasEnglish());
+    setTimeout(() => done(hasEnglish()), timeoutMs);
+  });
 }

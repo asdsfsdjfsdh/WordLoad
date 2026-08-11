@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import type { GameMode, SessionFinish } from '@word-journey/shared';
 import { api } from '../lib/api';
 import { TypingCore, type AnswerRecord } from '../components/TypingCore';
-import { checkVoiceAvailability } from '../lib/tts';
-import { useState } from 'react';
+import { checkVoiceAvailability, ensureVoiceAvailable } from '../lib/tts';
+import { useEffect, useState } from 'react';
 
 interface CreateSessionResult {
   sessionId: string;
@@ -18,9 +18,21 @@ export function BattlePage() {
   const [questions, setQuestions] = useState<import('@word-journey/shared').Question[] | null>(null);
   const [mode, setMode] = useState<GameMode>('zh2en');
   const [error, setError] = useState('');
-  const [voice] = useState(() => checkVoiceAvailability());
+  const [voice, setVoice] = useState<{ usable: boolean | null; reason?: string }>(() =>
+    checkVoiceAvailability(),
+  );
 
-  const dictationDisabled = !voice.usable;
+  // 语音异步收敛：初始 null（列表加载中）时等待结果再启用听写
+  useEffect(() => {
+    if (voice.usable === null) {
+      ensureVoiceAvailable().then((ok) =>
+        setVoice(ok ? { usable: true } : { usable: false, reason: '未检测到可用的英文语音，听写模式不可用' }),
+      );
+    }
+  }, [voice.usable]);
+
+  const dictationDisabled = voice.usable !== true;
+  const cannotFight = mode === 'dictation' && dictationDisabled;
 
   const create = useMutation({
     mutationFn: async () => {
@@ -75,15 +87,15 @@ export function BattlePage() {
           </button>
         </div>
 
-        {!voice.usable && (
+        {voice.usable !== true && (
           <p className="max-w-sm text-center text-sm text-amber-400">
-            {voice.reason ?? '当前浏览器不支持语音合成'}，听写模式不可用，你仍可正常使用中译英模式。
+            {voice.reason ?? '正在检测语音支持…'}，听写模式暂不可用，你仍可正常使用中译英模式。
           </p>
         )}
 
         <button
           onClick={() => create.mutate()}
-          disabled={create.isPending || dictationDisabled}
+          disabled={create.isPending || cannotFight}
           className="rounded-xl bg-cyan-500 px-8 py-3 font-semibold text-slate-950 hover:bg-cyan-400 disabled:opacity-50"
         >
           {create.isPending ? '准备题目…' : '出战'}

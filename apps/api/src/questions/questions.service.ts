@@ -1,5 +1,5 @@
 // 出题服务：读词书阶段词池 → 按比例抽词 → 义项轮换 → 易混补抽 → 生成 Question 列表
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import type { DifficultyTier, GameMode, Question, Session } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { allocMix, buildQuestion, rotateSense } from './question-builder';
@@ -43,7 +43,7 @@ export class QuestionsService {
     const { userId, bankCode, stageId, mode } = opts;
 
     const bank = await this.prisma.wordBank.findUnique({ where: { code: bankCode } });
-    if (!bank) throw new Error(`词书不存在: ${bankCode}`);
+    if (!bank) throw new NotFoundException(`词书不存在: ${bankCode}`);
 
     const pool = (await this.prisma.bankWord.findMany({
       where: { bankId: bank.id, stage: stageId },
@@ -57,7 +57,7 @@ export class QuestionsService {
         },
       },
     })) as PoolWord[];
-    if (pool.length === 0) throw new Error(`阶段 ${stageId} 无词池`);
+    if (pool.length === 0) throw new NotFoundException(`阶段 ${stageId} 无词池`);
 
     // 词级进度 → 划分新词 / 复习 / 错题本
     const progress = await this.prisma.userWordProgress.findMany({
@@ -185,14 +185,13 @@ export class QuestionsService {
     const senseIdxOf = (wordId: string, senseCount: number): number => {
       if (senseCount <= 1) return 0;
       const sps = senseProgressByWord.get(wordId) ?? [];
-      // 未测义项最优先（极小值）；已测的按 reviewStage 低优先，同级按到期优先（越久未考越优先）
-      const now = Date.now();
+      // 未测义项最优先；已测的按 reviewStage 低优先，同级按 lastTestedAt（越久未考越优先）
       const states = Array.from({ length: senseCount }, (_, idx) => {
         const sp = sps.find((x) => x.senseIdx === idx);
         return {
           idx,
           reviewStage: sp?.reviewStage ?? 0,
-          lastTestedAt: sp ? (sp.nextReviewAt?.getTime() ?? now) - now : Number.MIN_SAFE_INTEGER,
+          lastTestedAt: sp ? (sp.lastTestedAt?.getTime() ?? 0) : Number.MIN_SAFE_INTEGER,
         };
       });
       return rotateSense(states);

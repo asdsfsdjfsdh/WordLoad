@@ -1,7 +1,7 @@
 import { Body, Controller, Param, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsInt, IsNumber, IsString, Min, ValidateNested } from 'class-validator';
+import { IsArray, IsBoolean, IsInt, IsNumber, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
 import type { Request } from 'express';
 import type { SessionFinish } from '@word-journey/shared';
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
@@ -18,6 +18,10 @@ class AnswerDto {
   @IsNumber()
   @Min(0)
   elapsedMs!: number;
+
+  @IsOptional()
+  @IsString()
+  typed?: string;
 }
 
 class CreateSessionDto {
