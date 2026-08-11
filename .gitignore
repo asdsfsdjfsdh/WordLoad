@@ -1,0 +1,40 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# env / secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# database
+db/data/*.sqlite
+db/dev.db
+
+# 大体积词库源数据（下载脚本获取，不入库）
+db/data/*.json
+db/data/*.sql
+!db/data/.gitkeep
+!db/data/README.md
+
+# logs / os
+*.log
+.DS_Store
+Thumbs.db
+
+# ide
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.vscode/settings.json
+
+# playwright
+test-results/
+playwright-report/

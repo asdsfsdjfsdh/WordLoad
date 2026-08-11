@@ -1,0 +1,193 @@
+// 单词之旅 - Prisma Schema（v0.1 骨架，里程碑 3 扩展全量）
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 词书
+model WordBank {
+  id        Int        @id @default(autoincrement())
+  code      String     @unique @db.VarChar(32)
+  name      String     @db.VarChar(64)
+  createdAt DateTime   @default(now())
+  bankWords BankWord[]
+  sessions  LearningSession[]
+}
+
+// 单词总表（跨词书共享）
+model Word {
+  id               String   @id @default(cuid())
+  text             String   @unique @db.VarChar(64)
+  phoneticAm       String?  @db.VarChar(128)
+  phoneticEn       String?  @db.VarChar(128)
+  difficultyScore  Float
+  tier             String   @db.VarChar(8) // I / II / III / IV
+  difficultyDims   Json
+  createdAt        DateTime @default(now())
+  senses           WordSense[]
+  bankWords        BankWord[]
+  confusableA      WordPair[] @relation("pairA")
+  confusableB      WordPair[] @relation("pairB")
+  progress         UserWordProgress[]
+  senseProgress    UserSenseProgress[]
+  sessionItems     LearningSessionItem[]
+}
+
+// 义项（一词多义，独立例句）
+model WordSense {
+  id       Int    @id @default(autoincrement())
+  wordId   String
+  idx      Int
+  meaning  String @db.Text
+  example  String @db.Text
+  word     Word   @relation(fields: [wordId], references: [id], onDelete: Cascade)
+
+  @@unique([wordId, idx])
+}
+
+// 易混淆对比组（双向引用主表）
+model WordPair {
+  id     Int    @id @default(autoincrement())
+  wordAId String
+  wordBId String
+  type   String @db.VarChar(16) // orthographic / homophone / near-synonym
+  note   String @db.VarChar(255)
+  wordA  Word   @relation("pairA", fields: [wordAId], references: [id])
+  wordB  Word   @relation("pairB", fields: [wordBId], references: [id])
+
+  @@unique([wordAId, wordBId])
+}
+
+// 词书 ↔ 单词（排序 = 阶段分组）
+model BankWord {
+  bankId Int
+  wordId String
+  stage  Int
+  bank   WordBank @relation(fields: [bankId], references: [id])
+  word   Word     @relation(fields: [wordId], references: [id])
+
+  @@id([bankId, wordId])
+  @@index([bankId, stage])
+}
+
+// 用户
+model User {
+  id           Int       @id @default(autoincrement())
+  username     String    @unique @db.VarChar(32)
+  passwordHash String    @db.VarChar(255)
+  coins        Int       @default(0)
+  createdAt    DateTime  @default(now())
+  character    UserCharacter?
+  wordProgress UserWordProgress[]
+  senseProgress UserSenseProgress[]
+  materials    UserMaterial[]
+  sessions     LearningSession[]
+}
+
+// 角色三围
+model UserCharacter {
+  userId Int    @id
+  level  Int    @default(1)
+  exp    Int    @default(0)
+  hpLv   Int    @default(1)
+  atkLv  Int    @default(1)
+  defLv  Int    @default(1)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// 词级进度（掌握度 / 错题本 / 生词本 / SRS 词级）
+model UserWordProgress {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  wordId        String
+  stage         Int      @default(1)
+  correctCount  Int      @default(0)
+  wrongCount    Int      @default(0)
+  inWrongBook   Boolean  @default(false)
+  inVocabBook   Boolean  @default(false)
+  mastery       Int      @default(0)
+  reviewStage   Int      @default(0)
+  nextReviewAt  DateTime?
+  ease          Float    @default(2.5)
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  word          Word     @relation(fields: [wordId], references: [id])
+
+  @@unique([userId, wordId])
+}
+
+// 义项级 SRS（义项轮换排程）
+model UserSenseProgress {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  wordId       String
+  senseIdx     Int
+  reviewStage  Int      @default(0)
+  nextReviewAt DateTime?
+  ease         Float    @default(2.5)
+  correctCount Int      @default(0)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  word         Word     @relation(fields: [wordId], references: [id])
+
+  @@unique([userId, wordId, senseIdx])
+}
+
+// 材料
+model Material {
+  id    Int    @id @default(autoincrement())
+  code  String @unique @db.VarChar(32)
+  tier  Int    // 1~4
+  name  String @db.VarChar(64)
+  users UserMaterial[]
+}
+
+model UserMaterial {
+  userId     Int
+  materialId Int
+  count      Int      @default(0)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  material   Material @relation(fields: [materialId], references: [id])
+
+  @@id([userId, materialId])
+}
+
+// 学习会话
+model LearningSession {
+  id              Int      @id @default(autoincrement())
+  userId          Int
+  bankId          Int
+  stageId         Int
+  mode            String   @db.VarChar(16)
+  result          Boolean
+  monstersCleared Int      @default(0)
+  bossCleared     Boolean  @default(false)
+  damageTaken     Int      @default(0)
+  stunCount       Int      @default(0)
+  maxCombo        Int      @default(0)
+  rating          String   @db.VarChar(4)
+  xpEarned        Int      @default(0)
+  coinsEarned     Int      @default(0)
+  createdAt       DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bank            WordBank @relation(fields: [bankId], references: [id])
+  items           LearningSessionItem[]
+}
+
+// 逐题记录
+model LearningSessionItem {
+  id        Int     @id @default(autoincrement())
+  sessionId Int
+  seq       Int
+  wordId    String
+  senseIdx  Int     @default(0)
+  type      String  @db.VarChar(16) // new / review / wrongbook
+  answered  Boolean @default(false)
+  correct   Boolean?
+  elapsedMs Int     @default(0)
+  session   LearningSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  word      Word             @relation(fields: [wordId], references: [id])
+}

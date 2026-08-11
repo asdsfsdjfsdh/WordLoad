@@ -1,0 +1,33 @@
+{
+  "name": "word-journey",
+  "version": "0.1.0",
+  "private": true,
+  "description": "单词之旅 - 打字背单词游戏 monorepo",
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "prisma",
+      "esbuild",
+      "@tailwindcss/oxide",
+      "bcrypt",
+      "sharp"
+    ]
+  },
+  "scripts": {
+    "build": "pnpm -r --workspace-concurrency=1 run build",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint",
+    "db:create": "node db/scripts/create-db.mjs",
+    "db:migrate": "pnpm --filter @word-journey/db prisma:migrate",
+    "db:generate": "pnpm --filter @word-journey/db prisma:generate",
+    "db:studio": "pnpm --filter @word-journey/db prisma:studio",
+    "dev": "pnpm --filter @word-journey/web dev",
+    "dev:api": "pnpm --filter @word-journey/api start:dev"
+  }
+}
