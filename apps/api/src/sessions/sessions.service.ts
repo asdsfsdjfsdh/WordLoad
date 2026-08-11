@@ -1,5 +1,5 @@
 // 会话结算：落库会话+逐题 → 计算评级/经验/金币/掉落 → 更新词级+义项级 SRS → 角色经验/材料
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import type { DropItem, Rating, SessionFinish } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { QuestionsService, type SessionPlan } from '../questions/questions.service';
@@ -72,6 +72,8 @@ export class SessionsService {
       include: { items: { orderBy: { seq: 'asc' } } },
     });
     if (!session || session.userId !== userId) throw new UnauthorizedException('会话不存在');
+    // 幂等保护：已结算的会话禁止重复提交（防刷 XP/金币/材料）
+    if (session.result) throw new BadRequestException('会话已结算');
 
     // 用真实词集合 + 现有义项数校验 senseIdx 上限
     const answerBySeq = new Map(answers.map((a) => [a.seq, a]));

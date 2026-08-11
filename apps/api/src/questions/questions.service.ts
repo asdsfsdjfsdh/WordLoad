@@ -185,14 +185,14 @@ export class QuestionsService {
     const senseIdxOf = (wordId: string, senseCount: number): number => {
       if (senseCount <= 1) return 0;
       const sps = senseProgressByWord.get(wordId) ?? [];
-      // 未测过的义项优先（lastTestedAt=0）；已测的按 reviewStage 低优先，同级按最近到期优先
+      // 未测义项最优先（极小值）；已测的按 reviewStage 低优先，同级按到期优先（越久未考越优先）
       const now = Date.now();
       const states = Array.from({ length: senseCount }, (_, idx) => {
         const sp = sps.find((x) => x.senseIdx === idx);
         return {
           idx,
           reviewStage: sp?.reviewStage ?? 0,
-          lastTestedAt: sp ? now - (sp.nextReviewAt?.getTime() ?? 0) : 0,
+          lastTestedAt: sp ? (sp.nextReviewAt?.getTime() ?? now) - now : Number.MIN_SAFE_INTEGER,
         };
       });
       return rotateSense(states);
