@@ -171,6 +171,7 @@ model LearningSession {
   stageId         Int
   level           Int      @default(1)
   mode            String   @db.VarChar(16)
+  phase           String   @db.VarChar(8) @default("study") // study / boss
   result          Boolean
   monstersCleared Int      @default(0)
   bossCleared     Boolean  @default(false)
