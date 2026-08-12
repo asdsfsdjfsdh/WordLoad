@@ -5,9 +5,10 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import type { DropItem, Rating, SessionFinish } from '@word-journey/shared';
+import type { EnterBossResponse, BossExtendResponse, DropItem, Rating, SessionFinish } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { QuestionsService, type SessionPlan } from '../questions/questions.service';
+import { allocBossPool, allocExtend, buildQuestion, rotateSense } from '../questions/question-builder';
 import {
   computeCoins,
   computeRating,
@@ -75,11 +76,208 @@ export class SessionsService {
     return { sessionId: String(session.id), plan };
   }
 
+  // 进入 Boss 阶段：落库学习段 items 的 answered/correct → 组 Boss 词池 → 返回 Boss 首批评题
+  async enterBoss(
+    userId: number,
+    sessionId: number,
+    answers: AnswerInput[],
+  ): Promise<EnterBossResponse> {
+    const session = await this.prisma.learningSession.findUnique({
+      where: { id: sessionId },
+      include: { items: { orderBy: { seq: 'asc' } } },
+    });
+    if (!session || session.userId !== userId) throw new UnauthorizedException('会话不存在');
+    if (session.result) throw new BadRequestException('会话已结算');
+    if (session.phase !== 'study') throw new BadRequestException('非学习段');
+
+    const mode = session.mode as 'zh2en' | 'dictation';
+    const wordRows = await this.prisma.word.findMany({
+      where: { id: { in: [...new Set(session.items.map((i) => i.wordId))] } },
+      select: { id: true, text: true },
+    });
+    const textByWord = new Map(wordRows.map((w) => [w.id, w.text]));
+    const answerBySeq = new Map(answers.map((a) => [a.seq, a]));
+
+    const resolveCorrect = (item: { wordId: string; seq: number }): boolean => {
+      const a = answerBySeq.get(item.seq);
+      const typed = a?.typed;
+      if (typed !== undefined && typed !== null) {
+        const truth = textByWord.get(item.wordId) ?? '';
+        return typed.trim().toLowerCase() === truth.trim().toLowerCase();
+      }
+      return a?.correct ?? false;
+    };
+
+    // 落库学习段 items answered/correct
+    const wrongIds: string[] = [];
+    const passedIds: string[] = [];
+    for (const item of session.items) {
+      const correct = resolveCorrect(item);
+      if (correct) passedIds.push(item.wordId);
+      else wrongIds.push(item.wordId);
+      await this.prisma.learningSessionItem.updateMany({
+        where: { sessionId: session.id, seq: item.seq },
+        data: { answered: true, correct, elapsedMs: answerBySeq.get(item.seq)?.elapsedMs ?? 0 },
+      });
+    }
+
+    // 历史错词（不在本场）
+    const usedIds = new Set(session.items.map((i) => i.wordId));
+    const history = await this.prisma.userWordProgress.findMany({
+      where: { userId, inWrongBook: true, wordId: { notIn: [...usedIds] } },
+      select: { wordId: true },
+    });
+    const historyIds = history.map((h) => h.wordId);
+
+    // Boss 池
+    const poolIds = allocBossPool({ wrong: wrongIds, passed: passedIds, history: historyIds });
+    if (poolIds.length === 0) {
+      await this.prisma.learningSession.update({ where: { id: session.id }, data: { phase: 'boss' } });
+      return { questions: [], exhausted: true, bossHp: 0 };
+    }
+
+    // 组题
+    const { questions, items } = await this.buildQuestionsForWords(userId, mode, session.items[session.items.length - 1]?.seq ?? -1, poolIds, wrongIds);
+    await this.prisma.learningSessionItem.createMany({
+      data: items.map((it) => ({ ...it, sessionId: session.id })),
+    });
+    await this.prisma.learningSession.update({ where: { id: session.id }, data: { phase: 'boss' } });
+
+    const bossHp = Math.min(18, 6 + Math.floor((session.items.length + items.length) / 10) * 2);
+    return { questions, exhausted: false, bossHp };
+  }
+
+  // Boss extend：词尽 Boss 未死 → 续词
+  async bossExtend(
+    userId: number,
+    sessionId: number,
+    missedWordIds: string[],
+  ): Promise<BossExtendResponse> {
+    const session = await this.prisma.learningSession.findUnique({
+      where: { id: sessionId },
+      include: { items: { select: { wordId: true } } },
+    });
+    if (!session || session.userId !== userId) throw new UnauthorizedException('会话不存在');
+    if (session.result) throw new BadRequestException('会话已结算');
+    if (session.phase !== 'boss') throw new BadRequestException('非 Boss 段');
+
+    const mode = session.mode as 'zh2en' | 'dictation';
+    const usedIds = new Set(session.items.map((i) => i.wordId));
+
+    // 历史错词剩余
+    const history = await this.prisma.userWordProgress.findMany({
+      where: { userId, inWrongBook: true, wordId: { notIn: [...usedIds] } },
+      select: { wordId: true },
+    });
+    const historyIds = history.map((h) => h.wordId).filter((id) => !usedIds.has(id));
+
+    // 未学词兜底
+    const unseen = await this.prisma.bankWord.findMany({
+      where: { bankId: session.bankId, stage: session.stageId, wordId: { notIn: [...usedIds] } },
+      select: { wordId: true },
+    });
+    const unseenIds = unseen.map((u) => u.wordId).filter((id) => !usedIds.has(id));
+
+    const poolIds = allocExtend({
+      batchWrong: missedWordIds.filter((id) => session.items.some((i) => i.wordId === id)),
+      history: historyIds,
+      unseen: unseenIds,
+      used: usedIds,
+    });
+
+    if (poolIds.length === 0) return { questions: [], exhausted: true };
+
+    const maxSeq = await this.prisma.learningSessionItem.findFirst({
+      where: { sessionId: session.id },
+      orderBy: { seq: 'desc' },
+      select: { seq: true },
+    });
+    const { questions, items } = await this.buildQuestionsForWords(
+      userId, mode, maxSeq?.seq ?? session.items.length - 1, poolIds,
+      // extend 批小错词不标 revenge
+      [],
+    );
+    await this.prisma.learningSessionItem.createMany({
+      data: items.map((it) => ({ ...it, sessionId: session.id })),
+    });
+
+    return { questions, exhausted: false };
+  }
+
+  // 内部：给定词 ID 列表生成考题（复用 rotateSense + buildQuestion）
+  private async buildQuestionsForWords(
+    userId: number,
+    mode: 'zh2en' | 'dictation',
+    startSeq: number,
+    wordIds: string[],
+    revengeIds: string[],
+  ): Promise<{
+    questions: import('@word-journey/shared').Question[];
+    items: { seq: number; wordId: string; senseIdx: number; type: string }[];
+  }> {
+    const revengeSet = new Set(revengeIds);
+    const words = await this.prisma.word.findMany({
+      where: { id: { in: wordIds } },
+      include: { senses: { orderBy: { idx: 'asc' } } },
+    });
+    const wordById = new Map(words.map((w) => [w.id, w]));
+
+    const senseProgress = await this.prisma.userSenseProgress.findMany({
+      where: { userId, wordId: { in: wordIds } },
+    });
+    const spByWord = new Map<string, typeof senseProgress>();
+    for (const sp of senseProgress) {
+      const list = spByWord.get(sp.wordId) ?? [];
+      list.push(sp);
+      spByWord.set(sp.wordId, list);
+    }
+
+    const senseIdxOf = (wordId: string, senseCount: number): number => {
+      if (senseCount <= 1) return 0;
+      const sps = spByWord.get(wordId) ?? [];
+      const states = Array.from({ length: senseCount }, (_, idx) => {
+        const sp = sps.find((x) => x.senseIdx === idx);
+        return { idx, reviewStage: sp?.reviewStage ?? 0, lastTestedAt: sp ? (sp.lastTestedAt?.getTime() ?? 0) : Number.MIN_SAFE_INTEGER };
+      });
+      return rotateSense(states);
+    };
+
+    const questions: import('@word-journey/shared').Question[] = [];
+    const items: { seq: number; wordId: string; senseIdx: number; type: string }[] = [];
+
+    wordIds.forEach((wordId, i) => {
+      const w = wordById.get(wordId);
+      if (!w) return;
+      const seq = startSeq + i + 1;
+      const senseIdx = senseIdxOf(wordId, w.senses.length);
+      const sense = w.senses[senseIdx] ?? w.senses[0];
+      const promptBase = mode === 'dictation' ? (w.phoneticAm ?? w.phoneticEn ?? '') : (sense?.meaning ?? w.text);
+      const q = buildQuestion({
+        seq,
+        wordId: w.id,
+        senseIdx,
+        text: w.text,
+        promptBase,
+        example: sense?.example,
+        phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
+        tier: w.tier as import('@word-journey/shared').DifficultyTier,
+        mode,
+      });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if (revengeSet.has(wordId)) (q as any).isRevenge = true;
+      questions.push(q);
+      items.push({ seq, wordId: w.id, senseIdx, type: 'boss' });
+    });
+
+    return { questions, items };
+  }
+
   // 提交答案并结算：校验会话归属 → 逐题更新 → SRS/进度/角色/材料
   async submit(
     userId: number,
     sessionId: number,
     answers: AnswerInput[],
+    bossCleared = false,
   ): Promise<SessionFinish> {
     const session = await this.prisma.learningSession.findUnique({
       where: { id: sessionId },
@@ -88,6 +286,8 @@ export class SessionsService {
     if (!session || session.userId !== userId) throw new UnauthorizedException('会话不存在');
     // 预防快速虚假结算（事务内仍有乐观锁兜底防并发）
     if (session.result) throw new BadRequestException('会话已结算');
+
+    const bossFought = session.phase === 'boss';
 
     // 用真实词集合 + 现有义项数校验 senseIdx 上限；typed 提供时以服务端比对结果为准
     const wordIds = [...new Set(session.items.map((i) => i.wordId))];
@@ -114,6 +314,9 @@ export class SessionsService {
     }[] = [];
     let correct = 0;
     let elapsedTotal = 0;
+    // 错词转化率统计
+    const studyWrongIds = new Set<string>();
+    const bossCorrectIds = new Set<string>();
     for (const item of session.items) {
       const a = answerBySeq.get(item.seq);
       const isCorrect = resolveCorrect(item);
@@ -121,15 +324,26 @@ export class SessionsService {
       itemUpdates.push({ seq: item.seq, correct: isCorrect, elapsedMs: ms });
       if (isCorrect) correct++;
       elapsedTotal += ms;
+      // 记录学习段错词（type !== 'boss' 的未答 / 错）
+      if (item.type !== 'boss' && !isCorrect && !item.answered) studyWrongIds.add(item.wordId);
+      // 记录 Boss 段答对的
+      if (item.type === 'boss' && isCorrect) bossCorrectIds.add(item.wordId);
     }
     const total = session.items.length;
     const avgElapsedMs = total ? elapsedTotal / total : 0;
     const perfectBonus = total > 0 && correct === total;
 
-    const rating = computeRating({ total, correct, avgElapsedMs, perfectBonus });
+    let rating = computeRating({ total, correct, avgElapsedMs, perfectBonus });
+    // Boss 段参战但未击败 → 评级封顶 A
+    if (bossFought && !bossCleared && (rating === 'SSS' || rating === 'SS' || rating === 'S')) {
+      rating = 'A';
+    }
     const xp = ratingExp(rating);
     const coins = computeCoins(itemUpdates, rating);
     const drops = rollDrops(rating);
+
+    const wrongConverted = [...studyWrongIds].filter((id) => bossCorrectIds.has(id)).length;
+    const totalWrong = studyWrongIds.size;
 
     const materialIdByCode = new Map(
       (
@@ -151,7 +365,7 @@ export class SessionsService {
           coinsEarned: coins,
           damageTaken: total - correct,
           monstersCleared: correct,
-          bossCleared: perfectBonus,
+          bossCleared: bossFought && bossCleared,
         },
       });
       if (updated.count === 0) throw new BadRequestException('会话已结算');
@@ -273,6 +487,14 @@ export class SessionsService {
       return { newMastered, mastered };
     });
 
+    // 明天预告：取 3 个到期将复习的词
+    const dueProgress = await this.prisma.userWordProgress.findMany({
+      where: { userId, nextReviewAt: { lte: new Date(Date.now() + 86400000) }, reviewStage: { gt: 0 } },
+      include: { word: { select: { text: true, senses: { take: 1, orderBy: { idx: 'asc' } } } } },
+      orderBy: { nextReviewAt: 'asc' },
+      take: 3,
+    });
+
     return {
       rating,
       xp,
@@ -281,6 +503,13 @@ export class SessionsService {
       newMastered,
       reviewedWords: total,
       progressDelta: total ? mastered.length / total : 0,
+      bossCleared: bossFought && bossCleared,
+      bossFought,
+      wrongConverted,
+      totalWrong,
+      tomorrowPreview: dueProgress
+        .filter((p) => p.word)
+        .map((p) => ({ text: p.word.text, meaning: p.word.senses[0]?.meaning ?? '' })),
     };
   }
 }

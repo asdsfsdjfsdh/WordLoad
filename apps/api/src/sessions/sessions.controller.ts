@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsIn, IsInt, IsNumber, IsOptional, IsString, Max, Min, ValidateNested } from 'class-validator';
 import type { Request } from 'express';
-import type { SessionFinish } from '@word-journey/shared';
+import type { EnterBossResponse, BossExtendResponse, SessionFinish } from '@word-journey/shared';
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
 import { SessionsService } from './sessions.service';
 
@@ -53,6 +53,23 @@ class SubmitDto {
   @ValidateNested({ each: true })
   @Type(() => AnswerDto)
   answers!: AnswerDto[];
+
+  @IsOptional()
+  @IsBoolean()
+  bossCleared?: boolean;
+}
+
+class EnterBossDto {
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => AnswerDto)
+  answers!: AnswerDto[];
+}
+
+class BossExtendDto {
+  @IsArray()
+  @IsString({ each: true })
+  missedWordIds!: string[];
 }
 
 @ApiTags('sessions')
@@ -85,6 +102,26 @@ export class SessionsController {
     @Param('id') id: string,
     @Body() dto: SubmitDto,
   ): Promise<SessionFinish> {
-    return this.sessions.submit(req.user.sub, Number.parseInt(id, 10), dto.answers);
+    return this.sessions.submit(req.user.sub, Number.parseInt(id, 10), dto.answers, dto.bossCleared ?? false);
+  }
+
+  @Post(':id/enter-boss')
+  @ApiOperation({ summary: '学习段结束 → 生成 Boss 段题目' })
+  async enterBoss(
+    @Req() req: Request & { user: JwtUser },
+    @Param('id') id: string,
+    @Body() dto: EnterBossDto,
+  ): Promise<EnterBossResponse> {
+    return this.sessions.enterBoss(req.user.sub, Number.parseInt(id, 10), dto.answers);
+  }
+
+  @Post(':id/boss-extend')
+  @ApiOperation({ summary: 'Boss 段词尽 → 续词' })
+  async bossExtend(
+    @Req() req: Request & { user: JwtUser },
+    @Param('id') id: string,
+    @Body() dto: BossExtendDto,
+  ): Promise<BossExtendResponse> {
+    return this.sessions.bossExtend(req.user.sub, Number.parseInt(id, 10), dto.missedWordIds);
   }
 }
