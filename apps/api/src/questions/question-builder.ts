@@ -110,3 +110,78 @@ export function buildQuestion(opts: {
     answer: text,
   };
 }
+
+// Boss 段词池分配：错词（优先）→ 通过词（抽 passedRatio）→ 历史错词 → 随机打乱
+export function allocBossPool(
+  opts: {
+    wrong: string[];
+    passed: string[];
+    history: string[];
+    passedRatio?: number;
+    capacity?: number;
+  },
+  rng: () => number = Math.random,
+): string[] {
+  const { wrong, passed, history, passedRatio = 0.25, capacity = 20 } = opts;
+  const result: string[] = [];
+  // 1. 本局错词（全部）
+  for (const w of wrong) result.push(w);
+  // 2. 通过词抽 passedRatio
+  if (passedRatio > 0 && passed.length > 0) {
+    for (const w of passed) {
+      if (rng() < passedRatio) result.push(w);
+    }
+  }
+  // 3. 历史错词补满
+  for (const w of history) {
+    if (result.length >= capacity) break;
+    result.push(w);
+  }
+  // 随机打乱（interleaved，避免失败堆积）
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    const tmp = result[i] as string;
+    result[i] = result[j] as string;
+    result[j] = tmp;
+  }
+  return result.slice(0, capacity);
+}
+
+// Boss extend 分配：本批错词 → 剩余历史错词 → 未学新词兜底
+export function allocExtend(
+  opts: {
+    batchWrong: string[];
+    history: string[];
+    unseen: string[];
+    used: Set<string>;
+    capacity?: number;
+  },
+  rng: () => number = Math.random,
+): string[] {
+  const { batchWrong, history, unseen, used, capacity = 6 } = opts;
+  const result: string[] = [];
+  // 1. 本批错词（excl used）
+  for (const w of batchWrong) {
+    if (!used.has(w) && result.length < capacity) result.push(w);
+  }
+  // 2. 历史错词补充
+  if (result.length < capacity) {
+    for (const w of history) {
+      if (!used.has(w) && result.length < capacity) result.push(w);
+    }
+  }
+  // 3. 未学词兜底
+  if (result.length < capacity) {
+    for (const w of unseen) {
+      if (!used.has(w) && result.length < capacity) result.push(w);
+    }
+  }
+  // 桶内轻微打乱
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    const tmp = result[i] as string;
+    result[i] = result[j] as string;
+    result[j] = tmp;
+  }
+  return result;
+}

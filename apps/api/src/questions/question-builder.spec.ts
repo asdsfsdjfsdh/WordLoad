@@ -1,4 +1,6 @@
 import {
+  allocBossPool,
+  allocExtend,
   allocMix,
   buildQuestion,
   findConfusable,
@@ -99,5 +101,63 @@ describe('buildQuestion 出题', () => {
   it('无例句时 example 缺省', () => {
     const q = buildQuestion({ ...base, mode: 'zh2en' });
     expect(q.example).toBeUndefined();
+  });
+});
+
+describe('allocBossPool Boss 段词池', () => {
+  const rng = (): number => 0.5; // 确定性随机
+
+  it('错词全部入选', () => {
+    const pool = allocBossPool({ wrong: ['a', 'b'], passed: [], history: [] }, rng);
+    expect(pool).toContain('a');
+    expect(pool).toContain('b');
+    expect(pool.length).toBe(2);
+  });
+
+  it('通过词按比例随机取样', () => {
+    const pool = allocBossPool({ wrong: ['w1'], passed: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8'], history: [], passedRatio: 0.25 }, rng);
+    expect(pool[0]).toBe('w1');
+    expect(pool.length).toBeLessThanOrEqual(4); // 1 wrong + 25% of 8 ≈ 2 (rng=0.5 rejects half) ≈ ≤4
+  });
+
+  it('超容量截断', () => {
+    const pool = allocBossPool({ wrong: Array.from({ length: 25 }, (_, i) => `w${i}`), passed: [], history: [], capacity: 20 }, rng);
+    expect(pool.length).toBe(20);
+  });
+
+  it('空池返回空', () => {
+    expect(allocBossPool({ wrong: [], passed: [], history: [] }, rng)).toEqual([]);
+  });
+});
+
+describe('allocExtend Boss extend', () => {
+  const rng = (): number => 0;
+
+  it('本批错词优先且去重', () => {
+    const pool = allocExtend({ batchWrong: ['a', 'b'], history: [], unseen: [], used: new Set(), capacity: 6 }, rng);
+    expect(pool).toContain('a');
+    expect(pool).toContain('b');
+  });
+
+  it('跳过已用词', () => {
+    const pool = allocExtend({ batchWrong: ['a', 'b'], history: [], unseen: [], used: new Set(['a']), capacity: 6 }, rng);
+    expect(pool).not.toContain('a');
+    expect(pool).toContain('b');
+  });
+
+  it('历史错词补位', () => {
+    const pool = allocExtend({ batchWrong: ['a'], history: ['h1', 'h2'], unseen: [], used: new Set(), capacity: 6 }, rng);
+    expect(pool).toContain('a');
+    expect(pool.length).toBe(3);
+  });
+
+  it('未学词兜底', () => {
+    const pool = allocExtend({ batchWrong: [], history: [], unseen: ['u1', 'u2', 'u3'], used: new Set(), capacity: 6 }, rng);
+    expect(pool.length).toBe(3);
+  });
+
+  it('全部耗尽返回空', () => {
+    const pool = allocExtend({ batchWrong: [], history: [], unseen: [], used: new Set(), capacity: 6 }, rng);
+    expect(pool).toEqual([]);
   });
 });
