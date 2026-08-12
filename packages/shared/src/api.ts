@@ -70,6 +70,7 @@ export interface Question {
   answer: string; // 完整正确答案（打字判定用）
   phonetic?: string; // 音标（听写/发音展示用）
   example?: string; // 语境例句（仅膨胀重写模式展示）
+  isRevenge?: boolean; // Boss 段：本局错词再次出现，答对打 Boss 双倍伤害
 }
 
 export interface Session {
@@ -114,6 +115,27 @@ export interface DropItem {
   count: number;
 }
 
+// Boss 段：进入 Boss 阶段
+export interface EnterBossRequest {
+  answers: AnswerInput[];
+}
+
+export interface EnterBossResponse {
+  questions: Question[];
+  exhausted: boolean;
+  bossHp: number;
+}
+
+// Boss 段：词尽未死续战
+export interface BossExtendRequest {
+  missedWordIds: string[];
+}
+
+export interface BossExtendResponse {
+  questions: Question[];
+  exhausted: boolean;
+}
+
 export interface SessionFinish {
   rating: Rating;
   xp: number;
@@ -122,6 +144,11 @@ export interface SessionFinish {
   newMastered: number;
   reviewedWords: number;
   progressDelta: number;
+  bossCleared: boolean;
+  bossFought: boolean;
+  wrongConverted?: number; // Boss 段纠正的错词数
+  totalWrong?: number;    // 学习段错词总数
+  tomorrowPreview?: { text: string; meaning: string }[]; // 明天预告 3 词
 }
 
 export interface ConfusableInfo {
