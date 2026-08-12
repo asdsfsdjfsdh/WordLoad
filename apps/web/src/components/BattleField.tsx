@@ -832,7 +832,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
   }, []);
 
   return (
-    <div ref={boxRef} className="h-full w-full overflow-hidden">
+    <div ref={boxRef} className="absolute inset-0 overflow-hidden">
       <canvas ref={canvasRef} className="block" />
     </div>
   );
