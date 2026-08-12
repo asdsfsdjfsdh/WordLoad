@@ -46,6 +46,12 @@ export function BattlePage() {
     }
   }, [voice.usable]);
 
+  const isStudying = phase === 'battle';
+  const revengeBySeq = useMemo(
+    () => new Map((questions ?? []).map((q) => [q.seq, q.isRevenge ?? false])),
+    [questions],
+  );
+
   const dictationDisabled = voice.usable !== true;
   const cannotFight = mode === 'dictation' && dictationDisabled;
 
@@ -374,12 +380,6 @@ export function BattlePage() {
       </div>
     );
   }
-
-  const isStudying = phase === 'battle';
-  const revengeBySeq = useMemo(
-    () => new Map((questions ?? []).map((q) => [q.seq, q.isRevenge ?? false])),
-    [questions],
-  );
 
   if ((isStudying || phase === 'boss') && questions && sessionId) {
     const maxHp = 8 + (user?.character?.hpLv ?? 1) * 2;
