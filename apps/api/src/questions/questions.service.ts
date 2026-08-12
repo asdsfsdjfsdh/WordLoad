@@ -301,15 +301,39 @@ export class QuestionsService {
       return 'new';
     };
 
-    // 排序：未学/错题优先 → 复习次之 → 已掌握最后，同类内随机
-    const sorted = [...pool].sort((a, b) => {
+    // 到期复习词：nextReviewAt ≤ now 且未掌握、非错题本
+    const now = new Date();
+    const dueReviewPool = pool.filter((bw) => {
+      const p = progressByWord.get(bw.wordId);
+      if (!p) return false;
+      if (p.mastery >= 100) return false;
+      if (p.inWrongBook) return false;
+      return p.nextReviewAt != null && p.nextReviewAt.getTime() <= now.getTime();
+    });
+    // 最久未复习的优先
+    dueReviewPool.sort((a, b) => {
+      const da = progressByWord.get(a.wordId)?.nextReviewAt?.getTime() ?? 0;
+      const db = progressByWord.get(b.wordId)?.nextReviewAt?.getTime() ?? 0;
+      return da - db;
+    });
+    const reviewReserve = Math.min(dueReviewPool.length, Math.ceil(size * 0.25));
+    const reservedIds = new Set(dueReviewPool.slice(0, reviewReserve).map((bw) => bw.wordId));
+
+    // 其余词按 new/wrongbook 优先 → 复习次之 → 已掌握最后，同类内随机
+    const remaining = pool.filter((bw) => !reservedIds.has(bw.wordId));
+    remaining.sort((a, b) => {
       const priority = { new: 0, wrongbook: 0, review: 1, mastered: 2 } as const;
       const pa = priority[statusOf(a.wordId)];
       const pb = priority[statusOf(b.wordId)];
       return pa - pb || Math.random() - 0.5;
     });
 
-    return sorted.slice(0, size).map((bw) => ({
+    const selected = [
+      ...dueReviewPool.slice(0, reviewReserve),
+      ...remaining.slice(0, size - reviewReserve),
+    ];
+
+    return selected.map((bw) => ({
       wordId: bw.word.id,
       text: bw.word.text,
       phonetic: bw.word.phoneticAm ?? bw.word.phoneticEn ?? undefined,
