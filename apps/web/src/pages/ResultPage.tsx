@@ -92,6 +92,44 @@ export function ResultPage() {
           </div>
         )}
 
+        {/* Boss 结局 */}
+        {result.bossFought && (
+          <div className={`mt-6 rounded-xl border p-4 text-center ${result.bossCleared ? 'border-amber-500/50 bg-amber-950/20' : 'border-red-500/40 bg-red-950/20'}`}>
+            <div className={`text-lg font-bold ${result.bossCleared ? 'text-amber-300' : 'text-red-400'}`}>
+              {result.bossCleared ? '☠ Boss 击破！' : '☠ Boss 逃脱…'}
+            </div>
+            <div className="mt-1 text-xs text-slate-400">
+              {result.bossCleared ? '你击败了阶段 Boss！' : 'Boss 未被击败，下次再试！'}
+            </div>
+          </div>
+        )}
+
+        {/* 错词转化率 */}
+        {result.totalWrong != null && result.totalWrong > 0 && (
+          <div className="mt-4 text-center">
+            <div className="text-2xl font-bold text-cyan-300">
+              {((result.wrongConverted ?? 0) / result.totalWrong * 100).toFixed(0)}%
+            </div>
+            <div className="text-xs text-slate-400">
+              错词转化率 · {result.wrongConverted}/{result.totalWrong} 个错误被纠正
+            </div>
+          </div>
+        )}
+
+        {/* 明天预告 */}
+        {result.tomorrowPreview && result.tomorrowPreview.length > 0 && (
+          <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-950/10 p-4 text-center">
+            <div className="mb-2 text-xs text-slate-400">明天的 Boss 正在准备这些词…</div>
+            <div className="flex flex-wrap justify-center gap-2">
+              {result.tomorrowPreview.map((w, i) => (
+                <span key={i} className="rounded-full border border-cyan-700/50 bg-cyan-950/40 px-3 py-1 text-sm text-cyan-300">
+                  {w.text} <span className="ml-1 text-[10px] text-slate-500">{w.meaning}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="mt-8 flex gap-3">
           <Link
             to="/lobby"

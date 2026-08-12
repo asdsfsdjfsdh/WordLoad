@@ -5,18 +5,21 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 
 export interface BattleFieldHandle {
-  // 每次判定结果：correct 触发攻击，wrong 触发受击扣血
-  notifyAnswer(correct: boolean, combo: number): void;
-  // 膨胀重写：冻结/解冻所有非 Boss 小怪（青色八角笼）
+  // 每次判定结果：correct 触发攻击，wrong 触发受击扣血；isRevenge 双倍伤害
+  notifyAnswer(correct: boolean, combo: number, isRevenge?: boolean): void;
   freezeEnemies(frozen: boolean): void;
-  // 3 遍重写全对：同时发射 3 枚大弹丸攻击最近 3 只非 Boss 怪
   skillAttack(): void;
+  bossAlive(): boolean;
+  startBoss(bossHp: number): void;
 }
 
 interface Props {
   initHp: number;
   totalQuestions: number;
   onPlayerDown?: () => void;
+  onBossDefeated?: () => void;
+  phase: 'study' | 'boss';
+  tauntWords?: string[]; // Boss 段嘲讽词列表（本局错词）
 }
 
 interface Enemy {
@@ -58,6 +61,7 @@ interface Projectile {
   targetId: number;
   ang: number;
   big?: boolean;
+  damage?: number; // 1=normal, 2=revenge
 }
 
 interface Ring {
@@ -107,13 +111,17 @@ function diamondPath(ctx: CanvasRenderingContext2D, x: number, y: number, rx: nu
   ctx.closePath();
 }
 
-function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: React.Ref<BattleFieldHandle>) {
+function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated, phase: _phase, tauntWords: tauntWordsProp }: Props, ref: React.Ref<BattleFieldHandle>) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
   const onPlayerDownRef = useRef(onPlayerDown);
+  const onBossDefeatedRef = useRef(onBossDefeated);
   const totalQuestionsRef = useRef(totalQuestions);
+  const tauntWordsRef = useRef(tauntWordsProp ?? []);
   onPlayerDownRef.current = onPlayerDown;
+  onBossDefeatedRef.current = onBossDefeated;
   totalQuestionsRef.current = totalQuestions;
+  tauntWordsRef.current = tauntWordsProp ?? [];
 
   // 可变战场状态（rAF 驱动，不触发 React 重渲染）
   const state = useRef({
@@ -121,11 +129,17 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
     hp: initHp,
     maxHp: initHp,
     correctCount: 0,
+    bossCorrectCount: 0,
     combo: 0,
     flash: 0,
     shake: 0,
     glow: 0,
     bossSpawned: false,
+    bossPhase: false,
+    bossHp: 0,
+    bossDefeated: false,
+    lastStand: 0, // 0=inactive, >0 = remaining protected answers; once per session
+    tauntTimer: 0,
     enemies: [] as Enemy[],
     projectiles: [] as Projectile[],
     shards: [] as Shard[],
@@ -216,14 +230,17 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
   };
 
   useImperativeHandle(ref, () => ({
-    notifyAnswer(correct: boolean, combo: number) {
+    notifyAnswer(correct: boolean, combo: number, isRevenge = false) {
       const s = state.current;
       s.combo = combo;
       if (correct) {
         s.correctCount++;
+        if (s.bossPhase) s.bossCorrectCount++;
+        if (s.lastStand > 0) s.lastStand--;
         comboFx(combo);
-        attack();
+        attack(isRevenge ? 2 : undefined);
       } else {
+        if (s.lastStand > 0) return; // 最后一搏免伤
         const dmg = s.bossSpawned && s.enemies.some((e) => e.boss && !e.reachedPlayer) ? 2 : 1;
         hurt(dmg);
       }
@@ -237,51 +254,67 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
     },
     skillAttack() {
       const s = state.current;
-      const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer && !e.boss);
       const py = sY();
+      // Boss 阶段优先 Boss
+      const bossTarget = s.bossPhase
+        ? s.enemies.find((e) => e.boss && e.hp > 0 && !e.reachedPlayer)
+        : null;
+      if (bossTarget) {
+        const ang = Math.atan2(bossTarget.y - py, bossTarget.x - PLAYER_X - PLAYER_SIZE / 2);
+        s.projectiles.push({ x: PLAYER_X + PLAYER_SIZE / 2, y: py, tx: bossTarget.x, ty: bossTarget.y, t: 0, targetId: bossTarget.id, ang, big: true, damage: 3 });
+        s.glow = 1.2;
+        const W = canvasRef.current?.width ?? 800;
+        s.floaters.push({ x: W / 2, y: py - 60, text: '💥 技能直击', color: '#a5f3fc', life: 1.4 });
+        return;
+      }
+      const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer && !e.boss);
       const nearest = [...alive]
         .sort((a, b) => ((a.x - PLAYER_X) ** 2 + (a.y - py) ** 2) - ((b.x - PLAYER_X) ** 2 + (b.y - py) ** 2))
         .slice(0, 3);
       if (nearest.length === 0) return;
       for (const t of nearest) {
         const ang = Math.atan2(t.y - py, t.x - PLAYER_X - PLAYER_SIZE / 2);
-        s.projectiles.push({
-          x: PLAYER_X + PLAYER_SIZE / 2,
-          y: py,
-          tx: t.x,
-          ty: t.y,
-          t: 0,
-          targetId: t.id,
-          ang,
-          big: true,
-        });
+        s.projectiles.push({ x: PLAYER_X + PLAYER_SIZE / 2, y: py, tx: t.x, ty: t.y, t: 0, targetId: t.id, ang, big: true });
       }
       s.glow = 1.2;
       const W = canvasRef.current?.width ?? 800;
       s.floaters.push({ x: W / 2, y: py - 60, text: '💥 技能释放', color: '#a5f3fc', life: 1.4 });
     },
+    bossAlive(): boolean {
+      const s = state.current;
+      return s.bossSpawned && s.enemies.some((e) => e.boss && e.hp > 0 && !e.reachedPlayer);
+    },
+    startBoss(bossHp: number) {
+      const s = state.current;
+      s.bossPhase = true;
+      s.bossHp = bossHp;
+      spawnEnemy(true);
+      s.bossSpawned = true;
+      const W = canvasRef.current?.width ?? 800;
+      const py = sY();
+      s.floaters.push({ x: W / 2, y: py - 50, text: '☠ Boss 段·迎战！', color: '#f87171', life: 3 });
+    },
   }));
 
-  // 攻击：始终向最接近角色的敌人发射弹丸
-  const attack = () => {
+  // 攻击：Boss 阶段优先 Boss，否则最近敌人
+  const attack = (damage = 1) => {
     const s = state.current;
-    const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer);
-    if (alive.length === 0) return;
+    // Boss 阶段且 Boss 存活 → 优先 Boss
+    const bossTarget = s.bossPhase
+      ? s.enemies.find((e) => e.boss && e.hp > 0 && !e.reachedPlayer)
+      : null;
     const py = sY();
-    const target = alive.reduce((a, b) => {
-      const da = (a.x - PLAYER_X) ** 2 + (a.y - py) ** 2;
-      const db = (b.x - PLAYER_X) ** 2 + (b.y - py) ** 2;
-      return da < db ? a : b;
-    });
+    const target = bossTarget ?? (() => {
+      const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer);
+      if (alive.length === 0) return null;
+      return alive.reduce((a, b) => ((a.x - PLAYER_X) ** 2 + (a.y - py) ** 2) < ((b.x - PLAYER_X) ** 2 + (b.y - py) ** 2) ? a : b);
+    })();
+    if (!target) return;
     const ang = Math.atan2(target.y - py, target.x - PLAYER_X - PLAYER_SIZE / 2);
     s.projectiles.push({
-      x: PLAYER_X + PLAYER_SIZE / 2,
-      y: py,
-      tx: target.x,
-      ty: target.y,
-      t: 0,
-      targetId: target.id,
-      ang,
+      x: PLAYER_X + PLAYER_SIZE / 2, y: py,
+      tx: target.x, ty: target.y, t: 0, targetId: target.id,
+      ang, damage,
     });
     s.glow = 1;
   };
@@ -289,9 +322,18 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
   const hurt = (dmg: number) => {
     const s = state.current;
     if (!s.running) return;
+    if (s.lastStand > 0) return; // 最后一搏免伤
     s.hp = Math.max(0, s.hp - dmg);
     s.flash = 1;
     s.shake = 1;
+    // HP 降到 1 时触发最后一搏（整局仅一次）
+    if (s.hp <= 1 && s.lastStand === 0 && s.hp > 0) {
+      s.hp = 1; // 保底为 1
+      s.lastStand = 3;
+      const W = canvasRef.current?.width ?? 800;
+      const py = sY();
+      s.floaters.push({ x: W / 2, y: py - 80, text: '⚡ 背水一战！3 题无敌 + 1.5 倍伤害', color: '#fbbf24', life: 3 });
+    }
     if (s.hp <= 0) {
       s.running = false;
       onPlayerDownRef.current?.();
@@ -305,36 +347,25 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
     const H = canvas?.height ?? 300;
     s.enemyId++;
     if (boss) {
-      // Boss 血量随本局词数提升：6 + 每 10 词 +2，封顶 18
-      const bossHp = Math.min(18, 6 + Math.floor(totalQuestionsRef.current / 10) * 2);
+      const hp = s.bossHp || Math.min(18, 6 + Math.floor(totalQuestionsRef.current / 10) * 2);
       s.enemies.push({
-        id: s.enemyId,
-        shape: 'square',
-        x: W * 0.75,
-        y: H * 0.5,
-        hp: bossHp,
-        maxHp: bossHp,
-        speed: 16,
-        size: 56,
-        color: '#dc2626',
-        boss: true,
+        id: s.enemyId, shape: 'square', x: W * 0.75, y: H * 0.5,
+        hp, maxHp: hp, speed: 16, size: 56,
+        color: '#dc2626', boss: true,
       });
       s.floaters.push({ x: W / 2, y: 46, text: '⚠ BOSS 出现！', color: '#f87171', life: 2 });
-      s.floaters.push({ x: W / 2, y: 70, text: `HP ${bossHp}`, color: '#fbbf24', life: 2 });
+      s.floaters.push({ x: W / 2, y: 70, text: `HP ${hp}`, color: '#fbbf24', life: 2 });
     } else {
       const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)] as Enemy['shape'];
       const size = 18 + Math.random() * 10;
-      // 生成 Y 范围上移，避开底部答题区浮层
+      // 学习段怪速温和 40-55，Boss 段维持 55-75
+      const baseSpeed = s.bossPhase ? 55 : 40;
       s.enemies.push({
-        id: s.enemyId,
-        shape,
-        x: W + 30,
-        y: 24 + Math.random() * Math.max(30, H * 0.58),
-        hp: NORMAL_HP,
-        maxHp: NORMAL_HP,
-        speed: 55 + Math.random() * 20,
-        size,
-        color: COLORS[Math.floor(Math.random() * COLORS.length)] as string,
+        id: s.enemyId, shape, x: W + 30,
+        y: 20 + Math.random() * Math.max(30, H - 60),
+        hp: NORMAL_HP, maxHp: NORMAL_HP,
+        speed: baseSpeed + Math.random() * 15,
+        size, color: COLORS[Math.floor(Math.random() * COLORS.length)] as string,
       });
     }
   };
@@ -400,28 +431,37 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
       if (s.running) {
         const anyFrozen = s.enemies.some((e) => e.frozen);
         if (!anyFrozen) {
-          const remaining = Math.max(0, totalQuestionsRef.current - s.correctCount);
-          // 怪数随剩余词量动态变化：每 4 个剩余词 1 只怪，至少 1 只，最多 6 只
-          const maxEnemies = Math.min(6, Math.max(1, Math.ceil(remaining / 4)));
+          // 学习段：每答对 3 词上限 +1，封顶 4；Boss 段：每答对 2 词上限 +1，封顶 2
+          const maxEnemies = s.bossPhase
+            ? Math.min(2, Math.floor(s.bossCorrectCount / 2) + 1)
+            : Math.min(4, Math.floor(s.correctCount / 3) + 1);
           s.spawnTimer -= dt;
           const normalCount = s.enemies.filter((e) => !e.boss && e.hp > 0 && !e.reachedPlayer).length;
           if (normalCount < maxEnemies && s.spawnTimer <= 0) {
             spawnEnemy();
             s.spawnTimer = 0.5 + Math.random() * 0.6;
           }
-          // 场上清空但有剩余词 → 立即补怪
-          if (remaining > 0 && s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer).length === 0) {
+          // 场上清空且仍有词或 Boss 段未死 → 立即补怪
+          if (
+            (s.bossPhase ? s.enemies.some((e) => e.boss && e.hp > 0) : totalQuestionsRef.current > s.correctCount) &&
+            s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer).length === 0
+          ) {
             spawnEnemy();
             s.spawnTimer = 0.3;
           }
-          // Boss 触发
-          if (
-            !s.bossSpawned &&
-            totalQuestionsRef.current >= 8 &&
-            s.correctCount >= Math.max(4, Math.round(totalQuestionsRef.current * 0.6))
-          ) {
-            spawnEnemy(true);
-            s.bossSpawned = true;
+        }
+
+        // Boss 段嘲讽：每隔 8 秒弹一条错词
+        if (s.bossPhase && !s.bossDefeated) {
+          s.tauntTimer -= dt;
+          if (s.tauntTimer <= 0) {
+            s.tauntTimer = 8 + Math.random() * 4;
+            const words = tauntWordsRef.current;
+            if (words.length > 0) {
+              const w = words[Math.floor(Math.random() * words.length)] as string;
+              const W = canvasRef.current?.width ?? 800;
+              s.floaters.push({ x: W / 2, y: 100 + Math.random() * 60, text: `「你连 ${w} 都打不过吗？」`, color: '#f59e0b', life: 2.5 });
+            }
           }
         }
       }
@@ -432,10 +472,19 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
         if (e.hp <= 0 || e.frozen) continue;
         e.x -= e.speed * slowMult * dt;
         if (e.x <= PLAYER_X + PLAYER_SIZE) {
-          e.reachedPlayer = true;
-          hurt(e.boss ? 3 : 1);
-          explode(e.x, e.y, e.color, 12);
-          s.floaters.push({ x: e.x, y: e.y, text: e.boss ? '-3 HP' : '-1', color: '#f87171', life: 1 });
+          if (e.boss) {
+            // Boss 抵近：-3 血 + 退回起点，不消失
+            hurt(3);
+            e.x = (canvasRef.current?.width ?? 800) * 0.75;
+            explode(e.x, e.y, e.color, 16);
+            const W = canvasRef.current?.width ?? 800;
+            s.floaters.push({ x: W / 2, y: e.y + 20, text: 'BOSS 反击！-3 HP · 退回再战', color: '#f87171', life: 1.8 });
+          } else {
+            e.reachedPlayer = true;
+            hurt(1);
+            explode(e.x, e.y, e.color, 12);
+            s.floaters.push({ x: e.x, y: e.y, text: '-1', color: '#f87171', life: 1 });
+          }
         }
       }
       s.enemies = s.enemies.filter((e) => !(e.reachedPlayer || e.hp <= 0));
@@ -451,9 +500,14 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
           // 命中结算
           const hit = s.enemies.find((e) => e.id === p.targetId);
           if (hit && hit.hp > 0) {
-            hit.hp -= 1;
+            const dmg = p.damage ?? 1;
+            hit.hp -= dmg;
             explode(p.tx, p.ty, hit.color, p.big ? 26 : 6, p.big);
             if (hit.hp <= 0) {
+              if (hit.boss) {
+                s.bossDefeated = true;
+                onBossDefeatedRef.current?.();
+              }
               explode(p.tx, p.ty, hit.color, p.big ? 34 : 22, p.big);
               s.floaters.push({
                 x: p.tx,
@@ -548,6 +602,13 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown }: Props, ref: 
       ctx.font = '10px system-ui, sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(`HP ${Math.ceil(s.hp)}/${s.maxHp}`, 18, 24);
+      // 最后一搏
+      if (s.lastStand > 0) {
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = 'bold 11px system-ui, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(`⚡ 背水一战 · 剩余 ${s.lastStand} 题`, 18, 42);
+      }
 
       // 连击（右上）三层文字伪发光
       if (s.combo >= 2) {

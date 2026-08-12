@@ -5,7 +5,7 @@ import { api } from '../lib/api';
 import { TypingCore, type AnswerRecord } from '../components/TypingCore';
 import { BattleField, type BattleFieldHandle } from '../components/BattleField';
 import { checkVoiceAvailability, ensureVoiceAvailable, getTts } from '../lib/tts';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useAuth } from '../store/auth';
 
 interface CreateSessionResult {
@@ -13,7 +13,7 @@ interface CreateSessionResult {
   plan: { session: { questions: import('@word-journey/shared').Question[] } };
 }
 
-type Phase = 'mode' | 'learn' | 'battle';
+type Phase = 'mode' | 'learn' | 'battle' | 'boss';
 
 export function BattlePage() {
   const { bankCode, stageId } = useParams<{
@@ -98,10 +98,15 @@ export function BattlePage() {
   });
 
   const finishedRef = useRef(false);
+  // 两阶段：累积全部答案
+  const accumRef = useRef<AnswerRecord[]>([]);
+  const [extendKey, setExtendKey] = useState(0);
+  const [bossDead, setBossDead] = useState(false);
+  const [tauntWords, setTauntWords] = useState<string[]>([]);
 
   const submit = useMutation({
-    mutationFn: async (answers: AnswerRecord[]) => {
-      const r = await api.post<SessionFinish>(`/sessions/${sessionId}/submit`, { answers });
+    mutationFn: async (opts: { answers: AnswerRecord[]; bossCleared: boolean }) => {
+      const r = await api.post<SessionFinish>(`/sessions/${sessionId}/submit`, { answers: opts.answers, bossCleared: opts.bossCleared });
       navigate('/result', { state: r });
     },
     onError: (e) => {
@@ -110,6 +115,74 @@ export function BattlePage() {
       setError(e instanceof Error ? e.message : '结算失败');
     },
   });
+
+  const enterBoss = useMutation({
+    mutationFn: async (answers: AnswerRecord[]) => {
+      const r = await api.post<{ questions: import('@word-journey/shared').Question[]; exhausted: boolean; bossHp: number }>(
+        `/sessions/${sessionId}/enter-boss`, { answers },
+      );
+      return r;
+    },
+    onSuccess: (data) => {
+      if (data.exhausted) {
+        // Boss 词池空 → 直接结算（Boss 逃脱）
+        submit.mutate({ answers: accumRef.current, bossCleared: false });
+        return;
+      }
+      setQuestions(data.questions);
+      setExtendKey((k) => k + 1);
+      battleRef.current?.startBoss(data.bossHp);
+      setPhase('boss');
+    },
+    onError: (e) => setError(e instanceof Error ? e.message : '进入 Boss 段失败'),
+  });
+
+  const bossExtend = useMutation({
+    mutationFn: async (missedIds: string[]) => {
+      const r = await api.post<{ questions: import('@word-journey/shared').Question[]; exhausted: boolean }>(
+        `/sessions/${sessionId}/boss-extend`, { missedWordIds: missedIds },
+      );
+      return r;
+    },
+    onSuccess: (data) => {
+      if (data.exhausted) {
+        submit.mutate({ answers: accumRef.current, bossCleared: bossDead });
+        return;
+      }
+      setQuestions(data.questions);
+      setExtendKey((k) => k + 1);
+    },
+    onError: (e) => setError(e instanceof Error ? e.message : '续战失败'),
+  });
+
+  // 处理每轮答完
+  const handleComplete = (answers: AnswerRecord[]) => {
+    accumRef.current = [...accumRef.current, ...answers];
+    if (forceFinish) {
+      submit.mutate({ answers: accumRef.current, bossCleared: bossDead });
+      return;
+    }
+    if (phase === 'battle') {
+      // 学习段结束 → 进入 Boss
+      const wrongIds = answers
+        .filter((a) => !a.correct)
+        .map((a) => questions?.[a.seq]?.wordId)
+        .filter(Boolean) as string[];
+      setTauntWords([...new Set(wrongIds)]);
+      enterBoss.mutate(answers);
+    } else {
+      // Boss 段一轮答完
+      if (bossDead || battleRef.current && !battleRef.current.bossAlive()) {
+        submit.mutate({ answers: accumRef.current, bossCleared: true });
+      } else {
+        const wrongIds = answers
+          .filter((a) => !a.correct)
+          .map((a) => questions?.[a.seq]?.wordId)
+          .filter(Boolean) as string[];
+        bossExtend.mutate(wrongIds);
+      }
+    }
+  };
 
   if (phase === 'mode') {
     return (
@@ -302,29 +375,46 @@ export function BattlePage() {
     );
   }
 
-  if (questions && sessionId) {
-    const maxHp = 5 + (user?.character?.hpLv ?? 1) * 2;
+  const isStudying = phase === 'battle';
+  const revengeBySeq = useMemo(
+    () => new Map((questions ?? []).map((q) => [q.seq, q.isRevenge ?? false])),
+    [questions],
+  );
+
+  if ((isStudying || phase === 'boss') && questions && sessionId) {
+    const maxHp = 8 + (user?.character?.hpLv ?? 1) * 2;
+    const isBoss = phase === 'boss';
     return (
-      <div className="relative h-screen bg-slate-950">
-        <BattleField
-          ref={battleRef}
-          initHp={maxHp}
-          totalQuestions={questions.length}
-          onPlayerDown={() => setForceFinish(true)}
-        />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 top-0 flex flex-col justify-end">
-          <div className="pointer-events-auto rounded-t-2xl border border-b-0 border-slate-700/50 bg-slate-950/80 backdrop-blur-md shadow-[0_-8px_32px_rgba(0,0,0,0.6)]">
-            <TypingCore
-              questions={questions}
-              mode={mode}
-              onJudged={(r) => battleRef.current?.notifyAnswer(r.correct, r.combo)}
-              onFreeze={(frozen) => battleRef.current?.freezeEnemies(frozen)}
-              onSkillReleased={() => battleRef.current?.skillAttack()}
-              forceFinish={forceFinish}
-              onComplete={(a) => submit.mutate(a)}
-            />
-          </div>
+      <div className="flex h-screen flex-col bg-slate-950">
+        <div className="relative min-h-0 flex-1">
+          <BattleField
+            ref={battleRef}
+            initHp={maxHp}
+            totalQuestions={questions.length}
+            phase={isBoss ? 'boss' : 'study'}
+            onPlayerDown={() => setForceFinish(true)}
+            onBossDefeated={() => setBossDead(true)}
+            tauntWords={tauntWords}
+          />
         </div>
+        <div className="w-full shrink-0 overflow-y-auto border-t border-slate-700/50 bg-slate-950/95 backdrop-blur-md shadow-[0_-8px_32px_rgba(0,0,0,0.6)]" style={{ maxHeight: '62vh' }}>
+          <TypingCore
+            key={`${isBoss ? 'boss' : 'study'}-${extendKey}`}
+            questions={questions}
+            mode={mode}
+            onJudged={(r) => battleRef.current?.notifyAnswer(r.correct, r.combo, revengeBySeq.get(r.seq))}
+            onFreeze={(frozen) => battleRef.current?.freezeEnemies(frozen)}
+            onSkillReleased={() => battleRef.current?.skillAttack()}
+            forceFinish={forceFinish}
+            onComplete={(a) => handleComplete(a)}
+          />
+        </div>
+        {error && (
+          <div className="absolute left-1/2 top-4 z-20 -translate-x-1/2 rounded-lg bg-red-950/90 px-4 py-2 text-sm text-red-400">
+            {error}
+            <button onClick={() => setError('')} className="ml-2 text-red-300 underline">✕</button>
+          </div>
+        )}
       </div>
     );
   }

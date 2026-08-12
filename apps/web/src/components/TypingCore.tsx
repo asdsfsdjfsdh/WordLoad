@@ -18,7 +18,7 @@ interface Props {
   mode: GameMode;
   onComplete: (answers: AnswerRecord[]) => void;
   // 每次判定后通知外层（驱动战斗层攻击/受击）
-  onJudged?: (r: { correct: boolean; combo: number }) => void;
+  onJudged?: (r: { correct: boolean; combo: number; seq: number }) => void;
   // 膨胀重写时通知战场冻结/解冻小怪（Boss 不冻结）
   onFreeze?: (frozen: boolean) => void;
   // 3 遍重写全对 → 通知战场释放技能
@@ -94,7 +94,7 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
       // 该 seq 首次判定才落记录（首判决定 SRS）；重写成功后不再重复记录
       answeredRef.current = [...answeredRef.current, { seq: q.seq, correct, elapsedMs, typed: word }];
       comboRef.current = correct ? comboRef.current + 1 : 0;
-      onJudged?.({ correct, combo: comboRef.current });
+      onJudged?.({ correct, combo: comboRef.current, seq: q.seq });
     }
     startedAt.current = Date.now();
 
