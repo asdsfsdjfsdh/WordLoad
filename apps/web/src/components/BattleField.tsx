@@ -82,7 +82,6 @@ interface Floater {
   life: number;
 }
 
-const PLAYER_X = 56;
 const PLAYER_SIZE = 30;
 const NORMAL_HP = 2;
 const SHAPES: Enemy['shape'][] = ['circle', 'triangle', 'square'];
@@ -154,7 +153,16 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     playerGlint: 0,
   });
 
-  const sY = (): number => (canvasRef.current?.height ?? 300) / 2;
+  const sY = (): number => {
+    const c = canvasRef.current;
+    if (!c) return 150;
+    return c.height / (window.devicePixelRatio || 1) / 2;
+  };
+
+  const playerX = (): number => {
+    const w = boxRef.current?.clientWidth ?? 800;
+    return w * 0.88;
+  };
 
   const pushShard = (x: number, y: number, vx: number, vy: number, color: string, size: number): void => {
     const s = state.current;
@@ -217,7 +225,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       const py = sY();
       for (let i = 0; i < 3; i++) {
         s.rings.push({
-          x: PLAYER_X + PLAYER_SIZE / 2,
+          x: playerX() + PLAYER_SIZE / 2,
           y: py,
           r: 8 + i * 6,
           vr: 200 + i * 40,
@@ -260,8 +268,8 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         ? s.enemies.find((e) => e.boss && e.hp > 0 && !e.reachedPlayer)
         : null;
       if (bossTarget) {
-        const ang = Math.atan2(bossTarget.y - py, bossTarget.x - PLAYER_X - PLAYER_SIZE / 2);
-        s.projectiles.push({ x: PLAYER_X + PLAYER_SIZE / 2, y: py, tx: bossTarget.x, ty: bossTarget.y, t: 0, targetId: bossTarget.id, ang, big: true, damage: 3 });
+        const ang = Math.atan2(bossTarget.y - py, bossTarget.x - playerX() - PLAYER_SIZE / 2);
+        s.projectiles.push({ x: playerX() + PLAYER_SIZE / 2, y: py, tx: bossTarget.x, ty: bossTarget.y, t: 0, targetId: bossTarget.id, ang, big: true, damage: 3 });
         s.glow = 1.2;
         const W = canvasRef.current?.width ?? 800;
         s.floaters.push({ x: W / 2, y: py - 60, text: '💥 技能直击', color: '#a5f3fc', life: 1.4 });
@@ -269,12 +277,12 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       }
       const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer && !e.boss);
       const nearest = [...alive]
-        .sort((a, b) => ((a.x - PLAYER_X) ** 2 + (a.y - py) ** 2) - ((b.x - PLAYER_X) ** 2 + (b.y - py) ** 2))
+        .sort((a, b) => ((a.x - playerX()) ** 2 + (a.y - py) ** 2) - ((b.x - playerX()) ** 2 + (b.y - py) ** 2))
         .slice(0, 3);
       if (nearest.length === 0) return;
       for (const t of nearest) {
-        const ang = Math.atan2(t.y - py, t.x - PLAYER_X - PLAYER_SIZE / 2);
-        s.projectiles.push({ x: PLAYER_X + PLAYER_SIZE / 2, y: py, tx: t.x, ty: t.y, t: 0, targetId: t.id, ang, big: true });
+        const ang = Math.atan2(t.y - py, t.x - playerX() - PLAYER_SIZE / 2);
+        s.projectiles.push({ x: playerX() + PLAYER_SIZE / 2, y: py, tx: t.x, ty: t.y, t: 0, targetId: t.id, ang, big: true });
       }
       s.glow = 1.2;
       const W = canvasRef.current?.width ?? 800;
@@ -307,12 +315,12 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     const target = bossTarget ?? (() => {
       const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer);
       if (alive.length === 0) return null;
-      return alive.reduce((a, b) => ((a.x - PLAYER_X) ** 2 + (a.y - py) ** 2) < ((b.x - PLAYER_X) ** 2 + (b.y - py) ** 2) ? a : b);
+      return alive.reduce((a, b) => ((a.x - playerX()) ** 2 + (a.y - py) ** 2) < ((b.x - playerX()) ** 2 + (b.y - py) ** 2) ? a : b);
     })();
     if (!target) return;
-    const ang = Math.atan2(target.y - py, target.x - PLAYER_X - PLAYER_SIZE / 2);
+    const ang = Math.atan2(target.y - py, target.x - playerX() - PLAYER_SIZE / 2);
     s.projectiles.push({
-      x: PLAYER_X + PLAYER_SIZE / 2, y: py,
+      x: playerX() + PLAYER_SIZE / 2, y: py,
       tx: target.x, ty: target.y, t: 0, targetId: target.id,
       ang, damage,
     });
@@ -349,7 +357,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     if (boss) {
       const hp = s.bossHp || Math.min(18, 6 + Math.floor(totalQuestionsRef.current / 10) * 2);
       s.enemies.push({
-        id: s.enemyId, shape: 'square', x: W * 0.75, y: H * 0.5,
+        id: s.enemyId, shape: 'square', x: W * 0.2, y: H * 0.5,
         hp, maxHp: hp, speed: 16, size: 56,
         color: '#dc2626', boss: true,
       });
@@ -358,10 +366,9 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     } else {
       const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)] as Enemy['shape'];
       const size = 18 + Math.random() * 10;
-      // 学习段怪速温和 40-55，Boss 段维持 55-75
       const baseSpeed = s.bossPhase ? 55 : 40;
       s.enemies.push({
-        id: s.enemyId, shape, x: W + 30,
+        id: s.enemyId, shape, x: -30,
         y: 20 + Math.random() * Math.max(30, H - 60),
         hp: NORMAL_HP, maxHp: NORMAL_HP,
         speed: baseSpeed + Math.random() * 15,
@@ -470,14 +477,14 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       const slowMult = s.slowTimer > 0 ? 0.8 : 1;
       for (const e of s.enemies) {
         if (e.hp <= 0 || e.frozen) continue;
-        e.x -= e.speed * slowMult * dt;
-        if (e.x <= PLAYER_X + PLAYER_SIZE) {
+        // 怪从左侧逼近，角色在右侧
+        e.x += e.speed * slowMult * dt;
+        if (e.x >= playerX()) {
           if (e.boss) {
-            // Boss 抵近：-3 血 + 退回起点，不消失
             hurt(3);
-            e.x = (canvasRef.current?.width ?? 800) * 0.75;
+            e.x = (boxRef.current?.clientWidth ?? 800) * 0.2;
             explode(e.x, e.y, e.color, 16);
-            const W = canvasRef.current?.width ?? 800;
+            const W = boxRef.current?.clientWidth ?? 800;
             s.floaters.push({ x: W / 2, y: e.y + 20, text: 'BOSS 反击！-3 HP · 退回再战', color: '#f87171', life: 1.8 });
           } else {
             e.reachedPlayer = true;
@@ -633,18 +640,18 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       if (s.glow > 0 || s.combo >= 5) {
         ctx.strokeStyle = 'rgba(253,224,71,0.55)';
         ctx.lineWidth = (6 + s.glow * 10) + (s.combo >= 5 ? 4 : 0);
-        diamondPath(ctx, PLAYER_X, py, PLAYER_SIZE * 0.72, PLAYER_SIZE * 0.72);
+        diamondPath(ctx, playerX(), py, PLAYER_SIZE * 0.72, PLAYER_SIZE * 0.72);
         ctx.stroke();
       }
       ctx.fillStyle = s.flash > 0 ? '#f97316' : '#facc15';
-      ctx.fillRect(PLAYER_X - PLAYER_SIZE / 2, py - PLAYER_SIZE / 2, PLAYER_SIZE, PLAYER_SIZE);
+      ctx.fillRect(playerX() - PLAYER_SIZE / 2, py - PLAYER_SIZE / 2, PLAYER_SIZE, PLAYER_SIZE);
       ctx.strokeStyle = '#fde68a';
       ctx.lineWidth = 2;
-      ctx.strokeRect(PLAYER_X - PLAYER_SIZE / 2, py - PLAYER_SIZE / 2, PLAYER_SIZE, PLAYER_SIZE);
+      ctx.strokeRect(playerX() - PLAYER_SIZE / 2, py - PLAYER_SIZE / 2, PLAYER_SIZE, PLAYER_SIZE);
       if (s.playerGlint > 0) {
         ctx.strokeStyle = 'rgba(253,224,71,0.85)';
         ctx.lineWidth = 2;
-        diamondPath(ctx, PLAYER_X, py, PLAYER_SIZE * 0.95 + s.playerGlint * 6, PLAYER_SIZE * 0.95 + s.playerGlint * 6);
+        diamondPath(ctx, playerX(), py, PLAYER_SIZE * 0.95 + s.playerGlint * 6, PLAYER_SIZE * 0.95 + s.playerGlint * 6);
         ctx.stroke();
       }
       ctx.restore();
@@ -833,7 +840,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
 
   return (
     <div ref={boxRef} className="absolute inset-0 overflow-hidden">
-      <canvas ref={canvasRef} className="block" />
+      <canvas ref={canvasRef} className="absolute inset-0 block" />
     </div>
   );
 }
