@@ -9,7 +9,9 @@ async function bootstrap(): Promise<void> {
   const config = app.get(ConfigService);
 
   const webOrigin = config.get<string>('WEB_ORIGIN') ?? 'http://localhost:5173';
-  app.enableCors({ origin: webOrigin.split(','), credentials: true });
+  app.enableCors({ origin: webOrigin.split(',').map((s) => s.trim()), credentials: true });
+
+  app.enableShutdownHooks();
 
   app.useGlobalPipes(
     new ValidationPipe({ whitelist: true, transform: true, forbidNonWhitelisted: true }),
@@ -29,4 +31,7 @@ async function bootstrap(): Promise<void> {
   console.log(`[api] listening on http://localhost:${port} (docs: /docs)`);
 }
 
-void bootstrap();
+bootstrap().catch((err) => {
+  console.error('[api] 启动失败', err);
+  process.exit(1);
+});

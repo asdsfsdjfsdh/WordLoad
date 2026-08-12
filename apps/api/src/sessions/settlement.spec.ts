@@ -13,9 +13,9 @@ describe('srsSchedule SM-2 简化', () => {
     expect(srsSchedule(null, true)).toEqual({ reviewStage: 1, ease: 2.6 });
     expect(srsSchedule({ reviewStage: 2, ease: 2.5 }, true).reviewStage).toBe(3);
   });
-  it('错误重置为 stage 1 且 ease 下降', () => {
+  it('错误阶梯降级（从 stage 4 降到 2）且 ease 下降', () => {
     const r = srsSchedule({ reviewStage: 4, ease: 2.5 }, false);
-    expect(r.reviewStage).toBe(1);
+    expect(r.reviewStage).toBe(2);
     expect(r.ease).toBeLessThan(2.5);
   });
   it('ease 有上下限', () => {

@@ -1,6 +1,7 @@
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { ConflictException, UnauthorizedException } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import * as bcrypt from 'bcryptjs';
 import { AuthService } from './auth.service';
 import { PrismaService } from '../prisma/prisma.service';
@@ -15,6 +16,7 @@ const prisma = {
   userCharacter: {
     findUnique: jest.fn(),
     create: jest.fn(),
+    upsert: jest.fn(),
   },
 } as unknown as PrismaService;
 
@@ -49,12 +51,16 @@ describe('AuthService', () => {
   };
 
   it('register：用户名已存在抛 409', async () => {
-    (prisma.user.findUnique as jest.Mock).mockResolvedValue(userRow);
+    (prisma.user.create as jest.Mock).mockRejectedValue(
+      new Prisma.PrismaClientKnownRequestError('unique constraint', {
+        code: 'P2002',
+        clientVersion: '6.2.1',
+      }),
+    );
     await expect(auth.register('alice', 'pass123456')).rejects.toThrow(ConflictException);
   });
 
   it('register：新用户创建并返回 token 与 user', async () => {
-    (prisma.user.findUnique as jest.Mock).mockResolvedValue(null);
     (prisma.user.create as jest.Mock).mockImplementation(async ({ data }) => ({
       ...userRow,
       username: data.username,
@@ -94,27 +100,25 @@ describe('AuthService', () => {
   });
 
   it('initCharacter：仅首次创建三围，重复调用不覆盖', async () => {
-    // 首次：无角色 → 创建
-    (prisma.userCharacter.findUnique as jest.Mock).mockResolvedValue(null);
-    (prisma.userCharacter.create as jest.Mock).mockResolvedValue({});
+    // 首次：无角色 → upsert create 生效
+    (prisma.userCharacter.upsert as jest.Mock).mockResolvedValue({});
     (prisma.user.findUnique as jest.Mock).mockResolvedValue({
       ...userRow,
       character: { level: 1, hpLv: 2, atkLv: 3, defLv: 1 },
     });
     const u = await auth.initCharacter(1, 2, 3, 1);
-    expect(prisma.userCharacter.create).toHaveBeenCalled();
+    expect(prisma.userCharacter.upsert).toHaveBeenCalled();
     expect(u.character?.hpLv).toBe(2);
     expect(u.character?.atkLv).toBe(3);
 
-    // 二次：已有角色 → 不覆盖
-    (prisma.userCharacter.create as jest.Mock).mockClear();
-    (prisma.userCharacter.findUnique as jest.Mock).mockResolvedValue({ id: 1 });
+    // 二次：已有角色 → upsert update: {} 不覆盖
+    (prisma.userCharacter.upsert as jest.Mock).mockClear();
     (prisma.user.findUnique as jest.Mock).mockResolvedValue({
       ...userRow,
       character: { level: 5, hpLv: 5, atkLv: 5, defLv: 5 },
     });
     const again = await auth.initCharacter(1, 1, 1, 1);
-    expect(prisma.userCharacter.create).not.toHaveBeenCalled();
+    expect(prisma.userCharacter.upsert).toHaveBeenCalled();
     expect(again.character?.hpLv).toBe(5);
   });
 

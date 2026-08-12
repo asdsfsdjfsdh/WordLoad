@@ -27,6 +27,7 @@ export function saveAuth(auth: StoredAuth): void {
 }
 
 export function clearAuth(): void {
+  refreshInFlight = null;
   localStorage.removeItem(STORAGE_KEY);
 }
 
@@ -60,21 +61,27 @@ async function request<T>(
   path: string,
   init?: RequestInit & { token?: string; noRefresh?: boolean },
 ): Promise<T> {
-  const auth = loadAuth();
-  const token = init?.token ?? auth?.accessToken;
-  const res = await fetch(`${BASE}${path}`, {
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...(init?.headers ?? {}),
-    },
-  });
+  let retried = false;
+  const doFetch = async (): Promise<Response> => {
+    const auth = loadAuth();
+    const token = retried ? undefined : (init?.token ?? auth?.accessToken);
+    return fetch(`${BASE}${path}`, {
+      ...init,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...(init?.headers ?? {}),
+      },
+    });
+  };
 
-  if (res.status === 401 && auth?.refreshToken && !init?.noRefresh) {
-    // 尝试 refresh 一次（所有并发请求共享同一刷新）
+  let res = await doFetch();
+  if (res.status === 401 && !init?.noRefresh && loadAuth()?.refreshToken) {
     const ok = await refreshOnce();
-    if (ok) return request<T>(path, { ...init, noRefresh: true });
+    if (ok) {
+      retried = true;
+      res = await doFetch();
+    }
   }
   if (!res.ok) {
     let msg = `请求失败(${res.status})`;

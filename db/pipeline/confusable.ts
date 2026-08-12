@@ -44,21 +44,20 @@ export function normalizePhonetic(p: string | null): string {
 }
 
 // 词族后缀变体：互有派生关系（y/ly/er/or/ed/ing/s/es/ion 等）的词排除，避免噪音
+// 遍历所有后缀，检查去掉后缀后的词干是否匹配
 const FAMILY_SUFFIXES = ['y', 'ly', 'er', 'or', 'ed', 'ing', 's', 'es', 'ies', 'ied', 'ion', 'ation', 'ition', 'ment', 'ness', 'ful', 'less', 'able', 'ible', 'al', 'ive', 'ous', 'ize', 'ise'];
-
-function removeFamilySuffix(w: string): string {
-  for (const suf of FAMILY_SUFFIXES) {
-    if (w.length > suf.length + 3 && w.endsWith(suf)) return w.slice(0, -suf.length);
-  }
-  return '';
-}
 
 function isFamilyVariant(a: string, b: string): boolean {
   if (Math.abs(a.length - b.length) !== 1) return false;
   const longer = a.length > b.length ? a : b;
   const shorter = a.length > b.length ? b : a;
   if (!longer.startsWith(shorter)) return false;
-  return removeFamilySuffix(longer) === shorter;
+  for (const suf of FAMILY_SUFFIXES) {
+    if (longer.length > suf.length + 3 && longer.endsWith(suf)) {
+      if (longer.slice(0, -suf.length) === shorter) return true;
+    }
+  }
+  return false;
 }
 
 // 形近候选：同长或长度差≤2，编辑距离阈值内，排除词族变体

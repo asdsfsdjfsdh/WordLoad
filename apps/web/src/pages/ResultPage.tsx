@@ -1,6 +1,9 @@
+import { useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import type { SessionFinish } from '@word-journey/shared';
 import { useAuth } from '../store/auth';
+
+const RESULT_KEY = 'wj-last-result';
 
 const ratingColor: Record<string, string> = {
   C: 'text-slate-400',
@@ -11,12 +14,43 @@ const ratingColor: Record<string, string> = {
   SSS: 'text-amber-400',
 };
 
+const tierNames: Record<number, string> = { 1: '普通精华', 2: '稀有精华', 3: '史诗精华', 4: '传说精华' };
+
+function isValidSessionFinish(v: unknown): v is SessionFinish {
+  if (!v || typeof v !== 'object') return false;
+  const r = v as Record<string, unknown>;
+  return typeof r.rating === 'string' && typeof r.xp === 'number';
+}
+
+function parseResult(): SessionFinish | null {
+  try {
+    if (typeof window === 'undefined') return null;
+    const raw = sessionStorage.getItem(RESULT_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as unknown;
+    return isValidSessionFinish(parsed) ? parsed : null;
+  } catch { return null; }
+}
+
 export function ResultPage() {
   const location = useLocation();
-  const result = location.state as SessionFinish | null;
+  const routeState = location.state as unknown;
+  const result: SessionFinish | null = useMemo(() => {
+    if (isValidSessionFinish(routeState)) {
+      sessionStorage.setItem(RESULT_KEY, JSON.stringify(routeState));
+      return routeState;
+    }
+    return parseResult();
+  }, [routeState]);
   const { refreshUser } = useAuth();
 
-  if (result) void refreshUser();
+  useEffect(() => {
+    if (result) { refreshUser().catch(() => { /* 静默忽略刷新失败 */ }); }
+  }, [result, refreshUser]);
+
+  useEffect(() => {
+    return () => { sessionStorage.removeItem(RESULT_KEY); };
+  }, []);
 
   if (!result) {
     return (
@@ -50,7 +84,7 @@ export function ResultPage() {
             {result.drops.map((d) => (
               <div key={d.materialCode} className="flex items-center justify-between text-sm">
                 <span className="text-slate-200">
-                  {['', '普通精华', '稀有精华', '史诗精华', '传说精华'][d.tier]}
+                  {tierNames[d.tier] ?? '未知材料'}
                 </span>
                 <span className="text-amber-400">×{d.count}</span>
               </div>

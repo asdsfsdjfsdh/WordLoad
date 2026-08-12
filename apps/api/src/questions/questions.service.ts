@@ -1,10 +1,13 @@
-// 出题服务：读词书阶段词池 → 按比例抽词 → 义项轮换 → 易混补抽 → 生成 Question 列表
+// 出题服务：读词书阶段词池 → 按关卡固定词集 → 义项轮换 → 易混补抽 → 生成 Question 列表
 import { Injectable, NotFoundException } from '@nestjs/common';
-import type { DifficultyTier, GameMode, Question, Session } from '@word-journey/shared';
+import type { DifficultyTier, GameMode, LevelWord, Question, Session } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
-import { allocMix, buildQuestion, rotateSense } from './question-builder';
+import { buildQuestion, rotateSense } from './question-builder';
 
-const SESSION_SIZE = 30;
+// 默认会题数：一关固定词集 + 复习/错题补抽
+const DEFAULT_SESSION_SIZE = 30;
+// 每关固定词量：关卡系统保证全词覆盖（一关 = 固定词集的一次战斗）
+export const LEVEL_SIZE = 20;
 
 // 出题结果：会话 + 每题来源标记（结算落库用）
 export interface SessionPlan {
@@ -33,20 +36,43 @@ interface PoolWord {
 export class QuestionsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  // 生成一次战斗会话的完整题目（不落库，落库归结算模块）
+  // 标记单词为已掌握（一键斩）：设为 mastery 100，不再出题
+  async skipWord(userId: number, wordId: string): Promise<void> {
+    const now = new Date();
+    await this.prisma.userWordProgress.upsert({
+      where: { userId_wordId: { userId, wordId } },
+      create: {
+        userId, wordId,
+        mastery: 100, reviewStage: 6,
+        correctCount: 1, inVocabBook: true,
+        firstEncounteredAt: now, lastEncounteredAt: now,
+      },
+      update: {
+        mastery: 100, reviewStage: 6,
+        lastEncounteredAt: now,
+      },
+    });
+  }
+
+  // 生成一次战斗会话的完整题目（从阶段词池动态抽词：未学优先 + 到期复习 + 错题本补齐）
   async buildSession(opts: {
     userId: number;
     bankCode: string;
     stageId: number;
     mode: GameMode;
+    size?: number;
+    wordIds?: string[];
   }): Promise<SessionPlan> {
     const { userId, bankCode, stageId, mode } = opts;
+    const sessionSize = Math.min(60, Math.max(10, opts.size ?? 20));
 
     const bank = await this.prisma.wordBank.findUnique({ where: { code: bankCode } });
     if (!bank) throw new NotFoundException(`词书不存在: ${bankCode}`);
 
+    // 阶段词池：按难度升序（易→难）保证关卡分区确定、进度由易到难
     const pool = (await this.prisma.bankWord.findMany({
       where: { bankId: bank.id, stage: stageId },
+      orderBy: [{ word: { difficultyScore: 'asc' } }, { wordId: 'asc' }],
       include: {
         word: {
           include: {
@@ -59,78 +85,68 @@ export class QuestionsService {
     })) as PoolWord[];
     if (pool.length === 0) throw new NotFoundException(`阶段 ${stageId} 无词池`);
 
-    // 词级进度 → 划分新词 / 复习 / 错题本
+    // 词级进度 → 划分未学 / 复习 / 错题本（仅加载本阶段词池相关进度）
+    const poolWordIds = pool.map((w) => w.wordId);
     const progress = await this.prisma.userWordProgress.findMany({
-      where: { userId },
+      where: { userId, wordId: { in: poolWordIds } },
     });
     const progressByWord = new Map(progress.map((p) => [p.wordId, p]));
 
-    const fresh: typeof pool = [];
-    const review: typeof pool = [];
-    const wrongbook: typeof pool = [];
-    for (const bw of pool) {
+    // 分类函数（if/else 分支共用）
+    const classify = (bw: PoolWord): 'new' | 'review' | 'wrongbook' => {
       const p = progressByWord.get(bw.wordId);
-      if (p?.inWrongBook) wrongbook.push(bw);
-      else if (p && p.reviewStage > 0) review.push(bw);
-      else fresh.push(bw);
-    }
-
-    // SRS 掺入：复习池按到期优先（nextReviewAt 越早越优先，未到期最后）
-    const dueFirst = (bw: (typeof pool)[number]): number => {
-      const p = progressByWord.get(bw.wordId);
-      if (!p?.nextReviewAt) return 0;
-      return p.nextReviewAt.getTime() - Date.now();
-    };
-    review.sort((a, b) => dueFirst(a) - dueFirst(b));
-
-    // 空白池兜底：错题本空则补新词
-    const mix = allocMix(SESSION_SIZE);
-    let { new: n, review: r, wrongbook: wb } = mix;
-    if (wrongbook.length === 0) {
-      wb = 0;
-      n += mix.wrongbook;
-    }
-    if (review.length === 0) {
-      r = 0;
-      n += mix.review;
-    }
-
-    const pick = <T>(arr: T[], k: number): T[] => {
-      const c = [...arr];
-      shuffle(c);
-      return c.slice(0, k);
+      if (p?.inWrongBook) return 'wrongbook';
+      if (p && p.reviewStage > 0) return 'review';
+      return 'new';
     };
 
-    // 复习池：优先取已到期（nextReviewAt <= now）的词，不足则取最早
-    const pickReview = (k: number): PoolWord[] => {
-      if (k <= 0) return [];
-      const now = Date.now();
-      const overdue = review.filter((bw) => {
+    // 如果提供了 wordIds，优先使用指定词（确保战斗单词和预习一致）
+    let chosen: PoolWord[];
+    if (opts.wordIds && opts.wordIds.length > 0) {
+      const wordIdSet = new Set(opts.wordIds);
+      chosen = pool.filter((bw) => wordIdSet.has(bw.wordId));
+      if (chosen.length < sessionSize) {
+        const chosenIdSet = new Set(chosen.map((c) => c.wordId));
+        const fill = pool.filter((bw) => !chosenIdSet.has(bw.wordId));
+        chosen = [...chosen, ...fill.slice(0, sessionSize - chosen.length)];
+      }
+    } else {
+      // 按 7:2:1 比例抽词：新词 70% / 复习 20% / 错题 10%
+      const dueFirst = (bw: PoolWord): number => {
         const p = progressByWord.get(bw.wordId);
-        return p?.nextReviewAt && p.nextReviewAt.getTime() <= now;
-      });
-      const source = overdue.length >= k ? overdue : review;
-      return pick(source, k);
-    };
+        if (!p?.nextReviewAt) return 0;
+        return p.nextReviewAt.getTime() - Date.now();
+      };
 
-    const chosen: typeof pool = [
-      ...pick(wrongbook, wb),
-      ...pickReview(r),
-      ...pick(fresh, n),
-    ];
-    shuffle(chosen);
+      const newPool = [...pool.filter((bw) => classify(bw) === 'new')].sort(() => Math.random() - 0.5);
+      const reviewPool = pool.filter((bw) => classify(bw) === 'review').sort((a, b) => dueFirst(a) - dueFirst(b));
+      const wrongPool = [...pool.filter((bw) => classify(bw) === 'wrongbook')].sort(() => Math.random() - 0.5);
+
+      const wantNew = Math.round(sessionSize * 0.7);
+      const wantReview = Math.round(sessionSize * 0.2);
+      let wantWrong = sessionSize - wantNew - wantReview;
+
+      const takeNew = Math.min(wantNew, newPool.length);
+      const takeReview = Math.min(wantReview, reviewPool.length);
+      let takeWrong = Math.min(wantWrong, wrongPool.length);
+
+      // 某类不够时，缺口由新词补足（其次复习）
+      let deficit = (wantNew - takeNew) + (wantReview - takeReview) + (wantWrong - takeWrong);
+      const extraNew = Math.min(deficit, newPool.length - takeNew);
+      deficit -= extraNew;
+      const extraReview = Math.min(deficit, reviewPool.length - takeReview);
+      deficit -= extraReview;
+      takeWrong += deficit; // 最后缺口由错题兜底
+
+      chosen = [
+        ...newPool.slice(0, takeNew + extraNew),
+        ...reviewPool.slice(0, takeReview + extraReview),
+        ...wrongPool.slice(0, takeWrong),
+      ];
+    }
 
     // 记录每题来源（结算时写 item.type）
-    const sourceOf = new Map<string, 'new' | 'review' | 'wrongbook'>(
-      [...fresh, ...review, ...wrongbook].map((bw) => [
-        bw.wordId,
-        fresh.includes(bw)
-          ? 'new'
-          : review.includes(bw)
-            ? 'review'
-            : 'wrongbook',
-      ]),
-    );
+    const sourceOf = new Map(chosen.map((bw) => [bw.wordId, classify(bw)]));
 
     // 词对索引：同关内互为易混补抽候选
     const pairIndex = new Map<string, { counterpart: string; note: string }>();
@@ -207,7 +223,6 @@ export class QuestionsService {
       const senses = w.senses;
       const senseIdx = senseIdxOfQuestion[seq] ?? 0;
       const sense = senses[senseIdx] ?? senses[0];
-      const confusable = pairIndex.get(w.text);
       const promptBase =
         mode === 'dictation' ? (w.phoneticAm ?? w.phoneticEn ?? '') : (sense?.meaning ?? w.text);
       return buildQuestion({
@@ -217,9 +232,9 @@ export class QuestionsService {
         text: w.text,
         promptBase,
         example: sense?.example,
+        phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
         tier: w.tier as DifficultyTier,
         mode,
-        confusable,
       });
     });
 
@@ -241,14 +256,109 @@ export class QuestionsService {
       items,
     };
   }
+
+  // 阶段词池预览：战斗前的学习页数据（未学词优先，含学习状态）
+  async listStageWords(opts: {
+    bankCode: string;
+    stageId: number;
+    size?: number;
+    userId?: number;
+  }): Promise<LevelWord[]> {
+    const { bankCode, stageId, size = 30, userId } = opts;
+    const bank = await this.prisma.wordBank.findUnique({ where: { code: bankCode } });
+    if (!bank) throw new NotFoundException(`词书不存在: ${bankCode}`);
+
+    const pool = (await this.prisma.bankWord.findMany({
+      where: { bankId: bank.id, stage: stageId },
+      include: {
+        word: {
+          include: {
+            senses: { orderBy: { idx: 'asc' } },
+          },
+        },
+      },
+    })) as {
+      wordId: string;
+      word: { id: string; text: string; phoneticAm: string | null; phoneticEn: string | null; tier: string; senses: { meaning: string; example: string }[] };
+    }[];
+    if (pool.length === 0) throw new NotFoundException(`阶段 ${stageId} 无词池`);
+
+    // 查询用户进度以确定每个词的状态和排序优先级
+    let progressByWord = new Map<string, { reviewStage: number; inWrongBook: boolean; mastery: number; nextReviewAt: Date | null }>();
+    if (userId) {
+      const progress = await this.prisma.userWordProgress.findMany({
+        where: { userId, wordId: { in: pool.map((p) => p.wordId) } },
+      });
+      progressByWord = new Map(progress.map((p) => [p.wordId, p]));
+    }
+
+    const statusOf = (wordId: string): LevelWord['status'] => {
+      const p = progressByWord.get(wordId);
+      if (!p) return 'new';
+      if (p.mastery >= 100) return 'mastered';
+      if (p.inWrongBook) return 'wrongbook';
+      if (p.reviewStage > 0) return 'review';
+      return 'new';
+    };
+
+    // 排序：未学/错题优先 → 复习次之 → 已掌握最后，同类内随机
+    const sorted = [...pool].sort((a, b) => {
+      const priority = { new: 0, wrongbook: 0, review: 1, mastered: 2 } as const;
+      const pa = priority[statusOf(a.wordId)];
+      const pb = priority[statusOf(b.wordId)];
+      return pa - pb || Math.random() - 0.5;
+    });
+
+    return sorted.slice(0, size).map((bw) => ({
+      wordId: bw.word.id,
+      text: bw.word.text,
+      phonetic: bw.word.phoneticAm ?? bw.word.phoneticEn ?? undefined,
+      tier: bw.word.tier,
+      status: statusOf(bw.wordId),
+      meanings: bw.word.senses.map((s) => ({ meaning: s.meaning, example: s.example })),
+    }));
+  }
+
+  // 获取一个替换词（斩之后补词用）
+  async getReplacementWord(
+    bankCode: string,
+    stageId: number,
+    excludeIds: string[],
+    userId?: number,
+  ): Promise<LevelWord | null> {
+    const bank = await this.prisma.wordBank.findUnique({ where: { code: bankCode } });
+    if (!bank) throw new NotFoundException('词书不存在');
+
+    const row = await this.prisma.bankWord.findFirst({
+      where: { bankId: bank.id, stage: stageId, wordId: { notIn: excludeIds } },
+      include: { word: { include: { senses: { orderBy: { idx: 'asc' } } } } },
+    });
+    if (!row) return null;
+
+    let status: LevelWord['status'] = 'new';
+    if (userId) {
+      const p = await this.prisma.userWordProgress.findUnique({
+        where: { userId_wordId: { userId, wordId: row.wordId } },
+        select: { reviewStage: true, inWrongBook: true, mastery: true },
+      });
+      if (p) {
+        if (p.mastery >= 100) status = 'mastered';
+        else if (p.inWrongBook) status = 'wrongbook';
+        else if (p.reviewStage > 0) status = 'review';
+      }
+    }
+    return {
+      wordId: row.word.id,
+      text: row.word.text,
+      phonetic: row.word.phoneticAm ?? row.word.phoneticEn ?? undefined,
+      tier: row.word.tier,
+      status,
+      meanings: row.word.senses.map((s) => ({ meaning: s.meaning, example: s.example })),
+    };
+  }
 }
 
-function shuffle<T>(arr: T[]): void {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const a = arr[i] as T;
-    const b = arr[j] as T;
-    arr[i] = b;
-    arr[j] = a;
-  }
+// 关卡数：按每关固定词量向上取整
+export function levelCountOf(wordCount: number): number {
+  return Math.max(1, Math.ceil(wordCount / LEVEL_SIZE));
 }

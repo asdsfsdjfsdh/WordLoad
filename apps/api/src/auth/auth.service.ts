@@ -4,23 +4,28 @@ import {
   HttpException,
   HttpStatus,
   Injectable,
+  OnModuleDestroy,
+  OnModuleInit,
   UnauthorizedException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 import * as crypto from 'node:crypto';
+import { Prisma } from '@prisma/client';
 import type { AuthTokens, AuthUser } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 
 const BCRYPT_ROUNDS = 10;
 const LOGIN_MAX_FAILS = 10;
 const LOGIN_WINDOW_MS = 15 * 60 * 1000;
+const FAIL_CLEANUP_INTERVAL_MS = 5 * 60 * 1000;
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnModuleInit, OnModuleDestroy {
   // 进程内登录失败计数（单实例足够；多实例需换 Redis，v1.1）
   private readonly failTimes = new Map<string, number[]>();
+  private cleanupTimer: ReturnType<typeof setInterval> | null = null;
 
   constructor(
     private readonly prisma: PrismaService,
@@ -28,12 +33,28 @@ export class AuthService {
     private readonly config: ConfigService,
   ) {}
 
+  onModuleInit(): void {
+    this.cleanupTimer = setInterval(() => {
+      const now = Date.now();
+      for (const [key, times] of this.failTimes) {
+        const recent = times.filter((t) => now - t < LOGIN_WINDOW_MS);
+        if (recent.length === 0) this.failTimes.delete(key);
+        else this.failTimes.set(key, recent);
+      }
+    }, FAIL_CLEANUP_INTERVAL_MS);
+  }
+
+  onModuleDestroy(): void {
+    if (this.cleanupTimer) clearInterval(this.cleanupTimer);
+  }
+
   // access token：负载仅含 userId / username，TTL 短
   private signAccess(userId: number, username: string): string {
-    const ttl = (this.config.get<string>('JWT_ACCESS_TTL') ?? '15m') as unknown as number;
+    const ttl = this.config.get<string>('JWT_ACCESS_TTL') ?? '15m';
     return this.jwt.sign(
       { sub: userId, username },
-      { secret: this.config.get<string>('JWT_ACCESS_SECRET'), expiresIn: ttl },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      { secret: this.config.get<string>('JWT_ACCESS_SECRET'), expiresIn: ttl as any },
     );
   }
 
@@ -93,33 +114,38 @@ export class AuthService {
   }
 
   async register(username: string, password: string): Promise<AuthTokens & { user: AuthUser }> {
-    const exists = await this.prisma.user.findUnique({ where: { username } });
-    if (exists) throw new ConflictException('用户名已存在');
     const passwordHash = await bcrypt.hash(password, BCRYPT_ROUNDS);
-    const user = await this.prisma.user.create({
-      data: { username, passwordHash },
-      include: { character: true },
-    });
-    return {
-      user: this.toAuthUser(user),
-      accessToken: this.signAccess(user.id, user.username),
-      refreshToken: await this.issueRefresh(user.id),
-    };
+    try {
+      const user = await this.prisma.user.create({
+        data: { username, passwordHash },
+        include: { character: true },
+      });
+      return {
+        user: this.toAuthUser(user),
+        accessToken: this.signAccess(user.id, user.username),
+        refreshToken: await this.issueRefresh(user.id),
+      };
+    } catch (err) {
+      if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
+        throw new ConflictException('用户名已存在');
+      }
+      throw err;
+    }
   }
 
   async login(username: string, password: string): Promise<AuthTokens & { user: AuthUser }> {
     this.assertAllowed(username);
+    // 先记录失败（防止并发竞态），成功时清除
+    this.recordFail(username);
     const user = await this.prisma.user.findUnique({
       where: { username },
       include: { character: true },
     });
     if (!user) {
-      this.recordFail(username);
       throw new UnauthorizedException('用户名或密码错误');
     }
     const ok = await bcrypt.compare(password, user.passwordHash);
     if (!ok) {
-      this.recordFail(username);
       throw new UnauthorizedException('用户名或密码错误');
     }
     this.clearFails(username);
@@ -160,12 +186,11 @@ export class AuthService {
     atkLv = 1,
     defLv = 1,
   ): Promise<AuthUser> {
-    const existing = await this.prisma.userCharacter.findUnique({ where: { userId } });
-    if (!existing) {
-      await this.prisma.userCharacter.create({
-        data: { userId, hpLv, atkLv, defLv },
-      });
-    }
+    await this.prisma.userCharacter.upsert({
+      where: { userId },
+      update: {},
+      create: { userId, hpLv, atkLv, defLv },
+    });
     return this.me(userId);
   }
 }

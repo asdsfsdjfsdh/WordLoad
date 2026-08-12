@@ -7,6 +7,7 @@ import { StageMapPage } from './pages/StageMapPage';
 import { BattlePage } from './pages/BattlePage';
 import { ResultPage } from './pages/ResultPage';
 import { CharacterPage } from './pages/CharacterPage';
+import { CollectionsPage } from './pages/CollectionsPage';
 
 // 登录守卫：未登录重定向到 /login
 function RequireAuth({ children }: { children: ReactNode }) {
@@ -26,11 +27,9 @@ function RedirectIfAuthed({ children }: { children: ReactNode }) {
 }
 
 export function App() {
-  const restore = useAuth((s) => s.restore);
-
   useEffect(() => {
-    void restore();
-  }, [restore]);
+    useAuth.getState().restore();
+  }, []);
 
   return (
     <Routes>
@@ -82,7 +81,15 @@ export function App() {
           </RequireAuth>
         }
       />
-      <Route path="*" element={<Navigate to="/lobby" replace />} />
+      <Route
+        path="/collections"
+        element={
+          <RequireAuth>
+            <CollectionsPage />
+          </RequireAuth>
+        }
+      />
+      <Route path="*" element={<RequireAuth><Navigate to="/lobby" replace /></RequireAuth>} />
     </Routes>
   );
 }

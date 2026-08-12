@@ -124,10 +124,17 @@ async function main(): Promise<void> {
   if (opts.force) {
     await prisma.$transaction([
       prisma.bankWord.deleteMany({ where: { bankId: bank.id } }),
+      prisma.wordPair.deleteMany({
+        where: {
+          OR: [
+            { wordA: { bankWords: { none: {} } } },
+            { wordB: { bankWords: { none: {} } } },
+          ],
+        },
+      }),
+      prisma.wordSense.deleteMany({ where: { word: { bankWords: { none: {} } } } }),
+      prisma.word.deleteMany({ where: { bankWords: { none: {} } } }),
     ]);
-    await prisma.wordPair.deleteMany({});
-    await prisma.wordSense.deleteMany({ where: { word: { bankWords: { none: {} } } } });
-    await prisma.word.deleteMany({ where: { bankWords: { none: {} } } });
   }
 
   let inserted = 0;
@@ -142,6 +149,13 @@ async function main(): Promise<void> {
       if (existing && !opts.force) {
         const hasSenses = await prisma.wordSense.count({ where: { wordId: existing.id } });
         if (hasSenses > 0) {
+          // bankWord 关联仍需建立/更新（非 force 模式下词可能属于新词书）
+          const stage = stageForTier(item.difficulty.tier);
+          await prisma.bankWord.upsert({
+            where: { bankId_wordId: { bankId: bank.id, wordId: existing.id } },
+            update: { stage },
+            create: { bankId: bank.id, wordId: existing.id, stage },
+          });
           skipped++;
           continue;
         }

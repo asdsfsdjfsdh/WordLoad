@@ -29,12 +29,21 @@ export class SessionsService {
   ) {}
 
   // 创建会话并落库（题目与来源一并持久化），返回 sessionId
-  async createSession(opts: { userId: number; bankCode: string; stageId: number; mode: string }) {
+  async createSession(opts: {
+    userId: number;
+    bankCode: string;
+    stageId: number;
+    mode: string;
+    size?: number;
+    wordIds?: string[];
+  }) {
     const plan: SessionPlan = await this.questions.buildSession({
       userId: opts.userId,
       bankCode: opts.bankCode,
       stageId: opts.stageId,
       mode: opts.mode as 'zh2en' | 'dictation',
+      size: opts.size,
+      wordIds: opts.wordIds,
     });
 
     const bank = await this.prisma.wordBank.findUnique({
@@ -77,7 +86,7 @@ export class SessionsService {
       include: { items: { orderBy: { seq: 'asc' } } },
     });
     if (!session || session.userId !== userId) throw new UnauthorizedException('会话不存在');
-    // 幂等保护：已结算的会话禁止重复提交（防刷 XP/金币/材料）
+    // 预防快速虚假结算（事务内仍有乐观锁兜底防并发）
     if (session.result) throw new BadRequestException('会话已结算');
 
     // 用真实词集合 + 现有义项数校验 senseIdx 上限；typed 提供时以服务端比对结果为准
@@ -119,21 +128,9 @@ export class SessionsService {
 
     const rating = computeRating({ total, correct, avgElapsedMs, perfectBonus });
     const xp = ratingExp(rating);
-    const coins = computeCoins(
-      session.items.map((it) => ({
-        seq: it.seq,
-        correct: resolveCorrect(it),
-        elapsedMs: answerBySeq.get(it.seq)?.elapsedMs ?? 0,
-      })),
-      rating,
-    );
+    const coins = computeCoins(itemUpdates, rating);
     const drops = rollDrops(rating);
 
-    // 批量预取当前词级进度（事务外只读，事务内 upsert 原子化）
-    const curProgress = await this.prisma.userWordProgress.findMany({
-      where: { userId, wordId: { in: wordIds } },
-    });
-    const curByWord = new Map(curProgress.map((p) => [p.wordId, p]));
     const materialIdByCode = new Map(
       (
         await this.prisma.material.findMany({
@@ -144,8 +141,9 @@ export class SessionsService {
 
     // 单个事务完成：会话/逐题 + 词级&义项级 SRS + 角色/金币/材料（失败整体回滚）
     const { newMastered, mastered } = await this.prisma.$transaction(async (tx) => {
-      await tx.learningSession.update({
-        where: { id: session.id },
+      // 乐观锁防并发重复结算：仅 result=false 的行更新成功
+      const updated = await tx.learningSession.updateMany({
+        where: { id: session.id, result: false },
         data: {
           result: true,
           rating,
@@ -156,6 +154,13 @@ export class SessionsService {
           bossCleared: perfectBonus,
         },
       });
+      if (updated.count === 0) throw new BadRequestException('会话已结算');
+
+      // 事务内读取词级进度，避免并发结算使用过时状态
+      const curProgress = await tx.userWordProgress.findMany({
+        where: { userId, wordId: { in: wordIds } },
+      });
+      const curByWord = new Map(curProgress.map((p) => [p.wordId, p]));
 
       await Promise.all(
         itemUpdates.map((u) =>
@@ -200,6 +205,8 @@ export class SessionsService {
             reviewStage: srs.reviewStage,
             nextReviewAt: nextOrNull,
             ease: srs.ease,
+            firstEncounteredAt: new Date(now),
+            lastEncounteredAt: new Date(now),
           },
           update: {
             correctCount: { increment: correctNow ? 1 : 0 },
@@ -210,6 +217,8 @@ export class SessionsService {
             reviewStage: srs.reviewStage,
             nextReviewAt: nextOrNull,
             ease: srs.ease,
+            firstEncounteredAt: cur ? undefined : new Date(now), // 仅在首次时设置
+            lastEncounteredAt: new Date(now),
           },
         });
 
@@ -268,7 +277,7 @@ export class SessionsService {
       rating,
       xp,
       coins,
-      drops: drops.map((d) => ({ materialCode: d.materialCode, tier: d.tier as 1 | 2 | 3 | 4, count: d.count })),
+      drops: drops.map((d) => ({ materialCode: d.materialCode, tier: d.tier, count: d.count })),
       newMastered,
       reviewedWords: total,
       progressDelta: total ? mastered.length / total : 0,

@@ -16,8 +16,10 @@ export function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      if (mode === 'login') await login(username, password);
-      else await register(username, password);
+      const u = username.trim();
+      const p = password.trim();
+      if (mode === 'login') await login(u, p);
+      else await register(u, p);
       navigate('/lobby');
     } catch (err) {
       setError(err instanceof Error ? err.message : '操作失败');

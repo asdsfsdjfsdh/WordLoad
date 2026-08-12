@@ -88,11 +88,15 @@ export async function ensureVoiceAvailable(timeoutMs = 2000): Promise<boolean> {
   if (hasEnglish()) return true;
   return new Promise((resolve) => {
     const synth = window.speechSynthesis;
+    let resolved = false;
     const done = (ok: boolean): void => {
+      if (resolved) return;
+      resolved = true;
       synth.onvoiceschanged = null;
+      clearTimeout(tid);
       resolve(ok);
     };
     synth.onvoiceschanged = () => done(hasEnglish());
-    setTimeout(() => done(hasEnglish()), timeoutMs);
+    const tid = setTimeout(() => done(hasEnglish()), timeoutMs);
   });
 }

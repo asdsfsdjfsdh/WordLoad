@@ -20,7 +20,7 @@ async function main(): Promise<void> {
 
   const texts = words.map((w) => w.text.toLowerCase());
 
-  const ortho = findOrthographicPairs(texts, { maxDistance: 1, minLength: 4 });
+  const ortho = findOrthographicPairs(texts, { maxDistance: 2, minLength: 4 });
   console.log(`[confusable] 形近候选: ${ortho.length}`);
 
   // 音近：优先用英式音标，缺则美式

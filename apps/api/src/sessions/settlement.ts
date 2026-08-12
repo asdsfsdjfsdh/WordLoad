@@ -19,7 +19,12 @@ export interface ReviewState {
 export function srsSchedule(state: ReviewState | null, correct: boolean): ReviewState {
   const ease = (state?.ease ?? 2.5) + (correct ? 0.1 : -0.5);
   const clamped = Math.min(Math.max(ease, 1.3), 2.8);
-  if (!correct) return { reviewStage: 1, ease: clamped };
+  if (!correct) {
+    // 阶梯降级而非归零：错一次降 2 级（不低于 1），避免“前功尽弃”
+    const prevStage = state?.reviewStage ?? 0;
+    const newStage = Math.max(1, prevStage - 2);
+    return { reviewStage: newStage, ease: clamped };
+  }
   const stage = (state?.reviewStage ?? 0) + 1;
   return { reviewStage: stage, ease: clamped };
 }
@@ -71,11 +76,11 @@ export function computeCoins(answers: AnswerInput[], rating: Rating): number {
 // 掉落：评级越高掉稀有材料概率越大（材料 tier 1~4）
 export interface Drop {
   materialCode: string;
-  tier: number;
+  tier: 1 | 2 | 3 | 4;
   count: number;
 }
 
-export const MATERIAL_TIERS: { tier: number; name: string; code: string }[] = [
+export const MATERIAL_TIERS: { tier: 1 | 2 | 3 | 4; name: string; code: string }[] = [
   { tier: 1, name: '普通精华', code: 'essence_1' },
   { tier: 2, name: '稀有精华', code: 'essence_2' },
   { tier: 3, name: '史诗精华', code: 'essence_3' },

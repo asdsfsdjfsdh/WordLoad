@@ -1,4 +1,4 @@
-// 词书与阶段：大厅列表 + 阶段地图（tier / 词数 / 解锁状态 / 最佳评级）
+// 词书与阶段：大厅列表 + 阶段地图（tier / 关卡 / 解锁状态 / 最佳评级）
 import { Injectable, NotFoundException } from '@nestjs/common';
 import type { Bank, DifficultyTier, Rating, StageInfo } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
@@ -20,14 +20,17 @@ export class BanksService {
     }
 
     // 掌握/待复习：按词书聚合（词→词书 归属映射）
+    const allWordIds = [...new Set(banks.flatMap((b) => b.bankWords.map((bw) => bw.wordId)))];
     const progress = await this.prisma.userWordProgress.findMany({
-      where: { userId },
+      where: { userId, wordId: { in: allWordIds } },
       select: { wordId: true, mastery: true, nextReviewAt: true },
     });
     const masteredByBank = new Map<number, number>();
     const dueByBank = new Map<number, number>();
+    const progressByWord = new Map<string, { mastery: number; nextReviewAt: Date | null }>();
     for (const p of progress) {
       const bid = bankOfWord.get(p.wordId);
+      progressByWord.set(p.wordId, p);
       if (bid === undefined) continue;
       if (p.mastery >= 100) masteredByBank.set(bid, (masteredByBank.get(bid) ?? 0) + 1);
       if (p.nextReviewAt && p.nextReviewAt.getTime() <= Date.now())
@@ -44,24 +47,31 @@ export class BanksService {
       learnedByBank.set(s.bankId, (learnedByBank.get(s.bankId) ?? 0) + s._count.items);
     }
 
-    // 每个词书：已结算过的 stage 集合（用于解锁链）
-    const clearedByBank = new Map<number, Set<number>>();
-    const sessions = await this.prisma.learningSession.findMany({
-      where: { userId },
-      select: { bankId: true, stageId: true },
-    });
-    for (const s of sessions) {
-      const set = clearedByBank.get(s.bankId) ?? new Set<number>();
-      set.add(s.stageId);
-      clearedByBank.set(s.bankId, set);
-    }
-
     return banks.map((b) => {
       const stageIds = [...new Set(b.bankWords.map((bw) => bw.stage))].sort((x, y) => x - y);
-      const cleared = clearedByBank.get(b.id) ?? new Set<number>();
+      // 每个阶段：wordId 集合 + 已遇词计数
+      const wordsByStage = new Map<number, Set<string>>();
+      for (const bw of b.bankWords) {
+        const set = wordsByStage.get(bw.stage) ?? new Set<string>();
+        set.add(bw.wordId);
+        wordsByStage.set(bw.stage, set);
+      }
       let unlocked = 0;
       for (let i = 0; i < stageIds.length; i++) {
-        if (i > 0 && !cleared.has(stageIds[i - 1] as number)) break;
+        if (i > 0) {
+          const prevWords = wordsByStage.get(stageIds[i - 1] as number);
+          if (prevWords && prevWords.size > 0) {
+            let prevEncountered = 0;
+            for (const wid of prevWords) {
+              if (bankOfWord.get(wid) === b.id) {
+                const p = progressByWord.get(wid);
+                if (p) prevEncountered++;
+              }
+            }
+            // 前一阶段已遇 ≥ 80% 才解锁本阶段
+            if (prevEncountered / prevWords.size < 0.8) break;
+          }
+        }
         unlocked++;
       }
       return {
@@ -78,7 +88,7 @@ export class BanksService {
     });
   }
 
-  // 阶段地图：每阶段 词数 / 解锁状态 / 最佳评级
+  // 阶段地图：连续进度制（阶段=词池，进度条替代关节点）
   async stages(userId: number, bankCode: string): Promise<StageInfo[]> {
     const bank = await this.prisma.wordBank.findUnique({
       where: { code: bankCode },
@@ -87,9 +97,11 @@ export class BanksService {
     if (!bank) throw new NotFoundException(`词书不存在: ${bankCode}`);
 
     const sessions = await this.prisma.learningSession.findMany({
-      where: { userId, bankId: bank.id },
+      where: { userId, bankId: bank.id, result: true },
       select: { stageId: true, rating: true },
     });
+
+    // 阶段 → 最佳评级
     const bestByStage = new Map<number, Rating>();
     const order: Rating[] = ['C', 'B', 'A', 'S', 'SS', 'SSS'];
     for (const s of sessions) {
@@ -99,22 +111,50 @@ export class BanksService {
       }
     }
 
-    const byStage = new Map<number, number>();
+    // 用户已遇词（per stage）
+    const progress = await this.prisma.userWordProgress.findMany({
+      where: { userId, wordId: { in: bank.bankWords.map((bw) => bw.wordId) } },
+      select: { wordId: true, mastery: true },
+    });
+    const wordMastery = new Map(progress.map((p) => [p.wordId, p.mastery]));
+
+    const byStage = new Map<number, { total: number; words: string[] }>();
     for (const bw of bank.bankWords) {
-      byStage.set(bw.stage, (byStage.get(bw.stage) ?? 0) + 1);
+      const entry = byStage.get(bw.stage) ?? { total: 0, words: [] };
+      entry.total++;
+      entry.words.push(bw.wordId);
+      byStage.set(bw.stage, entry);
     }
     const stageIds = [...byStage.keys()].sort((a, b) => a - b);
 
     return stageIds.map((stageId, i) => {
-      const best = bestByStage.get(stageId);
-      const prevCleared = i === 0 || bestByStage.has(stageIds[i - 1] as number);
-      const cleared = bestByStage.has(stageId);
+      const entry = byStage.get(stageId)!;
+      const encountered = entry.words.filter((wid) => wordMastery.has(wid)).length;
+      const mastered = entry.words.filter((wid) => (wordMastery.get(wid) ?? 0) >= 100).length;
+      const progressPct = entry.total > 0 ? Math.round((encountered / entry.total) * 100) : 0;
+
+      // 解锁链：前一阶段已遇 ≥ 80% 解锁本阶段
+      const stageUnlocked =
+        i === 0 || (() => {
+          const prev = byStage.get(stageIds[i - 1] as number);
+          if (!prev) return false;
+          const prevEncountered = prev.words.filter((wid) => wordMastery.has(wid)).length;
+          return prev.total > 0 && prevEncountered / prev.total >= 0.8;
+        })();
+
+      const status: 'locked' | 'available' | 'cleared' = stageUnlocked
+        ? progressPct >= 80 ? 'cleared' : 'available'
+        : 'locked';
+
       return {
         id: stageId,
         tier: tierOf(stageId),
-        wordCount: byStage.get(stageId) ?? 0,
-        status: cleared ? 'cleared' : prevCleared ? 'available' : 'locked',
-        bestRating: best,
+        wordCount: entry.total,
+        status,
+        bestRating: bestByStage.get(stageId),
+        encountered,
+        mastered,
+        progress: progressPct,
       };
     });
   }

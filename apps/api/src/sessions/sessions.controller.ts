@@ -1,7 +1,7 @@
 import { Body, Controller, Param, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsInt, IsNumber, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
+import { IsArray, IsBoolean, IsIn, IsInt, IsNumber, IsOptional, IsString, Max, Min, ValidateNested } from 'class-validator';
 import type { Request } from 'express';
 import type { SessionFinish } from '@word-journey/shared';
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
@@ -33,7 +33,19 @@ class CreateSessionDto {
   stageId!: number;
 
   @IsString()
+  @IsIn(['zh2en', 'dictation'])
   mode!: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(10)
+  @Max(60)
+  size?: number;
+
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  wordIds?: string[];
 }
 
 class SubmitDto {
@@ -61,6 +73,8 @@ export class SessionsController {
       bankCode: dto.bankCode,
       stageId: dto.stageId,
       mode: dto.mode,
+      size: dto.size,
+      wordIds: dto.wordIds,
     });
   }
 

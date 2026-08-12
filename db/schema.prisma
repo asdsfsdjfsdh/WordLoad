@@ -36,6 +36,9 @@ model Word {
   progress         UserWordProgress[]
   senseProgress    UserSenseProgress[]
   sessionItems     LearningSessionItem[]
+
+  @@index([difficultyScore])
+  @@index([tier])
 }
 
 // 义项（一词多义，独立例句）
@@ -103,22 +106,26 @@ model UserCharacter {
 
 // 词级进度（掌握度 / 错题本 / 生词本 / SRS 词级）
 model UserWordProgress {
-  id            Int      @id @default(autoincrement())
-  userId        Int
-  wordId        String
-  stage         Int      @default(1)
-  correctCount  Int      @default(0)
-  wrongCount    Int      @default(0)
-  inWrongBook   Boolean  @default(false)
-  inVocabBook   Boolean  @default(false)
-  mastery       Int      @default(0)
-  reviewStage   Int      @default(0)
-  nextReviewAt  DateTime?
-  ease          Float    @default(2.5)
-  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  word          Word     @relation(fields: [wordId], references: [id])
+  id                  Int       @id @default(autoincrement())
+  userId              Int
+  wordId              String
+  stage               Int       @default(1)
+  correctCount        Int       @default(0)
+  wrongCount          Int       @default(0)
+  inWrongBook         Boolean   @default(false)
+  inVocabBook         Boolean   @default(false)
+  mastery             Int       @default(0)
+  reviewStage         Int       @default(0)
+  nextReviewAt        DateTime?
+  ease                Float     @default(2.5)
+  firstEncounteredAt  DateTime? // 图鉴：首次遇到时间
+  lastEncounteredAt   DateTime? // 图鉴：最近一次遇到
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  word                Word      @relation(fields: [wordId], references: [id])
 
   @@unique([userId, wordId])
+  @@index([userId, nextReviewAt])
+  @@index([nextReviewAt])
 }
 
 // 义项级 SRS（义项轮换排程）
@@ -136,9 +143,8 @@ model UserSenseProgress {
   word         Word     @relation(fields: [wordId], references: [id])
 
   @@unique([userId, wordId, senseIdx])
+  @@index([userId, nextReviewAt])
 }
-
-// 材料
 model Material {
   id    Int    @id @default(autoincrement())
   code  String @unique @db.VarChar(32)
@@ -163,6 +169,7 @@ model LearningSession {
   userId          Int
   bankId          Int
   stageId         Int
+  level           Int      @default(1)
   mode            String   @db.VarChar(16)
   result          Boolean
   monstersCleared Int      @default(0)
@@ -177,6 +184,9 @@ model LearningSession {
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   bank            WordBank @relation(fields: [bankId], references: [id])
   items           LearningSessionItem[]
+
+  @@index([userId, createdAt])
+  @@index([userId, bankId, result])
 }
 
 // 逐题记录
@@ -192,4 +202,7 @@ model LearningSessionItem {
   elapsedMs Int     @default(0)
   session   LearningSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
   word      Word             @relation(fields: [wordId], references: [id])
+
+  @@index([sessionId])
+  @@index([wordId])
 }

@@ -84,25 +84,20 @@ describe('buildQuestion 出题', () => {
     promptBase: '接近；入口',
     tier: 'II' as const,
   };
-  it('中译英：保留首字母挖空，note 无易混时回落到例句', () => {
+  it('中译英：保留首字母挖空，example 字段携带例句', () => {
     const q = buildQuestion({ ...base, mode: 'zh2en', example: 'have access to' });
     expect(q.type).toBe('fill-blank');
     expect(q.template).toBe('a_____');
     expect(q.blanks).toEqual([1, 2, 3, 4, 5]);
     expect(q.prompt).toBe('接近；入口');
-    expect(q.note).toBe('have access to');
+    expect(q.example).toBe('have access to');
   });
   it('听写：保留首尾字母挖空', () => {
     const q = buildQuestion({ ...base, mode: 'dictation' });
     expect(q.template).toBe('a____s');
   });
-  it('有易混对：note 覆盖例句并提示区分', () => {
-    const q = buildQuestion({
-      ...base,
-      mode: 'zh2en',
-      example: 'have access to',
-      confusable: { counterpart: 'assess', note: '形近' },
-    });
-    expect(q.note).toBe('形近（区分 assess）');
+  it('无例句时 example 缺省', () => {
+    const q = buildQuestion({ ...base, mode: 'zh2en' });
+    expect(q.example).toBeUndefined();
   });
 });

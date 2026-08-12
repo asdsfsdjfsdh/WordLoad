@@ -28,7 +28,7 @@ export const useAuth = create<AuthState>((set) => ({
       const user = await api.get<AuthUser>('/auth/me');
       set({ user, initialized: true });
     } catch {
-      // token 失效 → 交给下一次请求时刷新，刷新失败则登出
+      clearAuth();
       set({ user: null, initialized: true });
     }
   },

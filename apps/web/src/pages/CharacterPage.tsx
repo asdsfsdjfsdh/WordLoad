@@ -13,6 +13,9 @@ export function CharacterPage() {
       await api.post<AuthUser>('/auth/character', { hpLv: 3, atkLv: 3, defLv: 3 });
       await refreshUser();
     },
+    onError: () => {
+      /* error handled in render via init.error */
+    },
   });
 
   return (
@@ -34,6 +37,11 @@ export function CharacterPage() {
             >
               {init.isPending ? '创建中…' : '创建角色'}
             </button>
+            {init.error && (
+              <p className="mt-2 text-sm text-red-400">
+                {init.error instanceof Error ? init.error.message : '创建失败'}
+              </p>
+            )}
           </div>
         ) : (
           <div className="mt-8 space-y-4">

@@ -85,9 +85,9 @@ export function buildQuestion(opts: {
   text: string;
   promptBase: string; // 中文释义（中译英）或音标（听写）
   example?: string;
+  phonetic?: string; // 音标（两种模式均下发展示/发音用）
   tier: DifficultyTier;
   mode: GameMode;
-  confusable?: { counterpart: string; note: string } | null;
 }): Question {
   const { text, mode } = opts;
   // 挖空策略：保留首字母，其余挖空（听写模式保留首尾，降低全听写出错率）
@@ -96,7 +96,6 @@ export function buildQuestion(opts: {
       ? Array.from({ length: text.length - 2 }, (_, i) => i + 1)
       : Array.from({ length: text.length - 1 }, (_, i) => i + 1);
   const { template } = maskTemplate(text, blanks);
-  const note = opts.confusable;
   return {
     seq: opts.seq,
     wordId: opts.wordId,
@@ -105,7 +104,8 @@ export function buildQuestion(opts: {
     prompt: opts.promptBase,
     template,
     blanks,
-    note: note ? `${note.note}（区分 ${note.counterpart}）` : opts.example ?? undefined,
+    phonetic: opts.phonetic,
+    example: opts.example,
     tier: opts.tier,
     answer: text,
   };

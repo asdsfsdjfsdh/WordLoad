@@ -13,7 +13,8 @@ import { JwtAuthGuard } from './jwt-auth.guard';
       useFactory: (config: ConfigService) => ({
         secret: config.get<string>('JWT_ACCESS_SECRET'),
         signOptions: {
-          expiresIn: (config.get<string>('JWT_ACCESS_TTL') ?? '15m') as unknown as number,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          expiresIn: (config.get<string>('JWT_ACCESS_TTL') ?? '15m') as any,
         },
       }),
     }),
