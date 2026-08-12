@@ -61,10 +61,9 @@ async function request<T>(
   path: string,
   init?: RequestInit & { token?: string; noRefresh?: boolean },
 ): Promise<T> {
-  let retried = false;
   const doFetch = async (): Promise<Response> => {
     const auth = loadAuth();
-    const token = retried ? undefined : (init?.token ?? auth?.accessToken);
+    const token = init?.token ?? auth?.accessToken;
     return fetch(`${BASE}${path}`, {
       ...init,
       headers: {
@@ -79,7 +78,7 @@ async function request<T>(
   if (res.status === 401 && !init?.noRefresh && loadAuth()?.refreshToken) {
     const ok = await refreshOnce();
     if (ok) {
-      retried = true;
+      // doFetch 重新读 localStorage → 拿到刷新后的新 token
       res = await doFetch();
     }
   }
