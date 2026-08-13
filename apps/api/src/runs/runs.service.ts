@@ -19,11 +19,8 @@ import type {
 import {
   SURVIVAL,
   applyDef,
-  atkMult,
   bossHits,
-  injectAmount,
   leechN,
-  materialTierAt,
   monsterHits,
   travelBudget,
 } from '@word-journey/shared';
@@ -31,10 +28,13 @@ import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { buildQuestion } from '../questions/question-builder';
 import { shouldTriggerBoss } from './boss-trigger';
+import { shouldInject } from './inject';
+import { buildReviewQueue } from './review-queue';
+import { pickBuffs } from './buff-picker';
+import { computeRewards, isRecordBroken } from './rewards';
 import {
   computeRating,
   intervalDays,
-  ratingExp,
   rollDrops,
   srsSchedule,
 } from '../sessions/settlement';
@@ -55,8 +55,7 @@ interface BattleResult {
   stuns: number;
 }
 
-// 候选 buff 池（普通三选一 / 传说三选一）
-const NORMAL_BUFFS = ['maxhp', 'dmg', 'leech', 'freeze', 'dodge'] as const;
+// 候选 buff 池（传说三选一）
 const LEGEND_BUFFS = ['boss-immunity', 'kill-heal', 'boss-x2', 'no-leak-dmg'] as const;
 
 interface DayItemInput {
@@ -401,30 +400,29 @@ export class RunsService {
     const nextDayNum = run.day + 1;
     if (nextDayNum > SURVIVAL.MAX_DAYS) return this.finishAfterDeath(userId, run, run.hp);
 
-    // 注入判定（轻量 Q + 保底 5，严格隔天，首领波日不注）
+    // 注入判定（纯函数：轻量 Q + 保底 5，严格隔天，首领波日不注）
     const qLight = await this.prisma.runItem.count({
       where: { runId: run.id, answered: true, correct: false },
     });
-    const injectAllowed =
-      !bossJustCleared &&
-      nextDayNum - run.lastInjectDay >= SURVIVAL.INJECT_COOLDOWN_DAYS &&
-      acc >= SURVIVAL.INJECT_ACC_GATE;
-    let injected = 0;
-    let lastInjectDay = run.lastInjectDay;
-    if (injectAllowed) {
-      injected = injectAmount(qLight);
-      if (injected > 0) lastInjectDay = nextDayNum;
-    }
+    const decision = shouldInject({
+      day: nextDayNum,
+      lastInjectDay: run.lastInjectDay,
+      acc,
+      qLight,
+      bossJustCleared,
+    });
+    const injected = decision.amount;
+    const lastInjectDay = decision.inject ? nextDayNum : run.lastInjectDay;
 
     const pool = await this.stagePool(run.bankId, run.stageId);
     const usedInRun = new Set(
       (await this.prisma.runItem.findMany({ where: { runId: run.id }, select: { wordId: true } })).map((i) => i.wordId),
     );
 
-    // 明日词：注入新词 + 复习/错题补足
+    // 明日词：注入新词 + 复习/错题补足（纯函数优先级：错词→已学未复测→到期）
     const newPool = pool.filter((w) => !usedInRun.has(w.wordId)).slice(0, injected);
     const reviewNeed = SURVIVAL.QUESTIONS_PER_DAY - newPool.length;
-    const reviewPool = this.pickReviews(pool, usedInRun, reviewNeed, run.id);
+    const reviewPool = await this.pickReviews(pool, usedInRun, reviewNeed, run.id);
 
     const dayWords = [...newPool, ...reviewPool].slice(0, SURVIVAL.QUESTIONS_PER_DAY);
     if (dayWords.length === 0) return this.finishAfterDeath(userId, run, run.hp);
@@ -466,7 +464,12 @@ export class RunsService {
       previewWords: newPool.map((w) => toLevelWord(w.word)),
       injectedNew: injected,
       nextDayNewWords: injected,
-      buffChoices: this.pickBuffChoices(run.hp, run.maxHp, buffsOf(created.buffs)),
+      buffChoices: pickBuffs({
+        hp: created.hp,
+        maxHp: created.maxHp,
+        counts: buffsOf(created.buffs),
+        recentAcc: acc,
+      }),
     };
   }
 
@@ -671,7 +674,7 @@ export class RunsService {
       select: { day: true },
     });
     const bestDays = Math.max(prevBest?.day ?? 0, run.day);
-    const recordBroken = !surrender && run.day > (prevBest?.day ?? 0);
+    const recordBroken = isRecordBroken(run.day, prevBest?.day ?? 0, surrender);
 
     // 正确率来自本局已答题
     const stats = await this.prisma.runItem.aggregate({
@@ -691,17 +694,24 @@ export class RunsService {
       avgElapsedMs: 8000,
       perfectBonus: acc === 1,
     });
-    const xp = ratingExp(rating) + SURVIVAL.XP_DAY_BASE * Math.min(run.day, SURVIVAL.XP_DAY_CAP);
-    let coins = correct * SURVIVAL.COINS_PER_CORRECT;
     const extra = (await this.prisma.run.findUnique({
       where: { id: run.id },
       select: { extra: true },
     }))?.extra as Record<string, unknown> | undefined;
     const bossClearedCount = ((extra?.bossClearedCount as number) ?? 0) + ((extra?.everBoss as boolean) ? 1 : 0);
-    coins += bossClearedCount * SURVIVAL.COINS_PER_BOSS;
-    if (surrender) coins = Math.round(coins * SURVIVAL.SURRENDER_RATE);
 
-    const matTier = materialTierAt(run.day);
+    // 奖励纯函数：xp/coins/材料稀有度（收枪 ×0.5）
+    const rewards = computeRewards({
+      rating,
+      correctCount: correct,
+      daysSurvived: run.day,
+      bossClearedCount,
+      surrender,
+      perfect: acc === 1,
+    });
+    const xp = rewards.xp;
+    const coins = rewards.coins;
+    const matTier = rewards.materialTier;
     const drops = rollDrops(rating).filter((d) => d.tier <= matTier);
     if (drops.length === 0 && matTier >= 1) {
       drops.push({ materialCode: 'essence_1', tier: 1, count: 1 });
@@ -819,16 +829,29 @@ export class RunsService {
     return items.filter((i) => i.type === 'new').length;
   }
 
-  // ── 内部：复习/错题优先选词 ──
-  private pickReviews(
+  // ── 内部：复习/错题优先选词（复用 review-queue 纯函数）──
+  private async pickReviews(
     pool: { wordId: string; word: WordRow }[],
     used: Set<string>,
     need: number,
-    _runId: number,
-  ): { wordId: string; word: WordRow }[] {
+    runId: number,
+  ): Promise<{ wordId: string; word: WordRow }[]> {
     if (need <= 0) return [];
-    // 错词优先（本局答错的再考），其次已学未二次复测
-    return pool.filter((w) => used.has(w.wordId)).slice(0, need);
+
+    // 本局错词优先（已答错过）
+    const wrongItems = await this.prisma.runItem.findMany({
+      where: { runId, answered: true, correct: false },
+      select: { wordId: true },
+    });
+    const wrongSet = new Set(wrongItems.map((w) => w.wordId));
+    // 已学词（usedInRun）作为复习候选；错词排最前
+    const candidates = pool
+      .filter((w) => used.has(w.wordId))
+      .map((w) => ({ wordId: w.wordId, word: w.word, inWrongBook: wrongSet.has(w.wordId) }));
+
+    const picked = buildReviewQueue({ candidates, need });
+    const pickedIds = new Set(picked.map((c) => c.wordId));
+    return pool.filter((w) => pickedIds.has(w.wordId));
   }
 
   // ── 内部：组题（seq 从 startSeq 递增）──
@@ -879,30 +902,6 @@ export class RunsService {
     });
     if (!active) return;
     await this.settle(userId, active, true);
-  }
-
-  // ── 内部：普通 buff 三选一（血量低时倾向防御）──
-  private pickBuffChoices(hp: number, maxHp: number, buffs: BuffState): string[] {
-    const lowHp = maxHp > 0 && hp / maxHp < 0.35;
-    if (lowHp) return ['maxhp', 'leech', 'dodge'];
-    const pool: string[] = [...NORMAL_BUFFS];
-    // 已满的 buff 不再给出
-    const available = pool.filter((b) => {
-      if (b === 'maxhp') return buffs.maxHp < SURVIVAL.BUFF_MAXHP_MAX;
-      if (b === 'leech') return buffs.leech < SURVIVAL.BUFF_LEECH_MAX;
-      if (b === 'dmg') return buffs.dmg < SURVIVAL.BUFF_DMG_MAX;
-      if (b === 'dodge') return buffs.dodge < SURVIVAL.BUFF_DODGE_MAX;
-      if (b === 'freeze') return buffs.freeze < SURVIVAL.BUFF_FREEZE_MAX;
-      return true;
-    });
-    // 洗牌取 3
-    for (let i = available.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const tmp = available[i]!;
-      available[i] = available[j]!;
-      available[j] = tmp;
-    }
-    return available.slice(0, 3);
   }
 }
 
