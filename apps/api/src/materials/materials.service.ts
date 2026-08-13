@@ -1,6 +1,6 @@
 // 材料服务：合成（3×tierN → 1×tier(N+1)），事务 + 乐观锁防并发重复消耗
 import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
-import type { SynthesizeResult } from '@word-journey/shared';
+import type { MaterialHolding, SynthesizeResult } from '@word-journey/shared';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
@@ -12,6 +12,21 @@ const MAX_TIER = 4;
 @Injectable()
 export class MaterialsService {
   constructor(private readonly prisma: PrismaService) {}
+
+  // 用户持有材料（count>0，按 tier/code 排序），供强化/合成面板展示
+  async holdings(userId: number): Promise<MaterialHolding[]> {
+    const rows = await this.prisma.userMaterial.findMany({
+      where: { userId, count: { gt: 0 } },
+      include: { material: true },
+      orderBy: [{ material: { tier: 'asc' } }, { material: { code: 'asc' } }],
+    });
+    return rows.map((m) => ({
+      code: m.material.code,
+      tier: m.material.tier,
+      name: m.material.name,
+      count: m.count,
+    }));
+  }
 
   async synthesize(
     userId: number,

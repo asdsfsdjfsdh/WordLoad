@@ -117,4 +117,24 @@ describe('MaterialsService 合成', () => {
     );
     await expect(svc.synthesize(1, 1)).rejects.toThrow(ConflictException);
   });
+
+  it('holdings：仅返回 count>0 的持有，按 tier/code 排序', async () => {
+    (prisma.userMaterial.findMany as jest.Mock).mockResolvedValue([
+      { count: 3, material: { code: 'essence_2', tier: 2, name: '稀有精华' } },
+      { count: 5, material: { code: 'essence_1', tier: 1, name: '普通精华' } },
+    ]);
+    const h = await svc.holdings(7);
+    expect(prisma.userMaterial.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({ where: { userId: 7, count: { gt: 0 } } }),
+    );
+    expect(h).toEqual([
+      { code: 'essence_2', tier: 2, name: '稀有精华', count: 3 },
+      { code: 'essence_1', tier: 1, name: '普通精华', count: 5 },
+    ]);
+  });
+
+  it('holdings：无持有返回空数组', async () => {
+    (prisma.userMaterial.findMany as jest.Mock).mockResolvedValue([]);
+    await expect(svc.holdings(7)).resolves.toEqual([]);
+  });
 });

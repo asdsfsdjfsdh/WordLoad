@@ -104,8 +104,9 @@ export function LobbyPage() {
       )}
 
       {/* ── Bottom Nav ── */}
-      <div className="mx-auto mt-8 flex max-w-xs justify-center gap-3">
+      <div className="mx-auto mt-8 flex max-w-sm justify-center gap-3">
         <Link to="/collections" className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">📖 图鉴</Link>
+        <Link to="/character" className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">⚔️ 养成</Link>
         <Link to="/stats" className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">📊 统计</Link>
       </div>
 

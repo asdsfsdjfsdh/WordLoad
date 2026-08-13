@@ -55,6 +55,8 @@ export interface StageInfo {
   encountered: number;
   mastered: number;
   progress: number; // 0-100
+  // 生存 Run：该 stage 历史最高生存天数
+  bestDays: number;
 }
 
 // 学习页单词项：战斗前学习该关卡的全部单词
@@ -215,6 +217,14 @@ export interface CollectionStats {
 // 材料：合成（3×tierN → 1×tier(N+1)，N=1,2,3）
 export interface SynthesizeRequest {
   fromTier: 1 | 2 | 3;
+}
+
+// 用户材料持有快照（GET /materials）
+export interface MaterialHolding {
+  code: string;
+  tier: number;
+  name: string;
+  count: number;
 }
 
 export interface SynthesizeResult {

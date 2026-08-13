@@ -119,8 +119,13 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
   async register(username: string, password: string): Promise<AuthTokens & { user: AuthUser }> {
     const passwordHash = await bcrypt.hash(password, BCRYPT_ROUNDS);
     try {
+      // 注册即自动初始化角色（3/3/3 基础三围），与 initCharacter 幂等语义一致
       const user = await this.prisma.user.create({
-        data: { username, passwordHash },
+        data: {
+          username,
+          passwordHash,
+          character: { create: { hpLv: 3, atkLv: 3, defLv: 3 } },
+        },
         include: { character: true },
       });
       return {

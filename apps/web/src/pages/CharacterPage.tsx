@@ -1,12 +1,32 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-import type { AuthUser } from '@word-journey/shared';
+import type { AuthUser, MaterialHolding } from '@word-journey/shared';
+import { STRENGTHEN_COST } from '@word-journey/shared';
 import { api } from '../lib/api';
 import { useAuth } from '../store/auth';
+
+const STAT_META = [
+  { key: 'hp', field: 'hpLv', label: '生命', color: 'bg-emerald-500', text: 'text-emerald-300', icon: '❤️' },
+  { key: 'atk', field: 'atkLv', label: '攻击', color: 'bg-red-500', text: 'text-red-300', icon: '⚔️' },
+  { key: 'def', field: 'defLv', label: '防御', color: 'bg-sky-500', text: 'text-sky-300', icon: '🛡️' },
+] as const;
+
+type StatKey = (typeof STAT_META)[number]['key'];
+
+const tierNames: Record<number, string> = { 1: '普通精华', 2: '稀有精华', 3: '史诗精华', 4: '传说精华' };
 
 export function CharacterPage() {
   const { user, refreshUser } = useAuth();
   const char = user?.character;
+  const cap = (char?.level ?? 1) + 4;
+
+  const { data: materials } = useQuery({
+    queryKey: ['materials'],
+    queryFn: () => api.get<MaterialHolding[]>('/materials'),
+    enabled: !!char,
+  });
+  const mat1 = materials?.find((m) => m.tier === 1);
+  const mat1Count = mat1?.count ?? 0;
 
   const init = useMutation({
     mutationFn: async () => {
@@ -15,6 +35,18 @@ export function CharacterPage() {
     },
     onError: () => {
       /* error handled in render via init.error */
+    },
+  });
+
+  const strengthen = useMutation({
+    mutationFn: async (stat: StatKey) => {
+      await api.post<AuthUser>('/auth/strengthen', { stat });
+    },
+    onSuccess: async () => {
+      await refreshUser();
+    },
+    onError: () => {
+      /* error handled in render via strengthen.error */
     },
   });
 
@@ -51,16 +83,89 @@ export function CharacterPage() {
                 <span className="text-3xl font-bold text-amber-400">Lv.{char.level}</span>
               </div>
               <ExpBar exp={char.exp} level={char.level} />
-              <StatBar label="生命" value={char.hpLv} color="bg-emerald-500" />
-              <StatBar label="攻击" value={char.atkLv} color="bg-red-500" />
-              <StatBar label="防御" value={char.defLv} color="bg-sky-500" />
+              {STAT_META.map((s) => {
+                const value = char[s.field];
+                return (
+                  <StatRow
+                    key={s.key}
+                    meta={s}
+                    value={value}
+                    cap={cap}
+                    cost={STRENGTHEN_COST[s.key]}
+                    coins={user?.coins ?? 0}
+                    materialCount={mat1Count}
+                    busy={strengthen.isPending}
+                    onStrengthen={() => strengthen.mutate(s.key)}
+                  />
+                );
+              })}
+              {strengthen.error && (
+                <p className="mt-3 text-sm text-red-400">
+                  {strengthen.error instanceof Error ? strengthen.error.message : '强化失败'}
+                </p>
+              )}
             </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-center text-sm text-slate-400">
-              当前金币：{user?.coins}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400">金币</span>
+                <span className="font-semibold text-amber-400">{user?.coins}</span>
+              </div>
+              <div className="mt-2 flex items-center justify-between">
+                <span className="text-slate-400">普通精华 ×{mat1Count}</span>
+                <span className="text-xs text-slate-500">生存 Run 掉落 · 强化 +1 消耗</span>
+              </div>
             </div>
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+interface StatRowProps {
+  meta: (typeof STAT_META)[number];
+  value: number;
+  cap: number;
+  cost: { coins: number; materialTier: number; materialCount: number };
+  coins: number;
+  materialCount: number;
+  busy: boolean;
+  onStrengthen: () => void;
+}
+
+function StatRow({ meta, value, cap, cost, coins, materialCount, busy, onStrengthen }: StatRowProps) {
+  const atCap = value >= cap;
+  const enough = coins >= cost.coins && materialCount >= cost.materialCount;
+  const disabled = atCap || !enough || busy;
+  const pct = Math.min(100, value * 12.5);
+  return (
+    <div className="mb-3">
+      <div className="mb-1 flex items-center justify-between">
+        <span className="text-xs text-slate-400">
+          {meta.icon} {meta.label} <span className="tabular-nums">{value}</span>
+          <span className="ml-1 text-slate-600">/ 上限 {cap}</span>
+        </span>
+        <span className="text-[11px] text-slate-500">
+          {cost.coins}💰 + {cost.materialCount}×{tierNames[cost.materialTier] ?? '材料'}
+        </span>
+      </div>
+      <div className="h-2.5 overflow-hidden rounded-full bg-slate-800">
+        <div className={`h-full ${meta.color} rounded-full`} style={{ width: `${pct}%` }} />
+      </div>
+      <button
+        onClick={onStrengthen}
+        disabled={disabled}
+        title={atCap ? '已达当前等级上限，升级角色解锁' : !enough ? '金币或材料不足' : undefined}
+        className={`mt-1.5 w-full rounded-lg py-1.5 text-xs font-semibold transition ${
+          atCap
+            ? 'cursor-not-allowed bg-slate-800/60 text-slate-600'
+            : !enough
+              ? 'cursor-not-allowed bg-slate-800/60 text-slate-500'
+              : `bg-slate-800 ${meta.text} hover:bg-slate-700`
+        } disabled:opacity-60`}
+      >
+        {busy ? '强化中…' : atCap ? '已达上限' : !enough ? '材料/金币不足' : `强化 +1（${meta.label}）`}
+      </button>
     </div>
   );
 }
@@ -83,21 +188,6 @@ function ExpBar({ exp, level }: { exp: number; level: number }) {
       </div>
       <div className="h-2.5 overflow-hidden rounded-full bg-slate-800">
         <div className="h-full rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 transition-all duration-500" style={{ width: `${pct}%` }} />
-      </div>
-    </div>
-  );
-}
-
-function StatBar({ label, value, color }: { label: string; value: number; color: string }) {
-  const pct = Math.min(100, value * 12.5);
-  return (
-    <div className="mb-3">
-      <div className="mb-1 flex justify-between text-xs text-slate-400">
-        <span>{label}</span>
-        <span>{value}</span>
-      </div>
-      <div className="h-2.5 overflow-hidden rounded-full bg-slate-800">
-        <div className={`h-full ${color} rounded-full`} style={{ width: `${pct}%` }} />
       </div>
     </div>
   );

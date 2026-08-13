@@ -65,6 +65,7 @@ describe('AuthService', () => {
       ...userRow,
       username: data.username,
       passwordHash: data.passwordHash,
+      character: data.character,
     }));
     (prisma.user.update as jest.Mock).mockResolvedValue(userRow);
     const r = await auth.register('alice', 'pass123456');
@@ -75,6 +76,8 @@ describe('AuthService', () => {
     const created = (prisma.user.create as jest.Mock).mock.calls[0]?.[0].data;
     expect(created.passwordHash).not.toBe('pass123456');
     expect(created.passwordHash.startsWith('$2')).toBe(true);
+    // 注册即自动初始化角色 3/3/3
+    expect(created.character).toEqual({ create: { hpLv: 3, atkLv: 3, defLv: 3 } });
   });
 
   it('login：密码正确返回 token，错误抛 401', async () => {

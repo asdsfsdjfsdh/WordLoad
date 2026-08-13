@@ -111,6 +111,17 @@ export class BanksService {
       }
     }
 
+    // 生存 Run：该 stage 历史最高生存天数（finished runs 取 max day）
+    const finishedRuns = await this.prisma.run.findMany({
+      where: { userId, bankId: bank.id, status: 'finished' },
+      select: { stageId: true, day: true },
+    });
+    const bestDaysByStage = new Map<number, number>();
+    for (const r of finishedRuns) {
+      const cur = bestDaysByStage.get(r.stageId) ?? 0;
+      if (r.day > cur) bestDaysByStage.set(r.stageId, r.day);
+    }
+
     // 用户已遇词（per stage）
     const progress = await this.prisma.userWordProgress.findMany({
       where: { userId, wordId: { in: bank.bankWords.map((bw) => bw.wordId) } },
@@ -155,6 +166,7 @@ export class BanksService {
         encountered,
         mastered,
         progress: progressPct,
+        bestDays: bestDaysByStage.get(stageId) ?? 0,
       };
     });
   }

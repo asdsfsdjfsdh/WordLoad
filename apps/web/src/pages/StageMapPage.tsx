@@ -95,7 +95,16 @@ function StageCard({ stage, onBattle }: { stage: StageInfo; onBattle: () => void
           <div>
             <div className={`font-semibold ${s.text}`}>{TIER[stage.tier] ?? stage.tier} 级 · {label}</div>
             <div className="mt-0.5 text-xs text-slate-500">{stage.wordCount} 词</div>
-            {!locked && <div className="mt-1 text-xs text-slate-400">已遇 {stage.encountered} · 已掌握 {stage.mastered}</div>}
+            {!locked && (
+              <div className="mt-1 flex items-center gap-2">
+                <span className="text-xs text-slate-400">已遇 {stage.encountered} · 已掌握 {stage.mastered}</span>
+                {stage.bestDays > 0 && (
+                  <span className="inline-flex items-center rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-400 ring-1 ring-amber-500/30">
+                    ⚔️ 最高 {stage.bestDays} 天
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </div>
         {!locked && (
