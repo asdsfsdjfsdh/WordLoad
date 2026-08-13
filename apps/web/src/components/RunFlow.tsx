@@ -32,21 +32,22 @@ interface BuffMeta {
   name: string;
   desc: string;
   color: string;
+  icon: string;
 }
 
 const BUFF_INFO: Record<string, BuffMeta> = {
-  maxhp: { name: '生命上限', desc: '+2 本局 maxHp（≤3 次）', color: 'cyan' },
-  dmg: { name: '伤害', desc: '伤害 +1（≥2 击保底）', color: 'rose' },
-  leech: { name: '吸血', desc: '吸血 +1（N−2，最低 3）', color: 'emerald' },
-  dodge: { name: '免伤', desc: '免伤 1 次（≤2 次）', color: 'amber' },
-  freeze: { name: '冻结', desc: '冻结加时', color: 'indigo' },
+  maxhp: { name: '生命上限', desc: '+2 本局 maxHp（≤3 次）', color: 'cyan', icon: '❤️' },
+  dmg: { name: '伤害', desc: '伤害 +1（≥2 击保底）', color: 'rose', icon: '⚔️' },
+  leech: { name: '吸血', desc: '吸血 +1（N−2，最低 3）', color: 'emerald', icon: '🩸' },
+  dodge: { name: '免伤', desc: '免伤 1 次（≤2 次）', color: 'amber', icon: '🛡️' },
+  freeze: { name: '冻结', desc: '冻结加时', color: 'indigo', icon: '❄️' },
 };
 
 const LEGEND_INFO: Record<string, BuffMeta> = {
-  'boss-immunity': { name: '免伤免疫', desc: 'P2 免伤免疫', color: 'violet' },
-  'kill-heal': { name: '击杀回血', desc: '击杀回血', color: 'emerald' },
-  'boss-x2': { name: 'Boss×2', desc: 'Boss 段伤害 ×2', color: 'rose' },
-  'no-leak-dmg': { name: '漏怪无伤', desc: '漏怪不扣血', color: 'sky' },
+  'boss-immunity': { name: '免伤免疫', desc: 'P2 免伤免疫', color: 'violet', icon: '🛡️' },
+  'kill-heal': { name: '击杀回血', desc: '击杀回血', color: 'emerald', icon: '💚' },
+  'boss-x2': { name: 'Boss×2', desc: 'Boss 段伤害 ×2', color: 'rose', icon: '⚡' },
+  'no-leak-dmg': { name: '漏怪无伤', desc: '漏怪不扣血', color: 'sky', icon: '🌊' },
 };
 
 const colorClass = (c: string): { border: string; text: string; bg: string } => {
@@ -133,12 +134,15 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
     setPreviewWords(r.previewWords ?? []);
     setBossWave(active.bossWave ?? false);
     setBossHp(active.bossHp ?? 0);
-    if (active.buffChoices?.length || active.legendChoices?.length) {
+    // 有 previewWords（含新注入词）→ 先闪卡学习，再选 buff，后波战
+    if ((r.previewWords?.length ?? 0) > 0) {
+      setBuffChoices(active.buffChoices ?? []);
+      setLegendChoices(active.legendChoices ?? []);
+      setPhase('preview');
+    } else if (active.buffChoices?.length || active.legendChoices?.length) {
       setBuffChoices(active.buffChoices ?? []);
       setLegendChoices(active.legendChoices ?? []);
       setPhase('pick');
-    } else if ((r.previewWords?.length ?? 0) > 0) {
-      setPhase('preview');
     } else {
       setPhase('wave');
     }
@@ -180,6 +184,14 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
     try {
       api.post<{ ok: boolean }>(`/questions/words/${wordId}/skip`, {});
     } catch { /* 静默 */ }
+  };
+
+  // 斩掉的词从本波题里移除（服务端 skip 已同步标记 active Run 待答题为已答）
+  const applySkippedToQuestions = () => {
+    if (skippedWords.size > 0) {
+      setQuestions((prev) => prev.filter((q) => !skippedWords.has(q.wordId)));
+    }
+    setSkippedWords(new Set());
   };
 
   // ── 波战 meta ──
@@ -251,7 +263,12 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
     setPreviewWords(res.previewWords ?? []);
     setBossWave(false);
     setBossHp(0);
-    if (res.legendChoices?.length) {
+    // 有 previewWords（新注入词）→ 先闪卡学习，再选 buff，后波战
+    if ((res.previewWords?.length ?? 0) > 0) {
+      setLegendChoices(res.legendChoices ?? []);
+      setBuffChoices(res.buffChoices ?? []);
+      setPhase('preview');
+    } else if (res.legendChoices?.length) {
       setLegendChoices(res.legendChoices);
       setBuffChoices(res.buffChoices ?? []);
       setPhase('pick');
@@ -259,8 +276,6 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
       setBuffChoices(res.buffChoices);
       setLegendChoices([]);
       setPhase('pick');
-    } else if ((res.previewWords?.length ?? 0) > 0) {
-      setPhase('preview');
     } else {
       setWaveKey((k) => k + 1);
       setPhase('wave');
@@ -362,10 +377,18 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
         <div className="fixed bottom-0 left-0 right-0 border-t border-slate-800 bg-slate-950/95 px-6 py-4 backdrop-blur-sm">
           <div className="mx-auto max-w-2xl">
             <button
-              onClick={() => { setSkippedWords(new Set()); setWaveKey((k) => k + 1); setPhase('wave'); }}
+              onClick={() => {
+                applySkippedToQuestions();
+                if (buffChoices.length || legendChoices.length) {
+                  setPhase('pick');
+                } else {
+                  setWaveKey((k) => k + 1);
+                  setPhase('wave');
+                }
+              }}
               className="w-full rounded-xl bg-cyan-500 py-3.5 text-base font-bold text-slate-950 transition-all hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)]"
             >
-              开始战斗 ⚔️
+              {buffChoices.length || legendChoices.length ? '继续 · 选择增益 ⚡' : '开始战斗 ⚔️'}
             </button>
             {error && <p className="mt-2 text-center text-sm text-red-400">{error}</p>}
           </div>
@@ -374,66 +397,75 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
     );
   }
 
-  // 天转换 / buff / 传说 选择
+  // 肉鸽增益选择（独立页面：卡牌并行滑落，点选后继续/跳过/收枪）
   if (phase === 'pick') {
     const hasLegend = legendChoices.length > 0;
     const title = hasLegend ? '首领击败！选择传说技能' : `第 ${day} 天 · 选择增益`;
-    const subtitle = hasLegend
-      ? '传说技能本局仅一次，可改变机制'
-      : '增益作用于下一波';
+    const subtitle = hasLegend ? '传说技能本局仅一次，可改变机制' : '增益作用于下一波';
+    const groups: { label: string; kind: 'legend' | 'buff'; items: string[] }[] = [];
+    if (hasLegend) groups.push({ label: '传说技能', kind: 'legend', items: legendChoices });
+    if (buffChoices.length > 0) groups.push({ label: '普通增益', kind: 'buff', items: buffChoices });
+    let cardIdx = 0;
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-950 px-4">
-        <div className="max-h-full w-full max-w-md overflow-y-auto rounded-2xl border border-cyan-500/30 bg-slate-900/80 p-8 shadow-[0_0_30px_rgba(6,182,212,0.15)] backdrop-blur-sm">
-          <div className="mb-6 text-center">
-            <h1 className="text-3xl font-black tracking-wider text-cyan-300">{title}</h1>
-            <p className="mt-2 text-sm text-slate-400">{subtitle}</p>
-          </div>
+      <div
+        className="flex min-h-screen flex-col bg-slate-950 px-4 pb-28 pt-10"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(139,92,246,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,.05) 1px, transparent 1px)',
+          backgroundSize: '42px 42px',
+        }}
+      >
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-black tracking-wider text-cyan-300" style={{ textShadow: '0 0 24px rgba(6,182,212,.5)' }}>
+            {title}
+          </h1>
+          <p className="mt-2 text-sm text-slate-400">{subtitle}</p>
+        </div>
 
-          {hasLegend && (
-            <div className="mb-6">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-400">传说技能</p>
-              <div className="space-y-2">
-                {legendChoices.map((b) => {
-                  const info = LEGEND_INFO[b] ?? { name: b, desc: '', color: 'violet' };
+        <div className="mx-auto w-full max-w-3xl flex-1">
+          {groups.map((g) => (
+            <div key={g.label} className={groups.length > 1 ? 'mb-8' : ''}>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">{g.label}</p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {g.items.map((b) => {
+                  const fallback: BuffMeta = { name: b, desc: '', color: g.kind === 'legend' ? 'violet' : 'cyan', icon: '✨' };
+                  const info = (g.kind === 'legend' ? LEGEND_INFO[b] : BUFF_INFO[b]) ?? fallback;
                   const c = colorClass(info.color);
+                  const selected = g.kind === 'legend' ? pendingLegend === b : pendingBuff === b;
+                  const idx = cardIdx++;
                   return (
                     <button
                       key={b}
-                      onClick={() => setPendingLegend((prev) => (prev === b ? null : b))}
-                      className={`w-full rounded-xl border ${c.border} ${c.bg} p-4 text-left transition-all hover:shadow-[0_0_15px_rgba(167,139,250,0.25)] ${pendingLegend === b ? 'ring-2 ring-violet-400' : ''}`}
+                      onClick={() =>
+                        g.kind === 'legend'
+                          ? setPendingLegend((prev) => (prev === b ? null : b))
+                          : setPendingBuff((prev) => (prev === b ? null : b))
+                      }
+                      className={`group relative overflow-hidden rounded-2xl border p-5 text-left transition-all duration-200 ${c.border} ${c.bg} ${
+                        selected
+                          ? '-translate-y-1 ring-2 ring-cyan-400 shadow-[0_0_28px_rgba(34,211,238,0.35)]'
+                          : 'hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(34,211,238,0.16)]'
+                      }`}
+                      style={{ animation: `pickSlideDown 0.5s cubic-bezier(0.22,1,0.36,1) ${idx * 0.12}s both` }}
                     >
-                      <div className={`text-base font-bold ${c.text}`}>{info.name}</div>
-                      <div className="mt-0.5 text-xs text-slate-400">{info.desc}</div>
+                      <div className={`text-3xl drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] ${c.text}`}>{info.icon}</div>
+                      <div className={`mt-2 text-lg font-bold ${c.text}`}>{info.name}</div>
+                      <div className="mt-1 text-xs leading-relaxed text-slate-400">{info.desc}</div>
+                      {selected && (
+                        <div className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-400 text-xs font-black text-slate-950">
+                          ✓
+                        </div>
+                      )}
                     </button>
                   );
                 })}
               </div>
             </div>
-          )}
+          ))}
+        </div>
 
-          {buffChoices.length > 0 && (
-            <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-cyan-400">普通增益</p>
-              <div className="space-y-2">
-                {buffChoices.map((b) => {
-                  const info = BUFF_INFO[b] ?? { name: b, desc: '', color: 'cyan' };
-                  const c = colorClass(info.color);
-                  return (
-                    <button
-                      key={b}
-                      onClick={() => setPendingBuff((prev) => (prev === b ? null : b))}
-                      className={`w-full rounded-xl border ${c.border} ${c.bg} p-4 text-left transition-all hover:shadow-[0_0_15px_rgba(34,211,238,0.25)] ${pendingBuff === b ? 'ring-2 ring-cyan-400' : ''}`}
-                    >
-                      <div className={`text-base font-bold ${c.text}`}>{info.name}</div>
-                      <div className="mt-0.5 text-xs text-slate-400">{info.desc}</div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          <div className="mt-6 grid grid-cols-2 gap-2">
+        <div className="fixed bottom-0 left-0 right-0 border-t border-slate-800 bg-slate-950/95 px-4 py-4 backdrop-blur-sm">
+          <div className="mx-auto flex max-w-3xl items-center gap-3">
             <button
               onClick={() => {
                 setPendingBuff(null);
@@ -443,9 +475,9 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 setWaveKey((k) => k + 1);
                 setPhase('wave');
               }}
-              className="rounded-xl border border-slate-700 py-3 text-sm font-semibold text-slate-300 transition-colors hover:bg-slate-800"
+              className="flex-1 rounded-xl border border-slate-700 py-3 text-sm font-semibold text-slate-300 transition-colors hover:bg-slate-800"
             >
-              跳过 →
+              跳过
             </button>
             <button
               onClick={() => {
@@ -455,12 +487,12 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 setPhase('wave');
               }}
               disabled={busy}
-              className="rounded-xl bg-cyan-500 py-3 text-sm font-bold text-slate-950 transition-all hover:bg-cyan-400 disabled:opacity-40"
+              className="flex-1 rounded-xl bg-cyan-500 py-3 text-sm font-bold text-slate-950 transition-all hover:bg-cyan-400 disabled:opacity-40"
             >
               继续 →
             </button>
           </div>
-          <div className="mt-2">
+          <div className="mx-auto mt-2 max-w-3xl">
             <button
               onClick={surrender}
               disabled={busy}
@@ -468,8 +500,8 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
             >
               🏳 收枪（金币×0.5）
             </button>
+            {error && <p className="mt-3 text-center text-sm text-red-400">{error}</p>}
           </div>
-          {error && <p className="mt-3 text-center text-sm text-red-400">{error}</p>}
         </div>
       </div>
     );

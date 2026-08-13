@@ -33,3 +33,9 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* 肉鸽卡牌选择：并行滑落（卡片依次入场） */
+@keyframes pickSlideDown {
+  from { opacity: 0; transform: translateY(-32px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}

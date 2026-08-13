@@ -52,6 +52,15 @@ export class QuestionsService {
         lastEncounteredAt: now,
       },
     });
+    // 生存 Run 预览斩词：该词在 active Run 的待答题一并标为已答（正确），本波不再出战
+    await this.prisma.runItem.updateMany({
+      where: {
+        wordId,
+        answered: false,
+        run: { userId, status: 'active' },
+      },
+      data: { answered: true, correct: true },
+    });
   }
 
   // 生成一次战斗会话的完整题目（从阶段词池动态抽词：未学优先 + 到期复习 + 错题本补齐）
