@@ -486,7 +486,6 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
         >
           <BattleField
             ref={battleRef}
-            survival
             initHp={maxHp}
             totalQuestions={questions.length}
             phase={isBoss ? 'boss' : 'study'}
@@ -512,7 +511,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 questions={questions}
                 mode={mode}
                 foilPool={foilPool}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo, r.typed)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}
@@ -522,7 +521,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 key={`run-${day}-${isBoss ? 'boss' : 'study'}-${waveKey}`}
                 questions={questions}
                 mode={mode}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo, r.typed)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}
@@ -537,7 +536,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 questions={questions}
                 mode={mode}
                 foilPool={foilPool}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo, r.typed)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}
@@ -547,7 +546,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 key={`run-${day}-${isBoss ? 'boss' : 'study'}-${waveKey}`}
                 questions={questions}
                 mode={mode}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo, r.typed)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}

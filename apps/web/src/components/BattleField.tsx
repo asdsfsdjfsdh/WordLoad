@@ -3,7 +3,8 @@
 // 性能：禁热循环 shadowBlur，霓虹用「亮芯+双描边叠层」，辉光层统一 'lighter'，网格离屏预渲染
 // v2.2：freezeEnemies（重写冻结，Boss除外）/ skillAttack（3枚大菱形）/ 连击 ×3/×5/×7 几何反馈
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
-import { SurvivalBattle, type SurvivalEvent, type SurvivalWaveMeta, type TierIdx } from '../lib/survivalBattle';
+import { SURVIVAL } from '@word-journey/shared';
+import { SurvivalBattle, type SurvivalWaveMeta } from '../lib/survivalBattle';
 import {
   playAttackSound,
   playBossAppearSound,
@@ -26,7 +27,7 @@ export interface BattleFieldHandle {
   startBoss(bossHp: number): void;
   // 生存模式：逐波初始化 / 逐问推进 / 波末服务端权威校准
   startSurvivalWave(meta: SurvivalWaveMeta): void;
-  survivalTick(correct: boolean, combo?: number): void;
+  survivalTick(correct: boolean, combo?: number, typed?: string): void;
   syncSurvivalHp(hp: number, maxHp: number): void;
   // 生存模式：波末上报（客户端权威血量 / Boss 是否击破）
   getSurvivalHp(): number;
@@ -41,7 +42,6 @@ interface Props {
   phase: 'study' | 'boss';
   tauntWords?: string[]; // Boss 段嘲讽词列表（本局错词）
   onLockInput?: () => void; // 战斗结束/失败瞬间锁定答题
-  survival?: boolean; // 生存模式：启用逐问模拟战斗层
 }
 
 interface Enemy {
@@ -144,232 +144,15 @@ function pickArche(phase: 'study' | 'boss'): Archetype {
   return pool[Math.floor(Math.random() * pool.length)]!;
 }
 
-// ---- 生存模式：tier → 怪外观（θ 公式只影响 HP，外观按词难度分级）----
-const SURVIVAL_TIER_STYLE: { shape: Enemy['shape']; color: string; size: number; name: string }[] = [
-  { shape: 'circle',   color: '#22d3ee', size: 24, name: 'Blob' },   // Ⅰ
-  { shape: 'triangle', color: '#34d399', size: 18, name: 'Spike' },  // Ⅱ
-  { shape: 'square',   color: '#a78bfa', size: 26, name: 'Cube' },   // Ⅲ
-  { shape: 'pentagon', color: '#f472b6', size: 28, name: 'Crystal' },// Ⅳ
-];
-
-function survivalEnemyFromMonster(m: { id: number; tier: TierIdx; hp: number; maxHp: number; progress: number; speed: number }, x: number, y: number): Enemy {
-  const style = SURVIVAL_TIER_STYLE[m.tier] ?? SURVIVAL_TIER_STYLE[0]!;
-  return {
-    id: m.id,
-    shape: style.shape,
-    x,
-    y,
-    hp: m.hp,
-    maxHp: m.maxHp,
-    speed: m.speed,
-    size: style.size,
-    color: style.color,
-    archetype: style.name,
-    rotation: 0,
-    rotSpeed: 0,
-  };
-}
-
-// 生存怪 x 插值：progress 0=左缘，1=玩家侧
-function survivalX(progress: number, playerXVal: number): number {
-  return -30 + progress * (playerXVal - (-30) - PLAYER_SIZE / 2);
-}
-
-// 生存模式：场内存活状态（每次 startSurvivalWave 重建）
+// 生存模式：波内数值账本（每次 startSurvivalWave 重建；表现走普通引擎）
 interface SurvivalStateShape {
   sim: SurvivalBattle;
   hp: number;
   maxHp: number;
   day: number;
-  enemies: Enemy[];
   bossActive: boolean;
-  bossHp: number;
-  bossMaxHp: number;
+  answered: number; // 本波已答题数（补怪/空场判定）
   bossP2: boolean;
-  leechN: number;
-}
-
-// 事件处理所需的状态子集（避免把整个 mutable state 传出去）
-interface SurvivalFx {
-  enemies: Enemy[];
-  projectiles: Projectile[];
-  shards: Shard[];
-  rings: Ring[];
-  floaters: Floater[];
-  flash: number;
-  shake: number;
-  glow: number;
-  hitStop: number;
-  goldFlash: number;
-  bossIntro: number;
-  taunt: { text: string; x: number; y: number; life: number; maxLife: number } | null;
-}
-
-// 事件处理所需的真实 state（直接改写，使 flash/shake/hitStop 等标量特效生效）
-interface SurvivalFxState extends SurvivalFx {
-  attackRecoil: number;
-  comboFx3: number;
-  comboFx5: number;
-  comboFx7: number;
-  playerGlint: number;
-  slowTimer: number;
-  bossP2: boolean;
-  survival: SurvivalStateShape | null;
-}
-
-// 实时模拟事件 → 视觉（直接搬普通模式特效：弹丸/发射闪光/爆炸/顿帧/连击/飘字/音效）
-function applySurvivalEvents(s: SurvivalFxState, px: number, py: number, events: SurvivalEvent[]): void {
-  const enemies = s.survival!.enemies;
-  for (const ev of events) {
-    switch (ev.type) {
-      case 'spawn': {
-        const m = ev.monster;
-        const x = survivalX(m.progress, px);
-        const e = survivalEnemyFromMonster(m, x, py - 40 + Math.random() * 80);
-        enemies.push(e);
-        break;
-      }
-      case 'attack': {
-        const target = enemies.find((e) => e.id === ev.targetId);
-        if (!target) break;
-        // 普通模式攻击特效：发射口闪光 + 圆环 + 弹丸 + 发光 + 后坐 + 音效
-        for (let i = 0; i < 2; i++) {
-          const ma = Math.PI + (Math.random() - 0.5) * 0.7;
-          pushShardFx(s, px + PLAYER_SIZE / 2, py, Math.cos(ma) * 130, Math.sin(ma) * 130, '#fde047', 1.6);
-        }
-        if (s.rings.length < 8) {
-          s.rings.push({ x: px + PLAYER_SIZE / 2, y: py, r: 3, vr: 110, life: 0.16, maxLife: 0.16, color: '#fde047' });
-        }
-        const ang = Math.atan2(target.y - py, target.x - px - PLAYER_SIZE / 2);
-        s.projectiles.push({
-          x: px + PLAYER_SIZE / 2, y: py,
-          tx: target.x, ty: target.y, t: 0, targetId: target.id,
-          ang, damage: ev.dmg,
-        });
-        if (ev.crit) {
-          s.floaters.push({ x: target.x, y: target.y - 20, text: '新词暴击 ×2', color: '#fbbf24', life: 1.2, size: 20, weight: 900 });
-        }
-        s.glow = 1;
-        s.attackRecoil = 1;
-        playAttackSound();
-        break;
-      }
-      case 'kill': {
-        const idx = enemies.findIndex((e) => e.id === ev.targetId);
-        if (idx >= 0) {
-          const target = enemies[idx]!;
-          explodeFX(s, target.x, target.y, target.color, 18);
-          s.hitStop = Math.max(s.hitStop, 0.12); // 击杀顿帧
-          playKillSound();
-          if (ev.heal > 0) {
-            s.floaters.push({ x: target.x, y: target.y - 28, text: '+♥ 击杀回血', color: '#4ade80', life: 1.4 });
-          }
-          s.floaters.push({ x: target.x, y: target.y - 14, text: '击杀', color: '#fde047', life: 1.2 });
-          enemies.splice(idx, 1);
-        }
-        break;
-      }
-      case 'wrong': {
-        if (ev.blocked) {
-          s.floaters.push({ x: px, y: py - 30, text: '免伤', color: '#94a3b8', life: 1 });
-        } else {
-          hurtFX(s, ev.dmg, px, py);
-        }
-        break;
-      }
-      case 'leak': {
-        const lidx = enemies.findIndex((e) => e.id === ev.targetId);
-        if (lidx >= 0) enemies.splice(lidx, 1);
-        explodeFX(s, px - 40, py, '#f87171', 14);
-        if (ev.blocked) {
-          s.floaters.push({ x: px, y: py - 30, text: '漏怪·免伤', color: '#94a3b8', life: 1.2 });
-        } else {
-          s.floaters.push({ x: px, y: py - 30, text: `漏怪 -${ev.dmg}`, color: '#f87171', life: 1.2 });
-          hurtFX(s, ev.dmg, px, py);
-        }
-        break;
-      }
-      case 'stun': {
-        for (const e of enemies) {
-          e.frozen = true;
-          e.frozenAngle = Math.random() * Math.PI * 2;
-        }
-        playFreezeSound();
-        s.floaters.push({ x: px, y: py - 60, text: '⚡ 连错眩晕 · 怪暂停逼近', color: '#a5f3fc', life: 1.4 });
-        break;
-      }
-      case 'leech': {
-        s.floaters.push({ x: px - 20, y: py - 24, text: `+♥ ${ev.amount}`, color: '#4ade80', life: 1.2, size: 20, weight: 900 });
-        break;
-      }
-      case 'boss-hit': {
-        if (s.survival) s.survival.bossHp = ev.bossHp;
-        if (ev.p2 && s.survival && !s.survival.bossP2) {
-          s.survival.bossP2 = true;
-          playP2RageSound();
-          s.floaters.push({ x: px, y: py - 80, text: '⚠ BOSS 暴怒！P2', color: '#c084fc', life: 3 });
-        }
-        if (ev.cleared) {
-          s.goldFlash = 1;
-          s.flash = 1.5;
-          s.hitStop = Math.max(s.hitStop, 0.3);
-          playBossDefeatSound();
-          for (let i = 0; i < 8; i++) {
-            s.rings.push({ x: px, y: py, r: 16 + i * 10, vr: 320 + i * 40, life: 1.4, maxLife: 1.4, color: i % 2 === 0 ? '#fbbf24' : '#ef4444' });
-          }
-          s.floaters.push({ x: px, y: py - 70, text: 'BOSS 击破！', color: '#fbbf24', life: 1.6, size: 24, weight: 900 });
-        } else {
-          s.floaters.push({ x: px - 30, y: py - 70, text: `-${ev.dmg}`, color: '#fca5a5', life: 1 });
-        }
-        break;
-      }
-      case 'boss-miss': {
-        if (ev.immune) {
-          s.floaters.push({ x: px - 30, y: py - 70, text: 'P2 免疫', color: '#94a3b8', life: 1.2 });
-        } else {
-          s.floaters.push({ x: px - 30, y: py - 70, text: `BOSS -${ev.dmg}`, color: '#f87171', life: 1.2 });
-          hurtFX(s, ev.dmg, px, py);
-        }
-        break;
-      }
-      case 'death': {
-        s.floaters.push({ x: px, y: py - 60, text: '💀 阵亡…', color: '#ef4444', life: 2.5, size: 26, weight: 900 });
-        break;
-      }
-    }
-  }
-}
-
-function pushShardFx(s: SurvivalFxState, x: number, y: number, vx: number, vy: number, color: string, size: number): void {
-  s.shards.push({
-    x, y, vx, vy,
-    life: 0.4 + Math.random() * 0.35, maxLife: 0.75, color,
-    size, rot: Math.random() * Math.PI, spin: (Math.random() - 0.5) * 16,
-    kind: Math.random() < 0.55 ? 'diamond' : 'tri',
-  });
-}
-
-function explodeFX(s: SurvivalFxState, x: number, y: number, color: string, count: number): void {
-  for (let i = 0; i < count; i++) {
-    const ang = Math.random() * Math.PI * 2;
-    const spd = 60 + Math.random() * 160;
-    s.shards.push({
-      x, y, vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd,
-      life: 0.4 + Math.random() * 0.35, maxLife: 0.75, color,
-      size: 2 + Math.random() * 3, rot: Math.random() * Math.PI, spin: (Math.random() - 0.5) * 16,
-      kind: Math.random() < 0.55 ? 'diamond' : 'tri',
-    });
-  }
-  if (s.rings.length < 8) {
-    s.rings.push({ x, y, r: 6, vr: 180, life: 0.22, maxLife: 0.22, color });
-  }
-}
-
-function hurtFX(s: SurvivalFxState, dmg: number, px: number, py: number): void {
-  s.flash = 1;
-  s.shake = 1;
-  playHurtSound();
-  s.floaters.push({ x: px, y: py - 24, text: `-${dmg}`, color: '#f87171', life: 1 });
 }
 
 // ---- 几何路径（纯函数，模块级避免重复创建）----
@@ -394,7 +177,7 @@ function diamondPath(ctx: CanvasRenderingContext2D, x: number, y: number, rx: nu
   ctx.closePath();
 }
 
-function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated, phase: _phase, tauntWords: tauntWordsProp, onLockInput: onLockInputProp, survival: survivalProp }: Props, ref: React.Ref<BattleFieldHandle>) {
+function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated, phase: _phase, tauntWords: tauntWordsProp, onLockInput: onLockInputProp }: Props, ref: React.Ref<BattleFieldHandle>) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
   const cssRef = useRef({ w: 800, h: 300 });
@@ -615,33 +398,29 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       }
       s.floaters.push({ x: W / 2, y: py - 50, text: '☠ Boss 段·迎战！', color: '#f87171', life: 3 });
     },
-    // ── 生存模式（逐问模拟，服务端权威在波末校准）──
+    // ── 生存模式（数值账本 + 普通引擎表现）──
     startSurvivalWave(meta: SurvivalWaveMeta) {
       const s = state.current;
       const sim = new SurvivalBattle(meta);
-      const px = playerX();
-      const py = sY();
-      const enemies: Enemy[] = [];
-      for (const m of sim.monsters) {
-        enemies.push(survivalEnemyFromMonster(m, survivalX(m.progress, px), py - 40 + Math.random() * 80));
-      }
       s.survival = {
         sim,
         hp: meta.hp,
         maxHp: meta.maxHp,
         day: meta.day,
-        enemies,
         bossActive: meta.bossWave,
-        bossHp: meta.bossHp ?? 0,
-        bossMaxHp: meta.bossHp ?? 0,
+        answered: 0,
         bossP2: false,
-        leechN: 6,
       };
       s.hp = meta.hp;
       s.maxHp = meta.maxHp;
+      s.correctCount = 0;
+      s.bossPhase = meta.bossWave;
+      s.bossSpawned = meta.bossWave;
+      s.spawnTimer = 0;
+      s.enemies = [];
+      s.projectiles = [];
+      const py = sY();
       if (meta.bossWave) {
-        s.bossPhase = true;
-        s.bossSpawned = true;
         s.flash = 1.5;
         s.shake = 1.8;
         s.bossIntro = 1.4;
@@ -655,38 +434,51 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
           });
         }
         s.floaters.push({ x: W2 / 2, y: py - 50, text: '☠ 首领波·迎战！', color: '#f87171', life: 3 });
+        spawnEnemy(true); // 走路 Boss（普通引擎行为）
       } else {
-        s.bossPhase = false;
         s.bossSpawned = false;
         s.floaters.push({ x: cssRef.current.w / 2, y: py - 60, text: `第 ${meta.day} 天`, color: '#67e8f9', life: 1.6 });
+        spawnEnemy(); // 立即首怪
       }
     },
-    survivalTick(correct: boolean, combo = 0) {
+    survivalTick(correct: boolean, combo = 0, typed = '') {
       const s = state.current;
       if (!s.survival) return;
-      // 每问先解冻（stun 事件再重新冻结），避免眩晕视觉残留
-      for (const e of s.survival.enemies) e.frozen = false;
-      // 普通模式连击特效（×3/×5/×7）
-      if (correct) comboFx(combo);
-      const events = s.survival.sim.onAnswer(correct);
-      const px = playerX();
-      const py = sY();
-      applySurvivalEvents(s as SurvivalFxState, px, py, events);
-      // 血量以 sim 为准（客户端实时模拟权威）
-      s.survival.hp = s.survival.sim.currentHp;
-      s.hp = s.survival.hp;
-      // 死亡：预测 HP 归零 → 触发失败回调（波末 advance 定论，此处仅视觉）
-      if (s.survival.hp <= 0 && !s.playerDown) {
-        s.survival.hp = 0;
-        s.running = false;
-        if (!s.playerDown) {
-          s.playerDown = true;
-          s.failFade = 0.001;
-          s.shake = 1.6;
-          onLockInputRef.current?.();
-          setTimeout(() => onPlayerDownRef.current?.(), 650);
+      const sim = s.survival.sim;
+      // 解冻（眩晕视觉清理）
+      for (const e of s.enemies) e.frozen = false;
+      s.combo = combo;
+      s.bestCombo = Math.max(s.bestCombo, combo);
+      s.survival.answered++;
+      if (correct) {
+        sim.onCorrect();
+        s.correctCount++;
+        comboFx(combo); // 普通模式连击特效
+        const burst = typed.length <= 5 ? 1 : Math.min(4, 2 + Math.floor((typed.length - 6) / 3));
+        const dmg = sim.currentQuestionIsNew() ? 2 : 1;
+        attack(dmg, burst); // 普通模式攻击：按词长多发弹丸/闪光/×N
+      } else {
+        survivalHurt(sim.wrongDmg());
+        if (sim.onWrong()) {
+          // 连错2眩晕：怪冻结暂停逼近（TypingCore 已展示答案并禁答）
+          for (const e of s.enemies) {
+            e.frozen = true;
+            e.frozenAngle = Math.random() * Math.PI * 2;
+          }
+          playFreezeSound();
+          s.floaters.push({ x: playerX(), y: sY() - 60, text: '⚡ 连错眩晕 · 怪暂停逼近', color: '#a5f3fc', life: 1.4 });
         }
       }
+      // 吸血：每答对 N 题回 1
+      const n = sim.leechEvery();
+      if (sim.correctCount > 0 && sim.correctCount % n === 0) {
+        const got = sim.heal(1);
+        if (got > 0) {
+          s.floaters.push({ x: playerX() - 20, y: sY() - 24, text: `+♥ ${got}`, color: '#4ade80', life: 1.2, size: 20, weight: 900 });
+        }
+      }
+      survivalSyncHp();
+      survivalDeathCheck();
     },
     syncSurvivalHp(hp: number, maxHp: number) {
       const s = state.current;
@@ -777,6 +569,40 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     const s = state.current;
     const { w: W, h: H } = cssRef.current;
     s.enemyId++;
+    if (s.survival) {
+      // 生存怪：普通模板外观 + 生存 HP/速度（复用普通引擎，数值来自 sim）
+      const sim = s.survival.sim;
+      if (boss) {
+        const hp = sim.bossHpNow();
+        s.enemies.push({
+          id: s.enemyId, shape: 'square', x: W * 0.2, y: H * 0.5,
+          hp, maxHp: hp, speed: 16, size: 56,
+          color: '#dc2626', boss: true,
+        });
+        s.floaters.push({ x: W / 2, y: 46, text: '⚠ BOSS 出现！', color: '#f87171', life: 2 });
+        s.floaters.push({ x: W / 2, y: 70, text: `HP ${hp}`, color: '#fbbf24', life: 2 });
+        return;
+      }
+      const tier = sim.spawnTier();
+      const hp = sim.monsterHpFor(tier);
+      const arch = pickArche('study');
+      s.enemies.push({
+        id: s.enemyId,
+        shape: arch.shape,
+        x: -30,
+        y: 20 + Math.random() * Math.max(30, H - 60),
+        hp, maxHp: hp,
+        speed: sim.monsterSpeedFor(tier),
+        size: arch.size,
+        color: arch.color,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: arch.rotSpeed ? arch.rotSpeed * (0.7 + Math.random() * 0.6) : 0,
+        archetype: arch.name,
+        splitOnDeath: arch.splitOnDeath,
+        snakePhase: arch.shape === 'diamond' ? Math.random() * Math.PI * 2 : undefined,
+      });
+      return;
+    }
     if (boss) {
       const hp = s.bossHp || Math.min(18, 6 + Math.floor(totalQuestionsRef.current / 10) * 2);
       s.enemies.push({
@@ -807,6 +633,44 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         snakePhase: arch.shape === 'diamond' ? Math.random() * Math.PI * 2 : undefined,
       });
     }
+  };
+
+  // 生存模式：血量同步（sim 为账本）
+  const survivalSyncHp = (): void => {
+    const s = state.current;
+    if (!s.survival) return;
+    s.survival.hp = s.survival.sim.currentHp;
+    s.hp = s.survival.hp;
+  };
+  // 生存模式：死亡（预测 HP 归零 → 触发失败回调；波末 advance 定论）
+  const survivalDeathCheck = (): void => {
+    const s = state.current;
+    if (s.survival && s.hp <= 0 && !s.playerDown) {
+      s.survival.hp = 0;
+      s.running = false;
+      s.playerDown = true;
+      s.failFade = 0.001;
+      s.shake = 1.6;
+      onLockInputRef.current?.();
+      setTimeout(() => onPlayerDownRef.current?.(), 650);
+    }
+  };
+  // 生存模式：受击（sim 账本扣血 + 普通模式受击特效）
+  const survivalHurt = (raw: number): void => {
+    const s = state.current;
+    if (!s.survival) return;
+    const taken = s.survival.sim.hurt(raw);
+    s.survival.hp = s.survival.sim.currentHp;
+    s.hp = s.survival.hp;
+    if (taken <= 0) {
+      s.floaters.push({ x: playerX(), y: sY() - 30, text: '免伤', color: '#94a3b8', life: 1 });
+      return;
+    }
+    s.flash = 1;
+    s.shake = 1;
+    playHurtSound();
+    s.floaters.push({ x: playerX(), y: sY() - 24, text: `-${taken}`, color: '#f87171', life: 1 });
+    survivalDeathCheck();
   };
 
   // ---- 主循环 ----
@@ -873,31 +737,36 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         dt *= 0.15;
       }
 
-      if (s.running && !survivalProp) {
+      if (s.running) {
         const anyFrozen = s.enemies.some((e) => e.frozen);
         if (!anyFrozen) {
-          // 学习段：每答对 3 词上限 +1，封顶 4；Boss 段：每答对 2 词上限 +1，封顶 2
-          const maxEnemies = s.bossPhase
-            ? Math.min(1, Math.floor(s.bossCorrectCount / 2) + 1)
-            : Math.min(4, Math.floor(s.correctCount / 3) + 1);
+          // 普通模式：随答题数增长上限；生存模式：场上随答题渐进至 ≤MAX_FIELD（清空立即补）
+          const maxEnemies = s.survival
+            ? (s.survival.bossActive ? 1 : Math.min(SURVIVAL.MAX_FIELD, Math.floor(s.survival.answered / 3) + 1))
+            : s.bossPhase
+              ? Math.min(1, Math.floor(s.bossCorrectCount / 2) + 1)
+              : Math.min(4, Math.floor(s.correctCount / 3) + 1);
           s.spawnTimer -= dt;
           const normalCount = s.enemies.filter((e) => !e.boss && e.hp > 0 && !e.reachedPlayer).length;
           if (normalCount < maxEnemies && s.spawnTimer <= 0) {
-            spawnEnemy();
+            if (!(s.survival && s.survival.bossActive)) spawnEnemy(); // 生存Boss波不自动补小怪
             s.spawnTimer = 0.5 + Math.random() * 0.6;
           }
-          // 场上清空且仍有词或 Boss 段未死 → 立即补怪
-          if (
-            (s.bossPhase ? s.enemies.some((e) => e.boss && e.hp > 0) : totalQuestionsRef.current > s.correctCount) &&
-            s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer).length === 0
-          ) {
+          // 场上清空且仍有词/未死 Boss → 立即补怪（生存普通波据此修复空场）
+          const answered = s.survival ? s.survival.answered : s.correctCount;
+          const respawnNeed = s.survival
+            ? (!s.survival.bossActive && totalQuestionsRef.current > answered)
+            : s.bossPhase
+              ? s.enemies.some((e) => e.boss && e.hp > 0)
+              : totalQuestionsRef.current > s.correctCount;
+          if (respawnNeed && s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer).length === 0) {
             spawnEnemy();
             s.spawnTimer = 0.3;
           }
         }
 
         // Boss 段嘲讽：每 6~10 秒从 Boss 上方弹一句错词（单条，不堆叠）
-        if (s.bossPhase && !s.bossDefeated) {
+        if (s.bossPhase && !s.bossDefeated && !s.survival) {
           s.tauntTimer -= dt;
           if (s.tauntTimer <= 0) {
             s.tauntTimer = 6 + Math.random() * 4;
@@ -918,48 +787,13 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
           if (s.taunt.life <= 0) s.taunt = null;
         }
 
-        // Boss P2 阶段：半血后定期召唤小怪
-        if (s.bossPhase && s.bossP2 && !s.bossDefeated) {
+        // Boss P2 阶段：半血后定期召唤小怪（生存模式由 sim 数值驱动，不自动召）
+        if (s.bossPhase && s.bossP2 && !s.bossDefeated && !s.survival) {
           s.bossSpawnTimer -= dt;
           if (s.bossSpawnTimer <= 0) {
             s.bossSpawnTimer = 5 + Math.random() * 3;
             spawnEnemy(false);
           }
-        }
-      }
-
-      // 生存模式：实时时间驱动（怪逼近/抵达漏怪），每帧推进
-      if (s.running && s.survival) {
-        const evs = s.survival.sim.step(dt);
-        if (evs.length > 0) {
-          applySurvivalEvents(s as SurvivalFxState, playerX(), sY(), evs);
-        }
-        // 同步场上怪位置与 HP（progress 每帧连续推进 → 实时逼近，无瞬移）
-        const pxv = playerX();
-        for (const m of s.survival.sim.monsters) {
-          const e = s.survival.enemies.find((en) => en.id === m.id);
-          if (e) {
-            e.x = survivalX(m.progress, pxv);
-            e.hp = m.hp;
-            e.maxHp = m.maxHp;
-          }
-        }
-        // 清理 sim 已移除但事件未覆盖的残影（漏怪/击杀兜底）
-        if (s.survival.enemies.length !== s.survival.sim.monsters.length) {
-          const alive = new Set(s.survival.sim.monsters.map((m) => m.id));
-          s.survival.enemies = s.survival.enemies.filter((e) => alive.has(e.id));
-        }
-        // 血量以 sim 为准（客户端实时模拟权威）
-        s.survival.hp = s.survival.sim.currentHp;
-        s.hp = s.survival.hp;
-        if (s.survival.hp <= 0 && !s.playerDown) {
-          s.survival.hp = 0;
-          s.running = false;
-          s.playerDown = true;
-          s.failFade = 0.001;
-          s.shake = 1.6;
-          onLockInputRef.current?.();
-          setTimeout(() => onPlayerDownRef.current?.(), 650);
         }
       }
 
@@ -1002,7 +836,22 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
           e.rotation += e.rotSpeed * dt;
         }
         if (e.x >= playerX()) {
-          if (e.boss) {
+          if (s.survival) {
+            // 生存模式：抵达玩家 = 漏怪 / Boss 反击（sim 账本 + 普通受击特效）
+            const W = boxRef.current?.clientWidth ?? 800;
+            if (e.boss) {
+              survivalHurt(s.survival.sim.bossMissDmg());
+              e.x = W * 0.2;
+              explode(e.x, e.y, e.color, 16);
+              s.floaters.push({ x: W / 2, y: e.y + 20, text: 'BOSS 反击！· 退回再战', color: '#f87171', life: 1.8 });
+            } else {
+              e.reachedPlayer = true;
+              s.survival.sim.onLeak();
+              survivalHurt(s.survival.sim.leakDmg());
+              explode(e.x, e.y, e.color, 12);
+              s.floaters.push({ x: e.x, y: e.y, text: '漏怪', color: '#f87171', life: 1 });
+            }
+          } else if (e.boss) {
             hurt(3);
             e.x = (boxRef.current?.clientWidth ?? 800) * 0.2;
             explode(e.x, e.y, e.color, 16);
@@ -1021,24 +870,29 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       // 弹丸
       for (const p of s.projectiles) {
         p.t += dt * (p.big ? 8.5 : 6);
-        const pool = s.survival ? s.survival.enemies : s.enemies;
-        const target = pool.find((e) => e.id === p.targetId);
+        const target = s.enemies.find((e) => e.id === p.targetId);
         if (target && target.hp > 0 && p.t < 1) {
           p.x += (target.x - p.x) * dt * 10;
           p.y += (target.y - p.y) * dt * 10;
         } else {
           // 命中结算
-          const hit = pool.find((e) => e.id === p.targetId);
+          const hit = s.enemies.find((e) => e.id === p.targetId);
           if (hit && hit.hp > 0) {
             const dmg = p.damage ?? 1;
-            const isCrit = dmg >= 2; // 复仇/技能双倍伤害
+            const isCrit = dmg >= 2; // 复仇/技能/新词双倍伤害
             explode(p.tx, p.ty, hit.color, 6, p.big);
-            // 生存模式：伤害/击杀由 sim 事件驱动（此处仅视觉），避免二次扣血
-            if (s.survival) {
-              p.t = 99;
-              continue;
-            }
             hit.hp -= dmg;
+            // 生存模式：命中同步 sim 账本（击杀回血 / Boss 击破）
+            if (s.survival) {
+              if (hit.boss) {
+                const r = s.survival.sim.onBossHit(dmg);
+                if (r.p2 && !s.survival.bossP2) s.survival.bossP2 = true;
+              } else if (hit.hp <= 0) {
+                s.survival.sim.onKill();
+              }
+              survivalSyncHp();
+              survivalDeathCheck();
+            }
             // 命中顿帧：Boss 命中 / 击杀 时"沉"一下（普通小怪命中不顿，避免连发卡顿）
             if (hit.boss) s.hitStop = Math.max(s.hitStop, 0.05);
             // Boss P2：半血暴怒
@@ -1058,7 +912,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
               s.hitStop = Math.max(s.hitStop, hit.boss ? 0.3 : 0.12);
               if (hit.boss) {
                 s.bossDefeated = true;
-                onBossDefeatedRef.current?.();
+                if (!s.survival) onBossDefeatedRef.current?.(); // 生存模式波继续，不跳结算
                 s.flash = 1.5;
                 s.goldFlash = 1; // 击破金闪
                 playBossDefeatSound();
@@ -1196,10 +1050,8 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         ctx.translate((Math.random() - 0.5) * 8 * s.shake, (Math.random() - 0.5) * 8 * s.shake);
       }
 
-      // Boss 血条（顶部居中，霓虹描边 + P2 变色）
-      const boss = s.survival && s.survival.bossActive
-        ? { hp: s.survival.bossHp, maxHp: s.survival.bossMaxHp, p2: s.survival.bossP2 }
-        : (() => { const b = s.enemies.find((e) => e.boss && e.hp > 0); return b ? { hp: b.hp, maxHp: b.maxHp, p2: s.bossP2 } : null; })();
+      // Boss 血条（顶部居中，霓虹描边 + P2 变色；生存 Boss 也是普通走路怪）
+      const boss = (() => { const b = s.enemies.find((e) => e.boss && e.hp > 0); return b ? { hp: b.hp, maxHp: b.maxHp, p2: s.bossP2 } : null; })();
       if (boss && boss.maxHp > 0) {
         const bw = Math.min(360, W * 0.55);
         const bossPct = Math.max(0, boss.hp / boss.maxHp);
@@ -1442,9 +1294,8 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
 
       ctx.restore(); // 结束 lighter 层
 
-      // 敌人本体 + 头顶小血条（正常合成，带旋转）
-      const renderEnemies = s.survival ? s.survival.enemies : s.enemies;
-      for (const e of renderEnemies) {
+      // 敌人本体 + 头顶小血条（正常合成，带旋转；生存怪同走普通引擎）
+      for (const e of s.enemies) {
         if (e.hp <= 0) continue;
         ctx.save();
         ctx.translate(e.x, e.y);
@@ -1524,13 +1375,6 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         ctx.fillRect(e.x - bw / 2, e.y - e.size / 2 - 8, bw, 4);
         ctx.fillStyle = e.boss ? '#ef4444' : e.color;
         ctx.fillRect(e.x - bw / 2, e.y - e.size / 2 - 8, bw * (e.hp / e.maxHp), 4);
-        // 生存模式：恢复经典 HP 数值（击数）血条观感
-        if (s.survival) {
-          ctx.fillStyle = 'rgba(255,255,255,0.9)';
-          ctx.font = 'bold 11px system-ui, sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText(`${Math.max(0, e.hp)}`, e.x, e.y - e.size / 2 - 12);
-        }
       }
 
       // 弹丸（旋转菱形 + 拖尾）
