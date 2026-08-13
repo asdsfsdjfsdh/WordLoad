@@ -271,6 +271,10 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
     setBusy(true);
     setLocked(true);
     try {
+      const finalHp = battleRef.current?.getSurvivalHp() ?? undefined;
+      const bossCleared = bossWave
+        ? (battleRef.current?.isSurvivalBossCleared() ?? false)
+        : undefined;
       const res = await api.post<RunAdvanceResponse>(`/runs/${runId}/advance`, {
         answers: answers.map((a) => ({
           seq: a.seq,
@@ -280,6 +284,8 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
         })),
         buffChoice: pendingBuff ?? undefined,
         legendChoice: pendingLegend ?? undefined,
+        finalHp,
+        bossCleared,
       });
       setPendingBuff(null);
       setPendingLegend(null);

@@ -144,10 +144,10 @@ describe('RunsService', () => {
       }));
       (prisma.runItem.aggregate as jest.Mock).mockResolvedValue({ _max: { seq: 39 } });
 
-      const r = await svc.advance(1, 1, { answers });
+      const r = await svc.advance(1, 1, { answers, finalHp: 22 });
       expect(r.ended).toBe(false);
       expect(r.day).toBe(3);
-      expect(r.hp).toBe(22); // 全对无扣血，吸血 20/6=3 → 封顶 22
+      expect(r.hp).toBe(22); // 客户端权威血量直接采信
       expect(r.bossWave).toBe(false);
     });
 
@@ -184,7 +184,7 @@ describe('RunsService', () => {
         },
       }));
 
-      const r = await svc.advance(1, 1, { answers });
+      const r = await svc.advance(1, 1, { answers, finalHp: 0 });
       expect(r.ended).toBe(true);
       expect(r.result?.surrendered).toBe(false);
       expect(r.result?.daysSurvived).toBe(2);

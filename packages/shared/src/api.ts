@@ -292,6 +292,10 @@ export interface RunAdvanceRequest {
   answers: AnswerInput[];
   buffChoice?: string;
   legendChoice?: string;
+  // 前端实时模拟出的波末血量（客户端权威，服务端直接采信）；缺省回退 run.hp
+  finalHp?: number;
+  // Boss 波：本波是否击破首领（客户端实时模拟判定）
+  bossCleared?: boolean;
 }
 
 export interface RunAdvanceResponse {

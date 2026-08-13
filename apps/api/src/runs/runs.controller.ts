@@ -50,6 +50,17 @@ class AdvanceDto {
   @IsOptional()
   @IsString()
   legendChoice?: string;
+
+  // 客户端权威：前端实时模拟出的波末血量（缺省回退 run.hp）
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  finalHp?: number;
+
+  // Boss 波：是否击破首领
+  @IsOptional()
+  @IsBoolean()
+  bossCleared?: boolean;
 }
 
 class FinishDto {

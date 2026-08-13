@@ -55,7 +55,8 @@ export const SURVIVAL = {
   DAY_K_CAP: 2.8,
   BASE_HP: 2,           // 怪 HP 基值（保底 ≥2 击）
   MIN_HITS: 2,
-  TIER_FACTOR: [1, 1.25, 1.6, 2],   // Ⅰ/Ⅱ/Ⅲ/Ⅳ 词难度加权
+  TIER_FACTOR: [1, 1.25, 1.6, 2],   // Ⅰ/Ⅱ/Ⅲ/Ⅳ 词难度加权（怪 HP）
+  TIER_K: [1, 1.3, 1.6, 2],         // Ⅰ/Ⅱ/Ⅲ/Ⅳ 档位（怪速度）
   TIER_DIST: [0.4, 0.3, 0.2, 0.1],  // 默认词池 tier 分布
   MAX_FIELD: 5,         // 场上怪数上限（自动补位）
   MONSTERS_DIV: 3,      // 每天怪数 = ceil(QUESTIONS_PER_DAY/3)
@@ -172,6 +173,12 @@ export const travelBudget = (day: number): number => {
     SURVIVAL.MIN_TRAVEL,
     Math.min(SURVIVAL.MAX_TRAVEL, Math.ceil(SURVIVAL.SPEED_BASE / speedMult)),
   );
+};
+// 怪实时逼近速度（px/sec）：base·√tierK·(1+0.02·day)，封顶 +30%
+// base 默认 SPEED_BASE（预算基准）；前端实时战斗用更高 px/sec 量级
+export const monsterSpeed = (day: number, tier: number, base: number = SURVIVAL.SPEED_BASE): number => {
+  const dayMult = Math.min(1 + SURVIVAL.SPEED_GROW * (day - 1), SURVIVAL.SPEED_CAP);
+  return base * Math.sqrt(SURVIVAL.TIER_K[tier] ?? 1) * dayMult;
 };
 // Boss HP
 export const bossHits = (day: number, atkLv: number): number =>

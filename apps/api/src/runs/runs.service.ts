@@ -208,6 +208,9 @@ export class RunsService {
       answers: { seq: number; correct: boolean; elapsedMs: number; typed?: string }[];
       buffChoice?: string;
       legendChoice?: string;
+      // 客户端权威：前端实时模拟出的波末血量 / Boss 波是否击破
+      finalHp?: number;
+      bossCleared?: boolean;
     },
   ): Promise<RunAdvanceResponse> {
     const run = await this.prisma.run.findFirst({
@@ -218,9 +221,7 @@ export class RunsService {
 
     const character = await this.prisma.userCharacter.findUnique({ where: { userId } });
     if (!character) throw new BadRequestException('角色未初始化');
-    const hpLv = character.hpLv;
     const atkLv = character.atkLv;
-    const defLv = character.defLv;
     const buffs = parseBuffs(run.buffs);
 
     // 应用玩家选择的 buff / 传说技能（上一波返回的候选之一），作用于本波回放
@@ -247,90 +248,11 @@ export class RunsService {
       return a?.correct ?? false;
     };
 
-    const isBossWave = run.items.some((i) => !i.answered && i.type === 'boss');
-
-    // ── Boss 波结算 ──
-    if (isBossWave) {
-      const bossItems = run.items.filter((i) => !i.answered && i.type === 'boss');
-      const bh = bossHits(run.day, atkLv);
-      let bossHp = bh;
-      let bossDmgTotal = 0;
-      let correct = 0;
-
-      for (const item of bossItems) {
-        const ok = resolveCorrect(item);
-        if (ok) {
-          correct++;
-          bossHp -= 1;
-        } else {
-          const raw = Math.min(
-            SURVIVAL.BOSS_DMG_BASE + SURVIVAL.BOSS_DMG_GROW * (run.day - 1),
-            SURVIVAL.BOSS_DMG_CAP,
-          );
-          bossDmgTotal += applyDef(raw, defLv);
-        }
-      }
-
-      await this.persistAnswers(
-        bossItems.map((i) => ({
-          id: i.id,
-          correct: resolveCorrect(i),
-          elapsedMs: answerBySeq.get(i.seq)?.elapsedMs ?? 0,
-        })),
-      );
-
-      let hp = run.hp - bossDmgTotal;
-      const bossCleared = bossHp <= 0;
-      const extra = { ...((run.extra ?? {}) as Record<string, unknown>) };
-
-      if (bossCleared) {
-        extra.everBoss = true;
-        extra.lastBossDay = run.day;
-        extra.lastBossConsumed = this.consumedCount(run.items);
-        extra.bossClearedCount = ((extra.bossClearedCount as number) ?? 0) + 1;
-        hp = Math.min(run.maxHp, hp + SURVIVAL.BOSS_HEAL);
-        await this.prisma.run.update({
-          where: { id: run.id },
-          data: { hp, extra: extra as unknown as Prisma.InputJsonValue },
-        });
-        if (hp <= 0) return this.finishAfterDeath(userId, run, hp);
-        return this.nextDay(userId, run, character, correct / Math.max(1, bossItems.length), true);
-      }
-
-      await this.prisma.run.update({ where: { id: run.id }, data: { hp } });
-      if (hp <= 0) return this.finishAfterDeath(userId, run, hp);
-      return this.nextDay(userId, run, character, 1, false);
-    }
-
-    // ── 普通波结算：答案驱动重放战场 ──
+    // 本波待答题（全部未答 = 本波提交）
     const pending = run.items.filter((i) => !i.answered);
     if (pending.length === 0) throw new BadRequestException('本波无待答题');
 
-    const tierOf = new Map<string, string>();
-    for (const it of run.items) {
-      const w = wordRows.get(it.wordId);
-      if (w) tierOf.set(it.wordId, w.tier);
-    }
-    const isNewByWord = this.newWordSet(run.items);
-
-    const battle = this.replayDay({
-      hp: run.hp,
-      items: pending,
-      resolveCorrect,
-      isNewByWord,
-      tierOf,
-      day: run.day,
-      hpLv,
-      atkLv,
-      defLv,
-      buffs,
-    });
-
-    let hp = battle.hp;
-    // 吸血（每答对 N 题回 1）
-    const leech = Math.floor(battle.correct / leechN(buffs.leech));
-    hp = Math.min(run.maxHp, hp + leech);
-
+    // 落库每题对错（SRS/奖励用；typed 以服务端比对为准）
     await this.persistAnswers(
       pending.map((i) => ({
         id: i.id,
@@ -339,12 +261,35 @@ export class RunsService {
       })),
     );
 
-    if (hp <= 0) return this.finishAfterDeath(userId, run, hp);
+    const total = pending.length;
+    const correctCount = pending.filter((i) => resolveCorrect(i)).length;
+    const acc = total > 0 ? correctCount / total : 1;
+    const isBossWave = pending.some((i) => i.type === 'boss');
+    const extra = { ...((run.extra ?? {}) as Record<string, unknown>) };
 
-    const extra = (run.extra ?? {}) as Record<string, unknown>;
-    const acc = battle.correct / Math.max(1, battle.correct + battle.wrong);
+    // Boss 波：客户端实时模拟判定击破，服务端记录次数
+    if (isBossWave && opts.bossCleared) {
+      extra.everBoss = true;
+      extra.lastBossDay = run.day;
+      extra.lastBossConsumed = this.consumedCount(run.items);
+      extra.bossClearedCount = ((extra.bossClearedCount as number) ?? 0) + 1;
+    }
+    const bossJustCleared = isBossWave && !!opts.bossCleared;
 
-    // Boss 双驱动判定
+    // 客户端权威血量（前端实时模拟结果；缺省回退当前 HP）
+    const hp = Math.max(0, Math.floor(opts.finalHp ?? run.hp));
+    // nextDay 用 run.hp 落库，必须先同步为本次最终血量，避免过期覆盖
+    run.hp = hp;
+
+    if (hp <= 0) {
+      await this.prisma.run.update({
+        where: { id: run.id },
+        data: { hp, extra: extra as unknown as Prisma.InputJsonValue },
+      });
+      return this.finishAfterDeath(userId, run, hp);
+    }
+
+    // Boss 双驱动判定（下一波是否首领波）
     const boss = shouldTriggerBoss({
       day: run.day,
       lastBossDay: (extra.lastBossDay as number) ?? 0,
@@ -355,12 +300,15 @@ export class RunsService {
 
     if (boss) {
       // 首领波：战前 +6 HP 小回复
-      hp = Math.min(run.maxHp, hp + SURVIVAL.BOSS_HEAL);
-      await this.prisma.run.update({ where: { id: run.id }, data: { hp } });
+      const hpNow = Math.min(run.maxHp, hp + SURVIVAL.BOSS_HEAL);
+      await this.prisma.run.update({
+        where: { id: run.id },
+        data: { hp: hpNow, extra: extra as unknown as Prisma.InputJsonValue },
+      });
       const bossQuestions = await this.buildBossWave(run.id, run.mode as GameMode, run.day);
       return {
         day: run.day,
-        hp,
+        hp: hpNow,
         maxHp: run.maxHp,
         buffs: run.buffs as string[],
         bossWave: true,
@@ -375,8 +323,11 @@ export class RunsService {
     }
 
     // 无首领：更新状态并进入次日
-    await this.prisma.run.update({ where: { id: run.id }, data: { hp } });
-    return this.nextDay(userId, run, character, acc, false);
+    await this.prisma.run.update({
+      where: { id: run.id },
+      data: { hp, extra: extra as unknown as Prisma.InputJsonValue },
+    });
+    return this.nextDay(userId, run, character, acc, bossJustCleared);
   }
 
   // ── 主动收枪 ──
