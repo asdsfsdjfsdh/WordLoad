@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import type { CollectedWord, CollectionStats, EncounterRecord } from '@word-journey/shared';
 import { api } from '../lib/api';
+import { getTts } from '../lib/tts';
+import { playSkipSound } from '../lib/sfx';
 
 const TIERS = [
   { v: '', label: '全部' }, { v: 'I', label: 'Ⅰ基础' }, { v: 'II', label: 'Ⅱ核心' },
@@ -77,6 +79,27 @@ export function CollectionsPage() {
     queryFn: () => api.get<EncounterRecord[]>(`/collections/words/${selectedWordId}/timeline`),
     enabled: !!selectedWordId,
   });
+
+  // 斩：标记已掌握（mastery 100），带防连点
+  const [skipping, setSkipping] = useState<Set<string>>(new Set());
+  const handleSkip = async (wordId: string) => {
+    if (skipping.has(wordId)) return;
+    playSkipSound();
+    setSkipping((prev) => new Set(prev).add(wordId));
+    try {
+      await api.post<{ ok: boolean }>(`/questions/words/${wordId}/skip`, {});
+      wordsQuery.refetch();
+      statsQuery.refetch();
+    } catch {
+      /* 静默忽略失败，下次可重试 */
+    } finally {
+      setSkipping((prev) => {
+        const next = new Set(prev);
+        next.delete(wordId);
+        return next;
+      });
+    }
+  };
 
   const stats = statsQuery.data;
   const { words, total } = wordsQuery.data ?? {};
@@ -155,14 +178,25 @@ export function CollectionsPage() {
             </button>
           ))}
           <span className="mx-1 text-slate-700">|</span>
-          {STATUSES.map((s) => (
-            <button key={s.v} onClick={() => { setStatus(s.v); setPage(1); }}
-              className={`rounded-full px-3 py-1 text-xs transition ${
-                status === s.v ? 'bg-cyan-500/20 text-cyan-400 ring-1 ring-cyan-500/30' : 'bg-slate-800/60 text-slate-400 hover:bg-slate-800 hover:text-slate-300'
-              }`}>
-              {s.label}
-            </button>
-          ))}
+          {STATUSES.map((s) => {
+            const count =
+              s.v === '' ? (stats?.encountered ?? 0) :
+              s.v === 'new' ? (stats?.newToday ?? 0) :
+              s.v === 'learning' ? (stats?.learning ?? 0) :
+              s.v === 'mastered' ? (stats?.mastered ?? 0) :
+              s.v === 'wrongbook' ? (stats?.wrongbook ?? 0) : null;
+            return (
+              <button key={s.v} onClick={() => { setStatus(s.v); setPage(1); }}
+                className={`rounded-full px-3 py-1 text-xs transition ${
+                  status === s.v ? 'bg-cyan-500/20 text-cyan-400 ring-1 ring-cyan-500/30' : 'bg-slate-800/60 text-slate-400 hover:bg-slate-800 hover:text-slate-300'
+                }`}>
+                {s.label}
+                {count != null && (
+                  <span className="ml-1.5 rounded-full bg-slate-700/60 px-1.5 text-[10px] tabular-nums">{count}</span>
+                )}
+              </button>
+            );
+          })}
           <div className="ml-auto flex items-center gap-2">
             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
               placeholder="搜索…"
@@ -204,6 +238,7 @@ export function CollectionsPage() {
                   <th className="px-2 py-3 font-medium">正确率</th>
                   <th className="px-2 py-3 font-medium">初见</th>
                   <th className="pr-4 py-3 font-medium">释义</th>
+                  <th className="pr-4 py-3 font-medium">操作</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/50">
@@ -213,7 +248,18 @@ export function CollectionsPage() {
                   return (
                     <tr key={w.wordId} onClick={() => setSelectedWordId(w.wordId)}
                       className="cursor-pointer transition-colors hover:bg-slate-800/50">
-                      <td className="py-2.5 pl-4 pr-2 font-semibold text-slate-100">{w.text}</td>
+                      <td className="py-2.5 pl-4 pr-2 font-semibold text-slate-100">
+                        <div className="flex items-center gap-1.5">
+                          <span className="truncate">{w.text}</span>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); getTts().speak(w.text); }}
+                            title="发音"
+                            className="shrink-0 rounded border border-slate-700 px-1 py-0.5 text-[10px] text-slate-300 transition-colors hover:border-cyan-500/50 hover:text-cyan-300"
+                          >
+                            🔊
+                          </button>
+                        </div>
+                      </td>
                       <td className="px-2 py-2.5 text-xs text-slate-500">{w.phonetic ?? '-'}</td>
                       <td className="px-2 py-2.5"><span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${tierCls(w.tier)}`}>{w.tier}</span></td>
                       <td className="px-2 py-2.5"><span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${m.badge}`}>{m.label}</span></td>
@@ -229,6 +275,25 @@ export function CollectionsPage() {
                       <td className="py-2.5 pr-4 text-xs text-slate-400 truncate max-w-[120px]">
                         {w.meanings?.[0]?.meaning ?? ''}
                       </td>
+                      <td className="py-2.5 pr-4 text-right">
+                        {w.mastery < 100 && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSkip(w.wordId);
+                            }}
+                            disabled={skipping.has(w.wordId)}
+                            title="标记已掌握"
+                            className={`rounded-lg border px-2 py-0.5 text-xs font-medium transition-colors ${
+                              skipping.has(w.wordId)
+                                ? 'cursor-wait border-slate-700 text-slate-500'
+                                : 'border-emerald-800 bg-emerald-950/40 text-emerald-400 hover:bg-emerald-500/20'
+                            }`}
+                          >
+                            {skipping.has(w.wordId) ? '…' : '斩'}
+                          </button>
+                        )}
+                      </td>
                     </tr>
                   );
                 })}
@@ -242,25 +307,61 @@ export function CollectionsPage() {
               const m = statusMeta(w);
               const acc = w.encounterCount ? Math.round((w.correctCount / w.encounterCount) * 100) : 0;
               return (
-                <button key={w.wordId} onClick={() => setSelectedWordId(w.wordId)}
-                  className={`rounded-2xl border border-l-4 border-r-slate-800 border-t-slate-800 border-b-slate-800 ${m.cls} p-4 text-left transition-all hover:-translate-y-0.5 hover:border-r-slate-700 hover:border-t-slate-700 hover:border-b-slate-700 hover:shadow-lg`}>
+                <div
+                  key={w.wordId}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedWordId(w.wordId)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSelectedWordId(w.wordId);
+                    }
+                  }}
+                  className={`cursor-pointer rounded-2xl border border-l-4 border-r-slate-800 border-t-slate-800 border-b-slate-800 ${m.cls} p-4 text-left transition-all hover:-translate-y-0.5 hover:border-r-slate-700 hover:border-t-slate-700 hover:border-b-slate-700 hover:shadow-lg`}>
                   <div className="flex items-start justify-between">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="text-base font-bold text-slate-100 truncate">{w.text}</span>
+                        <button
+                          onClick={(e) => { e.stopPropagation(); getTts().speak(w.text); }}
+                          title="发音"
+                          className="shrink-0 rounded-lg border border-slate-700 px-1.5 py-0.5 text-xs text-slate-300 transition-colors hover:border-cyan-500/50 hover:text-cyan-300"
+                        >
+                          🔊
+                        </button>
                         <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${tierCls(w.tier)}`}>{w.tier}</span>
                       </div>
                       {w.phonetic && <p className="mt-0.5 text-xs text-slate-500 truncate">{w.phonetic}</p>}
                     </div>
-                    <span className="text-lg">{m.icon}</span>
+                    <div className="flex shrink-0 items-center gap-2">
+                      {w.mastery < 100 && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSkip(w.wordId);
+                          }}
+                          disabled={skipping.has(w.wordId)}
+                          title="标记已掌握"
+                          className={`rounded-lg border px-2 py-0.5 text-xs font-medium transition-colors ${
+                            skipping.has(w.wordId)
+                              ? 'cursor-wait border-slate-700 text-slate-500'
+                              : 'border-emerald-800 bg-emerald-950/40 text-emerald-400 hover:bg-emerald-500/20'
+                          }`}
+                        >
+                          {skipping.has(w.wordId) ? '…' : '斩'}
+                        </button>
+                      )}
+                      <span className="text-lg">{m.icon}</span>
+                    </div>
                   </div>
-                  {/* Mastery bar */}
+                  {/* Accuracy bar */}
                   <div className="mt-3 flex items-center gap-2">
                     <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-800">
-                      <div className={`h-full rounded-full transition-all ${w.mastery >= 100 ? 'bg-emerald-500' : w.mastery >= 50 ? 'bg-amber-500' : 'bg-sky-500'}`}
-                        style={{ width: `${w.mastery}%` }} />
+                      <div className={`h-full rounded-full transition-all ${w.mastery >= 100 ? 'bg-emerald-500' : acc >= 80 ? 'bg-sky-500' : acc >= 40 ? 'bg-amber-500' : 'bg-red-500'}`}
+                        style={{ width: `${Math.max(5, acc)}%` }} />
                     </div>
-                    <span className="text-[10px] font-medium text-slate-500 w-7 text-right">{w.mastery}%</span>
+                    <span className="text-[10px] font-medium text-slate-500 w-7 text-right tabular-nums">{acc}%</span>
                   </div>
                   {/* Stats row */}
                   <div className="mt-2 flex items-center gap-3 text-[11px]">
@@ -314,7 +415,7 @@ export function CollectionsPage() {
                       </div>
                     </div>
                   )}
-                </button>
+                </div>
               );
             })}
           </div>
@@ -354,7 +455,7 @@ export function CollectionsPage() {
                     </span>
                     <div className="flex-1 min-w-0">
                       <div className="text-sm text-slate-200">
-                        {r.mode === 'zh2en' ? '中译英' : '听写'}
+                        {( { zh2en: '中译英', dictation: '听写', choice: '选中文' } as Record<string, string> )[r.mode]}
                       </div>
                       <div className="text-xs text-slate-500">
                         {new Date(r.date).toLocaleString('zh-CN')} · {(r.elapsedMs / 1000).toFixed(1)}s

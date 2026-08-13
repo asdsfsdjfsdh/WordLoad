@@ -2,9 +2,17 @@ export type Rating = 'C' | 'B' | 'A' | 'S' | 'SS' | 'SSS';
 
 export type DifficultyTier = 'I' | 'II' | 'III' | 'IV';
 
-export type GameMode = 'zh2en' | 'dictation';
+export type GameMode = 'zh2en' | 'dictation' | 'choice';
 
-export type QuestionType = 'fill-blank' | 'sense-match';
+export type QuestionType = 'fill-blank' | 'sense-match' | 'choice';
+
+// 选中文模式的候选池项（会话创建时服务端一次性下发，前端据此组 4 个选项）
+export interface FoilOption {
+  text: string;
+  meaning: string;
+  // 与本题相关的易混词形（优先选用作干扰项），可为空
+  confusableTexts?: string[];
+}
 
 // 认证
 export interface AuthUser {
@@ -13,6 +21,7 @@ export interface AuthUser {
   coins: number;
   character?: {
     level: number;
+    exp: number;
     hpLv: number;
     atkLv: number;
     defLv: number;
@@ -68,9 +77,11 @@ export interface Question {
   blanks: number[];
   tier: DifficultyTier;
   answer: string; // 完整正确答案（打字判定用）
+  answerMeaning?: string; // 选中文模式：正确答案对应的中文释义（前端组选项用）
   phonetic?: string; // 音标（听写/发音展示用）
   example?: string; // 语境例句（仅膨胀重写模式展示）
   isRevenge?: boolean; // Boss 段：本局错词再次出现，答对打 Boss 双倍伤害
+  source?: 'new' | 'review' | 'wrongbook' | 'boss'; // 单词来源标签
 }
 
 export interface Session {
@@ -79,6 +90,8 @@ export interface Session {
   stageId: number;
   mode: GameMode;
   questions: Question[];
+  // 选中文模式候选池（同阶段全部单词 + 该用户本词书错题词），前端据此生成 4 选项
+  foilPool?: FoilOption[];
 }
 
 // 创建会话请求
@@ -149,6 +162,8 @@ export interface SessionFinish {
   wrongConverted?: number; // Boss 段纠正的错词数
   totalWrong?: number;    // 学习段错词总数
   tomorrowPreview?: { text: string; meaning: string }[]; // 明天预告 3 词
+  leveledUp?: boolean; // 本局是否升级
+  wordResults?: { text: string; correct: boolean; type: string }[]; // 每题对错明细
 }
 
 export interface ConfusableInfo {
@@ -191,5 +206,21 @@ export interface CollectionStats {
   totalWords: number;
   encountered: number;
   mastered: number;
+  learning: number; // 学习中（已遇未掌握）
+  wrongbook: number; // 错题本
+  newToday: number; // 今日首次遇到的单词数（"新遇"筛选）
   byTier: { tier: DifficultyTier; total: number; encountered: number }[];
+}
+
+// 材料：合成（3×tierN → 1×tier(N+1)，N=1,2,3）
+export interface SynthesizeRequest {
+  fromTier: 1 | 2 | 3;
+}
+
+export interface SynthesizeResult {
+  fromTier: number;
+  toTier: number;
+  // 合成后余额快照
+  materials: { code: string; tier: number; count: number }[];
+  coins: number;
 }

@@ -8,6 +8,7 @@ import { BattlePage } from './pages/BattlePage';
 import { ResultPage } from './pages/ResultPage';
 import { CharacterPage } from './pages/CharacterPage';
 import { CollectionsPage } from './pages/CollectionsPage';
+import { StatsPage } from './pages/StatsPage';
 
 // 登录守卫：未登录重定向到 /login
 function RequireAuth({ children }: { children: ReactNode }) {
@@ -86,6 +87,14 @@ export function App() {
         element={
           <RequireAuth>
             <CollectionsPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/stats"
+        element={
+          <RequireAuth>
+            <StatsPage />
           </RequireAuth>
         }
       />

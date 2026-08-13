@@ -2,7 +2,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import type { DifficultyTier, GameMode, LevelWord, Question, Session } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
-import { buildQuestion, rotateSense } from './question-builder';
+import { buildFoilPool, buildQuestion, rotateSense } from './question-builder';
 
 // 默认会题数：一关固定词集 + 复习/错题补抽
 const DEFAULT_SESSION_SIZE = 30;
@@ -136,12 +136,23 @@ export class QuestionsService {
       deficit -= extraNew;
       const extraReview = Math.min(deficit, reviewPool.length - takeReview);
       deficit -= extraReview;
-      takeWrong += deficit; // 最后缺口由错题兜底
+      takeWrong = Math.min(takeWrong + deficit, wrongPool.length);
+
+      let chosenNew = takeNew + extraNew;
+      let chosenReview = takeReview + extraReview;
+      const chosenWrong = takeWrong;
+      let totalChosen = chosenNew + chosenReview + chosenWrong;
+      if (totalChosen < sessionSize) {
+        const short = sessionSize - totalChosen;
+        const fillNew = Math.min(short, newPool.length - chosenNew);
+        chosenNew += fillNew;
+        chosenReview += Math.min(short - fillNew, reviewPool.length - chosenReview);
+      }
 
       chosen = [
-        ...newPool.slice(0, takeNew + extraNew),
-        ...reviewPool.slice(0, takeReview + extraReview),
-        ...wrongPool.slice(0, takeWrong),
+        ...newPool.slice(0, chosenNew),
+        ...reviewPool.slice(0, chosenReview),
+        ...wrongPool.slice(0, chosenWrong),
       ];
     }
 
@@ -235,6 +246,7 @@ export class QuestionsService {
         phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
         tier: w.tier as DifficultyTier,
         mode,
+        source: sourceOf.get(w.id),
       });
     });
 
@@ -252,6 +264,28 @@ export class QuestionsService {
         stageId,
         mode,
         questions,
+        // 选中文模式：一次性下发候选池（首义项 + 易混词形），前端据此生成 4 选项，服务端不再逐题出选项
+        // 与已选词构成易混关系的优先保留，其余随机，总量截断到 80 项控制传输体积
+        foilPool:
+          mode === 'choice'
+            ? (() => {
+                const chosenTexts = new Set(chosen.map((c) => c.word.text));
+                const entries = pool.map((bw) => ({
+                  text: bw.word.text,
+                  meaning: bw.word.senses[0]?.meaning ?? bw.word.text,
+                  confusableTexts: [
+                    ...bw.word.confusableA.map((p) => p.wordB.text),
+                    ...bw.word.confusableB.map((p) => p.wordA.text),
+                  ],
+                }));
+                entries.sort((a, b) => {
+                  const priA = a.confusableTexts.some((t) => chosenTexts.has(t)) ? 0 : 1;
+                  const priB = b.confusableTexts.some((t) => chosenTexts.has(t)) ? 0 : 1;
+                  return priA - priB || Math.random() - 0.5;
+                });
+                return buildFoilPool(entries.slice(0, 80));
+              })()
+            : undefined,
       },
       items,
     };

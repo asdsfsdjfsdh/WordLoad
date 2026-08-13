@@ -65,95 +65,97 @@ export function ResultPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-slate-950 px-4">
-      <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 p-8 text-center shadow-xl">
-        <div className="mb-2 text-sm text-slate-400">战斗结算</div>
-        <div className={`text-6xl font-black ${ratingColor[result.rating] ?? 'text-slate-200'}`}>
+      <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 p-6 text-center shadow-xl">
+        <div className={`text-5xl font-black ${ratingColor[result.rating] ?? 'text-slate-200'}`}>
           {result.rating}
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4">
-          <Stat label="经验" value={`+${result.xp}`} />
-          <Stat label="金币" value={`+${result.coins}`} />
-          <Stat label="复习词数" value={`${result.reviewedWords}`} />
-          <Stat label="新掌握" value={`${result.newMastered}`} />
-        </div>
+        {/* Boss 结局 + 转化率 合并一行 */}
+        {(result.bossFought || (result.totalWrong != null && result.totalWrong > 0)) && (
+          <div className="mt-1 text-xs text-slate-400">
+            {result.bossFought && (
+              <span className={result.bossCleared ? 'text-amber-400' : 'text-red-400'}>
+                {result.bossCleared ? 'Boss 击破' : 'Boss 逃脱'}
+              </span>
+            )}
+            {result.bossFought && result.totalWrong != null && result.totalWrong > 0 && ' · '}
+            {result.totalWrong != null && result.totalWrong > 0 && (
+              <span className="text-cyan-400">
+                转化 {((result.wrongConverted ?? 0) / result.totalWrong * 100).toFixed(0)}%
+              </span>
+            )}
+          </div>
+        )}
 
+        {/* 统计 + 掉落 单行 */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm">
+          <span className="text-sky-400 font-semibold">+{result.xp} XP</span>
+          <span className="text-amber-400 font-semibold">+{result.coins} 💰</span>
+          <span className="text-emerald-400">{result.newMastered} 新掌握</span>
+          <span className="text-slate-400">{result.reviewedWords} 词</span>
+        </div>
+        {result.leveledUp && (
+          <div className="mt-2 inline-block rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.25)]">
+            ⬆ Lv.UP 升级！
+          </div>
+        )}
         {result.drops.length > 0 && (
-          <div className="mt-6 rounded-xl border border-slate-700 bg-slate-800/50 p-4 text-left">
-            <div className="mb-2 text-xs text-slate-400">掉落物</div>
+          <div className="mt-1 flex flex-wrap justify-center gap-x-3 gap-y-0.5 text-xs text-slate-400">
             {result.drops.map((d) => (
-              <div key={d.materialCode} className="flex items-center justify-between text-sm">
-                <span className="text-slate-200">
-                  {tierNames[d.tier] ?? '未知材料'}
-                </span>
-                <span className="text-amber-400">×{d.count}</span>
-              </div>
+              <span key={d.materialCode}>
+                {tierNames[d.tier] ?? '材料'} ×{d.count}
+              </span>
             ))}
           </div>
         )}
 
-        {/* Boss 结局 */}
-        {result.bossFought && (
-          <div className={`mt-6 rounded-xl border p-4 text-center ${result.bossCleared ? 'border-amber-500/50 bg-amber-950/20' : 'border-red-500/40 bg-red-950/20'}`}>
-            <div className={`text-lg font-bold ${result.bossCleared ? 'text-amber-300' : 'text-red-400'}`}>
-              {result.bossCleared ? '☠ Boss 击破！' : '☠ Boss 逃脱…'}
-            </div>
-            <div className="mt-1 text-xs text-slate-400">
-              {result.bossCleared ? '你击败了阶段 Boss！' : 'Boss 未被击败，下次再试！'}
-            </div>
-          </div>
-        )}
-
-        {/* 错词转化率 */}
-        {result.totalWrong != null && result.totalWrong > 0 && (
-          <div className="mt-4 text-center">
-            <div className="text-2xl font-bold text-cyan-300">
-              {((result.wrongConverted ?? 0) / result.totalWrong * 100).toFixed(0)}%
-            </div>
-            <div className="text-xs text-slate-400">
-              错词转化率 · {result.wrongConverted}/{result.totalWrong} 个错误被纠正
-            </div>
-          </div>
-        )}
-
-        {/* 明天预告 */}
-        {result.tomorrowPreview && result.tomorrowPreview.length > 0 && (
-          <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-950/10 p-4 text-center">
-            <div className="mb-2 text-xs text-slate-400">明天的 Boss 正在准备这些词…</div>
-            <div className="flex flex-wrap justify-center gap-2">
-              {result.tomorrowPreview.map((w, i) => (
-                <span key={i} className="rounded-full border border-cyan-700/50 bg-cyan-950/40 px-3 py-1 text-sm text-cyan-300">
-                  {w.text} <span className="ml-1 text-[10px] text-slate-500">{w.meaning}</span>
+        {/* 单词小结 */}
+        {result.wordResults && result.wordResults.length > 0 && (
+          <div className="mt-5 rounded-xl border border-slate-700/60 bg-slate-800/30 p-3">
+            <div className="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto">
+              {result.wordResults.map((w, i) => (
+                <span
+                  key={i}
+                  className={`rounded-full px-2.5 py-0.5 text-xs font-medium border ${
+                    w.correct
+                      ? 'border-emerald-600/40 bg-emerald-500/10 text-emerald-300'
+                      : 'border-red-600/40 bg-red-500/10 text-red-300'
+                  } ${w.type === 'boss' ? 'ring-1 ring-amber-500/20' : ''}`}
+                >
+                  {w.text}
                 </span>
               ))}
             </div>
           </div>
         )}
 
-        <div className="mt-8 flex gap-3">
+        {/* 明天预告 */}
+        {result.tomorrowPreview && result.tomorrowPreview.length > 0 && (
+          <div className="mt-4 text-xs text-slate-500">
+            明天复习：
+            {result.tomorrowPreview.map((w, i) => (
+              <span key={i} className="ml-1.5 text-slate-400">
+                {w.text}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-6 flex gap-3">
           <Link
             to="/lobby"
-            className="flex-1 rounded-lg border border-slate-700 py-2 text-sm text-slate-300 hover:bg-slate-800"
+            className="flex-1 rounded-lg border border-slate-700 py-2.5 text-sm text-slate-300 hover:bg-slate-800"
           >
             返回大厅
           </Link>
-          <Link
-            to="/character"
-            className="flex-1 rounded-lg bg-cyan-500 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-400"
+          <button
+            onClick={() => window.history.back()}
+            className="flex-1 rounded-lg bg-cyan-500 py-2.5 text-sm font-semibold text-slate-950 hover:bg-cyan-400"
           >
-            养成面板
-          </Link>
+            再来一局
+          </button>
         </div>
       </div>
-    </div>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl bg-slate-800/60 p-3">
-      <div className="text-lg font-semibold text-slate-100">{value}</div>
-      <div className="text-xs text-slate-400">{label}</div>
     </div>
   );
 }

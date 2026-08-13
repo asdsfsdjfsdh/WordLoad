@@ -38,3 +38,5 @@ Thumbs.db
 # playwright
 test-results/
 playwright-report/
+# obsidian editor state
+.obsidian/workspace.json

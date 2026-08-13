@@ -39,7 +39,7 @@ export class BanksService {
 
     // 今日已学：按词书聚合（会话逐题计数）
     const sessionsToday = await this.prisma.learningSession.findMany({
-      where: { userId, createdAt: { gte: startOfDay() } },
+      where: { userId, createdAt: { gte: startOfDay() }, result: true },
       select: { bankId: true, _count: { select: { items: true } } },
     });
     const learnedByBank = new Map<number, number>();

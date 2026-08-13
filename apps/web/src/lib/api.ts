@@ -1,7 +1,8 @@
 // API client：baseURL + token 注入 + 401 自动刷新重试
 import type { AuthTokens } from '@word-journey/shared';
 
-const BASE = '/api';
+export const API_BASE = '/api';
+const BASE = API_BASE;
 
 // 认证状态（与 auth store 共享存储键）
 export interface StoredAuth {

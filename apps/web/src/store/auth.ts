@@ -10,7 +10,7 @@ interface AuthState {
   restore: () => Promise<void>;
   login: (username: string, password: string) => Promise<void>;
   register: (username: string, password: string) => Promise<void>;
-  logout: () => void;
+  logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
 
@@ -63,7 +63,13 @@ export const useAuth = create<AuthState>((set) => ({
     set({ user: r.user });
   },
 
-  logout: () => {
+  logout: async () => {
+    // 尽力让服务端失效 refresh token；失败不阻塞本地登出
+    try {
+      await api.post<{ ok: boolean }>('/auth/logout', {}, { noRefresh: true });
+    } catch {
+      /* 忽略 */
+    }
     clearAuth();
     set({ user: null });
   },

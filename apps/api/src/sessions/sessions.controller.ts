@@ -33,7 +33,7 @@ class CreateSessionDto {
   stageId!: number;
 
   @IsString()
-  @IsIn(['zh2en', 'dictation'])
+  @IsIn(['zh2en', 'dictation', 'choice'])
   mode!: string;
 
   @IsOptional()
@@ -70,6 +70,30 @@ class BossExtendDto {
   @IsArray()
   @IsString({ each: true })
   missedWordIds!: string[];
+}
+
+class CreateReviewDto {
+  @IsString()
+  bankCode!: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(10)
+  @Max(60)
+  size?: number;
+}
+
+class FlashcardSubmitDto {
+  @IsString()
+  bankCode!: string;
+
+  @IsArray()
+  @IsString({ each: true })
+  knownIds!: string[];
+
+  @IsArray()
+  @IsString({ each: true })
+  unknownIds!: string[];
 }
 
 @ApiTags('sessions')
@@ -123,5 +147,28 @@ export class SessionsController {
     @Body() dto: BossExtendDto,
   ): Promise<BossExtendResponse> {
     return this.sessions.bossExtend(req.user.sub, Number.parseInt(id, 10), dto.missedWordIds);
+  }
+
+  @Post('review')
+  @ApiOperation({ summary: '创建复习会话（仅到期词，无 Boss 段）' })
+  async createReview(
+    @Req() req: Request & { user: JwtUser },
+    @Body() dto: CreateReviewDto,
+  ) {
+    return this.sessions.createReviewSession({
+      userId: req.user.sub,
+      bankCode: dto.bankCode,
+      size: dto.size,
+    });
+  }
+
+  @Post('flashcard-submit')
+  @ApiOperation({ summary: '闪卡提交：更新 SRS 进度（不创建会话）' })
+  async flashcardSubmit(
+    @Req() req: Request & { user: JwtUser },
+    @Body() dto: FlashcardSubmitDto,
+  ) {
+    await this.sessions.flashcardSubmit(req.user.sub, dto);
+    return { ok: true };
   }
 }

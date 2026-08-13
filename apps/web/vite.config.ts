@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
+    host: true, // 监听所有网卡，允许局域网其他设备访问
     port: 5173,
     proxy: {
       '/api': {

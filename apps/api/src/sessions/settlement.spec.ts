@@ -1,7 +1,9 @@
 import {
   computeCoins,
   computeRating,
+  expForLevel,
   intervalDays,
+  levelFromExp,
   ratingExp,
   rollDrops,
   srsSchedule,
@@ -31,6 +33,26 @@ describe('intervalDays', () => {
     expect(intervalDays(4)).toBe(14);
     expect(intervalDays(20)).toBeLessThanOrEqual(90);
     expect(intervalDays(0)).toBe(0);
+  });
+});
+
+describe('levelFromExp / expForLevel', () => {
+  it('累计经验三角递增', () => {
+    expect(expForLevel(1)).toBe(0);
+    expect(expForLevel(2)).toBe(100);
+    expect(expForLevel(3)).toBe(300);
+    expect(expForLevel(4)).toBe(600);
+  });
+  it('经验推导等级（边界）', () => {
+    expect(levelFromExp(0)).toBe(1);
+    expect(levelFromExp(99)).toBe(1);
+    expect(levelFromExp(100)).toBe(2);
+    expect(levelFromExp(299)).toBe(2);
+    expect(levelFromExp(300)).toBe(3);
+    expect(levelFromExp(600)).toBe(4);
+  });
+  it('负经验按 0 处理', () => {
+    expect(levelFromExp(-10)).toBe(1);
   });
 });
 

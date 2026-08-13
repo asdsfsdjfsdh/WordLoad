@@ -5,7 +5,7 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import type { EnterBossResponse, BossExtendResponse, DropItem, Rating, SessionFinish } from '@word-journey/shared';
+import type { EnterBossResponse, BossExtendResponse, DropItem, GameMode, Rating, SessionFinish } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { QuestionsService, type SessionPlan } from '../questions/questions.service';
 import { allocBossPool, allocExtend, buildQuestion, rotateSense } from '../questions/question-builder';
@@ -13,14 +13,15 @@ import {
   computeCoins,
   computeRating,
   intervalDays,
+  levelFromExp,
   ratingExp,
   rollDrops,
   srsSchedule,
   type AnswerInput,
 } from './settlement';
 
-// 掌握度：reviewStage 达到 6 视为掌握（mastery 100）
-const MASTER_STAGE = 6;
+// 掌握度：reviewStage 达到 MASTER_STAGE 次正确复习视为掌握（mastery 100）
+const MASTER_STAGE = 3;
 
 @Injectable()
 export class SessionsService {
@@ -42,7 +43,7 @@ export class SessionsService {
       userId: opts.userId,
       bankCode: opts.bankCode,
       stageId: opts.stageId,
-      mode: opts.mode as 'zh2en' | 'dictation',
+      mode: opts.mode as GameMode,
       size: opts.size,
       wordIds: opts.wordIds,
     });
@@ -76,6 +77,102 @@ export class SessionsService {
     return { sessionId: String(session.id), plan };
   }
 
+  // 创建复习会话：只从到期词中抽题，不经过模式/预习/Boss
+  async createReviewSession(opts: {
+    userId: number;
+    bankCode: string;
+    size?: number;
+  }) {
+    const bank = await this.prisma.wordBank.findUnique({
+      where: { code: opts.bankCode },
+    });
+    if (!bank) throw new NotFoundException(`词书不存在: ${opts.bankCode}`);
+
+    const sessionSize = Math.min(60, Math.max(10, opts.size ?? 30));
+    const now = new Date();
+
+    const dueProgress = await this.prisma.userWordProgress.findMany({
+      where: {
+        userId: opts.userId,
+        nextReviewAt: { lte: now },
+        mastery: { lt: 100 },
+        inWrongBook: false,
+        word: { bankWords: { some: { bankId: bank.id } } },
+      },
+      include: { word: {
+        include: { senses: { orderBy: { idx: 'asc' } } },
+      } },
+      orderBy: { nextReviewAt: 'asc' },
+      take: sessionSize,
+    });
+
+    if (dueProgress.length === 0) throw new BadRequestException('暂无需要复习的单词');
+
+    const wordIds = dueProgress.map((p) => p.wordId);
+    const chosen = dueProgress.slice(0, sessionSize);
+    const mode = 'zh2en';
+
+    const senseProgress = await this.prisma.userSenseProgress.findMany({
+      where: { userId: opts.userId, wordId: { in: wordIds } },
+    });
+    const spByWord = new Map<string, typeof senseProgress>();
+    for (const sp of senseProgress) {
+      const list = spByWord.get(sp.wordId) ?? [];
+      list.push(sp);
+      spByWord.set(sp.wordId, list);
+    }
+
+    const senseIdxOf = (wordId: string, senseCount: number): number => {
+      if (senseCount <= 1) return 0;
+      const sps = spByWord.get(wordId) ?? [];
+      const states = Array.from({ length: senseCount }, (_, idx) => {
+        const sp = sps.find((x) => x.senseIdx === idx);
+        return { idx, reviewStage: sp?.reviewStage ?? 0, lastTestedAt: sp ? (sp.lastTestedAt?.getTime() ?? 0) : Number.MIN_SAFE_INTEGER };
+      });
+      return rotateSense(states);
+    };
+
+    const items: { seq: number; wordId: string; senseIdx: number; source: 'review' }[] = [];
+    const questions: import('@word-journey/shared').Question[] = [];
+
+    chosen.forEach((p, i) => {
+      const w = p.word;
+      const seq = i;
+      const senseIdx = senseIdxOf(w.id, w.senses.length);
+      const sense = w.senses[senseIdx] ?? w.senses[0];
+      const q = buildQuestion({
+        seq, wordId: w.id, senseIdx, text: w.text,
+        promptBase: sense?.meaning ?? w.text,
+        example: sense?.example,
+        phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
+        tier: w.tier as import('@word-journey/shared').DifficultyTier,
+        mode,
+        source: 'review',
+      });
+      questions.push(q);
+      items.push({ seq, wordId: w.id, senseIdx, source: 'review' as const });
+    });
+
+    const session = await this.prisma.learningSession.create({
+      data: {
+        userId: opts.userId, bankId: bank.id, stageId: 0,
+        mode, result: false, rating: 'C', phase: 'study',
+      },
+    });
+
+    await this.prisma.learningSessionItem.createMany({
+      data: items.map((it) => ({
+        sessionId: session.id, seq: it.seq, wordId: it.wordId,
+        senseIdx: it.senseIdx, type: it.source,
+      })),
+    });
+
+    return {
+      sessionId: String(session.id),
+      plan: { session: { sessionId: String(session.id), bankId: String(bank.id), stageId: 0, mode, questions }, items },
+    };
+  }
+
   // 进入 Boss 阶段：落库学习段 items 的 answered/correct → 组 Boss 词池 → 返回 Boss 首批评题
   async enterBoss(
     userId: number,
@@ -90,7 +187,7 @@ export class SessionsService {
     if (session.result) throw new BadRequestException('会话已结算');
     if (session.phase !== 'study') throw new BadRequestException('非学习段');
 
-    const mode = session.mode as 'zh2en' | 'dictation';
+    const mode = session.mode as GameMode;
     const wordRows = await this.prisma.word.findMany({
       where: { id: { in: [...new Set(session.items.map((i) => i.wordId))] } },
       select: { id: true, text: true },
@@ -161,7 +258,7 @@ export class SessionsService {
     if (session.result) throw new BadRequestException('会话已结算');
     if (session.phase !== 'boss') throw new BadRequestException('非 Boss 段');
 
-    const mode = session.mode as 'zh2en' | 'dictation';
+    const mode = session.mode as GameMode;
     const usedIds = new Set(session.items.map((i) => i.wordId));
 
     // 历史错词剩余
@@ -207,7 +304,7 @@ export class SessionsService {
   // 内部：给定词 ID 列表生成考题（复用 rotateSense + buildQuestion）
   private async buildQuestionsForWords(
     userId: number,
-    mode: 'zh2en' | 'dictation',
+    mode: GameMode,
     startSeq: number,
     wordIds: string[],
     revengeIds: string[],
@@ -262,6 +359,7 @@ export class SessionsService {
         phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
         tier: w.tier as import('@word-journey/shared').DifficultyTier,
         mode,
+        source: 'boss',
       });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (revengeSet.has(wordId)) (q as any).isRevenge = true;
@@ -270,6 +368,68 @@ export class SessionsService {
     });
 
     return { questions, items };
+  }
+
+  // 闪卡提交：更新 SRS 进度，不创建会话
+  async flashcardSubmit(
+    userId: number,
+    dto: { knownIds: string[]; unknownIds: string[] },
+  ) {
+    const progress = await this.prisma.userWordProgress.findMany({
+      where: { userId, wordId: { in: [...dto.knownIds, ...dto.unknownIds] } },
+    });
+    const progByWord = new Map(progress.map((p) => [p.wordId, p]));
+    const now = Date.now();
+
+    const updates: Promise<unknown>[] = [];
+    for (const wordId of dto.knownIds) {
+      const cur = progByWord.get(wordId);
+      const srs = srsSchedule(cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null, true);
+      const next = new Date(now + intervalDays(srs.reviewStage) * 86400000);
+      const mastery = Math.min(100, srs.reviewStage * 20);
+      updates.push(
+        this.prisma.userWordProgress.upsert({
+          where: { userId_wordId: { userId, wordId } },
+          create: {
+            userId, wordId, mastery, reviewStage: srs.reviewStage,
+            nextReviewAt: srs.reviewStage > 0 ? next : null,
+            ease: srs.ease, correctCount: 1,
+            inVocabBook: true, firstEncounteredAt: new Date(now), lastEncounteredAt: new Date(now),
+          },
+          update: {
+            mastery, reviewStage: srs.reviewStage,
+            nextReviewAt: srs.reviewStage > 0 ? next : null,
+            ease: srs.ease, correctCount: { increment: 1 },
+            inWrongBook: false, lastEncounteredAt: new Date(now),
+          },
+        }),
+      );
+    }
+    for (const wordId of dto.unknownIds) {
+      const cur = progByWord.get(wordId);
+      const srs = srsSchedule(cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null, false);
+      const next = new Date(now + intervalDays(srs.reviewStage) * 86400000);
+      const mastery = Math.min(100, srs.reviewStage * 20);
+      updates.push(
+        this.prisma.userWordProgress.upsert({
+          where: { userId_wordId: { userId, wordId } },
+          create: {
+            userId, wordId, mastery, reviewStage: srs.reviewStage,
+            nextReviewAt: srs.reviewStage > 0 ? next : null,
+            ease: srs.ease, wrongCount: 1,
+            inWrongBook: true, inVocabBook: true,
+            firstEncounteredAt: new Date(now), lastEncounteredAt: new Date(now),
+          },
+          update: {
+            mastery, reviewStage: srs.reviewStage,
+            nextReviewAt: srs.reviewStage > 0 ? next : null,
+            ease: srs.ease, wrongCount: { increment: 1 },
+            inWrongBook: true, lastEncounteredAt: new Date(now),
+          },
+        }),
+      );
+    }
+    await Promise.all(updates);
   }
 
   // 提交答案并结算：校验会话归属 → 逐题更新 → SRS/进度/角色/材料
@@ -317,20 +477,27 @@ export class SessionsService {
     // 错词转化率统计
     const studyWrongIds = new Set<string>();
     const bossCorrectIds = new Set<string>();
+    const wordResults: { text: string; correct: boolean; type: string }[] = [];
     for (const item of session.items) {
       const a = answerBySeq.get(item.seq);
       const isCorrect = resolveCorrect(item);
       const ms = a?.elapsedMs ?? 0;
       itemUpdates.push({ seq: item.seq, correct: isCorrect, elapsedMs: ms });
+      const wordText = textByWord.get(item.wordId) ?? '';
+      wordResults.push({ text: wordText, correct: isCorrect, type: item.type });
       if (isCorrect) correct++;
       elapsedTotal += ms;
       // 记录学习段错词（type !== 'boss' 的未答 / 错）
-      if (item.type !== 'boss' && !isCorrect && !item.answered) studyWrongIds.add(item.wordId);
+      if (item.type !== 'boss' && !isCorrect) studyWrongIds.add(item.wordId);
       // 记录 Boss 段答对的
       if (item.type === 'boss' && isCorrect) bossCorrectIds.add(item.wordId);
     }
     const total = session.items.length;
-    const avgElapsedMs = total ? elapsedTotal / total : 0;
+    // 本局实际作答的词数（按去重单词计，不含未作答/Boss 续战刷出的题）
+    const answeredItems = session.items.filter((i) => answerBySeq.has(i.seq));
+    const reviewedWords = new Set(answeredItems.map((i) => i.wordId)).size;
+    const answeredTotal = itemUpdates.filter((u) => u.elapsedMs > 0).length;
+    const avgElapsedMs = answeredTotal ? elapsedTotal / answeredTotal : 0;
     const perfectBonus = total > 0 && correct === total;
 
     let rating = computeRating({ total, correct, avgElapsedMs, perfectBonus });
@@ -354,7 +521,7 @@ export class SessionsService {
     );
 
     // 单个事务完成：会话/逐题 + 词级&义项级 SRS + 角色/金币/材料（失败整体回滚）
-    const { newMastered, mastered } = await this.prisma.$transaction(async (tx) => {
+    const { newMastered, mastered, leveledUp } = await this.prisma.$transaction(async (tx) => {
       // 乐观锁防并发重复结算：仅 result=false 的行更新成功
       const updated = await tx.learningSession.updateMany({
         where: { id: session.id, result: false },
@@ -386,7 +553,7 @@ export class SessionsService {
       );
 
       let newMastered = 0;
-      const mastered: string[] = [];
+      const mastered = new Set<string>();
       for (const item of session.items) {
         const correctNow = resolveCorrect(item);
 
@@ -396,10 +563,11 @@ export class SessionsService {
           correctNow,
         );
         const wasMastered = (cur?.mastery ?? 0) >= 100;
-        const mastery = Math.min(100, srs.reviewStage * 20);
-        if (!wasMastered && mastery >= 100) {
+        const mastery = Math.min(100, Math.round((srs.reviewStage / MASTER_STAGE) * 100));
+        // 同词在会话内重复（如错词→Boss 复仇词）只计一次新掌握
+        if (!wasMastered && mastery >= 100 && !mastered.has(item.wordId)) {
+          mastered.add(item.wordId);
           newMastered++;
-          mastered.push(item.wordId);
         }
         const now = Date.now();
         const next = new Date(now + intervalDays(srs.reviewStage) * 86400000);
@@ -461,15 +629,20 @@ export class SessionsService {
         });
       }
 
-      // 角色经验 + 金币 + 材料
+      // 角色经验 + 等级 + 金币 + 材料
       await tx.user.update({
         where: { id: userId },
         data: { coins: { increment: coins } },
       });
+      const char = await tx.userCharacter.findUnique({ where: { userId } });
+      const prevExp = char?.exp ?? 0;
+      const newExp = prevExp + xp;
+      const newLevel = levelFromExp(newExp);
+      const leveledUp = levelFromExp(newExp) > levelFromExp(prevExp);
       await tx.userCharacter.upsert({
         where: { userId },
-        create: { userId, exp: xp },
-        update: { exp: { increment: xp } },
+        create: { userId, exp: newExp, level: newLevel },
+        update: { exp: newExp, level: newLevel },
       });
       for (const d of drops.filter((d) => materialIdByCode.has(d.materialCode))) {
         await tx.userMaterial.upsert({
@@ -484,7 +657,7 @@ export class SessionsService {
         });
       }
 
-      return { newMastered, mastered };
+      return { newMastered, mastered, leveledUp };
     });
 
     // 明天预告：取 3 个到期将复习的词
@@ -501,15 +674,17 @@ export class SessionsService {
       coins,
       drops: drops.map((d) => ({ materialCode: d.materialCode, tier: d.tier, count: d.count })),
       newMastered,
-      reviewedWords: total,
-      progressDelta: total ? mastered.length / total : 0,
+      reviewedWords,
+      progressDelta: total ? mastered.size / new Set(session.items.map((i) => i.wordId)).size : 0,
       bossCleared: bossFought && bossCleared,
       bossFought,
       wrongConverted,
       totalWrong,
+      leveledUp,
       tomorrowPreview: dueProgress
         .filter((p) => p.word)
         .map((p) => ({ text: p.word.text, meaning: p.word.senses[0]?.meaning ?? '' })),
+      wordResults,
     };
   }
 }

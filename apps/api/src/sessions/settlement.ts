@@ -40,6 +40,19 @@ export function intervalDays(stage: number): number {
   return Math.min(30 + (stage - 5) * 10, 90);
 }
 
+// 角色等级：达到 level 所需累计经验 = 100 * (level-1) * level / 2（三角递增，早期快后期慢）
+export function expForLevel(level: number): number {
+  const l = Math.max(1, level);
+  return (100 * (l - 1) * l) / 2;
+}
+
+// 由累计经验推导等级
+export function levelFromExp(exp: number): number {
+  let level = 1;
+  while (expForLevel(level + 1) <= Math.max(0, exp)) level++;
+  return level;
+}
+
 // 评级：根据正确率与平均耗时打分，映射 C~SSS
 export function computeRating(opts: {
   total: number;

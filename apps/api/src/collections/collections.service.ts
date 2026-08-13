@@ -34,7 +34,8 @@ export class CollectionsService {
     } else if (opts.status === 'learning') {
       where.mastery = { gt: 0, lt: 100 };
     } else if (opts.status === 'new') {
-      where.mastery = 0;
+      // "新遇" = 今日首次遇到的单词（结算后 mastery 恒 > 0，原 mastery=0 永远为空）
+      where.firstEncounteredAt = { gte: startOfToday() };
     }
     if (opts.search) {
       where.word = { ...(where.word ?? {}), text: { contains: opts.search } };
@@ -44,7 +45,7 @@ export class CollectionsService {
     switch (opts.sort) {
       case 'firstEncounteredAt': orderBy = { firstEncounteredAt: 'desc' }; break;
       case 'lastEncounteredAt': orderBy = { lastEncounteredAt: 'desc' }; break;
-      case 'encounterCount': orderBy = { correctCount: 'desc' }; break;
+      case 'encounterCount': orderBy = [{ correctCount: 'desc' }, { wrongCount: 'desc' }]; break;
       default: orderBy = { firstEncounteredAt: 'desc' };
     }
 
@@ -147,10 +148,15 @@ export class CollectionsService {
     const allWords = await this.prisma.word.findMany({ select: { id: true, tier: true } });
     const progress = await this.prisma.userWordProgress.findMany({
       where: { userId },
-      select: { wordId: true, mastery: true },
+      select: { wordId: true, mastery: true, firstEncounteredAt: true, inWrongBook: true },
     });
     const mastered = new Set(progress.filter((p) => p.mastery >= 100).map((p) => p.wordId));
     const encountered = new Set(progress.map((p) => p.wordId));
+    const wrongbook = new Set(progress.filter((p) => p.inWrongBook).map((p) => p.wordId));
+    const learning = progress.filter((p) => p.mastery < 100 && !p.inWrongBook).length;
+    const newToday = progress.filter(
+      (p) => p.firstEncounteredAt != null && p.firstEncounteredAt.getTime() >= startOfToday().getTime(),
+    ).length;
 
     const tiers: DifficultyTier[] = ['I', 'II', 'III', 'IV'];
     const byTier = tiers.map((tier) => {
@@ -166,7 +172,16 @@ export class CollectionsService {
       totalWords: allWords.length,
       encountered: encountered.size,
       mastered: mastered.size,
+      learning,
+      wrongbook: wrongbook.size,
+      newToday,
       byTier,
     };
   }
+}
+
+function startOfToday(): Date {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d;
 }

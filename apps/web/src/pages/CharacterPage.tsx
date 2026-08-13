@@ -50,6 +50,7 @@ export function CharacterPage() {
                 <span className="text-sm text-slate-400">角色等级</span>
                 <span className="text-3xl font-bold text-amber-400">Lv.{char.level}</span>
               </div>
+              <ExpBar exp={char.exp} level={char.level} />
               <StatBar label="生命" value={char.hpLv} color="bg-emerald-500" />
               <StatBar label="攻击" value={char.atkLv} color="bg-red-500" />
               <StatBar label="防御" value={char.defLv} color="bg-sky-500" />
@@ -59,6 +60,29 @@ export function CharacterPage() {
             </div>
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+// 每级所需经验：达到 level 累计需 100*(level-1)*level/2（与后端 expForLevel 一致）
+function expForLevel(level: number): number {
+  const l = Math.max(1, level);
+  return (100 * (l - 1) * l) / 2;
+}
+
+function ExpBar({ exp, level }: { exp: number; level: number }) {
+  const inLevel = exp - expForLevel(level);
+  const toNext = level * 100; // 当前级升下一级需 level*100
+  const pct = Math.max(0, Math.min(100, Math.round((inLevel / toNext) * 100)));
+  return (
+    <div className="mb-4">
+      <div className="mb-1 flex justify-between text-xs text-slate-400">
+        <span>经验</span>
+        <span className="tabular-nums">{exp} / 升 {level + 1} 级还需 {Math.max(0, toNext - inLevel)}</span>
+      </div>
+      <div className="h-2.5 overflow-hidden rounded-full bg-slate-800">
+        <div className="h-full rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 transition-all duration-500" style={{ width: `${pct}%` }} />
       </div>
     </div>
   );

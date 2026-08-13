@@ -2,6 +2,7 @@ import {
   allocBossPool,
   allocExtend,
   allocMix,
+  buildFoilPool,
   buildQuestion,
   findConfusable,
   maskTemplate,
@@ -77,6 +78,21 @@ describe('maskTemplate 挖空模板', () => {
   });
 });
 
+describe('buildFoilPool 选中文候选池打包', () => {
+  it('打包 text/meaning，易混词形放入 confusableTexts', () => {
+    const pool = buildFoilPool([
+      { text: 'alter', meaning: '改变', confusableTexts: ['altar'] },
+      { text: 'altar', meaning: '祭坛', confusableTexts: ['alter'] },
+      { text: 'plain', meaning: '平原', confusableTexts: [] },
+    ]);
+    expect(pool).toEqual([
+      { text: 'alter', meaning: '改变', confusableTexts: ['altar'] },
+      { text: 'altar', meaning: '祭坛', confusableTexts: ['alter'] },
+      { text: 'plain', meaning: '平原', confusableTexts: undefined },
+    ]);
+  });
+});
+
 describe('buildQuestion 出题', () => {
   const base = {
     seq: 1,
@@ -101,6 +117,14 @@ describe('buildQuestion 出题', () => {
   it('无例句时 example 缺省', () => {
     const q = buildQuestion({ ...base, mode: 'zh2en' });
     expect(q.example).toBeUndefined();
+  });
+  it('选中文：英文打底、answerMeaning 携带释义、不挖空', () => {
+    const q = buildQuestion({ ...base, mode: 'choice' });
+    expect(q.type).toBe('choice');
+    expect(q.prompt).toBe('access');
+    expect(q.answerMeaning).toBe('接近；入口');
+    expect(q.template).toBe('');
+    expect(q.blanks).toEqual([]);
   });
 });
 

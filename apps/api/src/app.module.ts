@@ -8,6 +8,9 @@ import { QuestionsModule } from './questions/questions.module';
 import { SessionsModule } from './sessions/sessions.module';
 import { BanksModule } from './banks/banks.module';
 import { CollectionsModule } from './collections/collections.module';
+import { SettingsModule } from './settings/settings.module';
+import { StatsModule } from './stats/stats.module';
+import { MaterialsModule } from './materials/materials.module';
 
 @Module({
   imports: [
@@ -18,6 +21,9 @@ import { CollectionsModule } from './collections/collections.module';
     SessionsModule,
     BanksModule,
     CollectionsModule,
+    SettingsModule,
+    StatsModule,
+    MaterialsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

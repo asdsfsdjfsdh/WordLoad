@@ -3,10 +3,22 @@
 // 性能：禁热循环 shadowBlur，霓虹用「亮芯+双描边叠层」，辉光层统一 'lighter'，网格离屏预渲染
 // v2.2：freezeEnemies（重写冻结，Boss除外）/ skillAttack（3枚大菱形）/ 连击 ×3/×5/×7 几何反馈
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import {
+  playAttackSound,
+  playBossAppearSound,
+  playBossDefeatSound,
+  playFreezeSound,
+  playHitSound,
+  playHurtSound,
+  playKillSound,
+  playP2RageSound,
+  playSkillSound,
+  playUnfreezeSound,
+} from '../lib/sfx';
 
 export interface BattleFieldHandle {
-  // 每次判定结果：correct 触发攻击，wrong 触发受击扣血；isRevenge 双倍伤害
-  notifyAnswer(correct: boolean, combo: number, isRevenge?: boolean): void;
+  // 每次判定结果：correct 触发攻击，wrong 触发受击扣血；isRevenge 双倍伤害；typed 用户实际输入（用于飘字反馈）
+  notifyAnswer(correct: boolean, combo: number, isRevenge?: boolean, typed?: string): void;
   freezeEnemies(frozen: boolean): void;
   skillAttack(): void;
   bossAlive(): boolean;
@@ -20,11 +32,12 @@ interface Props {
   onBossDefeated?: () => void;
   phase: 'study' | 'boss';
   tauntWords?: string[]; // Boss 段嘲讽词列表（本局错词）
+  onLockInput?: () => void; // 战斗结束/失败瞬间锁定答题
 }
 
 interface Enemy {
   id: number;
-  shape: 'circle' | 'triangle' | 'square';
+  shape: 'circle' | 'triangle' | 'square' | 'hexagon' | 'cross' | 'diamond' | 'pentagon' | 'mini-cross';
   x: number;
   y: number;
   hp: number;
@@ -36,6 +49,11 @@ interface Enemy {
   reachedPlayer?: boolean;
   frozen?: boolean;
   frozenAngle?: number;
+  rotation?: number;
+  rotSpeed?: number;
+  archetype?: string; // 所属模板名
+  splitOnDeath?: boolean; // 死亡时是否分裂
+  snakePhase?: number; // diamond 蛇形相位
 }
 
 interface Shard {
@@ -80,13 +98,42 @@ interface Floater {
   text: string;
   color: string;
   life: number;
+  size?: number;
+  weight?: number;
 }
 
 const PLAYER_SIZE = 30;
-const NORMAL_HP = 2;
-const SHAPES: Enemy['shape'][] = ['circle', 'triangle', 'square'];
-const COLORS = ['#ef4444', '#f97316', '#a855f7'];
 const PARTICLE_CAP = 220;
+
+// ---- 小怪模板：7 种几何怪 ----
+interface Archetype {
+  shape: Enemy['shape'];
+  size: number;
+  hp: number;
+  speed: number;
+  color: string;
+  rotSpeed?: number;
+  splitOnDeath?: boolean;
+  name: string;
+}
+
+const ARCHETYPES: Archetype[] = [
+  { name: 'Blob',    shape: 'circle',   size: 22, hp: 2, speed: 35, color: '#ef4444', rotSpeed: 0 },
+  { name: 'Spike',   shape: 'triangle', size: 16, hp: 1, speed: 48, color: '#f97316', rotSpeed: 6, },
+  { name: 'Cube',    shape: 'square',   size: 24, hp: 2, speed: 32, color: '#a855f7',},
+  { name: 'Shield',  shape: 'hexagon',  size: 30, hp: 3, speed: 22, color: '#10b981', rotSpeed: 2 },
+  { name: 'Star',    shape: 'cross',    size: 22, hp: 2, speed: 30, color: '#0ea5e9', splitOnDeath: true },
+  { name: 'Shard',   shape: 'diamond',  size: 14, hp: 1, speed: 44, color: '#fbbf24', rotSpeed: 9, },
+  { name: 'Crystal', shape: 'pentagon', size: 20, hp: 2, speed: 34, color: '#ec4899', rotSpeed: 3 },
+];
+
+// Boss 段禁用 Star（避免分裂物堆积）
+const BOSS_ARCHETYPES: Archetype[] = ARCHETYPES.filter((a) => !a.splitOnDeath);
+
+function pickArche(phase: 'study' | 'boss'): Archetype {
+  const pool = phase === 'boss' ? BOSS_ARCHETYPES : ARCHETYPES;
+  return pool[Math.floor(Math.random() * pool.length)]!;
+}
 
 // ---- 几何路径（纯函数，模块级避免重复创建）----
 function polyPath(ctx: CanvasRenderingContext2D, x: number, y: number, sides: number, r: number, rot = 0): void {
@@ -110,15 +157,18 @@ function diamondPath(ctx: CanvasRenderingContext2D, x: number, y: number, rx: nu
   ctx.closePath();
 }
 
-function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated, phase: _phase, tauntWords: tauntWordsProp }: Props, ref: React.Ref<BattleFieldHandle>) {
+function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated, phase: _phase, tauntWords: tauntWordsProp, onLockInput: onLockInputProp }: Props, ref: React.Ref<BattleFieldHandle>) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
+  const cssRef = useRef({ w: 800, h: 300 });
   const onPlayerDownRef = useRef(onPlayerDown);
   const onBossDefeatedRef = useRef(onBossDefeated);
+  const onLockInputRef = useRef(onLockInputProp);
   const totalQuestionsRef = useRef(totalQuestions);
   const tauntWordsRef = useRef(tauntWordsProp ?? []);
   onPlayerDownRef.current = onPlayerDown;
   onBossDefeatedRef.current = onBossDefeated;
+  onLockInputRef.current = onLockInputProp;
   totalQuestionsRef.current = totalQuestions;
   tauntWordsRef.current = tauntWordsProp ?? [];
 
@@ -139,6 +189,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     bossDefeated: false,
     lastStand: 0, // 0=inactive, >0 = remaining protected answers; once per session
     tauntTimer: 0,
+    taunt: null as { text: string; x: number; y: number; life: number; maxLife: number } | null,
     enemies: [] as Enemy[],
     projectiles: [] as Projectile[],
     shards: [] as Shard[],
@@ -151,6 +202,17 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     comboFx7: 0,
     slowTimer: 0,
     playerGlint: 0,
+    breathTimer: 0,
+    attackRecoil: 0,
+    bossP2: false,
+    bossSpawnTimer: 0,
+    bestCombo: 0,
+    hitStop: 0, // 命中顿帧剩余秒（整体模拟减速）
+    goldFlash: 0, // Boss 击破金闪强度
+    bossIntro: 0, // Boss 登场横幅剩余秒（0 = 无）
+    failFade: 0, // 失败红淡出计时（>0 时按秒递增）
+    playerDown: false, // 失败回调只触发一次
+    bgParticles: [] as { x: number; y: number; vx: number; vy: number; life: number; size: number; color: string }[],
   });
 
   const sY = (): number => {
@@ -203,8 +265,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     if (combo === 5) {
       s.comboFx5 = 1.1;
       // 屏幕四角三角楔形震波粒子
-      const W = canvasRef.current?.width ?? 800;
-      const H = canvasRef.current?.height ?? 300;
+      const { w: W, h: H } = cssRef.current;
       for (let c = 0; c < 4; c++) {
         const cx = c % 2 === 0 ? 0 : W;
         const cy = c < 2 ? 0 : H;
@@ -238,15 +299,17 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
   };
 
   useImperativeHandle(ref, () => ({
-    notifyAnswer(correct: boolean, combo: number, isRevenge = false) {
+    notifyAnswer(correct: boolean, combo: number, isRevenge = false, typed = '') {
       const s = state.current;
       s.combo = combo;
+      s.bestCombo = Math.max(s.bestCombo, combo);
       if (correct) {
         s.correctCount++;
         if (s.bossPhase) s.bossCorrectCount++;
         if (s.lastStand > 0) s.lastStand--;
         comboFx(combo);
-        attack(isRevenge ? 2 : undefined);
+        const burst = typed.length <= 5 ? 1 : Math.min(4, 2 + Math.floor((typed.length - 6) / 3));
+        attack(isRevenge ? 2 : undefined, burst);
       } else {
         if (s.lastStand > 0) return; // 最后一搏免伤
         const dmg = s.bossSpawned && s.enemies.some((e) => e.boss && !e.reachedPlayer) ? 2 : 1;
@@ -259,33 +322,33 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         e.frozen = frozen;
         e.frozenAngle = Math.random() * Math.PI * 2;
       }
+      if (frozen) playFreezeSound();
+      else playUnfreezeSound();
     },
     skillAttack() {
       const s = state.current;
       const py = sY();
-      // Boss 阶段优先 Boss
-      const bossTarget = s.bossPhase
-        ? s.enemies.find((e) => e.boss && e.hp > 0 && !e.reachedPlayer)
-        : null;
-      if (bossTarget) {
-        const ang = Math.atan2(bossTarget.y - py, bossTarget.x - playerX() - PLAYER_SIZE / 2);
-        s.projectiles.push({ x: playerX() + PLAYER_SIZE / 2, y: py, tx: bossTarget.x, ty: bossTarget.y, t: 0, targetId: bossTarget.id, ang, big: true, damage: 3 });
-        s.glow = 1.2;
-        const W = canvasRef.current?.width ?? 800;
-        s.floaters.push({ x: W / 2, y: py - 60, text: '💥 技能直击', color: '#a5f3fc', life: 1.4 });
-        return;
-      }
-      const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer && !e.boss);
+      // 始终攻击 3 个最近敌人（含 Boss，按欧几里得距离）
+      const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer);
       const nearest = [...alive]
         .sort((a, b) => ((a.x - playerX()) ** 2 + (a.y - py) ** 2) - ((b.x - playerX()) ** 2 + (b.y - py) ** 2))
         .slice(0, 3);
       if (nearest.length === 0) return;
+      playSkillSound();
+      // 技能发射口闪光（更亮）
+      for (let i = 0; i < 6; i++) {
+        const ma = Math.PI + (Math.random() - 0.5) * 1.2;
+        pushShard(playerX() + PLAYER_SIZE / 2, py, Math.cos(ma) * 220, Math.sin(ma) * 220, '#a5f3fc', 2.2);
+      }
+      if (s.rings.length < 8) {
+        s.rings.push({ x: playerX() + PLAYER_SIZE / 2, y: py, r: 4, vr: 160, life: 0.22, maxLife: 0.22, color: '#a5f3fc' });
+      }
       for (const t of nearest) {
         const ang = Math.atan2(t.y - py, t.x - playerX() - PLAYER_SIZE / 2);
         s.projectiles.push({ x: playerX() + PLAYER_SIZE / 2, y: py, tx: t.x, ty: t.y, t: 0, targetId: t.id, ang, big: true });
       }
       s.glow = 1.2;
-      const W = canvasRef.current?.width ?? 800;
+      const W = cssRef.current.w;
       s.floaters.push({ x: W / 2, y: py - 60, text: '💥 技能释放', color: '#a5f3fc', life: 1.4 });
     },
     bossAlive(): boolean {
@@ -298,33 +361,59 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       s.bossHp = bossHp;
       spawnEnemy(true);
       s.bossSpawned = true;
-      const W = canvasRef.current?.width ?? 800;
+      s.flash = 1.5;
+      s.shake = 1.8;
+      s.bossIntro = 1.4; // 登场横幅
+      playBossAppearSound();
+      const W = cssRef.current.w;
       const py = sY();
+      for (let i = 0; i < 3; i++) {
+        s.rings.push({
+          x: W / 2, y: py, r: 6 + i * 30,
+          vr: 360 + i * 50, life: 1.2 + i * 0.15, maxLife: 1.35,
+          color: i === 0 ? '#f87171' : i === 1 ? '#fca5a5' : '#fda4af',
+        });
+      }
       s.floaters.push({ x: W / 2, y: py - 50, text: '☠ Boss 段·迎战！', color: '#f87171', life: 3 });
     },
   }));
 
-  // 攻击：Boss 阶段优先 Boss，否则最近敌人
-  const attack = (damage = 1) => {
+  // 攻击：按词长多发弹丸，首发最近敌人，余弹依次分配
+  const attack = (damage = 1, burst = 1) => {
     const s = state.current;
-    // Boss 阶段且 Boss 存活 → 优先 Boss
-    const bossTarget = s.bossPhase
-      ? s.enemies.find((e) => e.boss && e.hp > 0 && !e.reachedPlayer)
-      : null;
     const py = sY();
-    const target = bossTarget ?? (() => {
-      const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer);
-      if (alive.length === 0) return null;
-      return alive.reduce((a, b) => ((a.x - playerX()) ** 2 + (a.y - py) ** 2) < ((b.x - playerX()) ** 2 + (b.y - py) ** 2) ? a : b);
-    })();
-    if (!target) return;
-    const ang = Math.atan2(target.y - py, target.x - playerX() - PLAYER_SIZE / 2);
-    s.projectiles.push({
-      x: playerX() + PLAYER_SIZE / 2, y: py,
-      tx: target.x, ty: target.y, t: 0, targetId: target.id,
-      ang, damage,
-    });
+    const px = playerX();
+    const alive = s.enemies.filter((e) => e.hp > 0 && !e.reachedPlayer);
+    if (alive.length === 0) return;
+
+    const sorted = [...alive].sort((a, b) =>
+      ((a.x - px) ** 2 + (a.y - py) ** 2) - ((b.x - px) ** 2 + (b.y - py) ** 2),
+    );
+    const targets = sorted.slice(0, burst);
+    playAttackSound();
+    // 发射口闪光（muzzle flash）
+    for (let i = 0; i < 2; i++) {
+      const ma = Math.PI + (Math.random() - 0.5) * 0.7;
+      pushShard(px + PLAYER_SIZE / 2, py, Math.cos(ma) * 130, Math.sin(ma) * 130, '#fde047', 1.6);
+    }
+    if (s.rings.length < 8) {
+      s.rings.push({ x: px + PLAYER_SIZE / 2, y: py, r: 3, vr: 110, life: 0.16, maxLife: 0.16, color: '#fde047' });
+    }
+
+    for (let i = 0; i < targets.length; i++) {
+      const t = targets[i]!;
+      const ang = Math.atan2(t.y - py, t.x - px - PLAYER_SIZE / 2);
+      s.projectiles.push({
+        x: px + PLAYER_SIZE / 2, y: py,
+        tx: t.x, ty: t.y, t: i > 0 ? -(i * 0.06) : 0, targetId: t.id,
+        ang, damage, big: burst >= 3,
+      });
+    }
+    if (burst >= 3) {
+      s.floaters.push({ x: px, y: py - 20, text: `×${burst}`, color: '#a5f3fc', life: 1 });
+    }
     s.glow = 1;
+    s.attackRecoil = 1;
   };
 
   const hurt = (dmg: number) => {
@@ -334,25 +423,31 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     s.hp = Math.max(0, s.hp - dmg);
     s.flash = 1;
     s.shake = 1;
+    playHurtSound();
     // HP 降到 1 时触发最后一搏（整局仅一次）
     if (s.hp <= 1 && s.lastStand === 0 && s.hp > 0) {
       s.hp = 1; // 保底为 1
       s.lastStand = 3;
-      const W = canvasRef.current?.width ?? 800;
+      const W = cssRef.current.w;
       const py = sY();
       s.floaters.push({ x: W / 2, y: py - 80, text: '⚡ 背水一战！3 题无敌 + 1.5 倍伤害', color: '#fbbf24', life: 3 });
     }
     if (s.hp <= 0) {
       s.running = false;
-      onPlayerDownRef.current?.();
+      if (!s.playerDown) {
+        s.playerDown = true;
+        s.failFade = 0.001; // 触发失败红淡出（step 里递增）
+        s.shake = 1.6;
+        onLockInputRef.current?.(); // 立即锁定答题
+        // 0.65s 红色淡出后再跳结算
+        setTimeout(() => onPlayerDownRef.current?.(), 650);
+      }
     }
   };
 
   const spawnEnemy = (boss = false): void => {
     const s = state.current;
-    const canvas = canvasRef.current;
-    const W = canvas?.width ?? 800;
-    const H = canvas?.height ?? 300;
+    const { w: W, h: H } = cssRef.current;
     s.enemyId++;
     if (boss) {
       const hp = s.bossHp || Math.min(18, 6 + Math.floor(totalQuestionsRef.current / 10) * 2);
@@ -364,15 +459,24 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       s.floaters.push({ x: W / 2, y: 46, text: '⚠ BOSS 出现！', color: '#f87171', life: 2 });
       s.floaters.push({ x: W / 2, y: 70, text: `HP ${hp}`, color: '#fbbf24', life: 2 });
     } else {
-      const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)] as Enemy['shape'];
-      const size = 18 + Math.random() * 10;
-      const baseSpeed = s.bossPhase ? 55 : 40;
+      const arch = pickArche(s.bossPhase ? 'boss' : 'study');
+      const baseSpeed = s.bossPhase ? 30 : 40;
+      const speedScale = arch.speed / 35; // 相对标准速度缩放
       s.enemies.push({
-        id: s.enemyId, shape, x: -30,
+        id: s.enemyId,
+        shape: arch.shape,
+        x: -30,
         y: 20 + Math.random() * Math.max(30, H - 60),
-        hp: NORMAL_HP, maxHp: NORMAL_HP,
-        speed: baseSpeed + Math.random() * 15,
-        size, color: COLORS[Math.floor(Math.random() * COLORS.length)] as string,
+        hp: arch.hp,
+        maxHp: arch.hp,
+        speed: baseSpeed * speedScale + Math.random() * 4,
+        size: arch.size,
+        color: arch.color,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: arch.rotSpeed ? arch.rotSpeed * (0.7 + Math.random() * 0.6) : 0,
+        archetype: arch.name,
+        splitOnDeath: arch.splitOnDeath,
+        snakePhase: arch.shape === 'diamond' ? Math.random() * Math.PI * 2 : undefined,
       });
     }
   };
@@ -416,6 +520,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     const resize = (): void => {
       W = box.clientWidth;
       H = box.clientHeight;
+      cssRef.current = { w: W, h: H };
       canvas.width = Math.floor(W * dpr);
       canvas.height = Math.floor(H * dpr);
       canvas.style.width = `${W}px`;
@@ -431,16 +536,21 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     let raf = 0;
 
     const step = (now: number): void => {
-      const dt = Math.min(0.05, (now - last) / 1000);
+      let dt = Math.min(0.05, (now - last) / 1000);
       last = now;
       const s = state.current;
+      // 命中顿帧：整段模拟减速（渲染脉冲动画不受影响）
+      if (s.hitStop > 0) {
+        s.hitStop -= dt;
+        dt *= 0.15;
+      }
 
       if (s.running) {
         const anyFrozen = s.enemies.some((e) => e.frozen);
         if (!anyFrozen) {
           // 学习段：每答对 3 词上限 +1，封顶 4；Boss 段：每答对 2 词上限 +1，封顶 2
           const maxEnemies = s.bossPhase
-            ? Math.min(2, Math.floor(s.bossCorrectCount / 2) + 1)
+            ? Math.min(1, Math.floor(s.bossCorrectCount / 2) + 1)
             : Math.min(4, Math.floor(s.correctCount / 3) + 1);
           s.spawnTimer -= dt;
           const normalCount = s.enemies.filter((e) => !e.boss && e.hp > 0 && !e.reachedPlayer).length;
@@ -458,27 +568,76 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
           }
         }
 
-        // Boss 段嘲讽：每隔 8 秒弹一条错词
+        // Boss 段嘲讽：每 6~10 秒从 Boss 上方弹一句错词（单条，不堆叠）
         if (s.bossPhase && !s.bossDefeated) {
           s.tauntTimer -= dt;
           if (s.tauntTimer <= 0) {
-            s.tauntTimer = 8 + Math.random() * 4;
+            s.tauntTimer = 6 + Math.random() * 4;
             const words = tauntWordsRef.current;
             if (words.length > 0) {
               const w = words[Math.floor(Math.random() * words.length)] as string;
-              const W = canvasRef.current?.width ?? 800;
-              s.floaters.push({ x: W / 2, y: 100 + Math.random() * 60, text: `「你连 ${w} 都打不过吗？」`, color: '#f59e0b', life: 2.5 });
+              const W = cssRef.current.w;
+              const boss = s.enemies.find((e) => e.boss && e.hp > 0);
+              const x = boss ? Math.min(Math.max(boss.x, 120), W - 120) : W / 2;
+              const y = boss ? Math.max(boss.y - boss.size - 30, 72) : 96;
+              s.taunt = { text: `「你连 ${w} 都打不过吗？」`, x, y, life: 3, maxLife: 3 };
             }
+          }
+        }
+        // 嘲讽寿命衰减（单条淡出后下一条再出现）
+        if (s.taunt) {
+          s.taunt.life -= dt;
+          if (s.taunt.life <= 0) s.taunt = null;
+        }
+
+        // Boss P2 阶段：半血后定期召唤小怪
+        if (s.bossPhase && s.bossP2 && !s.bossDefeated) {
+          s.bossSpawnTimer -= dt;
+          if (s.bossSpawnTimer <= 0) {
+            s.bossSpawnTimer = 5 + Math.random() * 3;
+            spawnEnemy(false);
           }
         }
       }
 
-      // 怪移动（冻结的原地不动；连击×7 全怪减速 20%）
+      // 背景粒子（学习段星云蓝点，Boss 段灰烬红点）
+      if (s.bgParticles.length < 50) {
+        const pColor = s.bossPhase
+          ? (Math.random() < 0.5 ? '#991b1b' : '#b45309')
+          : (Math.random() < 0.5 ? '#0e7490' : '#0369a1');
+        s.bgParticles.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 6,
+          vy: s.bossPhase ? -(8 + Math.random() * 12) : (Math.random() - 0.5) * 4,
+          life: 3 + Math.random() * 5, size: 0.8 + Math.random() * 1.5, color: pColor,
+        });
+      }
+      for (const p of s.bgParticles) {
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.life -= dt;
+        if (p.x < -30) p.x = W + 30;
+        if (p.x > W + 30) p.x = -30;
+        if (p.y < -30) p.y = H + 30;
+        if (p.y > H + 30) p.y = -30;
+      }
+      s.bgParticles = s.bgParticles.filter((p) => p.life > 0);
+
+      // 怪移动（冻结的原地不动；连击×7 全怪减速 20%；diamond 蛇形走位）
       const slowMult = s.slowTimer > 0 ? 0.8 : 1;
       for (const e of s.enemies) {
         if (e.hp <= 0 || e.frozen) continue;
-        // 怪从左侧逼近，角色在右侧
         e.x += e.speed * slowMult * dt;
+        // 蛇形走位
+        if (e.snakePhase != null) {
+          (e.snakePhase as number) += dt * 5;
+          e.y += Math.sin(e.snakePhase) * 24 * dt;
+          e.y = Math.max(20, Math.min(H - 20, e.y));
+        }
+        // 自转
+        if (e.rotation != null && e.rotSpeed) {
+          e.rotation += e.rotSpeed * dt;
+        }
         if (e.x >= playerX()) {
           if (e.boss) {
             hurt(3);
@@ -508,28 +667,80 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
           const hit = s.enemies.find((e) => e.id === p.targetId);
           if (hit && hit.hp > 0) {
             const dmg = p.damage ?? 1;
+            const isCrit = dmg >= 2; // 复仇/技能双倍伤害
             hit.hp -= dmg;
+            // 命中顿帧：Boss 命中 / 击杀 时"沉"一下（普通小怪命中不顿，避免连发卡顿）
+            if (hit.boss) s.hitStop = Math.max(s.hitStop, 0.05);
+            // Boss P2：半血暴怒
+            if (hit.boss && !s.bossP2 && hit.hp <= hit.maxHp / 2 && hit.hp > 0) {
+              s.bossP2 = true;
+              hit.color = '#a855f7';
+              hit.speed *= 1.3;
+              s.bossSpawnTimer = 0;
+              spawnEnemy(false);
+              spawnEnemy(false);
+              playP2RageSound();
+              const W = cssRef.current.w;
+              s.floaters.push({ x: W / 2, y: 120, text: '⚠ BOSS 暴怒！P2 阶段', color: '#c084fc', life: 3 });
+            }
             explode(p.tx, p.ty, hit.color, p.big ? 26 : 6, p.big);
             if (hit.hp <= 0) {
+              s.hitStop = Math.max(s.hitStop, hit.boss ? 0.3 : 0.12);
               if (hit.boss) {
                 s.bossDefeated = true;
                 onBossDefeatedRef.current?.();
+                s.flash = 1.5;
+                s.goldFlash = 1; // 击破金闪
+                playBossDefeatSound();
+                for (let i = 0; i < 8; i++) {
+                  s.rings.push({
+                    x: p.tx, y: p.ty, r: 16 + i * 10,
+                    vr: 320 + i * 40, life: 1.4, maxLife: 1.4,
+                    color: i % 2 === 0 ? '#fbbf24' : '#ef4444',
+                  });
+                }
+              } else {
+                playKillSound();
               }
               explode(p.tx, p.ty, hit.color, p.big ? 34 : 22, p.big);
+              // Star 分裂：死亡时生成 2 个 mini-cross
+              if (hit.splitOnDeath && !hit.boss) {
+                for (let m = 0; m < 2; m++) {
+                  s.enemyId++;
+                  s.enemies.push({
+                    id: s.enemyId, shape: 'mini-cross',
+                    x: hit.x + (m === 0 ? -10 : 10),
+                    y: hit.y + (Math.random() - 0.5) * 8,
+                    hp: 1, maxHp: 1,
+                    speed: hit.speed * 1.2,
+                    size: hit.size * 0.55,
+                    color: hit.color,
+                    rotation: Math.random() * Math.PI * 2,
+                    rotSpeed: 4 + Math.random() * 4,
+                  });
+                }
+              }
               s.floaters.push({
                 x: p.tx,
                 y: p.ty - 16,
                 text: hit.boss ? 'BOSS 击破！' : '击杀',
                 color: hit.boss ? '#fbbf24' : '#fde047',
                 life: 1.4,
+                size: hit.boss ? 22 : 18,
+                weight: 900,
               });
             } else {
+              playHitSound();
               s.floaters.push({
                 x: p.tx,
                 y: p.ty - 14,
-                text: hit.boss ? `-1 (${hit.hp}/${hit.maxHp})` : '+1',
-                color: hit.boss ? '#fca5a5' : '#fef08a',
-                life: 0.8,
+                text: hit.boss
+                  ? (isCrit ? `会心! -${dmg} (${hit.hp}/${hit.maxHp})` : `-${dmg} (${hit.hp}/${hit.maxHp})`)
+                  : (isCrit ? `会心! -${dmg}` : '+1'),
+                color: isCrit ? '#fbbf24' : (hit.boss ? '#fca5a5' : '#fef08a'),
+                life: isCrit ? 1 : 0.8,
+                size: isCrit ? 22 : 18,
+                weight: isCrit ? 900 : 700,
               });
             }
           }
@@ -568,6 +779,11 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       s.comboFx7 = Math.max(0, s.comboFx7 - dt * 1.3);
       s.slowTimer = Math.max(0, s.slowTimer - dt);
       s.playerGlint = Math.max(0, s.playerGlint - dt * 1.4);
+      s.breathTimer += dt;
+      s.attackRecoil = Math.max(0, s.attackRecoil - dt * 3);
+      s.goldFlash = Math.max(0, s.goldFlash - dt * 4.5);
+      if (s.bossIntro > 0) s.bossIntro -= dt;
+      if (s.failFade > 0) s.failFade += dt;
 
       // ---- 渲染 ----
       ctx.save();
@@ -575,40 +791,100 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       ctx.fillRect(0, 0, W, H);
       ctx.drawImage(grid, 0, 0, W, H);
 
+      // 背景粒子
+      for (const p of s.bgParticles) {
+        ctx.globalAlpha = Math.min(1, p.life * 0.25);
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+
+      // Boss 登场横幅 + 暗场（easeOut 弹入）
+      if (s.bossIntro > 0) {
+        const prog = Math.max(0, 1 - s.bossIntro / 1.4);
+        const ease = 1 - Math.pow(1 - prog, 3);
+        ctx.fillStyle = `rgba(2,6,23,${0.55 * prog})`;
+        ctx.fillRect(0, 0, W, H);
+        const size = 34 + ease * 30;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = `bold ${size}px system-ui, sans-serif`;
+        ctx.fillStyle = 'rgba(248,113,113,0.28)';
+        ctx.fillText('☠ BOSS', W / 2, H * 0.4);
+        ctx.fillStyle = '#f87171';
+        ctx.fillText('☠ BOSS', W / 2, H * 0.4);
+        ctx.font = 'bold 16px system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(254,226,226,0.9)';
+        ctx.fillText('迎 战 ！', W / 2, H * 0.4 + 48);
+        ctx.textBaseline = 'alphabetic';
+      }
+
       // 抖动
       if (s.shake > 0) {
         ctx.translate((Math.random() - 0.5) * 8 * s.shake, (Math.random() - 0.5) * 8 * s.shake);
       }
 
-      // Boss 血条（顶部居中，霓虹描边）
+      // Boss 血条（顶部居中，霓虹描边 + P2 变色）
       const boss = s.enemies.find((e) => e.boss && e.hp > 0);
       if (boss) {
         const bw = Math.min(360, W * 0.55);
-        ctx.fillStyle = 'rgba(220,38,38,0.12)';
-        ctx.fillRect((W - bw) / 2 - 6, 16, bw + 12, 26);
-        ctx.strokeStyle = '#7f1d1d';
+        const bossPct = boss.hp / boss.maxHp;
+        const bossBarColor = s.bossP2 ? '#a855f7' : '#dc2626';
+        ctx.fillStyle = 'rgba(15,23,42,0.9)';
+        ctx.fillRect((W - bw) / 2 - 4, 14, bw + 8, 28);
+        ctx.strokeStyle = bossBarColor;
+        ctx.globalAlpha = 0.5;
         ctx.lineWidth = 2;
-        ctx.strokeRect((W - bw) / 2 - 6, 16, bw + 12, 26);
-        ctx.fillStyle = '#dc2626';
-        ctx.fillRect((W - bw) / 2, 22, bw * (boss.hp / boss.maxHp), 14);
+        ctx.strokeRect((W - bw) / 2 - 4, 14, bw + 8, 28);
+        ctx.globalAlpha = 1;
+
+        ctx.fillStyle = bossBarColor;
+        ctx.fillRect((W - bw) / 2, 20, bw * bossPct, 14);
+        // HP bar glow top line
+        ctx.strokeStyle = bossBarColor;
+        ctx.globalAlpha = 0.6;
+        ctx.beginPath();
+        ctx.moveTo((W - bw) / 2, 21);
+        ctx.lineTo((W - bw) / 2 + bw * bossPct, 21);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+
         ctx.fillStyle = '#fecaca';
-        ctx.font = 'bold 13px system-ui, sans-serif';
+        ctx.font = 'bold 12px system-ui, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText(`☠ BOSS  ${boss.hp}/${boss.maxHp}`, W / 2, 33);
+        ctx.fillText(s.bossP2 ? `☠ BOSS P2  ${boss.hp}/${boss.maxHp}` : `☠ BOSS  ${boss.hp}/${boss.maxHp}`, W / 2, 32);
       }
 
-      // 我方血条（左上）
-      ctx.fillStyle = 'rgba(148,163,184,0.15)';
-      ctx.fillRect(12, 12, 160, 16);
+      // 我方血条（左上，霓虹镂空风格）
+      const hpBrX = 12, hpBrY = 12, hpBrW = 160, hpBrH = 16;
+      ctx.fillStyle = 'rgba(15,23,42,0.85)';
+      ctx.fillRect(hpBrX - 2, hpBrY - 2, hpBrW + 4, hpBrH + 4);
+      ctx.strokeStyle = 'rgba(148,163,184,0.25)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(hpBrX - 2, hpBrY - 2, hpBrW + 4, hpBrH + 4);
+
       const hpPct = Math.max(0, s.hp / s.maxHp);
-      ctx.fillStyle = hpPct > 0.4 ? '#22c55e' : '#ef4444';
-      ctx.fillRect(12, 12, 160 * hpPct, 16);
-      ctx.strokeStyle = 'rgba(148,163,184,0.4)';
-      ctx.strokeRect(12, 12, 160, 16);
+      const hpColor = hpPct > 0.5 ? '#22c55e' : hpPct > 0.25 ? '#f59e0b' : '#ef4444';
+      ctx.fillStyle = hpColor;
+      ctx.fillRect(hpBrX, hpBrY, hpBrW * hpPct, hpBrH);
+      ctx.strokeStyle = hpColor;
+      ctx.globalAlpha = 0.5;
+      ctx.beginPath();
+      ctx.moveTo(hpBrX, hpBrY + 1);
+      ctx.lineTo(hpBrX + hpBrW * hpPct, hpBrY + 1);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
       ctx.fillStyle = '#e2e8f0';
       ctx.font = '10px system-ui, sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(`HP ${Math.ceil(s.hp)}/${s.maxHp}`, 18, 24);
+      ctx.fillText(`HP ${Math.ceil(s.hp)}/${s.maxHp}`, hpBrX + 4, hpBrY + 12);
+      // 阶段标识
+      ctx.fillStyle = 'rgba(148,163,184,0.35)';
+      ctx.font = '9px system-ui, sans-serif';
+      ctx.fillText(s.bossPhase ? 'BOSS 段' : '学习段', hpBrX, hpBrY + 32);
       // 最后一搏
       if (s.lastStand > 0) {
         ctx.fillStyle = '#fbbf24';
@@ -633,28 +909,66 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         ctx.fillStyle = s.combo >= 5 ? '#fbbf24' : '#e2e8f0';
         ctx.fillText(txt, W - 16, 30);
       }
+      // 最高连击
+      if (s.bestCombo >= 3) {
+        ctx.textAlign = 'right';
+        ctx.fillStyle = 'rgba(148,163,184,0.55)';
+        ctx.font = '10px system-ui, sans-serif';
+        ctx.fillText(`Best ×${s.bestCombo}`, W - 16, 42);
+      }
 
-      // 角色：金色矩形（箱体 + 旋转方块 glint）
+      // 角色：金色矩形（呼吸 + 攻击回弹）
       const py = sY();
+      const breathScale = 1 + Math.sin(s.breathTimer * 3) * 0.04;
+      const recoilScale = s.attackRecoil > 0 ? 1 + s.attackRecoil * 0.3 : breathScale;
+      const pSize = PLAYER_SIZE * recoilScale;
       ctx.save();
       if (s.glow > 0 || s.combo >= 5) {
         ctx.strokeStyle = 'rgba(253,224,71,0.55)';
         ctx.lineWidth = (6 + s.glow * 10) + (s.combo >= 5 ? 4 : 0);
-        diamondPath(ctx, playerX(), py, PLAYER_SIZE * 0.72, PLAYER_SIZE * 0.72);
+        diamondPath(ctx, playerX(), py, pSize * 0.72, pSize * 0.72);
         ctx.stroke();
       }
       ctx.fillStyle = s.flash > 0 ? '#f97316' : '#facc15';
-      ctx.fillRect(playerX() - PLAYER_SIZE / 2, py - PLAYER_SIZE / 2, PLAYER_SIZE, PLAYER_SIZE);
+      ctx.fillRect(playerX() - pSize / 2, py - pSize / 2, pSize, pSize);
       ctx.strokeStyle = '#fde68a';
       ctx.lineWidth = 2;
-      ctx.strokeRect(playerX() - PLAYER_SIZE / 2, py - PLAYER_SIZE / 2, PLAYER_SIZE, PLAYER_SIZE);
+      ctx.strokeRect(playerX() - pSize / 2, py - pSize / 2, pSize, pSize);
       if (s.playerGlint > 0) {
         ctx.strokeStyle = 'rgba(253,224,71,0.85)';
         ctx.lineWidth = 2;
-        diamondPath(ctx, playerX(), py, PLAYER_SIZE * 0.95 + s.playerGlint * 6, PLAYER_SIZE * 0.95 + s.playerGlint * 6);
+        diamondPath(ctx, playerX(), py, pSize * 0.95 + s.playerGlint * 6, pSize * 0.95 + s.playerGlint * 6);
         ctx.stroke();
       }
       ctx.restore();
+
+      // 攻击挥刀弧光（朝左挥向敌人）
+      if (s.attackRecoil > 0) {
+        ctx.strokeStyle = `rgba(253,224,71,${0.8 * s.attackRecoil})`;
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(playerX(), py, 46, Math.PI - 1.0, Math.PI + 1.0);
+        ctx.stroke();
+      }
+
+      // 最后一搏：金色护盾光圈（旋转六边形）
+      if (s.lastStand > 0) {
+        const pulse = 0.5 + 0.5 * Math.sin(now / 120);
+        ctx.save();
+        ctx.translate(playerX(), py);
+        ctx.rotate(now / 800);
+        ctx.strokeStyle = `rgba(251,191,36,${0.55 + 0.35 * pulse})`;
+        ctx.lineWidth = 2.5;
+        polyPath(ctx, 0, 0, 6, PLAYER_SIZE * 1.35 + pulse * 5, 0);
+        ctx.stroke();
+        ctx.restore();
+        // 屏边金色脉冲
+        const g = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.3, W / 2, H / 2, Math.max(W, H) * 0.7);
+        g.addColorStop(0, 'rgba(251,191,36,0)');
+        g.addColorStop(1, `rgba(251,191,36,${0.12 + 0.08 * pulse})`);
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, W, H);
+      }
 
       // 辉光层：lighter 合成（波纹 / 弹丸外壳 / 笼 / 碎屑 / 楔形扇）
       ctx.save();
@@ -750,10 +1064,12 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
 
       ctx.restore(); // 结束 lighter 层
 
-      // 敌人本体 + 头顶小血条（正常合成）
+      // 敌人本体 + 头顶小血条（正常合成，带旋转）
       for (const e of s.enemies) {
         if (e.hp <= 0) continue;
         ctx.save();
+        ctx.translate(e.x, e.y);
+        if (e.rotation != null) ctx.rotate(e.rotation);
         const frozen = e.frozen;
         ctx.fillStyle = e.color;
         ctx.strokeStyle = 'rgba(255,255,255,0.35)';
@@ -763,25 +1079,72 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         }
         if (e.shape === 'circle') {
           ctx.beginPath();
-          ctx.arc(e.x, e.y, e.size / 2, 0, Math.PI * 2);
+          ctx.arc(0, 0, e.size / 2, 0, Math.PI * 2);
           ctx.fill();
+          ctx.stroke();
+          // 脉动光环
+          ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+          ctx.lineWidth = 1;
+          ctx.arc(0, 0, e.size / 2 + 2 + Math.sin(Date.now() / 300) * 1.5, 0, Math.PI * 2);
           ctx.stroke();
         } else if (e.shape === 'triangle') {
-          polyPath(ctx, e.x, e.y, 3, e.size / 2, Math.PI);
+          polyPath(ctx, 0, 0, 3, e.size / 2, 0);
           ctx.fill();
           ctx.stroke();
-        } else {
-          polyPath(ctx, e.x, e.y, 4, e.size / 2, Math.PI / 4);
+        } else if (e.shape === 'square') {
+          polyPath(ctx, 0, 0, 4, e.size / 2, Math.PI / 4);
           ctx.fill();
           ctx.stroke();
+        } else if (e.shape === 'hexagon') {
+          ctx.lineWidth = 2.5;
+          polyPath(ctx, 0, 0, 6, e.size / 2, 0);
+          ctx.fill();
+          ctx.stroke();
+          // 厚框内圈
+          ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+          ctx.lineWidth = 1;
+          polyPath(ctx, 0, 0, 6, e.size / 2 - 4, 0);
+          ctx.stroke();
+        } else if (e.shape === 'cross') {
+          const cw = e.size * 0.28;
+          const ch = e.size * 0.46;
+          ctx.beginPath();
+          ctx.moveTo(-cw, -ch); ctx.lineTo(cw, -ch); ctx.lineTo(cw, -cw);
+          ctx.lineTo(ch, -cw); ctx.lineTo(ch, cw); ctx.lineTo(cw, cw);
+          ctx.lineTo(cw, ch); ctx.lineTo(-cw, ch); ctx.lineTo(-cw, cw);
+          ctx.lineTo(-ch, cw); ctx.lineTo(-ch, -cw); ctx.lineTo(-cw, -cw);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+        } else if (e.shape === 'diamond') {
+          diamondPath(ctx, 0, 0, e.size * 0.6, e.size * 0.45);
+          ctx.fill();
+          ctx.stroke();
+        } else if (e.shape === 'pentagon') {
+          polyPath(ctx, 0, 0, 5, e.size / 2, 0);
+          ctx.fill();
+          ctx.stroke();
+          // 辉光环
+          ctx.strokeStyle = e.color;
+          ctx.globalAlpha = 0.25;
+          ctx.lineWidth = 3;
+          polyPath(ctx, 0, 0, 5, e.size / 2 + 4, 0);
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        } else if (e.shape === 'mini-cross') {
+          const s = e.size * 0.4;
+          ctx.fillRect(-s, -e.size / 2, s * 2, e.size);
+          ctx.fillRect(-e.size / 2, -s, e.size, s * 2);
+          ctx.strokeRect(-s, -e.size / 2, s * 2, e.size);
+          ctx.strokeRect(-e.size / 2, -s, e.size, s * 2);
         }
-        // 小血条
+        ctx.restore();
+        // 小血条（非旋转坐标，在敌人原位上；颜色随 archetype，Boss 保持红）
         const bw = e.size + 8;
         ctx.fillStyle = 'rgba(15,23,42,0.8)';
         ctx.fillRect(e.x - bw / 2, e.y - e.size / 2 - 8, bw, 4);
-        ctx.fillStyle = '#ef4444';
+        ctx.fillStyle = e.boss ? '#ef4444' : e.color;
         ctx.fillRect(e.x - bw / 2, e.y - e.size / 2 - 8, bw * (e.hp / e.maxHp), 4);
-        ctx.restore();
       }
 
       // 弹丸（旋转菱形 + 拖尾）
@@ -813,15 +1176,72 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         const a = Math.max(0, Math.min(1, f.life));
         ctx.globalAlpha = a;
         ctx.fillStyle = f.color;
-        ctx.font = 'bold 16px system-ui, sans-serif';
+        ctx.font = `${f.weight ?? 700} ${f.size ?? 16}px system-ui, sans-serif`;
         ctx.textAlign = 'center';
         ctx.fillText(f.text, f.x, f.y);
       }
       ctx.globalAlpha = 1;
 
+      // Boss 嘲讽（带背景气泡，淡入淡出）
+      if (s.taunt && s.taunt.life > 0) {
+        const t = s.taunt;
+        const alpha = Math.max(0, Math.min(1, t.life / 0.5, (t.maxLife - t.life) / 0.35 + 0.25));
+        ctx.globalAlpha = alpha;
+        ctx.font = 'bold 17px system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const tw = ctx.measureText(t.text).width;
+        const bw = tw + 28;
+        const bx = t.x - bw / 2;
+        const by = t.y - 17;
+        ctx.fillStyle = 'rgba(15,23,42,0.88)';
+        ctx.strokeStyle = 'rgba(245,158,11,0.55)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(bx, by, bw, 34, 10);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#f59e0b';
+        ctx.fillText(t.text, t.x, t.y);
+        ctx.textBaseline = 'alphabetic';
+        ctx.globalAlpha = 1;
+      }
+
       // 受击红闪
       if (s.flash > 0) {
         ctx.fillStyle = `rgba(239,68,68,${0.22 * s.flash})`;
+        ctx.fillRect(0, 0, W, H);
+      }
+
+      // 低血量暗角红晕
+      if (s.maxHp > 0 && s.hp / s.maxHp < 0.3 && s.hp > 0) {
+        const va = (0.3 - s.hp / s.maxHp) * 1.5;
+        const corners: [number, number][] = [[0, 0], [W, 0], [0, H], [W, H]];
+        for (const [cx, cy] of corners) {
+          const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, W * 0.4);
+          g.addColorStop(0, `rgba(239,68,68,${va * 0.45})`);
+          g.addColorStop(1, 'rgba(239,68,68,0)');
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, W, H);
+        }
+      }
+
+      // P2 暴怒常驻红调（压力感）
+      if (s.bossP2 && !s.bossDefeated) {
+        ctx.fillStyle = 'rgba(153,27,27,0.06)';
+        ctx.fillRect(0, 0, W, H);
+      }
+
+      // Boss 击破金闪
+      if (s.goldFlash > 0) {
+        ctx.fillStyle = `rgba(250,204,21,${0.35 * s.goldFlash})`;
+        ctx.fillRect(0, 0, W, H);
+      }
+
+      // 战斗失败：红色渐入淡出（0.6s 后跳结算）
+      if (s.failFade > 0 && !s.running) {
+        const a = Math.min(0.55, (s.failFade / 0.6) * 0.55);
+        ctx.fillStyle = `rgba(127,29,29,${a})`;
         ctx.fillRect(0, 0, W, H);
       }
 

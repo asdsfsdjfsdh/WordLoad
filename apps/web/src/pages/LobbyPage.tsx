@@ -1,11 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import type { Bank } from '@word-journey/shared';
 import { api } from '../lib/api';
 import { useAuth } from '../store/auth';
+import { SettingsModal } from '../components/SettingsModal';
 
 export function LobbyPage() {
   const { user } = useAuth();
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const { data: banks, isLoading, isError, error, refetch } = useQuery({
     queryKey: ['banks'],
     queryFn: () => api.get<Bank[]>('/banks'),
@@ -13,6 +16,15 @@ export function LobbyPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950 px-4 py-6 sm:px-8 sm:py-10" style={{ backgroundImage: 'linear-gradient(rgba(6,182,212,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,.03) 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+      {/* ── 设置入口 ── */}
+      <button
+        onClick={() => setSettingsOpen(true)}
+        aria-label="设置"
+        className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-slate-700/60 bg-slate-900/80 text-slate-400 backdrop-blur transition hover:border-cyan-500/40 hover:text-cyan-300"
+      >
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065Z"/><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+      </button>
+
       {/* ── Hero ── */}
       <div className="mb-6 text-center">
         <h1 className="text-4xl font-black tracking-wider sm:text-5xl" style={{ color: '#67e8f9', textShadow: '0 0 18px rgba(6,182,212,.6), 0 0 40px rgba(6,182,212,.25)' }}>单词之旅</h1>
@@ -43,51 +55,61 @@ export function LobbyPage() {
         <p className="text-center text-slate-400">暂无可用词书</p>
       ) : (
         <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {banks?.map((b) => {
+          {banks?.map((b, bi) => {
             const pct = b.totalStages > 0 ? Math.round((b.unlockedStages / b.totalStages) * 100) : 0;
-            const radius = 18;
+            const radius = 22;
             const circumference = 2 * Math.PI * radius;
             const offset = circumference - (pct / 100) * circumference;
+            const theme = ['from-cyan-500/15 to-blue-500/15', 'from-emerald-500/15 to-teal-500/15', 'from-violet-500/15 to-purple-500/15', 'from-amber-500/15 to-orange-500/15'][bi % 4];
+            const accent = ['#06b6d4', '#10b981', '#8b5cf6', '#f59e0b'][bi % 4];
+            const glow = ['shadow-[0_0_20px_rgba(6,182,212,0.1)]', 'shadow-[0_0_20px_rgba(16,185,129,0.1)]', 'shadow-[0_0_20px_rgba(139,92,246,0.1)]', 'shadow-[0_0_20px_rgba(245,158,11,0.1)]'][bi % 4];
             return (
-              <Link
-                key={b.id}
-                to={`/bank/${b.code}/stages`}
-                className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/60 hover:shadow-[0_0_24px_rgba(6,182,212,.12)]"
-              >
-                <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-cyan-500/5 blur-xl transition group-hover:bg-cyan-500/10" />
-                <div className="mb-3 flex items-start justify-between">
-                  <h3 className="text-lg font-bold text-slate-100">{b.name}</h3>
-                  <svg className="h-12 w-12 shrink-0" viewBox="0 0 44 44">
-                    <circle cx="22" cy="22" r={radius} fill="none" stroke="rgb(30,41,59)" strokeWidth="3" />
-                    <circle cx="22" cy="22" r={radius} fill="none" stroke="rgb(6,182,212)" strokeWidth="3" strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={offset} transform="rotate(-90 22 22)" className="transition-all duration-700" />
-                    <text x="22" y="26" textAnchor="middle" className="fill-cyan-400 text-[9px] font-bold">{b.unlockedStages}</text>
-                  </svg>
-                </div>
-                <div className="mb-2 text-xs text-slate-500">{b.unlockedStages}/{b.totalStages} 阶段</div>
-                <div className="grid grid-cols-4 gap-1 text-center">
-                  {[
-                    { v: b.totalWords, l: '总词', c: 'text-slate-200' },
-                    { v: b.masteredWords, l: '掌握', c: 'text-emerald-400' },
-                    { v: b.dueReviews, l: '待复习', c: 'text-amber-400' },
-                    { v: b.learnedToday, l: '今日', c: 'text-cyan-400' },
-                  ].map((s) => (
-                    <div key={s.l}>
-                      <div className={`text-base font-bold ${s.c}`}>{s.v}</div>
-                      <div className="text-[10px] text-slate-500">{s.l}</div>
+              <div key={b.id} className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-600 hover:shadow-xl">
+                <div className={`absolute inset-0 bg-gradient-to-br ${theme} opacity-60 transition-opacity group-hover:opacity-80`} />
+                <div className={`absolute -right-4 -top-4 h-16 w-16 rounded-full ${glow}`} />
+                <div className="relative p-5">
+                  <div className="mb-4 flex items-center gap-3">
+                    <Link to={`/bank/${b.code}/stages`} className="flex-1">
+                      <h3 className="text-lg font-bold text-slate-100">{b.name}</h3>
+                    </Link>
+                    <svg className="h-14 w-14 shrink-0" viewBox="0 0 52 52">
+                      <circle cx="26" cy="26" r={radius} fill="none" stroke="rgb(30,41,59)" strokeWidth="3" />
+                      <circle cx="26" cy="26" r={radius} fill="none" stroke={accent} strokeWidth="3" strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={offset} transform="rotate(-90 26 26)" className="transition-all duration-700" />
+                      <text x="26" y="30" textAnchor="middle" className="text-[10px] font-bold" fill={accent}>{b.unlockedStages}</text>
+                    </svg>
+                  </div>
+                  <Link to={`/bank/${b.code}/stages`}>
+                    <div className="mb-3 text-xs text-slate-400">{b.unlockedStages}/{b.totalStages} 阶段 · {b.totalWords} 词</div>
+                  </Link>
+
+                  {b.dueReviews > 0 && (
+                    <div className="mb-3">
+                      <Link to={`/battle/${b.code}/review`} state={{ mode: 'zh2en', size: b.dueReviews, review: true }}
+                        className="block rounded-xl border border-orange-500/30 bg-orange-500/10 px-3 py-2 text-center text-sm hover:bg-orange-500/20 transition-colors">
+                        <span className="font-bold text-orange-400">{b.dueReviews}</span>
+                        <span className="ml-1 text-orange-300">词待复习 →</span>
+                      </Link>
                     </div>
-                  ))}
+                  )}
+
+                  <div className="flex items-center justify-between text-xs text-slate-500">
+                    <span>掌握 <span className="font-medium text-emerald-400">{b.masteredWords}</span></span>
+                    <span>今日 <span className="font-medium text-cyan-400">{b.learnedToday}</span></span>
+                  </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
       )}
 
       {/* ── Bottom Nav ── */}
-      <div className="mx-auto mt-8 flex max-w-xs justify-center gap-4">
-        <Link to="/character" className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">养成面板 →</Link>
-        <Link to="/collections" className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">📖 图鉴 →</Link>
+      <div className="mx-auto mt-8 flex max-w-xs justify-center gap-3">
+        <Link to="/collections" className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">📖 图鉴</Link>
+        <Link to="/stats" className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">📊 统计</Link>
       </div>
+
+      {settingsOpen && <SettingsModal onClose={() => setSettingsOpen(false)} />}
     </div>
   );
 }

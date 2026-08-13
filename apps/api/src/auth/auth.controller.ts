@@ -37,6 +37,14 @@ export class AuthController {
     return this.auth.me(req.user.sub);
   }
 
+  @Post('logout')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: '退出登录：使已签发 refresh token 服务端失效' })
+  logout(@Req() req: Request & { user: JwtUser }): Promise<{ ok: boolean }> {
+    return this.auth.logout(req.user.sub);
+  }
+
   @Post('character')
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)

@@ -73,7 +73,7 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
     id: number;
     username: string;
     coins: number;
-    character: { level: number; hpLv: number; atkLv: number; defLv: number } | null;
+    character: { level: number; exp: number; hpLv: number; atkLv: number; defLv: number } | null;
   }): AuthUser {
     const { id, username, coins, character } = u;
     return {
@@ -83,6 +83,7 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
       character: character
         ? {
             level: character.level,
+            exp: character.exp,
             hpLv: character.hpLv,
             atkLv: character.atkLv,
             defLv: character.defLv,
@@ -177,6 +178,15 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
     });
     if (!user) throw new UnauthorizedException('用户不存在');
     return this.toAuthUser(user);
+  }
+
+  // 退出登录：清空 refresh token 哈希，使已签发 refresh 失效
+  async logout(userId: number): Promise<{ ok: boolean }> {
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: { refreshTokenHash: null },
+    });
+    return { ok: true };
   }
 
   // 角色初始化：仅首次创建生效；已存在则原样返回（防止覆盖已养成属性）

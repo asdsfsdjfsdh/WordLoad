@@ -1,6 +1,6 @@
 // 服务端出题核心（纯函数）：抽词比例 / 义项轮换 / 易混补抽 / 挖空模板
 // 契约：Question 由 shared 定义；本模块只做算法编排，不触碰数据库
-import type { DifficultyTier, GameMode, Question } from '@word-journey/shared';
+import type { DifficultyTier, FoilOption, GameMode, Question } from '@word-journey/shared';
 
 // 抽词来源
 export type QuestionSource = 'new' | 'review' | 'wrongbook';
@@ -77,19 +77,52 @@ export function maskTemplate(
   return { template: chars.join(''), blanks };
 }
 
-// 生成一道题：中译英（释义打底 + 拼写挖空）或听写（音标打底 + 拼写挖空）
+// 选中文模式候选池项（服务端一次性打包，前端据此组选项；不包含正确答案本体，仅做干扰项来源）
+export interface FoilPoolInput {
+  text: string;
+  meaning: string;
+  confusableTexts: string[]; // 易混词形（优先作干扰项）
+}
+export function buildFoilPool(pool: FoilPoolInput[]): FoilOption[] {
+  return pool.map((p) => ({
+    text: p.text,
+    meaning: p.meaning,
+    confusableTexts: p.confusableTexts.length > 0 ? p.confusableTexts : undefined,
+  }));
+}
+
+// 生成一道题：中译英（释义打底 + 拼写挖空）、听写（音标打底 + 拼写挖空）或选中文（英文打底 + 选项组）
 export function buildQuestion(opts: {
   seq: number;
   wordId: string;
   senseIdx: number;
   text: string;
-  promptBase: string; // 中文释义（中译英）或音标（听写）
+  promptBase: string; // 中文释义（中译英/选中文）或音标（听写）
   example?: string;
   phonetic?: string; // 音标（两种模式均下发展示/发音用）
   tier: DifficultyTier;
   mode: GameMode;
+  source?: 'new' | 'review' | 'wrongbook' | 'boss';
 }): Question {
   const { text, mode } = opts;
+  // 选中文：不挖空，前端从 foilPool 组 4 选项，服务端只下发正确答案对应释义
+  if (mode === 'choice') {
+    return {
+      seq: opts.seq,
+      wordId: opts.wordId,
+      senseIdx: opts.senseIdx,
+      type: 'choice',
+      prompt: text,
+      template: '',
+      blanks: [],
+      phonetic: opts.phonetic,
+      example: opts.example,
+      tier: opts.tier,
+      answer: text,
+      answerMeaning: opts.promptBase,
+      source: opts.source,
+    };
+  }
   // 挖空策略：保留首字母，其余挖空（听写模式保留首尾，降低全听写出错率）
   const blanks =
     mode === 'dictation'
@@ -108,6 +141,7 @@ export function buildQuestion(opts: {
     example: opts.example,
     tier: opts.tier,
     answer: text,
+    source: opts.source,
   };
 }
 
