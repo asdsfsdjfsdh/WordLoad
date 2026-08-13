@@ -6,6 +6,7 @@ import { TypingCore, MiniKeyboard, type AnswerRecord } from '../components/Typin
 import { ChoiceCore } from '../components/ChoiceCore';
 import { BattleField, type BattleFieldHandle } from '../components/BattleField';
 import { FlashCard } from '../components/FlashCard';
+import { RunFlow } from '../components/RunFlow';
 import { checkVoiceAvailability, ensureVoiceAvailable, getTts } from '../lib/tts';
 import { useIsTouch } from '../lib/touch';
 import { playSkipSound } from '../lib/sfx';
@@ -17,7 +18,7 @@ interface CreateSessionResult {
   plan: { session: { questions: import('@word-journey/shared').Question[]; foilPool?: FoilOption[] } };
 }
 
-type Phase = 'mode' | 'learn' | 'battle' | 'boss';
+type Phase = 'mode' | 'learn' | 'battle' | 'boss' | 'run';
 
 export function BattlePage() {
   const { bankCode, stageId } = useParams<{
@@ -35,6 +36,7 @@ export function BattlePage() {
     const m = routeState?.mode;
     return m === 'zh2en' || m === 'dictation' || m === 'choice' ? m : 'zh2en';
   });
+  const [survival, setSurvival] = useState(false);
   const [size] = useState<number>(routeState?.size ?? 20);
   const [error, setError] = useState('');
   const [forceFinish, setForceFinish] = useState(false);
@@ -378,6 +380,29 @@ export function BattlePage() {
             </button>
           </div>
 
+          {/* 生存 Run：叠加开关，开启后出战进入无限生存模式 */}
+          <button
+            onClick={() => setSurvival((v) => !v)}
+            className={`mb-6 flex w-full items-center gap-3 rounded-xl border p-3.5 text-left transition-all ${
+              survival
+                ? 'border-amber-400 bg-amber-950/60 shadow-[0_0_15px_rgba(245,158,11,0.3)]'
+                : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
+            }`}
+          >
+            <span className="text-2xl">⚔️</span>
+            <div className="flex-1">
+              <div className={`text-sm font-bold ${survival ? 'text-amber-300' : 'text-slate-100'}`}>
+                生存 Run <span className={survival ? 'text-amber-300' : 'text-slate-500'}>● 已开启</span>
+              </div>
+              <div className="text-[11px] leading-tight text-slate-400">
+                无限波 · 每天三选一增益 · 首领战 · 可收枪，已开 Run 自动续
+              </div>
+            </div>
+            <span className={`text-xl ${survival ? 'text-amber-400' : 'text-slate-600'}`}>
+              {survival ? '✓' : '○'}
+            </span>
+          </button>
+
           {voice.usable !== true && (
             <p className="mb-6 flex items-start gap-1.5 text-xs text-amber-400">
               <span className="mt-0.5 shrink-0">ℹ</span>
@@ -386,15 +411,39 @@ export function BattlePage() {
           )}
 
           <button
-            onClick={() => setPhase('learn')}
+            onClick={() => { if (survival) { setError(''); setPhase('run'); } else { setPhase('learn'); } }}
             disabled={cannotFight}
             className="w-full rounded-xl bg-cyan-500 py-3.5 text-base font-bold text-slate-950 transition-all hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] disabled:opacity-40 disabled:hover:shadow-none"
           >
-            出战
+            {survival ? '开始生存 Run ⚔️' : '出战'}
           </button>
+          {survival && (
+            <p className="mt-2 text-center text-xs text-amber-400/80">将优先续接未完成的上一个生存 Run</p>
+          )}
           {error && <p className="mt-3 text-center text-sm text-red-400">{error}</p>}
         </div>
       </div>
+    );
+  }
+
+  if (phase === 'run') {
+    if (!bankCode || !stageId) {
+      return (
+        <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-slate-950">
+          <p className="text-sm text-red-400">缺少关卡信息，请返回重试</p>
+          <button onClick={() => setPhase('mode')} className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-300">
+            返回
+          </button>
+        </div>
+      );
+    }
+    return (
+      <RunFlow
+        bankCode={bankCode}
+        stageId={Number(stageId)}
+        mode={mode}
+        onExit={() => setPhase('mode')}
+      />
     );
   }
 

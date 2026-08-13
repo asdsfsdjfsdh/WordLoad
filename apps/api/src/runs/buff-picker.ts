@@ -1,5 +1,5 @@
-// buff 选择（上下文感知纯函数）：HP/acc 分支、满叠剔除、首领前对策
-import { NORMAL_BUFF_POOL, SURVIVAL, type NormalBuff } from '@word-journey/shared';
+// buff 选择（上下文感知纯函数）：HP/acc 分支、满叠剔除、首领前对策；传说技能三选一
+import { LEGEND_BUFF_POOL, NORMAL_BUFF_POOL, SURVIVAL, type LegendBuff, type NormalBuff } from '@word-journey/shared';
 
 export interface BuffCounts {
   maxHp: number;
@@ -76,10 +76,16 @@ export function pickBuffs(input: BuffPickInput): NormalBuff[] {
     pushIfAvailable(['maxhp', 'dmg', 'leech', 'freeze', 'dodge']);
   }
 
-  // 兜底：从剩余池随机补足 3
+  // 全池满叠返回空
   for (const b of available) {
     if (result.length >= 3) break;
     if (!result.includes(b)) result.push(b);
   }
   return result.slice(0, 3);
+}
+
+// 传说技能三选一（首领战后单局一次）：剔除已选传说，返回至多 3 项
+export function pickLegends(chosen: string[]): LegendBuff[] {
+  const used = new Set(chosen);
+  return LEGEND_BUFF_POOL.filter((b) => !used.has(b)).slice(0, 3);
 }

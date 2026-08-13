@@ -46,6 +46,10 @@ class AdvanceDto {
   @IsOptional()
   @IsString()
   buffChoice?: string;
+
+  @IsOptional()
+  @IsString()
+  legendChoice?: string;
 }
 
 class FinishDto {

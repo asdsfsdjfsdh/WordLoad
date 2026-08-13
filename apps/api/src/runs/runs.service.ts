@@ -30,7 +30,7 @@ import { buildQuestion } from '../questions/question-builder';
 import { shouldTriggerBoss } from './boss-trigger';
 import { shouldInject } from './inject';
 import { buildReviewQueue } from './review-queue';
-import { pickBuffs } from './buff-picker';
+import { pickBuffs, pickLegends } from './buff-picker';
 import { computeRewards, isRecordBroken } from './rewards';
 import {
   computeRating,
@@ -158,11 +158,17 @@ export class RunsService {
         questions: adv.questions,
         previewWords: adv.previewWords,
         injectedNew: adv.injectedNew,
+        bossWave: adv.bossWave,
+        bossHp: adv.bossHp,
+        buffChoices: adv.buffChoices,
+        legendChoices: adv.legendChoices,
         ended: false,
       };
     }
 
     const wordRows = await this.loadWords(pending.map((i) => i.wordId));
+    const isBossWave = pending.every((i) => i.type === 'boss');
+    const character = await this.prisma.userCharacter.findUnique({ where: { userId } });
     const questions: RunQuestion[] = pending.map((it) => {
       const w = wordRows.get(it.wordId);
       const q = buildQuestion({
@@ -188,6 +194,8 @@ export class RunsService {
       questions,
       previewWords: [],
       injectedNew: 0,
+      bossWave: isBossWave,
+      bossHp: isBossWave ? bossHits(run.day, character?.atkLv ?? 1) : undefined,
       ended: false,
     };
   }
@@ -196,7 +204,11 @@ export class RunsService {
   async advance(
     userId: number,
     runId: number,
-    opts: { answers: { seq: number; correct: boolean; elapsedMs: number; typed?: string }[]; buffChoice?: string },
+    opts: {
+      answers: { seq: number; correct: boolean; elapsedMs: number; typed?: string }[];
+      buffChoice?: string;
+      legendChoice?: string;
+    },
   ): Promise<RunAdvanceResponse> {
     const run = await this.prisma.run.findFirst({
       where: { id: runId, userId, status: 'active' },
@@ -211,15 +223,15 @@ export class RunsService {
     const defLv = character.defLv;
     const buffs = parseBuffs(run.buffs);
 
-    // 应用玩家选择的 buff（上一波返回的候选之一），作用于本波回放
-    if (opts.buffChoice) {
-      const applied = applyBuffChoice(run, buffs, opts.buffChoice);
-      if (applied) {
-        await this.prisma.run.update({
-          where: { id: run.id },
-          data: { buffs: run.buffs as string[], maxHp: run.maxHp },
-        });
-      }
+    // 应用玩家选择的 buff / 传说技能（上一波返回的候选之一），作用于本波回放
+    // 首领清后的次日可能同时存在普通 buff 与传说三选一，两项独立生效
+    const appliedB = opts.buffChoice ? applyBuffChoice(run, buffs, opts.buffChoice) : false;
+    const appliedL = opts.legendChoice ? applyBuffChoice(run, buffs, opts.legendChoice) : false;
+    if (appliedB || appliedL) {
+      await this.prisma.run.update({
+        where: { id: run.id },
+        data: { buffs: run.buffs as string[], maxHp: run.maxHp },
+      });
     }
 
     const wordRows = await this.loadWords([...new Set(run.items.map((i) => i.wordId))]);
@@ -464,6 +476,7 @@ export class RunsService {
       previewWords: newPool.map((w) => toLevelWord(w.word)),
       injectedNew: injected,
       nextDayNewWords: injected,
+      legendChoices: bossJustCleared ? pickLegends(created.buffs as string[]) : undefined,
       buffChoices: pickBuffs({
         hp: created.hp,
         maxHp: created.maxHp,
@@ -990,6 +1003,7 @@ function applyBuffChoice(run: { buffs: Prisma.JsonValue; maxHp: number }, state:
     return true;
   }
   if ((LEGEND_BUFFS as readonly string[]).includes(choice)) {
+    if (arr.includes(choice)) return false; // 传说技能单局一次
     arr.push(choice);
     run.buffs = arr;
     return true;

@@ -269,6 +269,11 @@ export interface ActiveRunResponse {
   questions: RunQuestion[];    // 未答题
   previewWords: LevelWord[];
   injectedNew: number;
+  // 续 Run 恢复阶段所需（当波/下一波）
+  bossWave?: boolean;
+  bossHp?: number;
+  buffChoices?: string[];
+  legendChoices?: string[];
   ended: false;
 }
 
@@ -276,6 +281,7 @@ export interface ActiveRunResponse {
 export interface RunAdvanceRequest {
   answers: AnswerInput[];
   buffChoice?: string;
+  legendChoice?: string;
 }
 
 export interface RunAdvanceResponse {
