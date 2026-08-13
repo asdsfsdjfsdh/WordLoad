@@ -512,7 +512,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 questions={questions}
                 mode={mode}
                 foilPool={foilPool}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}
@@ -522,7 +522,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 key={`run-${day}-${isBoss ? 'boss' : 'study'}-${waveKey}`}
                 questions={questions}
                 mode={mode}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}
@@ -537,7 +537,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 questions={questions}
                 mode={mode}
                 foilPool={foilPool}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}
@@ -547,7 +547,7 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
                 key={`run-${day}-${isBoss ? 'boss' : 'study'}-${waveKey}`}
                 questions={questions}
                 mode={mode}
-                onJudged={(r) => battleRef.current?.survivalTick(r.correct)}
+                onJudged={(r) => battleRef.current?.survivalTick(r.correct, r.combo)}
                 forceFinish={forceFinish}
                 locked={locked}
                 onComplete={handleWaveComplete}

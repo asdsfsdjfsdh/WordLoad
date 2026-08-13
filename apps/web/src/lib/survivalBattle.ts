@@ -214,8 +214,9 @@ export class SurvivalBattle {
     if (this.spawnAcc >= SPAWN_INTERVAL) {
       this.spawnAcc = 0;
       if (this.spawned < TOTAL_MONSTERS && this.field.length < MAX_FIELD) {
+        const m = this.spawn();
         this.spawned++;
-        events.push({ type: 'spawn', monster: this.field[this.field.length - 1]! });
+        events.push({ type: 'spawn', monster: m });
       }
     }
 
@@ -234,8 +235,9 @@ export class SurvivalBattle {
       if (!this.meta.legend.noLeakDmg) taken = this.hurt(this.leakRaw());
       events.push({ type: 'leak', targetId: front.id, dmg: taken, blocked: taken === 0 });
       if (this.spawned < TOTAL_MONSTERS && this.field.length < MAX_FIELD) {
+        const m = this.spawn();
         this.spawned++;
-        events.push({ type: 'spawn', monster: this.field[this.field.length - 1]! });
+        events.push({ type: 'spawn', monster: m });
       }
       if (this.hp <= 0) {
         events.push({ type: 'death' });
@@ -273,8 +275,9 @@ export class SurvivalBattle {
           if (this.meta.legend.killHeal) heal = this.heal(1);
           events.push({ type: 'kill', targetId: front.id, heal });
           if (this.spawned < TOTAL_MONSTERS && this.field.length < MAX_FIELD) {
+            const m = this.spawn();
             this.spawned++;
-            events.push({ type: 'spawn', monster: this.field[this.field.length - 1]! });
+            events.push({ type: 'spawn', monster: m });
           }
         }
       }

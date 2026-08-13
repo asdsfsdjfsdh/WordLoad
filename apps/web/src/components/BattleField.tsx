@@ -26,7 +26,7 @@ export interface BattleFieldHandle {
   startBoss(bossHp: number): void;
   // 生存模式：逐波初始化 / 逐问推进 / 波末服务端权威校准
   startSurvivalWave(meta: SurvivalWaveMeta): void;
-  survivalTick(correct: boolean): void;
+  survivalTick(correct: boolean, combo?: number): void;
   syncSurvivalHp(hp: number, maxHp: number): void;
   // 生存模式：波末上报（客户端权威血量 / Boss 是否击破）
   getSurvivalHp(): number;
@@ -205,143 +205,171 @@ interface SurvivalFx {
   taunt: { text: string; x: number; y: number; life: number; maxLife: number } | null;
 }
 
-// 实时模拟事件 → 视觉（projectile/飘字/爆炸/音效）
-function applySurvivalEvents(
-  fx: SurvivalFx,
-  survival: SurvivalStateShape,
-  px: number,
-  py: number,
-  events: SurvivalEvent[],
-): void {
+// 事件处理所需的真实 state（直接改写，使 flash/shake/hitStop 等标量特效生效）
+interface SurvivalFxState extends SurvivalFx {
+  attackRecoil: number;
+  comboFx3: number;
+  comboFx5: number;
+  comboFx7: number;
+  playerGlint: number;
+  slowTimer: number;
+  bossP2: boolean;
+  survival: SurvivalStateShape | null;
+}
+
+// 实时模拟事件 → 视觉（直接搬普通模式特效：弹丸/发射闪光/爆炸/顿帧/连击/飘字/音效）
+function applySurvivalEvents(s: SurvivalFxState, px: number, py: number, events: SurvivalEvent[]): void {
+  const enemies = s.survival!.enemies;
   for (const ev of events) {
     switch (ev.type) {
       case 'spawn': {
         const m = ev.monster;
         const x = survivalX(m.progress, px);
         const e = survivalEnemyFromMonster(m, x, py - 40 + Math.random() * 80);
-        fx.enemies.push(e);
+        enemies.push(e);
         break;
       }
       case 'attack': {
-        const target = fx.enemies.find((e) => e.id === ev.targetId);
-        if (target) {
-          const ang = Math.atan2(target.y - py, target.x - px - PLAYER_SIZE / 2);
-          fx.projectiles.push({ x: px + PLAYER_SIZE / 2, y: py, tx: target.x, ty: target.y, t: 0, targetId: target.id, ang, damage: ev.dmg });
-          target.hp -= ev.dmg;
-          if (ev.crit) {
-            fx.floaters.push({ x: target.x, y: target.y - 20, text: '新词暴击 ×2', color: '#fbbf24', life: 1.2, size: 20, weight: 900 });
-          }
+        const target = enemies.find((e) => e.id === ev.targetId);
+        if (!target) break;
+        // 普通模式攻击特效：发射口闪光 + 圆环 + 弹丸 + 发光 + 后坐 + 音效
+        for (let i = 0; i < 2; i++) {
+          const ma = Math.PI + (Math.random() - 0.5) * 0.7;
+          pushShardFx(s, px + PLAYER_SIZE / 2, py, Math.cos(ma) * 130, Math.sin(ma) * 130, '#fde047', 1.6);
         }
+        if (s.rings.length < 8) {
+          s.rings.push({ x: px + PLAYER_SIZE / 2, y: py, r: 3, vr: 110, life: 0.16, maxLife: 0.16, color: '#fde047' });
+        }
+        const ang = Math.atan2(target.y - py, target.x - px - PLAYER_SIZE / 2);
+        s.projectiles.push({
+          x: px + PLAYER_SIZE / 2, y: py,
+          tx: target.x, ty: target.y, t: 0, targetId: target.id,
+          ang, damage: ev.dmg,
+        });
+        if (ev.crit) {
+          s.floaters.push({ x: target.x, y: target.y - 20, text: '新词暴击 ×2', color: '#fbbf24', life: 1.2, size: 20, weight: 900 });
+        }
+        s.glow = 1;
+        s.attackRecoil = 1;
+        playAttackSound();
         break;
       }
       case 'kill': {
-        const idx = fx.enemies.findIndex((e) => e.id === ev.targetId);
+        const idx = enemies.findIndex((e) => e.id === ev.targetId);
         if (idx >= 0) {
-          const target = fx.enemies[idx]!;
-          explodeFX(fx, target.x, target.y, target.color, 18);
+          const target = enemies[idx]!;
+          explodeFX(s, target.x, target.y, target.color, 18);
+          s.hitStop = Math.max(s.hitStop, 0.12); // 击杀顿帧
           playKillSound();
           if (ev.heal > 0) {
-            survival.hp = Math.min(survival.maxHp, survival.hp + ev.heal);
-            fx.floaters.push({ x: target.x, y: target.y - 28, text: '+♥ 击杀回血', color: '#4ade80', life: 1.4 });
+            s.floaters.push({ x: target.x, y: target.y - 28, text: '+♥ 击杀回血', color: '#4ade80', life: 1.4 });
           }
-          fx.floaters.push({ x: target.x, y: target.y - 14, text: '击杀', color: '#fde047', life: 1.2 });
-          fx.enemies.splice(idx, 1);
+          s.floaters.push({ x: target.x, y: target.y - 14, text: '击杀', color: '#fde047', life: 1.2 });
+          enemies.splice(idx, 1);
         }
         break;
       }
       case 'wrong': {
         if (ev.blocked) {
-          fx.floaters.push({ x: px, y: py - 30, text: '免伤', color: '#94a3b8', life: 1 });
+          s.floaters.push({ x: px, y: py - 30, text: '免伤', color: '#94a3b8', life: 1 });
         } else {
-          hurtFX(fx, survival, ev.dmg, px, py);
+          hurtFX(s, ev.dmg, px, py);
         }
         break;
       }
       case 'leak': {
-        const lidx = fx.enemies.findIndex((e) => e.id === ev.targetId);
-        if (lidx >= 0) fx.enemies.splice(lidx, 1);
-        explodeFX(fx, px - 40, py, '#f87171', 14);
+        const lidx = enemies.findIndex((e) => e.id === ev.targetId);
+        if (lidx >= 0) enemies.splice(lidx, 1);
+        explodeFX(s, px - 40, py, '#f87171', 14);
         if (ev.blocked) {
-          fx.floaters.push({ x: px, y: py - 30, text: '漏怪·免伤', color: '#94a3b8', life: 1.2 });
+          s.floaters.push({ x: px, y: py - 30, text: '漏怪·免伤', color: '#94a3b8', life: 1.2 });
         } else {
-          fx.floaters.push({ x: px, y: py - 30, text: `漏怪 -${ev.dmg}`, color: '#f87171', life: 1.2 });
-          hurtFX(fx, survival, ev.dmg, px, py);
+          s.floaters.push({ x: px, y: py - 30, text: `漏怪 -${ev.dmg}`, color: '#f87171', life: 1.2 });
+          hurtFX(s, ev.dmg, px, py);
         }
         break;
       }
       case 'stun': {
-        for (const e of fx.enemies) {
+        for (const e of enemies) {
           e.frozen = true;
           e.frozenAngle = Math.random() * Math.PI * 2;
         }
         playFreezeSound();
-        fx.floaters.push({ x: px, y: py - 60, text: '⚡ 连错眩晕 · 怪暂停逼近', color: '#a5f3fc', life: 1.4 });
+        s.floaters.push({ x: px, y: py - 60, text: '⚡ 连错眩晕 · 怪暂停逼近', color: '#a5f3fc', life: 1.4 });
         break;
       }
       case 'leech': {
-        survival.hp = Math.min(survival.maxHp, survival.hp + ev.amount);
-        fx.floaters.push({ x: px - 20, y: py - 24, text: `+♥ ${ev.amount}`, color: '#4ade80', life: 1.2, size: 20, weight: 900 });
+        s.floaters.push({ x: px - 20, y: py - 24, text: `+♥ ${ev.amount}`, color: '#4ade80', life: 1.2, size: 20, weight: 900 });
         break;
       }
       case 'boss-hit': {
-        survival.bossHp = ev.bossHp;
-        if (ev.p2 && !survival.bossP2) {
-          survival.bossP2 = true;
+        if (s.survival) s.survival.bossHp = ev.bossHp;
+        if (ev.p2 && s.survival && !s.survival.bossP2) {
+          s.survival.bossP2 = true;
           playP2RageSound();
-          fx.floaters.push({ x: px, y: py - 80, text: '⚠ BOSS 暴怒！P2', color: '#c084fc', life: 3 });
+          s.floaters.push({ x: px, y: py - 80, text: '⚠ BOSS 暴怒！P2', color: '#c084fc', life: 3 });
         }
         if (ev.cleared) {
-          fx.goldFlash = 1;
-          fx.flash = 1.5;
+          s.goldFlash = 1;
+          s.flash = 1.5;
+          s.hitStop = Math.max(s.hitStop, 0.3);
           playBossDefeatSound();
           for (let i = 0; i < 8; i++) {
-            fx.rings.push({ x: px, y: py, r: 16 + i * 10, vr: 320 + i * 40, life: 1.4, maxLife: 1.4, color: i % 2 === 0 ? '#fbbf24' : '#ef4444' });
+            s.rings.push({ x: px, y: py, r: 16 + i * 10, vr: 320 + i * 40, life: 1.4, maxLife: 1.4, color: i % 2 === 0 ? '#fbbf24' : '#ef4444' });
           }
-          fx.floaters.push({ x: px, y: py - 70, text: 'BOSS 击破！', color: '#fbbf24', life: 1.6, size: 24, weight: 900 });
+          s.floaters.push({ x: px, y: py - 70, text: 'BOSS 击破！', color: '#fbbf24', life: 1.6, size: 24, weight: 900 });
         } else {
-          fx.floaters.push({ x: px - 30, y: py - 70, text: `-${ev.dmg}`, color: '#fca5a5', life: 1 });
+          s.floaters.push({ x: px - 30, y: py - 70, text: `-${ev.dmg}`, color: '#fca5a5', life: 1 });
         }
         break;
       }
       case 'boss-miss': {
         if (ev.immune) {
-          fx.floaters.push({ x: px - 30, y: py - 70, text: 'P2 免疫', color: '#94a3b8', life: 1.2 });
+          s.floaters.push({ x: px - 30, y: py - 70, text: 'P2 免疫', color: '#94a3b8', life: 1.2 });
         } else {
-          fx.floaters.push({ x: px - 30, y: py - 70, text: `BOSS -${ev.dmg}`, color: '#f87171', life: 1.2 });
-          hurtFX(fx, survival, ev.dmg, px, py);
+          s.floaters.push({ x: px - 30, y: py - 70, text: `BOSS -${ev.dmg}`, color: '#f87171', life: 1.2 });
+          hurtFX(s, ev.dmg, px, py);
         }
         break;
       }
       case 'death': {
-        fx.floaters.push({ x: px, y: py - 60, text: '💀 阵亡…', color: '#ef4444', life: 2.5, size: 26, weight: 900 });
+        s.floaters.push({ x: px, y: py - 60, text: '💀 阵亡…', color: '#ef4444', life: 2.5, size: 26, weight: 900 });
         break;
       }
     }
   }
 }
 
-function explodeFX(fx: SurvivalFx, x: number, y: number, color: string, count: number): void {
+function pushShardFx(s: SurvivalFxState, x: number, y: number, vx: number, vy: number, color: string, size: number): void {
+  s.shards.push({
+    x, y, vx, vy,
+    life: 0.4 + Math.random() * 0.35, maxLife: 0.75, color,
+    size, rot: Math.random() * Math.PI, spin: (Math.random() - 0.5) * 16,
+    kind: Math.random() < 0.55 ? 'diamond' : 'tri',
+  });
+}
+
+function explodeFX(s: SurvivalFxState, x: number, y: number, color: string, count: number): void {
   for (let i = 0; i < count; i++) {
     const ang = Math.random() * Math.PI * 2;
     const spd = 60 + Math.random() * 160;
-    fx.shards.push({
+    s.shards.push({
       x, y, vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd,
       life: 0.4 + Math.random() * 0.35, maxLife: 0.75, color,
       size: 2 + Math.random() * 3, rot: Math.random() * Math.PI, spin: (Math.random() - 0.5) * 16,
       kind: Math.random() < 0.55 ? 'diamond' : 'tri',
     });
   }
-  if (fx.rings.length < 8) {
-    fx.rings.push({ x, y, r: 6, vr: 180, life: 0.22, maxLife: 0.22, color });
+  if (s.rings.length < 8) {
+    s.rings.push({ x, y, r: 6, vr: 180, life: 0.22, maxLife: 0.22, color });
   }
 }
 
-function hurtFX(fx: SurvivalFx, survival: { hp: number }, dmg: number, px: number, py: number): void {
-  survival.hp = Math.max(0, survival.hp - dmg);
-  fx.flash = 1;
-  fx.shake = 1;
+function hurtFX(s: SurvivalFxState, dmg: number, px: number, py: number): void {
+  s.flash = 1;
+  s.shake = 1;
   playHurtSound();
-  fx.floaters.push({ x: px, y: py - 24, text: `-${dmg}`, color: '#f87171', life: 1 });
+  s.floaters.push({ x: px, y: py - 24, text: `-${dmg}`, color: '#f87171', life: 1 });
 }
 
 // ---- 几何路径（纯函数，模块级避免重复创建）----
@@ -633,15 +661,17 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         s.floaters.push({ x: cssRef.current.w / 2, y: py - 60, text: `第 ${meta.day} 天`, color: '#67e8f9', life: 1.6 });
       }
     },
-    survivalTick(correct: boolean) {
+    survivalTick(correct: boolean, combo = 0) {
       const s = state.current;
       if (!s.survival) return;
       // 每问先解冻（stun 事件再重新冻结），避免眩晕视觉残留
       for (const e of s.survival.enemies) e.frozen = false;
+      // 普通模式连击特效（×3/×5/×7）
+      if (correct) comboFx(combo);
       const events = s.survival.sim.onAnswer(correct);
       const px = playerX();
       const py = sY();
-      applySurvivalEvents({ ...s, enemies: s.survival.enemies } as SurvivalFx, s.survival, px, py, events);
+      applySurvivalEvents(s as SurvivalFxState, px, py, events);
       // 血量以 sim 为准（客户端实时模拟权威）
       s.survival.hp = s.survival.sim.currentHp;
       s.hp = s.survival.hp;
@@ -902,7 +932,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       if (s.running && s.survival) {
         const evs = s.survival.sim.step(dt);
         if (evs.length > 0) {
-          applySurvivalEvents({ ...s, enemies: s.survival.enemies } as SurvivalFx, s.survival, playerX(), sY(), evs);
+          applySurvivalEvents(s as SurvivalFxState, playerX(), sY(), evs);
         }
         // 同步场上怪位置与 HP（progress 每帧连续推进 → 实时逼近，无瞬移）
         const pxv = playerX();

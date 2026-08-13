@@ -200,6 +200,30 @@ describe('SurvivalBattle 波内实时模拟（时间驱动）', () => {
     expect(deathIdx).toBeGreaterThan(-1);
   });
 
+  it('击杀/漏怪补位：spawn 事件始终携带 monster（防止场上清空取 undefined）', () => {
+    const sim = new SurvivalBattle(
+      wave({
+        questions: Array.from({ length: 20 }, () => ({ tier: 0 as const, isNew: true, isBoss: false })),
+      }),
+    );
+    // 新词首击 2 击 → 每题击杀一只，触发补位
+    const events = answerAll(sim, Array(20).fill(true));
+    for (const ev of events) {
+      if (ev.type === 'spawn') expect(ev.monster).toBeDefined();
+    }
+    // 漏怪补位同样带 monster
+    const sim2 = new SurvivalBattle(
+      wave({
+        questions: Array.from({ length: 20 }, () => ({ tier: 0 as const, isNew: false, isBoss: false })),
+      }),
+    );
+    const leakEvents: { type: string; monster?: unknown }[] = [];
+    for (let i = 0; i < 40; i++) leakEvents.push(...sim2.step(6));
+    for (const ev of leakEvents) {
+      if (ev.type === 'spawn') expect(ev.monster).toBeDefined();
+    }
+  });
+
   it('每波新怪 HP 按当前词 tierFactor 计算（tierⅣ ≥ tierⅠ）', () => {
     const t1 = new SurvivalBattle(
       wave({
