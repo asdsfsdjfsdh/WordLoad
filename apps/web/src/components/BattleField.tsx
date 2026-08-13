@@ -3,6 +3,7 @@
 // 性能：禁热循环 shadowBlur，霓虹用「亮芯+双描边叠层」，辉光层统一 'lighter'，网格离屏预渲染
 // v2.2：freezeEnemies（重写冻结，Boss除外）/ skillAttack（3枚大菱形）/ 连击 ×3/×5/×7 几何反馈
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { SurvivalBattle, type SurvivalWaveMeta, type TierIdx } from '../lib/survivalBattle';
 import {
   playAttackSound,
   playBossAppearSound,
@@ -23,6 +24,10 @@ export interface BattleFieldHandle {
   skillAttack(): void;
   bossAlive(): boolean;
   startBoss(bossHp: number): void;
+  // 生存模式：逐波初始化 / 逐问推进 / 波末服务端权威校准
+  startSurvivalWave(meta: SurvivalWaveMeta): void;
+  survivalTick(correct: boolean): void;
+  syncSurvivalHp(hp: number, maxHp: number): void;
 }
 
 interface Props {
@@ -33,6 +38,7 @@ interface Props {
   phase: 'study' | 'boss';
   tauntWords?: string[]; // Boss 段嘲讽词列表（本局错词）
   onLockInput?: () => void; // 战斗结束/失败瞬间锁定答题
+  survival?: boolean; // 生存模式：启用逐问模拟战斗层
 }
 
 interface Enemy {
@@ -135,6 +141,204 @@ function pickArche(phase: 'study' | 'boss'): Archetype {
   return pool[Math.floor(Math.random() * pool.length)]!;
 }
 
+// ---- 生存模式：tier → 怪外观（θ 公式只影响 HP，外观按词难度分级）----
+const SURVIVAL_TIER_STYLE: { shape: Enemy['shape']; color: string; size: number; name: string }[] = [
+  { shape: 'circle',   color: '#22d3ee', size: 24, name: 'Blob' },   // Ⅰ
+  { shape: 'triangle', color: '#34d399', size: 18, name: 'Spike' },  // Ⅱ
+  { shape: 'square',   color: '#a78bfa', size: 26, name: 'Cube' },   // Ⅲ
+  { shape: 'pentagon', color: '#f472b6', size: 28, name: 'Crystal' },// Ⅳ
+];
+
+function survivalEnemyFromMonster(m: { id: number; tier: TierIdx; hp: number; maxHp: number; progress: number }, x: number, y: number): Enemy {
+  const style = SURVIVAL_TIER_STYLE[m.tier] ?? SURVIVAL_TIER_STYLE[0]!;
+  return {
+    id: m.id,
+    shape: style.shape,
+    x,
+    y,
+    hp: m.hp,
+    maxHp: m.maxHp,
+    speed: 0,
+    size: style.size,
+    color: style.color,
+    archetype: style.name,
+    rotation: 0,
+    rotSpeed: 0,
+  };
+}
+
+// 生存怪 x 插值：progress 0=左缘，1=玩家侧
+function survivalX(progress: number, playerXVal: number): number {
+  return -30 + progress * (playerXVal - (-30) - PLAYER_SIZE / 2);
+}
+
+// 生存模式：场内存活状态（每次 startSurvivalWave 重建）
+interface SurvivalStateShape {
+  sim: SurvivalBattle;
+  hp: number;
+  maxHp: number;
+  day: number;
+  enemies: Enemy[];
+  bossActive: boolean;
+  bossHp: number;
+  bossMaxHp: number;
+  bossP2: boolean;
+  leechN: number;
+}
+
+// 事件处理所需的状态子集（避免把整个 mutable state 传出去）
+interface SurvivalFx {
+  enemies: Enemy[];
+  projectiles: Projectile[];
+  shards: Shard[];
+  rings: Ring[];
+  floaters: Floater[];
+  flash: number;
+  shake: number;
+  glow: number;
+  hitStop: number;
+  goldFlash: number;
+  bossIntro: number;
+  taunt: { text: string; x: number; y: number; life: number; maxLife: number } | null;
+}
+
+// 逐问事件 → 视觉（projectile/飘字/爆炸/音效）
+function applySurvivalEvents(
+  fx: SurvivalFx,
+  survival: SurvivalStateShape,
+  px: number,
+  py: number,
+  events: ReturnType<SurvivalBattle['tick']>,
+): void {
+  for (const ev of events) {
+    switch (ev.type) {
+      case 'spawn': {
+        const m = ev.monster;
+        const x = survivalX(m.progress, px);
+        const e = survivalEnemyFromMonster(m, x, py - 40 + Math.random() * 80);
+        fx.enemies.push(e);
+        break;
+      }
+      case 'attack': {
+        const target = fx.enemies.find((e) => e.id === ev.targetId);
+        if (target) {
+          const ang = Math.atan2(target.y - py, target.x - px - PLAYER_SIZE / 2);
+          fx.projectiles.push({ x: px + PLAYER_SIZE / 2, y: py, tx: target.x, ty: target.y, t: 0, targetId: target.id, ang, damage: ev.dmg });
+          target.hp -= ev.dmg;
+          if (ev.crit) {
+            fx.floaters.push({ x: target.x, y: target.y - 20, text: '新词暴击 ×2', color: '#fbbf24', life: 1.2, size: 20, weight: 900 });
+          }
+        }
+        break;
+      }
+      case 'kill': {
+        const idx = fx.enemies.findIndex((e) => e.id === ev.targetId);
+        if (idx >= 0) {
+          const target = fx.enemies[idx]!;
+          explodeFX(fx, target.x, target.y, target.color, 18);
+          playKillSound();
+          if (ev.heal > 0) {
+            survival.hp = Math.min(survival.maxHp, survival.hp + ev.heal);
+            fx.floaters.push({ x: target.x, y: target.y - 28, text: '+♥ 击杀回血', color: '#4ade80', life: 1.4 });
+          }
+          fx.floaters.push({ x: target.x, y: target.y - 14, text: '击杀', color: '#fde047', life: 1.2 });
+          fx.enemies.splice(idx, 1);
+        }
+        break;
+      }
+      case 'wrong': {
+        if (ev.blocked) {
+          fx.floaters.push({ x: px, y: py - 30, text: '免伤', color: '#94a3b8', life: 1 });
+        } else {
+          hurtFX(fx, survival, ev.dmg, px, py);
+        }
+        break;
+      }
+      case 'leak': {
+        explodeFX(fx, px - 40, py, '#f87171', 14);
+        if (ev.blocked) {
+          fx.floaters.push({ x: px, y: py - 30, text: '漏怪·免伤', color: '#94a3b8', life: 1.2 });
+        } else {
+          fx.floaters.push({ x: px, y: py - 30, text: `漏怪 -${ev.dmg}`, color: '#f87171', life: 1.2 });
+          hurtFX(fx, survival, ev.dmg, px, py);
+        }
+        break;
+      }
+      case 'stun': {
+        for (const e of fx.enemies) {
+          e.frozen = true;
+          e.frozenAngle = Math.random() * Math.PI * 2;
+        }
+        playFreezeSound();
+        fx.floaters.push({ x: px, y: py - 60, text: '⚡ 连错眩晕 · 怪暂停逼近', color: '#a5f3fc', life: 1.4 });
+        break;
+      }
+      case 'leech': {
+        survival.hp = Math.min(survival.maxHp, survival.hp + ev.amount);
+        fx.floaters.push({ x: px - 20, y: py - 24, text: `+♥ ${ev.amount}`, color: '#4ade80', life: 1.2, size: 20, weight: 900 });
+        break;
+      }
+      case 'boss-hit': {
+        survival.bossHp = ev.bossHp;
+        if (ev.p2 && !survival.bossP2) {
+          survival.bossP2 = true;
+          playP2RageSound();
+          fx.floaters.push({ x: px, y: py - 80, text: '⚠ BOSS 暴怒！P2', color: '#c084fc', life: 3 });
+        }
+        if (ev.cleared) {
+          fx.goldFlash = 1;
+          fx.flash = 1.5;
+          playBossDefeatSound();
+          for (let i = 0; i < 8; i++) {
+            fx.rings.push({ x: px, y: py, r: 16 + i * 10, vr: 320 + i * 40, life: 1.4, maxLife: 1.4, color: i % 2 === 0 ? '#fbbf24' : '#ef4444' });
+          }
+          fx.floaters.push({ x: px, y: py - 70, text: 'BOSS 击破！', color: '#fbbf24', life: 1.6, size: 24, weight: 900 });
+        } else {
+          fx.floaters.push({ x: px - 30, y: py - 70, text: `-${ev.dmg}`, color: '#fca5a5', life: 1 });
+        }
+        break;
+      }
+      case 'boss-miss': {
+        if (ev.immune) {
+          fx.floaters.push({ x: px - 30, y: py - 70, text: 'P2 免疫', color: '#94a3b8', life: 1.2 });
+        } else {
+          fx.floaters.push({ x: px - 30, y: py - 70, text: `BOSS -${ev.dmg}`, color: '#f87171', life: 1.2 });
+          hurtFX(fx, survival, ev.dmg, px, py);
+        }
+        break;
+      }
+      case 'death': {
+        fx.floaters.push({ x: px, y: py - 60, text: '💀 阵亡…', color: '#ef4444', life: 2.5, size: 26, weight: 900 });
+        break;
+      }
+    }
+  }
+}
+
+function explodeFX(fx: SurvivalFx, x: number, y: number, color: string, count: number): void {
+  for (let i = 0; i < count; i++) {
+    const ang = Math.random() * Math.PI * 2;
+    const spd = 60 + Math.random() * 160;
+    fx.shards.push({
+      x, y, vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd,
+      life: 0.4 + Math.random() * 0.35, maxLife: 0.75, color,
+      size: 2 + Math.random() * 3, rot: Math.random() * Math.PI, spin: (Math.random() - 0.5) * 16,
+      kind: Math.random() < 0.55 ? 'diamond' : 'tri',
+    });
+  }
+  if (fx.rings.length < 8) {
+    fx.rings.push({ x, y, r: 6, vr: 180, life: 0.22, maxLife: 0.22, color });
+  }
+}
+
+function hurtFX(fx: SurvivalFx, survival: { hp: number }, dmg: number, px: number, py: number): void {
+  survival.hp = Math.max(0, survival.hp - dmg);
+  fx.flash = 1;
+  fx.shake = 1;
+  playHurtSound();
+  fx.floaters.push({ x: px, y: py - 24, text: `-${dmg}`, color: '#f87171', life: 1 });
+}
+
 // ---- 几何路径（纯函数，模块级避免重复创建）----
 function polyPath(ctx: CanvasRenderingContext2D, x: number, y: number, sides: number, r: number, rot = 0): void {
   ctx.beginPath();
@@ -157,7 +361,7 @@ function diamondPath(ctx: CanvasRenderingContext2D, x: number, y: number, rx: nu
   ctx.closePath();
 }
 
-function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated, phase: _phase, tauntWords: tauntWordsProp, onLockInput: onLockInputProp }: Props, ref: React.Ref<BattleFieldHandle>) {
+function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated, phase: _phase, tauntWords: tauntWordsProp, onLockInput: onLockInputProp, survival: survivalProp }: Props, ref: React.Ref<BattleFieldHandle>) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
   const cssRef = useRef({ w: 800, h: 300 });
@@ -213,6 +417,8 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     failFade: 0, // 失败红淡出计时（>0 时按秒递增）
     playerDown: false, // 失败回调只触发一次
     bgParticles: [] as { x: number; y: number; vx: number; vy: number; life: number; size: number; color: string }[],
+    // 生存模式状态（逐问模拟驱动，非时间驱动）
+    survival: null as SurvivalStateShape | null,
   });
 
   const sY = (): number => {
@@ -375,6 +581,87 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         });
       }
       s.floaters.push({ x: W / 2, y: py - 50, text: '☠ Boss 段·迎战！', color: '#f87171', life: 3 });
+    },
+    // ── 生存模式（逐问模拟，服务端权威在波末校准）──
+    startSurvivalWave(meta: SurvivalWaveMeta) {
+      const s = state.current;
+      const sim = new SurvivalBattle(meta);
+      const px = playerX();
+      const py = sY();
+      const enemies: Enemy[] = [];
+      for (const m of sim.monsters) {
+        enemies.push(survivalEnemyFromMonster(m, survivalX(m.progress, px), py - 40 + Math.random() * 80));
+      }
+      s.survival = {
+        sim,
+        hp: meta.hp,
+        maxHp: meta.maxHp,
+        day: meta.day,
+        enemies,
+        bossActive: meta.bossWave,
+        bossHp: meta.bossHp ?? 0,
+        bossMaxHp: meta.bossHp ?? 0,
+        bossP2: false,
+        leechN: 6,
+      };
+      s.hp = meta.hp;
+      s.maxHp = meta.maxHp;
+      if (meta.bossWave) {
+        s.bossPhase = true;
+        s.bossSpawned = true;
+        s.flash = 1.5;
+        s.shake = 1.8;
+        s.bossIntro = 1.4;
+        playBossAppearSound();
+        const W2 = cssRef.current.w;
+        for (let i = 0; i < 3; i++) {
+          s.rings.push({
+            x: W2 / 2, y: py, r: 6 + i * 30,
+            vr: 360 + i * 50, life: 1.2 + i * 0.15, maxLife: 1.35,
+            color: i === 0 ? '#f87171' : i === 1 ? '#fca5a5' : '#fda4af',
+          });
+        }
+        s.floaters.push({ x: W2 / 2, y: py - 50, text: '☠ 首领波·迎战！', color: '#f87171', life: 3 });
+      } else {
+        s.bossPhase = false;
+        s.bossSpawned = false;
+        s.floaters.push({ x: cssRef.current.w / 2, y: py - 60, text: `第 ${meta.day} 天`, color: '#67e8f9', life: 1.6 });
+      }
+    },
+    survivalTick(correct: boolean) {
+      const s = state.current;
+      if (!s.survival) return;
+      // 每问先解冻（stun 事件再重新冻结），避免眩晕视觉残留
+      for (const e of s.survival.enemies) e.frozen = false;
+      const events = s.survival.sim.tick(correct);
+      const px = playerX();
+      const py = sY();
+      applySurvivalEvents({ ...s, enemies: s.survival.enemies } as SurvivalFx, s.survival, px, py, events);
+      // 同步场上怪 x（sim.progress 逐问逼近）
+      for (const m of s.survival.sim.monsters) {
+        const e = s.survival.enemies.find((en) => en.id === m.id);
+        if (e) e.x = survivalX(m.progress, px);
+      }
+      // 死亡：预测 HP 归零 → 触发失败回调（波末 advance 定论，此处仅视觉）
+      if (s.survival.hp <= 0 && !s.playerDown) {
+        s.survival.hp = 0;
+        s.running = false;
+        if (!s.playerDown) {
+          s.playerDown = true;
+          s.failFade = 0.001;
+          s.shake = 1.6;
+          onLockInputRef.current?.();
+          setTimeout(() => onPlayerDownRef.current?.(), 650);
+        }
+      }
+    },
+    syncSurvivalHp(hp: number, maxHp: number) {
+      const s = state.current;
+      if (!s.survival) return;
+      s.survival.hp = hp;
+      s.survival.maxHp = maxHp;
+      s.hp = hp;
+      s.maxHp = maxHp;
     },
   }));
 
@@ -545,7 +832,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         dt *= 0.15;
       }
 
-      if (s.running) {
+      if (s.running && !survivalProp) {
         const anyFrozen = s.enemies.some((e) => e.frozen);
         if (!anyFrozen) {
           // 学习段：每答对 3 词上限 +1，封顶 4；Boss 段：每答对 2 词上限 +1，封顶 2
@@ -658,16 +945,23 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       // 弹丸
       for (const p of s.projectiles) {
         p.t += dt * (p.big ? 8.5 : 6);
-        const target = s.enemies.find((e) => e.id === p.targetId);
+        const pool = s.survival ? s.survival.enemies : s.enemies;
+        const target = pool.find((e) => e.id === p.targetId);
         if (target && target.hp > 0 && p.t < 1) {
           p.x += (target.x - p.x) * dt * 10;
           p.y += (target.y - p.y) * dt * 10;
         } else {
           // 命中结算
-          const hit = s.enemies.find((e) => e.id === p.targetId);
+          const hit = pool.find((e) => e.id === p.targetId);
           if (hit && hit.hp > 0) {
             const dmg = p.damage ?? 1;
             const isCrit = dmg >= 2; // 复仇/技能双倍伤害
+            explode(p.tx, p.ty, hit.color, 6, p.big);
+            // 生存模式：伤害/击杀由 sim 事件驱动（此处仅视觉），避免二次扣血
+            if (s.survival) {
+              p.t = 99;
+              continue;
+            }
             hit.hp -= dmg;
             // 命中顿帧：Boss 命中 / 击杀 时"沉"一下（普通小怪命中不顿，避免连发卡顿）
             if (hit.boss) s.hitStop = Math.max(s.hitStop, 0.05);
@@ -827,11 +1121,13 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       }
 
       // Boss 血条（顶部居中，霓虹描边 + P2 变色）
-      const boss = s.enemies.find((e) => e.boss && e.hp > 0);
-      if (boss) {
+      const boss = s.survival && s.survival.bossActive
+        ? { hp: s.survival.bossHp, maxHp: s.survival.bossMaxHp, p2: s.survival.bossP2 }
+        : (() => { const b = s.enemies.find((e) => e.boss && e.hp > 0); return b ? { hp: b.hp, maxHp: b.maxHp, p2: s.bossP2 } : null; })();
+      if (boss && boss.maxHp > 0) {
         const bw = Math.min(360, W * 0.55);
-        const bossPct = boss.hp / boss.maxHp;
-        const bossBarColor = s.bossP2 ? '#a855f7' : '#dc2626';
+        const bossPct = Math.max(0, boss.hp / boss.maxHp);
+        const bossBarColor = boss.p2 ? '#a855f7' : '#dc2626';
         ctx.fillStyle = 'rgba(15,23,42,0.9)';
         ctx.fillRect((W - bw) / 2 - 4, 14, bw + 8, 28);
         ctx.strokeStyle = bossBarColor;
@@ -854,7 +1150,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         ctx.fillStyle = '#fecaca';
         ctx.font = 'bold 12px system-ui, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText(s.bossP2 ? `☠ BOSS P2  ${boss.hp}/${boss.maxHp}` : `☠ BOSS  ${boss.hp}/${boss.maxHp}`, W / 2, 32);
+        ctx.fillText(boss.p2 ? `☠ BOSS P2  ${boss.hp}/${boss.maxHp}` : `☠ BOSS  ${boss.hp}/${boss.maxHp}`, W / 2, 32);
       }
 
       // 我方血条（左上，霓虹镂空风格）
@@ -865,7 +1161,9 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       ctx.lineWidth = 1;
       ctx.strokeRect(hpBrX - 2, hpBrY - 2, hpBrW + 4, hpBrH + 4);
 
-      const hpPct = Math.max(0, s.hp / s.maxHp);
+      const hpNow = s.survival ? s.survival.hp : s.hp;
+      const hpMax = s.survival ? s.survival.maxHp : s.maxHp;
+      const hpPct = Math.max(0, hpNow / hpMax);
       const hpColor = hpPct > 0.5 ? '#22c55e' : hpPct > 0.25 ? '#f59e0b' : '#ef4444';
       ctx.fillStyle = hpColor;
       ctx.fillRect(hpBrX, hpBrY, hpBrW * hpPct, hpBrH);
@@ -880,11 +1178,15 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       ctx.fillStyle = '#e2e8f0';
       ctx.font = '10px system-ui, sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(`HP ${Math.ceil(s.hp)}/${s.maxHp}`, hpBrX + 4, hpBrY + 12);
+      ctx.fillText(`HP ${Math.ceil(hpNow)}/${hpMax}`, hpBrX + 4, hpBrY + 12);
       // 阶段标识
       ctx.fillStyle = 'rgba(148,163,184,0.35)';
       ctx.font = '9px system-ui, sans-serif';
-      ctx.fillText(s.bossPhase ? 'BOSS 段' : '学习段', hpBrX, hpBrY + 32);
+      if (s.survival) {
+        ctx.fillText(`第 ${s.survival.day} 天${s.survival.bossActive ? ' · 首领战' : ''}`, hpBrX, hpBrY + 32);
+      } else {
+        ctx.fillText(s.bossPhase ? 'BOSS 段' : '学习段', hpBrX, hpBrY + 32);
+      }
       // 最后一搏
       if (s.lastStand > 0) {
         ctx.fillStyle = '#fbbf24';
@@ -1065,7 +1367,8 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       ctx.restore(); // 结束 lighter 层
 
       // 敌人本体 + 头顶小血条（正常合成，带旋转）
-      for (const e of s.enemies) {
+      const renderEnemies = s.survival ? s.survival.enemies : s.enemies;
+      for (const e of renderEnemies) {
         if (e.hp <= 0) continue;
         ctx.save();
         ctx.translate(e.x, e.y);
@@ -1145,6 +1448,13 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         ctx.fillRect(e.x - bw / 2, e.y - e.size / 2 - 8, bw, 4);
         ctx.fillStyle = e.boss ? '#ef4444' : e.color;
         ctx.fillRect(e.x - bw / 2, e.y - e.size / 2 - 8, bw * (e.hp / e.maxHp), 4);
+        // 生存模式：怪顶"需答对X题"标签
+        if (s.survival) {
+          ctx.fillStyle = 'rgba(255,255,255,0.85)';
+          ctx.font = 'bold 9px system-ui, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(`需答对 ${e.hp} 题`, e.x, e.y - e.size / 2 - 12);
+        }
       }
 
       // 弹丸（旋转菱形 + 拖尾）
