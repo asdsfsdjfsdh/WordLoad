@@ -11,6 +11,7 @@ import { CollectionsModule } from './collections/collections.module';
 import { SettingsModule } from './settings/settings.module';
 import { StatsModule } from './stats/stats.module';
 import { MaterialsModule } from './materials/materials.module';
+import { RunsModule } from './runs/runs.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { MaterialsModule } from './materials/materials.module';
     SettingsModule,
     StatsModule,
     MaterialsModule,
+    RunsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

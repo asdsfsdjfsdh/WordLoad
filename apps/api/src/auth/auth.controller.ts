@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import type { Request } from 'express';
 import type { AuthTokens, AuthUser } from '@word-journey/shared';
-import { InitCharDto, LoginDto, RefreshDto, RegisterDto } from './dto';
+import { InitCharDto, LoginDto, RefreshDto, RegisterDto, StrengthenDto } from './dto';
 import { JwtAuthGuard, type JwtUser } from './jwt-auth.guard';
 import { AuthService } from './auth.service';
 
@@ -54,5 +54,16 @@ export class AuthController {
     @Body() dto: InitCharDto,
   ): Promise<AuthUser> {
     return this.auth.initCharacter(req.user.sub, dto.hpLv, dto.atkLv, dto.defLv);
+  }
+
+  @Post('strengthen')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: '强化三围（消耗金币 + tier1 材料）' })
+  strengthen(
+    @Req() req: Request & { user: JwtUser },
+    @Body() dto: StrengthenDto,
+  ): Promise<AuthUser> {
+    return this.auth.strengthen(req.user.sub, dto.stat);
   }
 }

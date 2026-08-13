@@ -1,5 +1,6 @@
 // 认证服务：注册 / 登录 / refresh 轮换 / 角色初始化
 import {
+  BadRequestException,
   ConflictException,
   HttpException,
   HttpStatus,
@@ -14,6 +15,7 @@ import * as bcrypt from 'bcryptjs';
 import * as crypto from 'node:crypto';
 import { Prisma } from '@prisma/client';
 import type { AuthTokens, AuthUser } from '@word-journey/shared';
+import { STRENGTHEN_COST } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 
 const BCRYPT_ROUNDS = 10;
@@ -201,6 +203,55 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
       update: {},
       create: { userId, hpLv, atkLv, defLv },
     });
+    return this.me(userId);
+  }
+
+  // 强化三围：消耗金币 + tier1 材料，事务 + 乐观锁（上限 = 角色等级 + 4）
+  async strengthen(
+    userId: number,
+    stat: 'hp' | 'atk' | 'def',
+  ): Promise<AuthUser> {
+    const cost = STRENGTHEN_COST[stat];
+    const character = await this.prisma.userCharacter.findUnique({ where: { userId } });
+    if (!character) throw new BadRequestException('角色未初始化');
+
+    const current = stat === 'hp' ? character.hpLv : stat === 'atk' ? character.atkLv : character.defLv;
+    if (current >= character.level + 4) {
+      throw new ConflictException('强化已达当前等级上限');
+    }
+
+    const material = await this.prisma.material.findUnique({
+      where: { code: `essence_${cost.materialTier}` },
+    });
+    if (!material) throw new ConflictException('所需材料不存在');
+
+    const field = stat === 'hp' ? 'hpLv' : stat === 'atk' ? 'atkLv' : 'defLv';
+
+    await this.prisma.$transaction(async (tx) => {
+      const coin = await tx.user.updateMany({
+        where: { id: userId, coins: { gte: cost.coins } },
+        data: { coins: { decrement: cost.coins } },
+      });
+      if (coin.count === 0) throw new ConflictException('金币不足');
+
+      const mat = await tx.userMaterial.updateMany({
+        where: { userId, materialId: material.id, count: { gte: cost.materialCount } },
+        data: { count: { decrement: cost.materialCount } },
+      });
+      if (mat.count === 0) throw new ConflictException(`材料不足：${cost.materialCount}× ${material.code}`);
+
+      // 乐观锁：二次校验等级上限（事务内重读）
+      const latest = await tx.userCharacter.findUnique({ where: { userId } });
+      const lv = stat === 'hp' ? latest?.hpLv : stat === 'atk' ? latest?.atkLv : latest?.defLv;
+      if (!latest || (lv ?? 0) >= latest.level + 4) {
+        throw new ConflictException('强化已达当前等级上限');
+      }
+      await tx.userCharacter.update({
+        where: { userId },
+        data: { [field]: { increment: 1 } },
+      });
+    });
+
     return this.me(userId);
   }
 }

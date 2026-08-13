@@ -294,6 +294,7 @@ export interface RunAdvanceResponse {
   // 首领波前置信息（首领波日返回）
   bossHp?: number;
   legendChoices?: string[];    // 首领战后传说三选一
+  buffChoices?: string[];      // 当日结算后的普通 buff 三选一
 }
 
 // POST /runs/:id/finish（收枪/死亡结算）

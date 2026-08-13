@@ -49,3 +49,9 @@ export class InitCharDto {
   @Max(9)
   defLv!: number;
 }
+
+// 强化三围
+export class StrengthenDto {
+  @IsString()
+  stat!: 'hp' | 'atk' | 'def';
+}
