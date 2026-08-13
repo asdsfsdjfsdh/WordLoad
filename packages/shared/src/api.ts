@@ -224,3 +224,93 @@ export interface SynthesizeResult {
   materials: { code: string; tier: number; count: number }[];
   coins: number;
 }
+
+// ── 生存 Run（无限生存模式）──
+export type RunStatus = 'active' | 'finished';
+
+export interface RunInfo {
+  id: number;
+  bankId: number;
+  stageId: number;
+  mode: GameMode;
+  day: number;
+  hp: number;
+  maxHp: number;
+  buffs: string[];          // 已选局内 buff 代号
+  status: RunStatus;
+  surrendered: boolean;
+  createdAt: string;
+}
+
+export interface RunQuestion extends Question {
+  isNew: boolean;   // 本局首现词：答对攻击×2
+}
+
+// POST /runs 创建
+export interface CreateRunRequest {
+  bankCode: string;
+  stageId: number;
+  mode: GameMode;
+}
+
+export interface CreateRunResponse {
+  run: RunInfo;
+  day: number;
+  hp: number;
+  maxHp: number;
+  questions: RunQuestion[];
+  previewWords: LevelWord[];   // 新词首战日前预习页
+  injectedNew: number;
+}
+
+// GET /runs/active
+export interface ActiveRunResponse {
+  run: RunInfo;
+  questions: RunQuestion[];    // 未答题
+  previewWords: LevelWord[];
+  injectedNew: number;
+  ended: false;
+}
+
+// POST /runs/:id/advance
+export interface RunAdvanceRequest {
+  answers: AnswerInput[];
+  buffChoice?: string;
+}
+
+export interface RunAdvanceResponse {
+  day: number;
+  hp: number;
+  maxHp: number;
+  buffs: string[];
+  bossWave: boolean;
+  bossCleared: boolean;
+  ended: boolean;
+  result?: RunFinish;
+  questions: RunQuestion[];
+  previewWords: LevelWord[];
+  injectedNew: number;
+  nextDayNewWords: number;
+  // 首领波前置信息（首领波日返回）
+  bossHp?: number;
+  legendChoices?: string[];    // 首领战后传说三选一
+}
+
+// POST /runs/:id/finish（收枪/死亡结算）
+export interface RunFinishRequest {
+  answers?: AnswerInput[];
+  surrender: boolean;
+}
+
+export interface RunFinish {
+  runId: number;
+  daysSurvived: number;
+  bossClearedCount: number;
+  bestDays: number;            // 该 (user,stage) 历史最高生存天数（结算后）
+  recordBroken: boolean;
+  surrendered: boolean;
+  xp: number;
+  coins: number;
+  materials: DropItem[];
+  rating: Rating;
+}

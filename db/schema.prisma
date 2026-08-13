@@ -17,6 +17,7 @@ model WordBank {
   createdAt DateTime   @default(now())
   bankWords BankWord[]
   sessions  LearningSession[]
+  runs      Run[]
 }
 
 // 单词总表（跨词书共享）
@@ -36,6 +37,7 @@ model Word {
   progress         UserWordProgress[]
   senseProgress    UserSenseProgress[]
   sessionItems     LearningSessionItem[]
+  runItems         RunItem[]
 
   @@index([difficultyScore])
   @@index([tier])
@@ -91,6 +93,7 @@ model User {
   senseProgress    UserSenseProgress[]
   materials        UserMaterial[]
   sessions         LearningSession[]
+  runs             Run[]
 }
 
 // 角色三围
@@ -206,4 +209,47 @@ model LearningSessionItem {
 
   @@index([sessionId])
   @@index([wordId])
+}
+
+// ── 生存 Run（无限生存模式）──
+model Run {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  bankId        Int
+  stageId       Int               // 绑定当前 stage，不跨承接
+  mode          String   @default("zh2en") // 子模式：zh2en / choice / dictation
+  day           Int      @default(1)       // 当前天数
+  hp            Int                       // 服务端权威血量
+  maxHp         Int                       // 含本局 buff 加成
+  buffs         Json     @default("[]")   // 已选局内 buff
+  lastInjectDay Int      @default(0)      // 注入冷却（严格隔天交替）
+  surrendered   Boolean  @default(false)  // 主动收枪
+  recordBroken  Boolean  @default(false)  // 破纪录幂等双保险
+  extra         Json     @default("{}")   // 连续低准确天数等
+  status        String   @default("active") // active / finished
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  items         RunItem[]
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bank          WordBank  @relation(fields: [bankId], references: [id])
+
+  @@index([userId, status])   // /runs/active 查询
+  @@index([userId, stageId])  // 破纪录 max 查询
+}
+
+model RunItem {
+  id        Int     @id @default(autoincrement())
+  runId     Int
+  seq       Int
+  wordId    String
+  senseIdx  Int     @default(0)
+  type      String  // new / review / boss / retest(错题重测)
+  answered  Boolean @default(false)
+  correct   Boolean?
+  elapsedMs Int     @default(0)
+  run       Run     @relation(fields: [runId], references: [id], onDelete: Cascade)
+  word      Word    @relation(fields: [wordId], references: [id])
+
+  @@index([runId])
+  @@unique([runId, seq])
 }
