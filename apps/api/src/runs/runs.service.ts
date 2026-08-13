@@ -11,6 +11,7 @@ import type {
   DifficultyTier,
   GameMode,
   LevelWord,
+  ReplenishResult,
   RunAdvanceResponse,
   RunFinish,
   RunInfo,
@@ -136,6 +137,61 @@ export class RunsService {
       previewWords: dayWords.map((w) => toLevelWord(w.word)),
       injectedNew,
     };
+  }
+
+  // ── 预览斩词补词：从 stage 池挑一个未在本 Run 且未掌握的词加入待答题 ──
+  async replenish(userId: number, runId: number): Promise<ReplenishResult | null> {
+    const run = await this.prisma.run.findFirst({
+      where: { id: runId, userId, status: 'active' },
+      include: { items: { select: { wordId: true } } },
+    });
+    if (!run) throw new NotFoundException('Run 不存在或已结束');
+
+    const pool = await this.stagePool(run.bankId, run.stageId);
+    const used = new Set(run.items.map((i) => i.wordId));
+    // 已掌握（斩过）的词不再补入
+    const mastered = await this.prisma.userWordProgress.findMany({
+      where: { userId, mastery: { gte: 100 } },
+      select: { wordId: true },
+    });
+    for (const m of mastered) used.add(m.wordId);
+
+    const candidates = pool.filter((w) => !used.has(w.wordId));
+    if (candidates.length === 0) return null;
+
+    const pick = candidates[Math.floor(Math.random() * candidates.length)]!;
+    const maxSeq = await this.prisma.runItem.aggregate({
+      where: { runId: run.id },
+      _max: { seq: true },
+    });
+    const seq = (maxSeq._max.seq ?? -1) + 1;
+    await this.prisma.runItem.create({
+      data: {
+        runId: run.id,
+        seq,
+        wordId: pick.wordId,
+        senseIdx: 0,
+        type: 'new',
+      },
+    });
+
+    const w = (await this.loadWords([pick.wordId])).get(pick.wordId);
+    const q = buildQuestion({
+      seq,
+      wordId: pick.wordId,
+      senseIdx: 0,
+      text: w?.text ?? '',
+      promptBase:
+        run.mode === 'dictation'
+          ? (w?.phoneticAm ?? w?.phoneticEn ?? '')
+          : (w?.senses[0]?.meaning ?? w?.text ?? ''),
+      example: w?.senses[0]?.example,
+      phonetic: w?.phoneticAm ?? w?.phoneticEn ?? undefined,
+      tier: (w?.tier ?? 'I') as DifficultyTier,
+      mode: run.mode as GameMode,
+      source: 'new',
+    });
+    return { question: { ...q, isNew: true }, word: toLevelWord(pick.word) };
   }
 
   // ── 续 Run ──

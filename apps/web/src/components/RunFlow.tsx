@@ -8,6 +8,7 @@ import type {
   FoilOption,
   GameMode,
   LevelWord,
+  ReplenishResult,
   RunAdvanceResponse,
   RunFinish,
   RunQuestion,
@@ -179,11 +180,25 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
   }, [bankCode, stageId, mode]);
 
   // ── 预习页 ──
-  const skipPreviewWord = (wordId: string) => {
-    setSkippedWords((prev) => new Set(prev).add(wordId));
-    try {
-      api.post<{ ok: boolean }>(`/questions/words/${wordId}/skip`, {});
-    } catch { /* 静默 */ }
+  // 在途斩词/补词请求（开始战斗前等待，避免补词晚到导致波内题目数漂移）
+  const skipOpsRef = useRef<Promise<unknown>[]>([]);
+  const skipPreviewWord = async (wordId: string) => {
+    const op = (async () => {
+      setSkippedWords((prev) => new Set(prev).add(wordId));
+      try {
+        await api.post<{ ok: boolean }>(`/questions/words/${wordId}/skip`, {});
+        // 斩一个补一个（普通模式闪卡机制）：服务端挑未掌握词加入本波
+        const rep = await api.post<ReplenishResult | null>(`/runs/${runId}/replenish`, {});
+        if (rep) {
+          setPreviewWords((prev) => [...prev, rep.word]);
+          setQuestions((prev) => [...prev, rep.question]);
+        }
+      } catch { /* 静默 */ }
+    })();
+    skipOpsRef.current.push(op);
+    op.finally(() => {
+      skipOpsRef.current = skipOpsRef.current.filter((x) => x !== op);
+    });
   };
 
   // 斩掉的词从本波题里移除（服务端 skip 已同步标记 active Run 待答题为已答）
@@ -377,7 +392,8 @@ export function RunFlow({ bankCode, stageId, mode, onExit }: RunFlowProps) {
         <div className="fixed bottom-0 left-0 right-0 border-t border-slate-800 bg-slate-950/95 px-6 py-4 backdrop-blur-sm">
           <div className="mx-auto max-w-2xl">
             <button
-              onClick={() => {
+              onClick={async () => {
+                await Promise.allSettled(skipOpsRef.current);
                 applySkippedToQuestions();
                 if (buffChoices.length || legendChoices.length) {
                   setPhase('pick');

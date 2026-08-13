@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsIn, IsInt, IsNumber, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
 import type { Request } from 'express';
-import type { ActiveRunResponse, CreateRunResponse, RunAdvanceResponse, RunFinish } from '@word-journey/shared';
+import type { ActiveRunResponse, CreateRunResponse, ReplenishResult, RunAdvanceResponse, RunFinish } from '@word-journey/shared';
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
 import { RunsService } from './runs.service';
 
@@ -102,6 +102,15 @@ export class RunsController {
     @Body() dto: AdvanceDto,
   ): Promise<RunAdvanceResponse> {
     return this.runs.advance(req.user.sub, Number.parseInt(id, 10), dto);
+  }
+
+  @Post(':id/replenish')
+  @ApiOperation({ summary: '预览斩词后补词：挑未掌握的新词加入本波待答题' })
+  async replenish(
+    @Req() req: Request & { user: JwtUser },
+    @Param('id') id: string,
+  ): Promise<ReplenishResult | null> {
+    return this.runs.replenish(req.user.sub, Number.parseInt(id, 10));
   }
 
   @Post(':id/finish')

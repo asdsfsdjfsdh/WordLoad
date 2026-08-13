@@ -323,6 +323,12 @@ export interface RunFinishRequest {
   surrender: boolean;
 }
 
+// POST /runs/:id/replenish（预览斩词后补词：加入本波待答题，返回其题与单词）
+export interface ReplenishResult {
+  question: RunQuestion;
+  word: LevelWord;
+}
+
 export interface RunFinish {
   runId: number;
   daysSurvived: number;
