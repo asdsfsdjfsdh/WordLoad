@@ -1,5 +1,5 @@
-import type { Rating } from './api';
-import type { DifficultyTierAlias } from './vocab';
+import type { Rating } from './api.js';
+import type { DifficultyTierAlias } from './vocab.js';
 
 // 评级分布（key 同 Rating 取值全集）
 export type RatingCounts = Record<Rating, number>;

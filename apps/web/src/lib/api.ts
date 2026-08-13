@@ -94,7 +94,9 @@ async function request<T>(
     }
     throw new ApiError(res.status, msg);
   }
-  return (await res.json()) as T;
+  // 空 body（如 200 + null 序列化为空）统一视为 null，避免 res.json() 抛错
+  const text = await res.text();
+  return (text ? JSON.parse(text) : null) as T;
 }
 
 // 尝试用 refreshToken 换新 token，成功则更新存储
