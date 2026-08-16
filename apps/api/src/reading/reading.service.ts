@@ -13,7 +13,7 @@ import type {
   ReadingSubmitResponse,
   ReadingWordLookupResult,
 } from '@word-journey/shared';
-import { lookupReadingWord } from '@word-journey/shared';
+import { lookupReadingWord, normalizeReadingWord, tokenizeReadingSentence } from '@word-journey/shared';
 import type { ReadingSentenceStructure } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { scoreReading } from './scoring';
@@ -107,6 +107,26 @@ export class ReadingService {
       };
     });
 
+    // 单词库掌握度：本篇出现的词（含屈折词形）→ 是否已掌握 + 档位（供"生词"标注判定）
+    const passageTokens = new Set<string>();
+    for (const s of passage.sentences) {
+      for (const t of tokenizeReadingSentence(s.en)) if (t.word) passageTokens.add(normalizeReadingWord(t.word));
+    }
+    const bankWords = passageTokens.size
+      ? await this.prisma.word.findMany({ where: { text: { in: [...passageTokens] } }, select: { id: true, text: true, tier: true } })
+      : [];
+    const bankProgress = bankWords.length
+      ? await this.prisma.userWordProgress.findMany({
+          where: { userId, wordId: { in: bankWords.map((w) => w.id) } },
+          select: { wordId: true, mastery: true },
+        })
+      : [];
+    const bankMastery = new Map(bankProgress.map((p) => [p.wordId, p.mastery]));
+    const wordStatus: Record<string, { mastered: boolean; tier?: string }> = {};
+    for (const w of bankWords) {
+      wordStatus[w.text.toLowerCase()] = { mastered: (bankMastery.get(w.id) ?? 0) >= 100, tier: w.tier };
+    }
+
     // 已答选择：取每题的最近一次作答
     const latest = new Map<number, { choice: string; at: number }>();
     for (const a of answers) {
@@ -141,6 +161,7 @@ export class ReadingService {
         remark: q.remark ?? undefined,
       })),
       glossary,
+      wordStatus,
       progress: {
         status: (progress?.status ?? 'not-started') as ReadingPassageStatus,
         bestScore: progress?.bestScore ?? 0,

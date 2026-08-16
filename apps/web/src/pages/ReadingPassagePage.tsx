@@ -29,6 +29,7 @@ export function ReadingPassagePage() {
 
   const [showZh, setShowZh] = useState(false);
   const [highlight, setHighlight] = useState(true);
+  const [structureOn, setStructureOn] = useState(true);
   const [intensive, setIntensive] = useState(false);
   const [activeWord, setActiveWord] = useState<WordPopoverState | null>(null);
   const [selectedSentence, setSelectedSentence] = useState<number | null>(null);
@@ -204,6 +205,14 @@ export function ReadingPassagePage() {
               ⏱ {mm}
             </span>
             <button
+              onClick={() => setStructureOn((v) => !v)}
+              className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
+                structureOn ? 'border-violet-500/40 bg-violet-500/10 text-violet-300' : 'border-slate-700 bg-slate-800/60 text-slate-400'
+              }`}
+            >
+              结构
+            </button>
+            <button
               onClick={() => setHighlight((v) => !v)}
               className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
                 highlight ? 'border-amber-500/40 bg-amber-500/10 text-amber-300' : 'border-slate-700 bg-slate-800/60 text-slate-400'
@@ -260,8 +269,10 @@ export function ReadingPassagePage() {
             <ReadingText
               sentences={detail.sentences}
               glossary={detail.glossary}
+              wordStatus={detail.wordStatus}
               showZh={showZh}
               highlight={highlight}
+              structureOn={structureOn}
               savedWords={savedWords}
               selectedSentence={selectedSentence}
               onWordClick={onWordClick}

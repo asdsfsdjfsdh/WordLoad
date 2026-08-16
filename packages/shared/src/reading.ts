@@ -78,22 +78,45 @@ export const READING_CLAUSE_ROLES = [
   'other',
 ] as const;
 
-// 角色 → 展示信息（固定字面量 Tailwind 类，保证 JIT 扫描得到）
-const CLAUSE_ROLE_INFO: Record<ReadingClauseRole, { label: string; spanClass: string; dotClass: string }> = {
-  main: { label: '主句', spanClass: 'bg-sky-500/10 text-sky-100 border-b-2 border-sky-400/50', dotClass: 'bg-sky-400' },
-  noun: { label: '名词性从句', spanClass: 'bg-emerald-500/10 text-emerald-100 border-b-2 border-emerald-400/50', dotClass: 'bg-emerald-400' },
-  adj: { label: '定语从句', spanClass: 'bg-amber-500/10 text-amber-100 border-b-2 border-amber-400/50', dotClass: 'bg-amber-400' },
-  adv: { label: '状语从句', spanClass: 'bg-violet-500/10 text-violet-100 border-b-2 border-violet-400/50', dotClass: 'bg-violet-400' },
-  participle: { label: '分词短语', spanClass: 'bg-rose-500/10 text-rose-100 border-b-2 border-rose-400/50', dotClass: 'bg-rose-400' },
-  prep: { label: '介词短语', spanClass: 'bg-teal-500/10 text-teal-100 border-b-2 border-teal-400/50', dotClass: 'bg-teal-400' },
-  infinitive: { label: '不定式', spanClass: 'bg-fuchsia-500/10 text-fuchsia-100 border-b-2 border-fuchsia-400/50', dotClass: 'bg-fuchsia-400' },
-  appositive: { label: '同位语', spanClass: 'bg-orange-500/10 text-orange-100 border-b-2 border-orange-400/50', dotClass: 'bg-orange-400' },
-  coordinate: { label: '并列结构', spanClass: 'bg-lime-500/10 text-lime-100 border-b-2 border-lime-400/50', dotClass: 'bg-lime-400' },
-  other: { label: '其他成分', spanClass: 'bg-slate-500/10 text-slate-200 border-b-2 border-slate-500/50', dotClass: 'bg-slate-400' },
+// 角色 → 展示信息（固定字面量 Tailwind 类，保证 JIT 扫描得到；配色加强以保证可读性）
+const CLAUSE_ROLE_INFO: Record<
+  ReadingClauseRole,
+  { label: string; spanClass: string; dotClass: string; chipClass: string }
+> = {
+  main: { label: '主句', spanClass: 'bg-sky-500/20 text-sky-100 border-b-[3px] border-b-sky-400', dotClass: 'bg-sky-400', chipClass: 'bg-sky-500/15 text-sky-200 border-sky-500/40' },
+  noun: { label: '名词性从句', spanClass: 'bg-emerald-500/20 text-emerald-100 border-b-[3px] border-b-emerald-400', dotClass: 'bg-emerald-400', chipClass: 'bg-emerald-500/15 text-emerald-200 border-emerald-500/40' },
+  adj: { label: '定语从句', spanClass: 'bg-amber-500/20 text-amber-100 border-b-[3px] border-b-amber-400', dotClass: 'bg-amber-400', chipClass: 'bg-amber-500/15 text-amber-200 border-amber-500/40' },
+  adv: { label: '状语从句', spanClass: 'bg-violet-500/20 text-violet-100 border-b-[3px] border-b-violet-400', dotClass: 'bg-violet-400', chipClass: 'bg-violet-500/15 text-violet-200 border-violet-500/40' },
+  participle: { label: '分词短语', spanClass: 'bg-rose-500/20 text-rose-100 border-b-[3px] border-b-rose-400', dotClass: 'bg-rose-400', chipClass: 'bg-rose-500/15 text-rose-200 border-rose-500/40' },
+  prep: { label: '介词短语', spanClass: 'bg-teal-500/20 text-teal-100 border-b-[3px] border-b-teal-400', dotClass: 'bg-teal-400', chipClass: 'bg-teal-500/15 text-teal-200 border-teal-500/40' },
+  infinitive: { label: '不定式', spanClass: 'bg-fuchsia-500/20 text-fuchsia-100 border-b-[3px] border-b-fuchsia-400', dotClass: 'bg-fuchsia-400', chipClass: 'bg-fuchsia-500/15 text-fuchsia-200 border-fuchsia-500/40' },
+  appositive: { label: '同位语', spanClass: 'bg-orange-500/20 text-orange-100 border-b-[3px] border-b-orange-400', dotClass: 'bg-orange-400', chipClass: 'bg-orange-500/15 text-orange-200 border-orange-500/40' },
+  coordinate: { label: '并列结构', spanClass: 'bg-lime-500/20 text-lime-100 border-b-[3px] border-b-lime-400', dotClass: 'bg-lime-400', chipClass: 'bg-lime-500/15 text-lime-200 border-lime-500/40' },
+  other: { label: '其他成分', spanClass: 'bg-slate-500/20 text-slate-200 border-b-[3px] border-b-slate-400', dotClass: 'bg-slate-400', chipClass: 'bg-slate-500/15 text-slate-200 border-slate-500/40' },
 };
 
-export function clauseRoleInfo(role: ReadingClauseRole): { label: string; spanClass: string; dotClass: string } {
+export function clauseRoleInfo(role: ReadingClauseRole): { label: string; spanClass: string; dotClass: string; chipClass: string } {
   return CLAUSE_ROLE_INFO[role] ?? CLAUSE_ROLE_INFO.other;
+}
+
+// 基础词排除表：me/you/the 等最基础词，无论掌握与否都不做"生词"显式标注
+const READING_BASE_WORDS = new Set(
+  `a an the i me my mine you your yours he him his she her hers it its we us our ours they them their theirs
+   this that these those who whom whose which what whatever whoever
+   am is are was were be been being have has had do does did will would shall should can could may might must ought
+   in on at to for with by from of about into onto over under above below between among through during after before
+   against without within across along behind beyond since until upon per via
+   and but or nor so yet as than if whether because although though while when where why how
+   not no yes there here then now just only also too more most less least all both each every some any many much few little
+   say says said get got go goes went gone make made take took taken come came see saw known know knew think thought
+   want need like give gave given use used find found tell told ask asked look looked show showed seem seemed
+   become became keep kept leave left put set run ran read write wrote written speak spoke hold held bring brought
+   time year day week month people person man men woman women child children way world work life hand face
+   house home place thing name number book school city state country government business company group problem question`.split(/\s+/),
+);
+
+export function isReadingBaseWord(word: string): boolean {
+  return READING_BASE_WORDS.has(word.toLowerCase());
 }
 
 // 从句在原文中的字符区间
@@ -190,6 +213,8 @@ export interface ReadingPassageDetail {
   sentences: ReadingSentenceView[];
   questions: ReadingQuestionView[];
   glossary: ReadingGlossaryEntry[];
+  // 单词库掌握度：词(小写) → { mastered, tier }（仅含本篇中出现且在单词库的词；供"生词"标注）
+  wordStatus?: Record<string, { mastered: boolean; tier?: string }>;
   progress: ReadingProgressView;
   savedWords: string[]; // 已收藏生词（词形集合）
 }
@@ -336,4 +361,81 @@ export function lookupReadingWord(
     if (entry) return entry;
   }
   return undefined;
+}
+
+// ── 句子知识：语法要点 / 词组 / 重要单词（由结构角色 + 词表自动派生，无需额外标注）──
+
+const GRAMMAR_NOTE: Record<ReadingClauseRole, string> = {
+  main: '主句：全句主干核心',
+  noun: '名词性从句：充当主语 / 宾语 / 表语',
+  adj: '定语从句：修饰前面的名词',
+  adv: '状语从句：表示时间 / 原因 / 条件 / 让步等',
+  participle: '分词短语：作状语或后置定语',
+  prep: '介词短语：作状语 / 定语 / 表语',
+  infinitive: '不定式：表目的 / 作宾语 / 作定语等',
+  appositive: '同位语：对前文名词作解释说明',
+  coordinate: '并列结构：连接并列成分',
+  other: '其他成分',
+};
+
+export function grammarRoleNote(role: ReadingClauseRole): string {
+  return GRAMMAR_NOTE[role] ?? GRAMMAR_NOTE.other;
+}
+
+export interface SentenceKnowledge {
+  grammar: { role: ReadingClauseRole; label: string; note: string }[];
+  phrases: { text: string; meaning: string }[];
+  keyWords: { word: string; meaning: string }[];
+}
+
+function compact(s: string): string {
+  return s.replace(/\s+/g, '');
+}
+
+// 由句子 + 结构 + 篇内词表派生"语法要点 / 词组 / 重要单词"
+export function deriveSentenceKnowledge(
+  sentence: string,
+  structure: ReadingSentenceStructure | undefined,
+  glossary: ReadingGlossaryEntry[],
+): SentenceKnowledge {
+  // 语法要点：从句角色去重
+  const grammar: SentenceKnowledge['grammar'] = [];
+  if (structure?.clauses?.length) {
+    const seen = new Set<ReadingClauseRole>();
+    for (const c of structure.clauses) {
+      if (!seen.has(c.role)) {
+        seen.add(c.role);
+        grammar.push({ role: c.role, label: c.label || clauseRoleInfo(c.role).label, note: grammarRoleNote(c.role) });
+      }
+    }
+  }
+
+  // 词组：多词词表条目在句中出现（宽容匹配）；重要单词：单词语条经屈折回退命中
+  const glossaryMap: Record<string, ReadingGlossaryEntry> = {};
+  for (const g of glossary) glossaryMap[g.word] = g;
+  const target = compact(sentence);
+
+  const phrases: SentenceKnowledge['phrases'] = [];
+  const phraseSeen = new Set<string>();
+  for (const g of glossary) {
+    if (g.word.includes(' ') && target.includes(compact(g.word))) {
+      if (!phraseSeen.has(g.word)) {
+        phraseSeen.add(g.word);
+        phrases.push({ text: g.word, meaning: g.meaning });
+      }
+    }
+  }
+
+  const keyWords: SentenceKnowledge['keyWords'] = [];
+  const wordSeen = new Set<string>();
+  for (const t of tokenizeReadingSentence(sentence)) {
+    if (!t.word) continue;
+    const e = lookupReadingWord(glossaryMap, t.word);
+    if (e && !e.word.includes(' ') && !wordSeen.has(e.word)) {
+      wordSeen.add(e.word);
+      keyWords.push({ word: e.word, meaning: e.meaning });
+    }
+  }
+
+  return { grammar, phrases, keyWords };
 }

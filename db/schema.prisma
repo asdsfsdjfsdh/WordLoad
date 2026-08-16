@@ -135,6 +135,7 @@ model UserWordProgress {
   firstEncounteredAt  DateTime? // 图鉴：首次遇到时间
   lastEncounteredAt   DateTime? // 图鉴：最近一次遇到
   srsHistory          Json      @default("[]") // 图鉴：SRS 档位变更史 [{stage, at}]，仅档位变化时追加（粗粒度复习轨迹）
+  masteredAt          DateTime? // 图鉴：首次达到掌握（mastery 100）时间
   user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   word                Word      @relation(fields: [wordId], references: [id])
 

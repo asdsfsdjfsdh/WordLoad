@@ -4,6 +4,7 @@ import type { ReadingGlossaryEntry, ReadingSentenceStructure, ReadingSentenceVie
 import {
   assignTokenClauses,
   clauseRoleInfo,
+  deriveSentenceKnowledge,
   locateClauseSpans,
   lookupReadingWord,
   normalizeReadingWord,
@@ -70,6 +71,12 @@ export function ReadingIntensiveModal({
     if (!structure || !structure.clauses) return [];
     return [...new Set(structure.clauses.map((c) => c.role))];
   }, [structure]);
+
+  // 语法要点 / 词组 / 重要单词（由结构角色 + 词表自动派生）
+  const knowledge = useMemo(
+    () => deriveSentenceKnowledge(cur.en, structure, glossary),
+    [cur.en, structure, glossary],
+  );
 
   const go = (next: number): void => {
     const clamped = Math.max(0, Math.min(sentences.length - 1, next));
@@ -212,6 +219,60 @@ export function ReadingIntensiveModal({
                   );
                 })}
               </ul>
+            </div>
+          )}
+
+          {/* 知识点：语法 / 词组 / 重要单词 */}
+          {knowledge.grammar.length + knowledge.phrases.length + knowledge.keyWords.length > 0 && (
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+              <div className="mb-3 text-xs font-semibold uppercase tracking-[.15em] text-slate-500">知识点</div>
+              {knowledge.grammar.length > 0 && (
+                <div className="mb-3">
+                  <div className="mb-1.5 text-xs font-semibold text-violet-400">语法要点</div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {knowledge.grammar.map((g) => (
+                      <span
+                        key={g.role}
+                        title={g.note}
+                        className={`rounded border px-2 py-0.5 text-xs font-medium ${clauseRoleInfo(g.role).chipClass}`}
+                      >
+                        {g.label}
+                      </span>
+                    ))}
+                  </div>
+                  <ul className="mt-1.5 space-y-0.5">
+                    {knowledge.grammar.map((g) => (
+                      <li key={g.role} className="text-xs leading-5 text-slate-400">· {g.note}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {knowledge.phrases.length > 0 && (
+                <div className="mb-3">
+                  <div className="mb-1.5 text-xs font-semibold text-teal-400">词组搭配</div>
+                  <ul className="space-y-1">
+                    {knowledge.phrases.map((p) => (
+                      <li key={p.text} className="text-sm leading-6">
+                        <span className="font-medium text-teal-200">{p.text}</span>
+                        <span className="text-slate-500"> · {p.meaning}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {knowledge.keyWords.length > 0 && (
+                <div>
+                  <div className="mb-1.5 text-xs font-semibold text-amber-400">重要单词</div>
+                  <ul className="space-y-1">
+                    {knowledge.keyWords.slice(0, 8).map((w) => (
+                      <li key={w.word} className="text-sm leading-6">
+                        <span className="font-medium text-amber-200">{w.word}</span>
+                        <span className="text-slate-500"> · {w.meaning}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           )}
 
