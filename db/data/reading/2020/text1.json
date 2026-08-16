@@ -1,0 +1,156 @@
+{
+  "code": "A",
+  "title": "Text 1",
+  "subtitle": "“文化之城”奖提案之争",
+  "questionsStart": 21,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "A group of Labour MPs, among them Yvette Cooper, are bringing in the new year with a call to institute a UK “town of culture” award."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "The proposal is that it should sit alongside the existing city of culture title, which was held by Hull in 2017, and has been awarded to Coventry for 2021."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "Cooper and her colleagues argue that the success of the crown for Hull, where it brought in £220m of investment and an avalanche of arts, ought not to be confined to cities."
+    },
+    {
+      "para": 1,
+      "seq": 3,
+      "en": "Britain’s towns, it is true, are not prevented from applying, but they generally lack the resources to put together a bid to beat their bigger competitors."
+    },
+    {
+      "para": 1,
+      "seq": 4,
+      "en": "A town of culture award could, it is argued, become an annual event, attracting funding and creating jobs."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "Some might see the proposal as a booby prize for the fact that Britain is no longer able to apply for the much more prestigious title of European capital of culture, a sought- after award bagged by Glasgow in 1990 and Liverpool in 2008."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "A cynic might speculate that the UK is on the verge of disappearing into an endless fever of self-celebration in its desperation to reinvent itself for the post-Brexit world: after town of culture, who knows what will follow — village of culture?"
+    },
+    {
+      "para": 2,
+      "seq": 7,
+      "en": "Suburb of culture?"
+    },
+    {
+      "para": 2,
+      "seq": 8,
+      "en": "Hamlet of culture?"
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "It is also wise to recall that such titles are not a cure-all."
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "A badly run “year of culture” washes in and out of a place like the tide, bringing prominence for a spell but leaving no lasting benefits to the community."
+    },
+    {
+      "para": 3,
+      "seq": 11,
+      "en": "The really successful holders of such titles are those that do a great deal more than fill hotel bedrooms and bring in high-profile arts events and good press for a year."
+    },
+    {
+      "para": 3,
+      "seq": 12,
+      "en": "They transform the aspirations of the people who live there; they nudge the self-image of the city into a bolder and more optimistic light."
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "It is hard to get right, and requires a remarkable degree of vision, as well as cooperation between city authorities, the private sector, community groups and cultural organisations."
+    },
+    {
+      "para": 4,
+      "seq": 14,
+      "en": "But it can be done: Glasgow’s year as European capital of culture can certainly be seen as one of a complex series of factors that have turned the city into the powerhouse of art, music and theatre that it remains today."
+    },
+    {
+      "para": 5,
+      "seq": 15,
+      "en": "A “town of culture” could be not just about the arts but about honouring a town’s peculiarities — helping sustain its high street, supporting local facilities and above all celebrating its people."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "Jeremy Wright, the culture secretary, should welcome this positive hope-filled proposal, and turn it into action."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 21,
+      "stem": "Cooper and her colleagues argue that a “town of culture” award could ____",
+      "options": {
+        "A": "consolidate the town-city ties in Britain.",
+        "B": "promote cooperation among Britain’s towns.",
+        "C": "increase the economic strength of Britain’s towns.",
+        "D": "focus Britain’s limited resources on cultural events."
+      },
+      "answer": "C",
+      "analysis": "这道题是细节题。题干问库珀和她的同事们认为“文化之城”这一奖项可能会怎样可以定位在第一段第三句：“Cooper and her colleagues argue that the success of the crown for Hull,......” “赫尔之冠”的成功并不局限于城市，它为赫尔带来了2.2亿欧元的投资和大量艺术作品。英国的城镇，确实没有被阻止申请，但他们通常缺乏资源来凑齐一点来击败他们更大的竞争对手。有人认为，“文化之城”奖可以成为一项年度活动，吸引资金并创造就业机会。所以能看出答案是C. 增强英国城镇的经济实力。"
+    },
+    {
+      "seq": 22,
+      "stem": "According to Paragraph 2, the proposal might be regarded by some as ____",
+      "options": {
+        "A": "a sensible compromise.",
+        "B": "a self-deceiving attempt.",
+        "C": "an eye-catching bonus.",
+        "D": "an inaccessible target."
+      },
+      "answer": "B",
+      "analysis": "该题是推断题, 题干问:根据第二段，这一提议或许会被一些人认为是.......。 可以定位在第二段第一句“Some might see the proposal as a boo by prize for the fact that......”“有些人可能会把这个提议看作是一个嘘声，因为英国已经不能再申请更有声望的欧洲文化之都的称号了......” 能看出来有些人是持反面态度的。很多人不认识boo，但是也能从后面的on the verge of disappearing into an endless fever of self-celebration in its desperation to reinvent itself for,在绝望地为英国退欧后的世界重塑形象之际，英国即将消失在一场无休止的自我庆祝热潮之中. 接下来几个反问句，能看出来是一种自我欺骗的尝试，所以选择B。"
+    },
+    {
+      "seq": 23,
+      "stem": "The author suggests that a title holder is successful only if it ____",
+      "options": {
+        "A": "endeavors to maintain its image.",
+        "B": "meets the aspirations of its people.",
+        "C": "brings its local arts to prominence.",
+        "D": "commits to its long-term growth."
+      },
+      "answer": "D",
+      "analysis": "该题也是细节题, 题干问:作者认为这个头衔的持有者是成功的只要它......可以定位到第三段第三句，这些头衔真正成功的持有者，是那些除了为酒店带来收入、带来引人注目的艺术活动和一年的良好报道之外，还做了很多事情的人。它们转变了当地居民的愿望;他们将城市的自我形象推向更大胆、更乐观的一面。所以能看出只要他把致力于乡村的长期发展中，这个头衔就会是成功的。"
+    },
+    {
+      "seq": 24,
+      "stem": "Glasgow is mentioned in Paragraph 3 to present ____",
+      "options": {
+        "A": "a contrasting case.",
+        "B": "a supporting example.",
+        "C": "a background story.",
+        "D": "a related topic."
+      },
+      "answer": "A",
+      "analysis": "这题是写作目的题， 题干说：第3段提到格拉斯哥是为了展现什么。可以定位到第三段倒数第一句。可以看到前面有明显的BUT， 知道和前面的意思成相反。“这个问题很难解决，需要高度的远见卓识，也需要城市当局、私营部门、社区团体和文化组织之间的合作。但这是可以做到的:格拉斯哥作为欧洲文化之都的一年，可以被看作是一系列复杂的因素之一，这些因素把这座城市变成了艺术、音乐和戏剧的力量，直到今天。”"
+    },
+    {
+      "seq": 25,
+      "stem": "What is the author’s attitude towards the proposal?",
+      "options": {
+        "A": "Skeptical.",
+        "B": "Objective.",
+        "C": "Favorable.",
+        "D": "Critical."
+      },
+      "answer": "D",
+      "analysis": "这题是作者态度题，问作者对于这个建议的态度。第一段是提出该建议。第二段是一些人认为这个建议有点吹嘘。而只有最后一段能看出作者对此建议的态度，“一个“文化之城”不仅仅是艺术之城，而且要尊重一个城市的特色——帮助维持它的商业街，支持当地的设施，最重要的是赞美它的人民，并将其转化为行动。”所以能看出是积极赞成的态度。 资料下载 更多。 2025-12-11 93分达人英语笔记 2025-11-23 2015考研必备资料 2025-11-23 最强政治结构图！五天全部背熟！冲刺80没问题！ 2025-11-23 [回馈论坛] 马哲毛中特史纲思修知识点总结 2025-06-03 新概念考研必背36篇(彩版)-太及时了~我内牛满面 (function() { var kybstr = 'KaoYanClub-IOS/', useragent = navigator.userAgent; var len = kybstr.length, kyindex = useragent.lastIndexOf(kybstr), outversion = (useragent.substr(kyindex,len+5)).substr(len,5); if(!((useragent.indexOf(kybstr) != -1) && (outversion == '3.3.7'))){ var s = \"_\" + Math.random().toString(36).slice(2); document.write(' '); (window.slotbydup=window.slotbydup || []).push({ id: '2525700', container: s, size: '0,0', display: 'inlay-fix' }); }})(); 相关文章 更多 2020年考研英语一真题阅读理解text2原文及答案解析（跨考版） 2020年考研英语一真题阅读理解text3原文及答案解析（跨考版） 2020年考研英语一真题阅读理解text4原文及答案解析（跨考版） 2020年考研英语二翻译答案解析（厦门新东方） 2020年考研英语二作文解析（呼和浩特新东方） 2021考研 更多 2023-07-15 北京师范大学 学科英语 双非二本 一战成硕 ！ 2021-01-20 学长学姐帮2020还没对你说的话，今天这就告诉你 2022-01-24 【入版必看】2021考研全程备考规划！ 2023-11-19 北大护理考研 2023-11-25 大家好，想求南开大学资源利用与植物保护的专业课资料... 院校咨询 var localUrl = window.location.href; if (localUrl.indexOf('www/baokao/') > -1 || localUrl.indexOf('www/beikao/') > -1 || localUrl.indexOf('www/fenshuxian/') > -1) { if ($('#nav_bottom_box').parent().hasClass('school')) { var local_url = window.location.href; var adv_tag = ''; if (local_url.indexOf('//m.kaoyan.com/www/baokao/') > -1) { adv_tag = 'kaoyanweb_mzhan_baokao_navigation_below' } else if (local_url.indexOf('//m.kaoyan.com/www/beikao/') > -1) { adv_tag = 'kaoyanweb_mzhan_beikao_navigation_below' } else { adv_tag = \"kaoyanweb_mzhan_fenshuxian_navigation_below\" } $.ajax({ url: \"//api-client.qz100.com/da/da_new/do\", beforeSend: function (xhr) { xhr.setRequestHeader(\"Q-Organization\", \"kaoyan\") }, type: \"get\", data: { as: adv_tag }, dataType: \"json\", success: function (res) { console.log(res.result[adv_tag]) if (res.result[adv_tag].content_arr.length) { let adv_img_str = ' ' $('#nav_bottom_box').append(adv_img_str) } } }); } } 查询 | 报考 | 备考 | 研招 | 论坛 | 复试 | 调剂 电脑版 | 考研帮客户端"
+    }
+  ],
+  "glossary": {}
+}

@@ -60,7 +60,10 @@ const parseQuestions = (start, sectionEnd) => {
 
 // 段落全文（合并所有行，跳过页码标记；修复分页断裂的数字/句尾标点/孤立引号）
 const paragraphFullText = (start, qStart) => {
-  const segs = lines.slice(start + 1, qStart).filter((l) => !/^===== PAGE/.test(l));
+  const segs = lines
+    .slice(start + 1, qStart)
+    .filter((l) => !/^===== PAGE/.test(l))
+    .filter((l) => !/^\s*\d+\s+https?:\/\/zhenti\.burningvocabulary\.com\s*$/.test(l));
   let txt = '';
   for (const raw of segs) {
     const s = raw.trim();
@@ -81,13 +84,65 @@ const splitSentences = (t) =>
     .map((s) => s.trim())
     .filter(Boolean);
 
-// 答案解析源（all.txt：每题答案+解析；文本段落每行一段 → 段落锚点）
+// 答案解析源
+// 1) offcn 汇总文本：NN. 【答案】X(...) 【解析】...
+// 2) kaoyan 跨考逐篇页（t1..t4.txt）：NN <字母> <答案文本> 后跟解析；段落锚点来自页内原文
 const parseAnswerText = (t) => {
   const map = {};
   for (const m of t.matchAll(/(\d{1,2})\.\s*【答案】\s*([A-D])\s*\(([^)]*)\)\s*【解析】\s*([\s\S]*?)(?=\d{1,2}\.\s*【答案】|$)/g)) {
     map[m[1]] = { answer: m[2], analysis: m[4].replace(/\r?\n/g, '').trim(), note: m[3].trim() };
   }
   return map;
+};
+const kaoyanFlat = (t) =>
+  t
+    .replace(/\r?\n/g, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&rsquo;/g, '\u2019')
+    .replace(/&ldquo;/g, '\u201C')
+    .replace(/&rdquo;/g, '\u201D')
+    .replace(/&#39;/g, "'")
+    .replace(/&hellip;/g, '...')
+    .replace(/&quot;/g, '"')
+    .replace(/&mdash;/g, '\u2014');
+const KAOYAN_ANSWER_MARKER = /^(\d{1,2})[.,、)）]?\s*(?:【([A-D])】|.*?\b([A-D])\b[.)、]?\s+)/;
+const KAOYAN_QUESTION = /^\d{1,2}\.\s+[A-Z]/;
+const KAOYAN_TYPE = /(细节题|推断题|态度题|例证题|主旨题|主旨大意题|写作目的题|推理题|词语理解题|语义理解题)/;
+const KAOYAN_FOOTER = /^(考研帮|手机版|触屏版|电脑版|意见反馈|关于我们|联系我们|友情链接|免责声明|备案号|返回|分享到|更多精彩|扫描|二维码|APP下载|Copyright|©|版权|编辑|上一篇|下一篇)/i;
+const parseKaoyanAnswer = (t) => {
+  const lines = kaoyanFlat(t).split('\n').map((l) => l.replace(/\s+/g, ' ').trim()).filter(Boolean);
+  const map = {};
+  let cur = null;
+  for (const line of lines) {
+    const m = line.match(KAOYAN_ANSWER_MARKER);
+    if (m && Number(m[1]) >= 21 && !KAOYAN_QUESTION.test(line)) {
+      const letter = m[2] || m[3];
+      if (letter) {
+        const rest = line.slice(m[0].length).trim();
+        const analysis = rest.replace(/^[^\u4e00-\u9fa5]*/, '');
+        cur = { seq: m[1], analysis };
+        map[cur.seq] = { answer: letter, analysis };
+        continue;
+      }
+    }
+    if (cur && !KAOYAN_FOOTER.test(line)) map[cur.seq].analysis += '\n' + line;
+  }
+  for (const k of Object.keys(map)) map[k].analysis = map[k].analysis.replace(/\s+/g, ' ').trim();
+  return map;
+};
+const parseKaoyanAnchors = (t) => {
+  const flat = kaoyanFlat(t);
+  const blocks = flat.split(/\n\s*\n/).map((b) => b.replace(/\s+/g, ' ').trim()).filter(Boolean);
+  const firsts = [];
+  for (const block of blocks) {
+    if (/^Text\s*\d+$/i.test(block)) continue;
+    const text = block.replace(/^[^a-zA-Z]*/, '');
+    if (!/[a-zA-Z]{3,}/.test(text)) continue;
+    const f = splitSentences(text)[0];
+    if (f) firsts.push(f);
+  }
+  return firsts;
 };
 const parseAnchors = (t) => {
   const anchors = [];
@@ -116,6 +171,21 @@ const loadOffcn = () => {
     const txt = readFileSync(OFFCN, 'utf-8');
     Object.assign(ans, parseAnswerText(txt));
     return { anchors: parseAnchors(txt), ans };
+  }
+  // kaoyan 跨考逐篇模式：目录内 t1..t4.txt（或 text1..text4.txt）
+  const files = readdirSync(OFFCN).filter((f) => /\.txt$/i.test(f));
+  if (files.length) {
+    const anchors = [];
+    const byText = (i) =>
+      files.find((f) => new RegExp(`^(t|text)${i}\\.txt$`, 'i').test(f));
+    for (let i = 1; i <= 4; i++) {
+      const f = byText(i);
+      if (!f) throw new Error(`缺少 ${i} 篇解析文件`);
+      const txt = readFileSync(resolve(OFFCN, f), 'utf-8');
+      Object.assign(ans, parseKaoyanAnswer(txt));
+      anchors[i - 1] = parseKaoyanAnchors(txt);
+    }
+    return { anchors, ans };
   }
   const anchors = [];
   for (const f of readdirSync(OFFCN).filter((f) => /\.json$/i.test(f))) {

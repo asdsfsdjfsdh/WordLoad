@@ -1,0 +1,141 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "法国数字服务税之争",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Last Thursday, the French Senate passed a digital services tax, which would impose an entirely new tax on large multinationals that provide digital services to consumers or users in France."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Digital services include everything from providing a platform for selling goods and services online to targeting advertising based on user data, and the tax applies to gross revenue from such services."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "Many French politicians and media outlets have referred to this as a “GAFA tax,” meaning that it is designed to apply primarily to companies such as Google, Apple, Facebook and Amazon — in other words, multinational tech companies based in the United States."
+    },
+    {
+      "para": 1,
+      "seq": 3,
+      "en": "The digital services tax now awaits the signature of President Emmanuel Macron, who has expressed support for the measure, and it could go into effect within the next few weeks."
+    },
+    {
+      "para": 1,
+      "seq": 4,
+      "en": "But it has already sparked significant controversy, with the United States trade representative opening an investigation into whether the tax discriminates against American companies, which in turn could lead to trade sanctions against France."
+    },
+    {
+      "para": 1,
+      "seq": 5,
+      "en": "The French tax is not just a unilateral move by one country in need of revenue."
+    },
+    {
+      "para": 1,
+      "seq": 6,
+      "en": "Instead, the digital services tax is part of a much larger trend, with countries over the past few years proposing or putting in place an alphabet soup of new international tax provisions."
+    },
+    {
+      "para": 1,
+      "seq": 7,
+      "en": "These have included Britain’s DPT (diverted profits tax), Australia’s MAAL (multinational antiavoidance law), and India’s SEP (significant economic presence) test, to name but a few."
+    },
+    {
+      "para": 1,
+      "seq": 8,
+      "en": "At the same time, the European Union, Spain, Britain and several other countries have all seriously contemplated digital services taxes."
+    },
+    {
+      "para": 2,
+      "seq": 9,
+      "en": "These unilateral developments differ in their specifics, but they are all designed to tax multinationals on income and revenue that countries believe they should have a right to tax, even if international tax rules do not grant them that right."
+    },
+    {
+      "para": 2,
+      "seq": 10,
+      "en": "In other words, they all share a view that the international tax system has failed to keep up with the current economy."
+    },
+    {
+      "para": 2,
+      "seq": 11,
+      "en": "In response to these many unilateral measures, the Organization for Economic Cooperation and Development (OECD) is currently working with 131 countries to reach a consensus by the end of 2020 on an international solution."
+    },
+    {
+      "para": 3,
+      "seq": 12,
+      "en": "Both France and the United States are involved in the organization’s work, but France’s digital services tax and the American response raise questions about what the future holds for the international tax system."
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "France’s planned tax is a clear warning: Unless a broad consensus can be reached on reforming the international tax system, other nations are likely to follow suit, and American companies will face a cascade of different taxes from dozens of nations that will prove burdensome and costly."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "The French Senate has passed a bill to ____",
+      "options": {
+        "A": "regulate digital services platforms.",
+        "B": "protect French companies’ interests.",
+        "C": "impose a levy on tech multinationals.",
+        "D": "curb the influence of advertising."
+      },
+      "answer": "C",
+      "analysis": "细节题。根据题干直接定位到第一段第一句话 a digital services tax, which would impose an entirely new tax on large multinationals that provide digital services...;选项C中的“levy”和“tax”同义复现;“tech multinationals” 和digital services 同义复现。因此C为正确答案，奇遇选项均未体现。"
+    },
+    {
+      "seq": 37,
+      "stem": "It can be learned from Paragraph 2 that the digital services tax ____",
+      "options": {
+        "A": "may trigger countermeasures against France.",
+        "B": "is apt to arouse criticism at home and abroad.",
+        "C": "aims to ease international trade tensions.",
+        "D": "will prompt the tech giants to quit France."
+      },
+      "answer": "A",
+      "analysis": "推断题。根据提干定位到第二段，第二段第二句话but it has already sparked significant controversy,...,which in turn could lead to trade sanctions against France(这已经引起了巨大的反抗，..., 反过来也会导致针对法国的贸易制裁)和选项A相一致;其中选项中的“trigger”和原文的“lead to”同义复现，“sanction”和“countermeasure”同义复现。其余选项均未体现。"
+    },
+    {
+      "seq": 38,
+      "stem": "The countries adopting the unilateral measures share the opinion that ____",
+      "options": {
+        "A": "redistribution of tech giants’ revenue must be ensured.",
+        "B": "the current international tax system needs upgrading.",
+        "C": "tech multinationals’ monopoly should be prevented.",
+        "D": "all countries ought to enjoy equal taxing rights."
+      },
+      "answer": "B",
+      "analysis": "细节题。根据题干定位到第四段最后一句话 “they all share a view that the international tax system has failed to keep up with the current economy(他们都认为国际税收体系并未跟上当前经济形势)。选项B目前的国际税收体系需要升级是该句话的反义复现。其余选项均为体现。"
+    },
+    {
+      "seq": 39,
+      "stem": "It can be learned from Paragraph 5 that the OECD’s current work ____",
+      "options": {
+        "A": "is being resisted by US companies.",
+        "B": "needs to be readjusted immediately.",
+        "C": "is faced with uncertain prospects.",
+        "D": "needs to involve more countries."
+      },
+      "answer": "C",
+      "analysis": "细节题。根据提干定位到第五段最后一句话”raise questions about what the future holds for the international tax system(对于国际税收体系的未来充满疑虑)”和选项C相一致。其中选项中的“uncertain”和原文中的“raise questions”同义复现，“prospects”和原文中的 “future”同义复现。"
+    },
+    {
+      "seq": 40,
+      "stem": "Which of the following might be the best title for this text?",
+      "options": {
+        "A": "France Is Confronted with Trade Sanctions",
+        "B": "France Leads the Charge on Digital Tax",
+        "C": "France Says “NO” to Tech Multinationals",
+        "D": "France Demands a Role in the Digital Economy"
+      },
+      "answer": "B",
+      "analysis": "主旨题。题干中的title为标题题的信息，所以此题考查的是文章的主旨大意。B 选项里的 tax是贯穿全文的主旨词;而文章以法国对数字服务征税为起点，全文描写了包括法国在内的其它国家对全球税收系统的担忧，因此选项B和文章的主旨相符合。剩余选项均选项未能体现文章关键词和全文主旨。 资料下载 更多。 2025-12-11 93分达人英语笔记 2025-11-23 2015考研必备资料 2025-11-23 最强政治结构图！五天全部背熟！冲刺80没问题！ 2025-11-23 [回馈论坛] 马哲毛中特史纲思修知识点总结 2025-06-03 新概念考研必背36篇(彩版)-太及时了~我内牛满面 (function() { var kybstr = 'KaoYanClub-IOS/', useragent = navigator.userAgent; var len = kybstr.length, kyindex = useragent.lastIndexOf(kybstr), outversion = (useragent.substr(kyindex,len+5)).substr(len,5); if(!((useragent.indexOf(kybstr) != -1) && (outversion == '3.3.7'))){ var s = \"_\" + Math.random().toString(36).slice(2); document.write(' '); (window.slotbydup=window.slotbydup || []).push({ id: '2525700', container: s, size: '0,0', display: 'inlay-fix' }); }})(); 相关文章 更多 2020年考研英语二翻译答案解析（厦门新东方） 2020年考研英语二作文解析（呼和浩特新东方） 2020年考研英语二翻译解析（兰州新东方） 2020年考研英语二小作文解析（杭州新东方） 2020年考研英语二翻译答案解析（南京新东方） 2021考研 更多 2023-07-15 北京师范大学 学科英语 双非二本 一战成硕 ！ 2021-01-20 学长学姐帮2020还没对你说的话，今天这就告诉你 2022-01-24 【入版必看】2021考研全程备考规划！ 2023-11-19 北大护理考研 2023-11-25 大家好，想求南开大学资源利用与植物保护的专业课资料... 院校咨询 var localUrl = window.location.href; if (localUrl.indexOf('www/baokao/') > -1 || localUrl.indexOf('www/beikao/') > -1 || localUrl.indexOf('www/fenshuxian/') > -1) { if ($('#nav_bottom_box').parent().hasClass('school')) { var local_url = window.location.href; var adv_tag = ''; if (local_url.indexOf('//m.kaoyan.com/www/baokao/') > -1) { adv_tag = 'kaoyanweb_mzhan_baokao_navigation_below' } else if (local_url.indexOf('//m.kaoyan.com/www/beikao/') > -1) { adv_tag = 'kaoyanweb_mzhan_beikao_navigation_below' } else { adv_tag = \"kaoyanweb_mzhan_fenshuxian_navigation_below\" } $.ajax({ url: \"//api-client.qz100.com/da/da_new/do\", beforeSend: function (xhr) { xhr.setRequestHeader(\"Q-Organization\", \"kaoyan\") }, type: \"get\", data: { as: adv_tag }, dataType: \"json\", success: function (res) { console.log(res.result[adv_tag]) if (res.result[adv_tag].content_arr.length) { let adv_img_str = ' ' $('#nav_bottom_box').append(adv_img_str) } } }); } } 查询 | 报考 | 备考 | 研招 | 论坛 | 复试 | 调剂 电脑版 | 考研帮客户端"
+    }
+  ],
+  "glossary": {}
+}

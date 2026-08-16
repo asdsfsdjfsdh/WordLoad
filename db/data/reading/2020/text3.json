@@ -1,0 +1,161 @@
+{
+  "code": "C",
+  "title": "Text 3",
+  "subtitle": "多元化配额与性别平等之争",
+  "questionsStart": 31,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Progressives often support diversity mandates as a path to equality and a way to level the playing field."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "But all too often such policies are an insincere form of virtue-signaling that benefits only the most privileged and does little to help average people."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "A pair of bills sponsored by Massachusetts state Senator Jason Lewis and House Speaker Pro Tempore Patricia Haddad, to ensure “gender parity” on boards and commissions, provide a case in point."
+    },
+    {
+      "para": 3,
+      "seq": 3,
+      "en": "Haddad and Lewis are concerned that more than half the state-government boards are less than 40 percent female."
+    },
+    {
+      "para": 3,
+      "seq": 4,
+      "en": "In order to ensure that elite women have more such opportunities, they have proposed imposing government quotas."
+    },
+    {
+      "para": 3,
+      "seq": 5,
+      "en": "If the bills become law, state boards and commissions will be required to set aside 50 percent of board seats for women by 2022."
+    },
+    {
+      "para": 4,
+      "seq": 6,
+      "en": "The bills are similar to a measure recently adopted in California, which last year became the first state to require gender quotas for private companies."
+    },
+    {
+      "para": 4,
+      "seq": 7,
+      "en": "In signing the measure, California’s Governor Jerry Brown admitted that the law, which expressly classifies people on the basis of sex, is probably unconstitutional."
+    },
+    {
+      "para": 4,
+      "seq": 8,
+      "en": "The US Supreme Court frowns on sex-based classifications unless they are designed to address an “important” policy interest."
+    },
+    {
+      "para": 5,
+      "seq": 9,
+      "en": "Because the California law applies to all boards, even where there is no history of prior discrimination, courts are likely to rule that the law violates the constitutional guarantee of “equal protection”."
+    },
+    {
+      "para": 6,
+      "seq": 10,
+      "en": "But are such government mandates even necessary?"
+    },
+    {
+      "para": 6,
+      "seq": 11,
+      "en": "Female participation on corporate boards may not currently mirror the percentage of women in the general population, but so what?"
+    },
+    {
+      "para": 7,
+      "seq": 12,
+      "en": "The number of women on corporate boards has been steadily increasing without government interference."
+    },
+    {
+      "para": 7,
+      "seq": 13,
+      "en": "According to a study by Catalyst, between 2010 and 2015 the share of women on the boards of global corporations increased by 54 percent."
+    },
+    {
+      "para": 8,
+      "seq": 14,
+      "en": "Requiring companies to make gender the primary qualification for board membership will inevitably lead to less experienced private sector boards."
+    },
+    {
+      "para": 8,
+      "seq": 15,
+      "en": "That is exactly what happened when Norway adopted a nationwide corporate gender quota."
+    },
+    {
+      "para": 9,
+      "seq": 16,
+      "en": "Writing in The New Republic, Alice Lee notes that increasing the number of opportunities for board membership without increasing the pool of qualified women to serve on such boards has led to a “golden skirt” phenomenon, where the same elite women scoop up multiple seats on a variety of boards."
+    },
+    {
+      "para": 10,
+      "seq": 17,
+      "en": "Next time somebody pushes corporate quotas as a way to promote gender equity, remember that such policies are largely self-serving measures that make their sponsors feel good but do little to help average women."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 31,
+      "stem": "The author believes that the bills sponsored by Lewis and Haddad will ____",
+      "options": {
+        "A": "help little to reduce gender bias.",
+        "B": "pose a threat to the state government.",
+        "C": "raise women’s position in politics.",
+        "D": "greatly broaden career options."
+      },
+      "answer": "A",
+      "analysis": "纵观全文，文章一直在论述该法案，在最后一段作者提出了自己的想法，下次有人把企业配额作为促进性别平等的一种方式。请记住，这些基本上都是自私自利的措施，让他们的赞助商感觉良好，但其实并没有什么帮助，由此可见作者对此法案采取否定态度，A help little to reduce gender bias对减少性别偏见没什么帮助为同义替换的正确选项"
+    },
+    {
+      "seq": 32,
+      "stem": "Which of the following is true of the California measure?",
+      "options": {
+        "A": "It has irritated private business owners.",
+        "B": "It is welcomed by the Supreme Court.",
+        "C": "It may go against the Constitution.",
+        "D": "It will settle the prior controversies."
+      },
+      "answer": "C",
+      "analysis": "根据题干中的关键词 California measures定位到原文第五段第二句，Because the California law applies to all boards, ... courts are likely to rule that the law violate the constitutional guarantee of \"equal protection\" violate 违反宪法，选项C against替换violate为正确选项"
+    },
+    {
+      "seq": 33,
+      "stem": "The author mentions the study by Catalyst to illustrate ____",
+      "options": {
+        "A": "the harm from arbitrary board decisions.",
+        "B": "the importance of constitutional guarantees.",
+        "C": "the pressure on women in global corporations.",
+        "D": "the needlessness of government interventions."
+      },
+      "answer": "D",
+      "analysis": "根据题干中catalyst替换到第7段，论点为上一句The number of women on corporate boards has been steadily increasing without government . 在没有政府的情况下，公司董事会中的妇女人数一直在稳步增加。可见D选项中the needlessness of government interventions政府干预的不必要性"
+    },
+    {
+      "seq": 34,
+      "stem": "Norway’s adoption of a nationwide corporate gender quota has led to ____",
+      "options": {
+        "A": "the underestimation of elite women’s role.",
+        "B": "the objection to female participation on boards.",
+        "C": "the entry of unqualified candidates into the board.",
+        "D": "the growing tension between labor and management."
+      },
+      "answer": "C",
+      "analysis": "根据Norway定位到倒数第三段第一句，要求将性别作为董事会成员的主要资格，必然会导致私营部门董事会减少。紧接着下文董事会成员的机会越来越多，却没有合格的女性来担任董事会成员， 由此可见会有不合格的人进入董事会，正确选项C 不合格候选人进入董事会"
+    },
+    {
+      "seq": 35,
+      "stem": "Which of the following can be inferred from the text?",
+      "options": {
+        "A": "Women’s needs in employment should be considered.",
+        "B": "Feasibility should be a prime concern in policymaking.",
+        "C": "Everyone should try hard to promote social justice.",
+        "D": "Major social issues should be the focus of legislation."
+      },
+      "answer": "B",
+      "analysis": "由最后一段可知，下次有人把企业配额作为促进性别平等的一种方式。请记住，这些基本上都是自私自利的措施，让他们的赞助商感觉良好，但其实并没有什么帮助。由此可知该政策并不可取，正确选项B可行性应是决策的首要考虑因素 资料下载 更多。 2025-12-11 93分达人英语笔记 2025-11-23 2015考研必备资料 2025-11-23 最强政治结构图！五天全部背熟！冲刺80没问题！ 2025-11-23 [回馈论坛] 马哲毛中特史纲思修知识点总结 2025-06-03 新概念考研必背36篇(彩版)-太及时了~我内牛满面 (function() { var kybstr = 'KaoYanClub-IOS/', useragent = navigator.userAgent; var len = kybstr.length, kyindex = useragent.lastIndexOf(kybstr), outversion = (useragent.substr(kyindex,len+5)).substr(len,5); if(!((useragent.indexOf(kybstr) != -1) && (outversion == '3.3.7'))){ var s = \"_\" + Math.random().toString(36).slice(2); document.write(' '); (window.slotbydup=window.slotbydup || []).push({ id: '2525700', container: s, size: '0,0', display: 'inlay-fix' }); }})(); 相关文章 更多 2020年考研英语一真题阅读理解text4原文及答案解析（跨考版） 2020年考研英语二翻译答案解析（厦门新东方） 2020年考研英语二作文解析（呼和浩特新东方） 2020年考研英语二翻译解析（兰州新东方） 2020年考研英语二小作文解析（杭州新东方） 2021考研 更多 2023-07-15 北京师范大学 学科英语 双非二本 一战成硕 ！ 2021-01-20 学长学姐帮2020还没对你说的话，今天这就告诉你 2022-01-24 【入版必看】2021考研全程备考规划！ 2023-11-19 北大护理考研 2023-11-25 大家好，想求南开大学资源利用与植物保护的专业课资料... 院校咨询 var localUrl = window.location.href; if (localUrl.indexOf('www/baokao/') > -1 || localUrl.indexOf('www/beikao/') > -1 || localUrl.indexOf('www/fenshuxian/') > -1) { if ($('#nav_bottom_box').parent().hasClass('school')) { var local_url = window.location.href; var adv_tag = ''; if (local_url.indexOf('//m.kaoyan.com/www/baokao/') > -1) { adv_tag = 'kaoyanweb_mzhan_baokao_navigation_below' } else if (local_url.indexOf('//m.kaoyan.com/www/beikao/') > -1) { adv_tag = 'kaoyanweb_mzhan_beikao_navigation_below' } else { adv_tag = \"kaoyanweb_mzhan_fenshuxian_navigation_below\" } $.ajax({ url: \"//api-client.qz100.com/da/da_new/do\", beforeSend: function (xhr) { xhr.setRequestHeader(\"Q-Organization\", \"kaoyan\") }, type: \"get\", data: { as: adv_tag }, dataType: \"json\", success: function (res) { console.log(res.result[adv_tag]) if (res.result[adv_tag].content_arr.length) { let adv_img_str = ' ' $('#nav_bottom_box').append(adv_img_str) } } }); } } 查询 | 报考 | 备考 | 研招 | 论坛 | 复试 | 调剂 电脑版 | 考研帮客户端"
+    }
+  ],
+  "glossary": {}
+}
