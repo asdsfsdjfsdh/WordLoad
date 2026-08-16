@@ -1,0 +1,201 @@
+{
+  "code": "A",
+  "title": "Text 1",
+  "subtitle": "自动化时代中产阶级就业之困",
+  "questionsStart": 21,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Among the annoying challenges facing the middle class is one that will probably go unmentioned in the next presidential campaign: What happens when the robots come for their jobs?"
+    },
+    {
+      "para": 2,
+      "seq": 1,
+      "en": "Don't dismiss that possibility entirely."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "About half of U.S. jobs are at high risk of being automated, according to a University of Oxford study, with the middle class disproportionately squeezed."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Lower-income jobs like gardening or day care don't appeal to robots."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "But many middle-class occupations — trucking, financial advice, software engineering — have aroused their interest, or soon will."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "The rich own the robots, so they will be fine."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "This isn't to be alarmist."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "Optimists point out that technological upheaval has benefited workers in the past."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "The Industrial Revolution didn't go so well for Luddites whose jobs were displaced by mechanized looms, but it eventually raised living standards and created more jobs than it destroyed."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "Likewise, automation should eventually boost productivity, stimulate demand by driving down prices, and free workers from hard, boring work."
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "But in the medium term, middle-class workers may need a lot of help adjusting."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "The first step, as Erik Brynjolfsson and Andrew McAfee argue in The Second Machine Age, should be rethinking education and job training."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "Curriculums — from grammar school to college — should evolve to focus less on memorizing facts and more on creativity and complex communication."
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "Vocational schools should do a better job of fostering problem- solving skills and helping students work alongside robots."
+    },
+    {
+      "para": 4,
+      "seq": 14,
+      "en": "Online education can supplement the traditional kind."
+    },
+    {
+      "para": 4,
+      "seq": 15,
+      "en": "It could make extra training and instruction affordable."
+    },
+    {
+      "para": 4,
+      "seq": 16,
+      "en": "Professionals trying to acquire new skills will be able to do so without going into debt."
+    },
+    {
+      "para": 5,
+      "seq": 17,
+      "en": "The challenge of coping with automation underlines the need for the U.S. to revive its fading business dynamism: Starting new companies must be made easier."
+    },
+    {
+      "para": 5,
+      "seq": 18,
+      "en": "In previous eras of drastic technological change, entrepreneurs smoothed the transition by dreaming up ways to combine labor and machines."
+    },
+    {
+      "para": 5,
+      "seq": 19,
+      "en": "The best uses of 3D printers and virtual reality haven't been invented yet."
+    },
+    {
+      "para": 5,
+      "seq": 20,
+      "en": "The U.S. needs the new companies that will invent them."
+    },
+    {
+      "para": 6,
+      "seq": 21,
+      "en": "Finally, because automation threatens to widen the gap between capital income and labor income, taxes and the safety net will have to be rethought."
+    },
+    {
+      "para": 6,
+      "seq": 22,
+      "en": "Taxes on low-wage labor need to be cut, and wage subsidies such as the earned income tax credit should be expanded: This would boost incomes, encourage work, reward companies for job creation, and reduce inequality."
+    },
+    {
+      "para": 7,
+      "seq": 23,
+      "en": "Technology will improve society in ways big and small over the next few years, yet this will be little comfort to those who find their lives and careers upended by automation."
+    },
+    {
+      "para": 7,
+      "seq": 24,
+      "en": "Destroying the machines that are coming for our jobs would be nuts."
+    },
+    {
+      "para": 7,
+      "seq": 25,
+      "en": "But policies to help workers adapt will be indispensable."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 21,
+      "stem": "Who will be most threatened by automation?",
+      "options": {
+        "A": "Leading politicians.",
+        "B": "Low-wage laborers.",
+        "C": "Robot owners.",
+        "D": "Middle-class workers."
+      },
+      "answer": "D",
+      "analysis": "根据题干中“threatned”和“automation”定位到第一段首句“the annoyi-ng challenge facing the middle class is one that。。。for their jobs”中的challenge和第二段的最后三句话，可以得知相对于低收入者和富人，中产阶级受到的冲击最大。"
+    },
+    {
+      "seq": 22,
+      "stem": "Which of the following best represents the author’s view?",
+      "options": {
+        "A": "Worries about automation are in fact groundless.",
+        "B": "Optimists’ opinions on new tech find little support.",
+        "C": "Issues arising from automation need to be tackled.",
+        "D": "Negative consequences of new tech can be avoided."
+      },
+      "answer": "C",
+      "analysis": "根据题干可定位到第三段中的首句“this isn’t to be alarmist”和末句“But 。。。 middle-class workers may need a lot of help adjusting”，but转折句再一次强调了作者的观点，即中产阶级工人需要很多帮助来调整应对问题。同时，末句中”may need a lot of help”同义替换成选项C中的“need to be tackled”，自动化带来的问题需要被解决，得出C答案。"
+    },
+    {
+      "seq": 23,
+      "stem": "Education in the age of automation should put more emphasis on ____",
+      "options": {
+        "A": "creative potential.",
+        "B": "job-hunting skills.",
+        "C": "individual needs.",
+        "D": "cooperative spirit."
+      },
+      "answer": "A",
+      "analysis": "根据题干中的关键词可定位到第四段第二句“Curriculums—from grammar school to college—should evolve to focus less on memorizing facts and more on creativity and complex communication”。由该句可知，课程应该更关注创造性和复杂的沟通而非记忆事实。所以，应该选C选项creative potential（创造潜能），同义替换为creativity。"
+    },
+    {
+      "seq": 24,
+      "stem": "The author suggests that tax policies be aimed at ____",
+      "options": {
+        "A": "encouraging the development of automation.",
+        "B": "increasing the return on capital investment.",
+        "C": "easing the hostility between rich and poor.",
+        "D": "preventing the income gap from widening."
+      },
+      "answer": "D",
+      "analysis": "该题考查作者的观点，根据题干中的关键词可定位到第六段第一句“Finally， because automation threatens to widen the gap between capital income and labor income， taxes and the safety net will have to be rethought”。由该句可知，由于自动化加大了资本收入和劳动力收入的差距，所以应该重新考虑税收和安全网（保障措施），即税收政策应该避免收入差距扩大，选D选项preventing the income gap from widening。"
+    },
+    {
+      "seq": 25,
+      "stem": "In this text, the author presents a problem with ____",
+      "options": {
+        "A": "opposing views on it.",
+        "B": "possible solutions to it.",
+        "C": "its alarming impacts.",
+        "D": "its major variations."
+      },
+      "answer": "B",
+      "analysis": "作者在文章第一、二段提出问题“中产阶级受自动化危害最大”之后，第三段的末尾句提出中产阶级需要帮助去适应自动化的发展，接下来第四段至第六段介绍解决方法，最后一段表明作者观点。所以应该选B 选项possible solutions to it（解决问题的相应方法）。"
+    }
+  ],
+  "glossary": {}
+}

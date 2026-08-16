@@ -79,8 +79,19 @@ const paragraphFullText = (start, qStart) => {
 
 const splitSentences = (t) =>
   t
+    .replace(/[。]/g, '.')
+    .replace(/[！]/g, '!')
+    .replace(/[？]/g, '?')
+    .replace(/[，]/g, ',')
+    .replace(/[：]/g, ':')
+    .replace(/[；]/g, ';')
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/\b([A-Z])\.(?=\s)/g, '$1\u0001')
+    .replace(/\b(?:Mr|Mrs|Ms|Dr|St|Prof|Jr|Sr|vs|etc)\.(?=\s)/gi, '$&\u0001')
     .replace(/([.!?]["\u201D)]*)(?=\s)/g, '$1\u0000')
     .split('\u0000')
+    .map((s) => s.replace(/\u0001/g, '.'))
     .map((s) => s.trim())
     .filter(Boolean);
 
@@ -96,7 +107,6 @@ const parseAnswerText = (t) => {
 };
 const kaoyanFlat = (t) =>
   t
-    .replace(/\r?\n/g, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\s*p\s*\/?>/gi, '\n\n')
     .replace(/<\/p>/gi, '\n\n')
@@ -108,8 +118,8 @@ const kaoyanFlat = (t) =>
     .replace(/&hellip;/g, '...')
     .replace(/&quot;/g, '"')
     .replace(/&mdash;/g, '\u2014');
-const KAOYAN_ANSWER_MARKER = /^(\d{1,2})[.,、)）]?\s*(?:【([A-D])】|.*?\b([A-D])\b[.)、]?\s+)/;
-const KAOYAN_QUESTION = /^\d{1,2}\.\s+[A-Z]/;
+const KAOYAN_ANSWER_MARKER = /^(\d{1,2})[.,、)）。]?\s*(?:【([A-D])】|.*?\b([A-D])\b[.)、\]]?\s+)/;
+const KAOYAN_QUESTION = /^\d{1,2}[.,、。]?\s*[A-Z]/;
 const KAOYAN_TYPE = /(细节题|推断题|态度题|例证题|主旨题|主旨大意题|写作目的题|推理题|词语理解题|语义理解题)/;
 const KAOYAN_FOOTER = /^(考研帮|手机版|触屏版|电脑版|意见反馈|关于我们|联系我们|友情链接|免责声明|备案号|返回|分享到|更多精彩|扫描|二维码|APP下载|Copyright|©|版权|编辑|上一篇|下一篇|本文关键字|声明|资料下载|推荐阅读|更多[>>〕]|考研英语核心词汇营|【考研英语】|学习得礼盒|限时免费|立即购课|更多试听|关键字)/i;
 const KAOYAN_HEADER = /^(Section\s*[ⅰⅠ1-9]|Part\s+[AB]|Directions|Text\s*\d+|Read the following|Answer the questions|Mark your answers|Use of English|Section\s)/i;
@@ -129,7 +139,7 @@ const parseKaoyanAnswer = (t) => {
         continue;
       }
     }
-    if (cur && !KAOYAN_FOOTER.test(line)) map[cur.seq].analysis += '\n' + line;
+    if (cur && !KAOYAN_FOOTER.test(line)) map[cur.seq].analysis += '\n' + line.replace(/^\[解析\]/, '');
   }
   for (const k of Object.keys(map)) map[k].analysis = map[k].analysis.replace(/\s+/g, ' ').trim();
   return map;
@@ -139,10 +149,10 @@ const parseKaoyanAnchors = (t) => {
   const blocks = flat.split(/\n\s*\n/).map((b) => b.replace(/\s+/g, ' ').trim()).filter(Boolean);
   const firsts = [];
   for (const block of blocks) {
+    if (/^\d{1,2}[.,、。]?\s*/.test(block)) break;
     const text = block.replace(/^[^a-zA-Z]*/, '');
     if (!/[a-zA-Z]{3,}/.test(text)) continue;
     if (KAOYAN_HEADER.test(text)) continue;
-    if (/^\d{1,2}[.、]\s*/.test(text)) break;
     const f = splitSentences(text)[0];
     if (f) firsts.push(f);
   }

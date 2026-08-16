@@ -1,0 +1,186 @@
+{
+  "code": "C",
+  "title": "Text 3",
+  "subtitle": "NHS 与 DeepMind 的数据隐私之争",
+  "questionsStart": 31,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Any fair-minded assessment of the dangers of the deal between Britain's National Health Service (NHS) and DeepMind must start by acknowledging that both sides mean well."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "DeepMind is one of the leading artificial intelligence (AI) companies in the world."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "The potential of this work applied to healthcare is very great, but it could also lead to further concentration of power in the tech giants."
+    },
+    {
+      "para": 1,
+      "seq": 3,
+      "en": "It is against that background that the information commissioner, Elizabeth Denham, has issued her damning verdict against the Royal Free hospital trust under the NHS, which handed over to DeepMind the records of 1.6 million patients in 2015 on the basis of a vague agreement which took far too little account of the patients' rights and their expectations of privacy."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "DeepMind has almost apologized."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "The NHS trust has mended its ways."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "Further arrangements — and there may be many — between the NHS and DeepMind will be carefully scrutinised to ensure that all necessary permissions have been asked of patients and all unnecessary data has been cleaned."
+    },
+    {
+      "para": 2,
+      "seq": 7,
+      "en": "There are lessons about informed patient consent to learn."
+    },
+    {
+      "para": 2,
+      "seq": 8,
+      "en": "But privacy is not the only angle in this case and not even the most important."
+    },
+    {
+      "para": 2,
+      "seq": 9,
+      "en": "Ms Denham chose to concentrate the blame on the NHS trust, since under existing law it \"controlled\" the data and DeepMind merely \"processed\" it."
+    },
+    {
+      "para": 2,
+      "seq": 10,
+      "en": "But this distinction misses the point that it is processing and aggregation, not the mere possession of bits, that gives the data value."
+    },
+    {
+      "para": 3,
+      "seq": 11,
+      "en": "The great question is who should benefit from the analysis of all the data that our lives now generate."
+    },
+    {
+      "para": 3,
+      "seq": 12,
+      "en": "Privacy law builds on the concept of damage to an individual from identifiable knowledge about them."
+    },
+    {
+      "para": 3,
+      "seq": 13,
+      "en": "That misses the way the surveillance economy works."
+    },
+    {
+      "para": 3,
+      "seq": 14,
+      "en": "The data of an individual there gains its value only when it is compared with the data of countless millions more."
+    },
+    {
+      "para": 4,
+      "seq": 15,
+      "en": "The use of privacy law to curb the tech giants in this instance feels slightly maladapted."
+    },
+    {
+      "para": 4,
+      "seq": 16,
+      "en": "This practice does not address the real worry."
+    },
+    {
+      "para": 4,
+      "seq": 17,
+      "en": "It is not enough to say that the algorithms DeepMind develops will benefit patients and save lives."
+    },
+    {
+      "para": 4,
+      "seq": 18,
+      "en": "What matters is that they will belong to a private monopoly which developed them using public resources."
+    },
+    {
+      "para": 4,
+      "seq": 19,
+      "en": "If software promises to save lives on the scale that drugs now can, big data may be expected to behave as a big pharma has done."
+    },
+    {
+      "para": 4,
+      "seq": 20,
+      "en": "We are still at the beginning of this revolution and small choices now may turn out to have gigantic consequences later."
+    },
+    {
+      "para": 4,
+      "seq": 21,
+      "en": "A long struggle will be needed to avoid a future of digital feudalism."
+    },
+    {
+      "para": 4,
+      "seq": 22,
+      "en": "Ms Denham's report is a welcome start."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 31,
+      "stem": "What is true of the agreement between the NHS and DeepMind?",
+      "options": {
+        "A": "It caused conflicts among tech giants.",
+        "B": "It failed to pay due attention to patients’ rights.",
+        "C": "It fell short of the latter’s expectations.",
+        "D": "It put both sides into a dangerous situation."
+      },
+      "answer": "B",
+      "analysis": "细节题。根据题干中的NHS， DeepMind和agreement回文定位第一段第四句“It is against that background that the information commissioner， has issued her damning verdict against the Royal Free hospital trust under the NHS， which handed over to DeepMind the records of 1.6 million patients in 2015 on the basis of a vague agreement which took far too little account of the patients’ rights and their expectations of privacy”。根据a vague agreement which took far too little account of the patients’ rights and their expectations of privacy这一部分的语义信息，说明NHS与DeepMind之间的协议没有充分考虑到病人的权利与隐私。这句话的言外之意就是协议未能充分关注病人的权利。故确定答案为选项B，其中failed to是took far too little account的同义改写。"
+    },
+    {
+      "seq": 32,
+      "stem": "The NHS trust responded to Denham’s verdict with ____",
+      "options": {
+        "A": "empty promises.",
+        "B": "tough resistance.",
+        "C": "necessary adjustments.",
+        "D": "sincere apologies."
+      },
+      "answer": "C",
+      "analysis": "细节题。根据题干中的NHS trust， 以及Denham’s verdict回文定位第二段第二句“The NHS trust has mended its ways。” 根据第二句的语义信息，NHS trust针对Denham’s verdict已经调整了其与DeepMind的协议内容，故通过同义替换，可确定正确答案为C。"
+    },
+    {
+      "seq": 33,
+      "stem": "The author argues in Paragraph 2 that ____",
+      "options": {
+        "A": "privacy protection must be secured at all costs.",
+        "B": "leaking patients’ data is worse than selling it.",
+        "C": "making profits from patients’ data is illegal.",
+        "D": "the value of data comes from the processing of it."
+      },
+      "answer": "D",
+      "analysis": "推理题。根据题干，此题定位在第二段最后一句but之后的转折句。“But this distinction misses the point that it is processing and aggregation， not the mere possession of bits， that gives data value”。 这种区分忽视了一个点：是处理和收集赋予数据意义，而不是拥有数据。 选项中的 “processing”和原文中的“processing”原词复现。 选项中的“the value of data”对应原文中的“data value”。因此，D项为正确答案。"
+    },
+    {
+      "seq": 34,
+      "stem": "According to the last paragraph, the real worry arising from this deal is ____",
+      "options": {
+        "A": "the vicious rivalry among big pharmas.",
+        "B": "the ineffective enforcement of privacy law.",
+        "C": "the uncontrolled use of new software.",
+        "D": "the monopoly of big data by tech giants."
+      },
+      "answer": "D",
+      "analysis": "细节题。根据题干此题定位在文中最后一段的第四句。“What matters is that they will belong to a private monopoly which developed them using public resources。”重要的是这些进步属于一个私人垄断企业，而私人垄断企来使用公共资源进行研发。而这正真正的担忧所在。因此，选项D为正确答案， the monopoly of big data by tech giants对应原文中的a private monopoly。"
+    },
+    {
+      "seq": 35,
+      "stem": "The author’s attitude toward the application of AI to healthcare is ____",
+      "options": {
+        "A": "ambiguous.",
+        "B": "cautious.",
+        "C": "appreciative.",
+        "D": "contemptuous."
+      },
+      "answer": "B",
+      "analysis": "态度题。本题考查作者对本文主题“将人工智能应用于医疗健康”的态度。根据顺序性原则定位在最后一段。该段倒数第三句话指出“我们目前依然处于这一改革的前期，并且任何小的选择都会对未来产生深远的影响”，其中“still”一词，以及“small”（小）和“gigantic”（巨大的）对比，都体现出了作者对待整个事件是小心谨慎的态度，因此[B] cautious为正确答案。"
+    }
+  ],
+  "glossary": {}
+}

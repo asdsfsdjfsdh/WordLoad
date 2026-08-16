@@ -1,0 +1,161 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "美国邮政的生存困境与改革",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "The U.S. Postal Service (USPS) continues to bleed red ink."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "It reported a net loss of $5.6 billion for fiscal 2016, the 10th straight year its expenses have exceeded revenue."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "Meanwhile, it has more than $120 billion in unfunded liabilities, mostly for employee health and retirement costs."
+    },
+    {
+      "para": 1,
+      "seq": 3,
+      "en": "There are many reasons this formerly stable federal institution finds itself on the verge of bankruptcy."
+    },
+    {
+      "para": 1,
+      "seq": 4,
+      "en": "Fundamentally, the USPS is in a historic squeeze between technological change that has permanently decreased demand for its bread-and-butter product, first-class mail, and a regulatory structure that denies management the flexibility to adjust its operations to the new reality."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "And interest groups ranging from postal unions to greeting-card makers exert self- interested pressure on the USPS's ultimate overseer — Congress — insisting that whatever else happens to the Postal Service, aspects of the status quo they depend on get protected."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "This is why repeated attempts at reform legislation have failed in recent years, leaving the Postal Service unable to pay its bills except by deferring vital modernization."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "Now comes word that everyone involved — Democrats, Republicans, the Postal Service, the unions and the system's heaviest users — has finally agreed on a plan to fix the system."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "Legislation is moving through the House that would save USPS an estimated $28.6 billion over five years, which could help pay for new vehicles, among other survival measures."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "Most of the money would come from a penny-per-letter permanent rate increase and from shifting postal retirees into Medicare."
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "The latter step would largely offset the financial burden of annually pre-funding retiree health care, thus addressing a long-standing complaint by the USPS and its unions."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "If it clears the House, this measure would still have to get through the Senate — where someone is bound to point out that it amounts to the bare, bare minimum necessary to keep the Postal Service afloat, not comprehensive reform."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "There's no change to collective bargaining at the USPS, a major omission considering that personnel accounts for 80 percent of the agency's costs."
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "Also missing is any discussion of eliminating Saturday letter delivery."
+    },
+    {
+      "para": 4,
+      "seq": 14,
+      "en": "That common-sense change enjoys wide public support and would save the USPS $2 billion per year."
+    },
+    {
+      "para": 4,
+      "seq": 15,
+      "en": "But postal special-interest groups seem to have killed it, at least in the House."
+    },
+    {
+      "para": 4,
+      "seq": 16,
+      "en": "The emerging consensus around the bill is a sign that legislators are getting frightened about a politically embarrassing short-term collapse at the USPS."
+    },
+    {
+      "para": 4,
+      "seq": 17,
+      "en": "It is not, however, a sign that they're getting serious about transforming the postal system for the 21st century."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "The financial problem with the USPS is caused partly by ____",
+      "options": {
+        "A": "its unbalanced budget.",
+        "B": "its rigid management.",
+        "C": "the cost for technical upgrading.",
+        "D": "the withdrawal of bank support."
+      },
+      "answer": "B",
+      "analysis": "根据题干判断本题考查因果细节。第一段的前三句都是有关USPS的具体数字，属于细节信息。第四句出现many reasons很多原因。紧接着下面就有fundamentally根本原因是， 所以定位在第一段的最后一句。然后分析这个长难句，USPS 处在squeeze between 1 and 2，中，1是technological change， 2是structure。 2的structure后定语从句：denies management flexibility 对应选项B： rigid management。"
+    },
+    {
+      "seq": 37,
+      "stem": "According to Paragraph 2, the USPS fails to modernize itself due to ____",
+      "options": {
+        "A": "the interference from interest groups.",
+        "B": "the inadequate funding from Congress.",
+        "C": "the shrinking demand for postal service.",
+        "D": "the incompetence of postal unions."
+      },
+      "answer": "A",
+      "analysis": "根据题干due to，判断本题考查因果细节。根据题干关键词：USPS fails to modernize 定位到原文第二段最后一句，在这句前leaving，留下，导致这个结果，往前找原因，前一句提到reform legislation， 而且这句前还有this is why，只要找到代词this指代就可以判断选项。代词往前推，根据这句主干interest groups exerts pressure on Congress选择选项A，interference 对应 exert pressure on。"
+    },
+    {
+      "seq": 38,
+      "stem": "The long-standing complaint by the USPS and its unions can be addressed by ____",
+      "options": {
+        "A": "removing its burden of retiree health care.",
+        "B": "making more investment in new vehicles.",
+        "C": "adopting a new rate-increase mechanism.",
+        "D": "attracting more first-class mail users."
+      },
+      "answer": "A",
+      "analysis": "因果细节题。根据38题题干The long-standing complaint by the 。。。。回文定位到第3段，最后一句：“ The latter step would largely offset the financial burden of annually pre-funding retiree health care， thus。。。。” 。再根据题干中“ can be addressed by” 即：通过哪种方式解决，此处为解题要点，通过哪种方式来解决，前后明显为结果与途径的关系，即可理解为因果关系。文章此句后半句正是题干，thus前半句为答案The latter step would largely offset the financial burden of annually pre-funding retiree health care。与 A。 B 。 C 。D 四个选项匹配后，正确答案为 A removing its burden of retiree health care。"
+    },
+    {
+      "seq": 39,
+      "stem": "In the last paragraph, the author seems to view legislators with ____",
+      "options": {
+        "A": "respect.",
+        "B": "tolerance.",
+        "C": "discontent.",
+        "D": "gratitude."
+      },
+      "answer": "C",
+      "analysis": "根据题干可以判断本题为观点态度题。回文定位到最后一段。题干“the author seems to view legislators with”， 具体定位到最后一段倒数第2句：“ The emerging。。。。。is a sign that legislators are getting frightened。。。。。。。” 再根据题干，问作者最终态度，本段最后一句，转折句是作者最终的态度：“ It is not， however， a sign that they’re getting serious about。。。。” ， 即作者认为他们并没有认真对待。所以此处作者态度为否定。匹配A B C D 四个选项 只有C discontent（ 不满）为负向信息，所以为正确答案。"
+    },
+    {
+      "seq": 40,
+      "stem": "Which of the following would be the best title for the text?",
+      "options": {
+        "A": "The USPS Starts to Miss Its Good Old Days",
+        "B": "The Postal Service: Keep Away from My Cheese",
+        "C": "The USPS: Chronic Illness Requires a Quick Cure",
+        "D": "The Postal Service Needs More than a Band-Aid"
+      },
+      "answer": "D",
+      "analysis": "根据题干特征词“best title”，这是一道主旨题。根据前四道题问的主题，第一道题和第二道题是USPS出现了问题，并分析原因，第三道题给出解决方法，第四道题提到作者对于这个方法的态度，即提出问题—分析问题—解决问题，并在最后给出作者对这个解决方案的评价。根据这个文章框架，首先A选项“USPS开始错过了它的好时光”，这只是提出问题，相对片面；B选项“USPS：不要动我的奶酪”， 这是拒绝解决问题的态度，不符合文章的写作思路；C选项“USPS：慢性病需要快方法”，这个chronic和quick都没有在文中提到；D选项“USPS需要的不仅仅是权宜之计”，这说的其实作者对于解决方案的评价，在文章最后一段。这段最后结尾有But，有however， “it[指代前文讲的方法] is not a sign……”，对此作者表示否定态度。所以D选项为正确答案。"
+    }
+  ],
+  "glossary": {}
+}
