@@ -1,0 +1,141 @@
+{
+  "code": "A",
+  "title": "Text 1",
+  "subtitle": "英国铁路票价上涨之困",
+  "questionsStart": 21,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "How can Britain’s train operators possibly justify yet another increase to rail passenger fares?"
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "It has become a grimly reliable annual ritual: every January the cost of travelling by train rises, imposing a significant extra burden on those who have no option but to use the rail network to get to work or otherwise."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "This year’s rise, an average of 2.7 percent, may be a fraction lower than last year’s, but it is still well above the official Consumer Price Index (CPI) measure of inflation."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Successive governments have permitted such increases on the grounds that the cost of investing in and running the rail network should be borne by those who use it, rather than the general taxpayer."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "Why, the argument goes, should a car-driving pensioner from Lincolnshire have to subsidise the daily commute of a stockbroker from Surrey?"
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "Equally, there is a sense that the travails of commuters in the South East, many of whom will face among the biggest rises, have received too much attention compared to those who must endure the relatively poor infrastructure of the Midlands and the North."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "However, over the past 12 months, those commuters have also experienced some of the worst rail strikes in years."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "It is all very well train operators trumpeting the improvements they are making to the network, but passengers should be able to expect a basic level of service for the substantial sums they are now paying to travel."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "The responsibility for the latest wave of strikes rests on the unions."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "However, there is a strong case that those who have been worst affected by industrial action should receive compensation for the disruption they have suffered."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "The Government has pledged to change the law to introduce a minimum service requirement so that, even when strikes occur, services can continue to operate."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "This should form part of a wider package of measures to address the long-running problems on Britain’s railways."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "Yes, more investment is needed, but passengers will not be willing to pay more indefinitely if they must also endure cramped, unreliable services, interrupted by regular chaos when timetables are changed, or planned maintenance is managed incompetently."
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "The threat of nationalisation may have been seen off for now, but it will return with a vengeance if the justified anger of passengers is not addressed in short order."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 21,
+      "stem": "The author holds that this year’s increase in rail passenger fares _____",
+      "options": {
+        "A": "will ease train operators’ burden.",
+        "B": "has kept pace with inflation.",
+        "C": "is a big surprise to commuters.",
+        "D": "remains an unreasonable measure."
+      },
+      "answer": "D",
+      "analysis": "本题为细节题。根据题干关键词rail passengers fares定位到第一段①句。①句没有体现作者的观点，因此往下看一句，定位到②句：It has become a grimly reliable annual ritual ... imposing a significant extra burden on those...由grimly(冷酷地，讨厌地)和a significant extra burden(一个巨大的额外负担)可知，作者对铁路乘客车费上涨的态度是负面的。再根据题干关键词this year’s increase定位到第一段③句：This year’s rise, an average of 2.7 per cent, may be a fraction lower than last year’s, but it is still well above the official Consumer Price Index (CPI) measure of inflation.(今年平均2.7%的上涨，也许比去年的上涨稍微低一些，但是它仍然远远高于官方消费者物价指数衡量的通货膨胀程度)。由此进一步确定车费上涨是unreasonable(不合理的)。所以本题选D。"
+    },
+    {
+      "seq": 22,
+      "stem": "The stockbroker in Paragraph 2 is used to stand for _____",
+      "options": {
+        "A": "car drivers.",
+        "B": "rail travellers.",
+        "C": "local investors.",
+        "D": "ordinary taxpayers."
+      },
+      "answer": "B",
+      "analysis": "本题为例证题。根据题干关键词stockbroker定位到例子所在句，即第二段②句：Why ... should a car-driving pensioner ... have to subsidise the daily commute of a stockbroker...?(为什么一个开车的养老金领取者必须要补贴一个股票经纪人的日常通勤呢?)再找到前面的论点句：Successive governments have permitted such increases on the grounds that the cost of investing in and running the rail network should be borne by those who use it, rather than the general taxpayer(历届政府允许这种上涨，因为投资和运营铁路网的成本应该由使用它的人们来承担，而不是一般纳税人)。这段论述认为，没有使用铁路网的一般纳税人如开车的养老金领取者不应该承担铁路网成本，使用铁路网的人如股票经纪人才应该承担此成本。定位句中的stockbroker指的就是论点句中的those who use it。所以本题选B。"
+    },
+    {
+      "seq": 23,
+      "stem": "It is indicated in Paragraph 3 that train operators _____",
+      "options": {
+        "A": "are offering compensation to commuters.",
+        "B": "are trying to repair relations with the unions.",
+        "C": "have failed to provide an adequate service.",
+        "D": "have suffered huge losses owing to the strikes."
+      },
+      "answer": "C",
+      "analysis": "本题为细节题。根据题干关键词train operators定位到第三段②句：It is all very well train operators trumpeting the improvements they are making to the network, but passengers should be able to expect a basic level of service for the substantial sums they are now paying to travel(火车运营商宣扬他们对铁路网作出的改进无可非议，但考虑到乘客如今为出行支付的大量费用，他们理应能够期待基本水平的服务)。可见，火车运营商没能提供合格的服务。所以本题选C。"
+    },
+    {
+      "seq": 24,
+      "stem": "If unable to calm down passengers, the railways may have to face _____",
+      "options": {
+        "A": "the loss of investment.",
+        "B": "the collapse of operations.",
+        "C": "a reduction of revenue.",
+        "D": "a change of ownership."
+      },
+      "answer": "D",
+      "analysis": "本题为细节题。根据题干关键词If unable to calm down passengers定位到第四段④句：The threat of nationalisation may have been seen off for now, but it will return with a vengeance if the justified anger of passengers is not addressed in short order(国有化的威胁也许暂时可以避免，但是，如果乘客的正当愤怒不能被立即解决，这种威胁会卷土重来)。If unable to calm down passengers是if the justified anger of passengers is not addressed in short order的同义表达。可见，如果铁路公司不能让乘客镇静下来，铁路公司将会面临国有化的威胁，即所有权的变更。所以本题选D。"
+    },
+    {
+      "seq": 25,
+      "stem": "Which of the following would be the best title for the text?",
+      "options": {
+        "A": "Who Are to Blame for the Strikes?",
+        "B": "Constant Complaining Doesn’t Work",
+        "C": "Can Nationalisation Bring Hope?",
+        "D": "Ever-rising Fares Aren’t Sustainable"
+      },
+      "answer": "D",
+      "analysis": "本题为主旨大意题。文章首段提出铁路乘客车费再次上涨的问题，即文章讨论的主题;二段简单阐述历届政府允许车费上涨的理由;三至四段聚焦于乘客所付车费和享受到的服务不对等的问题，作者认为乘客应该受到补偿，英国铁路服务标准必须得到保障，并指出如果服务得不到保障，乘客将不会无止境地支付更多车费。D项中的Ever-Rising Fares(不断上涨的车费)是文章讨论的主题，Aren’t Sustainable(是不可持续的)是作者的观点。D项完整地概括了全文内容。所以本题选D。                                                                                    常见问题我要咨询                                                            2027考研初试时间是几月几号？ \t\t\t\t2027考研大纲什么时候出？                                 2027考研具体时间是几月几号？                                                                考研要考多少分才能上陕西院校？                                陕西院校考研报录比都是多少？                                陕西比较好考的研究生院校是哪些？                            我要咨询                                                2027年考研信息咨询(扫码)                            欢迎关注陕西考研栏目，及时掌握陕西考研信息!1 2 3 4 5 6声明：本站点发布的来源标注为“中公教育”的文章，版权均属中公教育所有，未经允许不得转载。免责声明：本站所提供试题均来源于网友提供或网络搜集，由本站编辑整理，仅供个人研究、交流学习使用，不涉及商业盈利目的。如涉及版权问题，请联系本站管理员予以更改或删除。400 6300 999投诉建议：400 6300 999转4网上有害信息举报京ICP备10218183号-1 京ICP证161188号 京公网安备11010802020593号 出版物经营许可证新出发京批字第直130052号 营业执照陕西                考研其他考试陕西公务员|国家公务员|事业单位招聘|教师招聘|特岗教师银行招聘|国企招聘|信合招聘|社区工作者|社会工作师教师资格证|医疗卫生招聘|辅警/消防员招聘|公益性岗考研|公选/遴选|选调生|会计取证|三支一扶|在职硕士消防员|军人考试|IT培训|消防工程师|大学生村官|建设工程专升本|中公法考|MBA/MPA地址：西安市未央区文景路与凤城四路十字西南角中公教育大厦电话：400-6300-999（8:30-18:00节假日不休）地址：宝鸡市高新区高新三路来福大厦4楼（中公教育）电话：400-6300-999 0917-3573111 （8:30-18:00节假日不休）地址：咸阳市渭城区北门口十字东南角瑞家大厦4F电话：400-6300-999 029-33238884 （8:30-18:00节假日不休）地址：临渭区一马路与西四路十字东南角光运新天地2楼电话：400-6300-999 0913-2037717 （8:30-18:00节假日不休）地址：铜川新区长丰市场公交站北侧三楼（邮政银行旁）电话：400-6300-999 0919-6781333 （8:30-18:00节假日不休）地址：榆林市西沙人民西路125-1中公教育电话：400-6300-999 0912-3883900 （8:30-18:00节假日不休）地址：延安大学老校区商贸楼（中国银行3楼）电话：400-6300-999 0911-8886990 （8:30-18:00节假日不休）地址：梁州路与风景路十字向东100米（陕西理工南门）电话：400-6300-999 0916-8811666 （8:30-18:00节假日不休）地址：安康市汉滨区解放路11号尚元大酒店二楼(华润万家斜对面)电话：400-6300-999 0915-3201428 （8:30-18:00节假日不休）地址：商洛市商州区中心街西街大都汇二楼（新华书店斜对面）电话：400-6300-999 0914-8086118 （8:30-18:00节假日不休）考研院校 招生简章 推免生 报名入口 考研大纲 成绩查询 分数线 考研复试 考研调剂 录取通知书 考研动态考研数学 考研政治 考研英语 联考综合 历年试题考研数学 考研英语 考研政治 联考综合 考研专业课考研专硕 复试调剂 综合备考面授课程 网校课程 视频直播课您现在的位置：首页 >考研 > 考试题库 > 英语题库 >往年考研 复试分数线查询平台点击Text 2Last year marked the third year in a row of when Indonesia’s bleak rate of deforestation has slowed in pace. One reason for the turnaround may be the country’s antipoverty program.In 2007, Indonesia started phasing in a program that gives money to its poorest residents under certain conditions, such as requiring people to keep kids in school or get regular medical care. Called conditional cash transfers or CCTs, these social assistance programs are designed to reduce inequality and break the cycle of poverty. ... In Indonesia, the program has provided enough food and medicine to substantially reduce severe growth problems among children.But CCT programs don’t generally consider effects on the environment. In fact, poverty alleviation and environmental protection are often viewed as conflicting goals, says Paul Ferraro, an economist at Johns Hopkins University.That’s because economic growth can be correlated with environmental degradation, while protecting the environment is sometimes correlated with greater poverty. However, those correlations don’t prove cause and effect. The only previous study analyzing causality, based on an area in Mexico that had instituted CCTs, supported the traditional view. There, as people got more money, some of them may have more cleared land for cattle to raise for meat, Ferraro says.Such programs do not have to negatively affect the environment, though. Ferraro wanted to see if Indonesia’s poverty-alleviation program was affecting deforestation. ...Ferraro analyzed satellite data showing annual forest loss from 2008 to 2012&mdash;including during Indonesia’s phase-in of the antipoverty program&mdash;in 7,468 forested villages across 15 provinces and multiple islands. Ferraro separated the effects of the CCT program on forest loss from other factors, ..., “we see that the program is associated with a 30 percent reduction in deforestation,” Ferraro says.That’s likely because the rural poor are using the money as makeshift insurance policies against inclement weather, Ferraro says. Typically, if rains are delayed, people may clear land to plant more rice to supplement their harvests. With the CCTs, individuals instead can use the money to supplement their harvests.Whether this research translates elsewhere is anybody’s guess. Ferraro suggests their results may transfer to other parts of Asia, due to commonalities such as the importance of growing rice and market access. And regardless of transferability, the study shows that what’s good for people may also be good for the environment, Ferraro says. Even if this program didn’t reduce poverty, he says, “the value of the avoided deforestation just for carbon dioxide emissions alone is more than the program costs.”26. According to the first two paragraphs, CCT programs aim to ______.A. facilitate health care reformB. help poor families get better offC. improve local education systemsD. lower deforestation rates27. The study based on an area in Mexico is cited to show that ______.A. cattle rearing has been a major means of livelihood for the poorB. CCT programs have helped preserve traditional lifestylesC. antipoverty efforts require the participation of local farmersD. economic growth tends to cause environmental degradation28. In his study about Indonesia, Ferraro intends to find out ______.A. its acceptance level of CCTsB. its annual rate of poverty alleviationC. the relation of CCTs to its forest lossD. the role of its forests in climate change29. According to Ferraro, the CCT program in Indonesia is most valuable in that ______.A. it will benefit other Asian countriesB. it will reduce regional inequalityC. it can protect the environmentD. it can boost grain production30. What is the text centered on?A. The effects of a program.B. The debates over a program.C. The process of a study.D. The transferability of a study."
+    }
+  ],
+  "glossary": {}
+}

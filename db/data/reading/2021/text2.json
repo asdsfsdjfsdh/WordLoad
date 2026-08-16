@@ -1,0 +1,191 @@
+{
+  "code": "B",
+  "title": "Text 2",
+  "subtitle": "现金转移计划(CCT)与减贫",
+  "questionsStart": 26,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Last year marked the third year in a row that Indonesia’s bleak rate of deforestation has slowed in pace."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "One reason for the turnaround may be the country’s antipoverty program."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "In 2007, Indonesia started phasing in a program that gives money to its poorest residents under certain conditions, such as requiring people to keep kids in school or get regular medical care."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Called conditional cash transfers or CCTs, these social assistance programs are designed to reduce inequality and break the cycle of poverty."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "They’re already used in dozens of countries worldwide."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "In Indonesia, the program has provided enough food and medicine to substantially reduce severe growth problems among children."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "But CCT programs don’t generally consider effects on the environment."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "In fact, poverty alleviation and environmental protection are often viewed as conflicting goals, says Paul Ferraro, an economist at Johns Hopkins University."
+    },
+    {
+      "para": 4,
+      "seq": 8,
+      "en": "That’s because economic growth can be correlated with environmental degradation, while protecting the environment is sometimes correlated with greater poverty."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "However, those correlations don’t prove cause and effect."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "The only previous study analyzing causality, based on an area in Mexico that had instituted CCTs, supported the traditional view."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "There, as people got more money, some of them may have more cleared land for cattle to raise for meat, Ferraro says."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "Such programs do not have to negatively affect the environment, though."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "Ferraro wanted to see if Indonesia’s poverty-alleviation program was affecting deforestation."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "Indonesia has the third-largest area of tropical forest in the world and one of the highest deforestation rates."
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "Ferraro analyzed satellite data showing annual forest loss from 2008 to 2012 — including during Indonesia’s phase-in of the antipoverty program — in 7,468 forested villages across 15 provinces."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "“We see that the program is associated with a 30 percent reduction in deforestation,” Ferraro says."
+    },
+    {
+      "para": 7,
+      "seq": 17,
+      "en": "That’s likely because the rural poor are using the money as makeshift insurance policies against inclement weather, Ferraro says."
+    },
+    {
+      "para": 7,
+      "seq": 18,
+      "en": "Typically, if rains are delayed, people may clear land to plant more rice to supplement their harvests."
+    },
+    {
+      "para": 7,
+      "seq": 19,
+      "en": "With the CCTs, individuals instead can use the money to supplement their harvests."
+    },
+    {
+      "para": 8,
+      "seq": 20,
+      "en": "Whether this research translates elsewhere is anybody’s guess."
+    },
+    {
+      "para": 8,
+      "seq": 21,
+      "en": "Ferraro suggests the results may transfer to other parts of Asia, due to commonalities such as the importance of growing rice and market access."
+    },
+    {
+      "para": 8,
+      "seq": 22,
+      "en": "And regardless of transferability, the study shows that what’s good for people may also be good for the environment."
+    },
+    {
+      "para": 8,
+      "seq": 23,
+      "en": "Even if this program didn’t reduce poverty, Ferraro says, “the value of the avoided deforestation just for carbon dioxide emissions alone is more than the program costs.”"
+    }
+  ],
+  "questions": [
+    {
+      "seq": 26,
+      "stem": "According to the first two paragraphs, CCT programs aim to ____",
+      "options": {
+        "A": "facilitate health care reform.",
+        "B": "help poor families get better off.",
+        "C": "improve local education systems.",
+        "D": "lower deforestation rates."
+      },
+      "answer": "B",
+      "analysis": "本题为细节题。根据题干关键词first two paragraphs，CCT programs和aim to定位到第二段②句，其中aim to对应are designed to：Called conditional cash transfers or CCTs, these social assistance programs are designed to reduce inequality and break the cycle of poverty。help poor families get better off是对break the cycle of poverty的同义替换。所以本题选B。"
+    },
+    {
+      "seq": 27,
+      "stem": "The study based on an area in Mexico is cited to show that ____",
+      "options": {
+        "A": "cattle rearing has been a major means of livelihood for the poor.",
+        "B": "CCT programs have helped preserve traditional lifestyles.",
+        "C": "antipoverty efforts require the participation of local farmers.",
+        "D": "economic growth tends to cause environmental degradation."
+      },
+      "answer": "D",
+      "analysis": "本题为例证题。根据题干关键词The study based on an area in Mexico定位到第四段③句，再找到前面的论点句：That’s because economic growth can be correlated with environmental degradation, while protecting the environment is sometimes correlated with greater poverty。所以本题选D。"
+    },
+    {
+      "seq": 28,
+      "stem": "In his study about Indonesia, Ferraro intends to find out ____",
+      "options": {
+        "A": "its acceptance level of CCTs.",
+        "B": "its annual rate of poverty alleviation.",
+        "C": "the relation of CCTs to its forest loss.",
+        "D": "the role of its forests in climate change."
+      },
+      "answer": "C",
+      "analysis": "本题为细节题。根据题干关键词Indonesia和Ferraro，并结合题文同序原则定位到第五段②句：Ferraro wanted to see if Indonesia’s poverty-alleviation program was affecting deforestation。the relation of CCTs to its forest loss是对Indonesia’s poverty-alleviation program was affecting deforestation的同义替换，其中CCTs对应Indonesia’s poverty-alleviation program，forest loss对应deforestation。所以本题选C。"
+    },
+    {
+      "seq": 29,
+      "stem": "According to Ferraro, the CCT program in Indonesia is most valuable in that ____",
+      "options": {
+        "A": "it will benefit other Asian countries.",
+        "B": "it will reduce regional inequality.",
+        "C": "it can protect the environment.",
+        "D": "it can boost grain production."
+      },
+      "answer": "C",
+      "analysis": "本题为细节题。根据题干关键词Ferraro，program和valuable定位到第八段④句：Even if this program didn’t reduce poverty, he says, “the value of the avoided deforestation just for carbon dioxide emissions alone is more than the program costs.”。由④句可知，Ferraro认为“即使CCT项目不能减少贫困，仅就二氧化碳排放量而言，避免森林砍伐的价值也超过了该项目的成本”。故可推知Ferraro认为CCT项目能够保护环境，因此具有重要价值。所以本题选C。"
+    },
+    {
+      "seq": 30,
+      "stem": "What is the text centered on?",
+      "options": {
+        "A": "The effects of a program.",
+        "B": "The debates over a program.",
+        "C": "The process of a study.",
+        "D": "The transferability of a study."
+      },
+      "answer": "A",
+      "analysis": "本题为主旨大意题。文章首段由印度尼西亚的rate of deforestation has slowed in pace(森林砍伐速度下降)以及推动该转变的antipoverty program(扶贫项目)引出话题;随后二至四段指出旨在扶贫的CCT项目重视经济发展，这可能会对环境产生不良影响;五至八段作者借经济学家Ferraro的研究指出，CCT项目其实有助于减少森林砍伐量，反而对保护环境有积极影响。故本文集中讨论了CCT项目对于环境的effects(影响)，A项符合。所以本题选A。常见问题我要咨询                                                            2027考研初试时间是几月几号？ \t\t\t\t2027考研大纲什么时候出？                                 2027考研具体时间是几月几号？                                                                考研要考多少分才能上陕西院校？                                陕西院校考研报录比都是多少？                                陕西比较好考的研究生院校是哪些？                            我要咨询                                                2027年考研信息咨询(扫码)                            欢迎关注陕西考研栏目，及时掌握陕西考研信息!1 2 3 4 5 6声明：本站点发布的来源标注为“中公教育”的文章，版权均属中公教育所有，未经允许不得转载。免责声明：本站所提供试题均来源于网友提供或网络搜集，由本站编辑整理，仅供个人研究、交流学习使用，不涉及商业盈利目的。如涉及版权问题，请联系本站管理员予以更改或删除。400 6300 999投诉建议：400 6300 999转4网上有害信息举报京ICP备10218183号-1 京ICP证161188号 京公网安备11010802020593号 出版物经营许可证新出发京批字第直130052号 营业执照陕西                考研其他考试陕西公务员|国家公务员|事业单位招聘|教师招聘|特岗教师银行招聘|国企招聘|信合招聘|社区工作者|社会工作师教师资格证|医疗卫生招聘|辅警/消防员招聘|公益性岗考研|公选/遴选|选调生|会计取证|三支一扶|在职硕士消防员|军人考试|IT培训|消防工程师|大学生村官|建设工程专升本|中公法考|MBA/MPA地址：西安市未央区文景路与凤城四路十字西南角中公教育大厦电话：400-6300-999（8:30-18:00节假日不休）地址：宝鸡市高新区高新三路来福大厦4楼（中公教育）电话：400-6300-999 0917-3573111 （8:30-18:00节假日不休）地址：咸阳市渭城区北门口十字东南角瑞家大厦4F电话：400-6300-999 029-33238884 （8:30-18:00节假日不休）地址：临渭区一马路与西四路十字东南角光运新天地2楼电话：400-6300-999 0913-2037717 （8:30-18:00节假日不休）地址：铜川新区长丰市场公交站北侧三楼（邮政银行旁）电话：400-6300-999 0919-6781333 （8:30-18:00节假日不休）地址：榆林市西沙人民西路125-1中公教育电话：400-6300-999 0912-3883900 （8:30-18:00节假日不休）地址：延安大学老校区商贸楼（中国银行3楼）电话：400-6300-999 0911-8886990 （8:30-18:00节假日不休）地址：梁州路与风景路十字向东100米（陕西理工南门）电话：400-6300-999 0916-8811666 （8:30-18:00节假日不休）地址：安康市汉滨区解放路11号尚元大酒店二楼(华润万家斜对面)电话：400-6300-999 0915-3201428 （8:30-18:00节假日不休）地址：商洛市商州区中心街西街大都汇二楼（新华书店斜对面）电话：400-6300-999 0914-8086118 （8:30-18:00节假日不休）考研院校 招生简章 推免生 报名入口 考研大纲 成绩查询 分数线 考研复试 考研调剂 录取通知书 考研动态考研数学 考研政治 考研英语 联考综合 历年试题考研数学 考研英语 考研政治 联考综合 考研专业课考研专硕 复试调剂 综合备考面授课程 网校课程 视频直播课您现在的位置：首页 >考研 > 考试题库 > 英语题库 >往年考研 复试分数线查询平台点击Text 3As a historian who’s always searching for the text or the image that makes us re-evaluate the past, I’ve become preoccupied with looking for photographs that show our Victorian ancestors smiling (what better way to shatter the image of 19th-century prudery?). I’ve found quite a few, and&mdash;since I started posting them on Twitter&mdash;they have been causing quite a stir. People have been surprised to see evidence that Victorians had fun and could, and did, laugh. They are noting that the Victorians suddenly seem to become more human as the hundred-or-so years that separate us fade away through our common experience of laughter.Of course, I need to concede that my collection of ‘Smiling Victorians’ makes up only a tiny percentage of the vast catalogue of photographic portraiture created between 1840 and 1900, ... How do we explain this trend?During the 1840s and 1850s, in the early days of photography, exposure times were notoriously long: the daguerreotype photographic method (producing an image on a silvered copper plate) could take several minutes to complete, .., and so a non-committal blank stare became the norm.But exposure times were much quicker by the 1880s, and the introduction of the Box Brownie and other portable cameras meant that, though slow by today’s digital standards, the exposure was almost instantaneous. Spontaneous smiles were relatively easy to capture by the 1890s, so we must look elsewhere for an explanation of why Victorians still hesitated to smile.One explanation might be the loss of dignity displayed through a cheesy grin. “Nature gave us lips to conceal our teeth,” ran one popular Victorian saying, alluding to the fact that before the birth of proper dentistry, mouths were often in a shocking state of hygiene. A flashing set of healthy and clean, regular ‘pearly whites’ was a rare sight in Victorian society, the preserve of the super-rich (and even then, dental hygiene was not guaranteed).A toothy grin (especially when there were gaps or blackened teeth) lacked class: drunks, tramps and music hall performers might gurn and grin with a smile as wide as Lewis Carroll’s gum-exposing Cheshire Cat, but it was not a becoming look for properly bred persons. Even Mark Twain, a man who enjoyed a hearty laugh, said that when it came to photographic portraits there could be “nothing more damning than a silly, foolish smile fixed forever”.31. According to Paragraph 1, the author’s posts on Twitter ______.A. changed people’s impression of the VictoriansB. highlighted social media’s role in Victorian studiesC. re-evaluated the Victorians’ notion of public imageD. illustrated the development of Victorian photography32. What does the author say about the Victorian portraits he has collected?A. They are in popular use among historians.B. They are rare among photographs of that age.C. They mirror 19th-century social conventions.D. They show effects of different exposure times.33. What might have kept the Victorians from smiling for pictures in the 1890s?A. Their inherent social sensitiveness.B. Their tension before the camera.C. Their distrust of new inventions.D. Their unhealthy dental condition.34. Mark Twain is quoted to show that the disapproval of smiles in pictures was ______.A. a deep-root beliefB. a misguided attitudeC. a controversial viewD. a thought-provoking idea35. Which of the following questions does the text answer?A. Why did most Victorians look stern in photographs?B. When did the Victorians start to view photographs?C. What made photography develop slowly in the Victorian period?D. How did smiling in photographs become a post-Victorian norm?"
+    }
+  ],
+  "glossary": {}
+}

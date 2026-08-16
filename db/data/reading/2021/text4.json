@@ -1,0 +1,146 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "美国的网络中立性之争",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "From the early days of broadband, advocates for consumers and web-based companies worried that the cable and phone companies selling broadband connections had the power and incentive to favor affiliated websites over their rivals’."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "That’s why there has been such a strong demand for rules that would prevent broadband providers from picking winners and losers online, preserving the freedom and innovation that have been the lifeblood of the Internet."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "Yet that demand has been almost impossible to fill — in part because of pushback from broadband providers, anti-regulatory conservatives and the courts."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "A federal appeals court weighed in again Tuesday, but instead of providing a badly needed resolution, it only prolonged the fight."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "At issue before the US Court of Appeals for the District of Columbia Circuit was the latest take of the Federal Communications Commission (FCC) on net neutrality, adopted on a party-line vote in 2017."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "The Republican penned order not only eliminated the strict net neutrality rules the FCC had adopted when it had a Democratic majority in 2015, but rejected the commission’s authority to require broadband providers to do much of anything."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "The order also declared that state and local governments couldn’t regulate broadband providers either."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "The commission argued that other agencies would protect against anti-competitive behavior, such as a broadband-providing conglomerate like AT&T favoring its own video- streaming service at the expense of Netflix and Apple TV."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "Yet the FCC also ended the investigations of broadband providers that imposed data caps on their rivals’ streaming services but not their own."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "On Tuesday, the appeals court unanimously upheld the 2017 order deregulating broadband providers, citing a Supreme Court ruling from 2005 that upheld a similarly deregulatory move."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "But Judge Patricia Millett rightly argued in a concurring opinion that “the result is unhinged from the realities of modern broadband service,” and said Congress or the Supreme Court could intervene to “avoid trapping Internet regulation in technological anachronism.”"
+    },
+    {
+      "para": 5,
+      "seq": 11,
+      "en": "In the meantime, the court threw out the FCC’s attempt to block all state rules on net neutrality, while preserving the commission’s power to preempt individual state laws that undermine its order."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "That means more battles like the one now going on between the Justice Department and California, which enacted a tough net neutrality law in the wake of the FCC’s abdication."
+    },
+    {
+      "para": 6,
+      "seq": 13,
+      "en": "The endless legal battles and back-and-forth at the FCC cry out for Congress to act."
+    },
+    {
+      "para": 6,
+      "seq": 14,
+      "en": "It needs to give the commission explicit authority once and for all to bar broadband providers from meddling in the traffic on their network and to create clear rules protecting openness and innovation online."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "There has long been concern that broadband providers would ____",
+      "options": {
+        "A": "bring web-based firms under control.",
+        "B": "slow down the traffic on their network.",
+        "C": "show partiality in treating clients.",
+        "D": "intensify competition with their rivals."
+      },
+      "answer": "C",
+      "analysis": "本题为细节题。根据题干关键词long been concern that broadband providers定位到第一段①句：From the early days of broadband, advocates for consumers and web-based companies worried that the cable and phone companies selling broadband internet connections had the power and incentive to favor their own or their partners’ websites and services over those of their rivals，题干中long与文中From the early days of broadband对应，concern与worried对应，the cable and phone companies selling broadband internet connections与broadband providers对应。show partiality in treating clients(不公平对待客户)是对favor their own or their partners’ websites and services over those of their rivals(相对于竞争对手的网站和服务，它们偏袒自己或合作伙伴的)的合理推断。所以本题选C。                                                                                    常见问题我要咨询                                                            2027考研初试时间是几月几号？ \t\t\t\t2027考研大纲什么时候出？                                 2027考研具体时间是几月几号？                                                                考研要考多少分才能上陕西院校？                                陕西院校考研报录比都是多少？                                陕西比较好考的研究生院校是哪些？                            我要咨询                                                2027年考研信息咨询(扫码)                            欢迎关注陕西考研栏目，及时掌握陕西考研信息!1 2 3 4 5 6声明：本站点发布的来源标注为“中公教育”的文章，版权均属中公教育所有，未经允许不得转载。免责声明：本站所提供试题均来源于网友提供或网络搜集，由本站编辑整理，仅供个人研究、交流学习使用，不涉及商业盈利目的。如涉及版权问题，请联系本站管理员予以更改或删除。400 6300 999投诉建议：400 6300 999转4网上有害信息举报京ICP备10218183号-1 京ICP证161188号 京公网安备11010802020593号 出版物经营许可证新出发京批字第直130052号 营业执照陕西                考研其他考试陕西公务员|国家公务员|事业单位招聘|教师招聘|特岗教师银行招聘|国企招聘|信合招聘|社区工作者|社会工作师教师资格证|医疗卫生招聘|辅警/消防员招聘|公益性岗考研|公选/遴选|选调生|会计取证|三支一扶|在职硕士消防员|军人考试|IT培训|消防工程师|大学生村官|建设工程专升本|中公法考|MBA/MPA地址：西安市未央区文景路与凤城四路十字西南角中公教育大厦电话：400-6300-999（8:30-18:00节假日不休）地址：宝鸡市高新区高新三路来福大厦4楼（中公教育）电话：400-6300-999 0917-3573111 （8:30-18:00节假日不休）地址：咸阳市渭城区北门口十字东南角瑞家大厦4F电话：400-6300-999 029-33238884 （8:30-18:00节假日不休）地址：临渭区一马路与西四路十字东南角光运新天地2楼电话：400-6300-999 0913-2037717 （8:30-18:00节假日不休）地址：铜川新区长丰市场公交站北侧三楼（邮政银行旁）电话：400-6300-999 0919-6781333 （8:30-18:00节假日不休）地址：榆林市西沙人民西路125-1中公教育电话：400-6300-999 0912-3883900 （8:30-18:00节假日不休）地址：延安大学老校区商贸楼（中国银行3楼）电话：400-6300-999 0911-8886990 （8:30-18:00节假日不休）地址：梁州路与风景路十字向东100米（陕西理工南门）电话：400-6300-999 0916-8811666 （8:30-18:00节假日不休）地址：安康市汉滨区解放路11号尚元大酒店二楼(华润万家斜对面)电话：400-6300-999 0915-3201428 （8:30-18:00节假日不休）地址：商洛市商州区中心街西街大都汇二楼（新华书店斜对面）电话：400-6300-999 0914-8086118 （8:30-18:00节假日不休）考研院校 招生简章 推免生 报名入口 考研大纲 成绩查询 分数线 考研复试 考研调剂 录取通知书 考研动态考研数学 考研政治 考研英语 联考综合 历年试题考研数学 考研英语 考研政治 联考综合 考研专业课考研专硕 复试调剂 综合备考面授课程 网校课程 视频直播课您现在的位置：首页 >考研 > 考试题库 > 英语题库 >往年考研 复试分数线查询平台点击"
+    },
+    {
+      "seq": 37,
+      "stem": "Faced with the demand for net neutrality rules, the FCC ____",
+      "options": {
+        "A": "sticks to an out-of-date order.",
+        "B": "takes an anti-regulatory stance.",
+        "C": "has issued a special resolution.",
+        "D": "has allowed the states to intervene."
+      },
+      "answer": "B",
+      "analysis": "本题为细节题。根据题干关键词neutrality rules和the FCC定位到第二段③④句，且由④⑤句The Republican-penned order … The order also …可知，⑤句与④句并列。③句指出“在哥伦比亚特区巡回上诉法院问题的焦点是FCC针对网络中立性的最新观点”;④句阐释FCC的最新观点(其中句首The Republican-penned order字面意思为“由共和党执笔的规定”，根据④句提到的when it had a Democratic majority in 2015，即“2015年民主党人占FCC的多数”可推知，The Republican-penned order出台时共和党人占FCC的多数，故The … order指代“FCC的规定”，也即③句所述FCC的最新观点)：不仅取消了严格的网络中立性规则，而且拒绝了该委员会要求宽带提供商除了披露其服务信息之外做其他任何事情的权力;⑤句补充指出：该规定还宣布州和地方政府也不能监管宽带提供商。综上可推知，FCC采取反监管立场。所以本题选B。【注】本题也可借助第五段首句提到的the FCC’s attempt to block all state rules on net neutrality(FCC试图阻止所有关于网络中立性的州规)解题，据此推知FCC的立场是“反对监管”。"
+    },
+    {
+      "seq": 38,
+      "stem": "What can be learned about AT&T from Paragraph 3?",
+      "options": {
+        "A": "It protects against unfair competition.",
+        "B": "It engages in anti-competitive practices",
+        "C": "It is under the FCC’s investigation.",
+        "D": "It is in pursuit of quality service."
+      },
+      "answer": "B",
+      "analysis": "本题为细节题。根据题干关键词AT&T定位到第三段①句：The commission argued that the Federal Trade Commission and the U.S. Department of Justice would protect consumers and websites against anti-competitive behavior, such as a broadband-providing conglomerate like AT&T favoring its own video-streaming service at the expense of Netflix and Apple TV。由such as引出事例的功能可知，a broadband-providing conglomerate like AT&T favoring its own video-streaming service...是以AT&T为例，对anti-competitive behavior(反竞争行为)予以说明，因此可知AT&T参与了反竞争行为。所以本题选B。"
+    },
+    {
+      "seq": 39,
+      "stem": "Judge Patricia Millett argues that the appeals court’s decision ____",
+      "options": {
+        "A": "focuses on trivialities.",
+        "B": "conveys an ambiguous message.",
+        "C": "is at odds with its earlier rulings.",
+        "D": "is out of touch with reality."
+      },
+      "answer": "D",
+      "analysis": "本题为细节题。根据题干关键词Judge Patricia Millett定位到第四段②句：But Judge Patricia Millett rightly argued in a concurring opinion that “the result is unhinged from the realities of modern broadband service,” and said...，结合①句(On Tuesday, the appeals court unanimously upheld the 2017 order...)可知，引号中the result指代题干中的the appeals court’s decision。is out of touch with reality(脱离现实)是对is unhinged from the realities of modern broadband service(脱离了现代宽带服务的现实)的同义替换。所以本题选D。"
+    },
+    {
+      "seq": 40,
+      "stem": "What does the author argue in the last paragraph?",
+      "options": {
+        "A": "Congress needs to take action to ensure net neutrality.",
+        "B": "The FCC should be put under strict supervision.",
+        "C": "Rules need to be set to diversify online services.",
+        "D": "Broadband providers’ rights should be protected."
+      },
+      "answer": "A",
+      "analysis": "本题为推断题。根据the last paragraph定位到最后一段。本段首句指出“没完没了的法律斗争和联邦通信委员会的反反复复迫切需要国会采取行动”，第二句进一步介绍国会应采取的行动(句首It指代Congress)：需要给予委员会明确的权力，一劳永逸地禁止宽带提供商干预其网络上的流量，并制定明确的规则来保护网络的开放性和创新。Congress needs to take action to ensure net neutrality(国会需要采取行动确保网络中立)是对本段内容的合理推断，其中take action与首句中act对应，to ensure net neutrality是对to bar broadband providers from meddling in the traffic on their network and to create clear rules protecting openness and innovation online的概括总结。所以本题选A。欢迎关注陕西考研栏目，及时掌握陕西考研信息!1 2 3 4 5 6声明：本站点发布的来源标注为“中公教育”的文章，版权均属中公教育所有，未经允许不得转载。免责声明：本站所提供试题均来源于网友提供或网络搜集，由本站编辑整理，仅供个人研究、交流学习使用，不涉及商业盈利目的。如涉及版权问题，请联系本站管理员予以更改或删除。400 6300 999投诉建议：400 6300 999转4网上有害信息举报京ICP备10218183号-1 京ICP证161188号 京公网安备11010802020593号 出版物经营许可证新出发京批字第直130052号 营业执照"
+    }
+  ],
+  "glossary": {}
+}

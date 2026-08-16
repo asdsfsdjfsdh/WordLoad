@@ -13,7 +13,12 @@ import type {
   ReadingSubmitResponse,
   ReadingWordLookupResult,
 } from '@word-journey/shared';
-import { lookupReadingWord, normalizeReadingWord, tokenizeReadingSentence } from '@word-journey/shared';
+import {
+  lookupReadingWord,
+  normalizeReadingWord,
+  readingWordCandidates,
+  tokenizeReadingSentence,
+} from '@word-journey/shared';
 import type { ReadingSentenceStructure } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { scoreReading } from './scoring';
@@ -373,19 +378,21 @@ export class ReadingService {
       return { found: true, source: 'glossary', word: entry.word, meaning: entry.meaning };
     }
 
-    // 2) 回退单词库（MySQL 默认大小写不敏感）
-    const w = await this.prisma.word.findFirst({
-      where: { text: word },
-      include: { senses: { orderBy: { idx: 'asc' }, take: 1 } },
-    });
-    if (w && w.senses.length > 0) {
-      return {
-        found: true,
-        source: 'wordbank',
-        word: w.text,
-        phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
-        meaning: w.senses[0]?.meaning,
-      };
+    // 2) 回退单词库（MySQL 默认大小写不敏感；带屈折回退，支持复数/时态词形）
+    for (const candidate of readingWordCandidates(word)) {
+      const w = await this.prisma.word.findFirst({
+        where: { text: candidate },
+        include: { senses: { orderBy: { idx: 'asc' }, take: 1 } },
+      });
+      if (w && w.senses.length > 0) {
+        return {
+          found: true,
+          source: 'wordbank',
+          word: w.text,
+          phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
+          meaning: w.senses[0]?.meaning,
+        };
+      }
     }
     return { found: false };
   }
