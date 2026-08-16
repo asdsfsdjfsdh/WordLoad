@@ -10,7 +10,7 @@ export class StatsService {
   constructor(private readonly prisma: PrismaService) {}
 
   async overview(userId: number): Promise<StatsOverview> {
-    const [sessions, answered, correct, timeAgg, words, progress] = await Promise.all([
+    const [sessions, answered, correct, timeAgg, words, progress, runs, activeRuns] = await Promise.all([
       this.prisma.learningSession.findMany({
         where: { userId },
         select: { result: true, phase: true, bossCleared: true, maxCombo: true, rating: true, xpEarned: true, coinsEarned: true, createdAt: true },
@@ -21,30 +21,40 @@ export class StatsService {
       this.prisma.word.findMany({ select: { id: true, tier: true } }),
       this.prisma.userWordProgress.findMany({
         where: { userId },
-        select: { wordId: true, mastery: true, inWrongBook: true },
+        select: { wordId: true, mastery: true, inWrongBook: true, skipped: true },
       }),
+      this.prisma.run.findMany({
+        where: { userId, status: 'finished' },
+        select: { day: true, bossClearedCount: true },
+      }),
+      this.prisma.run.count({ where: { userId, status: 'active' } }),
     ]);
 
-    const totalSessions = sessions.length;
-    const totalWins = sessions.filter((s) => s.result).length;
-    const totalXpEarned = sessions.reduce((acc, s) => acc + s.xpEarned, 0);
-    const totalCoinsEarned = sessions.reduce((acc, s) => acc + s.coinsEarned, 0);
-    const bestMaxCombo = sessions.reduce((acc, s) => Math.max(acc, s.maxCombo), 0);
-    const bossSessions = sessions.filter((s) => s.phase === 'boss');
+    const settled = sessions.filter((s) => s.result);
+    const totalSessions = settled.length;
+    const totalWins = settled.filter((s) => {
+      const idx = RATINGS.indexOf(s.rating as Rating);
+      return idx >= RATINGS.indexOf('B');
+    }).length;
+    const totalXpEarned = settled.reduce((acc, s) => acc + s.xpEarned, 0);
+    const totalCoinsEarned = settled.reduce((acc, s) => acc + s.coinsEarned, 0);
+    const bestMaxCombo = settled.reduce((acc, s) => Math.max(acc, s.maxCombo), 0);
+    const bossSessions = settled.filter((s) => s.phase === 'boss');
     const bossFights = bossSessions.length;
     const bossWins = bossSessions.filter((s) => s.bossCleared).length;
 
     const ratingCounts: Record<Rating, number> = { C: 0, B: 0, A: 0, S: 0, SS: 0, SSS: 0 };
-    for (const s of sessions) {
+    for (const s of settled) {
       const r = s.rating as Rating;
       if (RATINGS.includes(r)) ratingCounts[r] += 1;
     }
 
     const { current, longest } = this.streaks(sessions.map((s) => toDateStr(s.createdAt)));
 
-    const mastered = new Set(progress.filter((p) => p.mastery >= 100).map((p) => p.wordId));
+    const mastered = new Set(progress.filter((p) => p.mastery >= 100 && !p.skipped).map((p) => p.wordId));
     const encountered = new Set(progress.map((p) => p.wordId));
     const wrongbook = new Set(progress.filter((p) => p.inWrongBook).map((p) => p.wordId));
+    const skipped = new Set(progress.filter((p) => p.skipped).map((p) => p.wordId));
     const tiers: DifficultyTier[] = ['I', 'II', 'III', 'IV'];
     const tierStats = tiers.map((tier) => {
       const tierWords = words.filter((w) => w.tier === tier);
@@ -71,6 +81,7 @@ export class StatsService {
       accuracy: totalAnswered ? Math.round((totalCorrect / totalAnswered) * 100) : 0,
       masteredWords: mastered.size,
       wrongbookWords: wrongbook.size,
+      skippedWords: skipped.size,
       bestMaxCombo,
       bossFights,
       bossWins,
@@ -78,6 +89,7 @@ export class StatsService {
       longestStreak: longest,
       ratingCounts,
       tierStats,
+      ...aggregateRuns(runs, activeRuns),
     };
   }
 
@@ -215,6 +227,24 @@ export class StatsService {
 
 function emptyPoint(date: string): StatsTrendPoint {
   return { date, sessions: 0, answered: 0, correct: 0, accuracy: 0, xpEarned: 0, coinsEarned: 0, studyMs: 0, newWords: 0 };
+}
+
+// 生存 Run 聚合（纯函数，可单测）
+export interface RunAggregate {
+  totalRuns: number;
+  bestRunDays: number;
+  totalBossCleared: number;
+  activeRunCount: number;
+}
+
+export function aggregateRuns(runs: { day: number; bossClearedCount: number }[], activeRunCount: number): RunAggregate {
+  let bestRunDays = 0;
+  let totalBossCleared = 0;
+  for (const r of runs) {
+    if (r.day > bestRunDays) bestRunDays = r.day;
+    totalBossCleared += r.bossClearedCount;
+  }
+  return { totalRuns: runs.length, bestRunDays, totalBossCleared, activeRunCount };
 }
 
 function startOfToday(): Date {

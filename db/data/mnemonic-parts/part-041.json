@@ -1,0 +1,402 @@
+[
+  {
+    "text": "intimidate",
+    "mnemonic": "in+timid胆怯+ate，恐吓"
+  },
+  {
+    "text": "prosperous",
+    "mnemonic": "prosper繁荣+ous"
+  },
+  {
+    "text": "notebook",
+    "mnemonic": "note记+book本"
+  },
+  {
+    "text": "ease",
+    "mnemonic": "ease源自舒适，轻松"
+  },
+  {
+    "text": "persecute",
+    "mnemonic": "per+secut追+e，迫害"
+  },
+  {
+    "text": "waggon",
+    "mnemonic": "waggon=四轮车，waggo车"
+  },
+  {
+    "text": "pose",
+    "mnemonic": "pose=摆姿势，posture姿势"
+  },
+  {
+    "text": "comprise",
+    "mnemonic": "com+prise拿，包含"
+  },
+  {
+    "text": "dynamic",
+    "mnemonic": "dynam力+ic，动态"
+  },
+  {
+    "text": "transmit",
+    "mnemonic": "trans+mit送，传输"
+  },
+  {
+    "text": "vertical",
+    "mnemonic": "vertex顶点变vertical"
+  },
+  {
+    "text": "orientation",
+    "mnemonic": "orient东方+ation，方向"
+  },
+  {
+    "text": "ultimate",
+    "mnemonic": "ultim最+ate，终极"
+  },
+  {
+    "text": "subsidy",
+    "mnemonic": "sub+sid坐+y，补贴"
+  },
+  {
+    "text": "navigation",
+    "mnemonic": "navigate导航+ion"
+  },
+  {
+    "text": "stead",
+    "mnemonic": "stead源自位置，steadfast坚定"
+  },
+  {
+    "text": "press",
+    "mnemonic": "press=压，impression印象"
+  },
+  {
+    "text": "obstruction",
+    "mnemonic": "obstruct阻碍+ion"
+  },
+  {
+    "text": "tense",
+    "mnemonic": "tense源自拉紧，紧张"
+  },
+  {
+    "text": "otherwise",
+    "mnemonic": "other其他+wise方式"
+  },
+  {
+    "text": "cabbage",
+    "mnemonic": "cabbage源自头，卷心菜"
+  },
+  {
+    "text": "temper",
+    "mnemonic": "temper源自调节，脾气"
+  },
+  {
+    "text": "crab",
+    "mnemonic": "crab=螃蟹，crabbed易怒"
+  },
+  {
+    "text": "maintenance",
+    "mnemonic": "maintain维护+ance"
+  },
+  {
+    "text": "crude",
+    "mnemonic": "crude源自生，粗糙"
+  },
+  {
+    "text": "reduce",
+    "mnemonic": "re+duce引，减少"
+  },
+  {
+    "text": "latent",
+    "mnemonic": "latent源自藏，潜伏"
+  },
+  {
+    "text": "expenditure",
+    "mnemonic": "expend花费+iture"
+  },
+  {
+    "text": "shape",
+    "mnemonic": "shape=形状，reshape重塑"
+  },
+  {
+    "text": "sensible",
+    "mnemonic": "sense感觉+ible，明智"
+  },
+  {
+    "text": "monotonous",
+    "mnemonic": "mono单+ton音+ous，单调"
+  },
+  {
+    "text": "machine",
+    "mnemonic": "machine源自巧，机器"
+  },
+  {
+    "text": "starch",
+    "mnemonic": "starch源自使硬，淀粉"
+  },
+  {
+    "text": "threaten",
+    "mnemonic": "threat威胁+en"
+  },
+  {
+    "text": "strike",
+    "mnemonic": "strike=打击/罢工"
+  },
+  {
+    "text": "bank",
+    "mnemonic": "bank源自凳，银行"
+  },
+  {
+    "text": "minus",
+    "mnemonic": "minus=减，minus sign负号"
+  },
+  {
+    "text": "textile",
+    "mnemonic": "text织+ile，纺织品"
+  },
+  {
+    "text": "sympathize",
+    "mnemonic": "sympathy同情变+ize"
+  },
+  {
+    "text": "dairy",
+    "mnemonic": "dairy=乳品，dairy farm奶牛场"
+  },
+  {
+    "text": "permit",
+    "mnemonic": "per+mit送，允许"
+  },
+  {
+    "text": "disguise",
+    "mnemonic": "dis+guise装束，伪装"
+  },
+  {
+    "text": "toil",
+    "mnemonic": "toil=苦干，toils劳苦"
+  },
+  {
+    "text": "cultivate",
+    "mnemonic": "cult耕种+ivate，栽培"
+  },
+  {
+    "text": "arc",
+    "mnemonic": "arc=弧，arctic北极形近"
+  },
+  {
+    "text": "motive",
+    "mnemonic": "mot动+ive，动机"
+  },
+  {
+    "text": "pipe",
+    "mnemonic": "pipe=管道，pipeline管道"
+  },
+  {
+    "text": "impress",
+    "mnemonic": "im+press压，留下印象"
+  },
+  {
+    "text": "conventional",
+    "mnemonic": "convention惯例+al"
+  },
+  {
+    "text": "segment",
+    "mnemonic": "seg切+ment，部分"
+  },
+  {
+    "text": "fine",
+    "mnemonic": "fine=好/罚款/精细"
+  },
+  {
+    "text": "menace",
+    "mnemonic": "menace源自威胁，恐吓"
+  },
+  {
+    "text": "swamp",
+    "mnemonic": "swamp=沼泽，swamped淹没"
+  },
+  {
+    "text": "inquire",
+    "mnemonic": "in+quire问，询问"
+  },
+  {
+    "text": "housewife",
+    "mnemonic": "house家+wife妻"
+  },
+  {
+    "text": "donate",
+    "mnemonic": "don给+ate，捐赠"
+  },
+  {
+    "text": "fish",
+    "mnemonic": "fish=鱼，fisherman渔夫"
+  },
+  {
+    "text": "dictation",
+    "mnemonic": "dictate口述+ion"
+  },
+  {
+    "text": "impartial",
+    "mnemonic": "im不+partial偏，公正"
+  },
+  {
+    "text": "thereafter",
+    "mnemonic": "there那+after后"
+  },
+  {
+    "text": "successor",
+    "mnemonic": "succeed成功变+or人"
+  },
+  {
+    "text": "tender",
+    "mnemonic": "tender源自嫩，温柔"
+  },
+  {
+    "text": "feverishly",
+    "mnemonic": "feverish狂热+ly"
+  },
+  {
+    "text": "quarter",
+    "mnemonic": "quarter源自四，四分之一"
+  },
+  {
+    "text": "objectivity",
+    "mnemonic": "objective客观+ity"
+  },
+  {
+    "text": "entitle",
+    "mnemonic": "en+title标题，命名"
+  },
+  {
+    "text": "commence",
+    "mnemonic": "commence源自开始，开始"
+  },
+  {
+    "text": "superiority",
+    "mnemonic": "superior优越+ity"
+  },
+  {
+    "text": "clothe",
+    "mnemonic": "clothe=穿衣，clothing衣物"
+  },
+  {
+    "text": "ponder",
+    "mnemonic": "ponder源自称，沉思"
+  },
+  {
+    "text": "nonhuman",
+    "mnemonic": "non非+human人"
+  },
+  {
+    "text": "obsess",
+    "mnemonic": "ob+sess坐，着迷"
+  },
+  {
+    "text": "affirm",
+    "mnemonic": "af+firm固，确认"
+  },
+  {
+    "text": "household",
+    "mnemonic": "house家+hold持"
+  },
+  {
+    "text": "gap",
+    "mnemonic": "gap=缺口，generation gap代沟"
+  },
+  {
+    "text": "castle",
+    "mnemonic": "castle源自堡垒，城堡"
+  },
+  {
+    "text": "auditorium",
+    "mnemonic": "audi听+torium场所，礼堂"
+  },
+  {
+    "text": "vapor",
+    "mnemonic": "vapor源自蒸汽，水汽"
+  },
+  {
+    "text": "defer",
+    "mnemonic": "de+fer带，推迟"
+  },
+  {
+    "text": "headquarters",
+    "mnemonic": "head头+quarters营房，总部"
+  },
+  {
+    "text": "deed",
+    "mnemonic": "deed源自做，行为"
+  },
+  {
+    "text": "foremost",
+    "mnemonic": "fore前+most最"
+  },
+  {
+    "text": "handicap",
+    "mnemonic": "handicap源自赌帽，障碍"
+  },
+  {
+    "text": "amber",
+    "mnemonic": "amber源自琥珀，琥珀色"
+  },
+  {
+    "text": "preside",
+    "mnemonic": "pre+sid坐+e，主持"
+  },
+  {
+    "text": "economical",
+    "mnemonic": "economy经济变+ical"
+  },
+  {
+    "text": "memorial",
+    "mnemonic": "memor记忆+ial"
+  },
+  {
+    "text": "parameter",
+    "mnemonic": "para+meter量，参数"
+  },
+  {
+    "text": "excel",
+    "mnemonic": "excel源自超越，擅长"
+  },
+  {
+    "text": "loan",
+    "mnemonic": "loan=贷款，loan shark高利贷"
+  },
+  {
+    "text": "behavioral",
+    "mnemonic": "behavior行为+al"
+  },
+  {
+    "text": "nod",
+    "mnemonic": "nod=点头，nod off打盹"
+  },
+  {
+    "text": "privilege",
+    "mnemonic": "priv私人+ilege法律，特权"
+  },
+  {
+    "text": "appoint",
+    "mnemonic": "ap+point点，任命"
+  },
+  {
+    "text": "ratio",
+    "mnemonic": "ratio源自计算，比率"
+  },
+  {
+    "text": "advertisement",
+    "mnemonic": "advertise登广告+ment"
+  },
+  {
+    "text": "zone",
+    "mnemonic": "zone源自带，区域"
+  },
+  {
+    "text": "dash",
+    "mnemonic": "dash=猛冲/破折号"
+  },
+  {
+    "text": "profit",
+    "mnemonic": "pro+fit做，利润"
+  },
+  {
+    "text": "embark",
+    "mnemonic": "em+bark船，登船/着手"
+  }
+]

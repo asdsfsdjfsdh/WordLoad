@@ -1,7 +1,6 @@
 // 材料服务：合成（3×tierN → 1×tier(N+1)），事务 + 乐观锁防并发重复消耗
 import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import type { MaterialHolding, SynthesizeResult } from '@word-journey/shared';
-import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
 // 合成手续费：20·N 金币（N = 来源 tier）
@@ -62,32 +61,27 @@ export class MaterialsService {
     const fee = FEE_PER_TIER * fromTier;
 
     // 事务 + 乐观锁：材料扣减（count≥3 才更新）与金币扣减（coins≥fee 才更新）任一失败整体回滚
-    try {
-      await this.prisma.$transaction(async (tx) => {
-        const mat = await tx.userMaterial.updateMany({
-          where: { userId, materialId: source.materialId, count: { gte: SOURCE_COUNT } },
-          data: { count: { decrement: SOURCE_COUNT } },
-        });
-        if (mat.count === 0) {
-          throw new ConflictException('材料不足（并发已消耗）');
-        }
-        await tx.userMaterial.upsert({
-          where: { userId_materialId: { userId, materialId: target.id } },
-          update: { count: { increment: 1 } },
-          create: { userId, materialId: target.id, count: 1 },
-        });
-        const coin = await tx.user.updateMany({
-          where: { id: userId, coins: { gte: fee } },
-          data: { coins: { decrement: fee } },
-        });
-        if (coin.count === 0) {
-          throw new ConflictException('金币不足');
-        }
+    await this.prisma.$transaction(async (tx) => {
+      const mat = await tx.userMaterial.updateMany({
+        where: { userId, materialId: source.materialId, count: { gte: SOURCE_COUNT } },
+        data: { count: { decrement: SOURCE_COUNT } },
       });
-    } catch (err) {
-      if (err instanceof Prisma.PrismaClientKnownRequestError) throw err;
-      throw err;
-    }
+      if (mat.count === 0) {
+        throw new ConflictException('材料不足（并发已消耗）');
+      }
+      await tx.userMaterial.upsert({
+        where: { userId_materialId: { userId, materialId: target.id } },
+        update: { count: { increment: 1 } },
+        create: { userId, materialId: target.id, count: 1 },
+      });
+      const coin = await tx.user.updateMany({
+        where: { id: userId, coins: { gte: fee } },
+        data: { coins: { decrement: fee } },
+      });
+      if (coin.count === 0) {
+        throw new ConflictException('金币不足');
+      }
+    });
 
     return this.snapshot(userId, fromTier, toTier);
   }

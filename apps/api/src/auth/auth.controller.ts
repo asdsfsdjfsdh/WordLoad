@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import type { Request } from 'express';
 import type { AuthTokens, AuthUser } from '@word-journey/shared';
-import { InitCharDto, LoginDto, RefreshDto, RegisterDto, StrengthenDto } from './dto';
+import { InitCharDto, LoginDto, RefreshDto, RegisterDto, SpecializeDto, StrengthenDto } from './dto';
 import { JwtAuthGuard, type JwtUser } from './jwt-auth.guard';
 import { AuthService } from './auth.service';
 
@@ -19,8 +19,9 @@ export class AuthController {
 
   @Post('login')
   @ApiOperation({ summary: '登录并返回 token' })
-  login(@Body() dto: LoginDto): Promise<AuthTokens & { user: AuthUser }> {
-    return this.auth.login(dto.username, dto.password);
+  login(@Body() dto: LoginDto, @Req() req: Request): Promise<AuthTokens & { user: AuthUser }> {
+    // 传入请求 IP：登录限流按 用户名+IP 双维度计数
+    return this.auth.login(dto.username, dto.password, req.ip ?? '');
   }
 
   @Post('refresh')
@@ -65,5 +66,16 @@ export class AuthController {
     @Body() dto: StrengthenDto,
   ): Promise<AuthUser> {
     return this.auth.strengthen(req.user.sub, dto.stat);
+  }
+
+  @Post('specialize')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: '角色特化：消耗高阶材料 + 金币一次点亮' })
+  specialize(
+    @Req() req: Request & { user: JwtUser },
+    @Body() dto: SpecializeDto,
+  ): Promise<AuthUser> {
+    return this.auth.specialize(req.user.sub, dto.spec);
   }
 }

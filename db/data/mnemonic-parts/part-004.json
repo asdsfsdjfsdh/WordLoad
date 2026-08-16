@@ -1,0 +1,402 @@
+[
+  {
+    "text": "dinner",
+    "mnemonic": "din+ner，dinner=正餐晚餐"
+  },
+  {
+    "text": "apartment",
+    "mnemonic": "a+part分开+ment，apartment公寓各分一室"
+  },
+  {
+    "text": "act",
+    "mnemonic": "act=行动/表演，action行动"
+  },
+  {
+    "text": "cent",
+    "mnemonic": "cent=分/百，century百年"
+  },
+  {
+    "text": "haven",
+    "mnemonic": "haven=避风港，safe haven安全港"
+  },
+  {
+    "text": "prince",
+    "mnemonic": "princ第一+e，prince王子第一继承人"
+  },
+  {
+    "text": "frog",
+    "mnemonic": "frog=青蛙，青蛙呱呱叫"
+  },
+  {
+    "text": "dean",
+    "mnemonic": "dean源自十人长，院长"
+  },
+  {
+    "text": "chef",
+    "mnemonic": "chef=主厨，head cook厨师长"
+  },
+  {
+    "text": "wit",
+    "mnemonic": "wit=机智，quick wit反应快"
+  },
+  {
+    "text": "bald",
+    "mnemonic": "bald=秃顶，头顶光光"
+  },
+  {
+    "text": "salad",
+    "mnemonic": "salad=沙拉，色拉凉拌菜"
+  },
+  {
+    "text": "civil",
+    "mnemonic": "civ公民+il，civil公民的"
+  },
+  {
+    "text": "writer",
+    "mnemonic": "write写+er人，writer作家"
+  },
+  {
+    "text": "glad",
+    "mnemonic": "glad=高兴，glad to see见到开心"
+  },
+  {
+    "text": "pregnant",
+    "mnemonic": "preg+nant，pregnant怀孕的"
+  },
+  {
+    "text": "ray",
+    "mnemonic": "ray=光线，X-ray X光"
+  },
+  {
+    "text": "ashamed",
+    "mnemonic": "a+shame羞+ed，ashamed羞愧的"
+  },
+  {
+    "text": "everyone",
+    "mnemonic": "every每+one人，everyone每人"
+  },
+  {
+    "text": "highly",
+    "mnemonic": "high高+ly，highly高度地"
+  },
+  {
+    "text": "weak",
+    "mnemonic": "weak=虚弱，与strong相反"
+  },
+  {
+    "text": "until",
+    "mnemonic": "until=直到，not...until直到才"
+  },
+  {
+    "text": "ours",
+    "mnemonic": "our我们的+s，ours我们的东西"
+  },
+  {
+    "text": "turkey",
+    "mnemonic": "Turkey土耳其，turkey火鸡"
+  },
+  {
+    "text": "strength",
+    "mnemonic": "strong强变strength，力量"
+  },
+  {
+    "text": "senator",
+    "mnemonic": "senate元老院+or，senator参议员"
+  },
+  {
+    "text": "lose",
+    "mnemonic": "lose=失去，lost是过去式"
+  },
+  {
+    "text": "surgery",
+    "mnemonic": "surgery=外科手术，动手术"
+  },
+  {
+    "text": "later",
+    "mnemonic": "late晚+er，later以后"
+  },
+  {
+    "text": "cancer",
+    "mnemonic": "cancer=癌症，cancer巨蟹座"
+  },
+  {
+    "text": "lane",
+    "mnemonic": "lane=小巷/车道，slow lane慢车道"
+  },
+  {
+    "text": "saturday",
+    "mnemonic": "Saturn土星+day，Saturday星期六"
+  },
+  {
+    "text": "ego",
+    "mnemonic": "ego=自我，以自我为中心"
+  },
+  {
+    "text": "father",
+    "mnemonic": "father=父亲，Dad爸爸"
+  },
+  {
+    "text": "luck",
+    "mnemonic": "luck=运气，lucky幸运的"
+  },
+  {
+    "text": "wicked",
+    "mnemonic": "wicked=邪恶的，bad坏心眼"
+  },
+  {
+    "text": "crazy",
+    "mnemonic": "crazy=疯狂，go crazy发疯"
+  },
+  {
+    "text": "door",
+    "mnemonic": "door=门，doorway门口"
+  },
+  {
+    "text": "plan",
+    "mnemonic": "plan=计划，make a plan做规划"
+  },
+  {
+    "text": "listen",
+    "mnemonic": "listen=听，listen to music听音乐"
+  },
+  {
+    "text": "heaven",
+    "mnemonic": "heaven=天堂，与hell地狱相对"
+  },
+  {
+    "text": "cop",
+    "mnemonic": "cop=警察，policeman口语"
+  },
+  {
+    "text": "entry",
+    "mnemonic": "enter进入变entry，入口"
+  },
+  {
+    "text": "hall",
+    "mnemonic": "hall=大厅，dining hall食堂"
+  },
+  {
+    "text": "merely",
+    "mnemonic": "mere仅仅+ly，merely只不过"
+  },
+  {
+    "text": "mother",
+    "mnemonic": "mother=母亲，Mom妈妈"
+  },
+  {
+    "text": "menu",
+    "mnemonic": "menu源自明细，菜单列菜"
+  },
+  {
+    "text": "dragon",
+    "mnemonic": "dragon=龙，dragon dance舞龙"
+  },
+  {
+    "text": "sign",
+    "mnemonic": "sign=标志/签名，traffic sign路标"
+  },
+  {
+    "text": "defend",
+    "mnemonic": "de+fend挡，defend保卫"
+  },
+  {
+    "text": "water",
+    "mnemonic": "water=水，drink water喝水"
+  },
+  {
+    "text": "action",
+    "mnemonic": "act行动+ion，action行动"
+  },
+  {
+    "text": "cigar",
+    "mnemonic": "cigar=雪茄，cigarette香烟"
+  },
+  {
+    "text": "prayer",
+    "mnemonic": "pray祈祷+er，prayer祈祷者"
+  },
+  {
+    "text": "porter",
+    "mnemonic": "port港口+er人，porter搬运工"
+  },
+  {
+    "text": "agency",
+    "mnemonic": "agent代理人变agency，机构"
+  },
+  {
+    "text": "usual",
+    "mnemonic": "usual=通常，as usual照常"
+  },
+  {
+    "text": "sun",
+    "mnemonic": "sun=太阳，sunny晴朗"
+  },
+  {
+    "text": "century",
+    "mnemonic": "cent百+ury，century世纪"
+  },
+  {
+    "text": "fate",
+    "mnemonic": "fate=命运，fatal致命的"
+  },
+  {
+    "text": "soon",
+    "mnemonic": "soon=很快，as soon as一…就"
+  },
+  {
+    "text": "insist",
+    "mnemonic": "in+sist站，insist坚持"
+  },
+  {
+    "text": "oven",
+    "mnemonic": "oven=烤箱，microwave oven微波炉"
+  },
+  {
+    "text": "ignore",
+    "mnemonic": "ig+gnore，ignore忽视"
+  },
+  {
+    "text": "sofa",
+    "mnemonic": "sofa=沙发，窝在sofa里"
+  },
+  {
+    "text": "guilty",
+    "mnemonic": "guilt罪+y，guilty内疚的"
+  },
+  {
+    "text": "servant",
+    "mnemonic": "serve服务+ant人，servant仆人"
+  },
+  {
+    "text": "tray",
+    "mnemonic": "tray=托盘，serve on tray上托盘"
+  },
+  {
+    "text": "completely",
+    "mnemonic": "complete完成+ly，completely完全"
+  },
+  {
+    "text": "porch",
+    "mnemonic": "porch=门廊，房屋前的廊檐"
+  },
+  {
+    "text": "mile",
+    "mnemonic": "mile源自千步，千步为一英里"
+  },
+  {
+    "text": "week",
+    "mnemonic": "week=周，weekend周末"
+  },
+  {
+    "text": "director",
+    "mnemonic": "direct指导+or人，director导演"
+  },
+  {
+    "text": "maid",
+    "mnemonic": "maid=女仆，maiden少女"
+  },
+  {
+    "text": "robot",
+    "mnemonic": "robot源自robota苦役，做苦役的机器"
+  },
+  {
+    "text": "bacon",
+    "mnemonic": "bacon=培根，烟熏猪肉"
+  },
+  {
+    "text": "property",
+    "mnemonic": "proper合适+ty，property财产"
+  },
+  {
+    "text": "really",
+    "mnemonic": "real真+ly，really真正地"
+  },
+  {
+    "text": "along",
+    "mnemonic": "a+long长，along沿着"
+  },
+  {
+    "text": "owl",
+    "mnemonic": "owl=猫头鹰，夜间活动的鸟"
+  },
+  {
+    "text": "mystery",
+    "mnemonic": "mystery=神秘，mysterious神秘的"
+  },
+  {
+    "text": "crisis",
+    "mnemonic": "crisis=危机，economic crisis经济危机"
+  },
+  {
+    "text": "handy",
+    "mnemonic": "hand手+y，handy手边方便"
+  },
+  {
+    "text": "family",
+    "mnemonic": "family=家庭，father mother I love you首字母"
+  },
+  {
+    "text": "destiny",
+    "mnemonic": "destiny=命运，命中注定"
+  },
+  {
+    "text": "victory",
+    "mnemonic": "victor胜者+y，victory胜利"
+  },
+  {
+    "text": "basis",
+    "mnemonic": "base基础变basis，basis基础"
+  },
+  {
+    "text": "popular",
+    "mnemonic": "pop流行+ular，popular流行的"
+  },
+  {
+    "text": "sale",
+    "mnemonic": "sale=出售，on sale大甩卖"
+  },
+  {
+    "text": "library",
+    "mnemonic": "libr书+ary处，library图书馆"
+  },
+  {
+    "text": "legend",
+    "mnemonic": "legend=传说，legendary传奇"
+  },
+  {
+    "text": "wisdom",
+    "mnemonic": "wise聪明变wisdom，智慧"
+  },
+  {
+    "text": "circus",
+    "mnemonic": "circus=马戏团，圆场表演"
+  },
+  {
+    "text": "era",
+    "mnemonic": "era源自铜币，一个时代"
+  },
+  {
+    "text": "lung",
+    "mnemonic": "lung源自轻，肺是轻盈气囊"
+  },
+  {
+    "text": "saying",
+    "mnemonic": "say说+ing，saying谚语"
+  },
+  {
+    "text": "monk",
+    "mnemonic": "monk=僧侣，庙里修行的人"
+  },
+  {
+    "text": "instead",
+    "mnemonic": "in+stead站，instead代替"
+  },
+  {
+    "text": "gentleman",
+    "mnemonic": "gentle绅士+man人，gentleman先生"
+  },
+  {
+    "text": "sacred",
+    "mnemonic": "sacred=神圣的，sacred ritual圣礼"
+  }
+]

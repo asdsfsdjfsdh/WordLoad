@@ -4,11 +4,17 @@ import { useAuth } from './store/auth';
 import { LoginPage } from './pages/LoginPage';
 import { LobbyPage } from './pages/LobbyPage';
 import { StageMapPage } from './pages/StageMapPage';
+import { LevelMapPage } from './pages/LevelMapPage';
 import { BattlePage } from './pages/BattlePage';
 import { ResultPage } from './pages/ResultPage';
 import { CharacterPage } from './pages/CharacterPage';
 import { CollectionsPage } from './pages/CollectionsPage';
 import { StatsPage } from './pages/StatsPage';
+import { ReadingIndexPage } from './pages/ReadingIndexPage';
+import { ReadingPassagePage } from './pages/ReadingPassagePage';
+import { AdminPage } from './pages/admin/AdminPage';
+import { AdminWordsPage } from './pages/admin/AdminWordsPage';
+import { AdminReadingPage } from './pages/admin/AdminReadingPage';
 
 // 登录守卫：未登录重定向到 /login
 function RequireAuth({ children }: { children: ReactNode }) {
@@ -24,6 +30,16 @@ function RedirectIfAuthed({ children }: { children: ReactNode }) {
   const { user, initialized } = useAuth();
   if (!initialized) return null;
   if (user) return <Navigate to="/lobby" replace />;
+  return <>{children}</>;
+}
+
+// 管理员守卫：需登录且 isAdmin，否则跳大厅
+function RequireAdmin({ children }: { children: ReactNode }) {
+  const { user, initialized } = useAuth();
+  const location = useLocation();
+  if (!initialized) return null;
+  if (!user) return <Navigate to="/login" replace state={{ from: location }} />;
+  if (!user.isAdmin) return <Navigate to="/lobby" replace />;
   return <>{children}</>;
 }
 
@@ -55,6 +71,14 @@ export function App() {
         element={
           <RequireAuth>
             <StageMapPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/bank/:code/regions/:regionId/levels"
+        element={
+          <RequireAuth>
+            <LevelMapPage />
           </RequireAuth>
         }
       />
@@ -98,6 +122,34 @@ export function App() {
           </RequireAuth>
         }
       />
+      <Route
+        path="/reading"
+        element={
+          <RequireAuth>
+            <ReadingIndexPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/reading/passage/:passageId"
+        element={
+          <RequireAuth>
+            <ReadingPassagePage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <RequireAdmin>
+            <AdminPage />
+          </RequireAdmin>
+        }
+      >
+        <Route index element={<Navigate to="/admin/words" replace />} />
+        <Route path="words" element={<AdminWordsPage />} />
+        <Route path="reading" element={<AdminReadingPage />} />
+      </Route>
       <Route path="*" element={<RequireAuth><Navigate to="/lobby" replace /></RequireAuth>} />
     </Routes>
   );

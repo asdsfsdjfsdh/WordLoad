@@ -24,6 +24,7 @@ export interface StatsOverview {
   accuracy: number; // 0-100
   masteredWords: number;
   wrongbookWords: number;
+  skippedWords: number; // 已斩（永久不再出题）
   bestMaxCombo: number;
   bossFights: number;
   bossWins: number;
@@ -31,6 +32,11 @@ export interface StatsOverview {
   longestStreak: number;
   ratingCounts: RatingCounts;
   tierStats: TierStat[];
+  // 生存 Run
+  totalRuns: number;        // 累计结束的 Run 场数
+  bestRunDays: number;      // 历史最高生存天数
+  totalBossCleared: number; // 累计击破 Boss 次数
+  activeRunCount: number;   // 进行中的 Run（0/1）
 }
 
 export interface StatsTrendPoint {

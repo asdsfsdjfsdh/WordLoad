@@ -1,0 +1,402 @@
+[
+  {
+    "text": "locker",
+    "mnemonic": "lock锁+er物，locker储物柜"
+  },
+  {
+    "text": "lest",
+    "mnemonic": "lest=唯恐，lest...should以免"
+  },
+  {
+    "text": "fury",
+    "mnemonic": "fury=狂怒，furious暴怒的"
+  },
+  {
+    "text": "client",
+    "mnemonic": "client=客户，lawyer's client委托方"
+  },
+  {
+    "text": "dark",
+    "mnemonic": "dark=黑暗，in the dark在黑暗中"
+  },
+  {
+    "text": "walker",
+    "mnemonic": "walk走+er人，walker步行者"
+  },
+  {
+    "text": "contract",
+    "mnemonic": "con共同+tract拉，contract签约拉拢"
+  },
+  {
+    "text": "sew",
+    "mnemonic": "sew=缝，sewing machine缝纫机"
+  },
+  {
+    "text": "breath",
+    "mnemonic": "breath=呼吸（名词），take a breath吸口气"
+  },
+  {
+    "text": "kingdom",
+    "mnemonic": "king王+dom域，kingdom王国"
+  },
+  {
+    "text": "therefore",
+    "mnemonic": "there+fore前，therefore因此"
+  },
+  {
+    "text": "business",
+    "mnemonic": "busy忙变business，生意忙"
+  },
+  {
+    "text": "admire",
+    "mnemonic": "ad+mire惊奇，admire钦佩"
+  },
+  {
+    "text": "drive",
+    "mnemonic": "drive=驾驶，driver司机"
+  },
+  {
+    "text": "cousin",
+    "mnemonic": "cousin源自表亲，堂表亲"
+  },
+  {
+    "text": "anyhow",
+    "mnemonic": "any+how，anyhow无论如何"
+  },
+  {
+    "text": "gay",
+    "mnemonic": "gay=快乐的/同性恋的"
+  },
+  {
+    "text": "wrist",
+    "mnemonic": "wrist手腕，w不发音"
+  },
+  {
+    "text": "madame",
+    "mnemonic": "madame源自my lady，我的夫人"
+  },
+  {
+    "text": "emperor",
+    "mnemonic": "emper统治+or人，emperor皇帝"
+  },
+  {
+    "text": "advice",
+    "mnemonic": "ad+vice看，advice忠告（名词）"
+  },
+  {
+    "text": "length",
+    "mnemonic": "long长变length，长度"
+  },
+  {
+    "text": "forget",
+    "mnemonic": "for+get得到又丢，forget忘记"
+  },
+  {
+    "text": "urgent",
+    "mnemonic": "urgent=紧急的，urgent need急需"
+  },
+  {
+    "text": "leg",
+    "mnemonic": "leg源自腿，lame瘸腿"
+  },
+  {
+    "text": "themselves",
+    "mnemonic": "them+selves自己，themselves他们自己"
+  },
+  {
+    "text": "gold",
+    "mnemonic": "gold=金，golden金色的"
+  },
+  {
+    "text": "status",
+    "mnemonic": "status=状态/地位，social status社会地位"
+  },
+  {
+    "text": "rely",
+    "mnemonic": "re+ly，rely依靠，reliable可靠"
+  },
+  {
+    "text": "useful",
+    "mnemonic": "use用+ful满，useful有用的"
+  },
+  {
+    "text": "rude",
+    "mnemonic": "rude=粗鲁，be rude没礼貌"
+  },
+  {
+    "text": "kin",
+    "mnemonic": "kin=亲戚，kinship亲属关系"
+  },
+  {
+    "text": "government",
+    "mnemonic": "govern统治+ment，government政府"
+  },
+  {
+    "text": "wrath",
+    "mnemonic": "wrath=愤怒（书面），burn with wrath怒火中烧"
+  },
+  {
+    "text": "nobody",
+    "mnemonic": "no+body身体，nobody没人"
+  },
+  {
+    "text": "famous",
+    "mnemonic": "fame名声变famous，著名"
+  },
+  {
+    "text": "evil",
+    "mnemonic": "evil邪恶，live倒过来，活着勿作恶"
+  },
+  {
+    "text": "another",
+    "mnemonic": "an+other其他，another另一个"
+  },
+  {
+    "text": "governor",
+    "mnemonic": "govern统治+or人，governor州长"
+  },
+  {
+    "text": "card",
+    "mnemonic": "card=卡片，ID card身份证"
+  },
+  {
+    "text": "liberty",
+    "mnemonic": "liberty=自由，Statue of Liberty自由女神"
+  },
+  {
+    "text": "insult",
+    "mnemonic": "in+sult跳，insult侮辱"
+  },
+  {
+    "text": "album",
+    "mnemonic": "album=相册/专辑，photo album相册"
+  },
+  {
+    "text": "depth",
+    "mnemonic": "deep深变depth，深度"
+  },
+  {
+    "text": "number",
+    "mnemonic": "number=数字/号码，phone number电话"
+  },
+  {
+    "text": "department",
+    "mnemonic": "de+part分+ment，department部门"
+  },
+  {
+    "text": "parent",
+    "mnemonic": "parent=父母，parents双亲"
+  },
+  {
+    "text": "star",
+    "mnemonic": "star=星星/明星，movie star影星"
+  },
+  {
+    "text": "sense",
+    "mnemonic": "sense=感觉，common sense常识"
+  },
+  {
+    "text": "drawer",
+    "mnemonic": "draw拉+er，drawer抽屉"
+  },
+  {
+    "text": "oxygen",
+    "mnemonic": "oxy酸+gen生，oxygen氧气"
+  },
+  {
+    "text": "die",
+    "mnemonic": "die=死，dead死的"
+  },
+  {
+    "text": "nervous",
+    "mnemonic": "nerve神经变nervous，紧张"
+  },
+  {
+    "text": "cup",
+    "mnemonic": "cup=杯子，a cup of coffee一杯咖啡"
+  },
+  {
+    "text": "health",
+    "mnemonic": "health=健康，healthy健康的"
+  },
+  {
+    "text": "clinic",
+    "mnemonic": "clinic源自卧床，诊所病床"
+  },
+  {
+    "text": "beast",
+    "mnemonic": "beast=野兽，beauty and the beast美女与野兽"
+  },
+  {
+    "text": "grateful",
+    "mnemonic": "grate感激+ful，grateful感激的"
+  },
+  {
+    "text": "june",
+    "mnemonic": "June=六月，一年中第六月"
+  },
+  {
+    "text": "ocean",
+    "mnemonic": "ocean=海洋，Pacific Ocean太平洋"
+  },
+  {
+    "text": "human",
+    "mnemonic": "human=人类，human being人类"
+  },
+  {
+    "text": "food",
+    "mnemonic": "food=食物，fast food快餐"
+  },
+  {
+    "text": "would",
+    "mnemonic": "would=将会，will的过去式"
+  },
+  {
+    "text": "ability",
+    "mnemonic": "able能变ability，能力"
+  },
+  {
+    "text": "fantastic",
+    "mnemonic": "fantastic=极好的，fantastic idea好主意"
+  },
+  {
+    "text": "on",
+    "mnemonic": "on=在…上，on the table桌上"
+  },
+  {
+    "text": "recent",
+    "mnemonic": "recent=最近的，recent news新消息"
+  },
+  {
+    "text": "seven",
+    "mnemonic": "seven与sept同源，September九月含sept七"
+  },
+  {
+    "text": "memo",
+    "mnemonic": "memo=备忘录，记事的纸条"
+  },
+  {
+    "text": "fatal",
+    "mnemonic": "fate命运变fatal，致命"
+  },
+  {
+    "text": "tragic",
+    "mnemonic": "tragedy悲剧变tragic，悲惨"
+  },
+  {
+    "text": "prisoner",
+    "mnemonic": "prison监狱+er人，prisoner囚犯"
+  },
+  {
+    "text": "recently",
+    "mnemonic": "recent最近+ly，recently近来"
+  },
+  {
+    "text": "therapy",
+    "mnemonic": "therap治疗+y，therapy疗法"
+  },
+  {
+    "text": "behalf",
+    "mnemonic": "be+half半，on behalf of代表"
+  },
+  {
+    "text": "charity",
+    "mnemonic": "charity=慈善，charitable慈善的"
+  },
+  {
+    "text": "bonus",
+    "mnemonic": "bonus源自bene好，额外奖励"
+  },
+  {
+    "text": "editor",
+    "mnemonic": "edit编辑+or人，editor编辑"
+  },
+  {
+    "text": "interesting",
+    "mnemonic": "interest兴趣+ing，interesting有趣"
+  },
+  {
+    "text": "go",
+    "mnemonic": "go=去/走，go to school上学"
+  },
+  {
+    "text": "seem",
+    "mnemonic": "seem=似乎，It seems看起来"
+  },
+  {
+    "text": "spider",
+    "mnemonic": "spider=蜘蛛，结网的虫子"
+  },
+  {
+    "text": "highway",
+    "mnemonic": "high高+way路，highway公路"
+  },
+  {
+    "text": "cargo",
+    "mnemonic": "cargo=car车+go走，车载货物"
+  },
+  {
+    "text": "sky",
+    "mnemonic": "sky=天空，blue sky蓝天"
+  },
+  {
+    "text": "universe",
+    "mnemonic": "uni一+verse转，universe宇宙"
+  },
+  {
+    "text": "harsh",
+    "mnemonic": "harsh=严酷的/刺耳的"
+  },
+  {
+    "text": "role",
+    "mnemonic": "role=角色，play a role扮演角色"
+  },
+  {
+    "text": "gently",
+    "mnemonic": "gentle温柔变gently，轻轻地"
+  },
+  {
+    "text": "laser",
+    "mnemonic": "laser=激光，laser beam激光束"
+  },
+  {
+    "text": "tired",
+    "mnemonic": "tire累+ed，tired疲倦的"
+  },
+  {
+    "text": "cloth",
+    "mnemonic": "cloth=布，clothes衣服"
+  },
+  {
+    "text": "avoid",
+    "mnemonic": "a+void空，avoid避开"
+  },
+  {
+    "text": "comedy",
+    "mnemonic": "comedy=喜剧，comedian喜剧演员"
+  },
+  {
+    "text": "everywhere",
+    "mnemonic": "every每+where处，everywhere到处"
+  },
+  {
+    "text": "piano",
+    "mnemonic": "piano源自pianoforte弱强，钢琴"
+  },
+  {
+    "text": "factory",
+    "mnemonic": "fact制造+ory处，factory工厂"
+  },
+  {
+    "text": "worth",
+    "mnemonic": "worth=值得，be worth doing值得做"
+  },
+  {
+    "text": "finally",
+    "mnemonic": "final最终+ly，finally终于"
+  },
+  {
+    "text": "farmer",
+    "mnemonic": "farm农场+er人，farmer农民"
+  }
+]

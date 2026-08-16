@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useRef, useState, type ChangeEvent, type PointerEvent as ReactPointerEvent } from 'react';
-import type { LevelWord } from '@word-journey/shared';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ChangeEvent, type PointerEvent as ReactPointerEvent } from 'react';
+import type { FoilOption, LevelWord } from '@word-journey/shared';
+import { pickOptions, type ChoiceOption } from '../lib/choices';
 import { getTts } from '../lib/tts';
 import { useIsTouch } from '../lib/touch';
 
@@ -7,6 +8,10 @@ interface Props {
   words: LevelWord[];
   skippedWords: Set<string>;
   onSkip: (wordId: string) => void;
+  // 肉鸽模式：本局全局统计（顶部统计栏双段展示用）
+  runStats?: { day: number; poolUsed: number; wavePreview: number };
+  // 巩固方式跟随战斗模式：拼写类 → 拼写巩固；选中文 → 点选释义巩固
+  mode?: 'zh2en' | 'dictation' | 'choice';
 }
 
 const tierColor = (t?: string) => {
@@ -25,12 +30,14 @@ const statusStyle = (s: string) => {
   return { badge: 'bg-slate-500/15 text-slate-400', label: '' };
 };
 
-export function FlashCard({ words, skippedWords, onSkip }: Props) {
+export function FlashCard({ words, skippedWords, onSkip, runStats, mode = 'zh2en' }: Props) {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [knownIds, setKnownIds] = useState<Set<string>>(new Set());
   const [unknownIds, setUnknownIds] = useState<Set<string>>(new Set());
   const [finished, setFinished] = useState(false);
+  // 选中文模式：不认识词用「点选释义」巩固，而非拼写
+  const isChoiceMode = mode === 'choice';
 
   // 拼写巩固：不认识词每词拼写3遍（提示递减：看词→听音→回忆）
   const [rewriting, setRewriting] = useState(false);
@@ -40,13 +47,27 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
   const [rewriteCursor, setRewriteCursor] = useState(0);
   const [rewriteFeedback, setRewriteFeedback] = useState<'correct' | 'wrong' | null>(null);
   const [rewriteDone, setRewriteDone] = useState(false);
-  // 闪电拼写：拼写完成后看释义拼写单词（拼错排到队尾）
+  // 闪电拼写：拼写完成后看释义拼写单词（拼错即展示正确答案并记入错误列表）
   const [recalling, setRecalling] = useState(false);
   const [recallIdx, setRecallIdx] = useState(0);
   const [recallQueue, setRecallQueue] = useState<LevelWord[]>([]);
   const [recallLetters, setRecallLetters] = useState<string[]>([]);
   const [recallCursor, setRecallCursor] = useState(0);
   const [recallFeedback, setRecallFeedback] = useState<'correct' | 'wrong' | null>(null);
+  // 本轮闪电拼写拼错的词（去重）与当前词标红位置
+  const [recallWrong, setRecallWrong] = useState<LevelWord[]>([]);
+  const [recallWrongAt, setRecallWrongAt] = useState<number[]>([]);
+  // 选中文：闪卡正面直接左右滑 —— 右滑=认识（四选一验证），左滑=不认识（翻面显示+下一个按钮）
+  const [verifying, setVerifying] = useState(false);
+  const [verifySel, setVerifySel] = useState<ChoiceOption | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  // 选中文：循环考题（不认识词逐词点选释义，答错移回队尾，直到每个都答对）
+  const [drillStarted, setDrillStarted] = useState(false);
+  const [drillDone, setDrillDone] = useState(false);
+  const [drillQueue, setDrillQueue] = useState<LevelWord[]>([]);
+  const [drillIdx, setDrillIdx] = useState(0);
+  const [drillSel, setDrillSel] = useState<ChoiceOption | null>(null);
+  const drillLockRef = useRef(false);
 
   const isTouch = useIsTouch();
   const rewriteInputRef = useRef<HTMLInputElement | null>(null);
@@ -63,8 +84,33 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
   const active = words.filter((w) => !skippedWords.has(w.wordId));
   const total = active.length;
 
-  // 不认识词列表（用于拼写巩固）
+  // 不认识词列表（用于巩固）
   const unknownWords = active.filter((w) => unknownIds.has(w.wordId));
+
+  // 选中文：4 个释义选项的候选池（复用战斗同款 pickOptions 组项）
+  const choiceFoilPool = useMemo<FoilOption[]>(
+    () => active.map((w) => ({ text: w.text, meaning: w.meanings[0]?.meaning ?? '' })),
+    // active 由 words/skippedWords 派生
+    [words, skippedWords],
+  );
+  // 选中文：右滑「认识」验证当前卡片
+  const verifyWord = verifying && !revealed ? active[index] : null;
+  const verifyOptions = useMemo<ChoiceOption[]>(
+    () =>
+      verifyWord
+        ? pickOptions({ answer: verifyWord.text, answerMeaning: verifyWord.meanings[0]?.meaning ?? '' }, choiceFoilPool)
+        : [],
+    [verifyWord, choiceFoilPool],
+  );
+  // 选中文：循环考题当前词
+  const drillWord = drillStarted && !drillDone && drillIdx < drillQueue.length ? drillQueue[drillIdx] : null;
+  const drillOptions = useMemo<ChoiceOption[]>(
+    () =>
+      drillWord
+        ? pickOptions({ answer: drillWord.text, answerMeaning: drillWord.meanings[0]?.meaning ?? '' }, choiceFoilPool)
+        : [],
+    [drillWord, choiceFoilPool],
+  );
 
   // 当前巩固词
   const rwWord = rewriting && rewriteIdx < unknownWords.length ? unknownWords[rewriteIdx] : null;
@@ -114,11 +160,12 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
       !allMarked &&
       !rewriting &&
       !rewriteDone &&
-      !recalling
+      !recalling &&
+      !drillStarted
     ) {
       setFinished(false);
     }
-  }, [finished, allMarked, active.length, rewriting, rewriteDone, recalling]);
+  }, [finished, allMarked, active.length, rewriting, rewriteDone, recalling, drillStarted]);
 
   const markAndAdvance = (type: 'known' | 'unknown') => {
     const w = active[index];
@@ -136,8 +183,9 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     }
   };
 
-  // 闪卡阶段键盘：空格翻转 · ← 不认识 → 认识 · Backspace 撤回
+  // 闪卡阶段键盘：空格翻转 · ← 不认识 → 认识 · ↓ 斩词 · Backspace 撤回（选中文走左右滑/按钮，不挂键盘）
   useEffect(() => {
+    if (isChoiceMode) return;
     const handler = (e: KeyboardEvent) => {
       if (finished) return;
       if (e.key === ' ' || e.key === 'Enter') {
@@ -157,6 +205,10 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
         e.preventDefault();
         markAndAdvance('known');
       }
+      if (e.key === 'ArrowDown' || e.key === 's') {
+        e.preventDefault();
+        skipCurrent();
+      }
       if (e.key === 'Backspace') {
         e.preventDefault();
         if (index > 0) {
@@ -171,7 +223,7 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [flipped, index, active, finished, goTo, markAndAdvance]);
+  }, [isChoiceMode, flipped, index, active, finished, goTo, markAndAdvance, skipCurrent]);
 
   // 拼写巩固键盘处理（触屏用原生输入框，不挂全局键盘）
   useEffect(() => {
@@ -295,15 +347,16 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     }
   }, [rewriteIdx, rewriting, unknownWords.length]);
 
-  // 第 2 遍（听音默写）自动播放发音；第 3 遍（回忆拼写）不播
+  // 拼写巩固自动发音：进入每题（第 1 遍看词）与第 2 遍（听音默写）自动播；第 3 遍（回忆拼写）不播
   useEffect(() => {
-    if (rewriting && rwWord && rewriteCount === 1) {
+    if (rewriting && rwWord && rewriteCount <= 1) {
       getTts().speak(rwWord.text);
     }
   }, [rewriting, rwWord, rewriteCount]);
 
-  // 闪卡结束 → 自动进入拼写阶段（无需按钮）
+  // 闪卡结束 → 自动进入拼写阶段（无需按钮；选中文模式走点选释义巩固）
   useEffect(() => {
+    if (isChoiceMode) return;
     if (finished && !rewriting && !rewriteDone && unknownWords.length > 0) {
       setRewriting(true);
       setRewriteIdx(0);
@@ -312,7 +365,54 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
       setRecalling(false);
       setRecallIdx(0);
     }
-  }, [finished, rewriting, rewriteDone, unknownWords.length]);
+  }, [isChoiceMode, finished, rewriting, rewriteDone, unknownWords.length]);
+
+  // 选中文：闪卡结束 → 进入循环考题（不认识词逐词点选释义，答错回队尾，直到全部答对）。
+  // useLayoutEffect 保证 finished 落帧时直接进考题，避免闪一帧完成页。
+  useLayoutEffect(() => {
+    if (!isChoiceMode) return;
+    if (finished && !drillStarted && unknownWords.length > 0) {
+      setDrillQueue(unknownWords);
+      setDrillIdx(0);
+      setDrillSel(null);
+      setDrillDone(false);
+      setDrillStarted(true);
+    }
+  }, [isChoiceMode, finished, drillStarted, unknownWords.length]);
+
+  // 选中文：考题队列清空 → 全部答对
+  useEffect(() => {
+    if (isChoiceMode && drillStarted && !drillDone && drillQueue.length === 0) {
+      setDrillDone(true);
+    }
+  }, [isChoiceMode, drillStarted, drillDone, drillQueue.length]);
+
+  // 选中文：正面切卡自动发音（无点击翻转，进入/切词即播）
+  useEffect(() => {
+    if (!isChoiceMode || finished) return;
+    if (verifying || revealed) return;
+    const cw = active[index];
+    if (cw) getTts().speak(cw.text);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isChoiceMode, finished, index, verifying, revealed, active.length]);
+
+  // 选中文：右滑验证时自动发音
+  useEffect(() => {
+    if (verifyWord) getTts().speak(verifyWord.text);
+  }, [verifyWord]);
+
+  // 选中文：左滑翻面（不认识）时自动发音
+  useEffect(() => {
+    if (isChoiceMode && revealed) {
+      const cw = active[index];
+      if (cw) getTts().speak(cw.text);
+    }
+  }, [isChoiceMode, revealed, index]);
+
+  // 选中文：循环考题每题自动发音
+  useEffect(() => {
+    if (drillWord) getTts().speak(drillWord.text);
+  }, [drillWord]);
 
   // 拼写完成 → 自动进入闪电拼写
   useEffect(() => {
@@ -341,7 +441,7 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     if (!rw) return;
     const len = rw.text.length;
     const handler = (e: KeyboardEvent) => {
-      if (recallFeedback === 'correct') return;
+      if (recallFeedback === 'correct' || recallFeedback === 'wrong') return;
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === 'Backspace') {
         e.preventDefault();
@@ -374,14 +474,22 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
             setRecallIdx((i) => i + 1);
           }, 350);
         } else {
+          // 拼错：立即展示正确答案并标红错误位置，稍后进入下一词（不再排到队尾）
+          setRecallWrong((p) => (p.some((x) => x.wordId === rw.wordId) ? p : [...p, rw]));
+          const answer = Array.from(rw.text.toLowerCase());
+          const wrongAt: number[] = [];
+          next.forEach((c, i) => { if (c !== answer[i]) wrongAt.push(i); });
+          setRecallWrongAt(wrongAt);
           setRecallFeedback('wrong');
+          setRecallLetters(answer);
+          setRecallCursor(len);
           setTimeout(() => {
+            setRecallFeedback(null);
             setRecallLetters(Array.from({ length: len }, () => ''));
             setRecallCursor(0);
-            setRecallFeedback(null);
-            // 拼错 → 排到队尾，稍后再拼
-            setRecallQueue((q) => [...q.filter((_, i) => i !== recallIdx), rw]);
-          }, 400);
+            setRecallWrongAt([]);
+            setRecallIdx((i) => i + 1);
+          }, 1500);
         }
       }
     };
@@ -400,7 +508,7 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
   // 触屏闪电拼写输入：输入值 → 字母槽直通，填满复用键盘判定逻辑
   const onRecallInput = (e: ChangeEvent<HTMLInputElement>) => {
     const rw = recallQueue[recallIdx];
-    if (!rw || recallFeedback === 'correct') return;
+    if (!rw || recallFeedback === 'correct' || recallFeedback === 'wrong') return;
     const len = rw.text.length;
     const capped = e.target.value
       .replace(/[^a-zA-Z\-']/g, '')
@@ -419,15 +527,89 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
           setRecallIdx((i) => i + 1);
         }, 350);
       } else {
+        // 拼错：立即展示正确答案并标红错误位置，稍后进入下一词（不再排到队尾）
+        setRecallWrong((p) => (p.some((x) => x.wordId === rw.wordId) ? p : [...p, rw]));
+        const answer = Array.from(rw.text.toLowerCase());
+        const wrongAt: number[] = [];
+        next.forEach((c, i) => { if (c !== answer[i]) wrongAt.push(i); });
+        setRecallWrongAt(wrongAt);
         setRecallFeedback('wrong');
+        setRecallLetters(answer);
+        setRecallCursor(len);
         setTimeout(() => {
+          setRecallFeedback(null);
           setRecallLetters(Array.from({ length: len }, () => ''));
           setRecallCursor(0);
-          setRecallFeedback(null);
-          setRecallQueue((q) => [...q.filter((_, i) => i !== recallIdx), rw]);
-        }, 400);
+          setRecallWrongAt([]);
+          setRecallIdx((i) => i + 1);
+        }, 1500);
       }
     }
+  };
+
+  // 选中文：右滑「认识」验证 —— 选对才算认识，选错记为不认识
+  const pickVerify = (opt: ChoiceOption) => {
+    const w = verifyWord;
+    if (!w || verifySel) return;
+    const correct = opt.text === w.text;
+    setVerifySel(opt);
+    // 判定结果在展示反馈后再落账并推进（避免末词未及看完反馈就跳入循环考题）
+    setTimeout(() => {
+      setVerifySel(null);
+      setVerifying(false);
+      if (correct) {
+        setKnownIds((prev) => new Set(prev).add(w.wordId));
+      } else {
+        setUnknownIds((prev) => new Set(prev).add(w.wordId));
+      }
+      advanceChoiceCard();
+    }, correct ? 450 : 900);
+  };
+
+  // 选中文：左滑「不认识」→ 翻面显示释义；「下一个」按钮落账并推进
+  const markChoiceUnknown = () => {
+    setRevealed(true);
+  };
+
+  const nextFromReveal = () => {
+    const w = active[index];
+    if (w) setUnknownIds((prev) => new Set(prev).add(w.wordId));
+    setRevealed(false);
+    advanceChoiceCard();
+  };
+
+  const advanceChoiceCard = () => {
+    if (index < active.length - 1) {
+      setIndex(index + 1);
+      setFlipped(false);
+    }
+  };
+
+  // 选中文：循环考题判定 —— 答对移出队列，答错移回队尾继续循环，直到全部答对
+  const pickDrill = (opt: ChoiceOption) => {
+    const cw = drillWord;
+    if (!cw || drillSel || drillLockRef.current) return;
+    drillLockRef.current = true;
+    const correct = opt.text === cw.text;
+    setDrillSel(opt);
+    const q = drillQueue;
+    const i = drillIdx;
+    setTimeout(() => {
+      drillLockRef.current = false;
+      setDrillSel(null);
+      if (correct) {
+        const next = q.filter((_, x) => x !== i);
+        if (next.length === 0) {
+          setDrillDone(true);
+          return;
+        }
+        setDrillQueue(next);
+        setDrillIdx(i >= next.length ? 0 : i);
+      } else if (q.length > 1) {
+        // 答错：该词移到队尾；下标保持 i（原位置现在是指向下一个词）
+        setDrillQueue([...q.filter((_, x) => x !== i), q[i]!]);
+      }
+    }, correct ? 400 : 900);
   };
 
   const resetAll = () => {
@@ -445,6 +627,17 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     setRecallLetters([]);
     setRecallCursor(0);
     setRecallFeedback(null);
+    setRecallWrong([]);
+    setRecallWrongAt([]);
+    setVerifying(false);
+    setVerifySel(null);
+    setRevealed(false);
+    setDrillStarted(false);
+    setDrillDone(false);
+    setDrillQueue([]);
+    setDrillIdx(0);
+    setDrillSel(null);
+    drillLockRef.current = false;
   };
 
   if (total === 0) {
@@ -457,6 +650,81 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
   }
 
   if (finished) {
+    // 选中文：循环考题（不认识词点选释义，答错回队尾，直到全部答对）
+    if (isChoiceMode) {
+      if (drillStarted && !drillDone && drillWord) {
+        const cw = drillWord;
+        return (
+          <div className="mx-auto max-h-full max-w-lg py-8 text-center">
+            <div className="mb-2 text-sm text-slate-400">
+              循环巩固 · 剩余 {drillQueue.length} 词（第 {drillIdx + 1} 词）
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <div className="text-3xl font-bold text-slate-100">{cw.text}</div>
+              {cw.phonetic && <span className="text-lg text-slate-400">{cw.phonetic}</span>}
+              <button
+                onClick={() => getTts().speak(cw.text)}
+                title="播放发音"
+                className="rounded-xl border border-slate-600 bg-slate-900/80 px-3 py-1.5 text-base text-slate-300 transition-colors hover:bg-slate-800"
+              >
+                🔊
+              </button>
+            </div>
+            <div className="mt-1.5 text-sm text-slate-500">选择正确的中文释义（答错会回到队尾，直到全部答对）</div>
+
+            <div className="mx-auto mt-4 grid w-full max-w-md grid-cols-1 gap-2.5 sm:grid-cols-2">
+              {drillOptions.map((opt, i) => {
+                const selCls = drillSel
+                  ? opt.text === cw.text
+                    ? 'border-emerald-400 bg-emerald-950/60 text-emerald-200 shadow-[0_0_14px_rgba(52,211,153,0.35)]'
+                    : drillSel.text === opt.text
+                      ? 'border-red-400 bg-red-950/60 text-red-200 shadow-[0_0_14px_rgba(248,113,113,0.35)] animate-[shake_0.3s_ease-in-out]'
+                      : 'border-slate-700 bg-slate-900/50 text-slate-400 opacity-60'
+                  : 'border-slate-700 bg-slate-900/60 text-slate-100 hover:border-cyan-500/70 hover:bg-cyan-950/40';
+                return (
+                  <button
+                    key={`${opt.text}-${opt.meaning}`}
+                    onClick={() => pickDrill(opt)}
+                    disabled={drillSel !== null}
+                    className={`rounded-xl border-2 px-4 py-3.5 text-left text-[15px] font-medium transition-all disabled:cursor-not-allowed ${selCls}`}
+                  >
+                    <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full border border-current text-xs opacity-60">
+                      {i + 1}
+                    </span>
+                    {opt.meaning}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-2 h-5 text-center text-sm">
+              {drillSel &&
+                (drillSel.text === cw.text ? (
+                  <span className="text-lg font-semibold text-emerald-400">✓ 正确</span>
+                ) : (
+                  <span className="text-lg font-semibold text-red-400">
+                    ✗ 答错，回队尾再考：{cw.text} {cw.meanings[0]?.meaning}
+                  </span>
+                ))}
+            </div>
+          </div>
+        );
+      }
+      // 全部答对 / 无不认识词 → 完成
+      return (
+        <div className="mx-auto max-w-md py-16 text-center">
+          <div className="mb-4 text-5xl">🎉</div>
+          <h2 className="text-2xl font-bold text-cyan-400">{drillStarted ? '巩固完成！' : '闪卡完成！'}</h2>
+          <p className="mt-3 text-sm text-slate-400">
+            {drillStarted ? '全部答对，可点击下方「开始战斗」进入实战' : '无巩固词，可开始战斗'}
+          </p>
+          <button onClick={resetAll} className="mt-6 text-sm text-cyan-400 hover:underline">
+            重新浏览
+          </button>
+        </div>
+      );
+    }
+
     // 无巩固词：轻量提示，直接可开始战斗
     if (unknownWords.length === 0) {
       return (
@@ -474,14 +742,23 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     // 拼写巩固（提示递减：看词 → 听音 → 回忆）
     if (rewriting && rwWord) {
       return (
-        <div className="mx-auto max-w-md py-8 text-center">
-          <div className="mb-1 text-xs text-slate-400">
+        <div className="mx-auto max-h-full max-w-lg overflow-y-auto py-8 text-center">
+          <div className="mb-2 text-sm text-slate-400">
             拼写巩固 {rewriteIdx + 1}/{unknownWords.length}
           </div>
-          <div className="text-lg font-semibold text-slate-200">
-            {rwWord.meanings[0]?.meaning ?? rwWord.text}
+          <div className="flex items-center justify-center gap-3">
+            <div className="text-2xl font-semibold text-slate-200">
+              {rwWord.meanings[0]?.meaning ?? rwWord.text}
+            </div>
+            <button
+              onClick={() => getTts().speak(rwWord.text)}
+              title="播放发音"
+              className="rounded-xl border border-slate-600 bg-slate-900/80 px-3 py-1.5 text-base text-slate-300 transition-colors hover:bg-slate-800"
+            >
+              🔊
+            </button>
           </div>
-          <div className="mt-1 text-xs text-slate-500">
+          <div className="mt-2 text-sm text-slate-500">
             {rewriteCount === 0 && '👀 看词跟写'}
             {rewriteCount === 1 && '🎧 听音默写'}
             {rewriteCount === 2 && '🧠 回忆拼写'}
@@ -489,7 +766,19 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
 
           {/* 第 1 遍展示单词供抄写 */}
           {rewriteCount === 0 && (
-            <div className="mt-3 text-3xl font-black tracking-wide text-slate-100">{rwWord.text}</div>
+            <div className="mt-4 text-4xl font-black tracking-wide text-slate-100">{rwWord.text}</div>
+          )}
+
+          {/* 巩固资料：记忆锚点/易混提示，全程展示，不参与提示强度衰退 */}
+          {(rwWord.mnemonic || rwWord.confusable) && (
+            <div className="mx-auto mt-4 max-w-sm space-y-1.5 rounded-xl border border-slate-700/50 bg-slate-900/40 px-4 py-2">
+              {rwWord.mnemonic && <div className="text-sm text-emerald-300/90">💡 {rwWord.mnemonic}</div>}
+              {rwWord.confusable && (
+                <div className="text-sm text-amber-300/90">
+                  ⚠ 注意区分（{rwWord.confusable.note}）：{rwWord.confusable.counterpart}
+                </div>
+              )}
+            </div>
           )}
 
           {isTouch ? (
@@ -519,12 +808,12 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
                 enterKeyHint="done"
                 maxLength={rwLen}
                 placeholder={Array.from({ length: Math.max(1, rwLen) }, () => '•').join(' ')}
-                className="w-full rounded-2xl border-2 border-cyan-500/40 bg-slate-900/70 px-4 py-4 text-center font-bold tracking-[0.35em] text-cyan-200 outline-none transition-colors placeholder:text-slate-600 placeholder:tracking-[0.35em] focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30"
-                style={{ fontSize: 24 }}
+                className="w-full rounded-2xl border-2 border-cyan-500/40 bg-slate-900/70 px-4 py-5 text-center font-bold tracking-[0.4em] text-cyan-200 outline-none transition-colors placeholder:text-slate-600 placeholder:tracking-[0.4em] focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30"
+                style={{ fontSize: 34 }}
               />
             </div>
           ) : (
-            <div className="mt-3 flex flex-wrap justify-center gap-1.5">
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
               {Array.from({ length: rwLen }, (_, i) => {
                 const filled = (rewriteLetters[i] ?? '').trim();
                 const active = i === rewriteCursor && rewriteFeedback !== 'correct';
@@ -533,7 +822,7 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
                   <span
                     key={i}
                     onClick={() => { if (rewriteFeedback !== 'correct') setRewriteCursor(i); }}
-                    className={`flex h-10 w-8 items-center justify-center border-b-2 text-lg font-bold transition-all cursor-pointer ${
+                    className={`flex h-14 w-11 items-center justify-center rounded-lg border-b-2 text-2xl font-bold transition-all cursor-pointer ${
                       active ? 'border-cyan-400 text-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.5)]' :
                       errored ? 'border-red-400 text-red-300 animate-[shake_0.3s]' :
                       filled ? 'border-cyan-400/60 text-cyan-200' :
@@ -546,10 +835,30 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
               })}
             </div>
           )}
-          <div className="mt-2 text-xs text-slate-500">第 {Math.min(rewriteCount + 1, 3)} / 3 遍</div>
+          {/* 三段进度点：与战斗内巩固重写视觉语言统一 */}
+          <div className="mt-2 flex items-center justify-center gap-2">
+            {['👀', '🎧', '🧠'].map((icon, i) => (
+              <span
+                key={i}
+                className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] transition-all ${
+                  i < rewriteCount
+                    ? 'bg-emerald-500/80 text-slate-950'
+                    : i === rewriteCount
+                      ? 'bg-slate-800 text-slate-200 ring-2 ring-cyan-400/50'
+                      : 'bg-slate-800 text-slate-600'
+                }`}
+              >
+                {i < rewriteCount ? '✓' : icon}
+              </span>
+            ))}
+          </div>
           <div className="mt-2 h-5 text-center text-xs">
-            {rewriteFeedback === 'correct' && <span className="text-emerald-400">✓</span>}
-            {rewriteFeedback === 'wrong' && <span className="text-red-400">✗ 再试</span>}
+            {rewriteFeedback === 'correct' && (
+              <span className="font-medium text-emerald-400">
+                ✓ {['字形记住了', '音形对上了', '牢牢记住了！'][Math.min(rewriteCount, 2)]}
+              </span>
+            )}
+            {rewriteFeedback === 'wrong' && <span className="text-red-400">✗ 再试一次</span>}
           </div>
         </div>
       );
@@ -562,7 +871,32 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
           <div className="mx-auto max-w-md py-16 text-center">
             <div className="mb-4 text-5xl">🎉</div>
             <h2 className="text-2xl font-bold text-cyan-400">拼写巩固完成！</h2>
-            <p className="mt-3 text-sm text-slate-400">可点击下方「开始战斗」进入实战</p>
+            {recallWrong.length > 0 ? (
+              <>
+                <p className="mt-3 text-sm text-amber-400">
+                  本轮拼错 {recallWrong.length} 词，建议重点复习：
+                </p>
+                <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+                  {recallWrong.map((w) => (
+                    <span
+                      key={w.wordId}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-red-700/50 bg-red-950/30 px-3 py-1 text-sm text-red-300"
+                    >
+                      {w.text}
+                      <button
+                        onClick={() => getTts().speak(w.text)}
+                        className="text-xs text-slate-400 hover:text-cyan-300"
+                        title="发音"
+                      >
+                        🔊
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <p className="mt-3 text-sm text-slate-400">全部拼对，可点击下方「开始战斗」进入实战</p>
+            )}
             <button onClick={resetAll} className="mt-6 text-sm text-cyan-400 hover:underline">
               重新浏览
             </button>
@@ -573,14 +907,23 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
       if (!rw) return null;
       const rclen = rw.text.length;
       return (
-        <div className="mx-auto max-w-md py-12 text-center">
-          <div className="mb-2 text-xs text-slate-400">
+        <div className="mx-auto max-h-full max-w-lg overflow-y-auto py-12 text-center">
+          <div className="mb-2 text-sm text-slate-400">
             闪电拼写 {recallIdx + 1}/{recallQueue.length}
           </div>
-          <div className="text-2xl font-bold text-slate-100">
-            {rw.meanings[0]?.meaning ?? rw.text}
+          <div className="flex items-center justify-center gap-3">
+            <div className="text-3xl font-bold text-slate-100">
+              {rw.meanings[0]?.meaning ?? rw.text}
+            </div>
+            <button
+              onClick={() => getTts().speak(rw.text)}
+              title="播放发音"
+              className="rounded-xl border border-slate-600 bg-slate-900/80 px-3 py-1.5 text-base text-slate-300 transition-colors hover:bg-slate-800"
+            >
+              🔊
+            </button>
           </div>
-          <div className="mt-1 text-xs text-slate-500">看释义拼写单词</div>
+          <div className="mt-1.5 text-sm text-slate-500">看释义拼写单词</div>
 
           {isTouch ? (
             <div className="mt-4 w-full space-y-2">
@@ -609,23 +952,24 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
                 enterKeyHint="done"
                 maxLength={rclen}
                 placeholder={Array.from({ length: Math.max(1, rclen) }, () => '•').join(' ')}
-                className="w-full rounded-2xl border-2 border-cyan-500/40 bg-slate-900/70 px-4 py-4 text-center font-bold tracking-[0.35em] text-cyan-200 outline-none transition-colors placeholder:text-slate-600 placeholder:tracking-[0.35em] focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30"
-                style={{ fontSize: 24 }}
+                className="w-full rounded-2xl border-2 border-cyan-500/40 bg-slate-900/70 px-4 py-5 text-center font-bold tracking-[0.4em] text-cyan-200 outline-none transition-colors placeholder:text-slate-600 placeholder:tracking-[0.4em] focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30"
+                style={{ fontSize: 34 }}
               />
             </div>
           ) : (
-            <div className="mt-4 flex flex-wrap items-end justify-center gap-1.5">
+            <div className="mt-4 flex flex-wrap items-end justify-center gap-2">
               {Array.from({ length: rclen }, (_, i) => {
                 const filled = (recallLetters[i] ?? '').trim();
                 const active = i === recallCursor && recallFeedback !== 'correct';
-                const errored = recallFeedback === 'wrong' && filled;
+                const errored = recallFeedback === 'wrong' && recallWrongAt.includes(i);
                 return (
                   <span
                     key={i}
                     onClick={() => { if (recallFeedback !== 'correct') setRecallCursor(i); }}
-                    className={`flex h-12 w-9 items-center justify-center border-b-2 text-xl font-bold transition-all cursor-pointer ${
+                    className={`flex h-14 w-11 items-center justify-center rounded-lg border-b-2 text-2xl font-bold transition-all cursor-pointer ${
                       active ? 'border-cyan-400 text-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.5)]' :
                       errored ? 'border-red-400 text-red-300 animate-[shake_0.3s]' :
+                      filled && recallFeedback === 'wrong' ? 'border-emerald-400 text-emerald-200' :
                       filled ? 'border-cyan-400/60 text-cyan-200' :
                       'border-slate-600 text-slate-600 hover:border-slate-400'
                     }`}
@@ -639,7 +983,11 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
 
           <div className="mt-2 h-5 text-center text-xs">
             {recallFeedback === 'correct' && <span className="text-emerald-400">✓ 正确</span>}
-            {recallFeedback === 'wrong' && <span className="text-red-400">✗ 拼错，稍后再试</span>}
+            {recallFeedback === 'wrong' && (
+              <span className="text-red-400">
+                ✗ 拼错，正确答案 <span className="font-semibold">{rw.text}</span>
+              </span>
+            )}
           </div>
         </div>
       );
@@ -655,17 +1003,16 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
   const unknown = unknownIds.size;
   const remaining = total - index;
 
-  const flip = () => {
-    if (!flipped) {
-      setFlipped(true);
-      getTts().speak(w.text);
-    }
-  };
-
-  // 移动端滑卡手势（仅翻面后触发判定）
+  // 移动端滑卡手势：拼写类需先翻面；选中文正面即可左右滑（无需翻转）
   const onPointerDown = (e: ReactPointerEvent) => {
     if (!isTouch) return;
     if (e.pointerType !== 'touch') return;
+    if (isChoiceMode) {
+      if (verifying || revealed) return; // 验证/翻面展示中不响应
+      dragRef.current = { startX: e.clientX, startY: e.clientY, dragging: false };
+      setCardXTx(0);
+      return;
+    }
     if (!flipped) return;
     dragRef.current = { startX: e.clientX, startY: e.clientY, dragging: false };
     setCardXTx(0);
@@ -696,6 +1043,24 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     if (wasDragging && Math.abs(dx) >= SWIPE_THRESHOLD) {
       if (swipeLockRef.current) return;
       swipeLockRef.current = true;
+      if (isChoiceMode) {
+        // 选中文：右滑=认识（四选一验证）· 左滑=不认识（翻面显示+下一个）
+        const right = dx > 0;
+        setCardXTx(right ? 360 : -360);
+        setSwipeFlash(right ? 'known' : 'unknown');
+        setTimeout(() => {
+          setCardXTx(0);
+          setSwipeFlash(null);
+          swipeLockRef.current = false;
+          if (right) {
+            setVerifying(true);
+            setVerifySel(null);
+          } else {
+            markChoiceUnknown();
+          }
+        }, 320);
+        return;
+      }
       // 右滑（dx>0）= 认识，左滑（dx<0）= 不认识
       const type = dx > 0 ? 'known' : 'unknown';
       setCardXTx(dx > 0 ? 360 : -360); // 卡片滑出屏幕方向
@@ -711,12 +1076,220 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
     }
   };
 
+  // 选中文卡片各阶段共用的统计栏 / 进度条
+  const statsBar = () =>
+    runStats ? (
+      <div className="relative z-10 w-full rounded-2xl border border-slate-700/50 bg-slate-900/50 px-5 py-3 backdrop-blur-sm">
+        <div className="flex items-center justify-center gap-5 text-sm">
+          <span className="text-cyan-300">第 <span className="text-lg font-bold">{runStats.day}</span> 天</span>
+          <span className="text-slate-600">|</span>
+          <span className="text-slate-300">词池 <span className="text-lg font-bold text-slate-100">{runStats.poolUsed}</span></span>
+          <span className="text-slate-600">|</span>
+          <span className="text-slate-300">本波预览 <span className="text-lg font-bold text-slate-100">{runStats.wavePreview}</span></span>
+        </div>
+        <div className="mt-1.5 flex items-center justify-center gap-5 text-xs">
+          <span className="text-emerald-400">认识 {known}</span>
+          <span className="text-red-400">不认识 {unknown}</span>
+          <span className="text-slate-500">剩余 {remaining}</span>
+        </div>
+      </div>
+    ) : (
+      <div className="relative z-10 flex w-full items-center justify-center gap-6 text-base">
+        <span className="text-emerald-400">认识 {known}</span>
+        <span className="text-red-400">不认识 {unknown}</span>
+        <span className="text-slate-500">剩余 {remaining}</span>
+      </div>
+    );
+  const progressBar = () => (
+    <div className="relative z-10 h-2 w-full max-w-md overflow-hidden rounded-full bg-slate-800">
+      <div
+        className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-cyan-300 transition-all duration-300"
+        style={{ width: `${((index + 1) / total) * 100}%` }}
+      />
+    </div>
+  );
+
+  // 选中文：正面直接左右滑（无点击翻转）
+  if (isChoiceMode) {
+    // 右滑「认识」验证：4 选 1 确认真的认识
+    if (verifying && verifyWord) {
+      const vw = verifyWord;
+      return (
+        <div className="relative mx-auto flex h-full min-h-0 w-full items-center justify-center px-2 py-4">
+          <div className="relative z-10 flex min-h-0 w-full max-w-lg flex-col items-center gap-4">
+            {statsBar()}
+            {progressBar()}
+            <div className="mx-auto w-full max-w-md rounded-3xl border-2 border-cyan-500/40 bg-slate-900/80 p-6 text-center shadow-[0_0_28px_rgba(6,182,212,0.2)]">
+              <div className="mb-1 text-xs text-slate-400">右滑「认识」· 验证</div>
+              <div className="text-3xl font-bold text-slate-100">{vw.text}</div>
+              {vw.phonetic && <div className="mt-1 text-base text-slate-400">{vw.phonetic}</div>}
+              <div className="mt-3 text-sm text-slate-500">选择正确的中文释义</div>
+              <div className="mx-auto mt-3 grid w-full max-w-md grid-cols-1 gap-2.5 sm:grid-cols-2">
+                {verifyOptions.map((opt, i) => {
+                  const selCls = verifySel
+                    ? opt.text === vw.text
+                      ? 'border-emerald-400 bg-emerald-950/60 text-emerald-200 shadow-[0_0_14px_rgba(52,211,153,0.35)]'
+                      : verifySel.text === opt.text
+                        ? 'border-red-400 bg-red-950/60 text-red-200 shadow-[0_0_14px_rgba(248,113,113,0.35)] animate-[shake_0.3s_ease-in-out]'
+                        : 'border-slate-700 bg-slate-900/50 text-slate-400 opacity-60'
+                    : 'border-slate-700 bg-slate-900/60 text-slate-100 hover:border-cyan-500/70 hover:bg-cyan-950/40';
+                  return (
+                    <button
+                      key={`${opt.text}-${opt.meaning}`}
+                      onClick={() => pickVerify(opt)}
+                      disabled={verifySel !== null}
+                      className={`rounded-xl border-2 px-4 py-3.5 text-left text-[15px] font-medium transition-all disabled:cursor-not-allowed ${selCls}`}
+                    >
+                      <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full border border-current text-xs opacity-60">
+                        {i + 1}
+                      </span>
+                      {opt.meaning}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="mt-2 h-5 text-center text-sm">
+                {verifySel &&
+                  (verifySel.text === vw.text ? (
+                    <span className="text-lg font-semibold text-emerald-400">✓ 确认认识</span>
+                  ) : (
+                    <span className="text-lg font-semibold text-red-400">
+                      ✗ 记入不认识：{vw.text} {vw.meanings[0]?.meaning}
+                    </span>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 左滑「不认识」翻面：显示释义 + 下一个按钮
+    if (revealed) {
+      return (
+        <div className="relative mx-auto flex h-full min-h-0 w-full items-center justify-center px-2 py-4">
+          <div className="relative z-10 flex min-h-0 w-full max-w-lg flex-col items-center gap-4">
+            {statsBar()}
+            {progressBar()}
+            <div className="mx-auto w-full max-w-md rounded-3xl border-2 border-cyan-500/40 bg-slate-900/80 p-6 text-center shadow-[0_0_28px_rgba(6,182,212,0.2)]">
+              <div className="mb-1 text-xs text-slate-400">左滑「不认识」· 记一记</div>
+              <div className="text-3xl font-bold text-slate-100">{w.text}</div>
+              {w.phonetic && <div className="mt-1 text-base text-slate-400">{w.phonetic}</div>}
+              <div className="mt-4 space-y-2 text-left">
+                {w.meanings.map((m, j) => (
+                  <div key={j} className="rounded-lg border border-slate-700/50 bg-slate-800/40 p-3">
+                    <div className="text-base text-slate-200">{m.meaning}</div>
+                    {m.example && <div className="mt-0.5 text-sm text-slate-500 italic">{m.example}</div>}
+                  </div>
+                ))}
+                {w.mnemonic && (
+                  <div className="mt-2 rounded-lg border border-emerald-800/50 bg-emerald-950/30 px-3 py-2 text-sm text-emerald-300/90">
+                    💡 {w.mnemonic}
+                  </div>
+                )}
+              </div>
+              <button
+                onClick={nextFromReveal}
+                className="mt-5 w-full rounded-xl bg-cyan-500 py-3 text-base font-bold text-slate-950 transition-all hover:bg-cyan-400"
+              >
+                下一个 →
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 正面：单词 + 音标 + 发音，左右滑判定
+    return (
+      <div className="relative mx-auto flex h-full min-h-0 w-full items-center justify-center px-2 py-4">
+        {isTouch && swipeFlash && (
+          <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center">
+            <div
+              className={`flex items-center gap-2 rounded-2xl border-2 px-8 py-4 text-3xl font-black shadow-2xl backdrop-blur-md animate-[flash-pop_0.32s_ease-out] ${
+                swipeFlash === 'known'
+                  ? 'border-emerald-400/80 bg-emerald-500/25 text-emerald-300 shadow-emerald-500/30'
+                  : 'border-red-400/80 bg-red-500/25 text-red-300 shadow-red-500/30'
+              }`}
+            >
+              {swipeFlash === 'known' ? '✓ 认识' : '✗ 不认识'}
+            </div>
+          </div>
+        )}
+        <div className="relative z-10 flex min-h-0 w-full max-w-lg flex-col items-center gap-4">
+          {statsBar()}
+          {progressBar()}
+          <div
+            ref={cardRef}
+            role="button"
+            tabIndex={0}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={endDrag}
+            onPointerLeave={endDrag}
+            onPointerCancel={endDrag}
+            className={`relative z-10 w-full max-h-full cursor-pointer select-none overflow-hidden rounded-3xl border-2 p-8 text-center transition-all duration-300 sm:p-10 ${
+              'border-cyan-500/40 bg-slate-900/80 shadow-[0_0_28px_rgba(6,182,212,0.2)]'
+            }`}
+            style={{
+              touchAction: isTouch ? 'none' : undefined,
+              transform: cardXTx ? `translateX(${cardXTx}px)` : undefined,
+            }}
+          >
+            <div className="mb-4 flex items-center justify-center gap-2.5">
+              <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase ${tierColor(w.tier)}`}>
+                {w.tier ?? '?'}
+              </span>
+              <span className={`rounded-full px-3 py-1 text-xs font-medium ${s.badge}`}>{s.label}</span>
+            </div>
+            <div className="text-5xl font-black tracking-wide text-slate-100 sm:text-6xl">{w.text}</div>
+            {w.phonetic && <div className="mt-3 text-lg text-slate-400">{w.phonetic}</div>}
+            <div className="mt-6 text-sm text-slate-500 animate-pulse">左右滑动判断是否认识</div>
+            <button
+              onClick={() => getTts().speak(w.text)}
+              title="播放发音"
+              className="mt-4 rounded-full border border-slate-600 bg-slate-900/80 px-5 py-2.5 text-lg text-slate-300 transition-colors hover:bg-slate-800"
+            >
+              🔊
+            </button>
+          </div>
+          {!isTouch && (
+            <div className="flex w-full gap-4">
+              <button
+                onClick={markChoiceUnknown}
+                className="flex-1 rounded-2xl border border-red-700/50 bg-red-950/20 py-4 text-lg font-semibold text-red-400 transition-colors hover:bg-red-500/10 hover:text-red-300"
+              >
+                ❌ 不认识
+              </button>
+              <button
+                onClick={() => { setVerifying(true); setVerifySel(null); }}
+                className="flex-1 rounded-2xl border border-emerald-700/50 bg-emerald-950/20 py-4 text-lg font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10 hover:text-emerald-300"
+              >
+                ✅ 认识
+              </button>
+            </div>
+          )}
+          <div className="text-xs text-slate-500">
+            {isTouch ? '← 左滑不认识 · 右滑认识 →' : '← 不认识 · 认识 →'}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const flip = () => {
+    if (!flipped) {
+      setFlipped(true);
+      getTts().speak(w.text);
+    }
+  };
+
   return (
     <div
       className={
         isTouch
-          ? 'relative mx-auto flex min-h-full w-full items-center justify-center px-2 py-6'
-          : 'mx-auto flex max-w-lg flex-col items-center gap-4 px-4 py-6'
+          ? 'relative mx-auto flex h-full min-h-0 w-full items-center justify-center px-2 py-4'
+          : 'mx-auto flex h-full min-h-0 max-w-lg flex-col items-center gap-4 px-4 py-4'
       }
     >
       {/* 移动端：点击旁白空白处也可翻转（覆盖全宽，含横屏两侧） */}
@@ -741,17 +1314,34 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
         </div>
       )}
 
-      {/* 内容区：卡片居中，max-w-md 收窄防横屏撑太宽 */}
-      <div className={isTouch ? 'relative z-10 flex w-full max-w-md flex-col items-center gap-4' : 'flex w-full flex-col items-center gap-4'}>
-        {/* 统计栏 */}
-      <div className="relative z-10 flex w-full items-center justify-center gap-4 text-xs">
-        <span className="text-emerald-400">认识 {known}</span>
-        <span className="text-red-400">不认识 {unknown}</span>
-        <span className="text-slate-500">剩余 {remaining}</span>
-      </div>
+      {/* 内容区：卡片居中，max-w-lg 收窄防横屏撑太宽 */}
+      <div className={isTouch ? 'relative z-10 flex min-h-0 w-full max-w-lg flex-col items-center gap-4' : 'flex min-h-0 w-full max-w-2xl flex-col items-center gap-4'}>
+        {/* 统计栏：肉鸽模式双段（本局全局 + 本批进度），标准模式单段 */}
+        {runStats ? (
+          <div className="relative z-10 w-full rounded-2xl border border-slate-700/50 bg-slate-900/50 px-5 py-3 backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-5 text-sm">
+              <span className="text-cyan-300">第 <span className="text-lg font-bold">{runStats.day}</span> 天</span>
+              <span className="text-slate-600">|</span>
+              <span className="text-slate-300">词池 <span className="text-lg font-bold text-slate-100">{runStats.poolUsed}</span></span>
+              <span className="text-slate-600">|</span>
+              <span className="text-slate-300">本波预览 <span className="text-lg font-bold text-slate-100">{runStats.wavePreview}</span></span>
+            </div>
+            <div className="mt-1.5 flex items-center justify-center gap-5 text-xs">
+              <span className="text-emerald-400">认识 {known}</span>
+              <span className="text-red-400">不认识 {unknown}</span>
+              <span className="text-slate-500">剩余 {remaining}</span>
+            </div>
+          </div>
+        ) : (
+          <div className="relative z-10 flex w-full items-center justify-center gap-6 text-base">
+            <span className="text-emerald-400">认识 {known}</span>
+            <span className="text-red-400">不认识 {unknown}</span>
+            <span className="text-slate-500">剩余 {remaining}</span>
+          </div>
+        )}
 
       {/* 进度条 */}
-      <div className="relative z-10 h-1 w-full max-w-xs overflow-hidden rounded-full bg-slate-800">
+      <div className="relative z-10 h-2 w-full max-w-md overflow-hidden rounded-full bg-slate-800">
         <div
           className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-cyan-300 transition-all duration-300"
           style={{ width: `${((index + 1) / total) * 100}%` }}
@@ -774,50 +1364,56 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
         onPointerCancel={endDrag}
-        className={`relative z-10 w-full cursor-pointer select-none rounded-2xl border-2 p-6 text-center transition-all duration-300 ${
+        className={`relative z-10 w-full max-h-full cursor-pointer select-none overflow-hidden rounded-3xl border-2 p-8 text-center transition-all duration-300 sm:p-10 ${
           flipped
-            ? 'border-cyan-500/40 bg-slate-900/80 shadow-[0_0_20px_rgba(6,182,212,0.15)]'
-            : 'border-slate-700/60 bg-slate-900/60 hover:border-cyan-500/30 hover:shadow-[0_0_10px_rgba(6,182,212,0.1)]'
+            ? 'border-cyan-500/40 bg-slate-900/80 shadow-[0_0_28px_rgba(6,182,212,0.2)]'
+            : 'border-slate-700/60 bg-slate-900/60 hover:border-cyan-500/30 hover:shadow-[0_0_16px_rgba(6,182,212,0.12)]'
         }`}
         style={{
-          touchAction: isTouch ? 'pan-y' : undefined,
+          touchAction: isTouch ? 'none' : undefined,
           transform: cardXTx ? `translateX(${cardXTx}px)` : undefined,
         }}
       >
-        <div className="mb-3 flex items-center justify-center gap-2">
-          <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${tierColor(w.tier)}`}>
+        <div className="mb-4 flex items-center justify-center gap-2.5">
+          <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase ${tierColor(w.tier)}`}>
             {w.tier ?? '?'}
           </span>
-          <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${s.badge}`}>
+          <span className={`rounded-full px-3 py-1 text-xs font-medium ${s.badge}`}>
             {s.label}
           </span>
         </div>
 
-        <div className="text-4xl font-black tracking-wide text-slate-100">
+        <div className="text-5xl font-black tracking-wide text-slate-100 sm:text-6xl">
           {w.text}
         </div>
         {w.phonetic && (
-          <div className="mt-2 text-sm text-slate-500">{w.phonetic}</div>
+          <div className="mt-3 text-lg text-slate-400">{w.phonetic}</div>
         )}
 
         {/* 翻转区域 */}
-        <div className={`mt-4 overflow-hidden transition-all duration-300 ${
-          flipped ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+        <div className={`mt-6 overflow-hidden transition-all duration-300 ${
+          flipped ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-4">
+          <div className="rounded-2xl border border-slate-700/50 bg-slate-800/40 p-5 text-left">
             {w.meanings.map((m, j) => (
-              <div key={j} className="text-sm text-slate-200">
+              <div key={j} className="mb-2 last:mb-0 text-base text-slate-200">
                 {m.meaning}
                 {m.example && (
-                  <div className="mt-0.5 text-xs text-slate-500 italic">{m.example}</div>
+                  <div className="mt-0.5 text-sm text-slate-500 italic">{m.example}</div>
                 )}
               </div>
             ))}
+            {/* 记忆锚点：翻面后随释义一起显示 */}
+            {w.mnemonic && (
+              <div className="mt-3 rounded-xl border border-emerald-800/50 bg-emerald-950/30 px-3 py-2 text-sm text-emerald-300/90">
+                💡 {w.mnemonic}
+              </div>
+            )}
           </div>
         </div>
 
         {!flipped && (
-          <div className="mt-4 text-xs text-slate-500 animate-pulse">
+          <div className="mt-5 text-sm text-slate-500 animate-pulse">
             点击卡片或按空格查看释义
           </div>
         )}
@@ -830,20 +1426,20 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
             <div className="flex items-center justify-center gap-3">
               <button
                 onClick={() => getTts().speak(w.text)}
-                className="rounded-full border border-slate-600 bg-slate-900/80 px-4 py-2 text-base text-slate-300 transition-colors hover:bg-slate-800"
+                className="rounded-full border border-slate-600 bg-slate-900/80 px-5 py-2.5 text-lg text-slate-300 transition-colors hover:bg-slate-800"
               >
                 🔊
               </button>
               <button
                 onClick={skipCurrent}
                 title="标记已掌握"
-                className="rounded-full border border-emerald-800 bg-emerald-950/40 px-4 py-2 text-sm text-emerald-400 transition-colors hover:bg-emerald-500/20"
+                className="rounded-full border border-emerald-800 bg-emerald-950/40 px-5 py-2.5 text-base text-emerald-400 transition-colors hover:bg-emerald-500/20"
               >
                 斩
               </button>
             </div>
           )}
-          <div className={`text-center text-[10px] text-slate-500 ${flipped ? '' : 'animate-pulse'}`}>
+          <div className={`text-center text-xs text-slate-500 ${flipped ? '' : 'animate-pulse'}`}>
             {flipped
               ? '← 左滑不认识 · 右滑认识 →'
               : '点击卡片查看释义'}
@@ -853,37 +1449,37 @@ export function FlashCard({ words, skippedWords, onSkip }: Props) {
         <>
           {/* 桌面：底部按钮行（不认识的词会被跳过（斩）- 让它们保留在题库中） */}
           {flipped && (
-            <div className="flex w-full gap-3">
+            <div className="flex w-full gap-4">
               <button
                 onClick={() => markAndAdvance('unknown')}
-                className="flex-1 rounded-xl border border-red-700/50 bg-red-950/20 py-3 text-sm font-semibold text-red-400 transition-colors hover:bg-red-500/10 hover:text-red-300"
+                className="flex-1 rounded-2xl border border-red-700/50 bg-red-950/20 py-4 text-lg font-semibold text-red-400 transition-colors hover:bg-red-500/10 hover:text-red-300"
               >
                 ❌ 不认识
               </button>
               <button
                 onClick={() => getTts().speak(w.text)}
-                className="rounded-xl border border-slate-700 px-3 py-3 text-sm text-slate-400 transition-colors hover:bg-slate-800"
+                className="rounded-2xl border border-slate-700 px-4 py-4 text-lg text-slate-400 transition-colors hover:bg-slate-800"
               >
                 🔊
               </button>
               <button
                 onClick={skipCurrent}
                 title="标记已掌握"
-                className="rounded-xl border border-emerald-800 bg-emerald-950/20 px-3 py-3 text-sm text-emerald-400 transition-colors hover:bg-emerald-500/20"
+                className="rounded-2xl border border-emerald-800 bg-emerald-950/20 px-4 py-4 text-lg text-emerald-400 transition-colors hover:bg-emerald-500/20"
               >
                 斩
               </button>
               <button
                 onClick={() => markAndAdvance('known')}
-                className="flex-1 rounded-xl border border-emerald-700/50 bg-emerald-950/20 py-3 text-sm font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10 hover:text-emerald-300"
+                className="flex-1 rounded-2xl border border-emerald-700/50 bg-emerald-950/20 py-4 text-lg font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10 hover:text-emerald-300"
               >
                 ✅ 认识
               </button>
             </div>
           )}
 
-          <div className="text-[10px] text-slate-600">
-            {flipped ? '← 不认识 · 认识 → · Backspace 撤回' : '空格 翻转 · 点击 翻卡'}
+          <div className="text-xs text-slate-600">
+            {flipped ? '← 不认识 · ↓ 斩 · 认识 → · Backspace 撤回' : '空格 翻转 · 点击 翻卡'}
           </div>
         </>
       )}

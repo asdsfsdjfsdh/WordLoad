@@ -1,11 +1,13 @@
 // 打字核心：逐字母横线拼写输入 + 按键音效 + 音标 + 发音（双模式）
 // 交互：每个字母一格，点击定位光标，逐个输入，填满自动判定
-// 膨胀重写模式（v2.2）：答错 → 答题区膨胀 + 冻结小怪（onFreeze）→ 显示正确答案+例句 → 3 遍全对放技能（onSkillReleased）
+// 膨胀重写模式（v2.2 抄写 → v2.8 三段提示衰退）：答错 → 答题区膨胀 + 冻结小怪（onFreeze）
+//   → 看词跟写(抄) → 听音默写(隐藏词形，听发音) → 回忆拼写(纯记忆) → 3 遍全对放技能（onSkillReleased）
+//   例句/记忆锚点/易混提示作为「巩固资料」全程展示，不参与提示强度衰退
 import { useEffect, useRef, useState, type ChangeEvent } from 'react';
 import type { GameMode, Question } from '@word-journey/shared';
 import { getTts } from '../lib/tts';
 import { useIsTouch } from '../lib/touch';
-import { playComboSound, playCorrectSound, playKeySound, playWrongSound } from '../lib/sfx';
+import { playComboSound, playComboTick, playCorrectSound, playKeySound, playWrongSound } from '../lib/sfx';
 
 export interface AnswerRecord {
   seq: number;
@@ -30,24 +32,35 @@ interface Props {
   locked?: boolean;
   // 当前已输入字母串（用于战场右下角的迷你键盘提示）
   onPressedChange?: (keys: string) => void;
+  // 局内全局连击初值（生存 Run 跨波累计传入；普通战斗默认 0）
+  initialCombo?: number;
 }
 
 const REWRITE_TARGET = 3;
 
-export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, onSkillReleased, forceFinish, locked, onPressedChange }: Props) {
+// 三段提示衰退（与 FlashCard 拼写巩固一致）：看词跟写(抄) → 听音默写(隐藏词形) → 回忆拼写(纯记忆)
+const REWRITE_STAGES = [
+  { icon: '👀', label: '看词跟写', done: '字形记住了', ring: 'ring-cyan-400/50 shadow-[0_0_14px_rgba(34,211,238,0.35)]' },
+  { icon: '🎧', label: '听音默写', done: '音形对上了', ring: 'ring-violet-400/50 shadow-[0_0_14px_rgba(167,139,250,0.35)]' },
+  { icon: '🧠', label: '回忆拼写', done: '牢牢记住了！', ring: 'ring-amber-400/60 shadow-[0_0_18px_rgba(251,191,36,0.45)]' },
+] as const;
+
+export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, onSkillReleased, forceFinish, locked, onPressedChange, initialCombo = 0 }: Props) {
   const [index, setIndex] = useState(0);
   const [letters, setLetters] = useState<string[]>([]);
   const [cursor, setCursor] = useState(0);
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
+  // 逐字母错误位置（答错时与正确答案 diff，仅错误槽标红，而非整词染色）
+  const [wrongPos, setWrongPos] = useState<Set<number>>(new Set());
   // 膨胀重写状态：答错进入，3 遍全对才放技能过题
   const [expanded, setExpanded] = useState(false);
   const [rewriteCount, setRewriteCount] = useState(0);
-  const [combo, setCombo] = useState(0);
+  const [combo, setCombo] = useState(initialCombo);
   const startedAt = useRef(Date.now());
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const handlerRef = useRef<(e: KeyboardEvent) => void>(() => undefined);
   const answeredRef = useRef<AnswerRecord[]>([]);
-  const comboRef = useRef(0);
+  const comboRef = useRef(initialCombo);
   const finishedRef = useRef(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const isTouch = useIsTouch();
@@ -63,6 +76,7 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
     setExpanded(false);
     setRewriteCount(0);
     setFeedback(null);
+    setWrongPos(new Set());
     startedAt.current = Date.now();
     onPressedChange?.('');
     if (q) {
@@ -76,6 +90,14 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
   useEffect(() => {
     onPressedChange?.(letters.join(''));
   }, [letters, onPressedChange]);
+
+  // 巩固重写第 2 遍（听音默写）：进入该阶段自动播一次发音，第 3 遍（回忆拼写）不自动播，逼出纯记忆
+  useEffect(() => {
+    if (expanded && rewriteCount === 1 && q) {
+      getTts().speak(q.answer);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [expanded, rewriteCount]);
 
   useEffect(() => () => clearTimeout(timerRef.current), []);
 
@@ -97,6 +119,16 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
     }
   };
 
+  // 逐字母错误定位：与正确答案逐位比对（大小写不敏感），仅标记出错槽位
+  const diffWrongPos = (typed: string, ans: string): Set<number> => {
+    const s = new Set<number>();
+    const n = Math.max(typed.length, ans.length);
+    for (let i = 0; i < n; i++) {
+      if ((typed[i] ?? '').toLowerCase() !== (ans[i] ?? '').toLowerCase()) s.add(i);
+    }
+    return s;
+  };
+
   const commit = (word: string, correct: boolean) => {
     if (!q) return;
     const elapsedMs = Date.now() - startedAt.current;
@@ -110,6 +142,7 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
       comboRef.current = correct ? comboRef.current + 1 : 0;
       setCombo(comboRef.current);
       if (correct && comboRef.current >= 3) playComboSound(comboRef.current);
+      else if (correct && comboRef.current >= 1) playComboTick(comboRef.current);
       onJudged?.({ correct, combo: comboRef.current, seq: q.seq, typed: word });
     }
     startedAt.current = Date.now();
@@ -156,6 +189,7 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
       if (isFirst) {
         // 首判答错：进入膨胀重写 + 冻结小怪
         setFeedback('wrong');
+        setWrongPos(diffWrongPos(word, q.answer));
         setExpanded(true);
         setRewriteCount(0);
         onFreeze?.(true);
@@ -164,6 +198,7 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
       } else {
         // 重写再错 → 计数器归零，从第 1 遍重新开始
         setFeedback('wrong');
+        setWrongPos(diffWrongPos(word, q.answer));
         setRewriteCount(0);
         setLetters(Array.from({ length: len }, () => ''));
         setCursor(0);
@@ -262,7 +297,7 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
       {Array.from({ length: len }, (_, i) => {
         const filled = (letters[i] ?? '').trim();
         const active = i === cursor && feedback !== 'correct';
-        const errored = feedback === 'wrong' && filled;
+        const errored = feedback === 'wrong' && wrongPos.has(i);
         const cls =
           size === 'lg'
             ? 'h-16 w-12 text-4xl'
@@ -342,11 +377,21 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
   );
 
   if (expanded) {
+    const stage = REWRITE_STAGES[Math.min(rewriteCount, REWRITE_STAGES.length - 1)]!;
+    const hasAid = Boolean(q.example || q.mnemonic || q.confusable);
     return (
-      <div className="mx-auto w-full max-w-3xl relative px-4 py-3 transition-all duration-300">
+      <div className={`mx-auto w-full max-w-3xl relative rounded-2xl px-4 py-3 ring-1 transition-all duration-300 ${stage.ring}`}>
         <div className="flex items-center justify-between">
-          <div className="text-base font-bold text-amber-300">
-            答案: <span style={{ textShadow: '0 0 10px rgba(252,211,77,0.5)' }}>{q.answer}</span>
+          <div className="flex items-center gap-2 text-base font-bold text-amber-300">
+            <span className="text-lg">{stage.icon}</span>
+            <span>{stage.label}</span>
+            {rewriteCount === 0 ? (
+              <span style={{ textShadow: '0 0 10px rgba(252,211,77,0.5)' }}>· {q.answer}</span>
+            ) : (
+              <span className="text-xs font-normal text-slate-400">
+                {rewriteCount === 1 ? '（词形已隐藏，听发音拼）' : '（不看不听，凭记忆拼）'}
+              </span>
+            )}
           </div>
           <button
             onClick={playVoice}
@@ -356,31 +401,50 @@ export function TypingCore({ questions, mode, onComplete, onJudged, onFreeze, on
           </button>
         </div>
 
-        {q.example && (
-          <div className="mt-2 rounded-lg border border-slate-700/50 bg-slate-900/40 px-3 py-1.5 text-center">
-            <div className="text-xs text-slate-400">{q.example}</div>
+        {/* 巩固资料：例句/记忆锚点/易混提示，全程展示，不参与提示强度衰退 */}
+        {hasAid && (
+          <div className="mt-2 space-y-1 rounded-lg border border-slate-700/50 bg-slate-900/40 px-3 py-1.5">
+            {q.example && <div className="text-center text-xs text-slate-400">{q.example}</div>}
+            {q.mnemonic && (
+              <div className="text-center text-xs text-emerald-300/90">💡 {q.mnemonic}</div>
+            )}
+            {q.confusable && (
+              <div className="text-center text-xs text-amber-300/90">
+                ⚠ 注意区分（{q.confusable.note}）：{q.confusable.counterpart}
+              </div>
+            )}
           </div>
         )}
 
-        <div className="mt-3 flex items-center justify-center gap-2">
-          <span className="text-xs text-slate-500">重写</span>
-          <div className="flex h-2 w-40 overflow-hidden rounded-full bg-slate-800">
+        {/* 三段进度点：每完成一遍点亮对应颜色 */}
+        <div className="mt-3 flex items-center justify-center gap-2.5">
+          {REWRITE_STAGES.map((s, i) => (
             <div
-              className="h-full rounded-full bg-cyan-400 transition-all"
-              style={{ width: `${(rewriteCount / REWRITE_TARGET) * 100}%` }}
-            />
-          </div>
-          <span className="text-xs font-medium text-cyan-300">{rewriteCount}/{REWRITE_TARGET}</span>
+              key={i}
+              className={`flex h-6 w-6 items-center justify-center rounded-full text-xs transition-all ${
+                i < rewriteCount
+                  ? 'bg-emerald-500/80 text-slate-950'
+                  : i === rewriteCount
+                    ? `${s.ring} ring-2 bg-slate-800 text-slate-200`
+                    : 'bg-slate-800 text-slate-600'
+              }`}
+            >
+              {i < rewriteCount ? '✓' : s.icon}
+            </div>
+          ))}
+          <span className="ml-1 text-xs font-medium text-slate-400">{rewriteCount}/{REWRITE_TARGET}</span>
         </div>
 
         <div className="mt-3">{isTouch ? renderTouchInput() : renderSlots('lg')}</div>
 
         <div className="mt-2 h-5 text-center text-sm">
           {feedback === 'correct' && (
-            <span className="text-emerald-400">✓</span>
+            <span className="font-semibold text-emerald-400">
+              ✓ {rewriteCount === 0 ? REWRITE_STAGES[0].done : rewriteCount === 1 ? REWRITE_STAGES[1].done : '🎉 三段全通过！'}
+            </span>
           )}
           {feedback === 'wrong' && (
-            <span className="text-red-400">✗ 重新开始</span>
+            <span className="text-red-400">✗ 没对上，从头再来（{REWRITE_STAGES[0].label}）</span>
           )}
         </div>
       </div>

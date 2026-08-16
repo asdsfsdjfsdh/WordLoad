@@ -60,4 +60,23 @@ describe('boss-trigger 双驱动', () => {
     expect(SURVIVAL.BOSS_MIN_GAP_DAYS).toBeLessThanOrEqual(SURVIVAL.BOSS_MAX_GAP_DAYS);
     expect(SURVIVAL.BOSS_FIRST_DAY).toBeGreaterThanOrEqual(1);
   });
+
+  it('自定义 minGapDays：词池扩展冷却放大，学习量驱动需更久', () => {
+    // 默认 minGap=2：day4 距上次(3) gap=1 < 2，不触发
+    expect(shouldTriggerBoss({ day: 4, lastBossDay: 3, everBoss: true, cumulativeConsumed: 999, lastBossConsumed: 0 })).toBe(false);
+    // minGap=3：day5 距上次(3) gap=2 < 3，即便学习量已达标也不触发
+    expect(
+      shouldTriggerBoss({ day: 5, lastBossDay: 3, everBoss: true, cumulativeConsumed: 999, lastBossConsumed: 0 }, 3),
+    ).toBe(false);
+    // minGap=3：day6 gap=3 冷却满，学习量达标 → 触发
+    expect(
+      shouldTriggerBoss({ day: 6, lastBossDay: 3, everBoss: true, cumulativeConsumed: 999, lastBossConsumed: 0 }, 3),
+    ).toBe(true);
+  });
+
+  it('自定义 minGapDays 不影响时间兜底（≥ maxGap 强制触发）', () => {
+    expect(
+      shouldTriggerBoss({ day: 9, lastBossDay: 3, everBoss: true, cumulativeConsumed: 0, lastBossConsumed: 0 }, 4),
+    ).toBe(true); // day9 - day3 = 6 ≥ BOSS_MAX_GAP_DAYS(4)
+  });
 });

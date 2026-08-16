@@ -74,6 +74,18 @@ export class QuestionsController {
     return { ok: true };
   }
 
+  @Post('words/:wordId/unskip')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: '反斩：重置为未学状态，重新纳入出题' })
+  async unskipWord(
+    @Req() req: Request & { user: JwtUser },
+    @Param('wordId') wordId: string,
+  ): Promise<{ ok: boolean }> {
+    await this.questions.unskipWord(req.user.sub, wordId);
+    return { ok: true };
+  }
+
   private parsePositiveInt(value: string, name: string): number {
     const n = Number.parseInt(value, 10);
     if (!Number.isInteger(n) || n < 1) throw new BadRequestException(`${name} 非法`);

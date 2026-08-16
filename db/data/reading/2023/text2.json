@@ -1,0 +1,194 @@
+{
+  "code": "B",
+  "title": "Text 2",
+  "subtitle": "新英格兰地区短期租赁之争",
+  "questionsStart": 26,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Communities throughout New England have been attempting to regulate short-term rentals since sites like Airbnb took off in the 2010s.",
+      "zh": "自爱彼迎（Airbnb）等平台在2010年代兴起以来，整个新英格兰地区的社区就一直在尝试监管短期租赁。"
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Now, with record-high home prices and historically low inventory, there's an increased urgency in such regulation, particularly among those who worry that developers will come in and buy up swaths of housing to flip for a fortune on the short-term rental market.",
+      "zh": "如今，在房价屡创新高、房源库存处于历史低位的情况下，此类监管的紧迫性日益增加，尤其是那些担心开发商趁虚而入、成片买下住房再在短期租赁市场上倒手牟取暴利的人。"
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "In New Hampshire, where the rental vacancy rate has dropped below 1 percent, housing advocates fear unchecked short-term rentals will put further pressure on an already strained market.",
+      "zh": "在新罕布什尔州，出租房空置率已降至1%以下，住房倡导者们担心，不受约束的短期租赁会给本已紧张的住房市场带来更大压力。"
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "The state Legislature recently voted against a bill that would've made it illegal for towns to create legislation restricting short-term rentals.",
+      "zh": "该州议会最近否决了一项法案，而这项法案原本会规定各城镇不得制定限制短期租赁的地方法规。"
+    },
+    {
+      "para": 3,
+      "seq": 4,
+      "en": "\"We are at a crisis level on the supply of rental housing,\" said Nick Taylor, executive director of the Workforce Housing Coalition of the Greater Seacoast.",
+      "zh": "“我们正处在出租住房供应的危机水平。”大沿海地区劳动力住房联盟执行主任尼克·泰勒说。"
+    },
+    {
+      "para": 3,
+      "seq": 5,
+      "en": "Without enough affordable housing in southern New Hampshire towns, \"employers are having a hard time finding a place to live,\" Taylor said.",
+      "zh": "泰勒说，如果新罕布什尔州南部各镇缺乏足够的经济适用住房，“雇主们连找个落脚的地方都很难。”"
+    },
+    {
+      "para": 4,
+      "seq": 6,
+      "en": "However, short-term rentals also provide housing for tourists, pointed out Ryan Castle, CEO of a local Association of Realtors.",
+      "zh": "然而，当地房地产经纪人协会首席执行官瑞安·卡斯尔指出，短期租赁也为游客提供了住所。"
+    },
+    {
+      "para": 4,
+      "seq": 7,
+      "en": "\"A lot of workers are servicing the tourist industry, and the tourism industry is serviced by those people coming in short term,\" Castle said, \"and so it's a cyclical effect.\"",
+      "zh": "卡斯尔说：“许多工人在为旅游业服务，而旅游业又靠这些短期前来的人提供服务，所以这是一个循环效应。”"
+    },
+    {
+      "para": 5,
+      "seq": 8,
+      "en": "Short-term rentals themselves are not the crux of the issue, said Keren Horn, an expert on affordable housing policy.",
+      "zh": "经济适用住房政策专家凯伦·霍恩表示，短期租赁本身并不是问题的症结所在。"
+    },
+    {
+      "para": 5,
+      "seq": 9,
+      "en": "\"I think the question is, shouldn't a developer who's really building a hotel, but disguising it as not a hotel, be treated and taxed and regulated like a hotel?\" Horn said.",
+      "zh": "霍恩说：“我认为问题在于，一个实际上是在建酒店、却把它伪装成不是酒店的开发商，难道不应该像酒店一样被对待、征税和监管吗？”"
+    },
+    {
+      "para": 6,
+      "seq": 10,
+      "en": "At the end of 2018, Governor Charlie Baker of Massachusetts signed a bill to rein in those potential investor-buyers.",
+      "zh": "2018年底，马萨诸塞州州长查理·贝克签署了一项法案，以约束那些潜在的投资购房者。"
+    },
+    {
+      "para": 6,
+      "seq": 11,
+      "en": "The bill requires every rental host to register with the state, mandates they carry insurance, and opens the potential for local taxes on top of a new state levy.",
+      "zh": "该法案要求每位租赁业主向州政府登记，强制他们购买保险，并在新的州征税之外又开启了征收地方税的可能性。"
+    },
+    {
+      "para": 6,
+      "seq": 12,
+      "en": "Boston took things even further, requiring renters to register with the city's Inspectional Services Department.",
+      "zh": "波士顿则更进一步，要求租房者向该市的检查服务部门登记。"
+    },
+    {
+      "para": 7,
+      "seq": 13,
+      "en": "Horn said similar registration requirements could benefit struggling cities and towns, but \"If we want to make a change in the housing market, the main one is we have to build a lot more.\"",
+      "zh": "霍恩说，类似的登记要求可能使那些处境艰难的城市和城镇受益，但“如果我们想改变住房市场，最主要的办法是必须建造多得多的住房。”"
+    }
+  ],
+  "questions": [
+    {
+      "seq": 26,
+      "stem": "Which of the following is true of New England?",
+      "options": {
+        "A": "Its housing supply is at a very low level.",
+        "B": "Its communities are in need of funding.",
+        "C": "Its rental vacancy rate is going up slowly.",
+        "D": "Its home prices are under strict control."
+      },
+      "answer": "A",
+      "analysis": "细节题。题干问“关于新英格兰哪项正确”。第一段提到房价创历史新高（record-high home prices）、库存处于历史低位（historically low inventory），第二段又指出新罕布什尔州出租房空置率已降至1%以下，均说明该地区住房供应处于极低水平。A 项 Its housing supply is at a very low level（其住房供应处于很低水平）符合文意，故选 A。C 项“空置率缓慢上升”与“空置率下降”相悖，排除。"
+    },
+    {
+      "seq": 27,
+      "stem": "The bill mentioned in Paragraph 2 was intended to ______.",
+      "options": {
+        "A": "curb short-term rental speculation.",
+        "B": "ensure the supply of cheap housing.",
+        "C": "punish illegal dealings in housing.",
+        "D": "allow a free short-term rental market."
+      },
+      "answer": "D",
+      "analysis": "细节题。第二段末句指出，该法案“would've made it illegal for towns to create legislation restricting short-term rentals”（原本会使各城镇制定限制短期租赁的地方法规成为违法行为），即法案旨在阻止地方对短期租赁设限，从而允许短期租赁市场自由发展。D 项 allow a free short-term rental market（允许自由的短期租赁市场）是对此的同义表达，故选 D。"
+    },
+    {
+      "seq": 28,
+      "stem": "Compared with Castle, Taylor is more likely to support ______.",
+      "options": {
+        "A": "further investment in local tourism.",
+        "B": "an increase in affordable housing.",
+        "C": "strict management of real estate agents.",
+        "D": "a favorable policy for short-term workers."
+      },
+      "answer": "B",
+      "analysis": "细节对比题。泰勒（Workforce Housing Coalition 执行主任）在第三段强调出租住房供应已到危机水平、南新罕布什尔缺少经济适用住房，担忧短期租赁挤压长期租房；而卡斯尔（房地产经纪人协会 CEO）在第四段强调短期租赁为游客和旅游从业人员提供住房。可见相比卡斯尔，泰勒更支持增加经济适用住房。B 项 an increase in affordable housing（增加经济适用住房）正确。"
+    },
+    {
+      "seq": 29,
+      "stem": "What does Horn emphasize in Paragraph 5?",
+      "options": {
+        "A": "The urgency to upgrade short-term rental facilities.",
+        "B": "The efficient operation of the local housing market.",
+        "C": "The necessity to stop developers from evading taxes.",
+        "D": "The proper procedures for renting out spare houses."
+      },
+      "answer": "C",
+      "analysis": "细节题。第五段霍恩指出短期租赁本身并非问题症结，真正的疑问是：一个“really building a hotel, but disguising it as not a hotel”（实际上在建酒店、却伪装成不是酒店）的开发商，难道不应像酒店一样被对待、征税和监管吗？其核心是阻止开发商借“非酒店”之名规避税收与监管。C 项 The necessity to stop developers from evading taxes（阻止开发商逃税的必要性）符合文意，故选 C。"
+    },
+    {
+      "seq": 30,
+      "stem": "Horn holds that imposing registration requirements is ______.",
+      "options": {
+        "A": "an irrational decision.",
+        "B": "an unfeasible proposal.",
+        "C": "an unnecessary measure.",
+        "D": "an inadequate solution."
+      },
+      "answer": "D",
+      "analysis": "细节推断题。第七段霍恩表示类似的登记要求“could benefit struggling cities and towns”（可能使处境艰难的城市和城镇受益），但随即转折指出“If we want to make a change in the housing market, the main one is we have to build a lot more”（要改变住房市场，主要还得建多得多的住房）。可见登记要求虽有帮助但不足以解决问题。D 项 an inadequate solution（一个不充分的解决办法）符合文意，故选 D。"
+    }
+  ],
+  "glossary": {
+    "community": { "meaning": "n. 社区，共同体；社会" },
+    "regulate": { "meaning": "v. 监管，管理；调整" },
+    "short-term": { "meaning": "adj. 短期的" },
+    "rental": { "meaning": "n. 出租，租赁 adj. 租赁的" },
+    "take off": { "meaning": "phr. 迅速流行，腾飞；起飞" },
+    "inventory": { "meaning": "n. 库存，存货；清单" },
+    "urgency": { "meaning": "n. 紧迫性，紧急" },
+    "developer": { "meaning": "n. 开发商；开发者" },
+    "swath": { "meaning": "n. 大片，一长条（地区）" },
+    "flip": { "meaning": "v. 快速翻转；倒卖，转手获利" },
+    "vacancy": { "meaning": "n. 空置；空缺；空房" },
+    "advocate": { "meaning": "n. 倡导者，拥护者 v. 提倡，主张" },
+    "unchecked": { "meaning": "adj. 不受约束的，未加控制的" },
+    "strained": { "meaning": "adj. 紧张的，压力大的；勉强的" },
+    "legislature": { "meaning": "n. 立法机关，议会" },
+    "vote against": { "meaning": "phr. 投票反对" },
+    "bill": { "meaning": "n. 法案；账单" },
+    "legislation": { "meaning": "n. 立法，法规" },
+    "restrict": { "meaning": "v. 限制，约束" },
+    "crisis": { "meaning": "n. 危机" },
+    "executive": { "meaning": "adj. 执行的，行政的 n. 高管，主管" },
+    "coalition": { "meaning": "n. 联盟，联合体" },
+    "affordable": { "meaning": "adj. 负担得起的，经济适用的" },
+    "servicing": { "meaning": "v. 为……服务（service 的现在分词）" },
+    "cyclical": { "meaning": "adj. 循环的，周期性的" },
+    "crux": { "meaning": "n. 症结，关键" },
+    "disguise": { "meaning": "v. 伪装，掩饰 n. 伪装" },
+    "tax": { "meaning": "v. 对……征税 n. 税" },
+    "governor": { "meaning": "n. 州长，州长；主管" },
+    "rein in": { "meaning": "phr. 控制，约束" },
+    "potential": { "meaning": "adj. 潜在的 n. 潜力" },
+    "register": { "meaning": "v. 登记，注册 n. 登记簿" },
+    "mandate": { "meaning": "v. 强制，命令 n. 授权，指令" },
+    "insurance": { "meaning": "n. 保险" },
+    "levy": { "meaning": "n. 征税，征收额 v. 征收" },
+    "inspection": { "meaning": "n. 检查，视察" },
+    "struggling": { "meaning": "adj. 艰难的，苦苦挣扎的" },
+    "realtor": { "meaning": "n. 房地产经纪人" }
+  }
+}

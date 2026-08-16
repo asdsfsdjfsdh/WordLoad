@@ -1,10 +1,11 @@
 // 选中文模式：前端从会话下发的候选池（foilPool）生成 4 个选项
 // 规则：答案项自动置入；干扰项优先选与本题构成易混关系的词（confusableTexts 含目标词），其余随机同池；去重并按含义排除正确答案
-import type { FoilOption, Question } from '@word-journey/shared';
+import type { FoilOption } from '@word-journey/shared';
 
 export interface ChoiceOption {
   text: string;
   meaning: string;
+  meanings?: string[]; // 该词全部义项（答错后展示选错词完整释义）
 }
 
 function shuffle<T>(arr: T[], rng: () => number): T[] {
@@ -20,7 +21,7 @@ function shuffle<T>(arr: T[], rng: () => number): T[] {
 
 // 从候选池为某题挑选 4 个选项（含正确答案），随机排序
 export function pickOptions(
-  q: Question,
+  q: { answer: string; answerMeaning?: string },
   pool: FoilOption[] | undefined,
   rng: () => number = Math.random,
 ): ChoiceOption[] {
@@ -34,7 +35,7 @@ export function pickOptions(
     const key = `${f.text}::${f.meaning}`;
     if (seen.has(key)) continue;
     seen.add(key);
-    const opt: ChoiceOption = { text: f.text, meaning: f.meaning };
+    const opt: ChoiceOption = { text: f.text, meaning: f.meaning, meanings: f.meanings };
     (f.confusableTexts?.includes(q.answer) ? preferred : rest).push(opt);
   }
   const foils = [

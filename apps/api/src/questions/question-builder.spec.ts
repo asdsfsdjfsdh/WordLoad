@@ -2,12 +2,82 @@ import {
   allocBossPool,
   allocExtend,
   allocMix,
+  allocSessionMix,
+  blankIndexesFor,
   buildFoilPool,
   buildQuestion,
   findConfusable,
+  hintLevelFor,
   maskTemplate,
+  pickWeighted,
   rotateSense,
 } from './question-builder';
+
+const w = (wordId: string) => ({ wordId });
+
+describe('pickWeighted 加权随机抽词', () => {
+  const seq = (arr: number[]) => {
+    let i = 0;
+    return () => arr[i++] ?? 0;
+  };
+
+  it('无放回且数量受 count 约束', () => {
+    const items = ['a', 'b', 'c', 'd', 'e'].map(w);
+    const picked = pickWeighted(items, 3, () => 1, seq([0, 0, 0, 0, 0]));
+    expect(picked).toHaveLength(3);
+    expect(new Set(picked.map((p) => p.wordId)).size).toBe(3);
+    expect(pickWeighted(items, 99, () => 1, seq([0]))).toHaveLength(5);
+    expect(pickWeighted(items, 0, () => 1, seq([0]))).toHaveLength(0);
+  });
+
+  it('全 0 权重退化为随机（仍无放回）', () => {
+    const items = ['a', 'b', 'c'].map(w);
+    const picked = pickWeighted(items, 2, () => 0, seq([0, 0, 0, 0]));
+    expect(picked).toHaveLength(2);
+  });
+
+  it('高权重项更易被抽中（确定性 rng 下先抽高权重）', () => {
+    const items = ['a', 'b', 'c'].map(w);
+    // rng=0.05 → 落在总权重 [8,9,10] 的前 8/10 → 抽中 'a'（权重 8）
+    const picked = pickWeighted(items, 2, (it) => (it.wordId === 'a' ? 8 : it.wordId === 'b' ? 1 : 1), seq([0.05, 0.0]));
+    expect(picked[0]!.wordId).toBe('a');
+  });
+});
+
+describe('allocSessionMix 7:2:1', () => {
+  it('按 7:2:1 抽足 20 词（14 新 / 4 复习 / 2 错题）', () => {
+    const fresh = Array.from({ length: 20 }, (_, i) => w(`n${i}`));
+    const review = Array.from({ length: 10 }, (_, i) => w(`r${i}`));
+    const wrongbook = Array.from({ length: 10 }, (_, i) => w(`b${i}`));
+    const picked = allocSessionMix({ fresh, review, wrongbook, size: 20 });
+    expect(picked).toHaveLength(20);
+    expect(picked.filter((x) => x.wordId.startsWith('n')).length).toBe(14);
+    expect(picked.filter((x) => x.wordId.startsWith('r')).length).toBe(4);
+    expect(picked.filter((x) => x.wordId.startsWith('b')).length).toBe(2);
+  });
+  it('复习不足时缺额由新词补足', () => {
+    const fresh = Array.from({ length: 20 }, (_, i) => w(`n${i}`));
+    const review = Array.from({ length: 1 }, (_, i) => w(`r${i}`));
+    const wrongbook = Array.from({ length: 1 }, (_, i) => w(`b${i}`));
+    const picked = allocSessionMix({ fresh, review, wrongbook, size: 20 });
+    expect(picked).toHaveLength(20);
+    expect(picked.filter((x) => x.wordId.startsWith('n')).length).toBe(18);
+    expect(picked.filter((x) => x.wordId.startsWith('r')).length).toBe(1);
+    expect(picked.filter((x) => x.wordId.startsWith('b')).length).toBe(1);
+  });
+  it('全部池均不足时按可用总量返回', () => {
+    const picked = allocSessionMix({
+      fresh: [w('n0')],
+      review: [w('r0')],
+      wrongbook: [w('b0')],
+      size: 20,
+    });
+    expect(picked).toHaveLength(3);
+  });
+  it('size=0 返回空', () => {
+    expect(allocSessionMix({ fresh: [w('n0')], review: [], wrongbook: [], size: 0 })).toEqual([]);
+  });
+});
 
 describe('allocMix 60:25:15', () => {
   it('按比例分配且总和等于输入', () => {
@@ -79,16 +149,16 @@ describe('maskTemplate 挖空模板', () => {
 });
 
 describe('buildFoilPool 选中文候选池打包', () => {
-  it('打包 text/meaning，易混词形放入 confusableTexts', () => {
+  it('打包 text/meaning/meanings，易混词形放入 confusableTexts', () => {
     const pool = buildFoilPool([
-      { text: 'alter', meaning: '改变', confusableTexts: ['altar'] },
-      { text: 'altar', meaning: '祭坛', confusableTexts: ['alter'] },
-      { text: 'plain', meaning: '平原', confusableTexts: [] },
+      { text: 'alter', meaning: '改变', meanings: ['改变', '修改'], confusableTexts: ['altar'] },
+      { text: 'altar', meaning: '祭坛', meanings: ['祭坛'], confusableTexts: ['alter'] },
+      { text: 'plain', meaning: '平原', meanings: [], confusableTexts: [] },
     ]);
     expect(pool).toEqual([
-      { text: 'alter', meaning: '改变', confusableTexts: ['altar'] },
-      { text: 'altar', meaning: '祭坛', confusableTexts: ['alter'] },
-      { text: 'plain', meaning: '平原', confusableTexts: undefined },
+      { text: 'alter', meaning: '改变', meanings: ['改变', '修改'], confusableTexts: ['altar'] },
+      { text: 'altar', meaning: '祭坛', meanings: ['祭坛'], confusableTexts: ['alter'] },
+      { text: 'plain', meaning: '平原', meanings: undefined, confusableTexts: undefined },
     ]);
   });
 });
@@ -128,8 +198,95 @@ describe('buildQuestion 出题', () => {
   });
 });
 
-describe('allocBossPool Boss 段词池', () => {
-  const rng = (): number => 0.5; // 确定性随机
+describe('hintLevel 提示强度（合意难度，随掌握度/复习次数收紧）', () => {
+  // 可复现的伪随机源（mulberry32），保证仿真用例不因 Math.random 抖动而偶发失败
+  const mulberry32 = (seed: number): (() => number) => {
+    let a = seed >>> 0;
+    return () => {
+      a = (a + 0x6d2b79f5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  };
+  // 简化 SRS 仿真：每次复习按正确率（skill）推进 mastery / reviewStage，考察提示强度随学习进程的变化
+  const srs = (skill: number, reviews: number, rand: () => number = Math.random): number[] => {
+    let mastery = 20;
+    let stage = 1;
+    const snap: number[] = [];
+    for (let i = 0; i < reviews; i++) {
+      const correct = rand() < skill;
+      if (correct) {
+        stage = Math.min(6, stage + (rand() < 0.7 ? 1 : 0));
+        mastery = Math.min(100, mastery + 8 + (stage >= 3 ? 4 : 0));
+      } else {
+        stage = Math.max(0, stage - 1);
+        mastery = Math.max(5, mastery - 6);
+      }
+      snap.push(hintLevelFor(mastery, stage));
+    }
+    return snap;
+  };
+
+  it('新词永远 L0（最友好提示），即便其余词条已高掌握', () => {
+    expect(hintLevelFor(100, 6, 'new')).toBe(0);
+  });
+
+  it('阈值边界精确：mastery 与 reviewStage 双条件共同决定档位', () => {
+    expect(hintLevelFor(0, 0)).toBe(0);
+    expect(hintLevelFor(49, 3)).toBe(0); // 掌握度不足 50 → 仍 L0
+    expect(hintLevelFor(50, 3)).toBe(1);
+    expect(hintLevelFor(79, 5)).toBe(1);
+    expect(hintLevelFor(80, 5)).toBe(2);
+    expect(hintLevelFor(90, 4)).toBe(1); // 复习次数不足 → 收敛到 L1
+  });
+
+  it('仿真：纯上升学习路径（全对）提示强度只升不降，并最终到 L2', () => {
+    const snap = srs(1, 12, mulberry32(42));
+    for (let i = 1; i < snap.length; i++) {
+      expect(snap[i]).toBeGreaterThanOrEqual(snap[i - 1]!);
+    }
+    expect(snap[snap.length - 1]).toBe(2);
+  });
+
+  it('仿真：高正确率学习者 12 次复习内可达 L2（允许中途偶发回落）', () => {
+    for (let run = 0; run < 5; run++) {
+      expect(srs(0.9, 12, mulberry32(run))).toContain(2);
+    }
+  });
+
+  it('仿真：低正确率学习者 12 次复习内不达 L2（提示始终偏友好）', () => {
+    for (let run = 0; run < 5; run++) {
+      const snap = srs(0.4, 12, mulberry32(100 + run));
+      expect(snap[snap.length - 1]).toBeLessThan(2);
+    }
+  });
+
+  it('挖空档位 L0：中译英保留首字母，听写保留首尾', () => {
+    expect(blankIndexesFor('zh2en', 6, 0)).toEqual([1, 2, 3, 4, 5]);
+    expect(blankIndexesFor('dictation', 6, 0)).toEqual([1, 2, 3, 4]);
+    expect(blankIndexesFor('dictation', 2, 0)).toEqual([]); // 短词保留全部
+  });
+
+  it('挖空档位 L1：中译英全挖空，听写仅保留首字母', () => {
+    expect(blankIndexesFor('zh2en', 6, 1)).toEqual([0, 1, 2, 3, 4, 5]);
+    expect(blankIndexesFor('dictation', 6, 1)).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it('挖空档位 L2：两种模式都全挖空（仅释义/音标提示）', () => {
+    expect(blankIndexesFor('zh2en', 6, 2)).toEqual([0, 1, 2, 3, 4, 5]);
+    expect(blankIndexesFor('dictation', 6, 2)).toEqual([0, 1, 2, 3, 4, 5]);
+  });
+
+  it('buildQuestion 按 hintLevel 产出不同挖空模板（L0 首字母 → L1 全空）', () => {
+    const base = { seq: 1, wordId: 'w', senseIdx: 0, text: 'access', promptBase: '接近', tier: 'II' as const, mode: 'zh2en' as const };
+    expect(buildQuestion({ ...base, hintLevel: 0 }).template).toBe('a_____');
+    expect(buildQuestion({ ...base, hintLevel: 1 }).template).toBe('______');
+    expect(buildQuestion({ ...base, hintLevel: 2 }).template).toBe('______');
+  });
+});
+
+describe('allocBossPool Boss 段词池', () => {  const rng = (): number => 0.5; // 确定性随机
 
   it('错词全部入选', () => {
     const pool = allocBossPool({ wrong: ['a', 'b'], passed: [], history: [] }, rng);

@@ -1,5 +1,7 @@
 // 会话结算核心（纯函数）：评级 / 经验 / 掉落 / SRS 排程
 import type { Rating } from '@word-journey/shared';
+// 间隔天数唯一定义在 shared（图鉴/结算共用），此处 re-export 保持现有调用方兼容
+export { intervalDays } from '@word-journey/shared';
 
 // 单题提交结果（客户端上报）
 export interface AnswerInput {
@@ -16,6 +18,52 @@ export interface ReviewState {
   ease: number; // 简易度因子
 }
 
+// 服务端权威判题：必须有 typed 且与标准答案一致才判对；无 typed 一律按错（防客户端伪造 correct）
+export function isAnswerCorrect(typed: string | null | undefined, truth: string): boolean {
+  if (typed === undefined || typed === null || typed === '') return false;
+  return typed.trim().toLowerCase() === truth.trim().toLowerCase();
+}
+
+// 掌握度统一口径：reviewStage 达到 MASTER_STAGE 次正确复习视为掌握（mastery 100）
+export const MASTER_STAGE = 3;
+export function masteryFromStage(stage: number): number {
+  return Math.min(100, Math.round((Math.max(0, stage) / MASTER_STAGE) * 100));
+}
+
+// 错题本摘标门槛：连续答对次数达到该值才出错题本
+export const WRONGBOOK_CLEAR_STREAK = 2;
+
+// 错题本状态（inWrongBook + 连续答对计数）
+export interface WrongbookState {
+  inWrongBook: boolean;
+  wrongStreak: number;
+}
+
+// 错题本状态转移（普通会话与生存 Run 共用同一口径）：
+// - 不在本 + 答错 → 进错题本，streak 归零
+// - 在本 + 答错 → streak 归零
+// - 在本 + 答对 → streak+1，≥ WRONGBOOK_CLEAR_STREAK 摘标
+// - 不在本 + 答对 → 保持
+export function applyWrongbookState(
+  cur: WrongbookState | null,
+  answers: { correct: boolean }[],
+): WrongbookState {
+  let state: WrongbookState = cur ?? { inWrongBook: false, wrongStreak: 0 };
+  for (const a of answers) {
+    if (a.correct) {
+      if (state.inWrongBook) {
+        const streak = state.wrongStreak + 1;
+        state = streak >= WRONGBOOK_CLEAR_STREAK
+          ? { inWrongBook: false, wrongStreak: 0 }
+          : { inWrongBook: true, wrongStreak: streak };
+      }
+    } else {
+      state = { inWrongBook: true, wrongStreak: 0 };
+    }
+  }
+  return state;
+}
+
 export function srsSchedule(state: ReviewState | null, correct: boolean): ReviewState {
   const ease = (state?.ease ?? 2.5) + (correct ? 0.1 : -0.5);
   const clamped = Math.min(Math.max(ease, 1.3), 2.8);
@@ -29,15 +77,20 @@ export function srsSchedule(state: ReviewState | null, correct: boolean): Review
   return { reviewStage: stage, ease: clamped };
 }
 
-// 间隔天数：随 reviewStage 指数增长
-export function intervalDays(stage: number): number {
-  if (stage <= 0) return 0;
-  if (stage === 1) return 1;
-  if (stage === 2) return 3;
-  if (stage === 3) return 7;
-  if (stage === 4) return 14;
-  if (stage === 5) return 30;
-  return Math.min(30 + (stage - 5) * 10, 90);
+// 图鉴 SRS 档位变更史（粗粒度复习轨迹）：仅在档位变化时追加一条 {stage, at}
+export function appendStageHistory(
+  prev: unknown,
+  prevStage: number,
+  newStage: number,
+  at: Date,
+): { stage: number; at: string }[] {
+  const list: { stage: number; at: string }[] = Array.isArray(prev)
+    ? (prev as { stage?: number; at?: string }[])
+        .filter((e) => e && typeof e === 'object' && typeof e.stage === 'number')
+        .map((e) => ({ stage: e.stage as number, at: String(e.at) }))
+    : [];
+  if (newStage === prevStage) return list;
+  return [...list, { stage: newStage, at: at.toISOString() }];
 }
 
 // 角色等级：达到 level 所需累计经验 = 100 * (level-1) * level / 2（三角递增，早期快后期慢）

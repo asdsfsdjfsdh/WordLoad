@@ -1,0 +1,173 @@
+{
+  "2023:A:0": {
+    "clauses": [
+      {
+        "role": "main",
+        "label": "主句",
+        "text": "The weather in Texas may have cooled"
+      },
+      {
+        "role": "coordinate",
+        "label": "并列结构",
+        "text": "but the temperature will be high at the State Board of Education meeting in Austin this month"
+      },
+      {
+        "role": "adv",
+        "label": "状语从句",
+        "text": "since the recent extreme heat"
+      },
+      {
+        "role": "adv",
+        "label": "状语从句",
+        "text": "as officials debate how climate change is taught in Texas schools"
+      },
+      {
+        "role": "noun",
+        "label": "名词性从句",
+        "text": "how climate change is taught in Texas schools"
+      }
+    ],
+    "main": {
+      "subject": "The weather in Texas",
+      "predicate": "may have cooled"
+    }
+  },
+  "2023:A:3": {
+    "clauses": [
+      {
+        "role": "main",
+        "label": "主句",
+        "text": "Most scientists and experts sharply dispute Hardy's views."
+      }
+    ],
+    "main": {
+      "subject": "Most scientists and experts",
+      "predicate": "dispute",
+      "object": "Hardy's views"
+    }
+  },
+  "2023:A:7": {
+    "clauses": [
+      {
+        "role": "main",
+        "label": "主句",
+        "text": "A study last year by the National Center for Science Education, a non-profit group of scientists and teachers, looking at how state public schools across the country address climate change in science classes, gave barely half of US states a grade B+ or higher."
+      },
+      {
+        "role": "appositive",
+        "label": "同位语",
+        "text": "a non-profit group of scientists and teachers"
+      },
+      {
+        "role": "participle",
+        "label": "分词短语",
+        "text": "looking at how state public schools across the country address climate change in science classes"
+      },
+      {
+        "role": "noun",
+        "label": "名词性从句",
+        "text": "how state public schools across the country address climate change in science classes"
+      }
+    ],
+    "main": {
+      "subject": "A study last year by the National Center for Science Education",
+      "predicate": "gave",
+      "object": "barely half of US states a grade B+ or higher"
+    }
+  },
+  "2023:B:1": {
+    "clauses": [
+      {
+        "role": "main",
+        "label": "主句",
+        "text": "there's an increased urgency in such regulation"
+      },
+      {
+        "role": "prep",
+        "label": "介词短语",
+        "text": "with record-high home prices and historically low inventory"
+      },
+      {
+        "role": "prep",
+        "label": "介词短语",
+        "text": "particularly among those who worry that developers will come in and buy up swaths of housing to flip for a fortune on the short-term rental market"
+      },
+      {
+        "role": "adj",
+        "label": "定语从句",
+        "text": "who worry that developers will come in and buy up swaths of housing to flip for a fortune on the short-term rental market"
+      },
+      {
+        "role": "noun",
+        "label": "名词性从句",
+        "text": "that developers will come in and buy up swaths of housing to flip for a fortune on the short-term rental market"
+      }
+    ],
+    "main": {
+      "subject": "there",
+      "predicate": "is",
+      "object": "an increased urgency in such regulation"
+    }
+  },
+  "2023:C:0": {
+    "clauses": [
+      {
+        "role": "main",
+        "label": "主句",
+        "text": "you might have to be prepared to hunt around a bit"
+      },
+      {
+        "role": "adv",
+        "label": "状语从句",
+        "text": "If you're heading for your nearest branch of Waterstones"
+      },
+      {
+        "role": "appositive",
+        "label": "同位语",
+        "text": "the biggest book retailer in the UK"
+      },
+      {
+        "role": "prep",
+        "label": "介词短语",
+        "text": "in search of the Duchess of Sussex's new children's book The Bench"
+      },
+      {
+        "role": "coordinate",
+        "label": "并列结构",
+        "text": "the same may be true of The President's Daughter, the new thriller by Bill Clinton and James Patterson"
+      },
+      {
+        "role": "appositive",
+        "label": "同位语",
+        "text": "the new thriller by Bill Clinton and James Patterson"
+      }
+    ],
+    "main": {
+      "subject": "you",
+      "predicate": "might have to be prepared to hunt"
+    }
+  },
+  "2023:D:4": {
+    "clauses": [
+      {
+        "role": "main",
+        "label": "主句",
+        "text": "Citation cartels, where journals, authors, and institutions conspire to inflate citation numbers, have existed for a long time."
+      },
+      {
+        "role": "adj",
+        "label": "定语从句",
+        "text": "where journals, authors, and institutions conspire to inflate citation numbers"
+      },
+      {
+        "role": "infinitive",
+        "label": "不定式",
+        "text": "to inflate citation numbers"
+      }
+    ],
+    "main": {
+      "subject": "Citation cartels",
+      "predicate": "have existed"
+    }
+  }
+}

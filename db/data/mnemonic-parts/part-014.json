@@ -1,0 +1,402 @@
+[
+  {
+    "text": "elsewhere",
+    "mnemonic": "else其他+where处，别处"
+  },
+  {
+    "text": "comfortable",
+    "mnemonic": "comfort舒适+able能"
+  },
+  {
+    "text": "ambulance",
+    "mnemonic": "ambul行走+ance，ambulance救护车"
+  },
+  {
+    "text": "subtle",
+    "mnemonic": "sub下+tle，subtle微妙"
+  },
+  {
+    "text": "artistic",
+    "mnemonic": "art艺术+istic"
+  },
+  {
+    "text": "celebrity",
+    "mnemonic": "celebr名声+ity，celebrity名人"
+  },
+  {
+    "text": "objection",
+    "mnemonic": "object反对+ion，异议"
+  },
+  {
+    "text": "lamb",
+    "mnemonic": "lamb羔羊，b不发音"
+  },
+  {
+    "text": "mummy",
+    "mnemonic": "mummy源自蜡，木乃伊"
+  },
+  {
+    "text": "tennis",
+    "mnemonic": "tennis源自网球呼喝，网球"
+  },
+  {
+    "text": "clay",
+    "mnemonic": "clay源自黏，clay黏土"
+  },
+  {
+    "text": "education",
+    "mnemonic": "educate教育+ion"
+  },
+  {
+    "text": "lend",
+    "mnemonic": "lend=借出，borrow借入"
+  },
+  {
+    "text": "habit",
+    "mnemonic": "habit源自拥有，习惯"
+  },
+  {
+    "text": "traitor",
+    "mnemonic": "traitor源自交付，叛徒"
+  },
+  {
+    "text": "homicide",
+    "mnemonic": "homi人+cide杀，homicide杀人"
+  },
+  {
+    "text": "delicious",
+    "mnemonic": "delicious源自诱人，美味"
+  },
+  {
+    "text": "gate",
+    "mnemonic": "gate=门，Gateway网关"
+  },
+  {
+    "text": "distract",
+    "mnemonic": "dis分开+tract拉，分心"
+  },
+  {
+    "text": "dwell",
+    "mnemonic": "dwell与dwarf形近，居住"
+  },
+  {
+    "text": "accent",
+    "mnemonic": "ac+cent唱，accent口音"
+  },
+  {
+    "text": "volcano",
+    "mnemonic": "volcano源自火神Vulcan"
+  },
+  {
+    "text": "grape",
+    "mnemonic": "grape=葡萄，grapevine葡萄藤"
+  },
+  {
+    "text": "easter",
+    "mnemonic": "Easter源自黎明女神，复活节"
+  },
+  {
+    "text": "simple",
+    "mnemonic": "sim单+ple折，simple简单"
+  },
+  {
+    "text": "humor",
+    "mnemonic": "humor源自体液，幽默"
+  },
+  {
+    "text": "blame",
+    "mnemonic": "blame源自亵渎，责备"
+  },
+  {
+    "text": "recorder",
+    "mnemonic": "record记录+er，录音机"
+  },
+  {
+    "text": "usually",
+    "mnemonic": "usual通常+ly"
+  },
+  {
+    "text": "economic",
+    "mnemonic": "economy经济变economic"
+  },
+  {
+    "text": "mechanic",
+    "mnemonic": "mechan机器+ic，机修工"
+  },
+  {
+    "text": "chapter",
+    "mnemonic": "chapter源自头，一章"
+  },
+  {
+    "text": "investment",
+    "mnemonic": "invest投资+ment"
+  },
+  {
+    "text": "charm",
+    "mnemonic": "charm源自歌，魅力咒语"
+  },
+  {
+    "text": "tend",
+    "mnemonic": "tend伸，照料倾向"
+  },
+  {
+    "text": "orchestra",
+    "mnemonic": "orchestra源自舞蹈区，乐团"
+  },
+  {
+    "text": "slogan",
+    "mnemonic": "slogan源自战斗呐喊，口号"
+  },
+  {
+    "text": "chair",
+    "mnemonic": "chair=椅子，主席chairman"
+  },
+  {
+    "text": "recipe",
+    "mnemonic": "recipe源自取，食谱配方"
+  },
+  {
+    "text": "fund",
+    "mnemonic": "fund源自底部，基金本金"
+  },
+  {
+    "text": "speech",
+    "mnemonic": "speech源自说，演讲"
+  },
+  {
+    "text": "unlikely",
+    "mnemonic": "un+likely可能，不可能"
+  },
+  {
+    "text": "promising",
+    "mnemonic": "promise承诺变promising"
+  },
+  {
+    "text": "responsible",
+    "mnemonic": "response反应+ible"
+  },
+  {
+    "text": "specimen",
+    "mnemonic": "spec看+imen，specimen标本"
+  },
+  {
+    "text": "room",
+    "mnemonic": "room=房间，bedroom卧室"
+  },
+  {
+    "text": "temperature",
+    "mnemonic": "temper调和+ature，温度"
+  },
+  {
+    "text": "special",
+    "mnemonic": "spec种类+ial，special特别的"
+  },
+  {
+    "text": "emotional",
+    "mnemonic": "emotion情绪+al"
+  },
+  {
+    "text": "item",
+    "mnemonic": "item源自同样，条款"
+  },
+  {
+    "text": "defence",
+    "mnemonic": "de+fence挡，defence防御"
+  },
+  {
+    "text": "ski",
+    "mnemonic": "ski源自木片，滑雪"
+  },
+  {
+    "text": "inject",
+    "mnemonic": "in+ject投，inject注射"
+  },
+  {
+    "text": "unjust",
+    "mnemonic": "un不+just公正"
+  },
+  {
+    "text": "reach",
+    "mnemonic": "reach源自伸出，够到"
+  },
+  {
+    "text": "tonight",
+    "mnemonic": "to+night夜，今晚"
+  },
+  {
+    "text": "verb",
+    "mnemonic": "verb源自词，动词"
+  },
+  {
+    "text": "relationship",
+    "mnemonic": "relation关系+ship"
+  },
+  {
+    "text": "column",
+    "mnemonic": "column源自柱子，列"
+  },
+  {
+    "text": "raise",
+    "mnemonic": "raise与rise同源，提升"
+  },
+  {
+    "text": "abdomen",
+    "mnemonic": "abdomen源自隐藏，腹部"
+  },
+  {
+    "text": "confess",
+    "mnemonic": "con+confess承认，坦白"
+  },
+  {
+    "text": "before",
+    "mnemonic": "be+fore前"
+  },
+  {
+    "text": "gizmo",
+    "mnemonic": "gizmo源自小工具，小玩意"
+  },
+  {
+    "text": "slim",
+    "mnemonic": "slim与slight形近，苗条"
+  },
+  {
+    "text": "analyst",
+    "mnemonic": "analyze分析变analyst"
+  },
+  {
+    "text": "divert",
+    "mnemonic": "di+vert转，divert转移"
+  },
+  {
+    "text": "morality",
+    "mnemonic": "moral道德+ity"
+  },
+  {
+    "text": "headache",
+    "mnemonic": "head头+ache痛"
+  },
+  {
+    "text": "prepare",
+    "mnemonic": "pre前+pare备，准备"
+  },
+  {
+    "text": "stomach",
+    "mnemonic": "stomach源自嘴，胃"
+  },
+  {
+    "text": "king",
+    "mnemonic": "king=国王，kingdom王国"
+  },
+  {
+    "text": "zoo",
+    "mnemonic": "zoo源自动物，动物园"
+  },
+  {
+    "text": "comrade",
+    "mnemonic": "com+rade同室，comrade同志"
+  },
+  {
+    "text": "thanksgiving",
+    "mnemonic": "thanks感谢+giving给"
+  },
+  {
+    "text": "ministry",
+    "mnemonic": "ministry部，minister大臣"
+  },
+  {
+    "text": "occur",
+    "mnemonic": "oc+cur跑，occur发生"
+  },
+  {
+    "text": "soccer",
+    "mnemonic": "soccer源自assoc足球"
+  },
+  {
+    "text": "bravery",
+    "mnemonic": "brave勇敢变bravery"
+  },
+  {
+    "text": "jaw",
+    "mnemonic": "jaw=下巴，jawbone颌骨"
+  },
+  {
+    "text": "beach",
+    "mnemonic": "beach=海滩，pebble beach卵石滩"
+  },
+  {
+    "text": "noon",
+    "mnemonic": "noon源自九点，正午"
+  },
+  {
+    "text": "recognise",
+    "mnemonic": "re+cognise知，认出"
+  },
+  {
+    "text": "deliver",
+    "mnemonic": "de+liber自由，deliver交付"
+  },
+  {
+    "text": "supreme",
+    "mnemonic": "super最高变supreme"
+  },
+  {
+    "text": "price",
+    "mnemonic": "price源自价值，价格"
+  },
+  {
+    "text": "intend",
+    "mnemonic": "in+tend伸，intend打算"
+  },
+  {
+    "text": "baseball",
+    "mnemonic": "base垒+ball球"
+  },
+  {
+    "text": "conversation",
+    "mnemonic": "converse交谈+ation"
+  },
+  {
+    "text": "skill",
+    "mnemonic": "skill与school同源，技能"
+  },
+  {
+    "text": "former",
+    "mnemonic": "form+er，former以前的"
+  },
+  {
+    "text": "peasant",
+    "mnemonic": "peasant源自乡间，农民"
+  },
+  {
+    "text": "watch",
+    "mnemonic": "watch源自看守，观看"
+  },
+  {
+    "text": "refuse",
+    "mnemonic": "re+fuse流，refuse拒绝"
+  },
+  {
+    "text": "gigantic",
+    "mnemonic": "giant巨变gigantic"
+  },
+  {
+    "text": "obey",
+    "mnemonic": "obey源自听从，服从"
+  },
+  {
+    "text": "core",
+    "mnemonic": "core源自心，果核核心"
+  },
+  {
+    "text": "anatomy",
+    "mnemonic": "ana上+tom切+y，anatomy解剖"
+  },
+  {
+    "text": "democracy",
+    "mnemonic": "demo人民+cracy统治"
+  },
+  {
+    "text": "moral",
+    "mnemonic": "moral源自习俗，道德"
+  }
+]

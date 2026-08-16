@@ -1,0 +1,402 @@
+[
+  {
+    "text": "bed",
+    "mnemonic": "bed=床，b+ed躺上去"
+  },
+  {
+    "text": "dozen",
+    "mnemonic": "dozen一打，dozen=12个"
+  },
+  {
+    "text": "champagne",
+    "mnemonic": "champagne源自香槟省，气泡酒"
+  },
+  {
+    "text": "target",
+    "mnemonic": "target=目标，射箭的靶子"
+  },
+  {
+    "text": "fall",
+    "mnemonic": "fall与fail失败形近，失败坠落"
+  },
+  {
+    "text": "bakery",
+    "mnemonic": "bake烤+ry处，bakery面包店"
+  },
+  {
+    "text": "restaurant",
+    "mnemonic": "restaurant源自restore恢复，餐馆恢复体力"
+  },
+  {
+    "text": "log",
+    "mnemonic": "log=日志/原木，木头刻痕记事"
+  },
+  {
+    "text": "gender",
+    "mnemonic": "gender源自gener生，男女两性"
+  },
+  {
+    "text": "however",
+    "mnemonic": "how+ever，however然而"
+  },
+  {
+    "text": "rigid",
+    "mnemonic": "rigid源自rig僵硬，死板"
+  },
+  {
+    "text": "wretched",
+    "mnemonic": "wretch可怜+ed，wretched悲惨的"
+  },
+  {
+    "text": "funny",
+    "mnemonic": "fun乐趣+n+y，funny有趣的"
+  },
+  {
+    "text": "false",
+    "mnemonic": "false与fail形近，虚假会失败"
+  },
+  {
+    "text": "interfere",
+    "mnemonic": "inter之间+fere，interfere干涉"
+  },
+  {
+    "text": "note",
+    "mnemonic": "note=笔记，not再+ed变noted注意"
+  },
+  {
+    "text": "spine",
+    "mnemonic": "spine与spine刺同源，脊骨如刺"
+  },
+  {
+    "text": "most",
+    "mnemonic": "most=最，more加st变most"
+  },
+  {
+    "text": "laptop",
+    "mnemonic": "lap膝+top上，laptop笔记本电脑"
+  },
+  {
+    "text": "semester",
+    "mnemonic": "semester源自semi半年，学期"
+  },
+  {
+    "text": "buy",
+    "mnemonic": "buy=买，与sell卖相对"
+  },
+  {
+    "text": "chronic",
+    "mnemonic": "chron时间+ic，chronic慢性的"
+  },
+  {
+    "text": "royal",
+    "mnemonic": "royal源自roy国王，皇家的"
+  },
+  {
+    "text": "chin",
+    "mnemonic": "chin=下巴，ch+in"
+  },
+  {
+    "text": "waist",
+    "mnemonic": "waist与waste浪费形近，束腰防浪费"
+  },
+  {
+    "text": "medical",
+    "mnemonic": "medicine医学变medical"
+  },
+  {
+    "text": "hostage",
+    "mnemonic": "host客人+age，hostage人质"
+  },
+  {
+    "text": "chief",
+    "mnemonic": "chief源自cap头，首领"
+  },
+  {
+    "text": "icon",
+    "mnemonic": "icon源自形象，图标偶像"
+  },
+  {
+    "text": "direction",
+    "mnemonic": "direct指导+ion，direction方向"
+  },
+  {
+    "text": "evident",
+    "mnemonic": "e+vident看，evident显然可见"
+  },
+  {
+    "text": "forum",
+    "mnemonic": "forum=论坛，罗马广场议事"
+  },
+  {
+    "text": "hardware",
+    "mnemonic": "hard硬+ware件，hardware硬件"
+  },
+  {
+    "text": "thesis",
+    "mnemonic": "thesis源自放置，立论论文"
+  },
+  {
+    "text": "swear",
+    "mnemonic": "swear=发誓，swear咒骂"
+  },
+  {
+    "text": "ear",
+    "mnemonic": "ear=耳朵，hear听里藏着ear"
+  },
+  {
+    "text": "beautiful",
+    "mnemonic": "beauty美变beautiful"
+  },
+  {
+    "text": "republic",
+    "mnemonic": "re+public公共，republic共和国"
+  },
+  {
+    "text": "fight",
+    "mnemonic": "fight与light光形近，为光而战"
+  },
+  {
+    "text": "species",
+    "mnemonic": "species源自spect看，外观分物种"
+  },
+  {
+    "text": "nephew",
+    "mnemonic": "nephew侄子，ph读f"
+  },
+  {
+    "text": "excellent",
+    "mnemonic": "excel超越+lent，excellent优秀"
+  },
+  {
+    "text": "matter",
+    "mnemonic": "matter=事情，matter重要"
+  },
+  {
+    "text": "cherish",
+    "mnemonic": "cherish珍爱，cher心爱的"
+  },
+  {
+    "text": "exact",
+    "mnemonic": "ex+act做，exact精确"
+  },
+  {
+    "text": "reader",
+    "mnemonic": "read读+er人，reader读者"
+  },
+  {
+    "text": "fabulous",
+    "mnemonic": "fabulous源自fable寓言，好到像寓言"
+  },
+  {
+    "text": "departure",
+    "mnemonic": "depart离开+ure，departure启程"
+  },
+  {
+    "text": "jacket",
+    "mnemonic": "jacket音译夹克，外套"
+  },
+  {
+    "text": "trash",
+    "mnemonic": "trash与cash现金形近，垃圾不值钱"
+  },
+  {
+    "text": "verbal",
+    "mnemonic": "verb动词+al，verbal口头的"
+  },
+  {
+    "text": "five",
+    "mnemonic": "five与fine形近，五指正好"
+  },
+  {
+    "text": "other",
+    "mnemonic": "other=其他，another另一个"
+  },
+  {
+    "text": "division",
+    "mnemonic": "divide分变division"
+  },
+  {
+    "text": "excited",
+    "mnemonic": "excite兴奋+ed，excited兴奋的"
+  },
+  {
+    "text": "those",
+    "mnemonic": "these这些变those那些"
+  },
+  {
+    "text": "fridge",
+    "mnemonic": "fridge源自冷藏，frigid寒冷"
+  },
+  {
+    "text": "chop",
+    "mnemonic": "chop=砍，chop切碎"
+  },
+  {
+    "text": "nasty",
+    "mnemonic": "nasty与nag唠叨形近，恶劣惹人烦"
+  },
+  {
+    "text": "several",
+    "mnemonic": "several源自sever分开，分出几个"
+  },
+  {
+    "text": "fairly",
+    "mnemonic": "fair公平+ly，fairly相当"
+  },
+  {
+    "text": "royalty",
+    "mnemonic": "royal王室+ty，royalty版税"
+  },
+  {
+    "text": "germ",
+    "mnemonic": "germ=细菌，发芽的芽也含germ"
+  },
+  {
+    "text": "likewise",
+    "mnemonic": "like像+wise方式，likewise同样"
+  },
+  {
+    "text": "heroin",
+    "mnemonic": "heroin源自hero，海洛因"
+  },
+  {
+    "text": "hard",
+    "mnemonic": "hard=硬，努力"
+  },
+  {
+    "text": "nerve",
+    "mnemonic": "nerve源自筋腱，神经"
+  },
+  {
+    "text": "management",
+    "mnemonic": "manage管理+ment"
+  },
+  {
+    "text": "convey",
+    "mnemonic": "con+vey路，convey传达"
+  },
+  {
+    "text": "rain",
+    "mnemonic": "rain=雨，raindrop雨滴"
+  },
+  {
+    "text": "replace",
+    "mnemonic": "re+place放，replace替换"
+  },
+  {
+    "text": "prefer",
+    "mnemonic": "pre前+fer拿，prefer更喜欢"
+  },
+  {
+    "text": "bet",
+    "mnemonic": "bet=打赌，be+st加st变best最好"
+  },
+  {
+    "text": "safety",
+    "mnemonic": "safe安全+ty，safety安全"
+  },
+  {
+    "text": "via",
+    "mnemonic": "via源自道路，经由"
+  },
+  {
+    "text": "desperate",
+    "mnemonic": "de+sper希望+ate，desperate绝望"
+  },
+  {
+    "text": "plumber",
+    "mnemonic": "plumber水管工，b不发音"
+  },
+  {
+    "text": "exit",
+    "mnemonic": "ex外+it走，exit出口"
+  },
+  {
+    "text": "toward",
+    "mnemonic": "to+ward方向，toward朝向"
+  },
+  {
+    "text": "majority",
+    "mnemonic": "major主要+ity，majority多数"
+  },
+  {
+    "text": "natural",
+    "mnemonic": "nature自然变natural"
+  },
+  {
+    "text": "vacant",
+    "mnemonic": "vac空+ant，vacant空缺的"
+  },
+  {
+    "text": "brand",
+    "mnemonic": "brand源自烙印，商标"
+  },
+  {
+    "text": "shipment",
+    "mnemonic": "ship船+ment，shipment装运"
+  },
+  {
+    "text": "college",
+    "mnemonic": "college源自colleague同僚，学院"
+  },
+  {
+    "text": "force",
+    "mnemonic": "force=力量，enforce实施"
+  },
+  {
+    "text": "convince",
+    "mnemonic": "con+vinco征服，说服"
+  },
+  {
+    "text": "brain",
+    "mnemonic": "brain=大脑，think用brain"
+  },
+  {
+    "text": "organic",
+    "mnemonic": "organ器官+ic，organic有机的"
+  },
+  {
+    "text": "beauty",
+    "mnemonic": "beauty=美，beautiful美丽的"
+  },
+  {
+    "text": "hurry",
+    "mnemonic": "hurry=匆忙，hurriedly匆忙地"
+  },
+  {
+    "text": "become",
+    "mnemonic": "be+come来，become成为"
+  },
+  {
+    "text": "coat",
+    "mnemonic": "coat=外套，raincoat雨衣"
+  },
+  {
+    "text": "naive",
+    "mnemonic": "naive源自nativus天然，天真"
+  },
+  {
+    "text": "chemistry",
+    "mnemonic": "chem化学+istry，chemistry"
+  },
+  {
+    "text": "meat",
+    "mnemonic": "meat=肉，与mEAT谐音吃肉"
+  },
+  {
+    "text": "captain",
+    "mnemonic": "cap头+tain，captain首领"
+  },
+  {
+    "text": "purse",
+    "mnemonic": "purse与price价形近，钱包看价格"
+  },
+  {
+    "text": "debris",
+    "mnemonic": "debris源自break打碎，残骸碎片"
+  },
+  {
+    "text": "joyful",
+    "mnemonic": "joy快乐+ful，joyful高兴的"
+  }
+]

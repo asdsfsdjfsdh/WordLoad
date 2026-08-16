@@ -12,6 +12,8 @@ import { SettingsModule } from './settings/settings.module';
 import { StatsModule } from './stats/stats.module';
 import { MaterialsModule } from './materials/materials.module';
 import { RunsModule } from './runs/runs.module';
+import { ReadingModule } from './reading/reading.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { RunsModule } from './runs/runs.module';
     StatsModule,
     MaterialsModule,
     RunsModule,
+    ReadingModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],

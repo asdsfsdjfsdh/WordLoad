@@ -1,0 +1,402 @@
+[
+  {
+    "text": "dramatic",
+    "mnemonic": "drama戏剧+tic，dramatic戏剧性的"
+  },
+  {
+    "text": "bowel",
+    "mnemonic": "bowel与bowl碗差e，肠子盘绕如碗中"
+  },
+  {
+    "text": "manner",
+    "mnemonic": "man人+ner，manner人的举止方式"
+  },
+  {
+    "text": "warn",
+    "mnemonic": "warn与war战差n，战前先警告warn"
+  },
+  {
+    "text": "job",
+    "mnemonic": "job=工作，被老板叫去干活"
+  },
+  {
+    "text": "polite",
+    "mnemonic": "polite与politics政治同源，城邦公民讲礼貌"
+  },
+  {
+    "text": "makeup",
+    "mnemonic": "make做+up上，makeup化妆"
+  },
+  {
+    "text": "amongst",
+    "mnemonic": "among之+s，amongst在…之中"
+  },
+  {
+    "text": "ore",
+    "mnemonic": "ore=矿石，iron ore铁矿"
+  },
+  {
+    "text": "forever",
+    "mnemonic": "for+ever永远，forever永远地"
+  },
+  {
+    "text": "cemetery",
+    "mnemonic": "cemetery与cement水泥形近，水泥砌的墓地"
+  },
+  {
+    "text": "believe",
+    "mnemonic": "be+lieve心，believe信任发自内心"
+  },
+  {
+    "text": "depart",
+    "mnemonic": "de+part分开，depart离开"
+  },
+  {
+    "text": "disc",
+    "mnemonic": "disc与disco舞厅同源，唱片是圆盘"
+  },
+  {
+    "text": "banker",
+    "mnemonic": "bank银行+er人，banker银行家"
+  },
+  {
+    "text": "much",
+    "mnemonic": "much与many同源多，much许多"
+  },
+  {
+    "text": "suggest",
+    "mnemonic": "sug+gest带来，suggest建议"
+  },
+  {
+    "text": "golf",
+    "mnemonic": "golf音译高尔夫，挥杆"
+  },
+  {
+    "text": "verify",
+    "mnemonic": "ver真+fy，verify核实"
+  },
+  {
+    "text": "duck",
+    "mnemonic": "duck鸭子，遇险低头duck躲开"
+  },
+  {
+    "text": "whether",
+    "mnemonic": "whether与weather天气差h，是否变天"
+  },
+  {
+    "text": "tank",
+    "mnemonic": "tank音译坦克，水箱坦克"
+  },
+  {
+    "text": "amuse",
+    "mnemonic": "a+muse缪斯，amuse逗乐"
+  },
+  {
+    "text": "belt",
+    "mnemonic": "belt腰带，系紧皮带belt"
+  },
+  {
+    "text": "origin",
+    "mnemonic": "origin源自origo升起，太阳升起处即起源"
+  },
+  {
+    "text": "invent",
+    "mnemonic": "in+vent来，invent发明"
+  },
+  {
+    "text": "understand",
+    "mnemonic": "under+stand站，站在下面听明白"
+  },
+  {
+    "text": "kit",
+    "mnemonic": "kit与kid小孩形近，孩子的成套工具"
+  },
+  {
+    "text": "afterwards",
+    "mnemonic": "after后+wards向，afterwards后来"
+  },
+  {
+    "text": "hut",
+    "mnemonic": "hut源自藏，栖身小屋"
+  },
+  {
+    "text": "legal",
+    "mnemonic": "leg法律+al，legal合法的"
+  },
+  {
+    "text": "survival",
+    "mnemonic": "survive幸存变survival"
+  },
+  {
+    "text": "proposal",
+    "mnemonic": "propose提议变proposal"
+  },
+  {
+    "text": "partly",
+    "mnemonic": "part部分+ly，partly部分地"
+  },
+  {
+    "text": "ensure",
+    "mnemonic": "en+sure确定，ensure确保"
+  },
+  {
+    "text": "valid",
+    "mnemonic": "val强大+id，valid有效的"
+  },
+  {
+    "text": "strategy",
+    "mnemonic": "strategy源自strategos将军，将帅之术即战略"
+  },
+  {
+    "text": "operation",
+    "mnemonic": "operate操作变operation，手术"
+  },
+  {
+    "text": "poetry",
+    "mnemonic": "poet诗人+ry，poetry诗歌"
+  },
+  {
+    "text": "poverty",
+    "mnemonic": "poor穷变poverty，poverty贫穷"
+  },
+  {
+    "text": "fraud",
+    "mnemonic": "fraud欺诈，defraud骗取"
+  },
+  {
+    "text": "spicy",
+    "mnemonic": "spice香料变spicy，spicy辛辣"
+  },
+  {
+    "text": "plea",
+    "mnemonic": "plea与please同源，恳求说please"
+  },
+  {
+    "text": "forgive",
+    "mnemonic": "for+give给，forgive原谅"
+  },
+  {
+    "text": "comet",
+    "mnemonic": "comet本义长头发，彗星拖着长尾"
+  },
+  {
+    "text": "waiter",
+    "mnemonic": "wait等待+er人，waiter侍者"
+  },
+  {
+    "text": "deck",
+    "mnemonic": "deck与desk桌子形近，甲板是船的桌面"
+  },
+  {
+    "text": "term",
+    "mnemonic": "term源自terminus边界，学期是时间一段"
+  },
+  {
+    "text": "violent",
+    "mnemonic": "viol暴力+ent，violent暴力的"
+  },
+  {
+    "text": "recovery",
+    "mnemonic": "recover恢复变recovery"
+  },
+  {
+    "text": "failure",
+    "mnemonic": "fail失败+ure，failure失败"
+  },
+  {
+    "text": "respect",
+    "mnemonic": "re+spect看，respect尊重"
+  },
+  {
+    "text": "involve",
+    "mnemonic": "in+volve卷，involve卷入"
+  },
+  {
+    "text": "fabric",
+    "mnemonic": "fabric与fabricate制造同源，织出的布"
+  },
+  {
+    "text": "effort",
+    "mnemonic": "ef+fort力量，effort努力"
+  },
+  {
+    "text": "acre",
+    "mnemonic": "acre=英亩，a+cre一块田"
+  },
+  {
+    "text": "nut",
+    "mnemonic": "nut坚果，n形似果壳"
+  },
+  {
+    "text": "work",
+    "mnemonic": "work源自ergon功，做功即工作"
+  },
+  {
+    "text": "despise",
+    "mnemonic": "de+spise看，向下看即鄙视"
+  },
+  {
+    "text": "rare",
+    "mnemonic": "rare源自稀疏，稀疏即罕见"
+  },
+  {
+    "text": "kid",
+    "mnemonic": "kid本义小山羊，孩子像山羊蹦跳"
+  },
+  {
+    "text": "creature",
+    "mnemonic": "create创造+ure，creature生物"
+  },
+  {
+    "text": "unity",
+    "mnemonic": "unit单位+y，unity团结"
+  },
+  {
+    "text": "handful",
+    "mnemonic": "hand手+ful满，handful一把"
+  },
+  {
+    "text": "there",
+    "mnemonic": "here这加t变there那"
+  },
+  {
+    "text": "seat",
+    "mnemonic": "sit坐变seat座位"
+  },
+  {
+    "text": "fiber",
+    "mnemonic": "fiber源自fibra细丝，纤维"
+  },
+  {
+    "text": "chaos",
+    "mnemonic": "chaos源自希腊虚空，混沌一片"
+  },
+  {
+    "text": "horizon",
+    "mnemonic": "horizon源自horos界限，天地界限"
+  },
+  {
+    "text": "supper",
+    "mnemonic": "supper源自sup喝汤，晚餐喝汤"
+  },
+  {
+    "text": "wolf",
+    "mnemonic": "wolf源自撕裂者，狼撕咬猎物"
+  },
+  {
+    "text": "sit",
+    "mnemonic": "sit坐，与seat座位同源"
+  },
+  {
+    "text": "few",
+    "mnemonic": "few与new形近，新到的没几个"
+  },
+  {
+    "text": "seldom",
+    "mnemonic": "sel+dom，seldom很少"
+  },
+  {
+    "text": "november",
+    "mnemonic": "nov九+ber，November罗马历九月"
+  },
+  {
+    "text": "eager",
+    "mnemonic": "eager源自尖锐，渴望急切尖锐"
+  },
+  {
+    "text": "united",
+    "mnemonic": "unite联合+ed，united联合的"
+  },
+  {
+    "text": "signature",
+    "mnemonic": "sign签名+ature，signature签名"
+  },
+  {
+    "text": "lower",
+    "mnemonic": "low低+er，lower较低的"
+  },
+  {
+    "text": "possibly",
+    "mnemonic": "possible可能+ly，possibly也许"
+  },
+  {
+    "text": "discovery",
+    "mnemonic": "discover发现变discovery"
+  },
+  {
+    "text": "stop",
+    "mnemonic": "stop源自塞住，塞住即停止"
+  },
+  {
+    "text": "tax",
+    "mnemonic": "tax与taxi差i，出租车要交税"
+  },
+  {
+    "text": "flesh",
+    "mnemonic": "fresh新鲜变flesh肉，新鲜的肉"
+  },
+  {
+    "text": "nuclear",
+    "mnemonic": "nucleus核变nuclear"
+  },
+  {
+    "text": "council",
+    "mnemonic": "council与counsel建议形近，委员会出主意"
+  },
+  {
+    "text": "whisky",
+    "mnemonic": "whisky音译威士忌"
+  },
+  {
+    "text": "practical",
+    "mnemonic": "practice实践变practical"
+  },
+  {
+    "text": "below",
+    "mnemonic": "be+low低，below在下面"
+  },
+  {
+    "text": "laundry",
+    "mnemonic": "launder洗衣变laundry洗衣店"
+  },
+  {
+    "text": "jazz",
+    "mnemonic": "jazz音译爵士乐"
+  },
+  {
+    "text": "pleasant",
+    "mnemonic": "please高兴+ant，pleasant愉快的"
+  },
+  {
+    "text": "sum",
+    "mnemonic": "sum源自summa顶点，总和"
+  },
+  {
+    "text": "alarm",
+    "mnemonic": "alarm源自all'arme拿起武器，警报响起"
+  },
+  {
+    "text": "economy",
+    "mnemonic": "economy源自oikos家+nomos管理，治家即经济"
+  },
+  {
+    "text": "wallet",
+    "mnemonic": "wallet源自旅行袋，钱包"
+  },
+  {
+    "text": "animal",
+    "mnemonic": "anim生命+al，animal动物"
+  },
+  {
+    "text": "horn",
+    "mnemonic": "horn角，h形似弯角"
+  },
+  {
+    "text": "credit",
+    "mnemonic": "cred相信+it，credit信用"
+  },
+  {
+    "text": "thereof",
+    "mnemonic": "there+of，thereof其中"
+  }
+]

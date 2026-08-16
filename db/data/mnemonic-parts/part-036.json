@@ -1,0 +1,402 @@
+[
+  {
+    "text": "strip",
+    "mnemonic": "strip=剥/条，strip down拆下"
+  },
+  {
+    "text": "prospective",
+    "mnemonic": "prospect前景+ive"
+  },
+  {
+    "text": "utter",
+    "mnemonic": "utter=说/彻底，utterly完全"
+  },
+  {
+    "text": "hostile",
+    "mnemonic": "hostile源自敌，敌意"
+  },
+  {
+    "text": "friction",
+    "mnemonic": "frict擦+ion，摩擦"
+  },
+  {
+    "text": "send",
+    "mnemonic": "send=发送，sender发件人"
+  },
+  {
+    "text": "weight",
+    "mnemonic": "weigh称+w，重量"
+  },
+  {
+    "text": "cheese",
+    "mnemonic": "cheese源自凝乳，奶酪"
+  },
+  {
+    "text": "nest",
+    "mnemonic": "nest=巢，nestle安卧"
+  },
+  {
+    "text": "elude",
+    "mnemonic": "e+lude玩，躲避"
+  },
+  {
+    "text": "knee",
+    "mnemonic": "knee=膝盖，k不发音"
+  },
+  {
+    "text": "current",
+    "mnemonic": "cur跑+ent，当前/流"
+  },
+  {
+    "text": "reservoir",
+    "mnemonic": "reserve储备+oir，水库"
+  },
+  {
+    "text": "plot",
+    "mnemonic": "plot=地块/情节，plotting阴谋"
+  },
+  {
+    "text": "bore",
+    "mnemonic": "bore=钻孔/使厌烦"
+  },
+  {
+    "text": "muslim",
+    "mnemonic": "muslim源自顺服，穆斯林"
+  },
+  {
+    "text": "anecdote",
+    "mnemonic": "an+ecdot未出版+e，轶事"
+  },
+  {
+    "text": "aviation",
+    "mnemonic": "avia鸟+tion，航空"
+  },
+  {
+    "text": "punctual",
+    "mnemonic": "punct点+ual，准时"
+  },
+  {
+    "text": "intercourse",
+    "mnemonic": "inter+course跑，交往"
+  },
+  {
+    "text": "undoubtedly",
+    "mnemonic": "undoubted无疑+ly"
+  },
+  {
+    "text": "jar",
+    "mnemonic": "jar=罐/刺耳"
+  },
+  {
+    "text": "trigger",
+    "mnemonic": "trigger源自扳，扳机"
+  },
+  {
+    "text": "heavy",
+    "mnemonic": "heavy=重，与light轻相对"
+  },
+  {
+    "text": "ruby",
+    "mnemonic": "ruby源自红，红宝石"
+  },
+  {
+    "text": "preference",
+    "mnemonic": "prefer偏爱+ence"
+  },
+  {
+    "text": "academic",
+    "mnemonic": "academic源自学院，学术"
+  },
+  {
+    "text": "zip",
+    "mnemonic": "zip=拉链，zip code邮编"
+  },
+  {
+    "text": "disposition",
+    "mnemonic": "dispose处理+ition"
+  },
+  {
+    "text": "turbine",
+    "mnemonic": "turb转+ine，涡轮机"
+  },
+  {
+    "text": "thread",
+    "mnemonic": "thread=线，thread a needle穿针"
+  },
+  {
+    "text": "start",
+    "mnemonic": "start=开始，与stop相对"
+  },
+  {
+    "text": "silk",
+    "mnemonic": "silk=丝绸，Silk Road丝绸之路"
+  },
+  {
+    "text": "overtake",
+    "mnemonic": "over+take取，超车"
+  },
+  {
+    "text": "volatile",
+    "mnemonic": "volat飞+ile，易变"
+  },
+  {
+    "text": "merchant",
+    "mnemonic": "merchant源自商贸，商人"
+  },
+  {
+    "text": "pitch",
+    "mnemonic": "pitch=投/音高，投掷"
+  },
+  {
+    "text": "buddhist",
+    "mnemonic": "buddha佛+ist，佛教徒"
+  },
+  {
+    "text": "dizzy",
+    "mnemonic": "dizzy源自头晕，眩晕"
+  },
+  {
+    "text": "pad",
+    "mnemonic": "pad=垫，notepad笔记本"
+  },
+  {
+    "text": "eclipse",
+    "mnemonic": "eclipse源自缺，日食"
+  },
+  {
+    "text": "blast",
+    "mnemonic": "blast源自吹，爆炸"
+  },
+  {
+    "text": "crown",
+    "mnemonic": "crown源自冠，王冠"
+  },
+  {
+    "text": "entail",
+    "mnemonic": "en+tail切，需要"
+  },
+  {
+    "text": "syndicate",
+    "mnemonic": "syn+dict说+ate，辛迪加"
+  },
+  {
+    "text": "rating",
+    "mnemonic": "rate评级+ing"
+  },
+  {
+    "text": "wage",
+    "mnemonic": "wage源自担保，工资"
+  },
+  {
+    "text": "divide",
+    "mnemonic": "divide源自分，划分"
+  },
+  {
+    "text": "sorrow",
+    "mnemonic": "sorrow源自忧虑，悲伤"
+  },
+  {
+    "text": "schism",
+    "mnemonic": "schism源自裂，分裂"
+  },
+  {
+    "text": "pastime",
+    "mnemonic": "pas+time时，消遣"
+  },
+  {
+    "text": "ill",
+    "mnemonic": "ill=生病，illness疾病"
+  },
+  {
+    "text": "large",
+    "mnemonic": "large=大，enlarge放大"
+  },
+  {
+    "text": "zinc",
+    "mnemonic": "zinc源自锡，锌"
+  },
+  {
+    "text": "unnecessary",
+    "mnemonic": "un不+necessary必需"
+  },
+  {
+    "text": "distinction",
+    "mnemonic": "distinct不同+ion"
+  },
+  {
+    "text": "hopeful",
+    "mnemonic": "hope希望+ful"
+  },
+  {
+    "text": "satisfied",
+    "mnemonic": "satisfy满足变satisfied"
+  },
+  {
+    "text": "lick",
+    "mnemonic": "lick=舔，lick one's lips舔唇"
+  },
+  {
+    "text": "operational",
+    "mnemonic": "operate操作+ional"
+  },
+  {
+    "text": "vocation",
+    "mnemonic": "voc喊+ation，天职"
+  },
+  {
+    "text": "solidarity",
+    "mnemonic": "solid固+arity，团结"
+  },
+  {
+    "text": "memorandum",
+    "mnemonic": "memor记忆+andum，备忘录"
+  },
+  {
+    "text": "overstep",
+    "mnemonic": "over+step步，越界"
+  },
+  {
+    "text": "vibration",
+    "mnemonic": "vibrate振动+ion"
+  },
+  {
+    "text": "expansion",
+    "mnemonic": "expand扩展+ion"
+  },
+  {
+    "text": "explode",
+    "mnemonic": "explode源自嘘声，爆炸"
+  },
+  {
+    "text": "doorway",
+    "mnemonic": "door门+way路"
+  },
+  {
+    "text": "deduce",
+    "mnemonic": "de+duce引，推断"
+  },
+  {
+    "text": "steal",
+    "mnemonic": "steal=偷，stealth秘密行动"
+  },
+  {
+    "text": "ladder",
+    "mnemonic": "ladder=梯子，climb a ladder爬梯"
+  },
+  {
+    "text": "repeatedly",
+    "mnemonic": "repeat重复+ed+ly"
+  },
+  {
+    "text": "utilize",
+    "mnemonic": "util用+ize，利用"
+  },
+  {
+    "text": "remove",
+    "mnemonic": "re+move动，移除"
+  },
+  {
+    "text": "save",
+    "mnemonic": "save=救/存，saving存款"
+  },
+  {
+    "text": "spacious",
+    "mnemonic": "space空间变+ious"
+  },
+  {
+    "text": "flour",
+    "mnemonic": "flour源自花，面粉"
+  },
+  {
+    "text": "sort",
+    "mnemonic": "sort=种类/整理，sorting分类"
+  },
+  {
+    "text": "airborne",
+    "mnemonic": "air空+borne运载"
+  },
+  {
+    "text": "compulsory",
+    "mnemonic": "com+puls推+ory，强制"
+  },
+  {
+    "text": "similarity",
+    "mnemonic": "similar相似+ity"
+  },
+  {
+    "text": "wholesome",
+    "mnemonic": "whole整+some，有益"
+  },
+  {
+    "text": "ingredient",
+    "mnemonic": "in+gred步+ient，成分"
+  },
+  {
+    "text": "affect",
+    "mnemonic": "af+fect做，影响"
+  },
+  {
+    "text": "willingly",
+    "mnemonic": "willing愿意+ly"
+  },
+  {
+    "text": "vary",
+    "mnemonic": "vary源自变化，变更"
+  },
+  {
+    "text": "singular",
+    "mnemonic": "singul单一+ar，单数"
+  },
+  {
+    "text": "instrument",
+    "mnemonic": "instrument源自工具，仪器"
+  },
+  {
+    "text": "legislature",
+    "mnemonic": "legis法+lature，立法机关"
+  },
+  {
+    "text": "meditation",
+    "mnemonic": "medit思考+ation"
+  },
+  {
+    "text": "classic",
+    "mnemonic": "classic源自等级，经典"
+  },
+  {
+    "text": "inquiry",
+    "mnemonic": "in+quire问+y，调查"
+  },
+  {
+    "text": "absolute",
+    "mnemonic": "ab+solute松，绝对"
+  },
+  {
+    "text": "undertake",
+    "mnemonic": "under+take取，承担"
+  },
+  {
+    "text": "skyscraper",
+    "mnemonic": "sky天+scrape刮+er"
+  },
+  {
+    "text": "relativity",
+    "mnemonic": "relative相对+ity"
+  },
+  {
+    "text": "skepticism",
+    "mnemonic": "skeptic怀疑+ism"
+  },
+  {
+    "text": "revive",
+    "mnemonic": "re+vive活，复苏"
+  },
+  {
+    "text": "potential",
+    "mnemonic": "potent有力+ial"
+  },
+  {
+    "text": "condense",
+    "mnemonic": "con+dense密，浓缩"
+  }
+]

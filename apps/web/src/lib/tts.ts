@@ -8,6 +8,36 @@ export interface TtsProvider {
   stop(): void;
 }
 
+// 发音人选择持久化（设置页写入，speak 时按此挑选）
+const VOICE_STORAGE_KEY = 'wj-tts-voice-id';
+
+export function getSelectedVoiceId(): string | null {
+  try {
+    return localStorage.getItem(VOICE_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function setSelectedVoiceId(id: string | null): void {
+  try {
+    if (id) localStorage.setItem(VOICE_STORAGE_KEY, id);
+    else localStorage.removeItem(VOICE_STORAGE_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+
+// 设置页：可用英文发音人列表
+export function listEnglishVoices(): SpeechSynthesisVoice[] {
+  const tts = getTts();
+  if (!tts.isAvailable()) return [];
+  return tts
+    .listVoices()
+    .filter((v) => v.lang?.toLowerCase().startsWith('en'))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 class WebSpeechTts implements TtsProvider {
   readonly name = 'web-speech';
 
@@ -46,11 +76,33 @@ class WebSpeechTts implements TtsProvider {
   private pickEnglishVoice(): SpeechSynthesisVoice | null {
     const voices = this.listVoices();
     if (voices.length === 0) return null;
-    const preferred = [
-      voices.find((v) => v.lang.startsWith('en-GB')),
-      voices.find((v) => v.lang.startsWith('en-US')),
+    // 1) 用户手动指定的发音人
+    const selected = getSelectedVoiceId();
+    if (selected) {
+      const v = voices.find((x) => x.voiceURI === selected || x.name === selected);
+      if (v) return v;
+    }
+    // 2) 默认偏好：优先清晰女声，避免移动端默认命中的低沉男声（如 en-GB Daniel / Google UK English Male）
+    const preferredNames = [
+      'Samantha', // iOS en-US 女声
+      'Aria', // Edge (Natural) 女声
+      'Zira', // Windows 女声
+      'Google US English',
+      'Google UK English Female',
+      'Karen', // iOS en-AU 女声
+      'Google English',
+      'Microsoft Aria Online (Natural)',
+      'Microsoft Zira - English (United States)',
+      'Microsoft Jenny Online (Natural)',
     ];
-    return preferred.find(Boolean) ?? null;
+    for (const name of preferredNames) {
+      const v = voices.find((x) => x.name === name);
+      if (v) return v;
+    }
+    // 3) 兜底：en-US 优先于 en-GB（en-GB 常常是男声）
+    const enUS = voices.find((v) => v.lang?.toLowerCase().startsWith('en-US'));
+    if (enUS) return enUS;
+    return voices.find((v) => v.lang?.toLowerCase().startsWith('en')) ?? null;
   }
 }
 

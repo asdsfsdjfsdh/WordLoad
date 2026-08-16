@@ -1,0 +1,402 @@
+[
+  {
+    "text": "cunning",
+    "mnemonic": "cunning源自知，狡猾"
+  },
+  {
+    "text": "console",
+    "mnemonic": "con+sole独，安慰"
+  },
+  {
+    "text": "excavation",
+    "mnemonic": "excavate挖掘+ion"
+  },
+  {
+    "text": "legislation",
+    "mnemonic": "legis法+lation，立法"
+  },
+  {
+    "text": "curriculum",
+    "mnemonic": "curriculum源自跑，课程"
+  },
+  {
+    "text": "age",
+    "mnemonic": "age=年龄/时代，ancient古代"
+  },
+  {
+    "text": "malignant",
+    "mnemonic": "mal坏+ignant，恶性"
+  },
+  {
+    "text": "date",
+    "mnemonic": "date=日期/约会/枣"
+  },
+  {
+    "text": "recover",
+    "mnemonic": "re+cover盖，恢复"
+  },
+  {
+    "text": "leak",
+    "mnemonic": "leak=泄漏，leakage渗漏"
+  },
+  {
+    "text": "occasional",
+    "mnemonic": "occasion场合+al"
+  },
+  {
+    "text": "hop",
+    "mnemonic": "hop=单脚跳，hope希望形近"
+  },
+  {
+    "text": "translucent",
+    "mnemonic": "trans+luc光+ent，半透明"
+  },
+  {
+    "text": "witness",
+    "mnemonic": "witness源自知，目击者"
+  },
+  {
+    "text": "display",
+    "mnemonic": "dis+play折，展示"
+  },
+  {
+    "text": "inferior",
+    "mnemonic": "infer下+ior，较差"
+  },
+  {
+    "text": "portable",
+    "mnemonic": "port带+able，便携"
+  },
+  {
+    "text": "esthetic",
+    "mnemonic": "esthetic源自感觉，美学"
+  },
+  {
+    "text": "extend",
+    "mnemonic": "ex+tend伸，延伸"
+  },
+  {
+    "text": "legitimate",
+    "mnemonic": "legis法变+imate，合法"
+  },
+  {
+    "text": "blind",
+    "mnemonic": "blind=瞎，blindness盲目"
+  },
+  {
+    "text": "cap",
+    "mnemonic": "cap=帽子/上限，capacity容量"
+  },
+  {
+    "text": "researcher",
+    "mnemonic": "research研究+er"
+  },
+  {
+    "text": "section",
+    "mnemonic": "sect切+ion，部分"
+  },
+  {
+    "text": "advertise",
+    "mnemonic": "advertise源自转向，登广告"
+  },
+  {
+    "text": "itinerary",
+    "mnemonic": "itinerary源自路，行程"
+  },
+  {
+    "text": "scarce",
+    "mnemonic": "scarce源自稀少，缺乏"
+  },
+  {
+    "text": "favourite",
+    "mnemonic": "favor好感变+ite"
+  },
+  {
+    "text": "postpone",
+    "mnemonic": "post后+pone放，推迟"
+  },
+  {
+    "text": "strengthen",
+    "mnemonic": "strength力量+en"
+  },
+  {
+    "text": "insulate",
+    "mnemonic": "insula岛+te，绝缘"
+  },
+  {
+    "text": "frighten",
+    "mnemonic": "fright惊吓+en"
+  },
+  {
+    "text": "frontier",
+    "mnemonic": "front前+ier，边疆"
+  },
+  {
+    "text": "quench",
+    "mnemonic": "quench=熄灭，止渴"
+  },
+  {
+    "text": "launch",
+    "mnemonic": "launch=发射，lunch形近"
+  },
+  {
+    "text": "layer",
+    "mnemonic": "lay铺+er，层"
+  },
+  {
+    "text": "millennium",
+    "mnemonic": "milli千+ennium年"
+  },
+  {
+    "text": "collision",
+    "mnemonic": "collide碰撞+ion"
+  },
+  {
+    "text": "espionage",
+    "mnemonic": "espionage源自探，间谍"
+  },
+  {
+    "text": "directory",
+    "mnemonic": "direct指引+ory，目录"
+  },
+  {
+    "text": "oversee",
+    "mnemonic": "over+see看，监督"
+  },
+  {
+    "text": "communication",
+    "mnemonic": "communicate交流+ion"
+  },
+  {
+    "text": "prevention",
+    "mnemonic": "prevent预防+ion"
+  },
+  {
+    "text": "bait",
+    "mnemonic": "bait源自咬，诱饵"
+  },
+  {
+    "text": "specialty",
+    "mnemonic": "special特别+ty"
+  },
+  {
+    "text": "soil",
+    "mnemonic": "soil=土壤/弄脏"
+  },
+  {
+    "text": "innate",
+    "mnemonic": "in+nate生，天生"
+  },
+  {
+    "text": "complication",
+    "mnemonic": "complicate复杂+ion"
+  },
+  {
+    "text": "flicker",
+    "mnemonic": "flicker=闪烁，flick轻弹"
+  },
+  {
+    "text": "revolve",
+    "mnemonic": "re+volve转，旋转"
+  },
+  {
+    "text": "comparatively",
+    "mnemonic": "comparative比较+ly"
+  },
+  {
+    "text": "rotate",
+    "mnemonic": "rotat转+e，旋转"
+  },
+  {
+    "text": "fling",
+    "mnemonic": "fling=猛扔，fling off抛开"
+  },
+  {
+    "text": "layoff",
+    "mnemonic": "lay放+off离，裁员"
+  },
+  {
+    "text": "surpass",
+    "mnemonic": "sur+pass过，超越"
+  },
+  {
+    "text": "attentively",
+    "mnemonic": "attentive专注+ly"
+  },
+  {
+    "text": "centimetre",
+    "mnemonic": "centi百分+meter米"
+  },
+  {
+    "text": "imperative",
+    "mnemonic": "imper命令+ative，必须"
+  },
+  {
+    "text": "intrude",
+    "mnemonic": "in+trude推，闯入"
+  },
+  {
+    "text": "faint",
+    "mnemonic": "faint源自装，晕眩"
+  },
+  {
+    "text": "supplier",
+    "mnemonic": "supply供应变+ier"
+  },
+  {
+    "text": "comparable",
+    "mnemonic": "compare比较+able"
+  },
+  {
+    "text": "flaw",
+    "mnemonic": "flaw=瑕疵，flawed有缺陷"
+  },
+  {
+    "text": "quiz",
+    "mnemonic": "quiz=测验，quiz show智力竞答"
+  },
+  {
+    "text": "flare",
+    "mnemonic": "flare=闪耀，flare up爆发"
+  },
+  {
+    "text": "nominal",
+    "mnemonic": "nominal源自名，名义的"
+  },
+  {
+    "text": "married",
+    "mnemonic": "marry结婚+ied"
+  },
+  {
+    "text": "wander",
+    "mnemonic": "wander=漫游，wonder惊奇形近"
+  },
+  {
+    "text": "metric",
+    "mnemonic": "metric源自量，公制"
+  },
+  {
+    "text": "buzz",
+    "mnemonic": "buzz=嗡嗡声，buzzword热词"
+  },
+  {
+    "text": "cassette",
+    "mnemonic": "cassette源自盒，磁带"
+  },
+  {
+    "text": "implication",
+    "mnemonic": "implicate牵连+ion"
+  },
+  {
+    "text": "nationality",
+    "mnemonic": "nation国家+ality"
+  },
+  {
+    "text": "persistence",
+    "mnemonic": "persist坚持+ence"
+  },
+  {
+    "text": "anniversary",
+    "mnemonic": "anni年+vers转+ary，周年"
+  },
+  {
+    "text": "equally",
+    "mnemonic": "equal平等+ly"
+  },
+  {
+    "text": "dial",
+    "mnemonic": "dial源自日晷，拨号"
+  },
+  {
+    "text": "hostess",
+    "mnemonic": "host主人+ess女"
+  },
+  {
+    "text": "overpass",
+    "mnemonic": "over+pass过，天桥"
+  },
+  {
+    "text": "peep",
+    "mnemonic": "peep=偷看，peephole猫眼"
+  },
+  {
+    "text": "sustenance",
+    "mnemonic": "sustain维持+ance"
+  },
+  {
+    "text": "diminish",
+    "mnemonic": "di+min小+ish，减少"
+  },
+  {
+    "text": "fundamental",
+    "mnemonic": "fundament基础+al"
+  },
+  {
+    "text": "blend",
+    "mnemonic": "blend=混合，blender搅拌机"
+  },
+  {
+    "text": "correspond",
+    "mnemonic": "cor+respond回应，对应"
+  },
+  {
+    "text": "howl",
+    "mnemonic": "howl=嚎叫，狼嚎"
+  },
+  {
+    "text": "cushion",
+    "mnemonic": "cushion源自垫，坐垫"
+  },
+  {
+    "text": "exploit",
+    "mnemonic": "ex+ploit折，开发"
+  },
+  {
+    "text": "avail",
+    "mnemonic": "a+vail强，有用"
+  },
+  {
+    "text": "merit",
+    "mnemonic": "merit源自值得，优点"
+  },
+  {
+    "text": "component",
+    "mnemonic": "com+pon放+ent，部件"
+  },
+  {
+    "text": "receive",
+    "mnemonic": "re+ceive取，收到"
+  },
+  {
+    "text": "controversial",
+    "mnemonic": "controversy争议变+al"
+  },
+  {
+    "text": "conceive",
+    "mnemonic": "con+ceive取，构想"
+  },
+  {
+    "text": "scout",
+    "mnemonic": "scout源自听，侦察"
+  },
+  {
+    "text": "incidence",
+    "mnemonic": "incid落+ence，发生率"
+  },
+  {
+    "text": "ventilate",
+    "mnemonic": "vent风+ilate，通风"
+  },
+  {
+    "text": "childless",
+    "mnemonic": "child孩子+less无"
+  },
+  {
+    "text": "mosquito",
+    "mnemonic": "mosquito源自蝇，蚊子"
+  },
+  {
+    "text": "loudspeaker",
+    "mnemonic": "loud响+speaker讲话者，喇叭"
+  }
+]

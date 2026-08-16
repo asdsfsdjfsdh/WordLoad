@@ -1,13 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../lib/api';
+import { getSelectedVoiceId, getTts, listEnglishVoices, setSelectedVoiceId } from '../lib/tts';
 import { useAuth } from '../store/auth';
+import { battleBgm } from '../lib/bgm';
+
+function readBgmEnabled(): boolean {
+  try {
+    return localStorage.getItem('bgm-enabled') !== '0';
+  } catch {
+    return true;
+  }
+}
 
 export function SettingsModal({ onClose }: { onClose: () => void }) {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const [bgmEnabled, setBgmEnabled] = useState(readBgmEnabled);
+  // 发音人：可选更清晰的英文语音，替代移动端默认的低沉男声
+  const [voiceId, setVoiceId] = useState<string | null>(() => getSelectedVoiceId());
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  useEffect(() => {
+    const load = () => setVoices(listEnglishVoices());
+    load();
+    const synth = window.speechSynthesis;
+    synth?.addEventListener?.('voiceschanged', load);
+    // 部分浏览器 voices 延迟加载：定时兜底
+    const t = window.setTimeout(load, 600);
+    return () => {
+      synth?.removeEventListener?.('voiceschanged', load);
+      window.clearTimeout(t);
+    };
+  }, []);
   const [confirmReset, setConfirmReset] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
@@ -51,6 +77,66 @@ export function SettingsModal({ onClose }: { onClose: () => void }) {
         </div>
 
         <div className="space-y-4">
+          {/* ── 背景音乐 ── */}
+          <div className="flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+            <div>
+              <div className="text-sm font-medium text-slate-200">背景音乐</div>
+              <p className="mt-0.5 text-xs text-slate-500">战斗中的程序化背景音乐，随连击与答题节奏变化</p>
+            </div>
+            <button
+              role="switch"
+              aria-checked={bgmEnabled}
+              onClick={() => {
+                const next = !bgmEnabled;
+                setBgmEnabled(next);
+                battleBgm.setEnabled(next);
+              }}
+              className={`relative h-6 w-11 shrink-0 rounded-full transition ${
+                bgmEnabled ? 'bg-cyan-500/80' : 'bg-slate-700'
+              }`}
+            >
+              <span
+                className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all ${
+                  bgmEnabled ? 'left-[22px]' : 'left-0.5'
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* ── 发音人 ── */}
+          <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+            <div className="mb-1 text-sm font-medium text-slate-200">发音人</div>
+            <p className="mb-3 text-xs text-slate-500">
+              移动端默认发音可能偏低沉，可选一个更清晰的声音（试听后自动生效）
+            </p>
+            <div className="flex items-center gap-2">
+              <select
+                value={voiceId ?? ''}
+                onChange={(e) => setVoiceId(e.target.value === '' ? null : e.target.value)}
+                className="min-w-0 flex-1 rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-slate-200 outline-none transition-colors focus:border-cyan-500/60"
+              >
+                <option value="">默认（自动选更清晰的声音）</option>
+                {voices.map((v) => (
+                  <option key={v.voiceURI} value={v.voiceURI}>
+                    {v.name}（{v.lang}）
+                  </option>
+                ))}
+              </select>
+              <button
+                onClick={() => {
+                  setSelectedVoiceId(voiceId);
+                  getTts().speak('Hello, nice to meet you');
+                }}
+                className="shrink-0 rounded-lg border border-cyan-700/60 px-3 py-2 text-sm text-cyan-300 transition-colors hover:bg-cyan-950/40"
+              >
+                试听
+              </button>
+            </div>
+            {voices.length === 0 && (
+              <p className="mt-2 text-xs text-slate-500">正在加载语音列表…</p>
+            )}
+          </div>
+
           {/* ── 重置词库记录 ── */}
           <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
             <div className="mb-1 text-sm font-medium text-slate-200">重置词库记录</div>

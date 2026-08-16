@@ -125,4 +125,8 @@ export const api = {
     request<T>(path, { ...init, method: 'GET' }),
   post: <T>(path: string, body?: unknown, init?: RequestInit & { noRefresh?: boolean }) =>
     request<T>(path, { ...init, method: 'POST', body: body === undefined ? undefined : JSON.stringify(body) }),
+  put: <T>(path: string, body?: unknown, init?: RequestInit & { noRefresh?: boolean }) =>
+    request<T>(path, { ...init, method: 'PUT', body: body === undefined ? undefined : JSON.stringify(body) }),
+  delete: <T>(path: string, init?: RequestInit & { noRefresh?: boolean }) =>
+    request<T>(path, { ...init, method: 'DELETE' }),
 };

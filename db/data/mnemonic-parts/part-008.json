@@ -1,0 +1,402 @@
+[
+  {
+    "text": "reality",
+    "mnemonic": "real真实+ity，reality现实"
+  },
+  {
+    "text": "grief",
+    "mnemonic": "grief=悲伤，grieve悲痛"
+  },
+  {
+    "text": "camel",
+    "mnemonic": "camel=骆驼，沙漠之舟"
+  },
+  {
+    "text": "cause",
+    "mnemonic": "cause=原因/导致，事出有因"
+  },
+  {
+    "text": "guilt",
+    "mnemonic": "guilt=罪过，guilty内疚的"
+  },
+  {
+    "text": "pact",
+    "mnemonic": "pact源自约定，compact契约"
+  },
+  {
+    "text": "pants",
+    "mnemonic": "pants源自丑角裤Pantalone，裤子"
+  },
+  {
+    "text": "adopt",
+    "mnemonic": "adopt=采纳/收养，adopt a child收养"
+  },
+  {
+    "text": "palace",
+    "mnemonic": "palace源自Palatine山，罗马皇宫"
+  },
+  {
+    "text": "october",
+    "mnemonic": "octo八+ber，October十月"
+  },
+  {
+    "text": "miss",
+    "mnemonic": "miss=小姐/错过/思念，miss the train误车"
+  },
+  {
+    "text": "perhaps",
+    "mnemonic": "per+haps，perhaps或许"
+  },
+  {
+    "text": "ruler",
+    "mnemonic": "rule规则+er，ruler尺/统治者"
+  },
+  {
+    "text": "cow",
+    "mnemonic": "cow=奶牛，产奶的牛"
+  },
+  {
+    "text": "two",
+    "mnemonic": "two与twice同源，twice两次"
+  },
+  {
+    "text": "any",
+    "mnemonic": "any=任何，any book任何书"
+  },
+  {
+    "text": "agenda",
+    "mnemonic": "agenda源自ag做，待办议程"
+  },
+  {
+    "text": "poet",
+    "mnemonic": "poet=诗人，写诗的人"
+  },
+  {
+    "text": "pen",
+    "mnemonic": "pen源自羽毛penna，羽毛笔"
+  },
+  {
+    "text": "growth",
+    "mnemonic": "grow生长变growth，增长"
+  },
+  {
+    "text": "notify",
+    "mnemonic": "notify=通知，notification通知"
+  },
+  {
+    "text": "young",
+    "mnemonic": "young=年轻的，the young年轻人"
+  },
+  {
+    "text": "splendid",
+    "mnemonic": "splendid=壮观的，极好的"
+  },
+  {
+    "text": "odds",
+    "mnemonic": "odds=几率，the odds are胜算"
+  },
+  {
+    "text": "visitor",
+    "mnemonic": "visit参观+or人，visitor访客"
+  },
+  {
+    "text": "whatever",
+    "mnemonic": "what+ever，whatever无论什么"
+  },
+  {
+    "text": "picture",
+    "mnemonic": "picture=图片/照片，paint a picture画画"
+  },
+  {
+    "text": "jungle",
+    "mnemonic": "jungle源自梵语废地，密林"
+  },
+  {
+    "text": "modest",
+    "mnemonic": "modest=谦虚的，moderate适度"
+  },
+  {
+    "text": "obvious",
+    "mnemonic": "obvious=明显的，显而易见"
+  },
+  {
+    "text": "facility",
+    "mnemonic": "facil容易+ity，facility设施"
+  },
+  {
+    "text": "sector",
+    "mnemonic": "sect切+or，sector部门领域"
+  },
+  {
+    "text": "bullet",
+    "mnemonic": "bullet=子弹，b-ullet枪弹"
+  },
+  {
+    "text": "onto",
+    "mnemonic": "on+to，onto到…之上"
+  },
+  {
+    "text": "series",
+    "mnemonic": "series=系列，a series of一系列"
+  },
+  {
+    "text": "enemy",
+    "mnemonic": "enemy=en不+emy朋友，非友即敌"
+  },
+  {
+    "text": "protest",
+    "mnemonic": "pro向前+test证，protest抗议"
+  },
+  {
+    "text": "content",
+    "mnemonic": "content=内容/满足，目录"
+  },
+  {
+    "text": "sudden",
+    "mnemonic": "sudden=突然的，all of a sudden突然"
+  },
+  {
+    "text": "threat",
+    "mnemonic": "threat=威胁，threaten威胁"
+  },
+  {
+    "text": "street",
+    "mnemonic": "street=街道，street corner街角"
+  },
+  {
+    "text": "paradise",
+    "mnemonic": "paradise源自围墙花园，乐园"
+  },
+  {
+    "text": "control",
+    "mnemonic": "control=控制，take control掌控"
+  },
+  {
+    "text": "day",
+    "mnemonic": "day=天/白天，day and night日夜"
+  },
+  {
+    "text": "penalty",
+    "mnemonic": "penal刑事+ty，penalty惩罚"
+  },
+  {
+    "text": "general",
+    "mnemonic": "general=总的/将军，in general一般"
+  },
+  {
+    "text": "team",
+    "mnemonic": "team=团队，teamwork合作"
+  },
+  {
+    "text": "this",
+    "mnemonic": "this=这个，与that相对"
+  },
+  {
+    "text": "darling",
+    "mnemonic": "darling=亲爱的，dear亲爱"
+  },
+  {
+    "text": "discover",
+    "mnemonic": "dis+cover盖，discover揭开发现"
+  },
+  {
+    "text": "penny",
+    "mnemonic": "penny源自货币，一分硬币"
+  },
+  {
+    "text": "safe",
+    "mnemonic": "safe=安全的，safe and sound安然无恙"
+  },
+  {
+    "text": "seriously",
+    "mnemonic": "serious严肃+ly，seriously认真"
+  },
+  {
+    "text": "thus",
+    "mnemonic": "thus=因此，thus far迄今"
+  },
+  {
+    "text": "galaxy",
+    "mnemonic": "galaxy=星系，the Galaxy银河系"
+  },
+  {
+    "text": "have",
+    "mnemonic": "have=有，have a book有书"
+  },
+  {
+    "text": "identity",
+    "mnemonic": "identity=身份，身份证identity card"
+  },
+  {
+    "text": "obviously",
+    "mnemonic": "obvious明显+ly，obviously明显"
+  },
+  {
+    "text": "rob",
+    "mnemonic": "rob=抢劫，robber强盗"
+  },
+  {
+    "text": "public",
+    "mnemonic": "public=公共的，public place公共场所"
+  },
+  {
+    "text": "curious",
+    "mnemonic": "curious=好奇的，curiosity好奇"
+  },
+  {
+    "text": "harm",
+    "mnemonic": "harm=伤害，do harm有害"
+  },
+  {
+    "text": "apart",
+    "mnemonic": "a+part部分，apart分开"
+  },
+  {
+    "text": "tiny",
+    "mnemonic": "tiny=微小的，tiny baby小宝宝"
+  },
+  {
+    "text": "melody",
+    "mnemonic": "melody=旋律，动人的曲调"
+  },
+  {
+    "text": "wednesday",
+    "mnemonic": "Woden主神+day，Wednesday星期三"
+  },
+  {
+    "text": "kidnap",
+    "mnemonic": "kid小孩+nap抓，kidnap绑架"
+  },
+  {
+    "text": "mankind",
+    "mnemonic": "man人+kind种类，mankind人类"
+  },
+  {
+    "text": "scandal",
+    "mnemonic": "scandal源自绊脚石，丑闻绊倒人"
+  },
+  {
+    "text": "here",
+    "mnemonic": "here=这里，here and there到处"
+  },
+  {
+    "text": "urban",
+    "mnemonic": "urban=都市的，urban life都市生活"
+  },
+  {
+    "text": "blade",
+    "mnemonic": "blade源自叶，刀片似叶"
+  },
+  {
+    "text": "accident",
+    "mnemonic": "ac+cid落+ent，accident事故"
+  },
+  {
+    "text": "they",
+    "mnemonic": "they=他们，they are他们是"
+  },
+  {
+    "text": "critical",
+    "mnemonic": "critic批评+al，critical关键"
+  },
+  {
+    "text": "guy",
+    "mnemonic": "guy=家伙，a good guy好人"
+  },
+  {
+    "text": "coffee",
+    "mnemonic": "coffee源自咖啡豆产地，咖啡"
+  },
+  {
+    "text": "catholic",
+    "mnemonic": "Catholic=天主教的/普遍的"
+  },
+  {
+    "text": "dollar",
+    "mnemonic": "dollar源自thaler银币，美元"
+  },
+  {
+    "text": "hasty",
+    "mnemonic": "haste急忙变hasty，草率"
+  },
+  {
+    "text": "final",
+    "mnemonic": "final=最终的，fin结尾"
+  },
+  {
+    "text": "intact",
+    "mnemonic": "in不+tact碰，intact完好无损"
+  },
+  {
+    "text": "beware",
+    "mnemonic": "be+ware小心，beware当心"
+  },
+  {
+    "text": "melon",
+    "mnemonic": "melon=瓜，watermelon西瓜"
+  },
+  {
+    "text": "norm",
+    "mnemonic": "norm=标准/规范，normal正常的"
+  },
+  {
+    "text": "gravity",
+    "mnemonic": "grav重+ity，gravity重力"
+  },
+  {
+    "text": "extent",
+    "mnemonic": "extent=程度，to some extent某种程度"
+  },
+  {
+    "text": "newly",
+    "mnemonic": "new新+ly，newly新近"
+  },
+  {
+    "text": "harmony",
+    "mnemonic": "harmony=和谐，in harmony融洽"
+  },
+  {
+    "text": "producer",
+    "mnemonic": "produce生产+er人，producer制片人"
+  },
+  {
+    "text": "big",
+    "mnemonic": "big=大的，与small相对"
+  },
+  {
+    "text": "means",
+    "mnemonic": "mean意思+s，means方法手段"
+  },
+  {
+    "text": "poster",
+    "mnemonic": "post张贴+er，poster海报"
+  },
+  {
+    "text": "ashore",
+    "mnemonic": "a+shore岸，ashore上岸"
+  },
+  {
+    "text": "odor",
+    "mnemonic": "odor=气味，bad odor臭味"
+  },
+  {
+    "text": "miracle",
+    "mnemonic": "miracle=奇迹，miraculous奇迹般"
+  },
+  {
+    "text": "bath",
+    "mnemonic": "bath=洗澡/浴，bathe沐浴"
+  },
+  {
+    "text": "bond",
+    "mnemonic": "bond=纽带/债券，bonding联结"
+  },
+  {
+    "text": "thigh",
+    "mnemonic": "thigh=大腿，gh不发音"
+  },
+  {
+    "text": "rapidly",
+    "mnemonic": "rapid快速+ly，rapidly迅速"
+  }
+]

@@ -29,6 +29,7 @@ model Word {
   difficultyScore  Float
   tier             String   @db.VarChar(8) // I / II / III / IV
   difficultyDims   Json
+  mnemonic         String?  @db.VarChar(300) // 记忆锚点：词根/联想一句话（可选，离线批量生成+人工抽查，见 db/data/mnemonic-prompt-template.md）
   createdAt        DateTime @default(now())
   senses           WordSense[]
   bankWords        BankWord[]
@@ -38,6 +39,7 @@ model Word {
   senseProgress    UserSenseProgress[]
   sessionItems     LearningSessionItem[]
   runItems         RunItem[]
+  readingGlossary  ReadingGlossary[] @relation("readingGlossary")
 
   @@index([difficultyScore])
   @@index([tier])
@@ -86,6 +88,7 @@ model User {
   username         String    @unique @db.VarChar(32)
   passwordHash     String    @db.VarChar(255)
   coins            Int       @default(0)
+  isAdmin          Boolean   @default(false) // 后台管理员（可编辑单词库/阅读库）
   refreshTokenHash String?   @db.VarChar(255) // refresh 轮换：存 token 哈希，旧 token 失效
   createdAt        DateTime  @default(now())
   character        UserCharacter?
@@ -94,6 +97,9 @@ model User {
   materials        UserMaterial[]
   sessions         LearningSession[]
   runs             Run[]
+  readingProgress  ReadingProgress[]
+  readingAnswers   ReadingAnswer[]
+  readingSavedWords ReadingSavedWord[]
 }
 
 // 角色三围
@@ -104,6 +110,8 @@ model UserCharacter {
   hpLv   Int    @default(1)
   atkLv  Int    @default(1)
   defLv  Int    @default(1)
+  executeSpec Boolean @default(false)
+  vampireSpec Boolean @default(false)
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
@@ -116,13 +124,16 @@ model UserWordProgress {
   correctCount        Int       @default(0)
   wrongCount          Int       @default(0)
   inWrongBook         Boolean   @default(false)
+  wrongStreak         Int       @default(0) // 错题本内连续答对次数（≥2 摘标）
   inVocabBook         Boolean   @default(false)
   mastery             Int       @default(0)
   reviewStage         Int       @default(0)
   nextReviewAt        DateTime?
   ease                Float     @default(2.5)
+  skipped             Boolean   @default(false) // 已斩：永久不再出题
   firstEncounteredAt  DateTime? // 图鉴：首次遇到时间
   lastEncounteredAt   DateTime? // 图鉴：最近一次遇到
+  srsHistory          Json      @default("[]") // 图鉴：SRS 档位变更史 [{stage, at}]，仅档位变化时追加（粗粒度复习轨迹）
   user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   word                Word      @relation(fields: [wordId], references: [id])
 
@@ -178,6 +189,7 @@ model LearningSession {
   result          Boolean
   monstersCleared Int      @default(0)
   bossCleared     Boolean  @default(false)
+  bossHp          Int      @default(0)   // Boss 段血量（enterBoss 落库，服务端权威判定 bossCleared）
   damageTaken     Int      @default(0)
   stunCount       Int      @default(0)
   maxCombo        Int      @default(0)
@@ -218,6 +230,12 @@ model Run {
   bankId        Int
   stageId       Int               // 绑定当前 stage，不跨承接
   mode          String   @default("zh2en") // 子模式：zh2en / choice / dictation
+  // kind：unit=红宝书 Unit 肉鸽（新闯关，胜利=全词掌握+Final Boss 击破）；survival=旧生存 Run（入口已移除，后端休眠保留）
+  kind          String   @default("unit")
+  // unit Run：击破 Final Boss 即通关（解锁下一 Unit 的依据）
+  cleared       Boolean  @default(false)
+  // unit Run Final Boss 随机血量（服务端进波时 roll 并落库，客户端不可见）
+  finalBossHp   Int?
   day           Int      @default(1)       // 当前天数
   hp            Int                       // 服务端权威血量
   maxHp         Int                       // 含本局 buff 加成
@@ -225,6 +243,13 @@ model Run {
   lastInjectDay Int      @default(0)      // 注入冷却（严格隔天交替）
   surrendered   Boolean  @default(false)  // 主动收枪
   recordBroken  Boolean  @default(false)  // 破纪录幂等双保险
+  // Boss 状态（v2.5 从 extra 迁移为正式列，服务端权威）
+  everBoss          Boolean @default(false) // 本局是否已打过首领
+  lastBossDay       Int     @default(0)     // 上次首领波天（0=未打过）
+  lastBossConsumed  Int     @default(0)     // 上次首领波时累计新词消耗
+  bossClearedCount  Int     @default(0)     // 累计击破首领次数
+  maxCombo          Int     @default(0)     // 本局最高连击（全局累计口径，结算展示）
+  playSeconds       Int     @default(0)     // 本局累计游玩时长（秒；客户端秒表上报，服务端取 max，结算展示）
   extra         Json     @default("{}")   // 连续低准确天数等
   status        String   @default("active") // active / finished
   createdAt     DateTime @default(now())
@@ -233,7 +258,7 @@ model Run {
   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   bank          WordBank  @relation(fields: [bankId], references: [id])
 
-  @@index([userId, status])   // /runs/active 查询
+  @@index([userId, kind, status]) // /runs/active（按 kind 查询活跃 Run）
   @@index([userId, stageId])  // 破纪录 max 查询
 }
 
@@ -252,4 +277,127 @@ model RunItem {
 
   @@index([runId])
   @@unique([runId, seq])
+}
+
+// ── 考研英语一真题阅读 ──
+model ReadingPaper {
+  id        Int      @id @default(autoincrement())
+  year      Int      @unique
+  examName  String   @db.VarChar(128)
+  createdAt DateTime @default(now())
+  passages  ReadingPassage[]
+}
+
+model ReadingPassage {
+  id             Int      @id @default(autoincrement())
+  paperId        Int
+  code           String   @db.VarChar(1) // A / B / C / D
+  title          String   @db.VarChar(32) // String @db.Text 1
+  subtitle       String?  @db.VarChar(128)
+  questionsStart Int      @default(21) // 首题题号（21 / 26 / 31 / 36）
+  order          Int      @default(0)
+  content        String @db.Text // 原文全文（由句子拼接，导入时生成）
+  translation    String @db.Text // 全文译文（由句子 zh 拼接，导入时生成）
+  paper          ReadingPaper    @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  sentences      ReadingSentence[]
+  questions      ReadingQuestion[]
+  glossary       ReadingGlossary[]
+  progress       ReadingProgress[]
+  savedWords     ReadingSavedWord[]
+  answers        ReadingAnswer[]
+
+  @@unique([paperId, code])
+  @@index([paperId])
+}
+
+// 逐句（精读 / 整句翻译 / TTS）
+model ReadingSentence {
+  id        Int            @id @default(autoincrement())
+  passageId Int
+  para      Int
+  seq       Int
+  en        String @db.Text
+  zh        String @db.Text
+  structure Json? // 长难句拆解 { clauses, main }（标注管线写入）
+  passage   ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@unique([passageId, seq])
+  @@index([passageId])
+}
+
+// 题目（作答后解析）
+model ReadingQuestion {
+  id        Int            @id @default(autoincrement())
+  passageId Int
+  seq       Int
+  stem      String @db.Text
+  options   Json // { A/B/C/D: string }
+  answer    String         @db.VarChar(1) // A-D
+  analysis  String @db.Text
+  passage   ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@unique([passageId, seq])
+  @@index([passageId])
+}
+
+// 篇内词表（点词查义；命中 Word 总表时联动掌握度）
+model ReadingGlossary {
+  id        Int            @id @default(autoincrement())
+  passageId Int
+  word      String         @db.VarChar(64)
+  meaning   String @db.Text
+  wordId    String? // 关联 Word 总表（可选）
+  wordRef   Word?          @relation("readingGlossary", fields: [wordId], references: [id])
+  passage   ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@unique([passageId, word])
+  @@index([passageId])
+}
+
+// 阅读进度
+model ReadingProgress {
+  userId          Int
+  passageId       Int
+  status          String   @db.VarChar(16) @default("not-started") // not-started / reading / done
+  bestScore       Int      @default(0)
+  totalQuestions  Int      @default(0)
+  correctCount    Int      @default(0)
+  currentSentence Int      @default(0)
+  lastReadAt      DateTime @default(now())
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  passage         ReadingPassage   @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@id([userId, passageId])
+  @@index([passageId])
+}
+
+// 逐题答题记录（成绩统计）
+model ReadingAnswer {
+  id          Int            @id @default(autoincrement())
+  userId      Int
+  passageId   Int
+  seq         Int
+  choice      String         @db.VarChar(1)
+  correct     Boolean
+  submittedAt DateTime       @default(now())
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  passage     ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@index([userId, passageId])
+  @@index([passageId])
+}
+
+// 生词收集（阅读生词本；词库联动时同步图鉴 inVocabBook）
+model ReadingSavedWord {
+  id        Int            @id @default(autoincrement())
+  userId    Int
+  passageId Int
+  word      String         @db.VarChar(64)
+  meaning   String @db.Text
+  createdAt DateTime       @default(now())
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  passage   ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, passageId, word])
+  @@index([userId])
 }

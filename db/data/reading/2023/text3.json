@@ -1,0 +1,226 @@
+{
+  "code": "C",
+  "title": "Text 3",
+  "subtitle": "水石书店与企鹅兰登书屋之争",
+  "questionsStart": 31,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "If you're heading for your nearest branch of Waterstones, the biggest book retailer in the UK, in search of the Duchess of Sussex's new children's book The Bench, you might have to be prepared to hunt around a bit; the same may be true of The President's Daughter, the new thriller by Bill Clinton and James Patterson.",
+      "zh": "如果你正前往离你最近的英国最大图书零售商水石书店的分店，去找苏塞克斯公爵夫人的新童书《长椅》，你可能得准备好费一番功夫找找看；比尔·克林顿和詹姆斯·帕特森的新惊悚小说《总统的女儿》可能也是如此。"
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Both of these books are published next week by Penguin Random House, a company currently involved in a stand-off with Waterstones.",
+      "zh": "这两本书都将于下周由企鹅兰登书屋出版，而该公司目前正与水石书店陷入对峙僵局。"
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "The problem began late last year, when Penguin Random House confirmed that it had introduced a credit limit with Waterstones \"at a very significant level\".",
+      "zh": "问题始于去年年末，当时企鹅兰登书屋确认，它已对水石书店实行了“额度相当可观”的信用限额。"
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "The trade magazine The Bookseller reported that Waterstones branch managers were being told to remove PRH books from prominent areas such as tables, display spaces and windows, and were \"quietly retiring them to their relevant sections\".",
+      "zh": "行业杂志《书商》报道称，水石书店的各分店经理被要求把企鹅兰登书屋的书从桌子、展示区和橱窗等显眼位置撤下，“悄悄地把它们移回相应的书区”。"
+    },
+    {
+      "para": 3,
+      "seq": 4,
+      "en": "PRH declined to comment on the issue, but a spokesperson for Waterstones told me: \"Waterstones are currently operating with reduced credit terms from PRH, the only publisher in the UK to place any limitations on our ability to trade.\"",
+      "zh": "企鹅兰登书屋拒绝对此事置评，但水石书店的一位发言人告诉我：“水石书店目前在企鹅兰登书屋缩减的信用条件下运营，它是英国唯一一家对我们交易能力施加限制的出版商。”"
+    },
+    {
+      "para": 3,
+      "seq": 5,
+      "en": "\"We are not boycotting PRH titles but we are doing our utmost to ensure that availability for customers remains good despite the lower overall levels of stock.\"",
+      "zh": "“我们并没有抵制企鹅兰登书屋的书，但尽管总体库存水平降低，我们仍在尽最大努力确保顾客能买到书。”"
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "\"We are hopeful with our shops now open again that normality will return and that we will be allowed to buy appropriately.\"",
+      "zh": "“随着我们的门店重新开业，我们希望一切能恢复正常，也希望我们能获准正常进货。”"
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "\"Certainly, our shops are exceptionally busy and book sales are very strong.\"",
+      "zh": "“当然，我们的门店生意异常繁忙，图书销售非常强劲。”"
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "\"The sales for our May Books of the Month surpassed any month since 2018.\"",
+      "zh": "“我们五月的‘当月之书’销量超过了2018年以来的任何一个月份。”"
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "In the meantime, PRH authors have been the losers.",
+      "zh": "与此同时，企鹅兰登书屋的作者们成了输家。"
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "Big-name PRH authors may suffer a bit, but it's those mid-list authors, who normally rely on Waterstones staff's passion for promoting books by lesser-known writers, who will be praying for an end to the dispute.",
+      "zh": "企鹅兰登书屋的知名大牌作者可能损失一些，但真正在祈祷这场争端尽快结束的，是那些中游作者——他们通常依靠水石书店员工推介不太知名作家书籍的热情。"
+    },
+    {
+      "para": 5,
+      "seq": 11,
+      "en": "It comes at a time when authors are already worried about the consequences of the proposed merger between PRH and another big publisher, Simon & Schuster - the reduction in the number of unaligned UK publishers is likely to lead to fewer bidding wars, lower advances, and more conformity in terms of what is published.",
+      "zh": "此事发生之际，作者们本就在担忧企鹅兰登书屋与另一家大型出版商西蒙与舒斯特拟议合并的后果——英国独立出版商数量的减少，可能导致竞价战减少、预付金降低，以及出版内容更加千篇一律。"
+    },
+    {
+      "para": 6,
+      "seq": 12,
+      "en": "\"This is all part of a wider change towards concentration of power and cartels.",
+      "zh": "“这一切都是权力和垄断联盟不断集中的更大变化的一部分。”"
+    },
+    {
+      "para": 6,
+      "seq": 13,
+      "en": "Literary agencies are getting bigger to have the clout to negotiate better terms with publishers, publishers consolidating to deal with Amazon,\" says Lownie.",
+      "zh": "朗尼说：“文学经纪公司变得越来越大，以便拥有与出版商谈成更好条款的影响力，而出版商则在不断整合以应对亚马逊。”"
+    },
+    {
+      "para": 6,
+      "seq": 14,
+      "en": "\"The publishing industry talks about diversity in terms of authors and staff but it also needs a plurality of ways of delivering intellectual contact, choice and different voices.\"",
+      "zh": "“出版业谈论作者和员工层面的多样性，但它同样需要多元的渠道来传递知识联系、选择以及不同的声音。”"
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "\"After all, many of the most interesting books in recent years have come from small publishers.\"",
+      "zh": "“毕竟，近年来许多最有趣的书籍都出自小型出版社。”"
+    },
+    {
+      "para": 7,
+      "seq": 16,
+      "en": "We shall see whether that plurality is a casualty of the current need among publishers to be big enough to take on all-comers.",
+      "zh": "我们将会看到，这种多元化是否会成为出版商当下追求“规模足够大、足以应对所有对手”的牺牲品。"
+    }
+  ],
+  "questions": [
+    {
+      "seq": 31,
+      "stem": "The author mentions two books in Paragraph 1 to present ______.",
+      "options": {
+        "A": "an ongoing conflict",
+        "B": "an intellectual concept",
+        "C": "a prevailing sentiment",
+        "D": "a literary phenomenon"
+      },
+      "answer": "A",
+      "analysis": "例证题。第一段①句提出这两本书可能会比较难找的现象，②句紧接着说明原因：Both of these books are published next week by Penguin Random House, a company currently involved in a stand-off with Waterstones（这两本书都将于下周由企鹅兰登书屋出版，该公司目前正与水石书店陷入对峙僵局）。A 项 an ongoing conflict（正在发生的矛盾）是对 involved in a stand-off 的同义替换，故选 A。"
+    },
+    {
+      "seq": 32,
+      "stem": "Why did Waterstones shops retire PRH books to their relevant section?",
+      "options": {
+        "A": "to make them easily noticeable",
+        "B": "to comply with PRH's requirement",
+        "C": "to respond to PRH's business move",
+        "D": "to arrange them in a systematic way"
+      },
+      "answer": "C",
+      "analysis": "细节题。题干关键词 retire PRH books to their relevant section 定位到第二段②句，该句描述的水石书店操作（把书从显眼位置撤下）对企鹅兰登书屋而言显然是负面的。再看①句：是 PRH 首先对水石书店引入了额度很高的信用限制，可见水石书店的操作正是对 PRH 商业举措的反击。C 项 to respond to PRH's business move（回应 PRH 的商业举措）符合文意，故选 C。"
+    },
+    {
+      "seq": 33,
+      "stem": "What message does the spokesperson for Waterstones seem to convey?",
+      "options": {
+        "A": "Their customer remain loyal.",
+        "B": "The credit limit will be removed.",
+        "C": "Their stock is underestimated.",
+        "D": "The book market is rather slack."
+      },
+      "answer": "A",
+      "analysis": "细节推断题。题干关键词 the spokesperson for Waterstones 定位到第三段，该段都是发言人的发言。其中“our shops are exceptionally busy and book sales are very strong”（我们的门店异常繁忙，图书销售非常强劲）以及“The sales for our May Books of the Month surpassed any month since 2018”（五月当月之书销量超过2018年以来任何月份）说明顾客依然忠诚、生意红火。A 项 Their customers remain loyal（他们的顾客依然忠诚）符合文意，故选 A。D 项“图书市场相当疲软”与文意相反，排除。"
+    },
+    {
+      "seq": 34,
+      "stem": "What can be one consequence of the current dispute?",
+      "options": {
+        "A": "Sales of books by mid-list PRH writers fall off considerably.",
+        "B": "Lesser-known PRH writers become the target of criticism.",
+        "C": "Waterstones staff hesitate to promote big-name author's book.",
+        "D": "Waterstones branches suffer a severe reduction in revenue."
+      },
+      "answer": "A",
+      "analysis": "细节推断题。题干关键词 the current dispute 定位到第四段②句：“Big-name PRH authors may suffer a bit, but it's those mid-list authors … who will be praying for an end to the dispute”（知名作者或受影响，但真正祈祷争端结束的是那些中游作者）。该句用 but 转折引出重点并用了强调句型，说明中游作者受到的打击最大，其书籍销量将大幅下滑。A 项 Sales of books by mid-list PRH writers fall off considerably（企鹅兰登书屋中游作者书籍的销量大幅下滑）符合文意，故选 A。"
+    },
+    {
+      "seq": 35,
+      "stem": "Which of the following statements best represents Lownie's view?",
+      "options": {
+        "A": "Small publishers ought to stick together.",
+        "B": "Big publishers will lose their dominance.",
+        "C": "The publishing industry is having a hard time.",
+        "D": "The merger of publishers is a worrying trend."
+      },
+      "answer": "D",
+      "analysis": "细节推断题。题干关键词 Lownie's view 定位到第六段。朗尼指出“This is all part of a wider change towards concentration of power and cartels”（这是权力和垄断联盟不断集中的更大变化的一部分），说明行业在兼并整合、形成更庞大的企业；随后他又指出出版业需要多种渠道传递知识、选择和不同声音，暗示当前的兼并趋势不利于多元化和不同的声音。D 项 The merger of publishers is a worrying trend（出版商的合并是一个令人担忧的趋势）是对此的概括，故选 D。"
+    }
+  ],
+  "glossary": {
+    "branch": { "meaning": "n. 分店，分支机构；树枝" },
+    "retailer": { "meaning": "n. 零售商" },
+    "in search of": { "meaning": "phr. 寻找" },
+    "duchess": { "meaning": "n. 公爵夫人，女公爵" },
+    "hunt": { "meaning": "v. 搜寻；打猎 n. 搜寻" },
+    "thriller": { "meaning": "n. 惊悚小说，惊险片" },
+    "involved": { "meaning": "adj. 涉及的，卷入的" },
+    "stand-off": { "meaning": "n. 对峙，僵局" },
+    "credit limit": { "meaning": "phr. 信用限额，赊购额度" },
+    "significant": { "meaning": "adj. 重大的，显著的；相当数量的" },
+    "trade": { "meaning": "n. 贸易，行业 v. 交易" },
+    "prominent": { "meaning": "adj. 显眼的，突出的；重要的" },
+    "display": { "meaning": "n./v. 展示，陈列" },
+    "retire": { "meaning": "v. 移走，撤下；退休；退役" },
+    "relevant": { "meaning": "adj. 相关的，相应的" },
+    "decline": { "meaning": "v. 拒绝，谢绝；下降 n. 下降" },
+    "spokesperson": { "meaning": "n. 发言人" },
+    "operate": { "meaning": "v. 经营，运作；操作" },
+    "reduced": { "meaning": "adj. 缩减的，减少的" },
+    "terms": { "meaning": "n. 条款，条件" },
+    "limitation": { "meaning": "n. 限制，局限" },
+    "boycott": { "meaning": "v./n. 抵制" },
+    "utmost": { "meaning": "n. 极限，最大可能 adj. 极度的" },
+    "availability": { "meaning": "n. 可获性，可得性" },
+    "stock": { "meaning": "n. 库存，存货；股票" },
+    "normality": { "meaning": "n. 正常状态" },
+    "appropriately": { "meaning": "adv. 恰当地，合适地" },
+    "exceptionally": { "meaning": "adv. 异常地，极其" },
+    "surpass": { "meaning": "v. 超过，胜过" },
+    "in the meantime": { "meaning": "phr. 与此同时" },
+    "big-name": { "meaning": "adj. 大牌的，知名的" },
+    "mid-list": { "meaning": "adj. 中游的（指知名度一般、销量居中的作者）" },
+    "rely on": { "meaning": "phr. 依赖，依靠" },
+    "lesser-known": { "meaning": "adj. 不太知名的" },
+    "pray for": { "meaning": "phr. 祈祷，恳求" },
+    "dispute": { "meaning": "n. 争端，纠纷 v. 争论" },
+    "merger": { "meaning": "n. 合并，兼并" },
+    "unaligned": { "meaning": "adj. 不结盟的；独立的" },
+    "bidding war": { "meaning": "phr. 竞价战，出价竞争" },
+    "advance": { "meaning": "n. 预付金，预支款；进展 v. 推进" },
+    "conformity": { "meaning": "n. 一致，趋同" },
+    "cartel": { "meaning": "n. 卡特尔，垄断联盟" },
+    "literary": { "meaning": "adj. 文学的" },
+    "agency": { "meaning": "n. 机构，代理公司" },
+    "clout": { "meaning": "n. 影响力，势力" },
+    "negotiate": { "meaning": "v. 谈判，协商" },
+    "consolidate": { "meaning": "v. 合并，整合；巩固" },
+    "diversity": { "meaning": "n. 多样性" },
+    "plurality": { "meaning": "n. 多元性，多样性；多数" },
+    "intellectual": { "meaning": "adj. 智力的，知识的 n. 知识分子" },
+    "casualty": { "meaning": "n. 牺牲品；伤亡人员" },
+    "all-comers": { "meaning": "n. 所有参与者，所有竞争者" }
+  }
+}

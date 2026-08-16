@@ -1,0 +1,402 @@
+[
+  {
+    "text": "friend",
+    "mnemonic": "friend=朋友，fri+end，朋友陪你到最后"
+  },
+  {
+    "text": "devil",
+    "mnemonic": "devil倒读是lived活着，魔鬼在人间活着"
+  },
+  {
+    "text": "sticky",
+    "mnemonic": "stick粘+y，sticky粘性的"
+  },
+  {
+    "text": "handsome",
+    "mnemonic": "hand手+some，伸手帮人的男生最英俊"
+  },
+  {
+    "text": "museum",
+    "mnemonic": "museum=博物馆，Muse缪斯女神殿堂"
+  },
+  {
+    "text": "furniture",
+    "mnemonic": "furnish配备变furniture，家具"
+  },
+  {
+    "text": "donkey",
+    "mnemonic": "don先生+key钥匙，驴驮着钥匙"
+  },
+  {
+    "text": "university",
+    "mnemonic": "uni一+verse宇宙+ity，university大学"
+  },
+  {
+    "text": "pest",
+    "mnemonic": "pest=害虫，拍死它pest"
+  },
+  {
+    "text": "swim",
+    "mnemonic": "swim=游泳，go swimming去游"
+  },
+  {
+    "text": "garlic",
+    "mnemonic": "garlic=大蒜，garlic bread蒜香面包"
+  },
+  {
+    "text": "welfare",
+    "mnemonic": "well好+fare，welfare福利过得好"
+  },
+  {
+    "text": "road",
+    "mnemonic": "road=路，on the road在路上"
+  },
+  {
+    "text": "humanity",
+    "mnemonic": "human人+ity，humanity人类"
+  },
+  {
+    "text": "normal",
+    "mnemonic": "norm标准+al，normal正常的"
+  },
+  {
+    "text": "mountain",
+    "mnemonic": "mount山+ain，mountain大山"
+  },
+  {
+    "text": "none",
+    "mnemonic": "no+one，none没有一个"
+  },
+  {
+    "text": "pity",
+    "mnemonic": "pity=可惜，What a pity真可惜"
+  },
+  {
+    "text": "device",
+    "mnemonic": "device与devise设计同源，设计出的装置"
+  },
+  {
+    "text": "actual",
+    "mnemonic": "act行动+ual，actual实际的"
+  },
+  {
+    "text": "colony",
+    "mnemonic": "colon定居+y，colony殖民地"
+  },
+  {
+    "text": "global",
+    "mnemonic": "globe地球变global，全球的"
+  },
+  {
+    "text": "atom",
+    "mnemonic": "a不+tom切，atom不可再分"
+  },
+  {
+    "text": "healthy",
+    "mnemonic": "health健康+y，healthy健康的"
+  },
+  {
+    "text": "balcony",
+    "mnemonic": "balk横梁+ony，balcony阳台"
+  },
+  {
+    "text": "resent",
+    "mnemonic": "re反+sent感觉，resent怨恨"
+  },
+  {
+    "text": "chunk",
+    "mnemonic": "chunk=大块，a chunk of一大块"
+  },
+  {
+    "text": "garbage",
+    "mnemonic": "garbage=垃圾，garbage can垃圾桶"
+  },
+  {
+    "text": "clumsy",
+    "mnemonic": "clum笨重+sy，clumsy笨拙"
+  },
+  {
+    "text": "ourselves",
+    "mnemonic": "our+selves自己，ourselves我们自己"
+  },
+  {
+    "text": "bat",
+    "mnemonic": "bat=蝙蝠/球拍，夜里飞的老鼠"
+  },
+  {
+    "text": "minute",
+    "mnemonic": "min小+ute，minute分钟"
+  },
+  {
+    "text": "industry",
+    "mnemonic": "industry=工业/勤奋，industrious勤奋"
+  },
+  {
+    "text": "clothes",
+    "mnemonic": "cloth布变clothes，衣服"
+  },
+  {
+    "text": "warmth",
+    "mnemonic": "warm温暖+th，warmth温情"
+  },
+  {
+    "text": "theater",
+    "mnemonic": "theater=剧院，theatre英式"
+  },
+  {
+    "text": "aspect",
+    "mnemonic": "a+spect看，aspect方面"
+  },
+  {
+    "text": "adjust",
+    "mnemonic": "ad+just刚好，adjust调到刚好"
+  },
+  {
+    "text": "tomato",
+    "mnemonic": "tomato=西红柿，tomato sauce番茄酱"
+  },
+  {
+    "text": "batch",
+    "mnemonic": "batch=一批，a batch of一炉"
+  },
+  {
+    "text": "cape",
+    "mnemonic": "cape=海角/斗篷，Cape Town开普敦"
+  },
+  {
+    "text": "bad",
+    "mnemonic": "bad=坏的，与good相对"
+  },
+  {
+    "text": "discuss",
+    "mnemonic": "dis分开+cuss敲，discuss讨论敲开"
+  },
+  {
+    "text": "pure",
+    "mnemonic": "pure=纯净，purify净化"
+  },
+  {
+    "text": "cliff",
+    "mnemonic": "cliff=悬崖，cliff悬崖峭壁"
+  },
+  {
+    "text": "avenue",
+    "mnemonic": "a+venue来，avenue通往大道"
+  },
+  {
+    "text": "procedure",
+    "mnemonic": "pro+cedure，procedure程序"
+  },
+  {
+    "text": "present",
+    "mnemonic": "pre前+sent在，present现在/礼物"
+  },
+  {
+    "text": "testimony",
+    "mnemonic": "testi见证+mony，testimony证词"
+  },
+  {
+    "text": "formula",
+    "mnemonic": "form+ula，formula公式"
+  },
+  {
+    "text": "timid",
+    "mnemonic": "tim怕+id，timid胆小的"
+  },
+  {
+    "text": "relief",
+    "mnemonic": "relief=宽慰，relieve缓解"
+  },
+  {
+    "text": "sympathy",
+    "mnemonic": "sym共同+pathy感情，sympathy同情"
+  },
+  {
+    "text": "lofty",
+    "mnemonic": "loft阁楼+y，lofty高耸的"
+  },
+  {
+    "text": "analysis",
+    "mnemonic": "ana+lysis，analysis分析"
+  },
+  {
+    "text": "honesty",
+    "mnemonic": "honest诚实+y，honesty正直"
+  },
+  {
+    "text": "element",
+    "mnemonic": "element=元素，chemical element化学元素"
+  },
+  {
+    "text": "block",
+    "mnemonic": "block=街区/块，a block of一块"
+  },
+  {
+    "text": "spirit",
+    "mnemonic": "spir呼吸+it，spirit精神气息"
+  },
+  {
+    "text": "everyday",
+    "mnemonic": "every每+day天，everyday日常"
+  },
+  {
+    "text": "ask",
+    "mnemonic": "ask=问，ask a question提问"
+  },
+  {
+    "text": "tuesday",
+    "mnemonic": "Tiw战神+day，Tuesday星期二"
+  },
+  {
+    "text": "dealer",
+    "mnemonic": "deal交易+er人，dealer商人"
+  },
+  {
+    "text": "unusual",
+    "mnemonic": "un不+usual平常，unusual不寻常"
+  },
+  {
+    "text": "pupil",
+    "mnemonic": "pupil=瞳孔/学生，瞳孔里有小身影"
+  },
+  {
+    "text": "anytime",
+    "mnemonic": "any+time时间，anytime随时"
+  },
+  {
+    "text": "logical",
+    "mnemonic": "logic逻辑+al，logical合乎逻辑"
+  },
+  {
+    "text": "medicine",
+    "mnemonic": "medicine=药/医学，take medicine吃药"
+  },
+  {
+    "text": "aspirin",
+    "mnemonic": "aspirin=阿司匹林，音译药名解热镇痛"
+  },
+  {
+    "text": "local",
+    "mnemonic": "loc地方+al，local当地的"
+  },
+  {
+    "text": "color",
+    "mnemonic": "color=颜色，colour英式"
+  },
+  {
+    "text": "princess",
+    "mnemonic": "prince王子+ss，princess公主"
+  },
+  {
+    "text": "see",
+    "mnemonic": "see=看见，see you再见"
+  },
+  {
+    "text": "artery",
+    "mnemonic": "artery首字母A像away，动脉把血送离心脏；vein的V像回流"
+  },
+  {
+    "text": "elegant",
+    "mnemonic": "e+leg选+ant，elegant精挑细选优雅"
+  },
+  {
+    "text": "foreign",
+    "mnemonic": "foreign=外国的，foreigner外国人"
+  },
+  {
+    "text": "vehicle",
+    "mnemonic": "vehicle源自vehere载，载人车辆"
+  },
+  {
+    "text": "saw",
+    "mnemonic": "saw=锯/see过去式，锯子见过"
+  },
+  {
+    "text": "resign",
+    "mnemonic": "re+sign签字，resign辞职"
+  },
+  {
+    "text": "genetic",
+    "mnemonic": "gene基因+tic，genetic遗传的"
+  },
+  {
+    "text": "tribe",
+    "mnemonic": "tribe=部落，tribal部落的"
+  },
+  {
+    "text": "forth",
+    "mnemonic": "forth=向前，back and forth来回"
+  },
+  {
+    "text": "lobster",
+    "mnemonic": "lobster本义是蜘蛛，海里的蜘蛛即大龙虾"
+  },
+  {
+    "text": "apologize",
+    "mnemonic": "apology道歉变apologize，道歉"
+  },
+  {
+    "text": "absent",
+    "mnemonic": "ab离开+sent在，absent缺席"
+  },
+  {
+    "text": "soul",
+    "mnemonic": "soul与sole同音，灵魂独一无二"
+  },
+  {
+    "text": "gram",
+    "mnemonic": "gram=克，千克kilogram"
+  },
+  {
+    "text": "detect",
+    "mnemonic": "de+tect盖，detect揭开发现"
+  },
+  {
+    "text": "sincere",
+    "mnemonic": "sine无+cere蜡，sincere无蜡即真诚"
+  },
+  {
+    "text": "magazine",
+    "mnemonic": "magazine本义仓库，杂志是知识仓库"
+  },
+  {
+    "text": "besides",
+    "mnemonic": "beside旁+s，besides此外"
+  },
+  {
+    "text": "bachelor",
+    "mnemonic": "bachelor源自年轻骑士，单身汉/学士"
+  },
+  {
+    "text": "only",
+    "mnemonic": "only=只有/唯一的"
+  },
+  {
+    "text": "valley",
+    "mnemonic": "val谷+ley，valley山谷"
+  },
+  {
+    "text": "salesman",
+    "mnemonic": "sale卖+s+man人，salesman推销员"
+  },
+  {
+    "text": "precisely",
+    "mnemonic": "precise精确+ly，precisely精确地"
+  },
+  {
+    "text": "adventure",
+    "mnemonic": "ad+venture来，adventure冒险"
+  },
+  {
+    "text": "love",
+    "mnemonic": "love=爱，lover爱人"
+  },
+  {
+    "text": "legacy",
+    "mnemonic": "legacy与legal法律同源，遗产法律继承"
+  },
+  {
+    "text": "presence",
+    "mnemonic": "present出席变presence，在场"
+  }
+]

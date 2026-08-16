@@ -1,0 +1,402 @@
+[
+  {
+    "text": "information",
+    "mnemonic": "inform通知+ation，information信息"
+  },
+  {
+    "text": "sand",
+    "mnemonic": "land陆地加s变sand沙滩"
+  },
+  {
+    "text": "bury",
+    "mnemonic": "bury与berry浆果形近，埋莓果"
+  },
+  {
+    "text": "software",
+    "mnemonic": "soft软+ware件，software软件"
+  },
+  {
+    "text": "glory",
+    "mnemonic": "glory源自gloria荣光，荣耀"
+  },
+  {
+    "text": "diary",
+    "mnemonic": "daily每日变diary日记"
+  },
+  {
+    "text": "sunrise",
+    "mnemonic": "sun太阳+rise升起，sunrise日出"
+  },
+  {
+    "text": "ignorant",
+    "mnemonic": "ignor不知+ant，ignorant无知的"
+  },
+  {
+    "text": "ridiculous",
+    "mnemonic": "ridicule嘲笑+ous，荒谬可笑"
+  },
+  {
+    "text": "ticket",
+    "mnemonic": "ticket源自小便条，车票"
+  },
+  {
+    "text": "score",
+    "mnemonic": "score源自刻痕，刻痕记分"
+  },
+  {
+    "text": "painful",
+    "mnemonic": "pain痛+ful，painful痛苦的"
+  },
+  {
+    "text": "mood",
+    "mnemonic": "mood与moon形近，月亮影响心情"
+  },
+  {
+    "text": "policeman",
+    "mnemonic": "police警察+man，policeman警察"
+  },
+  {
+    "text": "skull",
+    "mnemonic": "skull源自碗状贝壳，头骨如碗"
+  },
+  {
+    "text": "reason",
+    "mnemonic": "ratio理性变reason理由"
+  },
+  {
+    "text": "sailor",
+    "mnemonic": "sail航行+or人，sailor水手"
+  },
+  {
+    "text": "september",
+    "mnemonic": "sept七+ber，September罗马历七月"
+  },
+  {
+    "text": "joke",
+    "mnemonic": "joke=玩笑，joker爱开玩笑的人"
+  },
+  {
+    "text": "napkin",
+    "mnemonic": "napkin源自mappa桌布，餐巾"
+  },
+  {
+    "text": "imply",
+    "mnemonic": "im+ply折，imply暗示"
+  },
+  {
+    "text": "contempt",
+    "mnemonic": "con+tempt轻视，contempt轻蔑"
+  },
+  {
+    "text": "anxious",
+    "mnemonic": "anx担心+ious，anxious焦虑的"
+  },
+  {
+    "text": "user",
+    "mnemonic": "use用+er人，user用户"
+  },
+  {
+    "text": "assure",
+    "mnemonic": "as+sure确定，assure保证"
+  },
+  {
+    "text": "early",
+    "mnemonic": "early源自黎明前，很早"
+  },
+  {
+    "text": "professor",
+    "mnemonic": "profess教授+or人，教授"
+  },
+  {
+    "text": "excitement",
+    "mnemonic": "excite兴奋+ment，excitement激动"
+  },
+  {
+    "text": "juice",
+    "mnemonic": "juice源自jus汁液，果汁"
+  },
+  {
+    "text": "render",
+    "mnemonic": "render=给予，render service提供服务"
+  },
+  {
+    "text": "lack",
+    "mnemonic": "lack与lake湖差字母，缺水即缺乏"
+  },
+  {
+    "text": "precise",
+    "mnemonic": "pre+cise切，precise精确的"
+  },
+  {
+    "text": "faculty",
+    "mnemonic": "fac做+ult+y，faculty做事的才能"
+  },
+  {
+    "text": "ankle",
+    "mnemonic": "ankle源自弯曲，脚踝可弯曲"
+  },
+  {
+    "text": "jail",
+    "mnemonic": "jail源自cage笼子，监狱即笼子"
+  },
+  {
+    "text": "success",
+    "mnemonic": "suc+cess走，success成功"
+  },
+  {
+    "text": "dense",
+    "mnemonic": "dens浓密+e，dense稠密的"
+  },
+  {
+    "text": "commit",
+    "mnemonic": "com+mit送，commit承诺/犯罪"
+  },
+  {
+    "text": "shady",
+    "mnemonic": "shade荫变shady，背阴的"
+  },
+  {
+    "text": "stay",
+    "mnemonic": "stay与stand站同源，停留"
+  },
+  {
+    "text": "august",
+    "mnemonic": "August源自奥古斯都大帝，威严"
+  },
+  {
+    "text": "critic",
+    "mnemonic": "crit判断+ic，critic批评家"
+  },
+  {
+    "text": "gum",
+    "mnemonic": "gum源自树胶，口香糖嚼树胶"
+  },
+  {
+    "text": "burglar",
+    "mnemonic": "burg城+lar，入城偷窃的burglar"
+  },
+  {
+    "text": "mind",
+    "mnemonic": "mind源自记忆，心思记忆"
+  },
+  {
+    "text": "epoch",
+    "mnemonic": "epoch源自希腊暂停，历史停顿点即纪元"
+  },
+  {
+    "text": "vivid",
+    "mnemonic": "viv活+id，vivid生动的"
+  },
+  {
+    "text": "publish",
+    "mnemonic": "public公开变publish，出版"
+  },
+  {
+    "text": "baby",
+    "mnemonic": "baby源自babe拟声，婴儿咿呀"
+  },
+  {
+    "text": "location",
+    "mnemonic": "locate定位+ion，location位置"
+  },
+  {
+    "text": "surgeon",
+    "mnemonic": "surgery外科变surgeon"
+  },
+  {
+    "text": "mode",
+    "mnemonic": "mode源自modus度量，方式"
+  },
+  {
+    "text": "quite",
+    "mnemonic": "quiet安静加t变quite相当"
+  },
+  {
+    "text": "plant",
+    "mnemonic": "plant源自踩下栽种，植物"
+  },
+  {
+    "text": "cafe",
+    "mnemonic": "cafe音译咖啡，咖啡馆"
+  },
+  {
+    "text": "far",
+    "mnemonic": "far=远，与near相对"
+  },
+  {
+    "text": "december",
+    "mnemonic": "decem十+ber，December罗马历十月"
+  },
+  {
+    "text": "introduce",
+    "mnemonic": "intro入+duce引，introduce介绍"
+  },
+  {
+    "text": "mob",
+    "mnemonic": "mob源自mobile流动人群，暴民"
+  },
+  {
+    "text": "gorgeous",
+    "mnemonic": "gorge峡谷+ous，峡谷风光华丽"
+  },
+  {
+    "text": "goodbye",
+    "mnemonic": "good+bye，goodbye再见"
+  },
+  {
+    "text": "fun",
+    "mnemonic": "fun源自fon戏耍，乐趣"
+  },
+  {
+    "text": "witch",
+    "mnemonic": "witch源自施巫术者，女巫"
+  },
+  {
+    "text": "ulcer",
+    "mnemonic": "ulcer源自ulcus伤口，溃疡"
+  },
+  {
+    "text": "difficult",
+    "mnemonic": "difficult源自dis+facilis不易做"
+  },
+  {
+    "text": "heir",
+    "mnemonic": "heir的h不发音，heir读air，继承人"
+  },
+  {
+    "text": "count",
+    "mnemonic": "count源自com+tare计算，点数"
+  },
+  {
+    "text": "security",
+    "mnemonic": "secure安全变security"
+  },
+  {
+    "text": "cinema",
+    "mnemonic": "cinema源自kinema运动，电影"
+  },
+  {
+    "text": "writing",
+    "mnemonic": "write写变writing，写作"
+  },
+  {
+    "text": "basin",
+    "mnemonic": "basin源自baccinum碗，水盆"
+  },
+  {
+    "text": "wheat",
+    "mnemonic": "wheat源自白，麦穗雪白"
+  },
+  {
+    "text": "personal",
+    "mnemonic": "person人+al，personal个人的"
+  },
+  {
+    "text": "surprise",
+    "mnemonic": "sur+prise拿，surprise惊喜"
+  },
+  {
+    "text": "version",
+    "mnemonic": "verse转+ion，version版本"
+  },
+  {
+    "text": "island",
+    "mnemonic": "is+land，海里的陆地即岛"
+  },
+  {
+    "text": "arrive",
+    "mnemonic": "ar+rive岸，到达"
+  },
+  {
+    "text": "hold",
+    "mnemonic": "hold与hand形近，手握住hold"
+  },
+  {
+    "text": "race",
+    "mnemonic": "race源自奔跑，赛跑"
+  },
+  {
+    "text": "publicity",
+    "mnemonic": "public公共+ity，publicity宣传"
+  },
+  {
+    "text": "terrific",
+    "mnemonic": "terrific源自terrify可怕，好到可怕即棒"
+  },
+  {
+    "text": "upside",
+    "mnemonic": "up+side边，upside上边好处"
+  },
+  {
+    "text": "knowledge",
+    "mnemonic": "know知道变knowledge"
+  },
+  {
+    "text": "weird",
+    "mnemonic": "weird源自wyrd命运，命运弄人显怪异"
+  },
+  {
+    "text": "attorney",
+    "mnemonic": "attorney源自指派，律师被指派"
+  },
+  {
+    "text": "technology",
+    "mnemonic": "tech技术+ology学，technology科技"
+  },
+  {
+    "text": "consul",
+    "mnemonic": "con+sul共商，consul共商国事的领事"
+  },
+  {
+    "text": "nursery",
+    "mnemonic": "nurse护士变nursery，幼儿园"
+  },
+  {
+    "text": "behavior",
+    "mnemonic": "behave行为+ior，behavior行为"
+  },
+  {
+    "text": "gun",
+    "mnemonic": "gun源自Gonnilda投石机，枪"
+  },
+  {
+    "text": "forty",
+    "mnemonic": "four四变forty，四十"
+  },
+  {
+    "text": "tactics",
+    "mnemonic": "tact接触+ics，tactics排兵战术"
+  },
+  {
+    "text": "scholar",
+    "mnemonic": "school学校变scholar，学者"
+  },
+  {
+    "text": "rap",
+    "mnemonic": "rap拟声敲击，说唱击打节奏"
+  },
+  {
+    "text": "patron",
+    "mnemonic": "patron源自pater父亲，庇护人如父"
+  },
+  {
+    "text": "sane",
+    "mnemonic": "san健康+e，sane神志清醒"
+  },
+  {
+    "text": "bare",
+    "mnemonic": "bare与bear熊形近，熊剥光毛"
+  },
+  {
+    "text": "cosmic",
+    "mnemonic": "cosmos宇宙变cosmic"
+  },
+  {
+    "text": "train",
+    "mnemonic": "train源自trahere拖，火车拖动车厢"
+  },
+  {
+    "text": "superb",
+    "mnemonic": "super超级+b，superb极好的"
+  }
+]

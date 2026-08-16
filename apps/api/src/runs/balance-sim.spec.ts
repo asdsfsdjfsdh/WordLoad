@@ -1,3 +1,4 @@
+import { applyDef } from '@word-journey/shared';
 import {
   CALIBRATED,
   monsterHitsOf,
@@ -15,11 +16,12 @@ describe('平衡仿真（M3 蒙特卡洛 · 目标带中位 5–15 天）', () =
     expect(r.median).toBeLessThanOrEqual(15);
   });
 
-  it('acc=0.85 → 中位存活高于 0.75 且仍在合理范围', () => {
-    const base = monte(CALIBRATED, 3, 3, 3, 0.75, N, 2000);
-    const high = monte(CALIBRATED, 3, 3, 3, 0.85, N, 3000);
-    expect(high.median).toBeGreaterThanOrEqual(base.median);
-    expect(high.median).toBeLessThanOrEqual(15);
+  it('正确率单调：acc 越高生存越久（buff 体系下 0.75→0.85→0.92 单调）', () => {
+    const mid = monte(CALIBRATED, 3, 3, 3, 0.75, N, 2000);
+    const strong = monte(CALIBRATED, 3, 3, 3, 0.85, N, 3000);
+    const expert = monte(CALIBRATED, 3, 3, 3, 0.92, N, 3000);
+    expect(strong.median).toBeGreaterThanOrEqual(mid.median);
+    expect(expert.median).toBeGreaterThanOrEqual(strong.median);
   });
 
   it('随机三围分布（acc=0.75）：强三维中位不劣于弱三维', () => {
@@ -38,23 +40,27 @@ describe('平衡仿真（M3 蒙特卡洛 · 目标带中位 5–15 天）', () =
     }
   });
 
-  it('HP 扣减有下限 ≥1（受击不归零绕过 defRed）', () => {
-    // defLv=8 → defRed=0.4 封顶；raw≥1 → ceil(raw*0.6)≥1
-    for (let i = 0; i < 200; i++) {
-      const r = runTrial(CALIBRATED, 3, 3, 8, 0.75, 7000 + i, true);
-      expect(r.days).toBeGreaterThanOrEqual(1);
-    }
+  it('受击扣血有下限 ≥1（defRed 不使伤害归零）', () => {
+    // defLv=8 → defRed=0.4 封顶；applyDef 恒 ≥1（负伤归零的伤害模型）
+    expect(applyDef(1, 8)).toBeGreaterThanOrEqual(1);
+    expect(applyDef(3, 8)).toBeGreaterThanOrEqual(1);
+    expect(applyDef(0, 8)).toBeGreaterThanOrEqual(1);
   });
 
-  it('首领战前 +6 HP 小回复生效', () => {
-    // 找一个发生首领战的局，断言开打当日 hpPre 有 +6 加成痕迹（hpPre ≤ maxHp 且回调存在）
+  it('首领战前不回复 HP（BOSS_HEAL=0，hpPre = 前一日末 hp）', () => {
+    expect(CALIBRATED.bossHeal).toBe(0);
     let found = false;
     for (let i = 0; i < 500 && !found; i++) {
       const r = runTrial(CALIBRATED, 3, 3, 3, 0.75, 8000 + i, true);
-      const bossRow = r.log?.find((x) => x.bossResult.includes('BOSS'));
-      if (bossRow) {
-        expect(bossRow.hpPre).toBeGreaterThan(0);
-        found = true;
+      const rows = r.log ?? [];
+      for (let j = 0; j < rows.length; j++) {
+        const row = rows[j]!;
+        if (row.bossResult.includes('BOSS') && j > 0) {
+          const prev = rows[j - 1]!;
+          expect(row.hpPre).toBe(Math.min(row.maxHp, prev.hp)); // 无 +6
+          found = true;
+          break;
+        }
       }
     }
     expect(found).toBe(true);

@@ -1,0 +1,238 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "学术界的引文操纵（引文联盟）",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Scientific papers are the recordkeepers of progress in research.",
+      "zh": "科学论文是研究进展的记录者。"
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Each year researchers publish millions of papers in more than 30,000 journals.",
+      "zh": "每年，研究人员在3万多种期刊上发表数百万篇论文。"
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "The scientific community measures the quality of those papers in a number of ways, including the perceived quality of the journal (as reflected by the title's impact factor) and the number of citations a specific paper accumulates.",
+      "zh": "科学界以多种方式衡量这些论文的质量，包括期刊的可感知质量（以该刊的影响因子体现）以及某篇论文所积累的引用次数。"
+    },
+    {
+      "para": 1,
+      "seq": 3,
+      "en": "The careers of scientists and the reputation of their institutions depend on the number and prestige of the papers they produce, but even more so on the citations attracted by these papers.",
+      "zh": "科学家的职业生涯及其所在机构的声誉，取决于他们所发表论文的数量和声望，但更取决于这些论文所吸引的引用。"
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "Citation cartels, where journals, authors, and institutions conspire to inflate citation numbers, have existed for a long time.",
+      "zh": "引文联盟——即期刊、作者和机构合谋抬高引用数量——已存在很长时间。"
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "In 2016, researchers developed an algorithm to recognize suspicious citation patterns, including groups of authors that disproportionately cite one another and groups of journals that cite each other frequently to increase the impact factors of their publications.",
+      "zh": "2016年，研究人员开发出一种算法来识别可疑的引文模式，包括作者群体不成比例地相互引用，以及期刊群体频繁相互引用以提高其刊物影响因子等情况。"
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "Recently, another expression of this predatory behavior has emerged: so-called support service consultancies that provide language and other editorial support to individual authors and to journals sometimes advise contributors to add a number of citations to their articles.",
+      "zh": "近来，这种掠夺性行为又出现了一种新表现形式：所谓的支持服务咨询机构为个别作者和期刊提供语言及其它编辑支持，有时会建议投稿人在文章中添加若干条引用。"
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "The advent of electronic publishing and authors' need to find outlets for their papers resulted in thousands of new journals.",
+      "zh": "电子出版的到来以及作者为论文寻找发表渠道的需求，催生了数千种新期刊。"
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "The birth of predatory journals wasn't far behind.",
+      "zh": "掠夺性期刊的诞生也紧随其后。"
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "These journals can act as milk cows where every single article in an issue may cite a specific paper or a series of papers.",
+      "zh": "这类期刊可以充当“奶牛”，其中一期刊物里的每一篇文章都可能引用某篇特定的论文或一系列论文。"
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "In some instances, there is absolutely no relationship between the content of the article and the citations.",
+      "zh": "在某些情况下，文章内容与这些引用之间毫无关系。"
+    },
+    {
+      "para": 3,
+      "seq": 11,
+      "en": "The peculiar part is that the journal that the editor is supposedly working for is not profiting at all—it is just providing citations to other journals.",
+      "zh": "奇怪之处在于，编辑名义上为之工作的那家期刊根本没有获利——它只是在向其他期刊提供引用。"
+    },
+    {
+      "para": 3,
+      "seq": 12,
+      "en": "Such practices can lead an article to accrue more than 150 citations in the same year that it was published.",
+      "zh": "这种做法能让一篇文章在发表当年就累积超过150次引用。"
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "How insidious is this type of citation manipulation?",
+      "zh": "这类引文操纵有多隐蔽阴险呢？"
+    },
+    {
+      "para": 4,
+      "seq": 14,
+      "en": "In one example, an individual—acting as author, editor, and consultant—was able to use at least 15 journals as citation providers to articles published by five scientists at three universities.",
+      "zh": "在一个例子中，一个人身兼作者、编辑和顾问多重身份，竟能利用至少15种期刊，为三所大学的五位科学家发表的论文提供引用。"
+    },
+    {
+      "para": 4,
+      "seq": 15,
+      "en": "The problem is rampant in Scopus, a citation database, which includes a high number of the new \"international\" journals.",
+      "zh": "这一问题在斯高帕斯（Scopus）数据库中十分猖獗，该数据库收录了大量新办的“国际”期刊。"
+    },
+    {
+      "para": 4,
+      "seq": 16,
+      "en": "In fact, a listing in Scopus seems to be a criterion to be targeted in this type of citation manipulation.",
+      "zh": "事实上，被斯高帕斯收录似乎正是成为这类引文操纵目标的判断标准。"
+    },
+    {
+      "para": 5,
+      "seq": 17,
+      "en": "Scopus itself has all the data necessary to detect this malpractice.",
+      "zh": "斯高帕斯自身拥有检测这种不当行为所需的全部数据。"
+    },
+    {
+      "para": 5,
+      "seq": 18,
+      "en": "Red flags include a large number of citations to an article within the first year.",
+      "zh": "危险信号包括一篇文章在发表后第一年内就被大量引用。"
+    },
+    {
+      "para": 5,
+      "seq": 19,
+      "en": "And for authors who wish to steer clear of citation cartel activities: when an editor, a reviewer, or a support service asks you to add inappropriate references, do not oblige and do report the request to the journal.",
+      "zh": "而对于那些希望远离引文联盟活动的作者：当编辑、审稿人或支持服务机构要求你添加不当引用时，不要照做，并把这一要求报告给期刊。"
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "According to Paragraph 1, the careers of scientists can be determined by ______.",
+      "options": {
+        "A": "how many citations their works contain",
+        "B": "how many times their papers are cited",
+        "C": "the prestige of the people they work with",
+        "D": "the status they have in scientific circles"
+      },
+      "answer": "B",
+      "analysis": "细节题。题干关键词 the careers of scientists 定位到第一段末句：“The careers of scientists and the reputation of their institutions depend on the number and prestige of the papers they produce, but even more so on the citations attracted by these papers.”（科学家的职业生涯……取决于所发表论文的数量和声望，但更取决于这些论文所吸引的引用。）可见决定科学家职业生涯的最主要因素是论文被引用的次数。B 项 how many times their papers are cited（其论文被引用的次数）符合文意，故选 B。"
+    },
+    {
+      "seq": 37,
+      "stem": "The support service consultancies tend to ______.",
+      "options": {
+        "A": "recommend journals to their clients",
+        "B": "list citation patterns for their clients",
+        "C": "ask authors to include extra citations",
+        "D": "advise contributors to cite each other"
+      },
+      "answer": "C",
+      "analysis": "细节题。题干关键词 support service consultancies 定位到第二段末句：“so-called support service consultancies … sometimes advise contributors to add a number of citations to their articles”（所谓的支持服务咨询机构……有时会建议投稿人在文章中添加若干条引用）。C 项 ask authors to include extra citations（要求作者加入额外的引用）是对此的同义表达，故选 C。"
+    },
+    {
+      "seq": 38,
+      "stem": "The function of the \"milk cow\" journals is to ______.",
+      "options": {
+        "A": "boost citation counts for certain authors",
+        "B": "help scholars publish articles at low cost",
+        "C": "instruct first-time contributors in citation",
+        "D": "increase the readership of new journals"
+      },
+      "answer": "A",
+      "analysis": "细节题。题干关键词 milk cow 定位到第三段：“These journals can act as milk cows where every single article in an issue may cite a specific paper or a series of papers.”（这类期刊可以充当“奶牛”，其中一期刊物里的每一篇文章都可能引用某篇特定的论文或一系列论文。）其作用是为特定作者（或特定论文）大量“挤奶式”提供引用，抬高引用数量。A 项 boost citation counts for certain authors（为某些作者抬高引用数量）符合文意，故选 A。"
+    },
+    {
+      "seq": 39,
+      "stem": "What can be learned about Scopus from the last two paragraphs?",
+      "options": {
+        "A": "It fosters competition among citation providers.",
+        "B": "It has the capability to identify suspicious citations.",
+        "C": "It hinders the growth of \"international\" journals.",
+        "D": "It is established to prevent citation manipulation."
+      },
+      "answer": "B",
+      "analysis": "细节题。第四段指出引文操纵问题在 Scopus 数据库中十分猖獗，被收录似乎正是成为操纵目标的标准；第五段随即指出“Scopus itself has all the data necessary to detect this malpractice”（斯高帕斯自身拥有检测这种不当行为所需的全部数据）。B 项 It has the capability to identify suspicious citations（它有识别可疑引用的能力）符合文意，故选 B。D 项“设立它是为了防止引文操纵”于文中无据，排除。"
+    },
+    {
+      "seq": 40,
+      "stem": "What should an author do to deal with citation manipulators?",
+      "options": {
+        "A": "Take legal action.",
+        "B": "Demand an apology.",
+        "C": "Seek professional advice.",
+        "D": "Reveal their misconduct."
+      },
+      "answer": "D",
+      "analysis": "细节题。题干问作者应如何应对引文操纵者，定位到末段末句：“when an editor, a reviewer, or a support service asks you to add inappropriate references, do not oblige and do report the request to the journal.”（当编辑、审稿人或支持服务机构要求你添加不当引用时，不要照做，并把这一要求报告给期刊。）即拒绝照做并举报不当行为。D 项 Reveal their misconduct（揭露他们的不当行为）符合文意，故选 D。"
+    }
+  ],
+  "glossary": {
+    "recordkeeper": { "meaning": "n. 记录者，记载者" },
+    "progress": { "meaning": "n. 进展，进步 v. 前进" },
+    "journal": { "meaning": "n. 期刊，杂志；日志" },
+    "community": { "meaning": "n. 界，群体；社区" },
+    "perceived": { "meaning": "adj. 感知到的，被认可的" },
+    "impact factor": { "meaning": "phr. 影响因子" },
+    "citation": { "meaning": "n. 引用，引文" },
+    "accumulate": { "meaning": "v. 积累，累积" },
+    "prestige": { "meaning": "n. 声望，威望" },
+    "cartel": { "meaning": "n. 卡特尔，联盟" },
+    "conspire": { "meaning": "v. 合谋，共谋" },
+    "inflate": { "meaning": "v. 抬高，膨胀；使膨胀" },
+    "algorithm": { "meaning": "n. 算法" },
+    "suspicious": { "meaning": "adj. 可疑的，令人怀疑的" },
+    "disproportionately": { "meaning": "adv. 不成比例地，过度地" },
+    "predatory": { "meaning": "adj. 掠夺性的；捕食的" },
+    "consultancy": { "meaning": "n. 咨询公司，咨询机构" },
+    "editorial": { "meaning": "adj. 编辑的 n. 社论" },
+    "contributor": { "meaning": "n. 投稿人，撰稿人；贡献者" },
+    "advent": { "meaning": "n. 出现，到来" },
+    "electronic": { "meaning": "adj. 电子的" },
+    "outlet": { "meaning": "n. 出口，发表渠道；商店" },
+    "milk cow": { "meaning": "phr. 奶牛；（喻）被榨取利益的对象" },
+    "issue": { "meaning": "n. 期（刊）；问题 v. 发行" },
+    "instance": { "meaning": "n. 事例，情况" },
+    "peculiar": { "meaning": "adj. 奇怪的，独特的" },
+    "supposedly": { "meaning": "adv. 据说，据称" },
+    "profit": { "meaning": "v. 获利，得益 n. 利润" },
+    "accrue": { "meaning": "v. 累积，积累" },
+    "insidious": { "meaning": "adj. 隐伏的，阴险的" },
+    "manipulation": { "meaning": "n. 操纵，操控" },
+    "consultant": { "meaning": "n. 顾问" },
+    "provider": { "meaning": "n. 提供者" },
+    "rampant": { "meaning": "adj. 猖獗的，蔓延的" },
+    "database": { "meaning": "n. 数据库" },
+    "criterion": { "meaning": "n. 标准，准则（复数 criteria）" },
+    "target": { "meaning": "v. 把……作为目标 n. 目标" },
+    "detect": { "meaning": "v. 察觉，检测" },
+    "malpractice": { "meaning": "n. 不当行为，渎职" },
+    "red flag": { "meaning": "phr. 危险信号，警示信号" },
+    "steer clear of": { "meaning": "phr. 避开，远离" },
+    "inappropriate": { "meaning": "adj. 不恰当的，不当的" },
+    "reference": { "meaning": "n. 参考文献；引用；参照" },
+    "oblige": { "meaning": "v. 遵从，应允；施惠于" },
+    "report": { "meaning": "v. 举报，报告 n. 报告" },
+    "reviewer": { "meaning": "n. 审稿人，评论家" }
+  }
+}

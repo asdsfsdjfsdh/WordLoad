@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsInt, IsOptional, IsString, Length, Max, Min } from 'class-validator';
+import { IsIn, IsInt, IsOptional, IsString, Length, Max, Min } from 'class-validator';
 
 export class RegisterDto {
   @IsString()
@@ -53,5 +53,13 @@ export class InitCharDto {
 // 强化三围
 export class StrengthenDto {
   @IsString()
+  @IsIn(['hp', 'atk', 'def']) // 非法 stat 直接 400，不再落入 500
   stat!: 'hp' | 'atk' | 'def';
+}
+
+// 角色特化（斩杀词根 / 复习专精）
+export class SpecializeDto {
+  @IsString()
+  @IsIn(['execute', 'vampire']) // 非法 spec 直接 400
+  spec!: 'execute' | 'vampire';
 }

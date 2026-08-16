@@ -1,0 +1,402 @@
+[
+  {
+    "text": "a",
+    "mnemonic": "辅音前的不定冠词，an apple, a boy"
+  },
+  {
+    "text": "we",
+    "mnemonic": "we=我们，We are family我们是一家人"
+  },
+  {
+    "text": "an",
+    "mnemonic": "元音前的不定冠词，an apple顺口"
+  },
+  {
+    "text": "us",
+    "mnemonic": "we的宾格，love us爱我们"
+  },
+  {
+    "text": "the",
+    "mnemonic": "特指定冠词，the sun唯一的那轮太阳"
+  },
+  {
+    "text": "and",
+    "mnemonic": "连接词，A and B把两者连在一起"
+  },
+  {
+    "text": "not",
+    "mnemonic": "no加t变not，表否定'不'"
+  },
+  {
+    "text": "she",
+    "mnemonic": "she=她，she is a girl"
+  },
+  {
+    "text": "him",
+    "mnemonic": "he的宾格，help him帮他"
+  },
+  {
+    "text": "her",
+    "mnemonic": "he加r变her，她的/她（宾格）"
+  },
+  {
+    "text": "let",
+    "mnemonic": "let's go让我们走，let=让"
+  },
+  {
+    "text": "who",
+    "mnemonic": "who问'谁'，who is he他是谁"
+  },
+  {
+    "text": "sir",
+    "mnemonic": "sir源自senior年长，先生"
+  },
+  {
+    "text": "with",
+    "mnemonic": "with=和/用，come with me跟我来"
+  },
+  {
+    "text": "from",
+    "mnemonic": "from...to从…到，I'm from China我来自中国"
+  },
+  {
+    "text": "them",
+    "mnemonic": "they的宾格，help them帮助他们"
+  },
+  {
+    "text": "boy",
+    "mnemonic": "boy=男孩，boy band男团"
+  },
+  {
+    "text": "car",
+    "mnemonic": "car=汽车，四个轮子跑起来"
+  },
+  {
+    "text": "son",
+    "mnemonic": "sun太阳变o成son，儿子是家里的小太阳"
+  },
+  {
+    "text": "into",
+    "mnemonic": "in里+to去→into进入里面"
+  },
+  {
+    "text": "use",
+    "mnemonic": "useful有用，use=使用"
+  },
+  {
+    "text": "ever",
+    "mnemonic": "for ever永远，ever=曾经"
+  },
+  {
+    "text": "ago",
+    "mnemonic": "two days ago两天前，ago=以前"
+  },
+  {
+    "text": "girl",
+    "mnemonic": "girl=女孩，粉发卡的她"
+  },
+  {
+    "text": "its",
+    "mnemonic": "it的物主代词，its tail它的尾巴"
+  },
+  {
+    "text": "never",
+    "mnemonic": "never=永不，never give up永不言弃"
+  },
+  {
+    "text": "thing",
+    "mnemonic": "everything每件东西，thing=东西"
+  },
+  {
+    "text": "live",
+    "mnemonic": "live=生活/居住，live in a city住在城里"
+  },
+  {
+    "text": "you",
+    "mnemonic": "you=你，字母u的发音就是you"
+  },
+  {
+    "text": "money",
+    "mnemonic": "money=钱，跟妈妈说'妈，你'给点钱"
+  },
+  {
+    "text": "every",
+    "mnemonic": "every=每个，every day每一天"
+  },
+  {
+    "text": "town",
+    "mnemonic": "downtown市中心，town=城镇"
+  },
+  {
+    "text": "world",
+    "mnemonic": "word词加l成world，词汇汇成世界"
+  },
+  {
+    "text": "woman",
+    "mnemonic": "wo+man，woman=女士"
+  },
+  {
+    "text": "lady",
+    "mnemonic": "ladies女士们，lady是单数'女士'"
+  },
+  {
+    "text": "our",
+    "mnemonic": "our=我们的，our home我们的家"
+  },
+  {
+    "text": "city",
+    "mnemonic": "city=城市，高楼林立的市中心"
+  },
+  {
+    "text": "fact",
+    "mnemonic": "fact=事实，in fact事实上"
+  },
+  {
+    "text": "bring",
+    "mnemonic": "bring=带来，bring me a book带本书给我"
+  },
+  {
+    "text": "upon",
+    "mnemonic": "up上+on上→upon在…上面"
+  },
+  {
+    "text": "news",
+    "mnemonic": "NEWS取N/E/W/S四方首字母，四方消息即新闻"
+  },
+  {
+    "text": "always",
+    "mnemonic": "al+ways总在路上，always=总是"
+  },
+  {
+    "text": "your",
+    "mnemonic": "you加r成your，你的"
+  },
+  {
+    "text": "owe",
+    "mnemonic": "owe=欠，I owe you我欠你人情"
+  },
+  {
+    "text": "truth",
+    "mnemonic": "true真+th，truth=真相"
+  },
+  {
+    "text": "myself",
+    "mnemonic": "my我+self自己→myself我自己"
+  },
+  {
+    "text": "child",
+    "mnemonic": "child=孩子，children是复数"
+  },
+  {
+    "text": "sad",
+    "mnemonic": "sad=难过，a sad story伤心故事"
+  },
+  {
+    "text": "nor",
+    "mnemonic": "neither...nor既不…也不，nor=也不"
+  },
+  {
+    "text": "army",
+    "mnemonic": "arm手臂+y，士兵举臂集合成军队"
+  },
+  {
+    "text": "life",
+    "mnemonic": "live生活变f成life，生命"
+  },
+  {
+    "text": "rid",
+    "mnemonic": "get rid of摆脱，rid=除掉"
+  },
+  {
+    "text": "alive",
+    "mnemonic": "a+live活着，alive=活生生的"
+  },
+  {
+    "text": "music",
+    "mnemonic": "Muse缪斯女神掌音乐，music音乐"
+  },
+  {
+    "text": "song",
+    "mnemonic": "song=歌，送首歌给好友"
+  },
+  {
+    "text": "nice",
+    "mnemonic": "ice冰饮很nice，nice=美好的"
+  },
+  {
+    "text": "lucky",
+    "mnemonic": "luck运气+y，lucky=幸运的"
+  },
+  {
+    "text": "rich",
+    "mnemonic": "rice大米少个i变rich，有米即富有"
+  },
+  {
+    "text": "to",
+    "mnemonic": "to表方向，go to school去学校"
+  },
+  {
+    "text": "it",
+    "mnemonic": "it=它，it's a cat它是猫"
+  },
+  {
+    "text": "beg",
+    "mnemonic": "beg=乞讨，白给人施舍"
+  },
+  {
+    "text": "holy",
+    "mnemonic": "Holy Bible圣经，holy=神圣的"
+  },
+  {
+    "text": "anyway",
+    "mnemonic": "any任何+way路→anyway无论怎样"
+  },
+  {
+    "text": "of",
+    "mnemonic": "of表所属，a cup of tea一杯茶"
+  },
+  {
+    "text": "he",
+    "mnemonic": "he=他，he is a boy他是男孩"
+  },
+  {
+    "text": "moment",
+    "mnemonic": "at the moment此刻，moment=瞬间"
+  },
+  {
+    "text": "morning",
+    "mnemonic": "morning=早晨，good morning早上好"
+  },
+  {
+    "text": "person",
+    "mnemonic": "per每+son人→person每个人"
+  },
+  {
+    "text": "my",
+    "mnemonic": "my=我的，my book我的书"
+  },
+  {
+    "text": "could",
+    "mnemonic": "can的过去式，语气更委婉'可以'"
+  },
+  {
+    "text": "whom",
+    "mnemonic": "who加m变whom，做宾语的'谁'"
+  },
+  {
+    "text": "almost",
+    "mnemonic": "al+most大部分→almost几乎"
+  },
+  {
+    "text": "if",
+    "mnemonic": "if=如果，if...then如果…那么"
+  },
+  {
+    "text": "at",
+    "mnemonic": "at=在，at home在家"
+  },
+  {
+    "text": "anything",
+    "mnemonic": "any任何+thing东西→anything任何东西"
+  },
+  {
+    "text": "month",
+    "mnemonic": "month与moon同源，月亮盈亏一圈即一月"
+  },
+  {
+    "text": "wife",
+    "mnemonic": "wife=妻子，my wife我媳妇"
+  },
+  {
+    "text": "idea",
+    "mnemonic": "idea=主意，'爱迪'生点子多"
+  },
+  {
+    "text": "again",
+    "mnemonic": "a+gain再获得→again再来一次"
+  },
+  {
+    "text": "by",
+    "mnemonic": "by=在旁，stand by站在旁边"
+  },
+  {
+    "text": "their",
+    "mnemonic": "they的物主代词，their books他们的书"
+  },
+  {
+    "text": "year",
+    "mnemonic": "year=年，Happy New Year新年好"
+  },
+  {
+    "text": "joy",
+    "mnemonic": "joy=喜悦，节日气氛充满joy"
+  },
+  {
+    "text": "duty",
+    "mnemonic": "on duty值班，duty=职责"
+  },
+  {
+    "text": "angel",
+    "mnemonic": "angle角变l成angel，天使无角"
+  },
+  {
+    "text": "himself",
+    "mnemonic": "him他+self自己→himself他自己"
+  },
+  {
+    "text": "for",
+    "mnemonic": "for=为了，this is for you这是给你的"
+  },
+  {
+    "text": "whose",
+    "mnemonic": "who加se变whose，问'谁的'"
+  },
+  {
+    "text": "being",
+    "mnemonic": "be是+ing→being存在/生物"
+  },
+  {
+    "text": "hero",
+    "mnemonic": "hero=英雄，superhero超级英雄"
+  },
+  {
+    "text": "dumb",
+    "mnemonic": "dumb=哑的，末尾b不发音说不出话"
+  },
+  {
+    "text": "how",
+    "mnemonic": "how=怎么，How are you你好吗"
+  },
+  {
+    "text": "his",
+    "mnemonic": "his=他的，his book他的书"
+  },
+  {
+    "text": "often",
+    "mnemonic": "of+ten十，十次里常有九次→often常"
+  },
+  {
+    "text": "should",
+    "mnemonic": "should=应该，should do应当做"
+  },
+  {
+    "text": "among",
+    "mnemonic": "m夹在o与n中间→among在…之中"
+  },
+  {
+    "text": "yes",
+    "mnemonic": "yes=是，点头说yes"
+  },
+  {
+    "text": "hi",
+    "mnemonic": "hi=嗨，见面挥手说hi"
+  },
+  {
+    "text": "hour",
+    "mnemonic": "hour=小时，h不发音"
+  },
+  {
+    "text": "hey",
+    "mnemonic": "hey=嘿，打招呼'嘿'"
+  }
+]

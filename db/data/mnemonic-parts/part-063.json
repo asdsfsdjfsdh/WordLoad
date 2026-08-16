@@ -1,0 +1,402 @@
+[
+  {
+    "text": "affluent",
+    "mnemonic": "af+flu流+ent，富裕"
+  },
+  {
+    "text": "coordinate",
+    "mnemonic": "co+ordinate次序，协调"
+  },
+  {
+    "text": "underneath",
+    "mnemonic": "under下+neath低"
+  },
+  {
+    "text": "enthusiastically",
+    "mnemonic": "enthusiastic热情+ally"
+  },
+  {
+    "text": "queer",
+    "mnemonic": "queer源自横，奇怪"
+  },
+  {
+    "text": "hedge",
+    "mnemonic": "hedge=树篱，hedge fund对冲基金"
+  },
+  {
+    "text": "fluctuate",
+    "mnemonic": "fluct波动+uate"
+  },
+  {
+    "text": "interrupt",
+    "mnemonic": "inter+rupt破，打断"
+  },
+  {
+    "text": "smooth",
+    "mnemonic": "smooth=平滑，smoothly顺利"
+  },
+  {
+    "text": "quantitative",
+    "mnemonic": "quantity数量变+ative"
+  },
+  {
+    "text": "bibliography",
+    "mnemonic": "biblio书+graph写+y"
+  },
+  {
+    "text": "queue",
+    "mnemonic": "queue源自尾，队列"
+  },
+  {
+    "text": "concrete",
+    "mnemonic": "con+crete生长，具体"
+  },
+  {
+    "text": "shuffle",
+    "mnemonic": "shuffle=洗牌/拖步"
+  },
+  {
+    "text": "deteriorate",
+    "mnemonic": "deterior坏+ate，恶化"
+  },
+  {
+    "text": "sheet",
+    "mnemonic": "sheet=床单/一张"
+  },
+  {
+    "text": "demographer",
+    "mnemonic": "demo民众+graph写+er"
+  },
+  {
+    "text": "renounce",
+    "mnemonic": "re+nounce宣告，放弃"
+  },
+  {
+    "text": "attain",
+    "mnemonic": "at+tain持，达到"
+  },
+  {
+    "text": "accumulate",
+    "mnemonic": "ac+cumul堆+ate，积累"
+  },
+  {
+    "text": "copyright",
+    "mnemonic": "copy复制+right权"
+  },
+  {
+    "text": "amphibian",
+    "mnemonic": "amphi双+bios生，两栖"
+  },
+  {
+    "text": "spread",
+    "mnemonic": "spread=传播，widespread广泛"
+  },
+  {
+    "text": "beautify",
+    "mnemonic": "beauty美+ify"
+  },
+  {
+    "text": "bias",
+    "mnemonic": "bias源自斜，偏见"
+  },
+  {
+    "text": "programme",
+    "mnemonic": "program源自写，节目"
+  },
+  {
+    "text": "renege",
+    "mnemonic": "renege源自否认，背约"
+  },
+  {
+    "text": "discourse",
+    "mnemonic": "dis+course跑，话语"
+  },
+  {
+    "text": "taboo",
+    "mnemonic": "taboo源自汤加，禁忌"
+  },
+  {
+    "text": "stagger",
+    "mnemonic": "stagger=蹒跚/错开"
+  },
+  {
+    "text": "egalitarian",
+    "mnemonic": "egal平等+itarian"
+  },
+  {
+    "text": "budget",
+    "mnemonic": "budget源自皮包，预算"
+  },
+  {
+    "text": "notwithstanding",
+    "mnemonic": "not+withstanding抵抗，尽管"
+  },
+  {
+    "text": "quiver",
+    "mnemonic": "quiver=颤抖，箭袋"
+  },
+  {
+    "text": "industrialise",
+    "mnemonic": "industrial工业+ise"
+  },
+  {
+    "text": "modernisation",
+    "mnemonic": "modernise现代化+ation"
+  },
+  {
+    "text": "normalization",
+    "mnemonic": "normalize正常化+ation"
+  },
+  {
+    "text": "rear",
+    "mnemonic": "rear=后部/抚养"
+  },
+  {
+    "text": "assimilate",
+    "mnemonic": "as+simil同+ate，同化"
+  },
+  {
+    "text": "foul",
+    "mnemonic": "foul=犯规/恶臭"
+  },
+  {
+    "text": "dissipate",
+    "mnemonic": "dis+sipat散+ate，消散"
+  },
+  {
+    "text": "permeate",
+    "mnemonic": "per+meat穿过+e，渗透"
+  },
+  {
+    "text": "broadcast",
+    "mnemonic": "broad广+cast投"
+  },
+  {
+    "text": "integrate",
+    "mnemonic": "integr完整+ate，融合"
+  },
+  {
+    "text": "weave",
+    "mnemonic": "weave=编织，weaver织工"
+  },
+  {
+    "text": "juggle",
+    "mnemonic": "juggle=玩杂耍，兼顾"
+  },
+  {
+    "text": "fleet",
+    "mnemonic": "fleet=舰队，fleeting短暂"
+  },
+  {
+    "text": "revise",
+    "mnemonic": "re+vise看，修订"
+  },
+  {
+    "text": "dazzle",
+    "mnemonic": "dazzle=炫目，dazzling耀眼"
+  },
+  {
+    "text": "questionnaire",
+    "mnemonic": "question问+naire"
+  },
+  {
+    "text": "dispute",
+    "mnemonic": "dis+pute算，争论"
+  },
+  {
+    "text": "bleed",
+    "mnemonic": "bleed=流血，blood血"
+  },
+  {
+    "text": "overdress",
+    "mnemonic": "over+过+dress穿，打扮过度"
+  },
+  {
+    "text": "terrestrial",
+    "mnemonic": "terr地+estial，陆地"
+  },
+  {
+    "text": "generalise",
+    "mnemonic": "general一般+ise"
+  },
+  {
+    "text": "submerge",
+    "mnemonic": "sub+merse沉，浸没"
+  },
+  {
+    "text": "discharge",
+    "mnemonic": "dis+charge装，排放"
+  },
+  {
+    "text": "prime",
+    "mnemonic": "prime源自第一，首要"
+  },
+  {
+    "text": "neighbour",
+    "mnemonic": "neigh近+bour农，邻居"
+  },
+  {
+    "text": "submarine",
+    "mnemonic": "sub下+marine海"
+  },
+  {
+    "text": "lump",
+    "mnemonic": "lump=肿块，a lump of一块"
+  },
+  {
+    "text": "mass",
+    "mnemonic": "mass=大量/质量"
+  },
+  {
+    "text": "quiet",
+    "mnemonic": "quiet=安静，quietly平静"
+  },
+  {
+    "text": "depreciate",
+    "mnemonic": "de+preci价+ate，贬值"
+  },
+  {
+    "text": "waken",
+    "mnemonic": "wake醒+en"
+  },
+  {
+    "text": "decline",
+    "mnemonic": "de+cline斜，下降"
+  },
+  {
+    "text": "retail",
+    "mnemonic": "re+tail切，零售"
+  },
+  {
+    "text": "mushroom",
+    "mnemonic": "mushroom=蘑菇，暴增"
+  },
+  {
+    "text": "lean",
+    "mnemonic": "lean=倾斜/瘦"
+  },
+  {
+    "text": "stride",
+    "mnemonic": "stride=大步，stride across跨过"
+  },
+  {
+    "text": "double",
+    "mnemonic": "dou+ble二，双倍"
+  },
+  {
+    "text": "overflow",
+    "mnemonic": "over+flow流，溢出"
+  },
+  {
+    "text": "approach",
+    "mnemonic": "ap+proach近，接近"
+  },
+  {
+    "text": "evaporate",
+    "mnemonic": "e+vapor汽+ate，蒸发"
+  },
+  {
+    "text": "consequent",
+    "mnemonic": "con+sequent跟，随之"
+  },
+  {
+    "text": "overnight",
+    "mnemonic": "over+night夜，一夜"
+  },
+  {
+    "text": "traverse",
+    "mnemonic": "tra+verse转，横越"
+  },
+  {
+    "text": "graduate",
+    "mnemonic": "grad步+uate，毕业"
+  },
+  {
+    "text": "assort",
+    "mnemonic": "as+sort种类，分类"
+  },
+  {
+    "text": "loom",
+    "mnemonic": "loom=织机/隐约出现"
+  },
+  {
+    "text": "isolate",
+    "mnemonic": "isol岛+ate，隔离"
+  },
+  {
+    "text": "deviate",
+    "mnemonic": "de+via路+te，偏离"
+  },
+  {
+    "text": "query",
+    "mnemonic": "query源自问，疑问"
+  },
+  {
+    "text": "straightforward",
+    "mnemonic": "straight直+forward前"
+  },
+  {
+    "text": "opposite",
+    "mnemonic": "op+posit放+e，相反"
+  },
+  {
+    "text": "orient",
+    "mnemonic": "orient源自升起，东方/定位"
+  },
+  {
+    "text": "questionable",
+    "mnemonic": "question问题+able"
+  },
+  {
+    "text": "vaunt",
+    "mnemonic": "vaunt=自夸，吹嘘"
+  },
+  {
+    "text": "kilogramme",
+    "mnemonic": "kilo千+gramme克"
+  },
+  {
+    "text": "radiate",
+    "mnemonic": "radi光线+ate，辐射"
+  },
+  {
+    "text": "undergraduate",
+    "mnemonic": "under+graduate毕业生，本科生"
+  },
+  {
+    "text": "steer",
+    "mnemonic": "steer=驾驶，steering wheel方向盘"
+  },
+  {
+    "text": "subordinate",
+    "mnemonic": "sub下+ordinate次序"
+  },
+  {
+    "text": "contaminate",
+    "mnemonic": "con+tamin触+ate，污染"
+  },
+  {
+    "text": "maneuver",
+    "mnemonic": "maneuver=操纵，maneuver美式"
+  },
+  {
+    "text": "parallel",
+    "mnemonic": "parallel源自并肩，平行"
+  },
+  {
+    "text": "merrymaking",
+    "mnemonic": "merry快乐+making制造"
+  },
+  {
+    "text": "commute",
+    "mnemonic": "com+mute换，通勤"
+  },
+  {
+    "text": "alternate",
+    "mnemonic": "altern交替+ate"
+  },
+  {
+    "text": "sheer",
+    "mnemonic": "sheer=纯粹/陡峭"
+  }
+]

@@ -1,0 +1,402 @@
+[
+  {
+    "text": "stupid",
+    "mnemonic": "stupid=愚蠢的，愚蠢的人"
+  },
+  {
+    "text": "thief",
+    "mnemonic": "thief=小偷，thieves复数"
+  },
+  {
+    "text": "lion",
+    "mnemonic": "lion=狮子，Lion King狮子王"
+  },
+  {
+    "text": "pathetic",
+    "mnemonic": "path+etic，pathetic可怜的"
+  },
+  {
+    "text": "answer",
+    "mnemonic": "answer=回答，answer the question答问"
+  },
+  {
+    "text": "insane",
+    "mnemonic": "in不+sane清醒，insane疯狂"
+  },
+  {
+    "text": "severe",
+    "mnemonic": "severe=严峻的，severe weather恶劣天气"
+  },
+  {
+    "text": "thursday",
+    "mnemonic": "Thor雷神+day，Thursday星期四"
+  },
+  {
+    "text": "elevator",
+    "mnemonic": "elevate升高+or，elevator电梯"
+  },
+  {
+    "text": "worker",
+    "mnemonic": "work工作+er人，worker工人"
+  },
+  {
+    "text": "nearly",
+    "mnemonic": "near近+ly，nearly几乎"
+  },
+  {
+    "text": "teacher",
+    "mnemonic": "teach教+er人，teacher教师"
+  },
+  {
+    "text": "secretary",
+    "mnemonic": "secret秘密+ary人，secretary秘书"
+  },
+  {
+    "text": "bride",
+    "mnemonic": "bride=新娘，bridegroom新郎"
+  },
+  {
+    "text": "loss",
+    "mnemonic": "lose失去变loss，损失"
+  },
+  {
+    "text": "hockey",
+    "mnemonic": "hockey=曲棍球，ice hockey冰球"
+  },
+  {
+    "text": "genius",
+    "mnemonic": "genius源自gen生，天生才华"
+  },
+  {
+    "text": "judgment",
+    "mnemonic": "judge判断变judgment，判断"
+  },
+  {
+    "text": "selfish",
+    "mnemonic": "self自己+ish，selfish自私的"
+  },
+  {
+    "text": "alcohol",
+    "mnemonic": "alcohol=酒精，含酒精饮品"
+  },
+  {
+    "text": "safely",
+    "mnemonic": "safe安全+ly，safely安全地"
+  },
+  {
+    "text": "awkward",
+    "mnemonic": "awkward=尴尬的，awkward silence冷场"
+  },
+  {
+    "text": "goal",
+    "mnemonic": "goal=目标/球门，score a goal进球"
+  },
+  {
+    "text": "gift",
+    "mnemonic": "gift=礼物，给gift送礼物"
+  },
+  {
+    "text": "deaf",
+    "mnemonic": "deaf=聋的，deaf ear充耳不闻"
+  },
+  {
+    "text": "problem",
+    "mnemonic": "problem=问题，solve the problem解难题"
+  },
+  {
+    "text": "lunch",
+    "mnemonic": "lunch=午餐，lunchtime午饭时间"
+  },
+  {
+    "text": "banana",
+    "mnemonic": "banana=香蕉，黄色的水果"
+  },
+  {
+    "text": "or",
+    "mnemonic": "or=或者，tea or coffee茶或咖啡"
+  },
+  {
+    "text": "apology",
+    "mnemonic": "apology=道歉，say sorry即道歉"
+  },
+  {
+    "text": "maybe",
+    "mnemonic": "may可能+be是，maybe也许"
+  },
+  {
+    "text": "potato",
+    "mnemonic": "potato=土豆，potato chips薯片"
+  },
+  {
+    "text": "theft",
+    "mnemonic": "thief偷变theft，偷窃罪"
+  },
+  {
+    "text": "vital",
+    "mnemonic": "vit生命+al，vital至关重要"
+  },
+  {
+    "text": "brother",
+    "mnemonic": "brother=兄弟，兄弟姐妹sibling"
+  },
+  {
+    "text": "county",
+    "mnemonic": "county源自count伯爵，伯爵领地成县"
+  },
+  {
+    "text": "corpse",
+    "mnemonic": "corpse源自corp身，尸体"
+  },
+  {
+    "text": "punish",
+    "mnemonic": "punish=惩罚，punishment惩罚"
+  },
+  {
+    "text": "grim",
+    "mnemonic": "grim=冷酷的/阴沉的"
+  },
+  {
+    "text": "brow",
+    "mnemonic": "brow=眉毛/额头，eyebrow眉毛"
+  },
+  {
+    "text": "cover",
+    "mnemonic": "cover=覆盖/封面，cover up掩盖"
+  },
+  {
+    "text": "organ",
+    "mnemonic": "organ=器官/风琴，管风琴"
+  },
+  {
+    "text": "herb",
+    "mnemonic": "herb=草药，herbal中草药的"
+  },
+  {
+    "text": "hen",
+    "mnemonic": "hen=母鸡，下蛋的鸡"
+  },
+  {
+    "text": "campus",
+    "mnemonic": "campus源自camp营地，大学校区"
+  },
+  {
+    "text": "certainly",
+    "mnemonic": "certain确定+ly，certainly当然"
+  },
+  {
+    "text": "injury",
+    "mnemonic": "injure伤变injury，伤害"
+  },
+  {
+    "text": "product",
+    "mnemonic": "pro+duct导，product产品"
+  },
+  {
+    "text": "peace",
+    "mnemonic": "peace=和平，peaceful和平的"
+  },
+  {
+    "text": "movement",
+    "mnemonic": "move移动+ment，movement运动"
+  },
+  {
+    "text": "shelf",
+    "mnemonic": "shelf=架子，bookshelf书架"
+  },
+  {
+    "text": "privacy",
+    "mnemonic": "private私人变privacy，隐私"
+  },
+  {
+    "text": "rosy",
+    "mnemonic": "rose玫瑰变rosy，玫瑰色的"
+  },
+  {
+    "text": "rhythm",
+    "mnemonic": "rhythm源自流动，韵律如流水"
+  },
+  {
+    "text": "sexual",
+    "mnemonic": "sex性+ual，sexual性的"
+  },
+  {
+    "text": "confirm",
+    "mnemonic": "con+firm坚定，confirm确认"
+  },
+  {
+    "text": "subway",
+    "mnemonic": "sub下+way路，subway地铁"
+  },
+  {
+    "text": "basement",
+    "mnemonic": "base底部+ment，basement地下室"
+  },
+  {
+    "text": "opinion",
+    "mnemonic": "opinion=意见，in my opinion依我看"
+  },
+  {
+    "text": "youth",
+    "mnemonic": "young年轻变youth，青年"
+  },
+  {
+    "text": "pub",
+    "mnemonic": "pub=酒馆，public house酒吧"
+  },
+  {
+    "text": "jewel",
+    "mnemonic": "jewel=珠宝，jewelry首饰"
+  },
+  {
+    "text": "four",
+    "mnemonic": "four与forty同源，forty四十含four"
+  },
+  {
+    "text": "media",
+    "mnemonic": "media=媒体，mass media大众传媒"
+  },
+  {
+    "text": "ordinary",
+    "mnemonic": "ordinary=普通的，ordinary people普通人"
+  },
+  {
+    "text": "remember",
+    "mnemonic": "re+member成员，remember记得"
+  },
+  {
+    "text": "third",
+    "mnemonic": "three三变third，第三"
+  },
+  {
+    "text": "tragedy",
+    "mnemonic": "tragedy=悲剧，与comedy相对"
+  },
+  {
+    "text": "leader",
+    "mnemonic": "lead领导+er人，leader领袖"
+  },
+  {
+    "text": "agony",
+    "mnemonic": "agony=极度痛苦，agony煎熬"
+  },
+  {
+    "text": "depend",
+    "mnemonic": "de+pend挂，depend依靠悬挂"
+  },
+  {
+    "text": "delivery",
+    "mnemonic": "deliver投递+y，delivery送达"
+  },
+  {
+    "text": "betray",
+    "mnemonic": "be+tray托盘，betray背叛出卖"
+  },
+  {
+    "text": "cruel",
+    "mnemonic": "cruel=残忍的，cruelty残酷"
+  },
+  {
+    "text": "dignity",
+    "mnemonic": "dignity=尊严，人的尊严"
+  },
+  {
+    "text": "citizen",
+    "mnemonic": "city城市变citizen，市民"
+  },
+  {
+    "text": "store",
+    "mnemonic": "store=商店/储存，bookstore书店"
+  },
+  {
+    "text": "reporter",
+    "mnemonic": "report报道+er人，reporter记者"
+  },
+  {
+    "text": "late",
+    "mnemonic": "late=晚的，be late迟到"
+  },
+  {
+    "text": "each",
+    "mnemonic": "each=每个，each one每一个"
+  },
+  {
+    "text": "house",
+    "mnemonic": "house=房子，household家庭"
+  },
+  {
+    "text": "kidney",
+    "mnemonic": "kidney源自蛋，肾形如豆"
+  },
+  {
+    "text": "bless",
+    "mnemonic": "bless=祝福，blessing祝福"
+  },
+  {
+    "text": "homework",
+    "mnemonic": "home家+work作业，homework家庭作业"
+  },
+  {
+    "text": "expensive",
+    "mnemonic": "expense花费变expensive，昂贵"
+  },
+  {
+    "text": "enjoy",
+    "mnemonic": "en+joy高兴，enjoy享受"
+  },
+  {
+    "text": "forbid",
+    "mnemonic": "for+bid命令，forbid禁止"
+  },
+  {
+    "text": "cab",
+    "mnemonic": "cab=出租车，taxi的旧称"
+  },
+  {
+    "text": "gene",
+    "mnemonic": "gene=基因，genetic遗传的"
+  },
+  {
+    "text": "sly",
+    "mnemonic": "sly=狡猾的，a sly fox狡猾的狐狸"
+  },
+  {
+    "text": "bud",
+    "mnemonic": "bud=花蕾/芽，buddy哥们"
+  },
+  {
+    "text": "theory",
+    "mnemonic": "theory=理论，theoretical理论的"
+  },
+  {
+    "text": "anybody",
+    "mnemonic": "any+body身体，anybody任何人"
+  },
+  {
+    "text": "toilet",
+    "mnemonic": "toilet源自梳妆布，梳妆间变厕所"
+  },
+  {
+    "text": "whoever",
+    "mnemonic": "who+ever，whoever无论谁"
+  },
+  {
+    "text": "risk",
+    "mnemonic": "risk=风险，at risk有风险"
+  },
+  {
+    "text": "rather",
+    "mnemonic": "rather=相当/宁愿，would rather宁愿"
+  },
+  {
+    "text": "husband",
+    "mnemonic": "husband=丈夫，与wife相对"
+  },
+  {
+    "text": "lens",
+    "mnemonic": "lens=透镜/镜头，camera lens镜头"
+  },
+  {
+    "text": "can",
+    "mnemonic": "can=能/罐头，can do能做"
+  }
+]

@@ -1,7 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import type { CollectedWord, CollectionStats, EncounterRecord } from '@word-journey/shared';
+import type { CollectedWord, CollectionStats, SrsTrajectory } from '@word-journey/shared';
+import { nextReviewLabel, srsStageMeta } from '@word-journey/shared';
 import { api } from '../lib/api';
 import { getTts } from '../lib/tts';
 import { playSkipSound } from '../lib/sfx';
@@ -12,22 +13,29 @@ const TIERS = [
 ];
 const STATUSES = [
   { v: '', label: '全部' }, { v: 'new', label: '新遇' },
-  { v: 'learning', label: '学习中' }, { v: 'mastered', label: '已掌握' },
-  { v: 'wrongbook', label: '错题本' },
+  { v: 'learning', label: '学习中' }, { v: 'due', label: '待复习' },
+  { v: 'mastered', label: '已掌握' }, { v: 'wrongbook', label: '错题本' }, { v: 'skipped', label: '已斩' },
 ];
 const SORTS = [
   { v: 'firstEncounteredAt', label: '初见时间' },
-  { v: 'lastEncounteredAt', label: '最近相遇' },
-  { v: 'encounterCount', label: '相遇次数' },
-  { v: 'accuracy', label: '正确率' },
+  { v: 'stage', label: '记忆深度' },
 ];
 const PAGE_SIZE = 50;
 
-function statusMeta(word: CollectedWord) {
-  if (word.inWrongBook) return { label: '错题', cls: 'border-l-red-500 bg-red-500/10', badge: 'bg-red-500/20 text-red-300', icon: '📕' };
-  if (word.mastery >= 100) return { label: '已掌握', cls: 'border-l-emerald-500 bg-emerald-500/10', badge: 'bg-emerald-500/20 text-emerald-300', icon: '⭐' };
-  if (word.encounterCount >= 3) return { label: '学习中', cls: 'border-l-amber-500 bg-amber-500/10', badge: 'bg-amber-500/20 text-amber-300', icon: '📖' };
-  return { label: '新遇', cls: 'border-l-sky-500 bg-sky-500/10', badge: 'bg-sky-500/20 text-sky-300', icon: '✨' };
+// SRS 档位 → 卡片边框/徽章色（字面量类名，确保 Tailwind 命中）
+const TONE = {
+  sky: { cls: 'border-l-sky-500 bg-sky-500/10', badge: 'bg-sky-500/20 text-sky-300' },
+  amber: { cls: 'border-l-amber-500 bg-amber-500/10', badge: 'bg-amber-500/20 text-amber-300' },
+  cyan: { cls: 'border-l-cyan-500 bg-cyan-500/10', badge: 'bg-cyan-500/20 text-cyan-300' },
+  emerald: { cls: 'border-l-emerald-500 bg-emerald-500/10', badge: 'bg-emerald-500/20 text-emerald-300' },
+  violet: { cls: 'border-l-violet-500 bg-violet-500/10', badge: 'bg-violet-500/20 text-violet-300' },
+} as const;
+
+function statusMeta(w: CollectedWord) {
+  if (w.skipped) return { label: '已斩', icon: '⚔️', cls: 'border-l-zinc-500 bg-zinc-500/10', badge: 'bg-zinc-500/20 text-zinc-300' };
+  if (w.inWrongBook) return { label: '错题', icon: '📕', cls: 'border-l-red-500 bg-red-500/10', badge: 'bg-red-500/20 text-red-300' };
+  const meta = srsStageMeta(w.reviewStage);
+  return { label: meta.label, icon: meta.icon, ...TONE[meta.tone] };
 }
 
 function tierCls(t: string) {
@@ -38,7 +46,15 @@ function tierCls(t: string) {
   return 'bg-slate-600/30 text-slate-400';
 }
 
+// 记忆强度（ease）→ 人话
+function easeLabel(ease: number): string {
+  if (ease >= 2.5) return '稳定';
+  if (ease >= 1.8) return '正常';
+  return '吃力';
+}
+
 export function CollectionsPage() {
+  const navigate = useNavigate();
   const [tier, setTier] = useState('');
   const [status, setStatus] = useState('');
   const [sort, setSort] = useState('firstEncounteredAt');
@@ -74,13 +90,13 @@ export function CollectionsPage() {
     },
   });
 
-  const timelineQuery = useQuery({
-    queryKey: ['collections', 'timeline', selectedWordId],
-    queryFn: () => api.get<EncounterRecord[]>(`/collections/words/${selectedWordId}/timeline`),
+  const trajectoryQuery = useQuery({
+    queryKey: ['collections', 'srs', selectedWordId],
+    queryFn: () => api.get<SrsTrajectory>(`/collections/words/${selectedWordId}/srs`),
     enabled: !!selectedWordId,
   });
 
-  // 斩：标记已掌握（mastery 100），带防连点
+  // 斩：标记已掌握（永久不再出题），带防连点
   const [skipping, setSkipping] = useState<Set<string>>(new Set());
   const handleSkip = async (wordId: string) => {
     if (skipping.has(wordId)) return;
@@ -101,9 +117,33 @@ export function CollectionsPage() {
     }
   };
 
+  // 反斩：重置为未学状态
+  const unskip = useMutation({
+    mutationFn: async (wordId: string) => {
+      await api.post<{ ok: boolean }>(`/questions/words/${wordId}/unskip`, {});
+    },
+    onSuccess: () => {
+      wordsQuery.refetch();
+      statsQuery.refetch();
+      if (selectedWordId) trajectoryQuery.refetch();
+    },
+  });
+
   const stats = statsQuery.data;
   const { words, total } = wordsQuery.data ?? {};
   const totalPages = total ? Math.ceil(total / PAGE_SIZE) : 0;
+
+  // 弱词复习 CTA：仅在行动导向筛选下出现
+  const reviewable = status === 'due' || status === 'wrongbook' || status === 'learning';
+  const reviewBank = words?.find((w) => w.bankCode)?.bankCode;
+
+  const handleReviewClick = () => {
+    if (!words?.length || !reviewBank) return;
+    const wordIds = words.slice(0, 60).map((w) => w.wordId);
+    navigate(`/battle/${reviewBank}/0`, {
+      state: { mode: 'review', wordIds, size: Math.max(10, wordIds.length) },
+    });
+  };
 
   return (
     <div className="min-h-screen bg-slate-950">
@@ -120,6 +160,8 @@ export function CollectionsPage() {
             {stats && (
               <span className="text-xs text-slate-500">
                 {stats.encountered}/{stats.totalWords} · 掌握{stats.mastered}
+                {stats.dueToday > 0 && <span className="ml-1 text-amber-400">· 待复习{stats.dueToday}</span>}
+                {stats.skipped > 0 && <span className="ml-1 text-slate-500">· 已斩{stats.skipped}</span>}
               </span>
             )}
           </div>
@@ -149,6 +191,11 @@ export function CollectionsPage() {
               </span>
               <span className="text-slate-400">
                 已掌握 <span className="font-bold text-emerald-400">{stats.mastered}</span>
+                {stats.dueToday > 0 && (
+                  <span className="ml-3">
+                    待复习 <span className="font-bold text-amber-400">{stats.dueToday}</span>
+                  </span>
+                )}
               </span>
             </div>
             <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
@@ -183,8 +230,10 @@ export function CollectionsPage() {
               s.v === '' ? (stats?.encountered ?? 0) :
               s.v === 'new' ? (stats?.newToday ?? 0) :
               s.v === 'learning' ? (stats?.learning ?? 0) :
+              s.v === 'due' ? (stats?.dueToday ?? 0) :
               s.v === 'mastered' ? (stats?.mastered ?? 0) :
-              s.v === 'wrongbook' ? (stats?.wrongbook ?? 0) : null;
+              s.v === 'wrongbook' ? (stats?.wrongbook ?? 0) :
+              s.v === 'skipped' ? (stats?.skipped ?? 0) : null;
             return (
               <button key={s.v} onClick={() => { setStatus(s.v); setPage(1); }}
                 className={`rounded-full px-3 py-1 text-xs transition ${
@@ -198,8 +247,17 @@ export function CollectionsPage() {
             );
           })}
           <div className="ml-auto flex items-center gap-2">
+            {reviewable && reviewBank && (words?.length ?? 0) > 0 && (
+              <button
+                onClick={handleReviewClick}
+                title="用当前筛选中这批词开一轮复习战"
+                className="rounded-full border border-emerald-700/60 bg-emerald-950/40 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-900/40 hover:text-emerald-200"
+              >
+                🎯 复习当前 {Math.min(words!.length, 60)} 词
+              </button>
+            )}
             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
-              placeholder="搜索…"
+              placeholder="单词/释义…"
               className="w-24 rounded-lg border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 outline-none focus:w-40 focus:border-cyan-500 transition-all"
             />
             <select value={sort} onChange={(e) => { setSort(e.target.value); setPage(1); }}
@@ -233,9 +291,8 @@ export function CollectionsPage() {
                   <th className="py-3 pl-4 pr-2 font-medium">单词</th>
                   <th className="px-2 py-3 font-medium">音标</th>
                   <th className="px-2 py-3 font-medium">等级</th>
-                  <th className="px-2 py-3 font-medium">状态</th>
-                  <th className="px-2 py-3 font-medium">相遇</th>
-                  <th className="px-2 py-3 font-medium">正确率</th>
+                  <th className="px-2 py-3 font-medium">档位</th>
+                  <th className="px-2 py-3 font-medium">下次复习</th>
                   <th className="px-2 py-3 font-medium">初见</th>
                   <th className="pr-4 py-3 font-medium">释义</th>
                   <th className="pr-4 py-3 font-medium">操作</th>
@@ -244,7 +301,6 @@ export function CollectionsPage() {
               <tbody className="divide-y divide-slate-800/50">
                 {words.map((w) => {
                   const m = statusMeta(w);
-                  const acc = w.encounterCount ? Math.round((w.correctCount / w.encounterCount) * 100) : 0;
                   return (
                     <tr key={w.wordId} onClick={() => setSelectedWordId(w.wordId)}
                       className="cursor-pointer transition-colors hover:bg-slate-800/50">
@@ -262,32 +318,34 @@ export function CollectionsPage() {
                       </td>
                       <td className="px-2 py-2.5 text-xs text-slate-500">{w.phonetic ?? '-'}</td>
                       <td className="px-2 py-2.5"><span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${tierCls(w.tier)}`}>{w.tier}</span></td>
-                      <td className="px-2 py-2.5"><span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${m.badge}`}>{m.label}</span></td>
-                      <td className="px-2 py-2.5 text-xs text-slate-400">{w.encounterCount}</td>
-                      <td className="px-2 py-2.5">
-                        <span className={acc >= 80 ? 'text-emerald-400' : acc >= 50 ? 'text-amber-400' : 'text-red-400'}>
-                          {acc}%
-                        </span>
+                      <td className="px-2 py-2.5"><span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${m.badge}`}>{m.icon} {m.label}</span></td>
+                      <td className="px-2 py-2.5 text-xs text-slate-400">
+                        {w.skipped ? '-' : nextReviewLabel(w.nextReviewAt)}
                       </td>
                       <td className="px-2 py-2.5 text-xs text-slate-500">
                         {w.firstEncounteredAt ? new Date(w.firstEncounteredAt).toLocaleDateString('zh-CN') : '-'}
                       </td>
                       <td className="py-2.5 pr-4 text-xs text-slate-400 truncate max-w-[120px]">
                         {w.meanings?.[0]?.meaning ?? ''}
+                        {w.mnemonic && (
+                          <span className="block truncate text-[10px] text-emerald-400/80">💡 {w.mnemonic}</span>
+                        )}
                       </td>
                       <td className="py-2.5 pr-4 text-right">
-                        {w.mastery < 100 && (
+                        {!w.skipped && (
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
                               handleSkip(w.wordId);
                             }}
                             disabled={skipping.has(w.wordId)}
-                            title="标记已掌握"
+                            title={w.mastery >= 100 ? '永久不再出题' : '标记已掌握'}
                             className={`rounded-lg border px-2 py-0.5 text-xs font-medium transition-colors ${
                               skipping.has(w.wordId)
                                 ? 'cursor-wait border-slate-700 text-slate-500'
-                                : 'border-emerald-800 bg-emerald-950/40 text-emerald-400 hover:bg-emerald-500/20'
+                                : w.mastery >= 100
+                                  ? 'border-zinc-700 bg-zinc-950/40 text-zinc-400 hover:bg-zinc-500/20 hover:text-zinc-300'
+                                  : 'border-emerald-800 bg-emerald-950/40 text-emerald-400 hover:bg-emerald-500/20'
                             }`}
                           >
                             {skipping.has(w.wordId) ? '…' : '斩'}
@@ -305,7 +363,6 @@ export function CollectionsPage() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {words.map((w) => {
               const m = statusMeta(w);
-              const acc = w.encounterCount ? Math.round((w.correctCount / w.encounterCount) * 100) : 0;
               return (
                 <div
                   key={w.wordId}
@@ -335,18 +392,20 @@ export function CollectionsPage() {
                       {w.phonetic && <p className="mt-0.5 text-xs text-slate-500 truncate">{w.phonetic}</p>}
                     </div>
                     <div className="flex shrink-0 items-center gap-2">
-                      {w.mastery < 100 && (
+                      {!w.skipped && (
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             handleSkip(w.wordId);
                           }}
                           disabled={skipping.has(w.wordId)}
-                          title="标记已掌握"
+                          title={w.mastery >= 100 ? '永久不再出题' : '标记已掌握'}
                           className={`rounded-lg border px-2 py-0.5 text-xs font-medium transition-colors ${
                             skipping.has(w.wordId)
                               ? 'cursor-wait border-slate-700 text-slate-500'
-                              : 'border-emerald-800 bg-emerald-950/40 text-emerald-400 hover:bg-emerald-500/20'
+                              : w.mastery >= 100
+                                ? 'border-zinc-700 bg-zinc-950/40 text-zinc-400 hover:bg-zinc-500/20 hover:text-zinc-300'
+                                : 'border-emerald-800 bg-emerald-950/40 text-emerald-400 hover:bg-emerald-500/20'
                           }`}
                         >
                           {skipping.has(w.wordId) ? '…' : '斩'}
@@ -355,32 +414,41 @@ export function CollectionsPage() {
                       <span className="text-lg">{m.icon}</span>
                     </div>
                   </div>
-                  {/* Accuracy bar */}
-                  <div className="mt-3 flex items-center gap-2">
+                  {/* SRS 档位 + 下次复习 */}
+                  <div className="mt-3 flex items-center justify-between gap-2">
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${m.badge}`}>{m.label}</span>
+                    <span className="text-[11px] text-slate-400">
+                      {w.skipped
+                        ? <span className="text-zinc-500">已斩 · 永不再考</span>
+                        : <><span className="text-slate-600">下次</span> <span className={w.nextReviewAt && new Date(w.nextReviewAt).getTime() <= Date.now() ? 'font-bold text-amber-400' : 'text-slate-300'}>{nextReviewLabel(w.nextReviewAt)}</span></>}
+                    </span>
+                  </div>
+                  {/* 掌握度进度条 */}
+                  <div className="mt-2 flex items-center gap-2">
                     <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-800">
-                      <div className={`h-full rounded-full transition-all ${w.mastery >= 100 ? 'bg-emerald-500' : acc >= 80 ? 'bg-sky-500' : acc >= 40 ? 'bg-amber-500' : 'bg-red-500'}`}
-                        style={{ width: `${Math.max(5, acc)}%` }} />
+                      <div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 transition-all"
+                        style={{ width: `${Math.max(4, w.mastery)}%` }} />
                     </div>
-                    <span className="text-[10px] font-medium text-slate-500 w-7 text-right tabular-nums">{acc}%</span>
+                    <span className="w-8 text-right text-[10px] font-medium text-slate-500 tabular-nums">{w.mastery}%</span>
                   </div>
                   {/* Stats row */}
                   <div className="mt-2 flex items-center gap-3 text-[11px]">
-                    <span className="text-slate-500">{m.icon} {m.label}</span>
-                    <span className="text-slate-600">遇{w.encounterCount}</span>
-                    <span className={acc >= 80 ? 'text-emerald-500' : acc >= 50 ? 'text-amber-500' : 'text-red-400'}>
-                      {w.correctCount}/{w.encounterCount}
-                    </span>
+                    <span className="text-slate-500">记忆{easeLabel(w.ease)}</span>
+                    {w.firstEncounteredAt && (
+                      <span className="text-slate-600">初见 {new Date(w.firstEncounteredAt).toLocaleDateString('zh-CN')}</span>
+                    )}
                   </div>
-                  {w.firstEncounteredAt && (
-                    <p className="mt-1 text-[10px] text-slate-600">
-                      初见 {new Date(w.firstEncounteredAt).toLocaleDateString('zh-CN')}
-                    </p>
-                  )}
                   <p className="mt-2 text-xs text-slate-400 line-clamp-2">
                     {w.meanings?.map((m, i) => (
                       <span key={i}>{m.meaning}{i < w.meanings.length - 1 ? '；' : ''}</span>
                     ))}
                   </p>
+                  {/* 记忆锚点 */}
+                  {w.mnemonic && (
+                    <p className="mt-2 rounded-lg border border-emerald-800/50 bg-emerald-950/30 px-2.5 py-1.5 text-xs text-emerald-300/90">
+                      💡 {w.mnemonic}
+                    </p>
+                  )}
                   {/* 易混词区块 */}
                   {w.confusables.length > 0 && (
                     <div className="mt-3 border-t border-slate-800/70 pt-2">
@@ -433,42 +501,174 @@ export function CollectionsPage() {
         )}
       </div>
 
-      {/* Timeline Modal */}
+      {/* 词详情 + SRS 复习轨迹 Modal */}
       {selectedWordId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
           onClick={() => setSelectedWordId(null)}>
-          <div className="max-h-[80vh] w-full max-w-lg overflow-auto rounded-2xl border border-slate-800 bg-slate-950 p-6 shadow-2xl"
+          <div className="max-h-[85vh] w-full max-w-lg overflow-auto rounded-2xl border border-slate-800 bg-slate-950 p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}>
-            {timelineQuery.isLoading ? (
+            {trajectoryQuery.isLoading ? (
               <p className="text-center text-sm text-slate-400">加载中…</p>
-            ) : timelineQuery.isError ? (
+            ) : trajectoryQuery.isError ? (
               <p className="text-sm text-red-400">加载失败</p>
-            ) : !timelineQuery.data?.length ? (
-              <p className="text-sm text-slate-400">暂无相遇记录</p>
-            ) : (
-              <div className="space-y-3">
-                <h2 className="text-lg font-semibold text-slate-100">相遇记录</h2>
-                {timelineQuery.data.map((r, i) => (
-                  <div key={i} className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/60 p-3">
-                    <span className={`shrink-0 text-lg ${r.correct ? 'text-emerald-400' : 'text-red-400/60'}`}>
-                      {r.correct ? '✓' : '✗'}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm text-slate-200">
-                        {( { zh2en: '中译英', dictation: '听写', choice: '选中文' } as Record<string, string> )[r.mode]}
-                      </div>
-                      <div className="text-xs text-slate-500">
-                        {new Date(r.date).toLocaleString('zh-CN')} · {(r.elapsedMs / 1000).toFixed(1)}s
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+            ) : trajectoryQuery.data ? (
+              <SrsDetail
+                data={trajectoryQuery.data}
+                onUnskip={async () => unskip.mutate(selectedWordId)}
+                unskipPending={unskip.isPending}
+              />
+            ) : null}
             <button onClick={() => setSelectedWordId(null)}
               className="mt-4 w-full rounded-lg border border-slate-700 py-2 text-sm text-slate-300 hover:bg-slate-800 transition-colors">
               关闭
             </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SrsDetail({
+  data,
+  onUnskip,
+  unskipPending,
+}: {
+  data: SrsTrajectory;
+  onUnskip: () => void;
+  unskipPending: boolean;
+}) {
+  const t = data;
+  const stageMeta = srsStageMeta(t.current.stage);
+  return (
+    <div className="space-y-4">
+      {/* 词头 */}
+      <div>
+        <div className="flex items-center gap-2">
+          <h2 className="text-xl font-bold text-slate-100">{t.word.text}</h2>
+          <span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${tierCls(t.word.tier)}`}>{t.word.tier}</span>
+        </div>
+        {t.word.phonetic && <p className="text-sm text-slate-500">{t.word.phonetic}</p>}
+      </div>
+
+      {/* 当前记忆状态 */}
+      <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+        <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">当前记忆状态</div>
+        <div className="mt-2 flex items-center gap-2">
+          <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${TONE[stageMeta.tone].badge}`}>{stageMeta.icon} {stageMeta.label}</span>
+          {t.current.inWrongBook && (
+            <span className="rounded-full bg-red-500/20 px-2 py-0.5 text-xs font-medium text-red-300">📕 错题本</span>
+          )}
+          {t.current.skipped && (
+            <span className="rounded-full bg-zinc-500/20 px-2 py-0.5 text-xs font-medium text-zinc-300">⚔️ 已斩</span>
+          )}
+        </div>
+        <div className="mt-3 grid grid-cols-3 gap-2 text-center text-xs">
+          <div className="rounded-lg bg-slate-950/60 py-2">
+            <div className="text-slate-500">掌握度</div>
+            <div className="font-bold text-emerald-400">{t.current.mastery}%</div>
+          </div>
+          <div className="rounded-lg bg-slate-950/60 py-2">
+            <div className="text-slate-500">记忆强度</div>
+            <div className="font-bold text-cyan-400">{easeLabel(t.current.ease)}</div>
+          </div>
+          <div className="rounded-lg bg-slate-950/60 py-2">
+            <div className="text-slate-500">下次复习</div>
+            <div className="font-bold text-amber-400">{t.current.skipped ? '-' : nextReviewLabel(t.current.nextReviewAt)}</div>
+          </div>
+        </div>
+        <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500">
+          <span>上次复习：{t.lastReviewedAt ? new Date(t.lastReviewedAt).toLocaleString('zh-CN') : '未开始'}</span>
+          {t.current.skipped && (
+            <button
+              onClick={onUnskip}
+              disabled={unskipPending}
+              className="rounded-lg border border-zinc-700 px-2 py-1 text-xs text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100 disabled:opacity-40"
+            >
+              {unskipPending ? '…' : '↩ 反斩（重新学习）'}
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* 复习轨迹 */}
+      <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+        <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">复习轨迹</div>
+        {t.points.length === 0 ? (
+          <p className="mt-2 text-sm text-slate-500">尚未形成复习轨迹，去战斗积累相遇吧。</p>
+        ) : (
+          <div className="mt-3 space-y-0">
+            {t.points.map((p, i) => {
+              const meta = srsStageMeta(p.stage);
+              const isLast = i === t.points.length - 1;
+              return (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className={`mt-1 h-2.5 w-2.5 rounded-full ${isLast ? 'bg-cyan-400' : 'bg-slate-600'}`} />
+                    {i < t.points.length - 1 && <div className="w-px flex-1 bg-slate-800" />}
+                  </div>
+                  <div className={`pb-4 ${isLast ? '' : 'border-b border-slate-800/50'}`}>
+                    <div className="text-sm">
+                      <span className={`font-semibold ${isLast ? 'text-cyan-300' : 'text-slate-300'}`}>{meta.icon} {meta.label}</span>
+                      <span className="ml-2 text-xs text-slate-500">间隔 {p.intervalDays} 天</span>
+                    </div>
+                    <div className="text-xs text-slate-600">
+                      {new Date(p.at).toLocaleString('zh-CN')}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* 全部义项 */}
+      {t.word.meanings.length > 0 && (
+        <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">义项</div>
+          <ul className="mt-2 space-y-2">
+            {t.word.meanings.map((s, i) => (
+              <li key={i} className="text-sm">
+                <span className="text-slate-200">{s.meaning}</span>
+                {s.example && <span className="mt-0.5 block text-xs italic text-slate-400">“{s.example}”</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* 易混词 */}
+      {t.word.confusables.length > 0 && (
+        <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">易混词</div>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {t.word.confusables.map((c, i) => (
+              <span key={i} title={c.note}
+                className="rounded-full border border-amber-700/50 bg-amber-950/30 px-2 py-0.5 text-xs text-amber-300">
+                {c.counterpart}{c.note && ` · ${c.note}`}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 记忆锚点 */}
+      {t.word.mnemonic && (
+        <div className="rounded-xl border border-emerald-800/50 bg-emerald-950/30 p-4">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-emerald-500/80">记忆锚点</div>
+          <p className="mt-1 text-sm text-emerald-300/90">💡 {t.word.mnemonic}</p>
+        </div>
+      )}
+
+      {/* 全部例句 */}
+      {t.word.examples.length > 0 && (
+        <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">例句</div>
+          <div className="mt-2 space-y-1">
+            {t.word.examples.map((ex, i) => (
+              <div key={i} className="text-xs italic leading-snug text-slate-400">“{ex}”</div>
+            ))}
           </div>
         </div>
       )}

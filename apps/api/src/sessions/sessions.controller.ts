@@ -1,7 +1,7 @@
-import { Body, Controller, Param, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Param, ParseIntPipe, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsIn, IsInt, IsNumber, IsOptional, IsString, Max, Min, ValidateNested } from 'class-validator';
+import { ArrayMaxSize, IsArray, IsBoolean, IsIn, IsInt, IsNumber, IsOptional, IsString, Max, Min, ValidateNested } from 'class-validator';
 import type { Request } from 'express';
 import type { EnterBossResponse, BossExtendResponse, SessionFinish } from '@word-journey/shared';
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
@@ -44,6 +44,7 @@ class CreateSessionDto {
 
   @IsOptional()
   @IsArray()
+  @ArrayMaxSize(60) // 上限与 size 一致，防超大批次拖垮事务/闪卡堆叠
   @IsString({ each: true })
   wordIds?: string[];
 }
@@ -81,6 +82,13 @@ class CreateReviewDto {
   @Min(10)
   @Max(60)
   size?: number;
+
+  // 图鉴弱词复习：精确指定词集（上限与 size 一致）
+  @IsOptional()
+  @IsArray()
+  @ArrayMaxSize(60)
+  @IsString({ each: true })
+  wordIds?: string[];
 }
 
 class FlashcardSubmitDto {
@@ -123,34 +131,34 @@ export class SessionsController {
   @ApiOperation({ summary: '提交全部答案并结算，返回评级/经验/金币/掉落' })
   async submit(
     @Req() req: Request & { user: JwtUser },
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body() dto: SubmitDto,
   ): Promise<SessionFinish> {
-    return this.sessions.submit(req.user.sub, Number.parseInt(id, 10), dto.answers, dto.bossCleared ?? false);
+    return this.sessions.submit(req.user.sub, id, dto.answers);
   }
 
   @Post(':id/enter-boss')
   @ApiOperation({ summary: '学习段结束 → 生成 Boss 段题目' })
   async enterBoss(
     @Req() req: Request & { user: JwtUser },
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body() dto: EnterBossDto,
   ): Promise<EnterBossResponse> {
-    return this.sessions.enterBoss(req.user.sub, Number.parseInt(id, 10), dto.answers);
+    return this.sessions.enterBoss(req.user.sub, id, dto.answers);
   }
 
   @Post(':id/boss-extend')
   @ApiOperation({ summary: 'Boss 段词尽 → 续词' })
   async bossExtend(
     @Req() req: Request & { user: JwtUser },
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body() dto: BossExtendDto,
   ): Promise<BossExtendResponse> {
-    return this.sessions.bossExtend(req.user.sub, Number.parseInt(id, 10), dto.missedWordIds);
+    return this.sessions.bossExtend(req.user.sub, id, dto.missedWordIds);
   }
 
   @Post('review')
-  @ApiOperation({ summary: '创建复习会话（仅到期词，无 Boss 段）' })
+  @ApiOperation({ summary: '创建复习会话（仅到期词，无 Boss 段；可携带 wordIds 指定词集）' })
   async createReview(
     @Req() req: Request & { user: JwtUser },
     @Body() dto: CreateReviewDto,
@@ -159,6 +167,7 @@ export class SessionsController {
       userId: req.user.sub,
       bankCode: dto.bankCode,
       size: dto.size,
+      wordIds: dto.wordIds,
     });
   }
 

@@ -17,7 +17,15 @@ const prisma = {
     findUnique: jest.fn(),
     create: jest.fn(),
     upsert: jest.fn(),
+    update: jest.fn(),
   },
+  material: {
+    findUnique: jest.fn(),
+  },
+  userMaterial: {
+    updateMany: jest.fn(),
+  },
+  $transaction: jest.fn(),
 } as unknown as PrismaService;
 
 const jwt = {
@@ -129,11 +137,62 @@ describe('AuthService', () => {
     (prisma.user.findUnique as jest.Mock).mockResolvedValue(null);
     for (let i = 0; i < 11; i++) {
       try {
-        await auth.login('mallory', 'badpass');
-      } catch {
+        await auth.login('mallory', 'badpass');      } catch {
         /* 前 10 次 401，第 11 次起 429 */
       }
     }
     await expect(auth.login('mallory', 'badpass')).rejects.toThrow('尝试次数过多');
+  });
+
+  it('specialize：消耗金币 + tier3 材料点亮特化并返回更新后的用户', async () => {
+    (prisma.userCharacter.findUnique as jest.Mock).mockResolvedValue({
+      userId: 1, level: 1, hpLv: 3, atkLv: 3, defLv: 3, executeSpec: false, vampireSpec: false,
+    });
+    (prisma.material.findUnique as jest.Mock).mockResolvedValue({ id: 9, code: 'essence_3', tier: 3 });
+    (prisma.user.findUnique as jest.Mock).mockResolvedValue({
+      ...userRow,
+      coins: 0,
+      character: { level: 1, hpLv: 3, atkLv: 3, defLv: 3, executeSpec: true, vampireSpec: false },
+    });
+    const txUpdate = jest.fn().mockResolvedValue({});
+    (prisma.$transaction as jest.Mock).mockImplementation(async (fn) =>
+      fn({
+        user: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+        userMaterial: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+        userCharacter: {
+          findUnique: jest.fn().mockResolvedValue({ executeSpec: false, vampireSpec: false }),
+          update: txUpdate,
+        },
+      }),
+    );
+
+    const u = await auth.specialize(1, 'execute');
+    expect(u.character?.executeSpec).toBe(true);
+    expect(txUpdate).toHaveBeenCalledWith(
+      expect.objectContaining({ data: { executeSpec: true } }),
+    );
+  });
+
+  it('specialize：已激活 → 409；金币/材料不足 → 409', async () => {
+    (prisma.userCharacter.findUnique as jest.Mock).mockResolvedValue({
+      userId: 1, level: 1, hpLv: 3, atkLv: 3, defLv: 3, executeSpec: true, vampireSpec: false,
+    });
+    await expect(auth.specialize(1, 'execute')).rejects.toThrow(ConflictException);
+
+    (prisma.userCharacter.findUnique as jest.Mock).mockResolvedValue({
+      userId: 1, level: 1, hpLv: 3, atkLv: 3, defLv: 3, executeSpec: false, vampireSpec: false,
+    });
+    (prisma.material.findUnique as jest.Mock).mockResolvedValue({ id: 9, code: 'essence_3', tier: 3 });
+    (prisma.$transaction as jest.Mock).mockImplementation(async (fn) =>
+      fn({
+        user: { updateMany: jest.fn().mockResolvedValue({ count: 0 }) },
+        userMaterial: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+        userCharacter: {
+          findUnique: jest.fn().mockResolvedValue({ executeSpec: false, vampireSpec: false }),
+          update: jest.fn(),
+        },
+      }),
+    );
+    await expect(auth.specialize(1, 'execute')).rejects.toThrow(ConflictException);
   });
 });

@@ -1,0 +1,402 @@
+[
+  {
+    "text": "goat",
+    "mnemonic": "goat=山羊，mountain goat山羊"
+  },
+  {
+    "text": "thirsty",
+    "mnemonic": "thirst渴+y，thirsty口渴的"
+  },
+  {
+    "text": "poem",
+    "mnemonic": "poem=诗，poet诗人"
+  },
+  {
+    "text": "arise",
+    "mnemonic": "a+rise升起，arise出现产生"
+  },
+  {
+    "text": "siren",
+    "mnemonic": "siren=汽笛/警报，警笛鸣响"
+  },
+  {
+    "text": "argument",
+    "mnemonic": "argue争论+ment，argument论据"
+  },
+  {
+    "text": "justice",
+    "mnemonic": "just公正+ice，justice正义"
+  },
+  {
+    "text": "call",
+    "mnemonic": "call=叫/打电话，call me打电话"
+  },
+  {
+    "text": "bird",
+    "mnemonic": "bird=鸟，birds在天空飞"
+  },
+  {
+    "text": "academy",
+    "mnemonic": "academy=学院，Academy Awards奥斯卡"
+  },
+  {
+    "text": "together",
+    "mnemonic": "to+get+her，together聚在一起"
+  },
+  {
+    "text": "jealous",
+    "mnemonic": "jealous=嫉妒的，be jealous眼红"
+  },
+  {
+    "text": "politics",
+    "mnemonic": "politic+ics，politics政治"
+  },
+  {
+    "text": "hatred",
+    "mnemonic": "hate恨变hatred，憎恨"
+  },
+  {
+    "text": "bible",
+    "mnemonic": "Bible源自biblia书卷，圣典"
+  },
+  {
+    "text": "secret",
+    "mnemonic": "secret=秘密，keep a secret保密"
+  },
+  {
+    "text": "typical",
+    "mnemonic": "type类型变typical，典型的"
+  },
+  {
+    "text": "method",
+    "mnemonic": "method=方法，teaching method教学法"
+  },
+  {
+    "text": "different",
+    "mnemonic": "differ不同+ent，different不同的"
+  },
+  {
+    "text": "neat",
+    "mnemonic": "neat=整洁的，干净利落"
+  },
+  {
+    "text": "disaster",
+    "mnemonic": "dis+aster星，disaster灾星降临"
+  },
+  {
+    "text": "easily",
+    "mnemonic": "easy容易变easily，容易地"
+  },
+  {
+    "text": "lie",
+    "mnemonic": "lie=躺/说谎，tell a lie说谎"
+  },
+  {
+    "text": "prove",
+    "mnemonic": "prove=证明，proof是名词证据"
+  },
+  {
+    "text": "map",
+    "mnemonic": "map=地图，look at the map看地图"
+  },
+  {
+    "text": "helpful",
+    "mnemonic": "help帮助+ful，helpful有益的"
+  },
+  {
+    "text": "favor",
+    "mnemonic": "favor=好感/帮忙，do a favor帮忙"
+  },
+  {
+    "text": "tale",
+    "mnemonic": "tale=故事，fairy tale童话"
+  },
+  {
+    "text": "found",
+    "mnemonic": "found=建立，foundation基础"
+  },
+  {
+    "text": "loyalty",
+    "mnemonic": "loyal忠诚+ty，loyalty忠心"
+  },
+  {
+    "text": "ceremony",
+    "mnemonic": "ceremony=典礼，opening ceremony开幕式"
+  },
+  {
+    "text": "whole",
+    "mnemonic": "whole=整个的，the whole world全世界"
+  },
+  {
+    "text": "shortly",
+    "mnemonic": "short短+ly，shortly马上"
+  },
+  {
+    "text": "newspaper",
+    "mnemonic": "news新闻+paper纸，newspaper报纸"
+  },
+  {
+    "text": "grand",
+    "mnemonic": "grand=宏大的，grand plan宏伟计划"
+  },
+  {
+    "text": "please",
+    "mnemonic": "please=请/使高兴，pleased高兴"
+  },
+  {
+    "text": "disturb",
+    "mnemonic": "dis+turb搅动，disturb打扰"
+  },
+  {
+    "text": "fisher",
+    "mnemonic": "fish鱼+er人，fisher渔夫"
+  },
+  {
+    "text": "response",
+    "mnemonic": "respond回应变response，反应"
+  },
+  {
+    "text": "why",
+    "mnemonic": "why与what同源，问原因"
+  },
+  {
+    "text": "rarely",
+    "mnemonic": "rare稀少+ly，rarely很少"
+  },
+  {
+    "text": "political",
+    "mnemonic": "politics政治变political，政治的"
+  },
+  {
+    "text": "ugly",
+    "mnemonic": "ugly=丑陋的，与beautiful相对"
+  },
+  {
+    "text": "desk",
+    "mnemonic": "desk源自disc盘，盘状书桌"
+  },
+  {
+    "text": "somebody",
+    "mnemonic": "some+body身体，somebody某人"
+  },
+  {
+    "text": "future",
+    "mnemonic": "future=未来，in the future将来"
+  },
+  {
+    "text": "vase",
+    "mnemonic": "vase=花瓶，插花的瓶子"
+  },
+  {
+    "text": "milk",
+    "mnemonic": "milk源自挤，挤奶"
+  },
+  {
+    "text": "vain",
+    "mnemonic": "in vain徒劳，vain=徒劳/虚荣"
+  },
+  {
+    "text": "airport",
+    "mnemonic": "air空中+port港，airport机场"
+  },
+  {
+    "text": "calf",
+    "mnemonic": "calf=牛犊，c+alf；小腿calf同词"
+  },
+  {
+    "text": "man",
+    "mnemonic": "man源自人，human人类含man"
+  },
+  {
+    "text": "pray",
+    "mnemonic": "pray=祈祷，prayer祈祷"
+  },
+  {
+    "text": "topic",
+    "mnemonic": "topic=话题，discuss the topic议话题"
+  },
+  {
+    "text": "expect",
+    "mnemonic": "ex+spect看，expect期盼"
+  },
+  {
+    "text": "brutal",
+    "mnemonic": "brutal=残忍的，brute野兽"
+  },
+  {
+    "text": "intense",
+    "mnemonic": "in+tens伸展，intense强烈的"
+  },
+  {
+    "text": "awful",
+    "mnemonic": "awe敬畏+ful，awful糟糕可怕"
+  },
+  {
+    "text": "naval",
+    "mnemonic": "navy海军变naval，海军的"
+  },
+  {
+    "text": "operator",
+    "mnemonic": "operate操作+or人，operator操作员"
+  },
+  {
+    "text": "situation",
+    "mnemonic": "situate位于+ion，situation形势"
+  },
+  {
+    "text": "oath",
+    "mnemonic": "oath=誓言，swear an oath宣誓"
+  },
+  {
+    "text": "return",
+    "mnemonic": "re回+turn转，return返回"
+  },
+  {
+    "text": "beer",
+    "mnemonic": "beer源自大麦饮，麦芽酒"
+  },
+  {
+    "text": "vanity",
+    "mnemonic": "vain自负变vanity，虚荣"
+  },
+  {
+    "text": "office",
+    "mnemonic": "office=办公室，work in office办公"
+  },
+  {
+    "text": "versus",
+    "mnemonic": "versus=对抗，A vs B对阵"
+  },
+  {
+    "text": "jury",
+    "mnemonic": "jury源自jure发誓，宣誓陪审"
+  },
+  {
+    "text": "christ",
+    "mnemonic": "Christ=基督，Jesus Christ耶稣"
+  },
+  {
+    "text": "say",
+    "mnemonic": "say=说，say hello打招呼"
+  },
+  {
+    "text": "bulb",
+    "mnemonic": "bulb=灯泡，light bulb电灯泡"
+  },
+  {
+    "text": "dentist",
+    "mnemonic": "dent牙+ist人，dentist牙医"
+  },
+  {
+    "text": "jewelry",
+    "mnemonic": "jewel珠宝+ry，jewelry首饰"
+  },
+  {
+    "text": "payment",
+    "mnemonic": "pay付+ment，payment付款"
+  },
+  {
+    "text": "afford",
+    "mnemonic": "af+ford，afford买得起"
+  },
+  {
+    "text": "finish",
+    "mnemonic": "fin结束+ish，finish完成"
+  },
+  {
+    "text": "verdict",
+    "mnemonic": "verdict=ver真+dict说，说真话出裁决"
+  },
+  {
+    "text": "strong",
+    "mnemonic": "strong=强壮的，力量大"
+  },
+  {
+    "text": "nation",
+    "mnemonic": "nation=国家/民族，national国家的"
+  },
+  {
+    "text": "perfect",
+    "mnemonic": "per+fec做，perfect完美做成"
+  },
+  {
+    "text": "row",
+    "mnemonic": "row=一排，sit in a row坐一排"
+  },
+  {
+    "text": "distant",
+    "mnemonic": "dis分开+stant站，distant遥远"
+  },
+  {
+    "text": "thorn",
+    "mnemonic": "thorn=刺，玫瑰的刺"
+  },
+  {
+    "text": "begin",
+    "mnemonic": "begin=开始，beginning开头"
+  },
+  {
+    "text": "concept",
+    "mnemonic": "con+cept拿，concept概念"
+  },
+  {
+    "text": "lovely",
+    "mnemonic": "love爱+ly，lovely可爱的"
+  },
+  {
+    "text": "alone",
+    "mnemonic": "a+one+lone，alone独自"
+  },
+  {
+    "text": "pint",
+    "mnemonic": "pint源自画线刻度，一品脱"
+  },
+  {
+    "text": "clearly",
+    "mnemonic": "clear清晰+ly，clearly明确地"
+  },
+  {
+    "text": "temple",
+    "mnemonic": "temple源自占卜区，寺庙；太阳穴如神殿"
+  },
+  {
+    "text": "closely",
+    "mnemonic": "close近+ly，closely紧密地"
+  },
+  {
+    "text": "activity",
+    "mnemonic": "active活跃变activity，活动"
+  },
+  {
+    "text": "customer",
+    "mnemonic": "custom习惯+er人，customer顾客"
+  },
+  {
+    "text": "steak",
+    "mnemonic": "steak=牛排，煎烤的肉排"
+  },
+  {
+    "text": "studio",
+    "mnemonic": "studio源自stud学习，学艺工作室"
+  },
+  {
+    "text": "dangerous",
+    "mnemonic": "danger危险+ous，dangerous危险"
+  },
+  {
+    "text": "around",
+    "mnemonic": "a+round圆，around在周围"
+  },
+  {
+    "text": "amid",
+    "mnemonic": "amid=在…之中，mid中间"
+  },
+  {
+    "text": "expose",
+    "mnemonic": "ex外+pose放，expose暴露"
+  },
+  {
+    "text": "strict",
+    "mnemonic": "strict=严格的，be strict with严于"
+  }
+]

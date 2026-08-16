@@ -15,17 +15,18 @@ import * as bcrypt from 'bcryptjs';
 import * as crypto from 'node:crypto';
 import { Prisma } from '@prisma/client';
 import type { AuthTokens, AuthUser } from '@word-journey/shared';
-import { STRENGTHEN_COST } from '@word-journey/shared';
+import { SPECIALIZE, STRENGTHEN_COST, type SpecializeKind } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 
 const BCRYPT_ROUNDS = 10;
 const LOGIN_MAX_FAILS = 10;
+const LOGIN_MAX_FAILS_PER_IP = 30;
 const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 const FAIL_CLEANUP_INTERVAL_MS = 5 * 60 * 1000;
 
 @Injectable()
 export class AuthService implements OnModuleInit, OnModuleDestroy {
-  // 进程内登录失败计数（单实例足够；多实例需换 Redis，v1.1）
+  // 进程内登录失败计数（用户名+IP 双维度：防用户名枚举 DoS，防单点爆破；多实例需换 Redis，v1.1）
   private readonly failTimes = new Map<string, number[]>();
   private cleanupTimer: ReturnType<typeof setInterval> | null = null;
 
@@ -75,13 +76,23 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
     id: number;
     username: string;
     coins: number;
-    character: { level: number; exp: number; hpLv: number; atkLv: number; defLv: number } | null;
+    isAdmin: boolean;
+    character: {
+      level: number;
+      exp: number;
+      hpLv: number;
+      atkLv: number;
+      defLv: number;
+      executeSpec: boolean;
+      vampireSpec: boolean;
+    } | null;
   }): AuthUser {
-    const { id, username, coins, character } = u;
+    const { id, username, coins, isAdmin, character } = u;
     return {
       id,
       username,
       coins,
+      isAdmin,
       character: character
         ? {
             level: character.level,
@@ -89,31 +100,49 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
             hpLv: character.hpLv,
             atkLv: character.atkLv,
             defLv: character.defLv,
+            executeSpec: character.executeSpec,
+            vampireSpec: character.vampireSpec,
           }
         : undefined,
     };
   }
 
-  // 登录限流：窗口内失败次数过多则锁定
-  private assertAllowed(username: string): void {
+  // 登录限流：用户名+IP 双维度，窗口内失败次数过多则锁定
+  private assertAllowed(username: string, ip: string): void {
     const now = Date.now();
-    const recent = (this.failTimes.get(username) ?? []).filter(
-      (t) => now - t < LOGIN_WINDOW_MS,
-    );
-    this.failTimes.set(username, recent);
-    if (recent.length >= LOGIN_MAX_FAILS) {
+    const prune = (key: string): void => {
+      const recent = (this.failTimes.get(key) ?? []).filter((t) => now - t < LOGIN_WINDOW_MS);
+      if (recent.length === 0) this.failTimes.delete(key);
+      else this.failTimes.set(key, recent);
+    };
+    const uk = this.userKey(username, ip);
+    prune(uk);
+    if ((this.failTimes.get(uk) ?? []).length >= LOGIN_MAX_FAILS) {
+      throw new HttpException('尝试次数过多，请 15 分钟后再试', HttpStatus.TOO_MANY_REQUESTS);
+    }
+    const ik = this.ipKey(ip);
+    prune(ik);
+    if ((this.failTimes.get(ik) ?? []).length >= LOGIN_MAX_FAILS_PER_IP) {
       throw new HttpException('尝试次数过多，请 15 分钟后再试', HttpStatus.TOO_MANY_REQUESTS);
     }
   }
 
-  private recordFail(username: string): void {
-    const list = this.failTimes.get(username) ?? [];
-    list.push(Date.now());
-    this.failTimes.set(username, list);
+  private userKey(username: string, ip: string): string {
+    return `${username}|${ip || 'unknown'}`;
   }
 
-  private clearFails(username: string): void {
-    this.failTimes.delete(username);
+  private ipKey(ip: string): string {
+    return `ip:${ip || 'unknown'}`;
+  }
+
+  private recordFail(key: string): void {
+    const list = this.failTimes.get(key) ?? [];
+    list.push(Date.now());
+    this.failTimes.set(key, list);
+  }
+
+  private clearFails(key: string): void {
+    this.failTimes.delete(key);
   }
 
   async register(username: string, password: string): Promise<AuthTokens & { user: AuthUser }> {
@@ -141,22 +170,21 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
     }
   }
 
-  async login(username: string, password: string): Promise<AuthTokens & { user: AuthUser }> {
-    this.assertAllowed(username);
-    // 先记录失败（防止并发竞态），成功时清除
-    this.recordFail(username);
+  async login(username: string, password: string, ip = ''): Promise<AuthTokens & { user: AuthUser }> {
+    this.assertAllowed(username, ip);
+    // 先记录用户名维度失败（防止并发竞态），成功时清除
+    this.recordFail(this.userKey(username, ip));
     const user = await this.prisma.user.findUnique({
       where: { username },
       include: { character: true },
     });
-    if (!user) {
+    const ok = user ? await bcrypt.compare(password, user.passwordHash) : false;
+    if (!user || !ok) {
+      // IP 维度仅在真失败时累计：防跨用户名爆破 / 用户名枚举
+      this.recordFail(this.ipKey(ip));
       throw new UnauthorizedException('用户名或密码错误');
     }
-    const ok = await bcrypt.compare(password, user.passwordHash);
-    if (!ok) {
-      throw new UnauthorizedException('用户名或密码错误');
-    }
-    this.clearFails(username);
+    this.clearFails(this.userKey(username, ip));
     return {
       user: this.toAuthUser(user),
       accessToken: this.signAccess(user.id, user.username),
@@ -254,6 +282,45 @@ export class AuthService implements OnModuleInit, OnModuleDestroy {
       await tx.userCharacter.update({
         where: { userId },
         data: { [field]: { increment: 1 } },
+      });
+    });
+
+    return this.me(userId);
+  }
+
+  // 角色特化：消耗高阶材料（tier3）+ 金币，一次点亮（幂等：已点亮 → 400）
+  async specialize(userId: number, spec: SpecializeKind): Promise<AuthUser> {
+    const cost = SPECIALIZE[spec];
+    const character = await this.prisma.userCharacter.findUnique({ where: { userId } });
+    if (!character) throw new BadRequestException('角色未初始化');
+
+    const field = spec === 'execute' ? 'executeSpec' : 'vampireSpec';
+    if (character[field]) throw new ConflictException('该特化已激活');
+
+    const material = await this.prisma.material.findUnique({
+      where: { code: `essence_${cost.materialTier}` },
+    });
+    if (!material) throw new ConflictException('所需材料不存在');
+
+    await this.prisma.$transaction(async (tx) => {
+      const coin = await tx.user.updateMany({
+        where: { id: userId, coins: { gte: cost.coins } },
+        data: { coins: { decrement: cost.coins } },
+      });
+      if (coin.count === 0) throw new ConflictException('金币不足');
+
+      const mat = await tx.userMaterial.updateMany({
+        where: { userId, materialId: material.id, count: { gte: cost.materialCount } },
+        data: { count: { decrement: cost.materialCount } },
+      });
+      if (mat.count === 0) throw new ConflictException(`材料不足：${cost.materialCount}× ${material.code}`);
+
+      // 事务内二次校验：仍可并发点亮同一特化（乐观锁语义：计数校验覆盖）
+      const latest = await tx.userCharacter.findUnique({ where: { userId } });
+      if (!latest || latest[field]) throw new ConflictException('该特化已激活');
+      await tx.userCharacter.update({
+        where: { userId },
+        data: { [field]: true },
       });
     });
 

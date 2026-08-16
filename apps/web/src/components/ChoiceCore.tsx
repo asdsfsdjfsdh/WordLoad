@@ -5,7 +5,7 @@ import type { FoilOption, GameMode, Question } from '@word-journey/shared';
 import { getTts } from '../lib/tts';
 import { useIsTouch } from '../lib/touch';
 import { pickOptions, type ChoiceOption } from '../lib/choices';
-import { playComboSound, playCorrectSound, playWrongSound } from '../lib/sfx';
+import { playComboSound, playComboTick, playCorrectSound, playWrongSound } from '../lib/sfx';
 import type { AnswerRecord } from './TypingCore';
 
 interface Props {
@@ -15,11 +15,15 @@ interface Props {
   onComplete: (answers: AnswerRecord[]) => void;
   // 每次判定后通知外层（驱动战斗层攻击/受击）
   onJudged?: (r: { correct: boolean; combo: number; seq: number; typed: string }) => void;
+  // 答错 → 冻结全局怪物（选中文模式答错停留期内全局冰冻）
+  onFreeze?: (frozen: boolean) => void;
   // 外部强制提前结束（如我方 HP 归零）→ 立即提交当前已答
   forceFinish?: boolean;
   // 战斗结束/失败后锁定输入
   locked?: boolean;
   onPressedChange?: (keys: string) => void;
+  // 局内全局连击初值（生存 Run 跨波累计传入；普通战斗默认 0）
+  initialCombo?: number;
 }
 
 interface Chosen {
@@ -27,15 +31,15 @@ interface Chosen {
   correct: boolean;
 }
 
-export function ChoiceCore({ questions, mode, foilPool, onComplete, onJudged, forceFinish, locked, onPressedChange }: Props) {
+export function ChoiceCore({ questions, mode, foilPool, onComplete, onJudged, onFreeze, forceFinish, locked, onPressedChange, initialCombo = 0 }: Props) {
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState<Chosen | null>(null);
-  const [combo, setCombo] = useState(0);
+  const [combo, setCombo] = useState(initialCombo);
   const startedAt = useRef(Date.now());
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const handlerRef = useRef<(e: KeyboardEvent) => void>(() => undefined);
   const answeredRef = useRef<AnswerRecord[]>([]);
-  const comboRef = useRef(0);
+  const comboRef = useRef(initialCombo);
   const finishedRef = useRef(false);
   const isTouch = useIsTouch();
 
@@ -46,32 +50,42 @@ export function ChoiceCore({ questions, mode, foilPool, onComplete, onJudged, fo
     [index, questions, foilPool],
   );
 
-  // 切题：重置状态 + 首次展示自动发音
+  // 切题：重置状态 + 首次展示自动发音 + 解冻（防冻结状态泄漏）
   useEffect(() => {
     clearTimeout(timerRef.current);
     setChosen(null);
+    onFreeze?.(false);
     startedAt.current = Date.now();
     onPressedChange?.('');
     if (q) getTts().speak(q.answer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, mode]);
 
-  useEffect(() => () => clearTimeout(timerRef.current), []);
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerRef.current);
+      onFreeze?.(false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // 外部强制结束（HP 归零）→ 提交当前已答
   useEffect(() => {
     if (forceFinish && !finishedRef.current) {
       finishedRef.current = true;
       clearTimeout(timerRef.current);
+      onFreeze?.(false);
       onComplete(answeredRef.current);
     }
   }, [forceFinish, onComplete]);
 
   const advance = () => {
     if (index + 1 < questions.length) {
+      onFreeze?.(false);
       setIndex(index + 1);
     } else if (!finishedRef.current) {
       finishedRef.current = true;
+      onFreeze?.(false);
       onComplete(answeredRef.current);
     }
   };
@@ -79,6 +93,8 @@ export function ChoiceCore({ questions, mode, foilPool, onComplete, onJudged, fo
   const choose = (opt: ChoiceOption) => {
     if (!q || !options.length) return;
     if (locked || finishedRef.current || chosen) return;
+    // 同 seq 防重复判定：chosen 是异步 state，同一事件循环内连点/点选+快捷键会双判
+    if (answeredRef.current.some((r) => r.seq === q.seq)) return;
     const correct = opt.text === q.answer;
     getTts().stop();
     const elapsedMs = Date.now() - startedAt.current;
@@ -88,13 +104,19 @@ export function ChoiceCore({ questions, mode, foilPool, onComplete, onJudged, fo
     if (correct) playCorrectSound();
     else playWrongSound();
     if (correct && comboRef.current >= 3) playComboSound(comboRef.current);
+    else if (correct && comboRef.current >= 1) playComboTick(comboRef.current);
     onJudged?.({ correct, combo: comboRef.current, seq: q.seq, typed: opt.text });
     setChosen({ opt, correct });
     clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      setChosen(null);
-      advance();
-    }, correct ? 450 : 700);
+    // 答对：短暂反馈 850ms 后自动进下一题；答错：冻结怪物并展示正确答案，由用户点击"下一题"按钮进入
+    if (!correct) {
+      onFreeze?.(true);
+    } else {
+      timerRef.current = setTimeout(() => {
+        setChosen(null);
+        advance();
+      }, 850);
+    }
   };
 
   const handleKey = (e: KeyboardEvent) => {
@@ -193,6 +215,8 @@ export function ChoiceCore({ questions, mode, foilPool, onComplete, onJudged, fo
       <div className="grid w-full max-w-md grid-cols-1 gap-2.5 sm:grid-cols-2">
         {options.map((opt, i) => {
           const shown = i + 1;
+          // 答错揭示态：在每个选项下显示对应英文词，非正确答案标红
+          const revealWrong = chosen !== null && !chosen.correct;
           return (
             <button
               key={`${opt.text}-${opt.meaning}`}
@@ -204,18 +228,41 @@ export function ChoiceCore({ questions, mode, foilPool, onComplete, onJudged, fo
                 {shown}
               </span>
               {opt.meaning}
+              {revealWrong && (
+                <span
+                  className={`mt-0.5 block pl-7 text-xs font-semibold ${
+                    opt.text === q.answer ? 'text-emerald-300' : 'text-red-400'
+                  }`}
+                >
+                  {opt.text === q.answer ? '✓ ' : '✗ '}{opt.text}
+                </span>
+              )}
+              {revealWrong && opt.text === chosen.opt.text && opt.meanings && opt.meanings.length > 0 && (
+                <span className="mt-1 block pl-7 text-[11px] leading-snug text-slate-300">
+                  释义：{opt.meanings.join('；')}
+                </span>
+              )}
             </button>
           );
         })}
       </div>
 
       {/* 反馈 */}
-      <div className="h-6 text-center text-sm">
+      <div className="flex min-h-6 flex-col items-center justify-center text-center text-sm">
         {chosen?.correct && <span className="text-lg font-semibold text-emerald-400">✓ 正确</span>}
         {chosen && !chosen.correct && (
-          <span className="text-lg font-semibold text-red-400">
-            ✗ 答案：{correctOpt.text} {correctOpt.meaning}
-          </span>
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-lg font-semibold text-red-400">
+              ✗ 答案：{correctOpt.text} {correctOpt.meaning}
+            </span>
+            <button
+              onClick={() => advance()}
+              disabled={locked || finishedRef.current}
+              className="rounded-lg border border-cyan-500/60 bg-cyan-950/40 px-4 py-1.5 text-sm font-semibold text-cyan-300 transition hover:bg-cyan-900/50 hover:text-cyan-200 disabled:opacity-40"
+            >
+              下一题 →
+            </button>
+          </div>
         )}
       </div>
     </div>

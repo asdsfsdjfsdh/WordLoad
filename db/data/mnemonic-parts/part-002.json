@@ -1,0 +1,402 @@
+[
+  {
+    "text": "angry",
+    "mnemonic": "ang+ry，气得'昂'头，愤怒的"
+  },
+  {
+    "text": "window",
+    "mnemonic": "wind风+ow，window窗户迎风开"
+  },
+  {
+    "text": "eve",
+    "mnemonic": "eve前夕，Christmas Eve圣诞前夜"
+  },
+  {
+    "text": "way",
+    "mnemonic": "way道路，on the way在路上"
+  },
+  {
+    "text": "river",
+    "mnemonic": "river=河，黄河river奔流"
+  },
+  {
+    "text": "probably",
+    "mnemonic": "prob证明+ably，probably大概"
+  },
+  {
+    "text": "able",
+    "mnemonic": "able能，be able to能够做"
+  },
+  {
+    "text": "company",
+    "mnemonic": "com共同+pan+any，company一起作伴的公司"
+  },
+  {
+    "text": "hair",
+    "mnemonic": "hair=头发，haircut理发"
+  },
+  {
+    "text": "system",
+    "mnemonic": "sys+tem，system系统"
+  },
+  {
+    "text": "during",
+    "mnemonic": "dur持续+ing，during在…期间"
+  },
+  {
+    "text": "shirt",
+    "mnemonic": "skirt裙子变k成h成shirt，衬衫"
+  },
+  {
+    "text": "god",
+    "mnemonic": "god上帝，倒过来dog狗，人敬神"
+  },
+  {
+    "text": "record",
+    "mnemonic": "re再+cord心，record记下留心中"
+  },
+  {
+    "text": "sorry",
+    "mnemonic": "sorry对不起，道歉的话'扫瑞'"
+  },
+  {
+    "text": "bow",
+    "mnemonic": "bow弓/鞠躬，行礼弯腰"
+  },
+  {
+    "text": "unit",
+    "mnemonic": "uni一+t，unit统一的一单位"
+  },
+  {
+    "text": "lawyer",
+    "mnemonic": "law法律+yer人，lawyer律师"
+  },
+  {
+    "text": "entire",
+    "mnemonic": "en进入+tire拉满，entire整个的"
+  },
+  {
+    "text": "hungry",
+    "mnemonic": "hunger饿变hungry，饥饿的"
+  },
+  {
+    "text": "know",
+    "mnemonic": "k不发音+now，know知道现在"
+  },
+  {
+    "text": "just",
+    "mnemonic": "just正好/刚，just now刚刚"
+  },
+  {
+    "text": "night",
+    "mnemonic": "night=夜晚，knight骑士夜里守卫"
+  },
+  {
+    "text": "death",
+    "mnemonic": "dead死变th，death死亡"
+  },
+  {
+    "text": "honest",
+    "mnemonic": "hon荣誉+est，honest诚实得荣"
+  },
+  {
+    "text": "new",
+    "mnemonic": "new=新，news新闻有新事"
+  },
+  {
+    "text": "old",
+    "mnemonic": "old=老，age变old上年纪"
+  },
+  {
+    "text": "yard",
+    "mnemonic": "yard=院子，后院yard量码"
+  },
+  {
+    "text": "want",
+    "mnemonic": "want=想要，want to去想做"
+  },
+  {
+    "text": "speak",
+    "mnemonic": "speak=说，speak English说英语"
+  },
+  {
+    "text": "prison",
+    "mnemonic": "pris抓+on，prison抓进去的监狱"
+  },
+  {
+    "text": "because",
+    "mnemonic": "be+cause原因，because因为"
+  },
+  {
+    "text": "careful",
+    "mnemonic": "care小心+ful满，careful仔细"
+  },
+  {
+    "text": "yours",
+    "mnemonic": "your你的+s，yours你的"
+  },
+  {
+    "text": "everybody",
+    "mnemonic": "every每+body身体，everybody每个人"
+  },
+  {
+    "text": "madam",
+    "mnemonic": "madam=女士，尊称Madam"
+  },
+  {
+    "text": "ahead",
+    "mnemonic": "a+head头，ahead在前面带头"
+  },
+  {
+    "text": "chest",
+    "mnemonic": "chest=胸/箱，胸腔像箱子"
+  },
+  {
+    "text": "may",
+    "mnemonic": "may可以，May五月可生长"
+  },
+  {
+    "text": "naked",
+    "mnemonic": "naked与nude裸同源，光着身子"
+  },
+  {
+    "text": "sea",
+    "mnemonic": "sea=海，seaside海边"
+  },
+  {
+    "text": "colonel",
+    "mnemonic": "colonel上校，读'克纳'，军官"
+  },
+  {
+    "text": "then",
+    "mnemonic": "then=那时，the+n那会儿"
+  },
+  {
+    "text": "everything",
+    "mnemonic": "every每+thing事物，everything一切"
+  },
+  {
+    "text": "aware",
+    "mnemonic": "a+ware注意，aware察觉"
+  },
+  {
+    "text": "try",
+    "mnemonic": "try=尝试，try to试做"
+  },
+  {
+    "text": "hardly",
+    "mnemonic": "hard难+ly，hardly几乎不"
+  },
+  {
+    "text": "very",
+    "mnemonic": "very=非常，very good非常好"
+  },
+  {
+    "text": "path",
+    "mnemonic": "path=小路，pathway路径"
+  },
+  {
+    "text": "dirt",
+    "mnemonic": "dirt=泥土，dirty脏的来自dirt"
+  },
+  {
+    "text": "sword",
+    "mnemonic": "sword剑，s+word，用剑写词"
+  },
+  {
+    "text": "history",
+    "mnemonic": "his他的+story故事，history他的故事成历史"
+  },
+  {
+    "text": "sure",
+    "mnemonic": "sure=确定，be sure确定"
+  },
+  {
+    "text": "camera",
+    "mnemonic": "camera=相机，开拍camera"
+  },
+  {
+    "text": "enter",
+    "mnemonic": "enter=进入，enter the room进屋"
+  },
+  {
+    "text": "gym",
+    "mnemonic": "gym=健身房，gymnasium缩写"
+  },
+  {
+    "text": "herself",
+    "mnemonic": "her+self自己，herself她自己"
+  },
+  {
+    "text": "navy",
+    "mnemonic": "nav船+y，navy海军开军舰"
+  },
+  {
+    "text": "data",
+    "mnemonic": "data=数据，data base数据库"
+  },
+  {
+    "text": "truly",
+    "mnemonic": "true真变truly，真正地"
+  },
+  {
+    "text": "simply",
+    "mnemonic": "simple简单变simply，简单地"
+  },
+  {
+    "text": "memory",
+    "mnemonic": "mem记住+ory，memory记忆"
+  },
+  {
+    "text": "yet",
+    "mnemonic": "yet=还，not yet还没呢"
+  },
+  {
+    "text": "too",
+    "mnemonic": "too=也/太，me too我也是"
+  },
+  {
+    "text": "shall",
+    "mnemonic": "shall=将要，shall we一起去"
+  },
+  {
+    "text": "afraid",
+    "mnemonic": "afraid=害怕，be afraid of怕"
+  },
+  {
+    "text": "nature",
+    "mnemonic": "nat生+ure，nature天生的自然"
+  },
+  {
+    "text": "talk",
+    "mnemonic": "talk=说话，talk to跟人说"
+  },
+  {
+    "text": "anyone",
+    "mnemonic": "any任何+one人，anyone任何人"
+  },
+  {
+    "text": "radar",
+    "mnemonic": "radar雷达，正反读同，扫描"
+  },
+  {
+    "text": "find",
+    "mnemonic": "find=找到，found是过去式"
+  },
+  {
+    "text": "itself",
+    "mnemonic": "it它+self自己，itself它自己"
+  },
+  {
+    "text": "cute",
+    "mnemonic": "cute=可爱，cute baby可爱宝宝"
+  },
+  {
+    "text": "than",
+    "mnemonic": "than=比，bigger than比他大"
+  },
+  {
+    "text": "mayor",
+    "mnemonic": "mayor=市长，may+or选市长"
+  },
+  {
+    "text": "away",
+    "mnemonic": "a+way路，away走远离开"
+  },
+  {
+    "text": "hospital",
+    "mnemonic": "hospital=医院，hospitalize住院"
+  },
+  {
+    "text": "lad",
+    "mnemonic": "lad少年，laddie小伙子"
+  },
+  {
+    "text": "important",
+    "mnemonic": "im进入+port港口+ant，要货进港"
+  },
+  {
+    "text": "write",
+    "mnemonic": "write=写，w不发音，writer作家"
+  },
+  {
+    "text": "happy",
+    "mnemonic": "happy=快乐，happiness幸福"
+  },
+  {
+    "text": "mercy",
+    "mnemonic": "mercy=怜悯，have mercy发慈悲"
+  },
+  {
+    "text": "me",
+    "mnemonic": "me=我（宾格），look at me看我"
+  },
+  {
+    "text": "lately",
+    "mnemonic": "late晚+ly，lately最近"
+  },
+  {
+    "text": "deny",
+    "mnemonic": "deny=否认，抵赖拒不承认"
+  },
+  {
+    "text": "uncle",
+    "mnemonic": "uncle=叔叔，Uncle Sam山姆大叔"
+  },
+  {
+    "text": "victim",
+    "mnemonic": "victim=受害者，被害的人"
+  },
+  {
+    "text": "driver",
+    "mnemonic": "drive驾驶+er人，driver司机"
+  },
+  {
+    "text": "friday",
+    "mnemonic": "fri+day，Friday星期五"
+  },
+  {
+    "text": "danger",
+    "mnemonic": "danger=危险，dangerous危险的"
+  },
+  {
+    "text": "end",
+    "mnemonic": "end=结束，in the end最后"
+  },
+  {
+    "text": "sometimes",
+    "mnemonic": "some+time+s，sometimes有时"
+  },
+  {
+    "text": "aunt",
+    "mnemonic": "aunt与uncle叔婶相对，阿姨姑妈"
+  },
+  {
+    "text": "protect",
+    "mnemonic": "pro向前+tect盖，protect遮挡保护"
+  },
+  {
+    "text": "movie",
+    "mnemonic": "movie=电影，moving画面动起来"
+  },
+  {
+    "text": "belong",
+    "mnemonic": "be+long长，belong属于长久"
+  },
+  {
+    "text": "kind",
+    "mnemonic": "kind=种类/善良，humanity之善"
+  },
+  {
+    "text": "exist",
+    "mnemonic": "ex外+sist站，exist存在站外"
+  },
+  {
+    "text": "sunday",
+    "mnemonic": "sun太阳+day日，Sunday星期天"
+  },
+  {
+    "text": "area",
+    "mnemonic": "area=地区，这片area区域"
+  }
+]

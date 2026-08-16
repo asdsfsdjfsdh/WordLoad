@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams, Link } from 'react-router-dom';
 import type { FoilOption, GameMode, LevelWord, SessionFinish } from '@word-journey/shared';
 import { api, loadAuth, API_BASE } from '../lib/api';
 import { TypingCore, MiniKeyboard, type AnswerRecord } from '../components/TypingCore';
@@ -26,7 +26,12 @@ export function BattlePage() {
     stageId: string;
   }>();
   const location = useLocation();
-  const routeState = location.state as { mode?: GameMode; size?: number; review?: boolean } | null;
+  const routeState = location.state as {
+    mode?: GameMode | 'review' | 'learn';
+    size?: number;
+    review?: boolean;
+    wordIds?: string[]; // 图鉴弱词复习：精确指定词集
+  } | null;
   const navigate = useNavigate();
   const [phase, setPhase] = useState<Phase>('mode');
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -36,7 +41,6 @@ export function BattlePage() {
     const m = routeState?.mode;
     return m === 'zh2en' || m === 'dictation' || m === 'choice' ? m : 'zh2en';
   });
-  const [survival, setSurvival] = useState(false);
   const [size] = useState<number>(routeState?.size ?? 20);
   const [error, setError] = useState('');
   const [forceFinish, setForceFinish] = useState(false);
@@ -146,12 +150,13 @@ export function BattlePage() {
     onError: (e) => setError(e instanceof Error ? e.message : '创建会话失败'),
   });
 
-  // 复习模式：直接创建复习会话，跳过模式选择和预习
+  // 复习模式：直接创建复习会话，跳过模式选择和预习（图鉴弱词复习可携带 wordIds 指定词集）
   const createReview = useMutation({
     mutationFn: async () => {
       const r = await api.post<CreateSessionResult>('/sessions/review', {
         bankCode,
         size: routeState?.size ?? 30,
+        wordIds: routeState?.wordIds,
       });
       setSessionId(r.sessionId);
       setQuestions(r.plan.session.questions);
@@ -161,7 +166,7 @@ export function BattlePage() {
     onError: (e) => setError(e instanceof Error ? e.message : '创建复习会话失败'),
   });
 
-  const isReviewMode = routeState?.review === true;
+  const isReviewMode = routeState?.mode === 'review' || routeState?.review === true;
 
   // 复习模式自动启动
   useEffect(() => {
@@ -323,18 +328,26 @@ export function BattlePage() {
   }
 
   if (phase === 'mode') {
+    const backTo = Number(stageId) >= 100
+      ? `/bank/${bankCode}/regions/${Math.floor(Number(stageId) / 100)}/levels`
+      : `/bank/${bankCode}/stages`;
     return (
       <div className="flex h-dvh items-center justify-center overflow-hidden bg-slate-950 px-4">
         <div className="max-h-full w-full max-w-md overflow-y-auto rounded-2xl border border-cyan-500/30 bg-slate-900/80 p-8 shadow-[0_0_30px_rgba(6,182,212,0.15)] backdrop-blur-sm">
+          <Link to={backTo} className="mb-4 inline-block text-sm text-slate-400 transition hover:text-cyan-400">
+            ← 返回地图
+          </Link>
           <div className="mb-8 text-center">
             <h1
               className="text-5xl font-black tracking-wider text-cyan-300"
               style={{ textShadow: '0 0 20px rgba(6,182,212,0.6)' }}
             >
-              阶段 {stageId}
+              {Number(stageId) >= 100 ? `Unit ${Number(stageId) % 100}` : `阶段 ${stageId}`}
             </h1>
             <p className="mt-2 text-sm text-slate-400">
-              本局 {size} 词 · 预计 {size * 0.2}分钟
+              {Number(stageId) >= 100
+                ? 'Unit 肉鸽 Run · 全词掌握触发 Final Boss · 失败保留已掌握'
+                : `本局 ${size} 词 · 预计 ${size * 0.2}分钟`}
             </p>
           </div>
 
@@ -380,46 +393,14 @@ export function BattlePage() {
             </button>
           </div>
 
-          {/* 生存 Run：叠加开关，开启后出战进入无限生存模式 */}
+          {/* 红宝书（hierarchical，stage≥100）：Unit 肉鸽 Run，直接进入 RunFlow */}
           <button
-            onClick={() => setSurvival((v) => !v)}
-            className={`mb-6 flex w-full items-center gap-3 rounded-xl border p-3.5 text-left transition-all ${
-              survival
-                ? 'border-amber-400 bg-amber-950/60 shadow-[0_0_15px_rgba(245,158,11,0.3)]'
-                : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
-            }`}
-          >
-            <span className="text-2xl">⚔️</span>
-            <div className="flex-1">
-              <div className={`text-sm font-bold ${survival ? 'text-amber-300' : 'text-slate-100'}`}>
-                生存 Run <span className={survival ? 'text-amber-300' : 'text-slate-500'}>● 已开启</span>
-              </div>
-              <div className="text-[11px] leading-tight text-slate-400">
-                无限波 · 每天三选一增益 · 首领战 · 可收枪，已开 Run 自动续
-              </div>
-            </div>
-            <span className={`text-xl ${survival ? 'text-amber-400' : 'text-slate-600'}`}>
-              {survival ? '✓' : '○'}
-            </span>
-          </button>
-
-          {voice.usable !== true && (
-            <p className="mb-6 flex items-start gap-1.5 text-xs text-amber-400">
-              <span className="mt-0.5 shrink-0">ℹ</span>
-              <span>{voice.reason ?? '正在检测语音支持…'}，听写模式暂不可用</span>
-            </p>
-          )}
-
-          <button
-            onClick={() => { if (survival) { setError(''); setPhase('run'); } else { setPhase('learn'); } }}
+            onClick={() => { setError(''); if (Number(stageId) >= 100) { setPhase('run'); } else { setPhase('learn'); } }}
             disabled={cannotFight}
             className="w-full rounded-xl bg-cyan-500 py-3.5 text-base font-bold text-slate-950 transition-all hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] disabled:opacity-40 disabled:hover:shadow-none"
           >
-            {survival ? '开始生存 Run ⚔️' : '出战'}
+            出战
           </button>
-          {survival && (
-            <p className="mt-2 text-center text-xs text-amber-400/80">将优先续接未完成的上一个生存 Run</p>
-          )}
           {error && <p className="mt-3 text-center text-sm text-red-400">{error}</p>}
         </div>
       </div>
@@ -472,7 +453,7 @@ export function BattlePage() {
     }
 
     return (
-      <div className="flex min-h-screen flex-col bg-slate-950">
+      <div className="flex h-dvh flex-col overflow-hidden bg-slate-950">
         <div className="sticky top-0 z-10 border-b border-slate-800 bg-slate-950/95 px-6 py-4 backdrop-blur-sm">
           <div className="mx-auto flex max-w-2xl items-center justify-between">
             <div>
@@ -516,7 +497,7 @@ export function BattlePage() {
           {wordsQuery.isLoading ? (
             <p className="text-center text-sm text-slate-500">加载中…</p>
           ) : learnView === 'flashcard' ? (
-            <FlashCard words={previewWords} skippedWords={skippedWords} onSkip={skipWord} />
+            <FlashCard words={previewWords} skippedWords={skippedWords} onSkip={skipWord} mode={mode} />
           ) : (
             <div className="mx-auto max-w-2xl space-y-2">
               {displayWords.map((w) => {
@@ -597,12 +578,9 @@ export function BattlePage() {
     const maxHp = 8 + (user?.character?.hpLv ?? 1) * 2;
     const isBoss = phase === 'boss';
     return (
-      <div className="animate-[fadeIn_0.3s_ease-out] fixed inset-0 overflow-hidden bg-slate-950 md:flex md:flex-col">
-        {/* 战场：移动端全屏铺底，桌面端固定 60vh */}
-        <div
-          className={isTouch ? 'absolute inset-0' : 'relative shrink-0'}
-          style={isTouch ? undefined : { height: '60vh' }}
-        >
+      <div className="animate-[fadeIn_0.3s_ease-out] fixed inset-0 overflow-hidden bg-slate-950">
+        {/* 战场：全屏（答题区悬浮其上，战场透出） */}
+        <div className="absolute inset-0">
           <BattleField
             ref={battleRef}
             initHp={maxHp}
@@ -613,8 +591,8 @@ export function BattlePage() {
             tauntWords={tauntWords}
             onLockInput={() => setLocked(true)}
           />
-          {/* 迷你键盘：战场右下角悬浮提示（仅桌面端显示，触屏用系统键盘） */}
-          {!isTouch && (
+          {/* 迷你键盘：战场右下角悬浮提示（拼写/听写模式；触屏用系统键盘，选中文无需） */}
+          {!isTouch && mode !== 'choice' && (
             <div className="pointer-events-none absolute bottom-3 right-3 z-10 opacity-60 transition-opacity">
               <MiniKeyboard pressedKeys={pressedKeys} />
             </div>
@@ -627,13 +605,33 @@ export function BattlePage() {
           </button>
         </div>
 
-        {/* 答题区：移动端悬浮窗（覆盖战场底部），桌面端固定下栏 */}
-        {isTouch ? (
+        {/* 答题区：底部悬浮半透明面板，战场可见 */}
+        <div
+          className={
+            isTouch
+              ? 'absolute inset-x-0 bottom-0 z-20 mx-auto w-fit max-w-[92vw] rounded-2xl border border-slate-700/40 bg-slate-950/30 px-3 pb-2 shadow-[0_-12px_40px_rgba(0,0,0,0.5)] transition-transform duration-200'
+              : 'absolute inset-x-0 bottom-0 z-20 px-4 pb-3'
+          }
+          style={isTouch ? { transform: `translateY(${-kbOverlay}px)` } : undefined}
+        >
+          {isTouch && <div className="mx-auto mt-1.5 h-1 w-10 rounded-full bg-slate-600/60" />}
+          {/* 选中文：答题区随内容自然展开不滚动；拼写/听写保持滚动上限 */}
           <div
-            className="absolute inset-x-0 bottom-0 z-20 mx-auto w-fit max-w-[92vw] max-h-[52vh] overflow-y-auto rounded-2xl border border-slate-700/40 bg-slate-950/15 px-3 pb-2 shadow-[0_-12px_40px_rgba(0,0,0,0.5)] transition-transform duration-200"
-            style={{ transform: `translateY(${-kbOverlay}px)` }}
+            className={
+              isTouch
+                ? mode === 'choice'
+                  ? ''
+                  : 'max-h-[50vh] overflow-y-auto'
+                : 'mx-auto w-full max-w-3xl'
+            }
           >
-            <div className="mx-auto mt-1.5 h-1 w-10 rounded-full bg-slate-600/60" />
+            <div
+              className={
+                isTouch
+                  ? ''
+                  : `${mode === 'choice' ? '' : 'max-h-[46vh] overflow-y-auto '}rounded-2xl border border-slate-600/25 bg-slate-950/40 px-4 py-3 shadow-[0_-12px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm`
+              }
+            >
               {mode === 'choice' ? (
                 <ChoiceCore
                   key={`${isBoss ? 'boss' : 'study'}-${extendKey}`}
@@ -641,6 +639,7 @@ export function BattlePage() {
                   mode={mode}
                   foilPool={foilPool}
                   onJudged={(r) => battleRef.current?.notifyAnswer(r.correct, r.combo, revengeBySeq.get(r.seq), r.typed)}
+                  onFreeze={(frozen) => battleRef.current?.freezeEnemies(frozen)}
                   forceFinish={forceFinish}
                   locked={locked}
                   onComplete={(a) => handleComplete(a)}
@@ -660,37 +659,9 @@ export function BattlePage() {
                   onPressedChange={setPressedKeys}
                 />
               )}
+            </div>
           </div>
-        ) : (
-          <div className="shrink-0 overflow-y-auto border-t border-slate-700/50 bg-slate-950/75 backdrop-blur-md" style={{ height: '40vh' }}>
-            {mode === 'choice' ? (
-              <ChoiceCore
-                key={`${isBoss ? 'boss' : 'study'}-${extendKey}`}
-                questions={questions}
-                mode={mode}
-                foilPool={foilPool}
-                onJudged={(r) => battleRef.current?.notifyAnswer(r.correct, r.combo, revengeBySeq.get(r.seq), r.typed)}
-                forceFinish={forceFinish}
-                locked={locked}
-                onComplete={(a) => handleComplete(a)}
-                onPressedChange={setPressedKeys}
-              />
-            ) : (
-              <TypingCore
-                key={`${isBoss ? 'boss' : 'study'}-${extendKey}`}
-                questions={questions}
-                mode={mode}
-                onJudged={(r) => battleRef.current?.notifyAnswer(r.correct, r.combo, revengeBySeq.get(r.seq), r.typed)}
-                onFreeze={(frozen) => battleRef.current?.freezeEnemies(frozen)}
-                onSkillReleased={() => battleRef.current?.skillAttack()}
-                forceFinish={forceFinish}
-                locked={locked}
-                onComplete={(a) => handleComplete(a)}
-                onPressedChange={setPressedKeys}
-              />
-            )}
-          </div>
-        )}
+        </div>
         {error && (
           <div className="absolute left-1/2 top-4 z-20 -translate-x-1/2 rounded-lg bg-red-950/90 px-4 py-2 text-sm text-red-400">
             {error}

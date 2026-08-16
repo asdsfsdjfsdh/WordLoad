@@ -1,16 +1,22 @@
 // 易混词对生成入库：从 DB 读取词库，生成形近/音近候选并写入 word_pairs
-// 用法: tsx pipeline/generate-pairs.ts [--dry-run]
+// 用法: tsx pipeline/generate-pairs.ts [--dry-run] [--bank-code=<code>]
 
 import { PrismaClient } from '@prisma/client';
 import { findHomophonePairs, findOrthographicPairs, mergePairs, type PairCandidate } from './confusable.ts';
 
 const prisma = new PrismaClient();
 
+function parseBankCode(argv: string[]): string {
+  const arg = argv.find((a) => a.startsWith('--bank-code='));
+  return arg ? arg.split('=')[1] : 'kaoyan_engl1';
+}
+
 async function main(): Promise<void> {
   const dryRun = process.argv.includes('--dry-run');
+  const bankCode = parseBankCode(process.argv.slice(2));
 
-  const bank = await prisma.wordBank.findUnique({ where: { code: 'kaoyan_engl1' } });
-  if (!bank) throw new Error('词书 kaoyan_engl1 不存在，请先跑 import');
+  const bank = await prisma.wordBank.findUnique({ where: { code: bankCode } });
+  if (!bank) throw new Error(`词书 ${bankCode} 不存在，请先跑 import`);
 
   const words = await prisma.word.findMany({
     where: { bankWords: { some: { bankId: bank.id } } },

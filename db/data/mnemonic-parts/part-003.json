@@ -1,0 +1,402 @@
+[
+  {
+    "text": "birth",
+    "mnemonic": "birth=出生，birthday生日，出生日"
+  },
+  {
+    "text": "sake",
+    "mnemonic": "for the sake of为了…的缘故，sake缘故"
+  },
+  {
+    "text": "lover",
+    "mnemonic": "love爱+er人，lover情人"
+  },
+  {
+    "text": "event",
+    "mnemonic": "e+vent来，event发生的大事"
+  },
+  {
+    "text": "badly",
+    "mnemonic": "bad坏+ly，badly糟糕地"
+  },
+  {
+    "text": "soda",
+    "mnemonic": "soda源自钠，苏打汽水"
+  },
+  {
+    "text": "wonderful",
+    "mnemonic": "wonder惊奇+ful满，wonderful精彩"
+  },
+  {
+    "text": "care",
+    "mnemonic": "care=关心，careful小心的"
+  },
+  {
+    "text": "birthday",
+    "mnemonic": "birth出生+day日，birthday生日"
+  },
+  {
+    "text": "already",
+    "mnemonic": "al+ready准备好，already已经"
+  },
+  {
+    "text": "six",
+    "mnemonic": "six与sixty同源，sixty六十含six"
+  },
+  {
+    "text": "lonely",
+    "mnemonic": "alone独自变lonely，lonely寂寞"
+  },
+  {
+    "text": "kitchen",
+    "mnemonic": "kitchen=厨房，做饭的地方"
+  },
+  {
+    "text": "else",
+    "mnemonic": "something else别的什么，else其他"
+  },
+  {
+    "text": "hers",
+    "mnemonic": "her她+s，hers她的"
+  },
+  {
+    "text": "ox",
+    "mnemonic": "ox=公牛，oxen复数"
+  },
+  {
+    "text": "corn",
+    "mnemonic": "corn=玉米/谷物，爆米花popcorn"
+  },
+  {
+    "text": "rod",
+    "mnemonic": "rod=杆，fishing rod鱼竿"
+  },
+  {
+    "text": "anywhere",
+    "mnemonic": "any任何+where地方，anywhere任何地方"
+  },
+  {
+    "text": "thank",
+    "mnemonic": "thank=感谢，thanks谢谢"
+  },
+  {
+    "text": "actor",
+    "mnemonic": "act表演+or人，actor男演员"
+  },
+  {
+    "text": "player",
+    "mnemonic": "play玩+er人，player玩家"
+  },
+  {
+    "text": "planet",
+    "mnemonic": "planet=行星，地球是颗planet"
+  },
+  {
+    "text": "president",
+    "mnemonic": "preside主持+ent人，president总统"
+  },
+  {
+    "text": "dog",
+    "mnemonic": "dog=狗，cat and dog猫狗"
+  },
+  {
+    "text": "many",
+    "mnemonic": "many=许多，many books许多书"
+  },
+  {
+    "text": "china",
+    "mnemonic": "China中国，china瓷器中国造"
+  },
+  {
+    "text": "these",
+    "mnemonic": "these=这些，this变these"
+  },
+  {
+    "text": "remind",
+    "mnemonic": "re再+mind心，remind提醒记心间"
+  },
+  {
+    "text": "hand",
+    "mnemonic": "hand=手，handsome英俊"
+  },
+  {
+    "text": "war",
+    "mnemonic": "war=战争，World War二战"
+  },
+  {
+    "text": "energy",
+    "mnemonic": "energy=能量，energetic有活力"
+  },
+  {
+    "text": "used",
+    "mnemonic": "use用+ed，used用过的"
+  },
+  {
+    "text": "owner",
+    "mnemonic": "own拥有+er人，owner所有者"
+  },
+  {
+    "text": "against",
+    "mnemonic": "again加st，against反对对抗"
+  },
+  {
+    "text": "proud",
+    "mnemonic": "proud=自豪，pride是名词骄傲"
+  },
+  {
+    "text": "destroy",
+    "mnemonic": "de去掉+stroy建，destroy摧毁"
+  },
+  {
+    "text": "which",
+    "mnemonic": "which=哪个，which one哪一个"
+  },
+  {
+    "text": "towards",
+    "mnemonic": "to+ward方向+s，towards朝着"
+  },
+  {
+    "text": "math",
+    "mnemonic": "math=数学，mathematics缩写"
+  },
+  {
+    "text": "rug",
+    "mnemonic": "rug=小地毯，carpet大地毯"
+  },
+  {
+    "text": "fond",
+    "mnemonic": "be fond of喜欢，fond喜爱的"
+  },
+  {
+    "text": "turn",
+    "mnemonic": "turn=转，turn around转身"
+  },
+  {
+    "text": "christmas",
+    "mnemonic": "Christ基督+mas，Christmas圣诞节"
+  },
+  {
+    "text": "monday",
+    "mnemonic": "mon月+day日，Monday星期一"
+  },
+  {
+    "text": "lamp",
+    "mnemonic": "lamp=灯，table lamp台灯"
+  },
+  {
+    "text": "red",
+    "mnemonic": "red=红，red light红灯"
+  },
+  {
+    "text": "ten",
+    "mnemonic": "ten=十，ten fingers十指"
+  },
+  {
+    "text": "object",
+    "mnemonic": "ob反+ject扔，object反对"
+  },
+  {
+    "text": "yourself",
+    "mnemonic": "your+self自己，yourself你自己"
+  },
+  {
+    "text": "lord",
+    "mnemonic": "lord=领主/主，Lord贵族大人"
+  },
+  {
+    "text": "huge",
+    "mnemonic": "huge=巨大，huge amount海量"
+  },
+  {
+    "text": "case",
+    "mnemonic": "in that case那样的话，case情况"
+  },
+  {
+    "text": "somewhere",
+    "mnemonic": "some某+where地方，somewhere某处"
+  },
+  {
+    "text": "somehow",
+    "mnemonic": "some+how怎么，somehow不知怎地"
+  },
+  {
+    "text": "scene",
+    "mnemonic": "scene=场景，on the scene现场"
+  },
+  {
+    "text": "debt",
+    "mnemonic": "debt债，b不发音，in debt欠债"
+  },
+  {
+    "text": "sex",
+    "mnemonic": "sex=性别，the two sexes两性"
+  },
+  {
+    "text": "shut",
+    "mnemonic": "shut=关闭，shut the door关门"
+  },
+  {
+    "text": "member",
+    "mnemonic": "member=成员，team member队员"
+  },
+  {
+    "text": "barely",
+    "mnemonic": "bare光+ly，barely仅仅勉强"
+  },
+  {
+    "text": "clever",
+    "mnemonic": "clever=聪明，smart同义"
+  },
+  {
+    "text": "drama",
+    "mnemonic": "drama=戏剧，dramatic戏剧性"
+  },
+  {
+    "text": "student",
+    "mnemonic": "study学习变student，student学生"
+  },
+  {
+    "text": "barn",
+    "mnemonic": "barn=谷仓，囤粮食的房子"
+  },
+  {
+    "text": "trunk",
+    "mnemonic": "trunk=树干/象鼻/后备箱"
+  },
+  {
+    "text": "artist",
+    "mnemonic": "art艺术+ist人，artist艺术家"
+  },
+  {
+    "text": "also",
+    "mnemonic": "also=也，I also like我也喜欢"
+  },
+  {
+    "text": "decent",
+    "mnemonic": "decent=体面的，decent person正派人"
+  },
+  {
+    "text": "wish",
+    "mnemonic": "wish=希望/祝愿，best wishes祝福"
+  },
+  {
+    "text": "solve",
+    "mnemonic": "solve=解决，solution解决方案"
+  },
+  {
+    "text": "happen",
+    "mnemonic": "happen=发生，what happened发生啥"
+  },
+  {
+    "text": "pork",
+    "mnemonic": "pig猪变pork，猪肉"
+  },
+  {
+    "text": "talent",
+    "mnemonic": "talent=天赋，talented有才"
+  },
+  {
+    "text": "country",
+    "mnemonic": "country=国家/乡村，countryside乡村"
+  },
+  {
+    "text": "idiot",
+    "mnemonic": "idiot=傻瓜，愚蠢的人"
+  },
+  {
+    "text": "policy",
+    "mnemonic": "policy=政策，foreign policy外交政策"
+  },
+  {
+    "text": "exam",
+    "mnemonic": "exam=考试，examination缩写"
+  },
+  {
+    "text": "ash",
+    "mnemonic": "ash=灰烬，burn to ashes烧成灰"
+  },
+  {
+    "text": "eye",
+    "mnemonic": "两个e是眼，y是鼻，eye眼睛"
+  },
+  {
+    "text": "manager",
+    "mnemonic": "manage管理+er人，manager经理"
+  },
+  {
+    "text": "twice",
+    "mnemonic": "twi二+ce，twice两次"
+  },
+  {
+    "text": "sue",
+    "mnemonic": "sue音近'诉'，控告起诉"
+  },
+  {
+    "text": "july",
+    "mnemonic": "July=七月，独立日之月"
+  },
+  {
+    "text": "majesty",
+    "mnemonic": "majesty=陛下/威严，Your Majesty陛下"
+  },
+  {
+    "text": "computer",
+    "mnemonic": "compute计算+er，computer电脑"
+  },
+  {
+    "text": "virus",
+    "mnemonic": "virus=病毒，计算机病毒"
+  },
+  {
+    "text": "tiger",
+    "mnemonic": "tiger=老虎，Tiger Woods泰格伍兹"
+  },
+  {
+    "text": "today",
+    "mnemonic": "to+day今天，today今日"
+  },
+  {
+    "text": "lawn",
+    "mnemonic": "lawn=草坪，lawn mower割草机"
+  },
+  {
+    "text": "opera",
+    "mnemonic": "opera=歌剧，Peking Opera京剧"
+  },
+  {
+    "text": "golden",
+    "mnemonic": "gold金+en，golden金色的"
+  },
+  {
+    "text": "mostly",
+    "mnemonic": "most最+ly，mostly大部分"
+  },
+  {
+    "text": "body",
+    "mnemonic": "body=身体，everybody每个人"
+  },
+  {
+    "text": "motel",
+    "mnemonic": "motor车+hotel旅馆，motel汽车旅馆"
+  },
+  {
+    "text": "lazy",
+    "mnemonic": "lazy=懒，lazybones懒骨头"
+  },
+  {
+    "text": "pick",
+    "mnemonic": "pick=挑选/捡，pick up拾起"
+  },
+  {
+    "text": "serious",
+    "mnemonic": "serious=严肃/严重，认真的"
+  },
+  {
+    "text": "mad",
+    "mnemonic": "mad=疯狂的，mad at对…生气"
+  },
+  {
+    "text": "ton",
+    "mnemonic": "ton=吨，tonne公吨"
+  }
+]

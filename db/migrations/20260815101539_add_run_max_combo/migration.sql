@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `run` ADD COLUMN `maxCombo` INTEGER NOT NULL DEFAULT 0;

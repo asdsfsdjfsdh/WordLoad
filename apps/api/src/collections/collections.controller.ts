@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Query, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import type { Request } from 'express';
-import type { CollectedWord, CollectionStats, ConfusablesResponse, EncounterRecord } from '@word-journey/shared';
+import type { CollectedWord, CollectionStats, SrsTrajectory } from '@word-journey/shared';
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
 import { CollectionsService } from './collections.service';
 
@@ -14,7 +14,7 @@ export class CollectionsController {
 
   @Get('stats')
   @ApiOperation({ summary: '图鉴总览统计' })
-  @ApiOkResponse({ description: '已遇/已掌握/按tier分布' })
+  @ApiOkResponse({ description: '已遇/已掌握/待复习/按tier分布' })
   async stats(@Req() req: Request & { user: JwtUser }): Promise<CollectionStats> {
     return this.collections.stats(req.user.sub);
   }
@@ -33,7 +33,7 @@ export class CollectionsController {
   ): Promise<{ words: CollectedWord[]; total: number; page: number; pageSize: number }> {
     return this.collections.listWords(req.user.sub, {
       tier,
-      status: status as 'new' | 'learning' | 'mastered' | 'wrongbook' | undefined,
+      status: status as 'new' | 'learning' | 'mastered' | 'wrongbook' | 'skipped' | 'due' | undefined,
       sort,
       search,
       page: page ? Number.parseInt(page, 10) : undefined,
@@ -41,23 +41,13 @@ export class CollectionsController {
     });
   }
 
-  @Get('words/:wordId/timeline')
-  @ApiOperation({ summary: '单词相遇时间线' })
-  @ApiOkResponse({ description: '该词每次相遇记录' })
-  async timeline(
+  @Get('words/:wordId/srs')
+  @ApiOperation({ summary: '单词 SRS 复习轨迹 + 词详情' })
+  @ApiOkResponse({ description: '档位变更史与当前记忆状态' })
+  async srsTrajectory(
     @Req() req: Request & { user: JwtUser },
     @Param('wordId') wordId: string,
-  ): Promise<EncounterRecord[]> {
-    return this.collections.timeline(req.user.sub, wordId);
-  }
-
-  @Get('words/:wordId/confusables')
-  @ApiOperation({ summary: '单词易混词' })
-  @ApiOkResponse({ description: '该词全部形近/音近/义近词对' })
-  async confusables(
-    @Req() req: Request & { user: JwtUser },
-    @Param('wordId') wordId: string,
-  ): Promise<ConfusablesResponse> {
-    return this.collections.confusables(req.user.sub, wordId);
+  ): Promise<SrsTrajectory> {
+    return this.collections.srsTrajectory(req.user.sub, wordId);
   }
 }

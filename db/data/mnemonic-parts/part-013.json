@@ -1,0 +1,402 @@
+[
+  {
+    "text": "income",
+    "mnemonic": "in进+come来，income收入进账"
+  },
+  {
+    "text": "panda",
+    "mnemonic": "panda音译熊猫，盼达国宝"
+  },
+  {
+    "text": "ward",
+    "mnemonic": "ward=病房/守卫，守住院区"
+  },
+  {
+    "text": "junk",
+    "mnemonic": "junk=废旧杂物，junk food垃圾食品"
+  },
+  {
+    "text": "seminar",
+    "mnemonic": "semin种+ar，seminar研讨种思想"
+  },
+  {
+    "text": "landlord",
+    "mnemonic": "land地+lord主，landlord房东"
+  },
+  {
+    "text": "jeans",
+    "mnemonic": "jeans源自热那亚，牛仔裤"
+  },
+  {
+    "text": "silent",
+    "mnemonic": "silence寂静变silent"
+  },
+  {
+    "text": "generous",
+    "mnemonic": "gener生+ous，generous出身好更慷慨"
+  },
+  {
+    "text": "incredible",
+    "mnemonic": "in不+credible可信，难以置信"
+  },
+  {
+    "text": "radio",
+    "mnemonic": "radio源自radiate辐射，广播电波"
+  },
+  {
+    "text": "emotion",
+    "mnemonic": "e+mot动+ion，emotion情绪"
+  },
+  {
+    "text": "lunar",
+    "mnemonic": "lun月+ar，lunar月亮的"
+  },
+  {
+    "text": "episode",
+    "mnemonic": "epi+ode，episode插曲"
+  },
+  {
+    "text": "word",
+    "mnemonic": "word=单词，words言语"
+  },
+  {
+    "text": "teach",
+    "mnemonic": "teach与teacher同源，教师教"
+  },
+  {
+    "text": "crime",
+    "mnemonic": "crime源自判罪，罪行"
+  },
+  {
+    "text": "shore",
+    "mnemonic": "shore=岸，seashore海滨"
+  },
+  {
+    "text": "theatre",
+    "mnemonic": "theatre源自剧场，剧院"
+  },
+  {
+    "text": "virtue",
+    "mnemonic": "virtu男子气+ue，virtue美德"
+  },
+  {
+    "text": "particularly",
+    "mnemonic": "particular特别+ly，尤其"
+  },
+  {
+    "text": "terror",
+    "mnemonic": "terr怕+or，terror恐怖"
+  },
+  {
+    "text": "error",
+    "mnemonic": "err犯错+or，error错误"
+  },
+  {
+    "text": "tempo",
+    "mnemonic": "tempo源自时间，节拍速度"
+  },
+  {
+    "text": "miserable",
+    "mnemonic": "miser吝啬+able，miserable悲惨"
+  },
+  {
+    "text": "task",
+    "mnemonic": "task与tax税同源，派下的任务"
+  },
+  {
+    "text": "technical",
+    "mnemonic": "technic技术+al"
+  },
+  {
+    "text": "personality",
+    "mnemonic": "personal个人+ity，个性"
+  },
+  {
+    "text": "deserve",
+    "mnemonic": "de+serve服务，deserve应得"
+  },
+  {
+    "text": "exposure",
+    "mnemonic": "expose暴露+ure，曝光"
+  },
+  {
+    "text": "various",
+    "mnemonic": "vary变化+ous，各式各样"
+  },
+  {
+    "text": "theirs",
+    "mnemonic": "their他们的+s，theirs"
+  },
+  {
+    "text": "solid",
+    "mnemonic": "solid源自整块，固体结实"
+  },
+  {
+    "text": "science",
+    "mnemonic": "sci知+ence，science科学"
+  },
+  {
+    "text": "palm",
+    "mnemonic": "palm源自掌，掌心如掌；棕榈"
+  },
+  {
+    "text": "cake",
+    "mnemonic": "cake=蛋糕，a piece of cake小菜一碟"
+  },
+  {
+    "text": "project",
+    "mnemonic": "pro向前+ject投，project项目"
+  },
+  {
+    "text": "web",
+    "mnemonic": "web=网，spider web蜘蛛网"
+  },
+  {
+    "text": "belief",
+    "mnemonic": "believe相信变belief"
+  },
+  {
+    "text": "curse",
+    "mnemonic": "curse=诅咒，与bless祝福相对"
+  },
+  {
+    "text": "authority",
+    "mnemonic": "author作者+ity，authority权威"
+  },
+  {
+    "text": "magnet",
+    "mnemonic": "magnet源自Magnesia石，磁铁"
+  },
+  {
+    "text": "half",
+    "mnemonic": "half=一半，half an hour半小时"
+  },
+  {
+    "text": "people",
+    "mnemonic": "people源自人民，人们"
+  },
+  {
+    "text": "view",
+    "mnemonic": "view与see同源，看"
+  },
+  {
+    "text": "database",
+    "mnemonic": "data数据+base库"
+  },
+  {
+    "text": "suite",
+    "mnemonic": "suite与suit同源，一套"
+  },
+  {
+    "text": "apologise",
+    "mnemonic": "apo离开+log说，道歉"
+  },
+  {
+    "text": "horror",
+    "mnemonic": "horror源自颤抖，毛骨悚然"
+  },
+  {
+    "text": "lantern",
+    "mnemonic": "luc光+ern，lantern灯笼"
+  },
+  {
+    "text": "celebrate",
+    "mnemonic": "celebrate源自盛大集会，庆祝"
+  },
+  {
+    "text": "desert",
+    "mnemonic": "de+sett，desert沙漠"
+  },
+  {
+    "text": "yesterday",
+    "mnemonic": "yester昨+day天"
+  },
+  {
+    "text": "relevant",
+    "mnemonic": "re+lev举+ant，relevant相关"
+  },
+  {
+    "text": "unexpected",
+    "mnemonic": "un+expected预期，意外"
+  },
+  {
+    "text": "cart",
+    "mnemonic": "cart=手推车，shopping cart购物车"
+  },
+  {
+    "text": "program",
+    "mnemonic": "pro前+gram写，program节目程序"
+  },
+  {
+    "text": "fire",
+    "mnemonic": "fire=火，fireman消防员"
+  },
+  {
+    "text": "sack",
+    "mnemonic": "sack源自布袋，麻袋"
+  },
+  {
+    "text": "unfortunately",
+    "mnemonic": "un+fortunate幸运+ly"
+  },
+  {
+    "text": "metal",
+    "mnemonic": "metal源自矿脉，金属"
+  },
+  {
+    "text": "anew",
+    "mnemonic": "a+new新，anew重新"
+  },
+  {
+    "text": "high",
+    "mnemonic": "high=高，height高度"
+  },
+  {
+    "text": "reaction",
+    "mnemonic": "react反应+ion"
+  },
+  {
+    "text": "sidewalk",
+    "mnemonic": "side边+walk走，人行道"
+  },
+  {
+    "text": "solution",
+    "mnemonic": "solve解决变solution"
+  },
+  {
+    "text": "weaver",
+    "mnemonic": "weave织+er人，织工"
+  },
+  {
+    "text": "hamburger",
+    "mnemonic": "hamburger源自汉堡市，汉堡"
+  },
+  {
+    "text": "aloud",
+    "mnemonic": "a+loud大声，aloud高声"
+  },
+  {
+    "text": "likely",
+    "mnemonic": "like像+ly，likely可能的"
+  },
+  {
+    "text": "climb",
+    "mnemonic": "climb爬，b不发音"
+  },
+  {
+    "text": "wealth",
+    "mnemonic": "wealth与well好同源，富裕"
+  },
+  {
+    "text": "notion",
+    "mnemonic": "not知+ion，notion概念"
+  },
+  {
+    "text": "mercury",
+    "mnemonic": "mercury源自墨丘利神，水银水星"
+  },
+  {
+    "text": "magnificent",
+    "mnemonic": "magn大+ificent，magnificent壮丽"
+  },
+  {
+    "text": "loud",
+    "mnemonic": "loud=响亮，aloud大声"
+  },
+  {
+    "text": "finding",
+    "mnemonic": "find发现+ing，调查结果"
+  },
+  {
+    "text": "comply",
+    "mnemonic": "com+ply满，comply遵从"
+  },
+  {
+    "text": "pie",
+    "mnemonic": "pie=馅饼，apple pie苹果派"
+  },
+  {
+    "text": "tractor",
+    "mnemonic": "tract拉+or机，拖拉机"
+  },
+  {
+    "text": "liter",
+    "mnemonic": "liter源自升，一升"
+  },
+  {
+    "text": "stow",
+    "mnemonic": "stow与store同源，装载"
+  },
+  {
+    "text": "mutual",
+    "mnemonic": "mut换+ual，mutual相互"
+  },
+  {
+    "text": "religion",
+    "mnemonic": "re+lig绑+ion，religion信仰"
+  },
+  {
+    "text": "cherry",
+    "mnemonic": "cherry源自瑟拉松，樱桃"
+  },
+  {
+    "text": "conspiracy",
+    "mnemonic": "con+spire呼吸+acy，同谋"
+  },
+  {
+    "text": "warfare",
+    "mnemonic": "war战争+fare，warfare交战"
+  },
+  {
+    "text": "purpose",
+    "mnemonic": "pur+pose放，purpose目的"
+  },
+  {
+    "text": "monster",
+    "mnemonic": "monster源自警告，巨兽怪物"
+  },
+  {
+    "text": "gardener",
+    "mnemonic": "garden花园+er人"
+  },
+  {
+    "text": "scenery",
+    "mnemonic": "scene风景变scenery"
+  },
+  {
+    "text": "establish",
+    "mnemonic": "establish源自固定，建立"
+  },
+  {
+    "text": "interest",
+    "mnemonic": "inter在…之间+est，interest兴趣"
+  },
+  {
+    "text": "pavement",
+    "mnemonic": "pave铺+ment，人行道"
+  },
+  {
+    "text": "include",
+    "mnemonic": "in+clude关，include包含"
+  },
+  {
+    "text": "constantly",
+    "mnemonic": "constant持续+ly"
+  },
+  {
+    "text": "integrity",
+    "mnemonic": "integr完整+ity，integrity正直"
+  },
+  {
+    "text": "architect",
+    "mnemonic": "archi首领+tect盖，建筑师"
+  },
+  {
+    "text": "television",
+    "mnemonic": "tele远+vision视，电视"
+  },
+  {
+    "text": "main",
+    "mnemonic": "main源自力量，主要的"
+  }
+]

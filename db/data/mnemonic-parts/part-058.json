@@ -1,0 +1,402 @@
+[
+  {
+    "text": "wedge",
+    "mnemonic": "wedge=楔子，wedged楔入"
+  },
+  {
+    "text": "sculpture",
+    "mnemonic": "sculpt雕刻+ure"
+  },
+  {
+    "text": "participant",
+    "mnemonic": "participate参加变+ant"
+  },
+  {
+    "text": "clip",
+    "mnemonic": "clip=剪辑/夹子"
+  },
+  {
+    "text": "collective",
+    "mnemonic": "collect收集+ive，集体"
+  },
+  {
+    "text": "paper",
+    "mnemonic": "paper源自纸草，纸"
+  },
+  {
+    "text": "safeguard",
+    "mnemonic": "safe安全+guard卫"
+  },
+  {
+    "text": "orphan",
+    "mnemonic": "orphan源自孤儿，孤儿"
+  },
+  {
+    "text": "quantify",
+    "mnemonic": "quant量+ify"
+  },
+  {
+    "text": "well",
+    "mnemonic": "well=好/井，well-being福祉"
+  },
+  {
+    "text": "network",
+    "mnemonic": "net网+work作"
+  },
+  {
+    "text": "installation",
+    "mnemonic": "install安装+ation"
+  },
+  {
+    "text": "coil",
+    "mnemonic": "coil=线圈，盘绕"
+  },
+  {
+    "text": "mat",
+    "mnemonic": "mat=垫子，doormat门垫"
+  },
+  {
+    "text": "shopkeeper",
+    "mnemonic": "shop店+keeper看管人"
+  },
+  {
+    "text": "evaluate",
+    "mnemonic": "e+valu值+ate，评估"
+  },
+  {
+    "text": "commemorate",
+    "mnemonic": "com+memor记+ate，纪念"
+  },
+  {
+    "text": "bruise",
+    "mnemonic": "bruise=瘀伤，bruised擦伤"
+  },
+  {
+    "text": "cluster",
+    "mnemonic": "cluster=簇，a cluster of一串"
+  },
+  {
+    "text": "correspondence",
+    "mnemonic": "correspond通信+ence"
+  },
+  {
+    "text": "migrate",
+    "mnemonic": "migr移+ate，迁徙"
+  },
+  {
+    "text": "short",
+    "mnemonic": "short=短，shortage短缺"
+  },
+  {
+    "text": "summarize",
+    "mnemonic": "summary摘要+ize"
+  },
+  {
+    "text": "range",
+    "mnemonic": "range源自行列，范围"
+  },
+  {
+    "text": "unionize",
+    "mnemonic": "union工会+ize"
+  },
+  {
+    "text": "glide",
+    "mnemonic": "glide=滑翔，glider滑翔机"
+  },
+  {
+    "text": "narrative",
+    "mnemonic": "narrat叙述+ive"
+  },
+  {
+    "text": "haze",
+    "mnemonic": "haze=薄雾，hazy朦胧"
+  },
+  {
+    "text": "assemble",
+    "mnemonic": "as+semble像，组装"
+  },
+  {
+    "text": "sophisticated",
+    "mnemonic": "sophisticat诡辩+ed"
+  },
+  {
+    "text": "blaze",
+    "mnemonic": "blaze=烈火，blazing炽热"
+  },
+  {
+    "text": "smart",
+    "mnemonic": "smart=聪明/刺痛"
+  },
+  {
+    "text": "exempt",
+    "mnemonic": "ex+empt取，免除"
+  },
+  {
+    "text": "applicable",
+    "mnemonic": "apply应用变+able"
+  },
+  {
+    "text": "announce",
+    "mnemonic": "an+nounce送，宣布"
+  },
+  {
+    "text": "sneer",
+    "mnemonic": "sneer=嘲笑，冷笑"
+  },
+  {
+    "text": "immigrant",
+    "mnemonic": "immigrate移入变+ant"
+  },
+  {
+    "text": "illustration",
+    "mnemonic": "illustrate说明+ion"
+  },
+  {
+    "text": "lightning",
+    "mnemonic": "lighten闪变lightning"
+  },
+  {
+    "text": "applaud",
+    "mnemonic": "ap+plaud击，鼓掌"
+  },
+  {
+    "text": "bounce",
+    "mnemonic": "bounce=弹跳，反弹"
+  },
+  {
+    "text": "surrender",
+    "mnemonic": "sur+render给，投降"
+  },
+  {
+    "text": "oppress",
+    "mnemonic": "op+press压，压迫"
+  },
+  {
+    "text": "draft",
+    "mnemonic": "draft=草稿/征召"
+  },
+  {
+    "text": "heel",
+    "mnemonic": "heel=脚后跟，high heels高跟鞋"
+  },
+  {
+    "text": "adequately",
+    "mnemonic": "adequate足够+ly"
+  },
+  {
+    "text": "bureaucrat",
+    "mnemonic": "bureau办公桌+crat，官僚"
+  },
+  {
+    "text": "soar",
+    "mnemonic": "soar=翱翔，soaring飞涨"
+  },
+  {
+    "text": "highlight",
+    "mnemonic": "high高+light光，突出"
+  },
+  {
+    "text": "designate",
+    "mnemonic": "design设计+ate，指定"
+  },
+  {
+    "text": "salient",
+    "mnemonic": "salient源自跳，显著"
+  },
+  {
+    "text": "weep",
+    "mnemonic": "weep=哭泣，weeping哭泣"
+  },
+  {
+    "text": "pale",
+    "mnemonic": "pale=苍白，paleness苍白"
+  },
+  {
+    "text": "bull",
+    "mnemonic": "bull=公牛/涨势"
+  },
+  {
+    "text": "allegation",
+    "mnemonic": "allege声称+ation"
+  },
+  {
+    "text": "contemplate",
+    "mnemonic": "con+temple庙+ate，沉思"
+  },
+  {
+    "text": "influential",
+    "mnemonic": "influence影响+ial"
+  },
+  {
+    "text": "recite",
+    "mnemonic": "re+cite召唤，背诵"
+  },
+  {
+    "text": "barter",
+    "mnemonic": "barter=物物交换"
+  },
+  {
+    "text": "sniff",
+    "mnemonic": "sniff=嗅，sniffle抽鼻子"
+  },
+  {
+    "text": "stationary",
+    "mnemonic": "stationary静止，与文具stationery形近"
+  },
+  {
+    "text": "warm",
+    "mnemonic": "warm=温暖，warmth温暖"
+  },
+  {
+    "text": "anguish",
+    "mnemonic": "anguish源自紧，痛苦"
+  },
+  {
+    "text": "determine",
+    "mnemonic": "de+termin界+e，决定"
+  },
+  {
+    "text": "gain",
+    "mnemonic": "gain=获得，gainful有收益"
+  },
+  {
+    "text": "impoverished",
+    "mnemonic": "im+pover贫+ished，贫困"
+  },
+  {
+    "text": "caption",
+    "mnemonic": "caption源自抓，字幕"
+  },
+  {
+    "text": "suffice",
+    "mnemonic": "suf+fic做+e，足够"
+  },
+  {
+    "text": "surround",
+    "mnemonic": "sur+round圆，包围"
+  },
+  {
+    "text": "overtime",
+    "mnemonic": "over超+time时"
+  },
+  {
+    "text": "conduct",
+    "mnemonic": "con+duct引，进行"
+  },
+  {
+    "text": "overhaul",
+    "mnemonic": "over+haul拉，大修"
+  },
+  {
+    "text": "communicate",
+    "mnemonic": "communic共同+ate"
+  },
+  {
+    "text": "farewell",
+    "mnemonic": "fare行+well好，告别"
+  },
+  {
+    "text": "camp",
+    "mnemonic": "camp源自田野，营地"
+  },
+  {
+    "text": "appraise",
+    "mnemonic": "ap+praise价，评估"
+  },
+  {
+    "text": "heighten",
+    "mnemonic": "height高度+en"
+  },
+  {
+    "text": "encyclopaedia",
+    "mnemonic": "en+cycle环+paedia教育"
+  },
+  {
+    "text": "unpretentious",
+    "mnemonic": "un不+pretentious炫耀"
+  },
+  {
+    "text": "shoot",
+    "mnemonic": "shoot=射击/拍摄"
+  },
+  {
+    "text": "tremble",
+    "mnemonic": "tremble源自颤，发抖"
+  },
+  {
+    "text": "coordination",
+    "mnemonic": "coordinate协调+ion"
+  },
+  {
+    "text": "overlook",
+    "mnemonic": "over+look看，忽视"
+  },
+  {
+    "text": "poll",
+    "mnemonic": "poll=民意调查/投票"
+  },
+  {
+    "text": "isle",
+    "mnemonic": "isle=小岛，island岛"
+  },
+  {
+    "text": "hoist",
+    "mnemonic": "hoist=升起，吊起"
+  },
+  {
+    "text": "effectiveness",
+    "mnemonic": "effective有效+ness"
+  },
+  {
+    "text": "outlook",
+    "mnemonic": "out+look看，展望"
+  },
+  {
+    "text": "merchandise",
+    "mnemonic": "merchant商人变+ise"
+  },
+  {
+    "text": "trifle",
+    "mnemonic": "trifle源自小，琐事"
+  },
+  {
+    "text": "forecast",
+    "mnemonic": "fore前+cast投，预报"
+  },
+  {
+    "text": "arch",
+    "mnemonic": "arch=拱/主要，monarch源自"
+  },
+  {
+    "text": "fool",
+    "mnemonic": "fool=傻瓜，foolish愚蠢"
+  },
+  {
+    "text": "vaccination",
+    "mnemonic": "vaccinate接种+ion"
+  },
+  {
+    "text": "deem",
+    "mnemonic": "deem=认为，判断"
+  },
+  {
+    "text": "pebble",
+    "mnemonic": "pebble=卵石，小石子"
+  },
+  {
+    "text": "bottom",
+    "mnemonic": "bottom=底部，bottomless无底"
+  },
+  {
+    "text": "disparaging",
+    "mnemonic": "disparage贬低+ing"
+  },
+  {
+    "text": "standardize",
+    "mnemonic": "standard标准+ize"
+  },
+  {
+    "text": "aesthetic",
+    "mnemonic": "aesthetic源自感觉，审美"
+  }
+]

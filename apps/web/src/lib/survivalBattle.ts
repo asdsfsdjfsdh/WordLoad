@@ -1,20 +1,28 @@
-// 生存模式波内数值计算 + 血量账本（逻辑层，可测/可回放）
-// 表现层完全复用普通模式 BattleField 引擎；sim 只负责数值查询、血量账本与波末 finalHp
+// 生存模式波内数值 + 状态（客户端表现层镜像）
+// 服务端权威：HP / 漏怪 / Boss 击破由共享引擎 createWaveSim 按题重放决定。
+// 客户端仅用同一引擎做表现层镜像（数值查询 + 事件驱动视觉），结果以
+// 服务端权威：步进结果以 advance 返回为准（服务端重放引擎定生死）。
 import {
   SURVIVAL,
   applyDef,
   bossHits,
+  createWaveSim,
   leechN,
   monsterHits,
   monsterSpeed,
+  monsterTraitAt,
+  type BattleEvent,
+  type CombatEffects,
+  type MonsterTrait,
 } from '@word-journey/shared';
 
 export type TierIdx = 0 | 1 | 2 | 3;
 
 export interface SurvivalBuffState {
-  dmg: number; // 伤害+1 buff 次数（并入 monsterHits 分母）
+  dmg: number; // 伤害+1 buff 次数
   leech: number; // 吸血+1 次数
   dodge: number; // 免伤剩余次数
+  freeze: number; // 冻结加时次数
 }
 
 export interface SurvivalLegendState {
@@ -33,11 +41,22 @@ export interface SurvivalWaveMeta {
   hp: number;
   buffs: SurvivalBuffState;
   legend: SurvivalLegendState;
+  // buff 效果层（resolveEffects 解析，与引擎一致）
+  effects?: CombatEffects;
+  // 角色特化（与服务端引擎口径一致）
+  executeSpec?: boolean;
+  vampireSpec?: boolean;
+  // 本局词池大小（累计去重词数，day1=20，注入逐日增加）
+  poolUsed?: number;
+  // 本局已生效 buff 代号（含待生效候选），HUD 徽章展示用
+  buffCodes?: string[];
   // 本波问题元数据（按答题顺序，与服务端 pending 对齐）
-  questions: { tier: TierIdx; isNew: boolean; isBoss: boolean }[];
+  questions: { tier: TierIdx; isNew: boolean; isBoss: boolean; len?: number }[];
   // Boss 波：为 true 时该波全是 Boss 题
   bossWave: boolean;
   bossHp?: number;
+  // 局内全局连击初值（跨波累计，服务端持久化；续 Run/次日需透传）
+  initialCombo?: number;
 }
 
 // 实时逼近速度 px/sec 基准（与普通模式怪速同量级，M7 可调）
@@ -45,50 +64,78 @@ const VISUAL_SPEED_BASE = 26;
 
 export class SurvivalBattle {
   private meta: SurvivalWaveMeta;
-  private hp: number;
-  private correct = 0;
-  private wrong = 0;
-  private leaked = 0;
-  private consecWrong = 0;
-  private dodge: number;
-  private bossHp: number;
-  private bossMax: number;
-  private bossP2 = false;
-  private bossCleared = false;
+  private sim: ReturnType<typeof createWaveSim>;
+  private answeredCount = 0;
 
   constructor(meta: SurvivalWaveMeta) {
     this.meta = meta;
-    this.hp = meta.hp;
-    this.dodge = meta.buffs.dodge;
-    this.bossMax = meta.bossWave ? (meta.bossHp ?? bossHits(meta.day, meta.atkLv)) : 0;
-    this.bossHp = this.bossMax;
+    this.sim = createWaveSim({
+      day: meta.day,
+      atkLv: meta.atkLv,
+      defLv: meta.defLv,
+      maxHp: meta.maxHp,
+      startHp: meta.hp,
+      buffs: {
+        dmg: meta.buffs.dmg,
+        leech: meta.buffs.leech,
+        dodge: meta.buffs.dodge,
+        freeze: meta.buffs.freeze,
+      },
+      legend: meta.legend,
+      effects: meta.effects,
+      specs: meta.executeSpec || meta.vampireSpec
+        ? { executeSpec: !!meta.executeSpec, vampireSpec: !!meta.vampireSpec }
+        : undefined,
+      questions: meta.questions,
+      bossWave: meta.bossWave,
+      bossHp: meta.bossWave ? (meta.bossHp ?? bossHits(meta.day, meta.atkLv)) : undefined,
+      initialCombo: meta.initialCombo ?? 0,
+    });
   }
 
   get currentHp(): number {
-    return Math.max(0, this.hp);
+    return this.sim.hp;
   }
 
   get stats(): { correct: number; wrong: number; leaked: number } {
-    return { correct: this.correct, wrong: this.wrong, leaked: this.leaked };
+    return this.sim.stats;
   }
 
   get correctCount(): number {
-    return this.correct;
+    return this.sim.stats.correct;
   }
 
   get isBossCleared(): boolean {
-    return this.bossCleared;
+    return this.sim.bossCleared;
   }
 
   get bossRemaining(): number {
-    return Math.max(0, this.bossHp);
+    return this.sim.bossHpLeft;
+  }
+
+  get bossMax(): number {
+    return this.meta.bossWave ? (this.meta.bossHp ?? bossHits(this.meta.day, this.meta.atkLv)) : 0;
   }
 
   get bossP2Active(): boolean {
-    return this.bossP2;
+    return this.sim.bossP2;
   }
 
-  // ── 数值查询（普通引擎据此生成怪 / 结算伤害）──
+  get combo(): number {
+    return this.sim.combo;
+  }
+
+  get answered(): number {
+    return this.answeredCount;
+  }
+
+  // ── 逐问推进：返回事件，表现层据此播放视觉（血量/击破已由引擎结算）──
+  step(correct: boolean): BattleEvent[] {
+    this.answeredCount++;
+    return this.sim.step(correct).events;
+  }
+
+  // ── 数值查询（表现层据此生成怪 / 结算视觉）──
   monsterHpFor(tier: TierIdx): number {
     return monsterHits(tier, this.meta.day, this.meta.atkLv, this.meta.buffs.dmg);
   }
@@ -102,10 +149,7 @@ export class SurvivalBattle {
     return this.meta.legend.noLeakDmg ? 0 : applyDef(this.leakRaw(), this.meta.defLv);
   }
   bossMissDmg(): number {
-    return this.bossP2 && this.meta.legend.bossImmunity ? 0 : applyDef(this.bossRaw(), this.meta.defLv);
-  }
-  bossHpNow(): number {
-    return this.bossMax;
+    return this.bossP2Active && this.meta.legend.bossImmunity ? 0 : applyDef(this.bossRaw(), this.meta.defLv);
   }
   leechEvery(): number {
     return leechN(this.meta.buffs.leech);
@@ -114,81 +158,36 @@ export class SurvivalBattle {
     return this.meta.legend.bossX2;
   }
   spawnTier(): TierIdx {
-    const i = this.correct + this.wrong;
-    return this.meta.questions[Math.min(i, Math.max(0, this.meta.questions.length - 1))]?.tier ?? 0;
+    // 引擎按「当前题 idx」补怪；本封装 answeredCount 在 step 后已 +1 → 用刚答完的题
+    const i = this.answeredCount - 1;
+    return this.meta.questions[Math.min(Math.max(0, i), Math.max(0, this.meta.questions.length - 1))]?.tier ?? 0;
   }
   currentQuestionIsNew(): boolean {
-    const i = this.correct + this.wrong;
-    return this.meta.questions[Math.min(i, Math.max(0, this.meta.questions.length - 1))]?.isNew ?? false;
+    const i = this.answeredCount - 1;
+    return this.meta.questions[Math.min(Math.max(0, i), Math.max(0, this.meta.questions.length - 1))]?.isNew ?? false;
   }
-
-  // ── 账本操作（普通引擎在事件发生时调用）──
-  // 扣血（免伤/防御生效），返回实际扣除
-  hurt(raw: number): number {
-    if (this.dodge > 0) {
-      this.dodge--;
-      return 0;
-    }
-    const d = applyDef(raw, this.meta.defLv);
-    this.hp -= d;
-    return d;
+  // 当前题对应怪特性（与引擎 monsterTraitAt 同源，确定性一致；视觉用）
+  currentTrait(): MonsterTrait {
+    const i = Math.max(0, this.answeredCount - 1);
+    const q = this.meta.questions[Math.min(i, Math.max(0, this.meta.questions.length - 1))];
+    return monsterTraitAt(q?.tier ?? 0, i, this.meta.day);
   }
-  heal(amount: number): number {
-    const before = this.hp;
-    this.hp = Math.min(this.meta.maxHp, this.hp + amount);
-    return this.hp - before;
-  }
-  onCorrect(): void {
-    this.correct++;
-  }
-  // 返回是否触发连错眩晕
-  onWrong(): boolean {
-    this.wrong++;
-    this.consecWrong++;
-    if (this.consecWrong >= 2) {
-      this.consecWrong = 0;
-      return true;
-    }
-    return false;
-  }
-  onKill(): void {
-    if (this.meta.legend.killHeal) this.heal(1);
-  }
-  onLeak(): void {
-    this.leaked++;
-  }
-  // Boss 命中：扣 boss HP，返回 P2 是否触发 / 是否击破
-  onBossHit(dmg: number): { p2: boolean; cleared: boolean } {
-    this.bossHp -= dmg;
-    if (this.bossHp <= this.bossMax / 2 && !this.bossP2) this.bossP2 = true;
-    const cleared = this.bossHp <= 0;
-    if (cleared && !this.bossCleared) {
-      this.bossCleared = true;
-      this.heal(SURVIVAL.BOSS_HEAL);
-    }
-    return { p2: this.bossP2, cleared };
-  }
-  // Boss P2 由普通引擎判定后同步
-  setBossP2(v: boolean): void {
-    this.bossP2 = v;
+  // 视觉怪 HP（含厚皮/精英特性加成）
+  monsterHpForTrait(tier: TierIdx): number {
+    let hp = this.monsterHpFor(tier);
+    const t = this.currentTrait();
+    if (t === 'tank') hp = Math.ceil(hp * SURVIVAL.TRAIT_TANK_MULT);
+    if (t === 'elite') hp = Math.ceil(hp * SURVIVAL.TRAIT_ELITE_MULT);
+    return hp;
   }
 
   private wrongRaw(): number {
-    return Math.min(
-      SURVIVAL.WRONG_BASE + SURVIVAL.WRONG_GROW * (this.meta.day - 1),
-      SURVIVAL.WRONG_CAP,
-    );
+    return SURVIVAL.WRONG_BASE + SURVIVAL.WRONG_GROW * (this.meta.day - 1);
   }
   private leakRaw(): number {
-    return Math.min(
-      SURVIVAL.LEAK_BASE + SURVIVAL.LEAK_GROW * (this.meta.day - 1),
-      SURVIVAL.LEAK_CAP,
-    );
+    return SURVIVAL.LEAK_BASE + SURVIVAL.LEAK_GROW * (this.meta.day - 1);
   }
   private bossRaw(): number {
-    return Math.min(
-      SURVIVAL.BOSS_DMG_BASE + SURVIVAL.BOSS_DMG_GROW * (this.meta.day - 1),
-      SURVIVAL.BOSS_DMG_CAP,
-    );
+    return SURVIVAL.BOSS_DMG_BASE + SURVIVAL.BOSS_DMG_GROW * (this.meta.day - 1);
   }
 }

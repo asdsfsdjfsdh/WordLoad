@@ -1,4 +1,5 @@
 // 注入决策（纯函数）：轻量 Q + 保底 5，严格隔天，首领波日不注，acc 门控
+// 例外：当天全对（acc=1）视为学习节奏优秀 → 次日强制注入（绕过冷却与首领日限制）
 import { SURVIVAL, injectAmount } from '@word-journey/shared';
 
 export interface InjectDecisionInput {
@@ -17,8 +18,11 @@ export interface InjectDecision {
 // acc < 强制停止阈值：停止注入（弱玩家纯复习）；连续低于仍继续则不再注入
 export function shouldInject(input: InjectDecisionInput): InjectDecision {
   const { day, lastInjectDay, acc, qLight, bossJustCleared } = input;
-  if (bossJustCleared) return { inject: false, amount: 0 };
-  if (day - lastInjectDay < SURVIVAL.INJECT_COOLDOWN_DAYS) return { inject: false, amount: 0 };
+  const perfect = acc >= 1;
+  // 首领波日不注；全对例外：Boss 天全对 → 次日仍注入
+  if (bossJustCleared && !perfect) return { inject: false, amount: 0 };
+  // 严格隔天交替；全对例外：当天全对 → 次日即注入
+  if (day - lastInjectDay < SURVIVAL.INJECT_COOLDOWN_DAYS && !perfect) return { inject: false, amount: 0 };
   if (acc < SURVIVAL.INJECT_ACC_GATE) return { inject: false, amount: 0 };
   const amount = injectAmount(qLight);
   if (amount <= 0) return { inject: false, amount: 0 };
