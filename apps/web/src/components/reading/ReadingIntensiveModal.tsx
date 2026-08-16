@@ -277,7 +277,7 @@ export function ReadingIntensiveModal({
           )}
 
           {/* 译文 */}
-          {zhOpen && (
+          {zhOpen && cur.zh && (
             <div className="rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-4 text-sm leading-7 text-slate-300">
               <div className="mb-1 text-[11px] font-semibold uppercase tracking-[.15em] text-cyan-500/70">译文</div>
               {cur.zh}

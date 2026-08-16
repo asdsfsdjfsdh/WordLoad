@@ -219,6 +219,7 @@ export interface ConfusableInfo {
   counterpart: string;
   type: 'orthographic' | 'homophone' | 'near-synonym';
   note: string;
+  wordId?: string; // 易混词对应 wordId（图鉴点击跳转详情用）
 }
 
 // 图鉴：单词收藏卡片
@@ -233,7 +234,10 @@ export interface CollectedWord {
   nextReviewAt: string | null; // 下次复习时间
   mastery: number;
   inWrongBook: boolean;
+  inVocabBook: boolean; // 生词本
   skipped: boolean; // 已斩：永久不再出题
+  wrongCount: number; // 累计答错次数（易错信号）
+  masteredAt: string | null; // 首次掌握时间
   meanings: { meaning: string; example: string }[];
   examples: string[]; // 全部例句（去重）
   confusables: ConfusableInfo[]; // 易混词（形近/音近/义近）
@@ -257,6 +261,7 @@ export interface SrsTrajectory {
     nextReviewAt: string | null;
     inWrongBook: boolean;
     skipped: boolean;
+    masteredAt: string | null; // 首次掌握时间
   };
   // 档位变更史（按时间升序，仅记录档位变化点）
   points: SrsStagePoint[];
@@ -284,6 +289,10 @@ export interface CollectionStats {
   skipped: number; // 已斩（永久不再出题）
   newToday: number; // 今日首次遇到的单词数（"新遇"筛选）
   dueToday: number; // 待复习：已到期且未掌握且未斩的单词数
+  weak: number; // 易错：累计答错≥3 且未掌握且未斩
+  vocabbook: number; // 生词本
+  masteredToday: number; // 今日首次掌握数
+  stageHistogram: { stage: number; count: number }[]; // 记忆深度分布（0~5+）
   byTier: { tier: DifficultyTier; total: number; encountered: number }[];
 }
 

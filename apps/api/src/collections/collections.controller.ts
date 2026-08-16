@@ -33,11 +33,34 @@ export class CollectionsController {
   ): Promise<{ words: CollectedWord[]; total: number; page: number; pageSize: number }> {
     return this.collections.listWords(req.user.sub, {
       tier,
-      status: status as 'new' | 'learning' | 'mastered' | 'wrongbook' | 'skipped' | 'due' | undefined,
+      status: status as 'new' | 'learning' | 'mastered' | 'wrongbook' | 'skipped' | 'due' | 'weak' | 'vocabbook' | undefined,
       sort,
       search,
       page: page ? Number.parseInt(page, 10) : undefined,
       pageSize: pageSize ? Number.parseInt(pageSize, 10) : undefined,
+    });
+  }
+
+  @Get('words/ids')
+  @ApiOperation({ summary: '图鉴全量弱词复习 wordIds' })
+  @ApiOkResponse({ description: '匹配词 id 列表 + 词书 code' })
+  async wordIds(
+    @Req() req: Request & { user: JwtUser },
+    @Query('status') status?: string,
+    @Query('limit') limit?: string,
+  ): Promise<{ wordIds: string[]; bankCode?: string }> {
+    return this.collections.listWordIds(req.user.sub, {
+      status: status as
+        | 'new'
+        | 'learning'
+        | 'mastered'
+        | 'wrongbook'
+        | 'skipped'
+        | 'due'
+        | 'weak'
+        | 'vocabbook'
+        | undefined,
+      limit: limit ? Number.parseInt(limit, 10) : undefined,
     });
   }
 

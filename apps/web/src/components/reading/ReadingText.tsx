@@ -108,7 +108,7 @@ export function ReadingText({
                 ),
               )}
             </p>
-            {(showZh || selected) && (
+            {(showZh || selected) && s.zh && (
               <p className="mt-1 border-l-2 border-cyan-500/40 pl-3 text-sm leading-6 text-slate-400">{s.zh}</p>
             )}
             {/* 结构融合标注：句子下方（小字但可读） */}

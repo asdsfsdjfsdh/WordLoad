@@ -667,8 +667,9 @@ export class SessionsService {
         historyByWord.set(item.wordId, stageHistory);
         const wasMastered = (cur?.mastery ?? 0) >= 100;
         const mastery = masteryFromStage(srs.reviewStage);
-        // 同词在会话内重复（如错词→Boss 复仇词）只计一次新掌握
-        if (!wasMastered && mastery >= 100 && !mastered.has(item.wordId)) {
+        // 同词在会话内重复（如错词→Boss 复仇词）只计一次新掌握；masteredAt 仅在此刻落库
+        const newlyMastered = !wasMastered && mastery >= 100 && !mastered.has(item.wordId);
+        if (newlyMastered) {
           mastered.add(item.wordId);
           newMastered++;
         }
@@ -702,6 +703,7 @@ export class SessionsService {
             firstEncounteredAt: new Date(now),
             lastEncounteredAt: new Date(now),
             srsHistory: stageHistory,
+            masteredAt: newlyMastered ? new Date(now) : null,
           },
           update: {
             correctCount: { increment: correctNow ? 1 : 0 },
@@ -716,6 +718,7 @@ export class SessionsService {
             firstEncounteredAt: cur ? undefined : new Date(now), // 仅在首次时设置
             lastEncounteredAt: new Date(now),
             srsHistory: stageHistory,
+            masteredAt: newlyMastered ? new Date(now) : undefined,
           },
         });
 

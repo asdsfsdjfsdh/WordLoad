@@ -176,7 +176,7 @@ export function StatsPage() {
                   ))}
                 </div>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="rounded-lg border border-slate-800/70 bg-slate-900/30 p-2.5">
                   <div className="mb-1.5 text-[10px] text-slate-500">每日答题</div>
                   <MiniBars data={trendPoints(trendQ.data).map((p) => ({
@@ -192,6 +192,12 @@ export function StatsPage() {
                   <MiniBars data={trendPoints(trendQ.data).map((p) => ({
                     label: md(p.date), value: p.newWords, title: `${p.date} 新学 ${p.newWords} 词`,
                   }))} color="#a78bfa" height={64} labelEvery={Math.max(1, Math.ceil((trendQ.data?.length ?? range) / 6))} />
+                </div>
+                <div className="rounded-lg border border-slate-800/70 bg-slate-900/30 p-2.5">
+                  <div className="mb-1.5 text-[10px] text-slate-500">每日掌握</div>
+                  <MiniBars data={trendPoints(trendQ.data).map((p) => ({
+                    label: md(p.date), value: p.mastered, title: `${p.date} 新掌握 ${p.mastered} 词`,
+                  }))} color="#10b981" height={64} labelEvery={Math.max(1, Math.ceil((trendQ.data?.length ?? range) / 6))} />
                 </div>
               </div>
             </Panel>

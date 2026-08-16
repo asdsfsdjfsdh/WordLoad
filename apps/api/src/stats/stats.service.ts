@@ -10,7 +10,7 @@ export class StatsService {
   constructor(private readonly prisma: PrismaService) {}
 
   async overview(userId: number): Promise<StatsOverview> {
-    const [sessions, answered, correct, timeAgg, words, progress, runs, activeRuns] = await Promise.all([
+    const [sessions, answered, correct, timeAgg, tierTotals, progress, runs, activeRuns] = await Promise.all([
       this.prisma.learningSession.findMany({
         where: { userId },
         select: { result: true, phase: true, bossCleared: true, maxCombo: true, rating: true, xpEarned: true, coinsEarned: true, createdAt: true },
@@ -18,10 +18,11 @@ export class StatsService {
       this.prisma.learningSessionItem.count({ where: { answered: true, session: { userId } } }),
       this.prisma.learningSessionItem.count({ where: { answered: true, correct: true, session: { userId } } }),
       this.prisma.learningSessionItem.aggregate({ where: { answered: true, session: { userId } }, _sum: { elapsedMs: true } }),
-      this.prisma.word.findMany({ select: { id: true, tier: true } }),
+      // 全词库按 tier 聚合，避免每次全表拉取所有词
+      this.prisma.word.groupBy({ by: ['tier'], _count: { _all: true } }),
       this.prisma.userWordProgress.findMany({
         where: { userId },
-        select: { wordId: true, mastery: true, inWrongBook: true, skipped: true },
+        select: { wordId: true, mastery: true, inWrongBook: true, skipped: true, word: { select: { tier: true } } },
       }),
       this.prisma.run.findMany({
         where: { userId, status: 'finished' },
@@ -55,16 +56,22 @@ export class StatsService {
     const encountered = new Set(progress.map((p) => p.wordId));
     const wrongbook = new Set(progress.filter((p) => p.inWrongBook).map((p) => p.wordId));
     const skipped = new Set(progress.filter((p) => p.skipped).map((p) => p.wordId));
+    const totalByTier = new Map<string, number>();
+    for (const g of tierTotals) totalByTier.set(g.tier, g._count._all);
+    const encounteredTier = new Map<string, number>();
+    const masteredTier = new Map<string, number>();
+    for (const p of progress) {
+      const tier = p.word.tier;
+      encounteredTier.set(tier, (encounteredTier.get(tier) ?? 0) + 1);
+      if (mastered.has(p.wordId)) masteredTier.set(tier, (masteredTier.get(tier) ?? 0) + 1);
+    }
     const tiers: DifficultyTier[] = ['I', 'II', 'III', 'IV'];
-    const tierStats = tiers.map((tier) => {
-      const tierWords = words.filter((w) => w.tier === tier);
-      return {
-        tier,
-        total: tierWords.length,
-        mastered: tierWords.filter((w) => mastered.has(w.id)).length,
-        encountered: tierWords.filter((w) => encountered.has(w.id)).length,
-      };
-    });
+    const tierStats = tiers.map((tier) => ({
+      tier,
+      total: totalByTier.get(tier) ?? 0,
+      mastered: masteredTier.get(tier) ?? 0,
+      encountered: encounteredTier.get(tier) ?? 0,
+    }));
 
     const totalAnswered = answered;
     const totalCorrect = correct;
@@ -101,8 +108,11 @@ export class StatsService {
         select: { id: true, createdAt: true, xpEarned: true, coinsEarned: true },
       }),
       this.prisma.userWordProgress.findMany({
-        where: { userId, firstEncounteredAt: { gte: start } },
-        select: { firstEncounteredAt: true },
+        where: {
+          userId,
+          OR: [{ firstEncounteredAt: { gte: start } }, { masteredAt: { gte: start } }],
+        },
+        select: { firstEncounteredAt: true, masteredAt: true },
       }),
     ]);
 
@@ -156,6 +166,13 @@ export class StatsService {
       const d = toDateStr(p.firstEncounteredAt);
       if (!byDate.has(d)) byDate.set(d, emptyPoint(d));
       byDate.get(d)!.newWords += 1;
+    }
+
+    for (const p of progress) {
+      if (!p.masteredAt) continue;
+      const d = toDateStr(p.masteredAt);
+      if (!byDate.has(d)) byDate.set(d, emptyPoint(d));
+      byDate.get(d)!.mastered += 1;
     }
 
     // 补齐整段日期（含无活动日）
@@ -226,7 +243,7 @@ export class StatsService {
 }
 
 function emptyPoint(date: string): StatsTrendPoint {
-  return { date, sessions: 0, answered: 0, correct: 0, accuracy: 0, xpEarned: 0, coinsEarned: 0, studyMs: 0, newWords: 0 };
+  return { date, sessions: 0, answered: 0, correct: 0, accuracy: 0, xpEarned: 0, coinsEarned: 0, studyMs: 0, newWords: 0, mastered: 0 };
 }
 
 // 生存 Run 聚合（纯函数，可单测）

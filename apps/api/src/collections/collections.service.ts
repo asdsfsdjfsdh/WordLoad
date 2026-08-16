@@ -3,6 +3,8 @@ import type { CollectedWord, CollectionStats, ConfusableInfo, DifficultyTier, Sr
 import { intervalDays } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 
+type StatusFilter = 'new' | 'learning' | 'mastered' | 'wrongbook' | 'skipped' | 'due' | 'weak' | 'vocabbook';
+
 @Injectable()
 export class CollectionsService {
   constructor(private readonly prisma: PrismaService) {}
@@ -11,7 +13,7 @@ export class CollectionsService {
     userId: number,
     opts: {
       tier?: string;
-      status?: 'new' | 'learning' | 'mastered' | 'wrongbook' | 'skipped' | 'due';
+      status?: StatusFilter;
       sort?: string;
       search?: string;
       page?: number;
@@ -21,68 +23,8 @@ export class CollectionsService {
     const page = Math.max(1, opts.page ?? 1);
     const pageSize = Math.min(100, Math.max(10, opts.pageSize ?? 50));
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const where: any = { userId };
-
-    if (opts.tier) {
-      where.word = { tier: opts.tier };
-    }
-    switch (opts.status) {
-      case 'wrongbook':
-        where.inWrongBook = true;
-        break;
-      case 'skipped':
-        where.skipped = true;
-        break;
-      case 'mastered':
-        // 已掌握不含已斩（斩=永久不再考，与掌握区分展示）
-        where.mastery = 100;
-        where.skipped = false;
-        break;
-      case 'learning':
-        // 与 stats.learning 同口径：学习中 = 已遇未掌握 且 不在错题本 且 未斩
-        where.mastery = { gt: 0, lt: 100 };
-        where.inWrongBook = false;
-        where.skipped = false;
-        break;
-      case 'due':
-        // 待复习：已到期 且 未掌握 且 未斩（行动导向）
-        where.nextReviewAt = { lte: new Date() };
-        where.mastery = { lt: 100 };
-        where.skipped = false;
-        break;
-      case 'new':
-        // "新遇" = 今日首次遇到的单词（结算后 mastery 恒 > 0，原 mastery=0 永远为空）
-        where.firstEncounteredAt = { gte: startOfToday() };
-        break;
-    }
-    if (opts.search) {
-      // 双语搜索：英文词形 或 中文释义
-      where.word = {
-        ...(where.word ?? {}),
-        OR: [
-          { text: { contains: opts.search } },
-          { senses: { some: { meaning: { contains: opts.search } } } },
-        ],
-      };
-    }
-
-    // 排序（MySQL 无 NULLS LAST：due 排序仅在与 due 筛选组合时使用，此时 nextReviewAt 恒非空）
-    let orderBy: Record<string, unknown> | Record<string, unknown>[];
-    if (opts.status === 'due' && opts.sort !== 'stage') {
-      orderBy = [{ nextReviewAt: 'asc' }, { wordId: 'asc' }];
-    } else {
-      switch (opts.sort) {
-        case 'stage':
-          orderBy = [{ reviewStage: 'desc' }, { firstEncounteredAt: 'desc' }];
-          break;
-        case 'due':
-          orderBy = [{ nextReviewAt: 'asc' }, { wordId: 'asc' }];
-          break;
-        default:
-          orderBy = [{ firstEncounteredAt: 'desc' }, { wordId: 'asc' }];
-      }
-    }
+    const where = this.buildWhere(userId, opts);
+    const orderBy = this.buildOrderBy(opts.status, opts.sort);
 
     const [rows, total] = await Promise.all([
       this.prisma.userWordProgress.findMany({
@@ -102,29 +44,7 @@ export class CollectionsService {
       this.prisma.userWordProgress.count({ where }),
     ]);
 
-    // 页内单词的易混对（word_pairs 双向引用）批量查询
-    const ids = rows.map((r) => r.word.id);
-    const [asA, asB] = await Promise.all([
-      this.prisma.wordPair.findMany({
-        where: { wordAId: { in: ids } },
-        include: { wordB: { select: { text: true } } },
-      }),
-      this.prisma.wordPair.findMany({
-        where: { wordBId: { in: ids } },
-        include: { wordA: { select: { text: true } } },
-      }),
-    ]);
-    const confusablesById = new Map<string, ConfusableInfo[]>();
-    for (const p of asA) {
-      const list = confusablesById.get(p.wordAId) ?? [];
-      list.push({ counterpart: p.wordB.text, type: p.type as ConfusableInfo['type'], note: p.note });
-      confusablesById.set(p.wordAId, list);
-    }
-    for (const p of asB) {
-      const list = confusablesById.get(p.wordBId) ?? [];
-      list.push({ counterpart: p.wordA.text, type: p.type as ConfusableInfo['type'], note: p.note });
-      confusablesById.set(p.wordBId, list);
-    }
+    const confusablesById = await this.loadConfusables(rows.map((r) => r.word.id));
 
     const words: CollectedWord[] = rows.map((r) => ({
       wordId: r.word.id,
@@ -137,7 +57,10 @@ export class CollectionsService {
       nextReviewAt: r.nextReviewAt?.toISOString() ?? null,
       mastery: r.mastery,
       inWrongBook: r.inWrongBook,
+      inVocabBook: r.inVocabBook,
       skipped: r.skipped,
+      wrongCount: r.wrongCount,
+      masteredAt: r.masteredAt?.toISOString() ?? null,
       meanings: r.word.senses.map((s) => ({ meaning: s.meaning, example: s.example })),
       examples: Array.from(new Set(r.word.senses.map((s) => s.example).filter(Boolean))),
       confusables: confusablesById.get(r.word.id) ?? [],
@@ -146,6 +69,29 @@ export class CollectionsService {
     }));
 
     return { words, total, page, pageSize };
+  }
+
+  // 全量弱词复习：仅返回匹配词 id（无分页/无重负载），供图鉴 CTA 一次拉全量后跳复习战
+  async listWordIds(
+    userId: number,
+    opts: { status?: StatusFilter; limit?: number },
+  ): Promise<{ wordIds: string[]; bankCode?: string }> {
+    const where = this.buildWhere(userId, opts);
+    const orderBy = this.buildOrderBy(opts.status, opts.status === 'due' ? 'due' : 'firstEncounteredAt');
+    const limit = Math.min(60, Math.max(1, opts.limit ?? 60));
+    const rows = await this.prisma.userWordProgress.findMany({
+      where,
+      orderBy,
+      take: limit,
+      select: {
+        wordId: true,
+        word: { select: { bankWords: { take: 1, select: { bank: { select: { code: true } } } } } },
+      },
+    });
+    return {
+      wordIds: rows.map((r) => r.wordId),
+      bankCode: rows[0]?.word.bankWords[0]?.bank.code ?? undefined,
+    };
   }
 
   async srsTrajectory(userId: number, wordId: string): Promise<SrsTrajectory> {
@@ -161,21 +107,7 @@ export class CollectionsService {
     if (!word) throw new NotFoundException('单词不存在');
     if (!progress) throw new NotFoundException('尚未相遇该单词');
 
-    const [asA, asB] = await Promise.all([
-      this.prisma.wordPair.findMany({
-        where: { wordAId: wordId },
-        include: { wordB: { select: { text: true } } },
-      }),
-      this.prisma.wordPair.findMany({
-        where: { wordBId: wordId },
-        include: { wordA: { select: { text: true } } },
-      }),
-    ]);
-    const confusables: ConfusableInfo[] = [
-      ...asA.map((p) => ({ counterpart: p.wordB.text, type: p.type as ConfusableInfo['type'], note: p.note })),
-      ...asB.map((p) => ({ counterpart: p.wordA.text, type: p.type as ConfusableInfo['type'], note: p.note })),
-    ];
-
+    const confusables = await this.loadConfusables([wordId]);
     const rawPoints = Array.isArray(progress.srsHistory)
       ? (progress.srsHistory as { stage?: number; at?: string }[]).filter(
           (e) => e && typeof e === 'object' && typeof e.stage === 'number' && typeof e.at === 'string',
@@ -196,6 +128,7 @@ export class CollectionsService {
         nextReviewAt: progress.nextReviewAt?.toISOString() ?? null,
         inWrongBook: progress.inWrongBook,
         skipped: progress.skipped,
+        masteredAt: progress.masteredAt?.toISOString() ?? null,
       },
       points,
       lastReviewedAt: lastPoint?.at ?? null,
@@ -205,7 +138,7 @@ export class CollectionsService {
         tier: word.tier as DifficultyTier,
         meanings: word.senses.map((s) => ({ meaning: s.meaning, example: s.example })),
         examples: Array.from(new Set(word.senses.map((s) => s.example).filter(Boolean))),
-        confusables,
+        confusables: confusables.get(wordId) ?? [],
         mnemonic: word.mnemonic ?? undefined,
       },
     };
@@ -223,8 +156,13 @@ export class CollectionsService {
           mastery: true,
           firstEncounteredAt: true,
           inWrongBook: true,
+          inVocabBook: true,
           skipped: true,
           nextReviewAt: true,
+          wrongCount: true,
+          masteredAt: true,
+          reviewStage: true,
+          word: { select: { tier: true } },
         },
       }),
     ]);
@@ -240,20 +178,28 @@ export class CollectionsService {
     const dueToday = progress.filter(
       (p) => !p.skipped && p.mastery < 100 && p.nextReviewAt != null && p.nextReviewAt.getTime() <= now.getTime(),
     ).length;
+    const weak = progress.filter((p) => p.wrongCount >= 3 && p.mastery < 100 && !p.skipped).length;
+    const vocabbook = progress.filter((p) => p.inVocabBook).length;
     const newToday = progress.filter(
       (p) => p.firstEncounteredAt != null && p.firstEncounteredAt.getTime() >= startOfToday().getTime(),
     ).length;
+    const masteredToday = progress.filter(
+      (p) => p.masteredAt != null && p.masteredAt.getTime() >= startOfToday().getTime(),
+    ).length;
 
-    // 已遇词的 tier 分布：仅查用户进度覆盖的词，避免全词库扫描
+    // 记忆深度分布（0~5+，排除已斩词以聚焦学习进度）
+    const stageHistogram = [0, 1, 2, 3, 4, 5].map((stage) => ({ stage, count: 0 }));
+    for (const p of progress) {
+      if (p.skipped) continue;
+      const bucket = Math.min(5, Math.max(0, p.reviewStage));
+      stageHistogram[bucket]!.count += 1;
+    }
+
+    // 已遇词的 tier 分布：直接取自 progress 的 word.tier（关系 include，避免二次全表扫描）
     const encounteredTier = new Map<string, number>();
-    if (encountered.size > 0) {
-      const rows = await this.prisma.word.findMany({
-        where: { id: { in: [...encountered] } },
-        select: { id: true, tier: true },
-      });
-      for (const w of rows) {
-        if (encountered.has(w.id)) encounteredTier.set(w.tier, (encounteredTier.get(w.tier) ?? 0) + 1);
-      }
+    for (const p of progress) {
+      const tier = p.word.tier;
+      encounteredTier.set(tier, (encounteredTier.get(tier) ?? 0) + 1);
     }
 
     const tiers: DifficultyTier[] = ['I', 'II', 'III', 'IV'];
@@ -272,8 +218,107 @@ export class CollectionsService {
       skipped: skipped.size,
       newToday,
       dueToday,
+      weak,
+      vocabbook,
+      masteredToday,
+      stageHistogram,
       byTier,
     };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private buildWhere(userId: number, opts: { tier?: string; status?: StatusFilter; search?: string }): any {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const where: any = { userId };
+
+    if (opts.tier) {
+      where.word = { tier: opts.tier };
+    }
+    switch (opts.status) {
+      case 'wrongbook':
+        where.inWrongBook = true;
+        break;
+      case 'skipped':
+        where.skipped = true;
+        break;
+      case 'mastered':
+        where.mastery = 100;
+        where.skipped = false;
+        break;
+      case 'learning':
+        where.mastery = { gt: 0, lt: 100 };
+        where.inWrongBook = false;
+        where.skipped = false;
+        break;
+      case 'due':
+        where.nextReviewAt = { lte: new Date() };
+        where.mastery = { lt: 100 };
+        where.skipped = false;
+        break;
+      case 'weak':
+        where.wrongCount = { gte: 3 };
+        where.mastery = { lt: 100 };
+        where.skipped = false;
+        break;
+      case 'vocabbook':
+        where.inVocabBook = true;
+        break;
+      case 'new':
+        where.firstEncounteredAt = { gte: startOfToday() };
+        break;
+    }
+    if (opts.search) {
+      where.word = {
+        ...(where.word ?? {}),
+        OR: [
+          { text: { contains: opts.search } },
+          { senses: { some: { meaning: { contains: opts.search } } } },
+        ],
+      };
+    }
+    return where;
+  }
+
+  private buildOrderBy(status: StatusFilter | undefined, sort: string | undefined): Record<string, unknown> | Record<string, unknown>[] {
+    if (status === 'due' && sort !== 'stage' && sort !== 'weakest') {
+      return [{ nextReviewAt: 'asc' }, { wordId: 'asc' }];
+    }
+    switch (sort) {
+      case 'stage':
+        return [{ reviewStage: 'desc' }, { firstEncounteredAt: 'desc' }];
+      case 'weakest':
+        return [{ wrongCount: 'desc' }, { firstEncounteredAt: 'desc' }];
+      case 'due':
+        return [{ nextReviewAt: 'asc' }, { wordId: 'asc' }];
+      default:
+        return [{ firstEncounteredAt: 'desc' }, { wordId: 'asc' }];
+    }
+  }
+
+  private async loadConfusables(wordIds: string[]): Promise<Map<string, ConfusableInfo[]>> {
+    if (wordIds.length === 0) return new Map();
+    const [asA, asB] = await Promise.all([
+      this.prisma.wordPair.findMany({
+        where: { wordAId: { in: wordIds } },
+        include: { wordB: { select: { text: true, id: true } } },
+      }),
+      this.prisma.wordPair.findMany({
+        where: { wordBId: { in: wordIds } },
+        include: { wordA: { select: { text: true, id: true } } },
+      }),
+    ]);
+    const map = new Map<string, ConfusableInfo[]>();
+    for (const p of asA) {
+      const list = map.get(p.wordAId) ?? [];
+      list.push({ counterpart: p.wordB.text, type: p.type as ConfusableInfo['type'], note: p.note, wordId: p.wordB.id });
+      map.set(p.wordAId, list);
+    }
+    for (const p of asB) {
+      const list = map.get(p.wordBId) ?? [];
+      list.push({ counterpart: p.wordA.text, type: p.type as ConfusableInfo['type'], note: p.note, wordId: p.wordA.id });
+      map.set(p.wordBId, list);
+    }
+    return map;
   }
 }
 

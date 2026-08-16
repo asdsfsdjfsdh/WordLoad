@@ -153,7 +153,15 @@ export const UNIT_BOSS = {
   DAILY_CAP: 20,
   // 错词恢复：本局答错后连续答对 RECOVER_STREAK 次 → 离开错词层（比全局 FORGETTING.RECOVER_STREAK 更宽松，降重复）
   RECOVER_STREAK: 2,
-  // 重开继承：局前全局 mastery 达到该值视为"预会"，直接算完成、不再出题
+  // typo vs 不会：答错耗时 ≥ SLOW_WRONG_MS 视为"真不会"，恢复需更多连续答对（RECOVER_SLOW）
+  SLOW_WRONG_MS: 4000,
+  RECOVER_SLOW: 3,
+  // 弱玩家保护：近期正确率 < ACC_LOW → 每日新词量上限收紧为 NEW_CAP_LOW（多复习少新词）
+  ACC_LOW: 0.6,
+  NEW_CAP_LOW: 10,
+  // 听写精通：dictation 模式答对时 reviewStage 额外 +1（更快掌握，更高阶挑战的回报）
+  DICTATION_STAGE_BONUS: 1,
+  // 重开继承：局前全局 correctCount ≥ 1（历史答对过）视为"预会"，直接算完成、不再出题
   MASTERY_THRESHOLD: 100,
   // 首通一次性加成：该 (user, stage) 首次通关该 Unit 时额外金币（防重复通关刷收益）
   FIRST_CLEAR_COINS: 100,

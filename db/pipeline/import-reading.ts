@@ -9,7 +9,7 @@ export interface ReadingSentenceData {
   para: number;
   seq: number;
   en: string;
-  zh: string;
+  zh?: string; // 逐句译文（可空；无译文时句子正常展示、翻译区隐藏）
 }
 
 export interface ReadingQuestionData {
@@ -67,7 +67,9 @@ export function validateReadingFile(data: unknown): string[] {
       else if (seqSet.has(st.seq)) issues.push(`sentences[${i}].seq 重复: ${st.seq}`);
       else seqSet.add(st.seq);
       if (typeof st.en !== 'string' || !st.en.trim()) issues.push(`sentences[${i}].en 为空`);
-      if (typeof st.zh !== 'string' || !st.zh.trim()) issues.push(`sentences[${i}].zh 为空`);
+      if (st.zh !== undefined && (typeof st.zh !== 'string' || !st.zh.trim())) {
+        issues.push(`sentences[${i}].zh 非法（可省略）`);
+      }
     });
   }
 
@@ -98,10 +100,10 @@ export function validateReadingFile(data: unknown): string[] {
     });
   }
 
-  // glossary
+  // glossary（可空：点词将回退单词库）
   const glossary = d.glossary as Record<string, { phonetic?: string; meaning: string }> | undefined;
-  if (!glossary || typeof glossary !== 'object' || Object.keys(glossary).length === 0) {
-    issues.push('glossary 为空');
+  if (!glossary || typeof glossary !== 'object') {
+    issues.push('glossary 非法');
   } else {
     for (const [word, g] of Object.entries(glossary)) {
       if (!g || typeof g !== 'object') {
@@ -124,7 +126,10 @@ export function buildContent(sentences: ReadingSentenceData[], key: 'en' | 'zh')
     byPara.set(s.para, list);
   }
   const paras = [...byPara.keys()].sort((a, b) => a - b).map((p) =>
-    [...byPara.get(p)!].sort((a, b) => a.seq - b.seq).map((s) => s[key]).join(' '),
+    [...byPara.get(p)!].sort((a, b) => a.seq - b.seq)
+      .map((s) => s[key])
+      .filter(Boolean)
+      .join(' '),
   );
   return paras.join('\n\n');
 }
@@ -214,7 +219,7 @@ async function importPaper(
           para: s.para,
           seq: s.seq,
           en: s.en,
-          zh: s.zh,
+          zh: s.zh ?? '',
           ...(structure ? { structure: structure as never } : {}),
         };
       }),

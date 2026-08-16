@@ -485,9 +485,10 @@ describe('RunsService', () => {
         (c: unknown[]) => (c[0] as { where: { userId_wordId: { wordId: string } } }).where.userId_wordId.wordId === 'a',
       );
       expect(call).toBeDefined();
-      const data = (call as unknown[])[0] as { create: { inWrongBook: boolean; wrongStreak: number; nextReviewAt: Date } };
+      const data = (call as unknown[])[0] as { create: { inWrongBook: boolean; wrongStreak: number; nextReviewAt: Date; masteredAt: Date | null } };
       expect(data.create.inWrongBook).toBe(true);
       expect(data.create.wrongStreak).toBe(0);
+      expect(data.create.masteredAt).toBeNull(); // 答错未掌握 → 不记掌握时间
       // 进错题本 → 次日（约 1 天）短间隔，而非 SRS 长间隔
       const next = data.create.nextReviewAt.getTime() - Date.now();
       expect(next).toBeGreaterThan(0);

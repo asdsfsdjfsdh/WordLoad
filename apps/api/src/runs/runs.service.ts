@@ -45,7 +45,7 @@ import { cleanRateOf, computePoolStages, questionsPerDayFor, shouldExpand } from
 import { pickBuffs, pickLegends } from './buff-picker';
 import { computeRewards, isRecordBroken } from './rewards';
 import { finalBossHp } from './unit-boss';
-import { isFirstClear, isPreKnown, isUnitWrong, unitProgressOf as unitProgressOfFn, type UnitWordState } from './unit-clear';
+import { isFirstClear, isPreKnown, isUnitDone, needsRetest, pickNewWords, unitProgressOf as unitProgressOfFn, type UnitWordState } from './unit-clear';
 import {
   MASTER_STAGE,
   appendStageHistory,
@@ -944,7 +944,7 @@ export class RunsService {
         const s = stateByWord.get(w.wordId);
         if (!s || s.skipped) continue;
         if (isPreKnown(s)) continue; // 预会（重开继承）：不出题
-        if (isUnitWrong(s)) {
+        if (needsRetest(s)) {
           wrongCands.push({ wordId: w.wordId, memory: memOf(w.wordId), preMastery: s.preMastery / 100 });
         } else if (!s.served) {
           newCands.push(w); // pool 已按难度升序 → 由易到难
@@ -1411,6 +1411,7 @@ export class RunsService {
           ? new Date(now + intervalDays(s.reviewStage) * 86400000)
           : null;
       const mastery = masteryFromStage(s.reviewStage);
+      const newlyMastered = mastery >= 100 && (cur?.mastery ?? 0) < 100;
 
       await tx.userWordProgress.upsert({
         where: { userId_wordId: { userId, wordId } },
@@ -1428,6 +1429,7 @@ export class RunsService {
           firstEncounteredAt: new Date(now),
           lastEncounteredAt: new Date(now),
           srsHistory: [{ stage: s.reviewStage, at: new Date(now).toISOString() }],
+          masteredAt: newlyMastered ? new Date(now) : null,
         },
         update: {
           correctCount: { increment: list.filter((i) => i.correct).length },
@@ -1442,6 +1444,7 @@ export class RunsService {
           firstEncounteredAt: cur ? undefined : new Date(now),
           lastEncounteredAt: new Date(now),
           srsHistory: appendStageHistory(cur?.srsHistory, cur?.reviewStage ?? 0, s.reviewStage, new Date(now)),
+          masteredAt: newlyMastered ? new Date(now) : undefined,
         },
       });
     }
@@ -1883,22 +1886,22 @@ export class RunsService {
     const [progress, items] = await Promise.all([
       db.userWordProgress.findMany({
         where: { userId, wordId: { in: ids } },
-        select: { wordId: true, mastery: true, skipped: true },
+        select: { wordId: true, mastery: true, correctCount: true, inWrongBook: true, skipped: true },
       }),
       runId
         ? db.runItem.findMany({
             where: { runId },
             orderBy: { seq: 'asc' },
-            select: { wordId: true, seq: true, correct: true },
+            select: { wordId: true, seq: true, correct: true, elapsedMs: true },
           })
         : Promise.resolve([]),
     ]);
     const progByWord = new Map(progress.map((p) => [p.wordId, p]));
-    const itemsByWord = new Map<string, { seq: number; correct: boolean }[]>();
+    const itemsByWord = new Map<string, { seq: number; correct: boolean; elapsedMs: number }[]>();
     for (const it of items) {
       if (it.correct === null) continue;
       const list = itemsByWord.get(it.wordId) ?? [];
-      list.push({ seq: it.seq, correct: it.correct === true });
+      list.push({ seq: it.seq, correct: it.correct === true, elapsedMs: it.elapsedMs });
       itemsByWord.set(it.wordId, list);
     }
     return ids.map((id) => {
@@ -1907,10 +1910,13 @@ export class RunsService {
       const mem = itemsOf ? memoryOf(itemsOf) : emptyMemory();
       return {
         wordId: id,
+        preKnown: (p?.correctCount ?? 0) >= 1,
         preMastery: p?.mastery ?? 0,
+        inWrongBook: p?.inWrongBook ?? false,
         rc: mem.correctCount,
         wrongCount: mem.wrongCount,
         streak: mem.streak,
+        hasSlowWrong: (itemsOf ?? []).some((it) => !it.correct && it.elapsedMs >= UNIT_BOSS.SLOW_WRONG_MS),
         served: (itemsOf?.length ?? 0) > 0,
         skipped: p?.skipped ?? false,
       };

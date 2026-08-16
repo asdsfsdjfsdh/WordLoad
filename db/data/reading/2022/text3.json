@@ -1,0 +1,181 @@
+{
+  "code": "C",
+  "title": "Text 3",
+  "subtitle": "艺术与科学的合作",
+  "questionsStart": 31,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Enlightening, challenging, stimulating, fun."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "These were some of the words that Nature readers used to describe their experience of art-science collaborations in a series of articles on partnerships between artists and researchers."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "Nearly 40% of the roughly 350 people who responded to an accompanying poll said they had collaborated with artists; and almost all said they would consider doing so in future."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Such an encouraging result is not surprising."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "Scientists are increasingly seeking out visual artists to help them communicate their work to new audiences."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "“Artists help scientists reach a broader audience and make emotional connections that enhance learning.”"
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "One respondent said."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "One example of how artists and scientists have together rocked the senses came last month when the Sydney Symphony Orchestra performed a reworked version of Antonio Vivaldi’s The Four Seasons."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "They reimagined the 300-year-old score by injecting the latest climate prediction data for each season—provided by Monash University’s Climate Change Communication Research Hub."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "The performance was a creative call to action ahead of November’s United Nations Climate Change Conference in Glasgow, UK."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "But a genuine partnership must be a two-way street."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "Fewer artists than scientists responded to the Nature poll; however, several respondents noted that artists do not simply assist scientists with their communication requirements."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "Nor should their work be considered only as an object of study."
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "The alliances are most valuable when scientists and artists have a shared stake in a project, are able to jointly design it and can critique each other’s work."
+    },
+    {
+      "para": 4,
+      "seq": 14,
+      "en": "Such an approach can both prompt new research as well as result in powerful art."
+    },
+    {
+      "para": 5,
+      "seq": 15,
+      "en": "More than half a century ago, the Massachusetts Institute of Technology opened its Center for Advanced Visual Studies (CAVS) to explore the role of technology in culture."
+    },
+    {
+      "para": 5,
+      "seq": 16,
+      "en": "The founders deliberately focused their projects around light—hence the “visual studies” in the name."
+    },
+    {
+      "para": 5,
+      "seq": 17,
+      "en": "Light was a something that both artists and scientists had an interest in, and therefore could form the basis of collaboration."
+    },
+    {
+      "para": 5,
+      "seq": 18,
+      "en": "As science and technology progressed, and divided into more sub-disciplines, the centre was simultaneously looking to a time when leading researchers could also be artists, writers and poets, and vice versa."
+    },
+    {
+      "para": 6,
+      "seq": 19,
+      "en": "Nature’s poll findings suggest that this trend is as strong as ever, but, to make a collaboration work, both sides need to invest time, and embrace surprise and challenge."
+    },
+    {
+      "para": 6,
+      "seq": 20,
+      "en": "The reach of art-science tie-ups need to go beyond the necessary purpose of research communication, and participants must not fall into the trap of stereotyping each other."
+    },
+    {
+      "para": 6,
+      "seq": 21,
+      "en": "Artists and scientists alike are immersed in discovery and invention, and challenge and critique are core to both, too."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 31,
+      "stem": "According to Paragraph 1, art-science collaborations have ______.",
+      "options": {
+        "A": "caught the attention of critics",
+        "B": "received favorable responses",
+        "C": "promoted academic publishing",
+        "D": "sparked heated public disputes"
+      },
+      "answer": "B",
+      "analysis": "首段《自然》读者用“启迪、挑战、激发、有趣”等词描述艺术-科学合作体验，且近 40% 受访者表示与艺术家合作过，多数人愿意尝试，即获得积极反响。"
+    },
+    {
+      "seq": 32,
+      "stem": "The reworked version of The Four Seasons is mentioned to show that ______.",
+      "options": {
+        "A": "art can offer audiences easy access to science",
+        "B": "science can help with the expression of emotions",
+        "C": "public participation in science has a promising future",
+        "D": "art is effective in facilitating scientific innovations"
+      },
+      "answer": "A",
+      "analysis": "第三段以悉尼交响乐团重编维瓦尔第《四季》为例：把最新气候预测数据注入古老乐曲，在气候大会前以创作呼吁行动，说明艺术能让观众轻松接触科学。"
+    },
+    {
+      "seq": 33,
+      "stem": "Some artists seem to worry about in the art-science partnership ______.",
+      "options": {
+        "A": "their role may be underestimated",
+        "B": "their reputation may be impaired",
+        "C": "their creativity may be inhibited",
+        "D": "their work may be misguided"
+      },
+      "answer": "A",
+      "analysis": "第四段提到受访者指出“艺术家并非只是协助科学家做传播”，其作品也不应仅被当作研究对象，暗示部分艺术家担心自身作用被低估。"
+    },
+    {
+      "seq": 34,
+      "stem": "What does the author say about CAVS?",
+      "options": {
+        "A": "It was headed alternately by artists and scientists.",
+        "B": "It exemplified valuable art-science alliances.",
+        "C": "Its projects aimed at advancing visual studies.",
+        "D": "Its founders sought to raise the status of artists."
+      },
+      "answer": "B",
+      "analysis": "第五段介绍 MIT 的 CAVS 中心：围绕光这一艺术家与科学家共同兴趣开展项目，成为富有价值的艺术-科学联盟典范。"
+    },
+    {
+      "seq": 35,
+      "stem": "In the last paragraph, the author holds that art-science collaborations ______.",
+      "options": {
+        "A": "are likely to go beyond public expectations",
+        "B": "will intensify interdisciplinary competition",
+        "C": "should do more than communicating science",
+        "D": "are becoming more popular than before"
+      },
+      "answer": "C",
+      "analysis": "末段强调艺术-科学合作“需超越研究传播这一必要目的”（need to go beyond the necessary purpose of research communication），即应不止于传播科学。"
+    }
+  ],
+  "glossary": {}
+}

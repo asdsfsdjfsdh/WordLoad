@@ -49,6 +49,7 @@ export interface StatsTrendPoint {
   coinsEarned: number;
   studyMs: number;
   newWords: number;
+  mastered: number; // 当日新掌握词数
 }
 
 export interface StatsHeatmapCell {

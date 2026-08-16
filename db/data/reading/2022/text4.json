@@ -1,0 +1,186 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "新西兰劳动法下的解雇之争",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "The personal grievance provisions of New Zealand’s Employment Relations Act 2000 (ERA) prevent an employer from firing an employee without good cause."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Instead, dismissals must be justified."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "Employers must both show cause and act in a procedurally fair way."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Personal grievance procedures were designed to guard the jobs of ordinary workers from “unjustified dismissals”."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "The premise was that the common law of contract lacked sufficient safeguards for workers against arbitrary conduct by management."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "Long gone are the days when a boss could simply give an employee contractual notice."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "But these provisions create difficulties for businesses when applied to highly paid managers and executives."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "As countless boards and business owners will attest, constraining firms from firing poorly performing, high-earning managers is a handbrake on boosting productivity and overall performance."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "The difference between C-grade and A-grade managers may very well be the difference between business success or failure."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "Between preserving the jobs of ordinary workers or losing them."
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "Yet mediocrity is no longer enough to justify a dismissal."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "Consequently—and paradoxically—laws introduced to protect the jobs of ordinary workers may be placing those jobs at risk."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "If not placing jobs at risk, to the extent employment protection laws constrain business owners from dismissing under-performing managers, those laws act as a constraint on firm productivity and therefore on workers’ wages."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "Indeed, in “An International Perspective on New Zealand’s Productivity Paradox” (2014), the Productivity Commission singled out the low quality of managerial capabilities as a cause of the country’s poor productivity growth record."
+    },
+    {
+      "para": 6,
+      "seq": 14,
+      "en": "Nor are highly paid managers themselves immune from the harm caused by the ERA’s unjustified dismissal procedures."
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "Because employment protection laws make it costlier to fire an employee, employers are more cautious about hiring new staff."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "This makes it harder for the marginal manager to gain employment."
+    },
+    {
+      "para": 6,
+      "seq": 17,
+      "en": "And firms pay staff less because firms carry the burden of the employment arrangement going wrong."
+    },
+    {
+      "para": 7,
+      "seq": 18,
+      "en": "Society also suffers from excessive employment protections."
+    },
+    {
+      "para": 7,
+      "seq": 19,
+      "en": "Stringent job dismissal regulations adversely affect productivity growth and hamper both prosperity and overall well-being."
+    },
+    {
+      "para": 8,
+      "seq": 20,
+      "en": "Across the Tasman Sea, Australia deals with the unjustified dismissal paradox by excluding employees earning above a specified “high-income threshold” from the protection of its unfair dismissal laws."
+    },
+    {
+      "para": 8,
+      "seq": 21,
+      "en": "In New Zealand, a 2016 private members’ Bill tried to permit firms and high-income employees to contract out of the unjustified dismissal regime."
+    },
+    {
+      "para": 8,
+      "seq": 22,
+      "en": "However, the mechanisms proposed were unwieldy and the Bill was voted down following the change in government later that year."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "The personal grievance provisions of the ERA are intended to ______.",
+      "options": {
+        "A": "punish dubious corporate practices",
+        "B": "improve traditional hiring procedures",
+        "C": "exempt employers from certain duties",
+        "D": "protect the rights of ordinary workers"
+      },
+      "answer": "D",
+      "analysis": "首两段指出 ERA 个人冤情条款旨在保护普通工人免遭“不公正解雇”，因为普通法契约对管理层随意行为缺乏足够保障。"
+    },
+    {
+      "seq": 37,
+      "stem": "It can be learned from paragraph 3 that the provisions may ______.",
+      "options": {
+        "A": "hinder business development",
+        "B": "undermine managers’ authority",
+        "C": "affect the public image of the firms",
+        "D": "worsen labor-management relations"
+      },
+      "answer": "A",
+      "analysis": "第三段指出这些条款对企业形成约束，阻碍解雇绩效差的高薪经理，成为提升生产率的“手刹”（a handbrake on boosting productivity），即阻碍企业发展。"
+    },
+    {
+      "seq": 38,
+      "stem": "Which of the following measures would the Productivity Commission support?",
+      "options": {
+        "A": "Imposing reasonable wage restraints.",
+        "B": "Enforcing employment protection laws.",
+        "C": "Limiting the powers of business owners.",
+        "D": "Dismissing poorly performing managers."
+      },
+      "answer": "D",
+      "analysis": "第六段提到生产力委员会把“管理能力低下”列为新西兰生产率增长不佳的原因（singled out the low quality of managerial capabilities），暗示其支持淘汰绩效不佳的经理。"
+    },
+    {
+      "seq": 39,
+      "stem": "What might be an effect of ERA’s unjustified dismissal procedures?",
+      "options": {
+        "A": "Highly paid managers lose their jobs.",
+        "B": "Employees suffer from salary cuts.",
+        "C": "Society sees a rise in overall well-being.",
+        "D": "Employers need to hire new staff."
+      },
+      "answer": "B",
+      "analysis": "第七段称保护法使解雇更贵、雇主招聘更谨慎，且公司因承担雇佣安排出错的风险而支付更少工资（firms pay staff less），即员工面临降薪。"
+    },
+    {
+      "seq": 40,
+      "stem": "It can be inferred that the “high-income threshold” in Australia ______.",
+      "options": {
+        "A": "has secured managers’ earnings",
+        "B": "has produced undesired results",
+        "C": "is beneficial to business owners",
+        "D": "is difficult to put into practice"
+      },
+      "answer": "D",
+      "analysis": "末段说澳大利亚用“高收入门槛”解决这一悖论；新西兰 2016 年私人法案效仿，但机制“笨重”（unwieldy）而未被通过，说明门槛难以付诸实践。"
+    }
+  ],
+  "glossary": {}
+}

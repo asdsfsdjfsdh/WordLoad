@@ -18,6 +18,7 @@
     "pipeline:structure-export": "tsx pipeline/reading-structure-export.ts",
     "pipeline:structure-import": "tsx pipeline/reading-structure-import.ts",
     "admin:set": "node scripts/set-admin.mjs",
+    "backfill:srs-history": "tsx scripts/backfill-srs-history.ts",
     "test": "vitest run",
     "typecheck": "echo \"(db types come from prisma client)\""
   },

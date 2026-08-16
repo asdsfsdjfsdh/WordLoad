@@ -1,0 +1,166 @@
+{
+  "code": "B",
+  "title": "Text 2",
+  "subtitle": "学位的价值与Z世代的选择",
+  "questionsStart": 26,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "As the latest crop of students pen their undergraduate application form and weigh up their options, it may be worth considering just how the point, purpose and value of a degree has changed and what Generation Z need to consider as they start the third stage of their educational journey."
+    },
+    {
+      "para": 2,
+      "seq": 1,
+      "en": "Millennials were told that if you did well in school, got a decent degree, you would be set up for life."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "But that promise has been found wanting."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "As degrees became universal, they became devalued."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "Education was no longer a secure route of social mobility."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "Today, 28 per cent of graduates in the UK are in non-graduate roles, a percentage which is double the average among OECD countries."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "This is not to say that there is no point in getting a degree, but rather stress that a degree is not for everyone, that the switch from classroom to lecture hall is not an inevitable one and that other options are available."
+    },
+    {
+      "para": 4,
+      "seq": 7,
+      "en": "Thankfully, there are signs that this is already happening, with Generation Z seeking to learn from their millennial predecessors, even if parents and teachers tend to be still set in the degree mindset."
+    },
+    {
+      "para": 4,
+      "seq": 8,
+      "en": "Employers have long seen the advantages of hiring school leavers who often prove themselves to be more committed and loyal employees than graduates."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "Many too are seeing the advantages of scrapping a degree requirement for certain roles."
+    },
+    {
+      "para": 5,
+      "seq": 10,
+      "en": "For those for whom a degree is the desired route, consider that this may well be the first of many."
+    },
+    {
+      "para": 5,
+      "seq": 11,
+      "en": "In this age of generalists, it pays to have specific knowledge or skills."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "Postgraduates now earn 40 per cent more than graduates."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "When more and more of us have a degree, it makes sense to have two."
+    },
+    {
+      "para": 6,
+      "seq": 14,
+      "en": "It is unlikely that Generation Z will be done with education at 18 or 21; they will need to be constantly up-skilling throughout their career to stay employable."
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "It has been estimated that this generation, due to the pressures of technology, the wish for personal fulfilment and desire for diversity, will work for 17 different employers over the course of their working life and have five different careers."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "Education, and not just knowledge gained on campus, will be a core part of Generation Z’s career trajectory."
+    },
+    {
+      "para": 7,
+      "seq": 17,
+      "en": "Older generations often talk about their degree in the present and personal tense: ‘I am a geographer’ or ‘I am a classist’."
+    },
+    {
+      "para": 7,
+      "seq": 18,
+      "en": "Their sons or daughters would never say such a thing; it’s as if they already know that their degree won’t define them in the same way."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 26,
+      "stem": "The author suggests that Generation Z should ______.",
+      "options": {
+        "A": "be careful in choosing a college",
+        "B": "be diligent at each educational stage",
+        "C": "reassess the necessity of college education",
+        "D": "postpone their undergraduate application"
+      },
+      "answer": "C",
+      "analysis": "首段即提出值得重新审视学位的意义、价值以及 Z 世代的选择；第二段又指出学位贬值、不再是可靠的社会流动途径，故建议 Z 世代重新评估大学教育的必要性。"
+    },
+    {
+      "seq": 27,
+      "stem": "The percentage of UK graduates in non-graduate roles reflect ______.",
+      "options": {
+        "A": "Millennial’s opinions about work",
+        "B": "the shrinking value of a degree",
+        "C": "public discontent with education",
+        "D": "the desired route of social mobility"
+      },
+      "answer": "B",
+      "analysis": "第二段以英国 28% 毕业生从事非毕业生岗位为例，说明“学位变得普遍后价值被稀释”（As degrees became universal, they became devalued），即反映学位价值缩水。"
+    },
+    {
+      "seq": 28,
+      "stem": "The author considers it a good sign that ______.",
+      "options": {
+        "A": "Generation Z are seeking to earn a decent degree",
+        "B": "school leavers are willing to be skilled workers",
+        "C": "employers are taking a realistic attitude to degrees",
+        "D": "parents are changing their minds about education"
+      },
+      "answer": "C",
+      "analysis": "第三、四段称雇主早已看到招聘离校生的好处，并开始取消部分岗位的学位要求，这是好迹象，即雇主对学位态度趋于现实。"
+    },
+    {
+      "seq": 29,
+      "stem": "It is advised in Paragraph 5 that those with one degree should ______.",
+      "options": {
+        "A": "make an early decision on their career",
+        "B": "attend on the job training programs",
+        "C": "team up with high-paid postgraduates",
+        "D": "further their studies in a specific field"
+      },
+      "answer": "D",
+      "analysis": "第五段建议：在已有学位的基础上，最好再具备特定知识或技能（in this age of generalists, it pays to have specific knowledge or skills），即继续深造某一领域。"
+    },
+    {
+      "seq": 30,
+      "stem": "What can be concluded about Generation Z from the last two paragraphs?",
+      "options": {
+        "A": "Lifelong learning will define them.",
+        "B": "They will make qualified educators.",
+        "C": "Degrees will no longer appeal them.",
+        "D": "They will have a limited choice of jobs."
+      },
+      "answer": "A",
+      "analysis": "末两段指出 Z 世代将不断“提升技能”（up-skilling）以保持可就业性，教育将成为其职业轨迹的核心部分，说明终身学习将定义他们。"
+    }
+  ],
+  "glossary": {}
+}

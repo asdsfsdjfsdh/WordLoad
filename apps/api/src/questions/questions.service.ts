@@ -54,12 +54,14 @@ export class QuestionsService {
         skipped: true, inWrongBook: false, wrongStreak: 0,
         firstEncounteredAt: now, lastEncounteredAt: now,
         srsHistory: [{ stage: 6, at: now.toISOString() }],
+        masteredAt: now,
       },
       update: {
         mastery: 100, reviewStage: 6,
         skipped: true, inWrongBook: false, wrongStreak: 0,
         lastEncounteredAt: now,
         srsHistory: appendStageHistory(cur?.srsHistory, cur?.reviewStage ?? 0, 6, now),
+        masteredAt: cur?.masteredAt ?? now,
       },
     });
     // 生存 Run 预览斩词：该词在 active Run 的待答题一并标为已答（正确），本波不再出战
@@ -85,6 +87,7 @@ export class QuestionsService {
         inVocabBook: false,
         firstEncounteredAt: now, lastEncounteredAt: now,
         srsHistory: [],
+        masteredAt: null,
       },
       update: {
         mastery: 0, reviewStage: 0, ease: 2.5,
@@ -93,6 +96,7 @@ export class QuestionsService {
         nextReviewAt: null,
         lastEncounteredAt: now,
         srsHistory: [],
+        masteredAt: null,
       },
     });
   }

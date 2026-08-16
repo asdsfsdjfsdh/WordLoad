@@ -44,6 +44,27 @@ describe('listWords', () => {
     expect(call.orderBy).toEqual([{ nextReviewAt: 'asc' }, { wordId: 'asc' }]);
   });
 
+  it('weak 过滤：累计答错≥3 + 未掌握 + 未斩', async () => {
+    mockEmpty();
+    await service.listWords(1, { status: 'weak', sort: 'weakest' });
+    expect(prisma.userWordProgress.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({
+        where: { userId: 1, wrongCount: { gte: 3 }, mastery: { lt: 100 }, skipped: false },
+        orderBy: [{ wrongCount: 'desc' }, { firstEncounteredAt: 'desc' }],
+      }),
+    );
+  });
+
+  it('vocabbook 过滤：生词本', async () => {
+    mockEmpty();
+    await service.listWords(1, { status: 'vocabbook', sort: 'firstEncounteredAt' });
+    expect(prisma.userWordProgress.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({
+        where: { userId: 1, inVocabBook: true },
+      }),
+    );
+  });
+
   it('搜索同时匹配英文词形与中文释义', async () => {
     mockEmpty();
     await service.listWords(1, { search: '放弃', sort: 'firstEncounteredAt' });
@@ -54,14 +75,17 @@ describe('listWords', () => {
     ]);
   });
 
-  it('DTO 输出携带 SRS 字段与 bankCode', async () => {
+  it('DTO 输出携带 SRS 字段、易错/生词本/掌握时间与 bankCode', async () => {
     const row = {
       wordId: 'w1',
       reviewStage: 3,
       ease: 2.6,
       mastery: 100,
       inWrongBook: false,
+      inVocabBook: true,
       skipped: false,
+      wrongCount: 5,
+      masteredAt: new Date('2026-08-15T00:00:00.000Z'),
       firstEncounteredAt: new Date('2026-08-10T00:00:00.000Z'),
       nextReviewAt: new Date('2026-08-20T00:00:00.000Z'),
       word: {
@@ -90,14 +114,44 @@ describe('listWords', () => {
       reviewStage: 3,
       ease: 2.6,
       nextReviewAt: '2026-08-20T00:00:00.000Z',
+      inVocabBook: true,
+      wrongCount: 5,
+      masteredAt: '2026-08-15T00:00:00.000Z',
       bankCode: 'kaoyan_engl1',
       meanings: [{ meaning: '放弃', example: 'abandon the plan' }, { meaning: '放纵', example: 'abandon oneself' }],
     });
   });
 });
 
+describe('listWordIds', () => {
+  it('weak 全量 ids + 词书 code（不带分页 where）', async () => {
+    prisma.userWordProgress.findMany.mockResolvedValue([
+      { wordId: 'w1', word: { bankWords: [{ bank: { code: 'kaoyan_engl1' } }] } },
+      { wordId: 'w2', word: { bankWords: [] } },
+    ]);
+    const res = await service.listWordIds(1, { status: 'weak' });
+    expect(res.wordIds).toEqual(['w1', 'w2']);
+    expect(res.bankCode).toBe('kaoyan_engl1');
+    const call = (prisma.userWordProgress.findMany as jest.Mock).mock.calls[0]![0];
+    expect(call.where).toEqual(expect.objectContaining({
+      userId: 1,
+      wrongCount: { gte: 3 },
+      mastery: { lt: 100 },
+      skipped: false,
+    }));
+    expect(call.take).toBe(60);
+  });
+
+  it('空集 → bankCode undefined', async () => {
+    prisma.userWordProgress.findMany.mockResolvedValue([]);
+    const res = await service.listWordIds(1, { status: 'weak' });
+    expect(res.wordIds).toEqual([]);
+    expect(res.bankCode).toBeUndefined();
+  });
+});
+
 describe('srsTrajectory', () => {
-  it('组装 points（intervalDays 派生）+ current + 词详情', async () => {
+  it('组装 points（intervalDays 派生）+ current(含 masteredAt) + 词详情 + confusable wordId', async () => {
     prisma.word.findUnique.mockResolvedValue({
       id: 'w1',
       text: 'abandon',
@@ -117,6 +171,7 @@ describe('srsTrajectory', () => {
       nextReviewAt: new Date('2026-08-20T00:00:00.000Z'),
       inWrongBook: false,
       skipped: false,
+      masteredAt: new Date('2026-08-15T00:00:00.000Z'),
       srsHistory: [
         { stage: 1, at: '2026-08-10T00:00:00.000Z' },
         { stage: 2, at: '2026-08-13T00:00:00.000Z' },
@@ -124,8 +179,8 @@ describe('srsTrajectory', () => {
       ],
     });
     prisma.wordPair.findMany
-      .mockResolvedValueOnce([{ wordB: { text: 'abundant' }, type: 'orthographic', note: '形近' }])
-      .mockResolvedValueOnce([{ wordA: { text: 'bandon' }, type: 'homophone', note: '音近' }]);
+      .mockResolvedValueOnce([{ wordAId: 'w1', wordB: { text: 'abundant', id: 'w2' }, type: 'orthographic', note: '形近' }])
+      .mockResolvedValueOnce([{ wordBId: 'w1', wordA: { text: 'bandon', id: 'w3' }, type: 'homophone', note: '音近' }]);
 
     const t = await service.srsTrajectory(1, 'w1');
     expect(t.points).toEqual([
@@ -140,34 +195,37 @@ describe('srsTrajectory', () => {
       nextReviewAt: '2026-08-20T00:00:00.000Z',
       inWrongBook: false,
       skipped: false,
+      masteredAt: '2026-08-15T00:00:00.000Z',
     });
     expect(t.lastReviewedAt).toBe('2026-08-15T00:00:00.000Z');
     expect(t.word.text).toBe('abandon');
     expect(t.word.meanings).toHaveLength(2);
     expect(t.word.confusables).toEqual([
-      { counterpart: 'abundant', type: 'orthographic', note: '形近' },
-      { counterpart: 'bandon', type: 'homophone', note: '音近' },
+      { counterpart: 'abundant', type: 'orthographic', note: '形近', wordId: 'w2' },
+      { counterpart: 'bandon', type: 'homophone', note: '音近', wordId: 'w3' },
     ]);
   });
 
-  it('空档位史 → points 为空、lastReviewedAt 为 null', async () => {
+  it('空档位史 → points 为空、lastReviewedAt 为 null、masteredAt null', async () => {
     prisma.word.findUnique.mockResolvedValue({
       id: 'w1', text: 'abandon', phoneticAm: null, phoneticEn: null, tier: 'I', mnemonic: null,
       senses: [{ idx: 0, meaning: '放弃', example: 'ex' }],
     });
     prisma.userWordProgress.findUnique.mockResolvedValue({
       reviewStage: 1, ease: 2.5, mastery: 33, nextReviewAt: null, inWrongBook: false, skipped: false,
+      masteredAt: null,
       srsHistory: [],
     });
     prisma.wordPair.findMany.mockResolvedValue([]);
     const t = await service.srsTrajectory(1, 'w1');
     expect(t.points).toEqual([]);
     expect(t.lastReviewedAt).toBeNull();
+    expect(t.current.masteredAt).toBeNull();
   });
 });
 
 describe('stats', () => {
-  it('byTier 用 groupBy 聚合、dueToday 口径正确', async () => {
+  it('byTier 用 groupBy 聚合、dueToday/weak/vocabbook/stageHistogram/masteredToday 口径正确', async () => {
     prisma.word.groupBy.mockResolvedValue([
       { tier: 'I', _count: { _all: 100 } },
       { tier: 'II', _count: { _all: 80 } },
@@ -176,16 +234,14 @@ describe('stats', () => {
     ]);
     const now = Date.now();
     prisma.userWordProgress.findMany.mockResolvedValue([
-      { wordId: 'a', mastery: 100, skipped: false, inWrongBook: false, firstEncounteredAt: null, nextReviewAt: null },
-      { wordId: 'b', mastery: 50, skipped: false, inWrongBook: false, firstEncounteredAt: new Date(), nextReviewAt: new Date(now - 1000) },
-      { wordId: 'c', mastery: 50, skipped: true, inWrongBook: false, firstEncounteredAt: null, nextReviewAt: new Date(now - 1000) },
-      { wordId: 'd', mastery: 30, skipped: false, inWrongBook: true, firstEncounteredAt: null, nextReviewAt: null },
-    ]);
-    prisma.word.findMany.mockResolvedValue([
-      { id: 'a', tier: 'I' },
-      { id: 'b', tier: 'II' },
-      { id: 'c', tier: 'III' },
-      { id: 'd', tier: 'IV' },
+      // a: 已掌握，今日掌握 → masteredToday 计入
+      { wordId: 'a', mastery: 100, skipped: false, inWrongBook: false, inVocabBook: false, wrongCount: 0, reviewStage: 5, masteredAt: new Date(now), firstEncounteredAt: null, nextReviewAt: null, word: { tier: 'I' } },
+      // b: 学习中 + 到期 + 易错（答错≥3）→ learning/dueToday/weak/vocabbook 各计入
+      { wordId: 'b', mastery: 50, skipped: false, inWrongBook: false, inVocabBook: true, wrongCount: 3, reviewStage: 2, masteredAt: null, firstEncounteredAt: new Date(), nextReviewAt: new Date(now - 1000), word: { tier: 'II' } },
+      // c: 已斩 → 排除出 histogram
+      { wordId: 'c', mastery: 50, skipped: true, inWrongBook: false, inVocabBook: false, wrongCount: 1, reviewStage: 6, masteredAt: null, firstEncounteredAt: null, nextReviewAt: new Date(now - 1000), word: { tier: 'III' } },
+      // d: 错题本，答错仅 1 → 不算易错
+      { wordId: 'd', mastery: 30, skipped: false, inWrongBook: true, inVocabBook: false, wrongCount: 1, reviewStage: 1, masteredAt: null, firstEncounteredAt: null, nextReviewAt: null, word: { tier: 'IV' } },
     ]);
 
     const s = await service.stats(1);
@@ -196,6 +252,17 @@ describe('stats', () => {
     expect(s.dueToday).toBe(1); // 仅 b：到期 + 未掌握 + 未斩
     expect(s.wrongbook).toBe(1);
     expect(s.skipped).toBe(1);
+    expect(s.weak).toBe(1); // 仅 b：答错≥3 + 未掌握 + 未斩
+    expect(s.vocabbook).toBe(1); // 仅 b
+    expect(s.masteredToday).toBe(1); // 仅 a
+    expect(s.stageHistogram).toEqual([
+      { stage: 0, count: 0 },
+      { stage: 1, count: 1 }, // d
+      { stage: 2, count: 1 }, // b
+      { stage: 3, count: 0 },
+      { stage: 4, count: 0 },
+      { stage: 5, count: 1 }, // a（c 已斩排除）
+    ]);
     expect(s.byTier.find((x) => x.tier === 'I')).toEqual({ tier: 'I', total: 100, encountered: 1 });
     expect(s.byTier.find((x) => x.tier === 'II')).toEqual({ tier: 'II', total: 80, encountered: 1 });
   });

@@ -6,6 +6,7 @@ import { nextReviewLabel, srsStageMeta } from '@word-journey/shared';
 import { api } from '../lib/api';
 import { getTts } from '../lib/tts';
 import { playSkipSound } from '../lib/sfx';
+import { MiniBars } from '../components/charts';
 
 const TIERS = [
   { v: '', label: '全部' }, { v: 'I', label: 'Ⅰ基础' }, { v: 'II', label: 'Ⅱ核心' },
@@ -14,12 +15,18 @@ const TIERS = [
 const STATUSES = [
   { v: '', label: '全部' }, { v: 'new', label: '新遇' },
   { v: 'learning', label: '学习中' }, { v: 'due', label: '待复习' },
-  { v: 'mastered', label: '已掌握' }, { v: 'wrongbook', label: '错题本' }, { v: 'skipped', label: '已斩' },
+  { v: 'mastered', label: '已掌握' }, { v: 'wrongbook', label: '错题本' },
+  { v: 'weak', label: '易错' }, { v: 'vocabbook', label: '生词本' },
+  { v: 'skipped', label: '已斩' },
 ];
 const SORTS = [
   { v: 'firstEncounteredAt', label: '初见时间' },
   { v: 'stage', label: '记忆深度' },
+  { v: 'weakest', label: '最易错' },
 ];
+// 记忆深度分布（与 stats.stageHistogram 对齐；5 为 5+ 汇总档）
+const STAGE_LABELS = ['新词', 'L1', 'L2', 'L3', 'L4', '5+'];
+const STAGE_COLOR = '#22d3ee';
 const PAGE_SIZE = 50;
 
 // SRS 档位 → 卡片边框/徽章色（字面量类名，确保 Tailwind 命中）
@@ -51,6 +58,20 @@ function easeLabel(ease: number): string {
   if (ease >= 2.5) return '稳定';
   if (ease >= 1.8) return '正常';
   return '吃力';
+}
+
+// 下次复习倒计时：24h 内显示精确时分，否则回退到日期标签
+function reviewCountdown(nextReviewAt: string | null, now: number = Date.now()): string | null {
+  if (!nextReviewAt) return null;
+  const t = new Date(nextReviewAt).getTime();
+  const ms = t - now;
+  if (ms <= 0) return '已到期';
+  if (ms < 86400000) {
+    const h = Math.floor(ms / 3600000);
+    const m = Math.floor((ms % 3600000) / 60000);
+    return `${h}小时${m}分`;
+  }
+  return null;
 }
 
 export function CollectionsPage() {
@@ -133,11 +154,27 @@ export function CollectionsPage() {
   const { words, total } = wordsQuery.data ?? {};
   const totalPages = total ? Math.ceil(total / PAGE_SIZE) : 0;
 
-  // 弱词复习 CTA：仅在行动导向筛选下出现
-  const reviewable = status === 'due' || status === 'wrongbook' || status === 'learning';
+  // 弱词复习 CTA：仅在行动导向筛选下出现；weak 用 /words/ids 拉全量（不受分页 50 限制）
+  const reviewable = status === 'due' || status === 'wrongbook' || status === 'weak' || status === 'learning';
   const reviewBank = words?.find((w) => w.bankCode)?.bankCode;
+  const [reviewIdsLoading, setReviewIdsLoading] = useState(false);
 
-  const handleReviewClick = () => {
+  const handleReviewClick = async () => {
+    if (status === 'weak') {
+      setReviewIdsLoading(true);
+      try {
+        const res = await api.get<{ wordIds: string[]; bankCode?: string }>(
+          `/collections/words/ids?status=weak&limit=60`,
+        );
+        if (!res.wordIds.length) return;
+        navigate(`/battle/${res.bankCode ?? reviewBank ?? ''}/0`, {
+          state: { mode: 'review', wordIds: res.wordIds, size: Math.max(10, res.wordIds.length) },
+        });
+      } finally {
+        setReviewIdsLoading(false);
+      }
+      return;
+    }
     if (!words?.length || !reviewBank) return;
     const wordIds = words.slice(0, 60).map((w) => w.wordId);
     navigate(`/battle/${reviewBank}/0`, {
@@ -161,6 +198,8 @@ export function CollectionsPage() {
               <span className="text-xs text-slate-500">
                 {stats.encountered}/{stats.totalWords} · 掌握{stats.mastered}
                 {stats.dueToday > 0 && <span className="ml-1 text-amber-400">· 待复习{stats.dueToday}</span>}
+                {stats.weak > 0 && <span className="ml-1 text-orange-400">· 易错{stats.weak}</span>}
+                {stats.masteredToday > 0 && <span className="ml-1 text-emerald-400">· 今日掌握{stats.masteredToday}</span>}
                 {stats.skipped > 0 && <span className="ml-1 text-slate-500">· 已斩{stats.skipped}</span>}
               </span>
             )}
@@ -196,6 +235,16 @@ export function CollectionsPage() {
                     待复习 <span className="font-bold text-amber-400">{stats.dueToday}</span>
                   </span>
                 )}
+                {stats.weak > 0 && (
+                  <span className="ml-3">
+                    易错 <span className="font-bold text-orange-400">{stats.weak}</span>
+                  </span>
+                )}
+                {stats.masteredToday > 0 && (
+                  <span className="ml-3 text-slate-500">
+                    今日新掌握 <span className="font-bold text-emerald-400">{stats.masteredToday}</span>
+                  </span>
+                )}
               </span>
             </div>
             <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
@@ -211,6 +260,24 @@ export function CollectionsPage() {
                 </span>
               ))}
             </div>
+            {/* 记忆深度分布（SRS 档位直方图） */}
+            {stats.stageHistogram.length > 0 && (
+              <div className="mt-4 border-t border-slate-800/70 pt-3">
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-[10px] font-medium uppercase tracking-wider text-slate-500">记忆深度分布</span>
+                  <span className="text-[10px] text-slate-600">档位越高越牢固</span>
+                </div>
+                <MiniBars
+                  data={stats.stageHistogram.map((h) => ({
+                    label: STAGE_LABELS[h.stage] ?? String(h.stage),
+                    value: h.count,
+                  }))}
+                  color={STAGE_COLOR}
+                  height={48}
+                  labelEvery={2}
+                />
+              </div>
+            )}
           </div>
         )}
 
@@ -233,6 +300,8 @@ export function CollectionsPage() {
               s.v === 'due' ? (stats?.dueToday ?? 0) :
               s.v === 'mastered' ? (stats?.mastered ?? 0) :
               s.v === 'wrongbook' ? (stats?.wrongbook ?? 0) :
+              s.v === 'weak' ? (stats?.weak ?? 0) :
+              s.v === 'vocabbook' ? (stats?.vocabbook ?? 0) :
               s.v === 'skipped' ? (stats?.skipped ?? 0) : null;
             return (
               <button key={s.v} onClick={() => { setStatus(s.v); setPage(1); }}
@@ -247,13 +316,16 @@ export function CollectionsPage() {
             );
           })}
           <div className="ml-auto flex items-center gap-2">
-            {reviewable && reviewBank && (words?.length ?? 0) > 0 && (
+            {reviewable && (status === 'weak' ? (stats?.weak ?? 0) > 0 : reviewBank && (words?.length ?? 0) > 0) && (
               <button
                 onClick={handleReviewClick}
-                title="用当前筛选中这批词开一轮复习战"
-                className="rounded-full border border-emerald-700/60 bg-emerald-950/40 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-900/40 hover:text-emerald-200"
+                disabled={reviewIdsLoading}
+                title={status === 'weak' ? '一次拉取全部易错词开复习战（不受分页限制）' : '用当前筛选中这批词开一轮复习战'}
+                className="rounded-full border border-emerald-700/60 bg-emerald-950/40 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-900/40 hover:text-emerald-200 disabled:opacity-50"
               >
-                🎯 复习当前 {Math.min(words!.length, 60)} 词
+                {status === 'weak'
+                  ? (reviewIdsLoading ? '加载中…' : `🎯 复习全部易错 ${stats?.weak ?? 0} 词`)
+                  : `🎯 复习当前 ${Math.min(words!.length, 60)} 词`}
               </button>
             )}
             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
@@ -280,7 +352,14 @@ export function CollectionsPage() {
         ) : !words?.length ? (
           <div className="py-20 text-center text-slate-500">
             <div className="mb-2 text-4xl">📭</div>
-            <p>暂无单词记录，去战斗吧！</p>
+            {debouncedSearch || tier || status ? (
+              <>
+                <p>无匹配结果</p>
+                <p className="mt-1 text-xs text-slate-600">试试换个关键词，或清除筛选条件</p>
+              </>
+            ) : (
+              <p>暂无单词记录，去战斗吧！</p>
+            )}
           </div>
         ) : compact ? (
           /* Compact list view */
@@ -458,7 +537,13 @@ export function CollectionsPage() {
                           <span
                             key={i}
                             title={c.note}
-                            className="rounded-full border border-amber-700/50 bg-amber-950/30 px-1.5 py-0.5 text-[10px] text-amber-300"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (c.wordId) setSelectedWordId(c.wordId);
+                            }}
+                            className={`rounded-full border border-amber-700/50 bg-amber-950/30 px-1.5 py-0.5 text-[10px] text-amber-300 ${
+                              c.wordId ? 'cursor-pointer transition hover:border-amber-500 hover:bg-amber-900/40' : ''
+                            }`}
                           >
                             {c.counterpart}{c.note && ` · ${c.note}`}
                           </span>
@@ -516,6 +601,7 @@ export function CollectionsPage() {
                 data={trajectoryQuery.data}
                 onUnskip={async () => unskip.mutate(selectedWordId)}
                 unskipPending={unskip.isPending}
+                onJump={(wordId) => setSelectedWordId(wordId)}
               />
             ) : null}
             <button onClick={() => setSelectedWordId(null)}
@@ -533,10 +619,12 @@ function SrsDetail({
   data,
   onUnskip,
   unskipPending,
+  onJump,
 }: {
   data: SrsTrajectory;
   onUnskip: () => void;
   unskipPending: boolean;
+  onJump: (wordId: string) => void;
 }) {
   const t = data;
   const stageMeta = srsStageMeta(t.current.stage);
@@ -575,10 +663,20 @@ function SrsDetail({
           <div className="rounded-lg bg-slate-950/60 py-2">
             <div className="text-slate-500">下次复习</div>
             <div className="font-bold text-amber-400">{t.current.skipped ? '-' : nextReviewLabel(t.current.nextReviewAt)}</div>
+            {!t.current.skipped && (
+              <div className="mt-0.5 text-[10px] text-slate-500">
+                {reviewCountdown(t.current.nextReviewAt) ?? ''}
+              </div>
+            )}
           </div>
         </div>
         <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500">
           <span>上次复习：{t.lastReviewedAt ? new Date(t.lastReviewedAt).toLocaleString('zh-CN') : '未开始'}</span>
+          {t.current.masteredAt && (
+            <span className="text-emerald-400/80">
+              ✓ 掌握于 {new Date(t.current.masteredAt).toLocaleDateString('zh-CN')}
+            </span>
+          )}
           {t.current.skipped && (
             <button
               onClick={onUnskip}
@@ -601,6 +699,9 @@ function SrsDetail({
             {t.points.map((p, i) => {
               const meta = srsStageMeta(p.stage);
               const isLast = i === t.points.length - 1;
+              const prev = i > 0 ? t.points[i - 1] : null;
+              // 升降档标注：档位提升 ↑ / 下降 ↓（同档不标）
+              const dir = prev ? (p.stage > prev.stage ? 'up' : p.stage < prev.stage ? 'down' : null) : null;
               return (
                 <div key={i} className="flex items-start gap-3">
                   <div className="flex flex-col items-center">
@@ -609,6 +710,8 @@ function SrsDetail({
                   </div>
                   <div className={`pb-4 ${isLast ? '' : 'border-b border-slate-800/50'}`}>
                     <div className="text-sm">
+                      {dir === 'up' && <span className="mr-1 font-bold text-emerald-400">↑</span>}
+                      {dir === 'down' && <span className="mr-1 font-bold text-rose-400">↓</span>}
                       <span className={`font-semibold ${isLast ? 'text-cyan-300' : 'text-slate-300'}`}>{meta.icon} {meta.label}</span>
                       <span className="ml-2 text-xs text-slate-500">间隔 {p.intervalDays} 天</span>
                     </div>
@@ -644,8 +747,14 @@ function SrsDetail({
           <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">易混词</div>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {t.word.confusables.map((c, i) => (
-              <span key={i} title={c.note}
-                className="rounded-full border border-amber-700/50 bg-amber-950/30 px-2 py-0.5 text-xs text-amber-300">
+              <span
+                key={i}
+                title={c.note}
+                onClick={() => { if (c.wordId) onJump(c.wordId); }}
+                className={`rounded-full border border-amber-700/50 bg-amber-950/30 px-2 py-0.5 text-xs text-amber-300 ${
+                  c.wordId ? 'cursor-pointer transition hover:border-amber-500 hover:bg-amber-900/40' : ''
+                }`}
+              >
                 {c.counterpart}{c.note && ` · ${c.note}`}
               </span>
             ))}
