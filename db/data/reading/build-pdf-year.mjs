@@ -63,7 +63,7 @@ const paragraphFullText = (start, qStart) => {
   const segs = lines
     .slice(start + 1, qStart)
     .filter((l) => !/^===== PAGE/.test(l))
-    .filter((l) => !/^\s*\d+\s+https?:\/\/zhenti\.burningvocabulary\.com\s*$/.test(l));
+    .filter((l) => !/^\s*\d+\s+https?:\/\/zhenti\.burningvocabulary\.(com|cn)\s*$/.test(l));
   let txt = '';
   for (const raw of segs) {
     const s = raw.trim();
@@ -98,6 +98,8 @@ const kaoyanFlat = (t) =>
   t
     .replace(/\r?\n/g, '')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\s*p\s*\/?>/gi, '\n\n')
+    .replace(/<\/p>/gi, '\n\n')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&rsquo;/g, '\u2019')
     .replace(/&ldquo;/g, '\u201C')
@@ -109,7 +111,8 @@ const kaoyanFlat = (t) =>
 const KAOYAN_ANSWER_MARKER = /^(\d{1,2})[.,、)）]?\s*(?:【([A-D])】|.*?\b([A-D])\b[.)、]?\s+)/;
 const KAOYAN_QUESTION = /^\d{1,2}\.\s+[A-Z]/;
 const KAOYAN_TYPE = /(细节题|推断题|态度题|例证题|主旨题|主旨大意题|写作目的题|推理题|词语理解题|语义理解题)/;
-const KAOYAN_FOOTER = /^(考研帮|手机版|触屏版|电脑版|意见反馈|关于我们|联系我们|友情链接|免责声明|备案号|返回|分享到|更多精彩|扫描|二维码|APP下载|Copyright|©|版权|编辑|上一篇|下一篇)/i;
+const KAOYAN_FOOTER = /^(考研帮|手机版|触屏版|电脑版|意见反馈|关于我们|联系我们|友情链接|免责声明|备案号|返回|分享到|更多精彩|扫描|二维码|APP下载|Copyright|©|版权|编辑|上一篇|下一篇|本文关键字|声明|资料下载|推荐阅读|更多[>>〕]|考研英语核心词汇营|【考研英语】|学习得礼盒|限时免费|立即购课|更多试听|关键字)/i;
+const KAOYAN_HEADER = /^(Section\s*[ⅰⅠ1-9]|Part\s+[AB]|Directions|Text\s*\d+|Read the following|Answer the questions|Mark your answers|Use of English|Section\s)/i;
 const parseKaoyanAnswer = (t) => {
   const lines = kaoyanFlat(t).split('\n').map((l) => l.replace(/\s+/g, ' ').trim()).filter(Boolean);
   const map = {};
@@ -136,9 +139,10 @@ const parseKaoyanAnchors = (t) => {
   const blocks = flat.split(/\n\s*\n/).map((b) => b.replace(/\s+/g, ' ').trim()).filter(Boolean);
   const firsts = [];
   for (const block of blocks) {
-    if (/^Text\s*\d+$/i.test(block)) continue;
     const text = block.replace(/^[^a-zA-Z]*/, '');
     if (!/[a-zA-Z]{3,}/.test(text)) continue;
+    if (KAOYAN_HEADER.test(text)) continue;
+    if (/^\d{1,2}[.、]\s*/.test(text)) break;
     const f = splitSentences(text)[0];
     if (f) firsts.push(f);
   }

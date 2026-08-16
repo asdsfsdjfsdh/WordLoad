@@ -1,0 +1,166 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "最高法院网络销售税裁决之争",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "States will be able to force more people to pay sales tax when they make online purchases under a Supreme Court decision Thursday that will leave shoppers with lighter wallets but is a big financial win for states."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "The Supreme Court’s opinion Thursday overruled a pair of decades-old decisions that states said cost them billions of dollars in lost revenue annually."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "The decisions made it more difficult for states to collect sales tax on certain online purchases."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "The cases the court overturned said that if a business was shipping a customer’s purchase to a state where the business didn’t have a physical presence such as a warehouse or office, the business didn’t have to collect sales tax for the state."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "Customers were generally responsible for paying the sales tax to the state themselves if they weren’t charged it, but most didn’t realize they owed it and few paid."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "Justice Anthony Kennedy wrote that the previous decisions were flawed."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "“Each year the physical presence rule becomes further removed from economic reality and results in significant revenue losses to the States,” he wrote in an opinion joined by four other justices."
+    },
+    {
+      "para": 2,
+      "seq": 7,
+      "en": "Kennedy wrote that the rule “limited states’ ability to seek long-term prosperity and has prevented market participants from competing on an even playing field.”"
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "The ruling is a victory for big chains with a presence in many states, since they usually collect sales tax on online purchases already."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "Now, rivals will be charging sales tax where they hadn’t before."
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "Big chains have been collecting sales tax nationwide because they typically have physical stores in whatever state a purchase is being shipped to."
+    },
+    {
+      "para": 3,
+      "seq": 11,
+      "en": "Amazon.com, with its network of warehouses, also collects sales tax in every state that charges it, though third-party sellers who use the site don’t have to."
+    },
+    {
+      "para": 3,
+      "seq": 12,
+      "en": "Until now, many sellers that have a physical presence in only a single state or a few states have been able to avoid charging sales taxes when they ship to addresses outside those states."
+    },
+    {
+      "para": 3,
+      "seq": 13,
+      "en": "Sellers that use eBay and Etsy, which provide platforms for smaller sellers, also haven’t been collecting sales tax nationwide."
+    },
+    {
+      "para": 4,
+      "seq": 14,
+      "en": "Under the ruling Thursday, states can pass laws requiring out-of-state sellers to collect the state’s sales tax from customers and send it to the state."
+    },
+    {
+      "para": 4,
+      "seq": 15,
+      "en": "Retail trade groups praised the ruling, saying it levels the playing field for local and online businesses."
+    },
+    {
+      "para": 4,
+      "seq": 16,
+      "en": "The losers, said retail analyst Neil Saunders, are online-only retailers, especially smaller ones."
+    },
+    {
+      "para": 4,
+      "seq": 17,
+      "en": "Those retailers may face headaches complying with various state sales tax laws."
+    },
+    {
+      "para": 5,
+      "seq": 18,
+      "en": "The Small Business & Entrepreneurship Council advocacy group said in a statement, “Small businesses and internet entrepreneurs are not well served at all by this decision.”"
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "The Supreme Court decision Thursday will ______",
+      "options": {
+        "A": "better businesses’ relations with states.",
+        "B": "put most online businesses in a dilemma.",
+        "C": "make more online shoppers pay sales tax.",
+        "D": "force some states to cut sales tax."
+      },
+      "answer": "C",
+      "analysis": "本题为细节题，根据题干关键字“the Supreme Court decision Thursday”定位到原文第一段“States will be able to force more people to pay sales tax when they make online purchases under a Supreme Court decision Thursday that ...”前半句已经明确提出各州的在线购物可能要交税，对应选项C，原词“ online”加“ shoppers”对“purchase”的同义替换。其他三个选项均为提及。"
+    },
+    {
+      "seq": 37,
+      "stem": "It can be learned from paragraphs 2 and 3 that the overruled decisions ______",
+      "options": {
+        "A": "have led to the dominance of e-commerce.",
+        "B": "have cost consumers a lot over the years.",
+        "C": "were widely criticized by online purchasers.",
+        "D": "were considered unfavorable by states."
+      },
+      "answer": "D",
+      "analysis": "根据题干“learned”可知本题为推理题，根据关键字“the overruled decisions ”定位到原文第二段的两句，大意为“州政府抱怨以前的政策使每年税收损失惨重，因此以前的政策很难再收取网上营业税”两句表示出的意思都是对州政府的不利，对比四个选项，得出答案D,州政府认为原政策对州会不利，因此驳回这项决定会对州有有利，为正话反说。"
+    },
+    {
+      "seq": 38,
+      "stem": "According to Justice Anthony Kennedy, the physical presence rule has ______",
+      "options": {
+        "A": "hindered economic development.",
+        "B": "brought prosperity to the country.",
+        "C": "harmed fair market competition.",
+        "D": "boosted growth in states’ revenue."
+      },
+      "answer": "C",
+      "analysis": "本题为细节题，根据题干关键词“Justice Anthony Kennedy”“the physical presence rule”定位到原文第四段的第二句和第三句，大意为实体店规定导致州政府税收亏损，接着下一句Kennedy wrote that the rule “limited states’ ability to seek long-term prosperity and has prevented from on an even playing field.”该规定限制了州政府长期繁荣，并妨碍市场参与者参与公平竞争。对比四个选项，D选项为“破坏了公平市场竞争”和原文“competing”“ market participant”一一对应，为正确答案。"
+    },
+    {
+      "seq": 39,
+      "stem": "Who are most likely to welcome the Supreme Court ruling?",
+      "options": {
+        "A": "Internet entrepreneurs.",
+        "B": "Big chain owners.",
+        "C": "Third-party sellers.",
+        "D": "Small retailers."
+      },
+      "answer": "B",
+      "analysis": "根据题干“likely”得出本题为推理题，利用关键词“welcome the Supreme Court ruling”定位到原文第五段第一句“ The ruling is a victory for big chains with a presence in many states, since....”对于大公司来说这项规定是一种胜利，因为...，只需找到关键词 “big chain”即可选出B选项：大型连锁公司。"
+    },
+    {
+      "seq": 40,
+      "stem": "In dealing with the Supreme Court decision Thursday, the author ______",
+      "options": {
+        "A": "gives a factual account of it and discusses its consequences.",
+        "B": "describes the long and complicated process of its making.",
+        "C": "presents its main points with conflicting views on them.",
+        "D": "cites some cases related to it and analyzes their implications."
+      },
+      "answer": "D",
+      "analysis": "本题为主旨题，需找出作者的相应观点与论证，根据题干关键词In dealing with the Supreme Court decision Thursday”回顾每段首尾句，推测每段大意，第一段讲述最高法院通过了征收在线营业税的决定，第二段介绍之前的裁决及后果是对州政府不利的，第三段介绍了原来裁决涉及到的案例，第四段陈列了法官的观点，即以前的裁决是有问题的，第五段主要讲述新判决会对大型连锁超市产生有利的影响，第六段讲述新裁决对州外卖价的影响，第七段表示新的判决得到零售界的肯定，因此本文的思路为：首段引出新判决，二三四段列举相关案例，五六七段对其影响进行讲述，对比四个选项，得出D:作者在讲述这个判决时引用了相关案例并分析了他们的影响。 .ys { width: 610px; margin: 5px; padding: 5px; border-top-color: #CCC; border-right-color: #CCC; border-bottom-color: #CCC; border-left-color: #CCC; font-size: 14px;}.cl { color: #F00;} .xqy_container .xqy_core .xqy_core_main .xqy_core_text{height:auto !important;} 查看全文 收起全文 --> --> 本文关键字: 2019考研英语一真题 2014年-2025年考研历年真题汇总 发布时间：2024-04-25 下载次数：665496 扫码添加【考研班主任】 即可领取资料包 考研大纲PDF电子版下载-历年（附解析） 发布时间：2024-04-25 下载次数：334682 扫码添加【考研班主任】 即可领取资料包 2026年考研政数英备考资料zip压缩包 发布时间：2024-04-25 下载次数：343521 扫码添加【考研班主任】 即可领取资料包 考研英语大纲词汇5500打印版（基础必备） 发布时间：2024-04-25 下载次数：434665 扫码添加【考研班主任】 即可领取资料包 新东方在线考试模拟题【12套】 发布时间：2024-04-25 下载次数：143786 扫码添加【考研班主任】 即可领取资料包 2026年考研专业课知识点总结 发布时间：2024-04-25 下载次数：165435 扫码添加【考研班主任】 即可领取资料包 新东方考研资料下载地址 发布时间：2023-05-17 下载次数：218955 新东方在线考研资料合集 下载方式：微信扫码，获取网盘链接 目录： 1.2013-2023年近10年政数英真题及解析PDF版（新东方） 2.2013-2023年专业课考试历年真题及解析PDF版 3.24考研复习备考资料大合集：大纲+备考资料+词汇书+考前押题+自命题 资料介绍： 1.2013-2023年近10年政数英真题及解析PDF版（新东方） 、 2.2013-2023年专业课考试历年真题及解析PDF版 3.24考研复习备考资料大合集 3.24考研复习备考资料：考研大纲 3.24考研复习备考资料：政数英备考资料+自命题真题 ------------------ 考研备考过程中，尤其是专业课部分，参考往年的考试真题，对于我们的复习有更好的帮助。北京大学考研真题资料都有哪些?小编为大家进行了汇总。 北京大学考研真题资料-公共课 北京大学考研真题资料-专业课 以上就是关于“北京大学考研真题资料下载(历年汇总)”的整理，更多考研资料下载，请关注微信获取下载地址。 2024考研公共课必背知识点汇总 发布时间：2023-01-03 下载次数：212034 扫码添加【考研班主任】 即可领取资料包 2013-2023考研历年真题汇总 发布时间：2023-01-03 下载次数：542034 扫码添加【考研班主任】 即可领取资料包 考研英语大纲词汇（PDF可打印） 发布时间：2023-01-03 下载次数：312034 扫码添加【考研班主任】 即可领取资料包 2024考研专业课知识点总结 发布时间：2023-01-03 下载次数：102034 扫码添加【考研班主任】 即可领取资料包 2023考研政治 内部押题 PDF 发布时间：2022-11-16 下载次数：87453 扫码添加【考研班主任】 即可领取资料包 徐涛：23考研预测六套卷 发布时间：2022-11-16 下载次数：54343 扫码添加【考研班主任】 即可领取资料包 考研政数英冲刺资料最新整理 发布时间：2022-11-16 下载次数：34125 扫码添加【考研班主任】 即可领取资料包 23考研答题卡模板打印版 发布时间：2022-11-16 下载次数：33210 扫码添加【考研班主任】 即可领取资料包 2023考研大纲词汇5500PDF电子版 发布时间：2022-07-28 下载次数：5632 &nbsp;扫码添加【考研班主任】 即可领取资料包 考研历年真题（公共课+专业课） 发布时间：2022-07-28 下载次数：112034 扫码添加【考研班主任】 即可领取资料包 考研英语阅读100篇附解析及答案 发布时间：2022-01-07 下载次数：7955 扫码添加【考研班主任】 即可领取资料包 新东方考研学霸笔记整理（打印版） 发布时间：2022-01-07 下载次数：扫码添加【考研班主任】即可领取资料包 扫码添加【考研班主任】 即可领取资料包 2001-2021年考研英语真题答案（可打印版） 发布时间：2022-01-07 下载次数：9900 扫码添加【考研班主任】 即可领取资料包 考研英语词汇5500（完整版下载） 发布时间：2022-01-07 下载次数：8753 扫码添加【考研班主任】 即可领取资料包 2022考研政审表模板精选10套 发布时间：2022-01-07 下载次数：15500 扫码添加【考研班主任】 即可领取资料包 历年考研真题及答案 下载 发布时间：2021-12-09 下载次数：150021 扫码添加【考研班主任】 即可领取资料包 考研政审表模板汇总 发布时间：2020-06-17 下载次数：12675 扫码添加【考研班主任】 即可领取资料包 近5年考研英语真题汇总 发布时间：2020-06-17 下载次数：35633 扫码添加【考研班主任】 即可领取资料包 考研英语大纲词汇5500 发布时间：2020-06-17 下载次数：234221 扫码添加【考研班主任】 即可领取资料包 2022考研12大学科专业排名汇总 发布时间：2019-11-21 下载次数：125633 扫码添加【考研班主任】 即可领取资料包 2023考研政治复习备考资料【珍藏版】 发布时间：2019-11-21 下载次数：421584 扫码添加【考研班主任】 即可领取资料包 考研英语万能模板+必备词汇+范文 发布时间：2019-11-21 下载次数：411694 扫码添加【考研班主任】 即可领取资料包 考研数学一、二、三历年真题整理 发布时间：2019-11-21 下载次数：318543 扫码添加【考研班主任】 即可领取资料包 更多资料 添加班主任领资料 添加考研班主任 免费领取考研历年真题等复习干货资料 1.打开手机微信【扫一扫】，识别上方二维码； 2.添加班主任，可领取学习资料。 推荐阅读 来源 : 网络 2025-06-17 08:04:00 关键字 : 2026考研英语 考研英语 2026考研英语复习总分法文章结构分析 为了让考研的同学更高效地复习考研英语，新东方在线考研频道整理了2026考研英语复习总分法文章结构分析，考研的同学可以了解一下，希望对大家有所帮助。 来源 : 网络 2025-06-17 08:03:00 关键字 : 2026考研英语 考研英语 2026考研英语复习议论文行文规则 为了让考研的同学更高效地复习考研英语，新东方在线考研频道整理了2026考研英语复习议论文行文规则，考研的同学可以了解一下，希望对大家有所帮助。 来源 : 网络 2025-06-17 08:00:00 关键字 : 2026考研英语 考研英语 2026考研英语复习完型填空主要考查什么 为了让考研的同学更高效地复习考研英语，新东方在线考研频道整理了2026考研英语复习完型填空主要考查什么，考研的同学可以了解一下，希望对大家有所帮助。 来源 : 网络 2025-06-16 08:01:00 关键字 : 2026考研英语 考研英语 2026考研英语复习如何复习作文部分 为了让考研的同学更高效地复习考研英语，新东方在线考研频道整理了2026考研英语复习如何复习作文部分，考研的同学可以了解一下，希望对大家有所帮助。 来源 : 网络 2025-06-16 08:01:00 关键字 : 2026考研英语 考研英语 更多内容 推荐关注 栏目导航 热门搜索 考研动态 考研报名 研究生招生简章 推免生 考研参考书 考研现场确认 考研院校信息 研究生导师 考研注意事项 考研复试 考研调剂 考研复习经验 考研英语 考研政治 考研数学 考研专业课 西医综合考研 心理学考研 计算机考研 北京化工大学考研成绩查询 中国政法大学考研分数线 中央财经大学考研分数线 2018考研数学三答案 2019考研数学二答案 考研政治时间 英语长难句 药学考研学校排名 药理学考研学校排名 学科教学化学考研学校排名 考研英语一真题电子版 考研英语一真题 考研英语二真题 教育学研究生院校排名 2020考研英语一大纲 2019考研词汇大纲word 2018管理类联考真题 中国近代史纲要试题 动物生理学试题 历史文献学教材 考研单科辅导 寄宿考研辅导班 中医考研辅导 有机化学考研辅导 成都考研辅导 心理学考研辅导班 医学考研辅导班 报考研辅导班 的考研网课 杭州考研培训学校 汉语言文学考研培训班 汉语国际教育考研网课 汉语国际教育考研补习班 广元考研培训机构 广东考研辅导班哪个好 工程力学考研培训班 高端考研辅导班 高等数学网课考研 辅导考研专业课班 抚州考研培训机构 版权及免责声明 获得21考研真题及答案解析 1. 打开手机微信【扫一扫】，识别上方二维码； 2.点击【关注公众号】，获取资料大礼包。 $('.getZL').hover( function(){$('.lingzlPop').show()}, function(){$('.lingzlPop').hide()} ) $('.jp-lingzl').on('click',function(){ var metaData = window.initInfositeMetaData && window.initInfositeMetaData(2) || {}; _MEIQIA('showPanel'); _MEIQIA('metadata', { ...metaData, btnName: '唤起咨询' }); }) --> 必备：考研真题及答案解析 英语一 英语二 政治 数学一 数学二 数学三 西医综合 教育综合 计算机 立即下载 2021考研真题及答案解析压缩包 关注公众号回复【考研答案】 免费下：2010-2026年考研真题及答案 .rightFixedShow{ width:70px; position:fixed; top:123px; right:20px; text-align:center; z-index:11; } .rightFixed{ background: #FFFFFF; border-radius: 4px; border: 1px solid #EEEEEE; text-align:center; } .rightFixed a{ display: inline-block; padding:12px 0; border-bottom:#EEEEEE solid 1px; cursor: pointer; font-size:22px; } .rightFixed a:nth-last-child(1){ border-bottom: none; } .rightFixed a em{ display:block; width:24px; height:24px; margin:0 auto 3px; background:url(https://daxueui-oss.koocdn.com/images/fe_upload/2021/5/2021-5-14-1620982165158.png) left top/24px 288px no-repeat; } .rightFixed a:hover em.rico1{background-position: 0 0;} .rightFixed a:hover em.rico2{background-position:0 -72px;} .rightFixed a:hover em.rico3{background-position:0 -96px;} .rightFixed a:hover em.rico4{background-position:0 -192px;} .rightFixed a:hover em.rico5{background-position:0 -216px;} .rightFixed a:hover em.rico6{background-position:0 -264px;} .rightFixed a em.rico1{background-position: 0 -48px;} .rightFixed a em.rico2{background-position:0 -24px;} .rightFixed a em.rico3{background-position:0 -120px;} .rightFixed a em.rico4{background-position:0 -144px;} .rightFixed a em.rico5{background-position:0 -168px;} .rightFixed a em.rico6{background-position:0 -240px;} .rightFixed a:hover{ color: #05C8AF; text-decoration: none; } .lingzlPop{ display:none; position:absolute; top: 360px; left:-330px; width:330px; height:326px; background:url(//images.koolearn.com/fe_upload/2019/11/2019-11-5-1572950895143.png) no-repeat; padding-top:32px; font-size:12px; } .lingzlPop h3{ font-size:18px; font-weight:bold; } .lingzlPop img{ width:120px; height:120px; padding:3px; border-radius:5px; border:#10D1A3 solid 1px; margin:15px; } .lingzlPop .readme{text-align:left;padding:0 60px;line-height:20px;} .tuiguang{ display:block; text-align:center; margin-top:15px; } --> 公开课 →【价格 : ￥0元】 ★限报人数：10000人 立即报名 有效期：4月22日 ◆在职全科备考攻略◆ →【价格 : ￥0元】 ★限报人数：10000人 ?立即报名 更多公开课>> --> #ft{ float:right } .kaoyan2{ margin-top: 490px; } .baipishu{ margin: 20px auto 0; width: 260px; height: 195px; } .baipishu img{ width: 260px; } .xqy_container .xqr_margin_top { margin-top: 495px; } .right-top-zhenti { position: fixed; background-color: #fbfefa; top: 110px; z-index: 10; } .right-top-zhenti-active { top: 110px; } .xqy_right_top_zhenti { box-sizing: border-box; width: 299px; background: #fbfefa; padding: 0 30px 15px 30px; } .xqy_right_top_zhenti h3 { text-align: center; } .xqy_right_top_zhenti .zhenti .list { margin: 0 auto; width: 240px; display: flex; justify-content: space-around; flex-wrap: wrap; margin: 12px 0; } .xqy_right_top_zhenti .zhenti .list a { display: block; width: 70px; height: 24px; background: #dceed6; border-radius: 2px; font-size: 14px; font-family: PingFangSC-Regular, PingFang SC; font-weight: 400; color: #3c734a; line-height: 24px; margin: 2.5px 0; text-align: center; } .xqy_right_top_zhenti .zhenti h3 { line-height: 44px; font-size: 16px; font-family: PingFangSC-Semibold, PingFang SC; font-weight: 600; color: #050505; border-bottom: 1px solid #e1e9de; } .xqy_right_top_zhenti .zhenti .down-load { display: block; width: 240px; height: 40px; background: #ff7418; font-size: 18px; font-family: PingFangSC-Semibold, PingFang SC; font-weight: 500; color: #ffffff; line-height: 40px; text-align: center; } .xqy_right_top_code { margin: 0 auto; width: 241px; height: 221px; border: 1px solid #dae8e6; box-sizing: border-box; padding: 20px 56px; } .xqy_right_top_code .img { width: 129px; height: 129px; background: #ffffff; border: 1px solid #dae8e6; margin-bottom: 15px; } .xqy_right_top_code p { font-size: 14px; font-family: PingFang SC; font-weight: 400; color: #010101; line-height: 19px; text-align: center; } .down-zhenti { position: relative; padding-left: 68px; height: 53px; line-height: 53px; font-size: 13px; font-family: PingFang SC; font-weight: 400; text-decoration: underline; color: #000000; cursor: pointer; } .down-zhenti::before { content: ''; position: absolute; width: 15px; height: 17px; top: 0; left: 46px; background: url(https://daxueui-oss.koocdn.com/images/fe_upload/2021/2/2021-2-7-1612687203163.png) center/100% no-repeat; } .bottom-fixed-zhenti { width: 100%; position: fixed; bottom: -3px; left: 0; z-index: 901; font-size: 0; } .bottom-fixed-zhenti img { width: 100%; } $(document).scroll(function() { let scroH = $(document).scrollTop(); // 滚动高度 if (scroH > 110) { $('.right-top-zhenti').css('top', 0); } else { $('.right-top-zhenti').css('top', `${110 - scroH}px`); } }); --> try { if(!/(phpcms.|phpcmstest.)/.test(window.location.href)){ if (/neibu/.test(window.location.href)) { document.domain = 'neibu.koolearn.com'; }else{ document.domain = 'koolearn.com'; } } } catch (e) { } window.pluginToast = function(str) { let $toast = $('.plugin-toast'); $toast.html(str).show(); setTimeout(() => { $toast.addClass('hide'); }, 2500); setTimeout(() => { $toast.removeClass('hide').hide(); }, 3500); }; var postData = { questionList: [], aid: '', couponDesc: '四六级专属考研大礼包 限时免费领取', kid: '', kooUserId: '', phone: '', regular: false, scene: 'scene', sourceUrl: window.location.href, templateId: 55, wap: false }; var userIsLogin = function() { var status = $.cookie('sso.ssoId') && $.cookie('sso.ssoId').length > 10 || $.cookie('sid') && $.cookie('sid').length > 10; return status; }; var getUserInfo = function() { var env = /neibu/.test(window.location.href) ? 'neibu.' : ''; return $.ajax({ type: \"post\", url: \"https://gnhd.koolearn.com/v1/user/koo-user-info?ssoId=\" + $.cookie(\"sso.ssoId\"), contentType: \"application/json; charset=utf-8\", dataType: \"json\", xhrFields: { withCredentials: true }, crossDomain: true }) }; $('.crm-btn').click(function () { var isNeibu = /neibu./.test(window.location.href) ? 'neibu.' : ''; if(userIsLogin()){ getUserInfo().then(respond=>{ postData.phone = respond.data.mobile; postData.kooUserId = respond.data.userId; $.ajax({ url: \"//gnitem.\" + isNeibu + \"koolearn.com/api/crm/upload/isSatisfy\", type: 'post', data: JSON.stringify(postData), dataType: 'json', contentType: 'application/json;charset=utf-8' }).done(function (resp) { if(resp.code === 100003){ window.pluginToast('考研大礼包领取成功'); }else if(resp.code === 100001){ window.pluginToast('考研大礼包领取成功'); }else if(resp.code === 100004){ window.pluginToast('您已领取过该礼包～'); }else if(resp.code === 100006){ window.pluginToast('您已领取过该礼包～'); } }); }) }else{ // 先调取登录然后领取优惠券 $.telLogin({ title: \"快捷登录\", buttonValue: \"提交\" }).then(function (res) { getUserInfo().then(resp=>{ postData.phone = resp.data.mobile; postData.kooUserId = resp.data.userId; $.ajax({ url: \"//gnitem.\" + isNeibu + \"koolearn.com/api/crm/upload/isSatisfy\", type: 'post', data: JSON.stringify(postData), dataType: 'json', contentType: 'application/json;charset=utf-8' }).done(function (resp) { if(resp.code === 100003){ window.pluginToast('考研大礼包领取成功'); }else if(resp.code === 100001){ window.pluginToast('考研大礼包领取成功'); }else if(resp.code === 100004){ window.pluginToast('您已领取过该礼包～'); }else if(resp.code === 100006){ window.pluginToast('您已领取过该礼包～'); } }); }) }); } }); 资料下载 扫码添加【考研班主任】 即可领取资料包 考研大纲PDF电子版下载-历年（附解析） 发布时间 : 2024-04-25 下载次数 : 334682 扫码添加【考研班主任】 即可领取资料包 2026年考研政数英备考资料zip压缩包 发布时间 : 2024-04-25 下载次数 : 343521 扫码添加【考研班主任】 即可领取资料包 考研英语大纲词汇5500打印版（基础必备） 发布时间 : 2024-04-25 下载次数 : 434665 扫码添加【考研班主任】 即可领取资料包 新东方在线考试模拟题【12套】 发布时间 : 2024-04-25 下载次数 : 143786 扫码添加【考研班主任】 即可领取资料包 2026年考研专业课知识点总结 发布时间 : 2024-04-25 下载次数 : 165435 扫码添加【考研班主任】 即可领取资料包 新东方考研资料下载地址 发布时间 : 2023-05-17 下载次数 : 218955 新东方在线考研资料合集 下载方式：微信扫码，获取网盘链接 目录： 1.2013-2023年近10年政数英真题及解析PDF版（新东方） 2.2013-2023年专业课考试历年真题及解析PDF版 3.24考研复习备考资料大合集：大纲+备考资料+词汇书+考前押题+自命题 资料介绍： 1.2013-2023年近10年政数英真题及解析PDF版（新东方） 、 2.2013-2023年专业课考试历年真题及解析PDF版 3.24考研复习备考资料大合集 3.24考研复习备考资料：考研大纲 3.24考研复习备考资料：政数英备考资料+自命题真题 ------------------ 考研备考过程中，尤其是专业课部分，参考往年的考试真题，对于我们的复习有更好的帮助。北京大学考研真题资料都有哪些?小编为大家进行了汇总。 北京大学考研真题资料-公共课 北京大学考研真题资料-专业课 以上就是关于“北京大学考研真题资料下载(历年汇总)”的整理，更多考研资料下载，请关注微信获取下载地址。 2024考研公共课必背知识点汇总 发布时间 : 2023-01-03 下载次数 : 212034 扫码添加【考研班主任】 即可领取资料包 2013-2023考研历年真题汇总 发布时间 : 2023-01-03 下载次数 : 542034 扫码添加【考研班主任】 即可领取资料包 考研英语大纲词汇（PDF可打印） 发布时间 : 2023-01-03 下载次数 : 312034 扫码添加【考研班主任】 即可领取资料包 2024考研专业课知识点总结 发布时间 : 2023-01-03 下载次数 : 102034 扫码添加【考研班主任】 即可领取资料包 2023考研政治 内部押题 PDF 发布时间 : 2022-11-16 下载次数 : 87453 扫码添加【考研班主任】 即可领取资料包 徐涛：23考研预测六套卷 发布时间 : 2022-11-16 下载次数 : 54343 扫码添加【考研班主任】 即可领取资料包 考研政数英冲刺资料最新整理 发布时间 : 2022-11-16 下载次数 : 34125 扫码添加【考研班主任】 即可领取资料包 23考研答题卡模板打印版 发布时间 : 2022-11-16 下载次数 : 33210 扫码添加【考研班主任】 即可领取资料包 2023考研大纲词汇5500PDF电子版 发布时间 : 2022-07-28 下载次数 : 5632 &nbsp;扫码添加【考研班主任】 即可领取资料包 考研历年真题（公共课+专业课） 发布时间 : 2022-07-28 下载次数 : 112034 扫码添加【考研班主任】 即可领取资料包 考研英语阅读100篇附解析及答案 发布时间 : 2022-01-07 下载次数 : 7955 扫码添加【考研班主任】 即可领取资料包 新东方考研学霸笔记整理（打印版） 发布时间 : 2022-01-07 下载次数 : 扫码添加【考研班主任】即可领取资料包 扫码添加【考研班主任】 即可领取资料包 2001-2021年考研英语真题答案（可打印版） 发布时间 : 2022-01-07 下载次数 : 9900 扫码添加【考研班主任】 即可领取资料包 考研英语词汇5500（完整版下载） 发布时间 : 2022-01-07 下载次数 : 8753 扫码添加【考研班主任】 即可领取资料包 2022考研政审表模板精选10套 发布时间 : 2022-01-07 下载次数 : 15500 扫码添加【考研班主任】 即可领取资料包 历年考研真题及答案 下载 发布时间 : 2021-12-09 下载次数 : 150021 扫码添加【考研班主任】 即可领取资料包 考研政审表模板汇总 发布时间 : 2020-06-17 下载次数 : 12675 扫码添加【考研班主任】 即可领取资料包 近5年考研英语真题汇总 发布时间 : 2020-06-17 下载次数 : 35633 扫码添加【考研班主任】 即可领取资料包 考研英语大纲词汇5500 发布时间 : 2020-06-17 下载次数 : 234221 扫码添加【考研班主任】 即可领取资料包 2022考研12大学科专业排名汇总 发布时间 : 2019-11-21 下载次数 : 125633 扫码添加【考研班主任】 即可领取资料包 2023考研政治复习备考资料【珍藏版】 发布时间 : 2019-11-21 下载次数 : 421584 扫码添加【考研班主任】 即可领取资料包 考研英语万能模板+必备词汇+范文 发布时间 : 2019-11-21 下载次数 : 411694 扫码添加【考研班主任】 即可领取资料包 考研数学一、二、三历年真题整理 发布时间 : 2019-11-21 下载次数 : 318543 扫码添加【考研班主任】 即可领取资料包 更多资料 我要 反馈 返回 首页 阅读排行榜 2020考研资讯 20考研院校专业 考研复试指导 考研成绩查询 考研参考资料 推免夏令营 考研英语词汇 考研英语语法 英语复习指导\" href=\"http://kaoyan.koolearn.com/yingyu/fuxizhidao/\" style=\"color: #B8C675;\">英语复习指导 考研政治复习指导 考研时政热点 数学复习指导 20考研专业课复习 考研资料下载 seajs.use('project/zt/2018/0913xqy/js/page', function (exports) { exports.init(); }); seajs.use(\"//www.koolearn.com/qqLoginYhq/yhq.jsp#\"); .bottom-fixed-zhenti{ width: 100%; height: 89px; position: fixed; bottom: 0; left: 0; z-index: 901; background: #3b3d46; } .bottom-fixed-zhenti a{ display: block; width: 100%; height: 73px; position: fixed; bottom: 0; left: 0; background: #3b3d46; } .bottom-fixed-zhenti img{ width: 1400px; position:absolute; bottom:0; left:calc(50% - 700px) } --> --> $(function(){$(\".kb2 a\").click(function(){_gaq.push(['_trackEvent', '频道详情页', '考研课表', $(this).text() || $(this).attr(\"class\")]);});$(\".kb1 a\").click(function(){_gaq.push(['_trackEvent', '频道详情页右侧课表', '考研', $(this).text() || $(this).attr(\"class\")]);});});"
+    }
+  ],
+  "glossary": {}
+}
