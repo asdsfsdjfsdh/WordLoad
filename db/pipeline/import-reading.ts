@@ -18,6 +18,7 @@ export interface ReadingQuestionData {
   options: { A: string; B: string; C: string; D: string };
   answer: string;
   analysis: string;
+  remark?: string;
 }
 
 export interface ReadingPassageData {
@@ -226,6 +227,7 @@ async function importPaper(
         options: q.options,
         answer: q.answer,
         analysis: q.analysis,
+        ...(q.remark ? { remark: q.remark } : {}),
       })),
     }),
     prisma.readingGlossary.createMany({

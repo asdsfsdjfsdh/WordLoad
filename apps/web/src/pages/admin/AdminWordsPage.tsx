@@ -1,5 +1,6 @@
 // 后台 · 单词库：搜索 / 编辑 / 新建 / 删除
 import { useCallback, useEffect, useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import type { AdminWordDetail, AdminWordListResult } from '@word-journey/shared';
 import {
   createAdminWord,
@@ -29,6 +30,14 @@ export function AdminWordsPage() {
   const [detail, setDetail] = useState<AdminWordDetail | null>(null);
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState('');
+  const queryClient = useQueryClient();
+
+  // 后台改动会波及用户侧数据（词书进度/阅读），失效相关缓存
+  const invalidateUserCaches = useCallback(() => {
+    void queryClient.invalidateQueries({ queryKey: ['reading'] });
+    void queryClient.invalidateQueries({ queryKey: ['banks'] });
+    void queryClient.invalidateQueries({ queryKey: ['collections'] });
+  }, [queryClient]);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -73,6 +82,7 @@ export function AdminWordsPage() {
       setMsg('已保存');
       setEditing(null);
       setDetail(null);
+      invalidateUserCaches();
       void load();
     } finally {
       setSaving(false);
@@ -105,6 +115,7 @@ export function AdminWordsPage() {
       });
       setMsg('已新建');
       setEditing(null);
+      invalidateUserCaches();
       void load();
     } finally {
       setSaving(false);
@@ -116,6 +127,7 @@ export function AdminWordsPage() {
     try {
       await deleteAdminWord(id);
       setMsg('已删除');
+      invalidateUserCaches();
       void load();
     } catch (e) {
       setMsg(e instanceof Error ? e.message : '删除失败');

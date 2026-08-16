@@ -1,5 +1,5 @@
-// 真题阅读：试卷/篇章列表、全文详情（句子/题目/词表/进度）、判分提交、进度保存、生词收集
-import { Injectable, NotFoundException } from '@nestjs/common';
+// 真题阅读：试卷/篇章列表、全文详情（句子/题目/词表/进度）、判分提交、进度保存、生词收集、点词查义
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import type {
   ReadingMarkWordRequest,
   ReadingMarkWordResponse,
@@ -11,11 +11,15 @@ import type {
   ReadingProgressUpdateRequest,
   ReadingSubmitAnswerInput,
   ReadingSubmitResponse,
+  ReadingWordLookupResult,
 } from '@word-journey/shared';
 import { lookupReadingWord } from '@word-journey/shared';
 import type { ReadingSentenceStructure } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
 import { scoreReading } from './scoring';
+
+// 每篇最多提交次数（防刷/防历史膨胀）
+const MAX_SUBMISSIONS = 20;
 
 @Injectable()
 export class ReadingService {
@@ -134,6 +138,7 @@ export class ReadingService {
         seq: q.seq,
         stem: q.stem,
         options: q.options as { A: string; B: string; C: string; D: string },
+        remark: q.remark ?? undefined,
       })),
       glossary,
       progress: {
@@ -174,6 +179,9 @@ export class ReadingService {
     const prev = await this.prisma.readingProgress.findUnique({
       where: { userId_passageId: { userId, passageId } },
     });
+    if ((prev?.submitCount ?? 0) >= MAX_SUBMISSIONS) {
+      throw new BadRequestException(`提交次数已达上限（${MAX_SUBMISSIONS} 次）`);
+    }
     const prevBest = prev?.bestScore ?? 0;
     const bestScore = Math.max(prevBest, scored.score);
     const recordBroken = scored.score > prevBest;
@@ -206,9 +214,17 @@ export class ReadingService {
           totalQuestions: scored.totalQuestions,
           correctCount: Math.floor(bestScore / 2),
           currentSentence: prev?.currentSentence ?? 0,
+          submitCount: 1,
           lastReadAt: now,
         },
-        update: { status, bestScore, totalQuestions: scored.totalQuestions, correctCount: Math.floor(bestScore / 2), lastReadAt: now },
+        update: {
+          status,
+          bestScore,
+          totalQuestions: scored.totalQuestions,
+          correctCount: Math.floor(bestScore / 2),
+          submitCount: { increment: 1 },
+          lastReadAt: now,
+        },
       }),
     ]);
 
@@ -316,6 +332,41 @@ export class ReadingService {
     })).map((s) => s.word);
 
     return { word: body.word, saved, savedWords, inVocabBook };
+  }
+
+  // 点词查义：先查篇内词表，未命中则回退单词库（Word 总表，取首个义项）
+  async lookupWord(userId: number, passageId: number, word: string): Promise<ReadingWordLookupResult> {
+    const passage = await this.prisma.readingPassage.findUnique({
+      where: { id: passageId },
+      include: { glossary: true },
+    });
+    if (!passage) throw new NotFoundException('篇章不存在');
+
+    // 1) 篇内词表（含屈折回退）
+    const glossaryMap: Record<string, { word: string; meaning: string; wordId?: string; phonetic?: string }> = {};
+    for (const g of passage.glossary) {
+      glossaryMap[g.word] = { word: g.word, meaning: g.meaning, wordId: g.wordId ?? undefined };
+    }
+    const entry = lookupReadingWord(glossaryMap, word);
+    if (entry) {
+      return { found: true, source: 'glossary', word: entry.word, meaning: entry.meaning };
+    }
+
+    // 2) 回退单词库（MySQL 默认大小写不敏感）
+    const w = await this.prisma.word.findFirst({
+      where: { text: word },
+      include: { senses: { orderBy: { idx: 'asc' }, take: 1 } },
+    });
+    if (w && w.senses.length > 0) {
+      return {
+        found: true,
+        source: 'wordbank',
+        word: w.text,
+        phonetic: w.phoneticAm ?? w.phoneticEn ?? undefined,
+        meaning: w.senses[0]?.meaning,
+      };
+    }
+    return { found: false };
   }
 
   // 是否已答完全部题目（并上本次提交的答案后去重计数）

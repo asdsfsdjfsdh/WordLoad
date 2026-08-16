@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Query, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsArray, IsIn, IsInt, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
@@ -72,6 +72,16 @@ export class ReadingController {
     @Param('passageId', ParseIntPipe) passageId: number,
   ): Promise<ReadingPassageDetail> {
     return this.reading.detail(req.user.sub, passageId);
+  }
+
+  @Get('passages/:passageId/words/lookup')
+  @ApiOperation({ summary: '点词查义：篇内词表 → 单词库回退' })
+  lookupWord(
+    @Req() req: Request & { user: JwtUser },
+    @Param('passageId', ParseIntPipe) passageId: number,
+    @Query('word') word: string,
+  ): Promise<import('@word-journey/shared').ReadingWordLookupResult> {
+    return this.reading.lookupWord(req.user.sub, passageId, word ?? '');
   }
 
   @Post('passages/:passageId/submit')

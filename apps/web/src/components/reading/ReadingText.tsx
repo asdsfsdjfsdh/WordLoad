@@ -1,5 +1,5 @@
 // 阅读原文渲染：逐句 + 分词 span（点词弹窗 / 句译 / 生词高亮）
-import { useMemo, type CSSProperties } from 'react';
+import { useMemo } from 'react';
 import type { ReadingGlossaryEntry, ReadingSentenceView } from '@word-journey/shared';
 import { lookupReadingWord, tokenizeReadingSentence } from '@word-journey/shared';
 
@@ -85,35 +85,31 @@ interface WordSpanProps {
 }
 
 function WordSpan({ raw, entry, highlight, saved, onWordClick }: WordSpanProps) {
-  const clickable = !!entry;
-  const style: CSSProperties = {};
-  let cls = '';
-  if (clickable) {
-    cls = 'cursor-pointer border-b border-dotted border-slate-500/70 transition-colors hover:text-cyan-300 hover:border-cyan-400';
+  // 所有单词均可点击：有词条 → 直接查义；无词条 → 触发回退查词（单词库）
+  let cls = 'cursor-pointer transition-colors hover:text-cyan-300';
+  if (entry) {
+    cls += ' border-b border-dotted border-slate-500/70 hover:border-cyan-400';
   }
   if (saved) {
     cls += ' text-amber-300 border-amber-500/60';
-  } else if (highlight && clickable && entry && !entry.mastered) {
-    // 生词高亮：未掌握词标底纹
+  } else if (highlight && !entry) {
+    // 生词高亮：无词条/未掌握词标底纹
+    cls += ' rounded-sm bg-amber-400/15';
+  } else if (highlight && entry && !entry.mastered) {
     cls += ' rounded-sm bg-amber-400/15';
   }
   if (!entry) {
-    // 词表未收录的常见词：点词无数据，普通样式
     cls += ' text-slate-300';
   }
-  if (clickable) {
-    return (
-      <span
-        className={cls}
-        style={style}
-        onClick={(e) => {
-          e.stopPropagation();
-          onWordClick(raw, entry, e);
-        }}
-      >
-        {raw}
-      </span>
-    );
-  }
-  return <span className={cls}>{raw}</span>;
+  return (
+    <span
+      className={cls}
+      onClick={(e) => {
+        e.stopPropagation();
+        onWordClick(raw, entry, e);
+      }}
+    >
+      {raw}
+    </span>
+  );
 }

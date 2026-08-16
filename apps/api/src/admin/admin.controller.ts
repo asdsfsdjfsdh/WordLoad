@@ -1,8 +1,9 @@
 // 后台管理控制器
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsArray, IsIn, IsInt, IsObject, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
+import type { Request } from 'express';
 import type {
   AdminPassageEdit,
   AdminWordCreateInput,
@@ -10,7 +11,7 @@ import type {
   AdminWordListResult,
   AdminWordSaveInput,
 } from '@word-journey/shared';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
 import { AdminGuard } from './admin.guard';
 import { AdminService } from './admin.service';
 
@@ -166,20 +167,20 @@ export class AdminController {
 
   @Post('words/:id')
   @ApiOperation({ summary: '保存单词（字段 + 义项全量替换）' })
-  saveWord(@Param('id') id: string, @Body() dto: SaveWordDto): Promise<AdminWordDetail> {
-    return this.admin.saveWord(id, dto);
+  saveWord(@Req() req: Request & { user: JwtUser }, @Param('id') id: string, @Body() dto: SaveWordDto): Promise<AdminWordDetail> {
+    return this.admin.saveWord(req.user.sub, id, dto);
   }
 
   @Post('words')
   @ApiOperation({ summary: '新建单词' })
-  createWord(@Body() dto: CreateWordDto): Promise<AdminWordDetail> {
-    return this.admin.createWord(dto);
+  createWord(@Req() req: Request & { user: JwtUser }, @Body() dto: CreateWordDto): Promise<AdminWordDetail> {
+    return this.admin.createWord(req.user.sub, dto);
   }
 
   @Delete('words/:id')
   @ApiOperation({ summary: '删除单词（被用户记录引用时拒绝）' })
-  deleteWord(@Param('id') id: string): Promise<{ ok: true }> {
-    return this.admin.deleteWord(id);
+  deleteWord(@Req() req: Request & { user: JwtUser }, @Param('id') id: string): Promise<{ ok: true }> {
+    return this.admin.deleteWord(req.user.sub, id);
   }
 
   // 阅读库
@@ -197,14 +198,14 @@ export class AdminController {
 
   @Put('reading/passages/:id')
   @ApiOperation({ summary: '更新篇章标题/副标题' })
-  savePassageMeta(@Param('id', ParseIntPipe) id: number, @Body() dto: PassageMetaDto) {
-    return this.admin.savePassageMeta(id, dto);
+  savePassageMeta(@Req() req: Request & { user: JwtUser }, @Param('id', ParseIntPipe) id: number, @Body() dto: PassageMetaDto) {
+    return this.admin.savePassageMeta(req.user.sub, id, dto);
   }
 
   @Put('reading/sentences/:id')
   @ApiOperation({ summary: '更新句子（英文/译文/结构）' })
-  saveSentence(@Param('id', ParseIntPipe) id: number, @Body() dto: SentenceDto) {
-    return this.admin.saveSentence(id, {
+  saveSentence(@Req() req: Request & { user: JwtUser }, @Param('id', ParseIntPipe) id: number, @Body() dto: SentenceDto) {
+    return this.admin.saveSentence(req.user.sub, id, {
       en: dto.en,
       zh: dto.zh,
       structure: dto.structure as import('@word-journey/shared').ReadingSentenceStructure | null,
@@ -213,13 +214,13 @@ export class AdminController {
 
   @Put('reading/questions/:id')
   @ApiOperation({ summary: '更新题目' })
-  saveQuestion(@Param('id', ParseIntPipe) id: number, @Body() dto: QuestionDto) {
-    return this.admin.saveQuestion(id, dto);
+  saveQuestion(@Req() req: Request & { user: JwtUser }, @Param('id', ParseIntPipe) id: number, @Body() dto: QuestionDto) {
+    return this.admin.saveQuestion(req.user.sub, id, dto);
   }
 
   @Put('reading/glossary/:id')
   @ApiOperation({ summary: '更新词表条目' })
-  saveGlossary(@Param('id', ParseIntPipe) id: number, @Body() dto: GlossaryDto) {
-    return this.admin.saveGlossary(id, dto);
+  saveGlossary(@Req() req: Request & { user: JwtUser }, @Param('id', ParseIntPipe) id: number, @Body() dto: GlossaryDto) {
+    return this.admin.saveGlossary(req.user.sub, id, dto);
   }
 }

@@ -22,6 +22,16 @@ export function fetchReadingPassageDetail(passageId: number): Promise<ReadingPas
   return api.get<ReadingPassageDetail>(`/reading/passages/${passageId}`);
 }
 
+// 点词查义：篇内词表未命中时回退单词库
+export function lookupReadingWordApi(
+  passageId: number,
+  word: string,
+): Promise<import('@word-journey/shared').ReadingWordLookupResult> {
+  return api.get<import('@word-journey/shared').ReadingWordLookupResult>(
+    `/reading/passages/${passageId}/words/lookup?word=${encodeURIComponent(word)}`,
+  );
+}
+
 export function submitReadingAnswers(
   passageId: number,
   answers: ReadingSubmitAnswerInput[],

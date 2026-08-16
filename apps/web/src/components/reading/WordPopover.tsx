@@ -51,6 +51,11 @@ export function WordPopover({ state, saved, onToggleSave, onClose }: WordPopover
           <div className="flex flex-wrap items-baseline gap-2">
             <span className="text-lg font-bold text-cyan-300">{state.raw}</span>
             {entry?.phonetic && <span className="text-xs text-slate-400">{entry.phonetic}</span>}
+            {entry?.source && (
+              <span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${entry.source === 'wordbank' ? 'bg-violet-500/15 text-violet-300' : 'bg-cyan-500/15 text-cyan-300'}`}>
+                {entry.source === 'wordbank' ? '单词库' : '篇内词表'}
+              </span>
+            )}
           </div>
           {entry?.mastered === true && (
             <span className="mt-0.5 inline-block rounded bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-medium text-emerald-400">

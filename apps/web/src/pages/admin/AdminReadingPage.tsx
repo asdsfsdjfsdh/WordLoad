@@ -1,5 +1,6 @@
 // 后台 · 阅读库：篇章元信息 / 句子（含结构）/ 题目 / 词表 编辑
 import { useEffect, useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import type { AdminPassageEdit, ReadingSentenceStructure } from '@word-journey/shared';
 import {
   fetchAdminPassage,
@@ -20,6 +21,11 @@ export function AdminReadingPage() {
   const [sentenceDrafts, setSentenceDrafts] = useState<Record<number, { en: string; zh: string; structure: string }>>({});
   const [questionDrafts, setQuestionDrafts] = useState<Record<number, { stem: string; A: string; B: string; C: string; D: string; answer: string; analysis: string }>>({});
   const [glossaryDrafts, setGlossaryDrafts] = useState<Record<number, { word: string; meaning: string }>>({});
+  const queryClient = useQueryClient();
+
+  const invalidateReading = (): void => {
+    void queryClient.invalidateQueries({ queryKey: ['reading'] });
+  };
 
   useEffect(() => {
     void fetchAdminReadingPapers().then(setPapers).catch(() => setPapers([]));
@@ -39,6 +45,7 @@ export function AdminReadingPage() {
     if (!activeId) return;
     await saveAdminPassageMeta(activeId, { title: meta.title, subtitle: meta.subtitle || null });
     setMsg('元信息已保存');
+    invalidateReading();
   };
 
   const saveSentence = async (id: number): Promise<void> => {
@@ -55,6 +62,7 @@ export function AdminReadingPage() {
     }
     await saveAdminSentence(id, { en: d.en, zh: d.zh, structure });
     setMsg(`句子 ${id} 已保存`);
+    invalidateReading();
   };
 
   const saveQuestion = async (id: number): Promise<void> => {
@@ -67,6 +75,7 @@ export function AdminReadingPage() {
       analysis: d.analysis,
     });
     setMsg(`题目 ${id} 已保存`);
+    invalidateReading();
   };
 
   const saveGlossary = async (id: number): Promise<void> => {
@@ -74,6 +83,7 @@ export function AdminReadingPage() {
     if (!d) return;
     await saveAdminGlossary(id, { word: d.word, meaning: d.meaning });
     setMsg(`词表条目 ${id} 已保存`);
+    invalidateReading();
   };
 
   return (
@@ -156,7 +166,12 @@ export function AdminReadingPage() {
                   return (
                     <div key={q.id} className="rounded-lg border border-slate-800 bg-slate-950/40 p-3">
                       <div className="mb-1 flex items-center justify-between text-xs text-slate-500">
-                        <span>#{q.seq}</span>
+                        <span className="flex items-center gap-2">
+                          #{q.seq}
+                          {q.remark && (
+                            <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-medium text-amber-400">{q.remark}</span>
+                          )}
+                        </span>
                         <button onClick={() => void saveQuestion(q.id)} className="text-cyan-400 hover:underline">保存</button>
                       </div>
                       <textarea value={d.stem} onChange={(e) => setQuestionDrafts({ ...questionDrafts, [q.id]: { ...d, stem: e.target.value } })}

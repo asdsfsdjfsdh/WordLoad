@@ -18,6 +18,27 @@ import { PrismaService } from '../prisma/prisma.service';
 export class AdminService {
   constructor(private readonly prisma: PrismaService) {}
 
+  // 审计：记录管理操作（写接口统一调用）
+  private async audit(
+    adminId: number,
+    action: 'save' | 'create' | 'delete',
+    table: string,
+    recordId: string,
+    before?: unknown,
+    after?: unknown,
+  ): Promise<void> {
+    await this.prisma.adminAuditLog.create({
+      data: {
+        adminId,
+        action,
+        table,
+        recordId,
+        before: (before as Prisma.InputJsonValue | undefined) ?? Prisma.JsonNull,
+        after: (after as Prisma.InputJsonValue | undefined) ?? Prisma.JsonNull,
+      },
+    });
+  }
+
   // ── 单词库 ──
   async listWords(q: string, tier: string | undefined, page: number, pageSize: number): Promise<AdminWordListResult> {
     const where: Record<string, unknown> = {};
@@ -94,7 +115,7 @@ export class AdminService {
     };
   }
 
-  async saveWord(id: string, input: AdminWordSaveInput): Promise<AdminWordDetail> {
+  async saveWord(adminId: number, id: string, input: AdminWordSaveInput): Promise<AdminWordDetail> {
     const existing = await this.prisma.word.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException('单词不存在');
 
@@ -115,10 +136,11 @@ export class AdminService {
         data: input.senses.map((s, i) => ({ wordId: id, idx: i, meaning: s.meaning, example: s.example })),
       }),
     ]);
+    await this.audit(adminId, 'save', 'word', id, { text: existing.text }, { text: input.text ?? existing.text, senses: input.senses.length });
     return this.getWord(id);
   }
 
-  async createWord(input: AdminWordCreateInput): Promise<AdminWordDetail> {
+  async createWord(adminId: number, input: AdminWordCreateInput): Promise<AdminWordDetail> {
     const tier = input.tier ?? 'I';
     const word = await this.prisma.word.create({
       data: {
@@ -143,10 +165,11 @@ export class AdminService {
         });
       }
     }
+    await this.audit(adminId, 'create', 'word', word.id, undefined, { text: word.text, tier, senses: input.senses?.length ?? 0 });
     return this.getWord(word.id);
   }
 
-  async deleteWord(id: string): Promise<{ ok: true }> {
+  async deleteWord(adminId: number, id: string): Promise<{ ok: true }> {
     const word = await this.prisma.word.findUnique({ where: { id } });
     if (!word) throw new NotFoundException('单词不存在');
     const [prog, senseProg, runItems, sessionItems] = await Promise.all([
@@ -163,6 +186,7 @@ export class AdminService {
       this.prisma.wordPair.deleteMany({ where: { OR: [{ wordAId: id }, { wordBId: id }] } }),
       this.prisma.word.delete({ where: { id } }),
     ]);
+    await this.audit(adminId, 'delete', 'word', id, { text: word.text });
     return { ok: true };
   }
 
@@ -211,6 +235,7 @@ export class AdminService {
         options: q.options as AdminPassageEdit['questions'][number]['options'],
         answer: q.answer,
         analysis: q.analysis,
+        remark: q.remark ?? undefined,
       })),
       glossary: passage.glossary.map((g) => ({
         id: g.id,
@@ -221,8 +246,8 @@ export class AdminService {
     };
   }
 
-  async savePassageMeta(passageId: number, input: { title?: string; subtitle?: string | null }): Promise<{ ok: true }> {
-    const exists = await this.prisma.readingPassage.findUnique({ where: { id: passageId }, select: { id: true } });
+  async savePassageMeta(adminId: number, passageId: number, input: { title?: string; subtitle?: string | null }): Promise<{ ok: true }> {
+    const exists = await this.prisma.readingPassage.findUnique({ where: { id: passageId }, select: { id: true, title: true } });
     if (!exists) throw new NotFoundException('篇章不存在');
     await this.prisma.readingPassage.update({
       where: { id: passageId },
@@ -231,11 +256,12 @@ export class AdminService {
         ...(input.subtitle !== undefined ? { subtitle: input.subtitle } : {}),
       },
     });
+    await this.audit(adminId, 'save', 'readingPassage', String(passageId), { title: exists.title }, { title: input.title ?? exists.title });
     return { ok: true };
   }
 
-  async saveSentence(id: number, input: AdminSentenceUpdate): Promise<{ ok: true }> {
-    const exists = await this.prisma.readingSentence.findUnique({ where: { id }, select: { id: true } });
+  async saveSentence(adminId: number, id: number, input: AdminSentenceUpdate): Promise<{ ok: true }> {
+    const exists = await this.prisma.readingSentence.findUnique({ where: { id }, select: { id: true, en: true } });
     if (!exists) throw new NotFoundException('句子不存在');
     const data: Prisma.ReadingSentenceUpdateInput = {};
     if (input.en !== undefined) data.en = input.en;
@@ -244,11 +270,12 @@ export class AdminService {
       data.structure = input.structure === null ? Prisma.DbNull : (input.structure as unknown as Prisma.InputJsonValue);
     }
     await this.prisma.readingSentence.update({ where: { id }, data });
+    await this.audit(adminId, 'save', 'readingSentence', String(id), { en: exists.en }, { en: input.en ?? exists.en });
     return { ok: true };
   }
 
-  async saveQuestion(id: number, input: AdminQuestionUpdate): Promise<{ ok: true }> {
-    const exists = await this.prisma.readingQuestion.findUnique({ where: { id }, select: { id: true } });
+  async saveQuestion(adminId: number, id: number, input: AdminQuestionUpdate): Promise<{ ok: true }> {
+    const exists = await this.prisma.readingQuestion.findUnique({ where: { id }, select: { id: true, answer: true } });
     if (!exists) throw new NotFoundException('题目不存在');
     await this.prisma.readingQuestion.update({
       where: { id },
@@ -259,11 +286,12 @@ export class AdminService {
         ...(input.analysis !== undefined ? { analysis: input.analysis } : {}),
       },
     });
+    await this.audit(adminId, 'save', 'readingQuestion', String(id), { answer: exists.answer }, { answer: input.answer ?? exists.answer });
     return { ok: true };
   }
 
-  async saveGlossary(id: number, input: AdminGlossaryUpdate): Promise<{ ok: true }> {
-    const exists = await this.prisma.readingGlossary.findUnique({ where: { id }, select: { id: true } });
+  async saveGlossary(adminId: number, id: number, input: AdminGlossaryUpdate): Promise<{ ok: true }> {
+    const exists = await this.prisma.readingGlossary.findUnique({ where: { id }, select: { id: true, word: true } });
     if (!exists) throw new NotFoundException('词表条目不存在');
     await this.prisma.readingGlossary.update({
       where: { id },
@@ -272,6 +300,7 @@ export class AdminService {
         ...(input.meaning !== undefined ? { meaning: input.meaning } : {}),
       },
     });
+    await this.audit(adminId, 'save', 'readingGlossary', String(id), { word: exists.word }, { word: input.word ?? exists.word });
     return { ok: true };
   }
 }

@@ -1,5 +1,5 @@
 // 逐句精读模式：一句一屏；从句着色 + 句子主干 + 从句列表 + 点词底部释义条
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { ReadingGlossaryEntry, ReadingSentenceStructure, ReadingSentenceView } from '@word-journey/shared';
 import {
   assignTokenClauses,
@@ -19,11 +19,18 @@ export interface ReadingIntensiveModalProps {
   onClose: () => void;
   onSentenceChange: (seq: number) => void;
   onToggleSave: (word: string, action: 'save' | 'remove') => void;
+  lookupWord?: (raw: string) => Promise<ReadingGlossaryEntry | undefined>;
 }
 
 interface SelectedWord {
   raw: string;
   entry: ReadingGlossaryEntry | undefined;
+}
+
+interface LookupResult {
+  raw: string;
+  meaning: string;
+  phonetic?: string;
 }
 
 export function ReadingIntensiveModal({
@@ -34,11 +41,13 @@ export function ReadingIntensiveModal({
   onClose,
   onSentenceChange,
   onToggleSave,
+  lookupWord,
 }: ReadingIntensiveModalProps) {
   const [idx, setIdx] = useState(() => Math.max(0, sentences.findIndex((s) => s.seq === initialSeq)));
   const [structureOn, setStructureOn] = useState(true);
   const [zhOpen, setZhOpen] = useState(true);
   const [selected, setSelected] = useState<SelectedWord | null>(null);
+  const [lookupResult, setLookupResult] = useState<LookupResult | null>(null);
 
   const glossaryMap = useMemo(() => {
     const m: Record<string, ReadingGlossaryEntry> = {};
@@ -66,8 +75,36 @@ export function ReadingIntensiveModal({
     const clamped = Math.max(0, Math.min(sentences.length - 1, next));
     setIdx(clamped);
     setSelected(null);
+    setLookupResult(null);
     onSentenceChange(sentences[clamped]!.seq);
   };
+
+  const onWordTap = (raw: string, entry: ReadingGlossaryEntry | undefined): void => {
+    setSelected({ raw, entry });
+    setLookupResult(null);
+    if (!entry && lookupWord) {
+      lookupWord(raw)
+        .then((r) => {
+          if (r?.meaning) setLookupResult({ raw, meaning: r.meaning, phonetic: r.phonetic });
+        })
+        .catch(() => undefined);
+    }
+  };
+
+  // 键盘：←/→ 翻句，Esc 退出
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent): void => {
+      if (e.key === 'ArrowLeft') go(idx - 1);
+      else if (e.key === 'ArrowRight') go(idx + 1);
+      else if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idx, sentences.length, onClose]);
+
+  const selectedMeaning = selected?.entry?.meaning ?? (selected && lookupResult?.raw === selected.raw ? lookupResult.meaning : undefined);
+  const selectedPhonetic = selected?.entry?.phonetic ?? (selected && lookupResult?.raw === selected.raw ? lookupResult.phonetic : undefined);
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-slate-950/95 backdrop-blur-sm">
@@ -132,8 +169,9 @@ export function ReadingIntensiveModal({
                 return (
                   <button
                     key={i}
+                    aria-label={`查看单词 ${t.text} 释义`}
                     className={`inline cursor-pointer rounded-sm px-px transition hover:bg-slate-700/40 ${cls} ${saved ? 'text-amber-300' : ''}`}
-                    onClick={() => setSelected({ raw: t.text, entry })}
+                    onClick={() => onWordTap(t.text, entry)}
                   >
                     {t.text}
                   </button>
@@ -195,10 +233,11 @@ export function ReadingIntensiveModal({
             {selected ? (
               <>
                 <span className="shrink-0 text-base font-bold text-cyan-300">{selected.raw}</span>
-                {selected.entry?.phonetic && <span className="shrink-0 text-xs text-slate-500">{selected.entry.phonetic}</span>}
-                <span className="min-w-0 flex-1 text-sm text-slate-300">{selected.entry?.meaning ?? '（暂无收录释义）'}</span>
+                {selectedPhonetic && <span className="shrink-0 text-xs text-slate-500">{selectedPhonetic}</span>}
+                <span className="min-w-0 flex-1 text-sm text-slate-300">{selectedMeaning ?? '（暂无收录释义）'}</span>
                 <button
                   onClick={() => getTts().speak(selected.raw, { rate: 0.9 })}
+                  aria-label={`朗读 ${selected.raw}`}
                   className="shrink-0 rounded-lg border border-slate-600 bg-slate-800/60 px-2.5 py-1 text-xs text-slate-200 transition hover:border-cyan-500/40 hover:text-cyan-300"
                 >
                   朗读
@@ -224,12 +263,14 @@ export function ReadingIntensiveModal({
             <button
               onClick={() => go(idx - 1)}
               disabled={idx === 0}
+              aria-label="上一句"
               className="rounded-xl border border-slate-700 py-2.5 text-sm text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300 disabled:opacity-40"
             >
               ← 上一句
             </button>
             <button
               onClick={() => getTts().speak(cur.en, { rate: 0.9 })}
+              aria-label="朗读本句"
               className="flex items-center justify-center gap-1.5 rounded-xl bg-cyan-500 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400"
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
@@ -241,6 +282,7 @@ export function ReadingIntensiveModal({
             <button
               onClick={() => go(idx + 1)}
               disabled={idx === sentences.length - 1}
+              aria-label="下一句"
               className="rounded-xl border border-slate-700 py-2.5 text-sm text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300 disabled:opacity-40"
             >
               下一句 →

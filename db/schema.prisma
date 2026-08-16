@@ -100,6 +100,7 @@ model User {
   readingProgress  ReadingProgress[]
   readingAnswers   ReadingAnswer[]
   readingSavedWords ReadingSavedWord[]
+  adminAudits      AdminAuditLog[] @relation("adminAudits")
 }
 
 // 角色三围
@@ -334,6 +335,7 @@ model ReadingQuestion {
   options   Json // { A/B/C/D: string }
   answer    String         @db.VarChar(1) // A-D
   analysis  String @db.Text
+  remark    String?        @db.VarChar(255) // 备注（如"答案待权威复核"）
   passage   ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
 
   @@unique([passageId, seq])
@@ -363,6 +365,7 @@ model ReadingProgress {
   totalQuestions  Int      @default(0)
   correctCount    Int      @default(0)
   currentSentence Int      @default(0)
+  submitCount     Int      @default(0) // 累计提交次数（防刷上限）
   lastReadAt      DateTime @default(now())
   user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
   passage         ReadingPassage   @relation(fields: [passageId], references: [id], onDelete: Cascade)
@@ -400,4 +403,20 @@ model ReadingSavedWord {
 
   @@unique([userId, passageId, word])
   @@index([userId])
+}
+
+// 后台管理操作审计
+model AdminAuditLog {
+  id        Int      @id @default(autoincrement())
+  adminId   Int // 操作者（User.id）
+  action    String   @db.VarChar(24) // save / create / delete
+  table     String   @db.VarChar(32) // word / wordSense / readingPassage / readingSentence / readingQuestion / readingGlossary
+  recordId  String   @db.VarChar(64) // 被操作记录 id（string 兼容两种主键）
+  before    Json? // 变更前快照（可选）
+  after     Json? // 变更后快照（可选）
+  createdAt DateTime @default(now())
+  admin     User     @relation("adminAudits", fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@index([adminId, createdAt])
+  @@index([table, recordId])
 }

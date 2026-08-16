@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { lazy, Suspense, useEffect, type ReactNode } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useAuth } from './store/auth';
 import { LoginPage } from './pages/LoginPage';
@@ -10,11 +10,17 @@ import { ResultPage } from './pages/ResultPage';
 import { CharacterPage } from './pages/CharacterPage';
 import { CollectionsPage } from './pages/CollectionsPage';
 import { StatsPage } from './pages/StatsPage';
-import { ReadingIndexPage } from './pages/ReadingIndexPage';
-import { ReadingPassagePage } from './pages/ReadingPassagePage';
-import { AdminPage } from './pages/admin/AdminPage';
-import { AdminWordsPage } from './pages/admin/AdminWordsPage';
-import { AdminReadingPage } from './pages/admin/AdminReadingPage';
+
+// 阅读/后台按需加载（减小首屏 chunk）
+const ReadingIndexPage = lazy(() => import('./pages/ReadingIndexPage').then((m) => ({ default: m.ReadingIndexPage })));
+const ReadingPassagePage = lazy(() => import('./pages/ReadingPassagePage').then((m) => ({ default: m.ReadingPassagePage })));
+const AdminPage = lazy(() => import('./pages/admin/AdminPage').then((m) => ({ default: m.AdminPage })));
+const AdminWordsPage = lazy(() => import('./pages/admin/AdminWordsPage').then((m) => ({ default: m.AdminWordsPage })));
+const AdminReadingPage = lazy(() => import('./pages/admin/AdminReadingPage').then((m) => ({ default: m.AdminReadingPage })));
+
+function PageFallback() {
+  return <div className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-500">加载中…</div>;
+}
 
 // 登录守卫：未登录重定向到 /login
 function RequireAuth({ children }: { children: ReactNode }) {
@@ -126,7 +132,9 @@ export function App() {
         path="/reading"
         element={
           <RequireAuth>
-            <ReadingIndexPage />
+            <Suspense fallback={<PageFallback />}>
+              <ReadingIndexPage />
+            </Suspense>
           </RequireAuth>
         }
       />
@@ -134,7 +142,9 @@ export function App() {
         path="/reading/passage/:passageId"
         element={
           <RequireAuth>
-            <ReadingPassagePage />
+            <Suspense fallback={<PageFallback />}>
+              <ReadingPassagePage />
+            </Suspense>
           </RequireAuth>
         }
       />
@@ -142,13 +152,15 @@ export function App() {
         path="/admin"
         element={
           <RequireAdmin>
-            <AdminPage />
+            <Suspense fallback={<PageFallback />}>
+              <AdminPage />
+            </Suspense>
           </RequireAdmin>
         }
       >
         <Route index element={<Navigate to="/admin/words" replace />} />
-        <Route path="words" element={<AdminWordsPage />} />
-        <Route path="reading" element={<AdminReadingPage />} />
+        <Route path="words" element={<Suspense fallback={<PageFallback />}><AdminWordsPage /></Suspense>} />
+        <Route path="reading" element={<Suspense fallback={<PageFallback />}><AdminReadingPage /></Suspense>} />
       </Route>
       <Route path="*" element={<RequireAuth><Navigate to="/lobby" replace /></RequireAuth>} />
     </Routes>

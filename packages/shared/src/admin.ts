@@ -70,7 +70,6 @@ export interface AdminReadingQuestionRow extends ReadingQuestionView {
   answer: string;
   analysis: string;
 }
-
 export interface AdminReadingGlossaryRow extends ReadingGlossaryEntry {
   id: number;
 }

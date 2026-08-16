@@ -6,6 +6,7 @@ import type { ReadingGlossaryEntry, ReadingPassageDetail, ReadingSubmitResponse 
 import {
   fetchReadingPassageDetail,
   fetchReadingPapers,
+  lookupReadingWordApi,
   markReadingWord,
   saveReadingProgress,
   submitReadingAnswers,
@@ -101,10 +102,26 @@ export function ReadingPassagePage() {
 
   const paper = papers?.find((p) => p.id === detail?.paperId);
 
-  const onWordClick = useCallback((raw: string, entry: ReadingGlossaryEntry | undefined, e: React.MouseEvent) => {
-    setSelectedSentence(null);
-    setActiveWord({ raw, entry, x: e.clientX, y: e.clientY });
-  }, []);
+  const onWordClick = useCallback(
+    (raw: string, entry: ReadingGlossaryEntry | undefined, e: React.MouseEvent) => {
+      setSelectedSentence(null);
+      setActiveWord({ raw, entry, x: e.clientX, y: e.clientY });
+      // 篇内词表未命中 → 回退单词库查询
+      if (!entry) {
+        lookupReadingWordApi(id, raw)
+          .then((r) => {
+            if (r.found && r.meaning) {
+              setActiveWord((prev) =>
+                prev && prev.raw === raw
+                  ? { ...prev, entry: { word: r.word ?? raw, meaning: r.meaning ?? '', phonetic: r.phonetic, source: r.source } }
+                  : prev,
+              );
+            }          })
+          .catch(() => undefined);
+      }
+    },
+    [id],
+  );
 
   const toggleSave = useCallback(
     (word: string, action: 'save' | 'remove') => {
@@ -297,6 +314,10 @@ export function ReadingPassagePage() {
             saveReadingProgress(id, { currentSentence: seq }).catch(() => undefined);
           }}
           onToggleSave={toggleSave}
+          lookupWord={async (raw) => {
+            const r = await lookupReadingWordApi(id, raw).catch(() => ({ found: false as const }));
+            return r.found ? { word: r.word ?? raw, meaning: r.meaning ?? '', phonetic: r.phonetic, source: r.source } : undefined;
+          }}
         />
       )}
     </div>

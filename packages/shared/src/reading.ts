@@ -10,6 +10,7 @@ export interface ReadingQuestionView {
   seq: number;
   stem: string;
   options: { A: string; B: string; C: string; D: string };
+  remark?: string; // 备注（如"答案待权威复核"）
 }
 
 // 词表条目（点词查义数据；词库联动时带掌握状态）
@@ -21,6 +22,7 @@ export interface ReadingGlossaryEntry {
   wordId?: string;
   mastered?: boolean; // 用户已掌握该词
   inVocabBook?: boolean; // 该词已在用户生词本
+  source?: 'glossary' | 'wordbank'; // 释义来源（回退查词时标记）
 }
 
 export interface ReadingSentenceView {
@@ -190,6 +192,15 @@ export interface ReadingPassageDetail {
   glossary: ReadingGlossaryEntry[];
   progress: ReadingProgressView;
   savedWords: string[]; // 已收藏生词（词形集合）
+}
+
+// 点词查询结果（篇内词表 → 单词库 回退）
+export interface ReadingWordLookupResult {
+  found: boolean;
+  source?: 'glossary' | 'wordbank';
+  word?: string;
+  phonetic?: string;
+  meaning?: string;
 }
 
 // 提交答案

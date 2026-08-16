@@ -108,3 +108,31 @@ db/             schema.prisma + migrations + 词库数据管线 + seed
 - 纯函数模块（抽词比例、义项轮换、易混补抽、Boss 触发、buff 选池、生存引擎数值等）单测覆盖率是重点，改动前先看是否已有对应 `.spec.ts`
 - 生存模式数值经过蒙特卡洛仿真标定（目标：中位存活 5–15 天），标定依据与结论记录在 `生存模式执行计划.md` §4.9；调整 `packages/shared/src/game.ts` 里的 `SURVIVAL` 数值表前应重新跑 `balance-sim.ts` 复核分布，不能只凭直觉改
 - CI（`.github/workflows/ci.yml`）流程固定为 `pnpm install --frozen-lockfile` → `prisma generate` → `pnpm typecheck` → `pnpm build` → `pnpm test`，本地提交前建议按此顺序自查
+
+## 真题阅读与后台管理（新增）
+
+### 真题阅读（`apps/api/src/reading` + `apps/web/src/pages/Reading*`）
+
+2023 英语一阅读理解 Text1-4：原文点词查义（篇内词表 → 单词库回退）、逐句译文、生词高亮、四选一答题判分（每题 2 分，`scoring.ts` 纯函数）、逐句精读（长难句结构着色/主干/从句列表）、TTS、计时、进度保存。服务端权威判分 + 乐观锁，与主战斗同原则。
+
+- 路由：`/reading`（卷→篇列表）、`/reading/passage/:id`
+- 判分防刷：每篇最多提交 20 次（`ReadingProgress.submitCount`），超出 400
+- 数据源：`db/data/reading/<year>/<code>.json`（原文/题目/词表/译文），`db/data/reading/structures.json`（句子结构标注，`<year>:<code>:<seq>` 为键）
+- 导入：`pnpm --filter @word-journey/db pipeline:import-reading`
+- 结构标注管线（外部模型）：
+  - `pnpm --filter @word-journey/db pipeline:structure-export` → 导出未标注句到 `structures-export.json`
+  - 用 `db/data/reading-structure-prompt-template.md` 提示词让外部模型标注 → 结果放 `structures.json`
+  - `pnpm --filter @word-journey/db pipeline:structure-import` → 校验（role 合法、clause.text 可定位）+ 回填 DB
+
+### 后台管理（`apps/api/src/admin` + `apps/web/src/pages/admin`）
+
+`User.isAdmin` 管理员（`AdminGuard` 二次校验，非管理员 403）。入口 `/admin`（大厅仅管理员可见）。
+
+- 单词库：搜索/筛选/分页、编辑（音标/档位/记忆锚点 + 义项全量替换）、新建、删除（被用户学习记录引用的词拒绝删除）
+- 阅读库：篇元信息、句子（原文/译文/结构 JSON）、题目、篇内词表 编辑
+- 管理操作写入 `AdminAuditLog` 审计（谁/何时/改哪张表/哪条/前后快照）
+- 提升管理员：`pnpm --filter @word-journey/db admin:set <username> [true|false]`
+
+### 注意：双数据源
+
+后台编辑直接写 DB；重跑 `pipeline:import-reading` 会以 JSON 源覆盖（结构从 `structures.json` 合并）。约定：**DB 为运行时真源**，需要落盘时手工回写 JSON 源。

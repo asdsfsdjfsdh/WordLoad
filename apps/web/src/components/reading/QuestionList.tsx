@@ -74,6 +74,9 @@ function QuestionCard({
     <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-4">
       <div className="mb-3 flex gap-2">
         <span className="shrink-0 rounded-md bg-cyan-500/15 px-2 py-0.5 text-xs font-semibold text-cyan-400">{q.seq}</span>
+        {q.remark && (
+          <span className="shrink-0 rounded-md bg-amber-500/15 px-2 py-0.5 text-[10px] font-medium text-amber-400">{q.remark}</span>
+        )}
         <p className="text-sm font-medium leading-6 text-slate-100">{q.stem}</p>
       </div>
       <div className="space-y-2">
