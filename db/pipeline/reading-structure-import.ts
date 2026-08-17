@@ -58,26 +58,25 @@ async function main(): Promise<void> {
     console.log(`  [invalid] ${bad.key}: ${bad.issues.join('; ')}`);
   }
 
-  // 持久化到 DB（按 passage.code + seq 定位）
+  // 持久化到 DB（按 year:passage.code:seq 完整键定位，避免跨年份 code 歧义）
   if (Object.keys(valid).length > 0) {
-    const codes = [...new Set(Object.keys(valid).map((k) => k.split(':')[1]))];
+    const years = [...new Set(Object.keys(valid).map((k) => k.split(':')[0]!))].map(Number);
+    const codes = [...new Set(Object.keys(valid).map((k) => k.split(':')[1]!))];
     const passages = await prisma.readingPassage.findMany({
-      where: { code: { in: codes } },
-      select: { id: true, code: true, sentences: { select: { id: true, seq: true } } },
+      where: { code: { in: codes }, paper: { year: { in: years } } },
+      include: { paper: { select: { year: true } }, sentences: { select: { id: true, seq: true } } },
     });
     const sentenceByKey = new Map<string, number>();
     for (const p of passages) {
       for (const s of p.sentences) {
-        // year 由 passage 所在 paper 决定：这里 code 唯一（当前仅 2023），用 code:seq 兜底
-        sentenceByKey.set(`${p.code}:${s.seq}`, s.id);
+        sentenceByKey.set(`${p.paper.year}:${p.code}:${s.seq}`, s.id);
       }
     }
     const updates: { id: number; structure: StructureEntry }[] = [];
     for (const [key, structure] of Object.entries(valid)) {
-      const [, code, seq] = key.split(':');
-      const id = sentenceByKey.get(`${code}:${seq}`);
+      const id = sentenceByKey.get(key);
       if (id != null) updates.push({ id, structure });
-      else invalid.push({ key, issues: ['DB 中未找到对应句子（code:seq）'] });
+      else invalid.push({ key, issues: ['DB 中未找到对应句子（year:code:seq）'] });
     }
     for (let i = 0; i < updates.length; i += 50) {
       const chunk = updates.slice(i, i + 50);

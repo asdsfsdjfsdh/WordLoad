@@ -9,10 +9,11 @@ export interface QuestionListProps {
   onSelect: (seq: number, choice: string) => void;
   result: ReadingSubmitResponse | null;
   submitting: boolean;
+  submitError?: string | null;
   onSubmit: () => void;
 }
 
-export function QuestionList({ questions, answers, onSelect, result, submitting, onSubmit }: QuestionListProps) {
+export function QuestionList({ questions, answers, onSelect, result, submitting, submitError, onSubmit }: QuestionListProps) {
   const allAnswered = questions.length > 0 && questions.every((q) => answers[q.seq]);
   const resultBySeq = new Map<number, ReadingQuestionResult>();
   for (const r of result?.results ?? []) resultBySeq.set(r.seq, r);
@@ -28,10 +29,9 @@ export function QuestionList({ questions, answers, onSelect, result, submitting,
         )}
       </div>
 
-      {questions.map((q, qi) => (
+      {questions.map((q) => (
         <QuestionCard
           key={q.seq}
-          qi={qi}
           q={q}
           chosen={answers[q.seq]}
           onSelect={onSelect}
@@ -42,6 +42,12 @@ export function QuestionList({ questions, answers, onSelect, result, submitting,
       {result?.recordBroken && (
         <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-sm text-amber-300">
           恭喜，刷新本篇历史最高分！
+        </div>
+      )}
+
+      {submitError && (
+        <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
+          提交失败：{submitError}
         </div>
       )}
 
@@ -57,13 +63,11 @@ export function QuestionList({ questions, answers, onSelect, result, submitting,
 }
 
 function QuestionCard({
-  qi,
   q,
   chosen,
   onSelect,
   detail,
 }: {
-  qi: number;
   q: ReadingQuestionView;
   chosen: string | undefined;
   onSelect: (seq: number, choice: string) => void;
@@ -121,7 +125,6 @@ function QuestionCard({
           <p className="mt-1 text-slate-400">{detail.analysis}</p>
         </div>
       )}
-      <span className="sr-only">{qi}</span>
     </div>
   );
 }

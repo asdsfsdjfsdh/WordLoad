@@ -1,7 +1,8 @@
 // 由中公解析出的纯文本（t1..t4.txt + t1_ans..t4_ans.txt）构建 <year>/textN.json
 // 用法： node build-year.mjs <year> <rawDir>   （rawDir 内文件名为 t1.txt/t1_ans.txt 等）
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { readFileSync, mkdirSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { CODE, clean as cleanBase, splitSentencesSimple, writeTextJson } from './build-shared.mjs';
 
 const YEAR = process.argv[2];
 const RAW = process.argv[3];
@@ -51,21 +52,11 @@ const ANALYSES = {
 };
 
 function clean(t) {
-  return t
-    .replace(/&mdash;/g, '—').replace(/&ndash;/g, '–').replace(/&hellip;/g, '…')
-    .replace(/&rsquo;/g, '\u2019').replace(/&ldquo;/g, '\u201C').replace(/&rdquo;/g, '\u201D')
-    .replace(/Ferreira' s/g, "Ferreira's");
+  return cleanBase(t).replace(/Ferreira' s/g, "Ferreira's");
 }
 
 // 把一段英文切成句子（保留引号/缩写尽量安全）
-function splitSentences(para) {
-  const out = [];
-  for (const m of para.matchAll(/[^.!?]+[.!?]*["\u201D)]?/g)) {
-    const s = m[0].trim();
-    if (s) out.push(s);
-  }
-  return out;
-}
+const splitSentences = splitSentencesSimple;
 
 function parseTextFile(path) {
   const lines = readFileSync(path, 'utf-8').split('\n').map((l) => l.trim()).filter(Boolean);
@@ -103,7 +94,6 @@ function parseAnswerFile(path) {
 }
 
 const codeLetter = ['t1', 't2', 't3', 't4'];
-const code = ['A', 'B', 'C', 'D'];
 const metaYear = META[YEAR] ?? {};
 const analysesYear = ANALYSES[YEAR] ?? {};
 
@@ -121,20 +111,11 @@ for (let i = 0; i < 4; i++) {
   const title = `Text ${i + 1}`;
   const outQ = questions.map((q) => {
     const answer = answers[q.seq];
-    if (!answer) throw new Error(`${YEAR} ${code[i]} 缺少第 ${q.seq} 题答案`);
-    const analysis = analysesYear[code[i]]?.[q.seq] ?? '（解析待补充）';
+    if (!answer) throw new Error(`${YEAR} ${CODE[i]} 缺少第 ${q.seq} 题答案`);
+    const analysis = analysesYear[CODE[i]]?.[q.seq] ?? '（解析待补充）';
     return { ...q, answer, analysis };
   });
-  const file = {
-    code: code[i],
-    title,
-    subtitle: metaYear[code[i]]?.subtitle ?? '',
-    questionsStart: questions[0]?.seq ?? 21,
-    sentences,
-    questions: outQ,
-    glossary: {},
-  };
-  const p = resolve(OUT, `text${i + 1}.json`);
-  writeFileSync(p, JSON.stringify(file, null, 2), 'utf-8');
-  console.log(`[ok] ${YEAR}/${code[i]} ${title}：句子 ${sentences.length}、题目 ${outQ.length}`);
+  const subtitle = metaYear[CODE[i]]?.subtitle ?? '';
+  writeTextJson(OUT, i, { subtitle, questionsStart: questions[0]?.seq ?? 21, sentences, questions: outQ });
+  console.log(`[ok] ${YEAR}/${CODE[i]} ${title}：句子 ${sentences.length}、题目 ${outQ.length}`);
 }

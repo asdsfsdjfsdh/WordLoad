@@ -37,8 +37,9 @@ export function WordPopover({ state, saved, onToggleSave, onClose }: WordPopover
 
   const entry = state.entry;
   const vw = typeof window !== 'undefined' ? window.innerWidth : 0;
+  const vh = typeof window !== 'undefined' ? window.innerHeight : 0;
   const left = Math.min(Math.max(12, state.x), vw - 340);
-  const top = Math.max(12, state.y);
+  const top = Math.max(12, Math.min(state.y, vh - 220));
 
   return (
     <div

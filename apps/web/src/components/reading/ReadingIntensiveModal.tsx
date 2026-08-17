@@ -56,9 +56,9 @@ export function ReadingIntensiveModal({
     return m;
   }, [glossary]);
 
-  const cur = sentences[idx];
-  if (!cur) return null;
+  const cur = sentences[idx]!;
 
+  const hasStructure = !!cur.structure?.clauses?.length;
   const structure: ReadingSentenceStructure | undefined = cur.structure;
   const tokens = useMemo(() => tokenizeReadingSentence(cur.en), [cur.en]);
   const clauseRoles = useMemo(() => {
@@ -122,8 +122,14 @@ export function ReadingIntensiveModal({
         <div className="flex shrink-0 items-center gap-2">
           <button
             onClick={() => setStructureOn((v) => !v)}
+            disabled={!hasStructure}
+            title={hasStructure ? '切换结构标注' : '本句暂无结构标注'}
             className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
-              structureOn ? 'border-violet-500/40 bg-violet-500/10 text-violet-300' : 'border-slate-700 bg-slate-800/60 text-slate-400'
+              !hasStructure
+                ? 'cursor-not-allowed border-slate-800 bg-slate-900/60 text-slate-600'
+                : structureOn
+                  ? 'border-violet-500/40 bg-violet-500/10 text-violet-300'
+                  : 'border-slate-700 bg-slate-800/60 text-slate-400'
             }`}
           >
             结构
@@ -211,7 +217,7 @@ export function ReadingIntensiveModal({
                   return (
                     <li key={i} className="flex items-start gap-2 text-sm leading-6">
                       <span className={`mt-2 h-2 w-2 shrink-0 rounded-full ${info.dotClass}`} />
-                      <span className="shrink-0 rounded bg-slate-800 px-1.5 py-0.5 text-[11px] text-slate-400">
+                      <span className={`shrink-0 rounded px-1.5 py-0.5 text-[11px] ${info.chipClass}`}>
                         {info.label}
                       </span>
                       <span className="text-slate-300">{c.text}</span>

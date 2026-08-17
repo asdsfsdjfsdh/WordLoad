@@ -95,8 +95,8 @@ const CLAUSE_ROLE_INFO: Record<
   other: { label: '其他成分', spanClass: 'bg-slate-500/20 text-slate-200 border-b-[3px] border-b-slate-400', dotClass: 'bg-slate-400', chipClass: 'bg-slate-500/15 text-slate-200 border-slate-500/40' },
 };
 
-export function clauseRoleInfo(role: ReadingClauseRole): { label: string; spanClass: string; dotClass: string; chipClass: string } {
-  return CLAUSE_ROLE_INFO[role] ?? CLAUSE_ROLE_INFO.other;
+export function clauseRoleInfo(role: ReadingClauseRole | undefined): { label: string; spanClass: string; dotClass: string; chipClass: string } {
+  return CLAUSE_ROLE_INFO[role ?? 'other'] ?? CLAUSE_ROLE_INFO.other;
 }
 
 // 基础词排除表：me/you/the 等最基础词，无论掌握与否都不做"生词"显式标注
@@ -170,6 +170,41 @@ export function assignTokenClauses(
   });
 }
 
+// 相邻同角色 token 归并为一段，供连续着色；空白随当前 run 吸收，
+// 从句内标点（同角色）并入色块，跨从句标点断开背景
+export interface ReadingTokenRun {
+  role?: ReadingClauseRole;
+  tokens: ReadingToken[];
+}
+
+const WHITESPACE_RE = /^\s+$/;
+
+export function groupReadingRoleRuns(
+  tokens: ReadingToken[],
+  roles: (ReadingClauseRole | undefined)[],
+): ReadingTokenRun[] {
+  const runs: ReadingTokenRun[] = [];
+  let cur: ReadingTokenRun | null = null;
+  for (let i = 0; i < tokens.length; i++) {
+    const t = tokens[i]!;
+    const r = roles[i];
+    if (t.word !== undefined) {
+      if (cur && cur.role === r) {
+        cur.tokens.push(t);
+      } else {
+        cur = { role: r, tokens: [t] };
+        runs.push(cur);
+      }
+    } else if (cur && (cur.role === undefined || r === cur.role || WHITESPACE_RE.test(t.text))) {
+      cur.tokens.push(t);
+    } else {
+      cur = { role: undefined, tokens: [t] };
+      runs.push(cur);
+    }
+  }
+  return runs;
+}
+
 export interface ReadingProgressView {
   status: ReadingPassageStatus;
   bestScore: number;
@@ -209,7 +244,6 @@ export interface ReadingPassageDetail {
   subtitle?: string;
   questionsStart: number;
   content: string;
-  translation: string;
   sentences: ReadingSentenceView[];
   questions: ReadingQuestionView[];
   glossary: ReadingGlossaryEntry[];

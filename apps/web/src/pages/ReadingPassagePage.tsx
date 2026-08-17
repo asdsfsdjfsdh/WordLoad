@@ -1,7 +1,8 @@
 // 真题阅读主页面：原文 + 点词 + 句译 + 高亮 + 答题 + 计时 + 进度
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router-dom';
+import { normalizeReadingWord } from '@word-journey/shared';
 import type { ReadingGlossaryEntry, ReadingPassageDetail, ReadingSubmitResponse } from '@word-journey/shared';
 import {
   fetchReadingPassageDetail,
@@ -15,6 +16,7 @@ import { ReadingText } from '../components/reading/ReadingText';
 import { WordPopover, type WordPopoverState } from '../components/reading/WordPopover';
 import { QuestionList } from '../components/reading/QuestionList';
 import { ReadingIntensiveModal } from '../components/reading/ReadingIntensiveModal';
+import { ThemeSwitcher, type ReadingTheme } from '../components/reading/ThemeSwitcher';
 import { getTts } from '../lib/tts';
 
 export function ReadingPassagePage() {
@@ -36,29 +38,34 @@ export function ReadingPassagePage() {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [result, setResult] = useState<ReadingSubmitResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
-  const [elapsed, setElapsed] = useState(0);
   const [visibleSeq, setVisibleSeq] = useState<number | null>(null);
+  const [readingTheme, setReadingTheme] = useState<ReadingTheme>(() => {
+    const saved = localStorage.getItem('reading-theme');
+    return saved === 'light' || saved === 'sepia' ? saved : 'dark';
+  });
 
   const containerRef = useRef<HTMLDivElement>(null);
   const sentenceRefs = useRef<Map<number, HTMLElement>>(new Map());
+  const visibleSeqRef = useRef<number | null>(null);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // 初始化：答案回显 + 已收藏生词
   useEffect(() => {
     if (!detail) return;
     setAnswers(detail.progress.answered);
-    setSavedWords(new Set(detail.savedWords.map((w) => w.toLowerCase())));
+    setSavedWords(new Set(detail.savedWords.map((w) => normalizeReadingWord(w))));
     setResult(null);
+    setSubmitError(null);
     setActiveWord(null);
     setSelectedSentence(null);
   }, [detail?.id]);
 
-  // 计时器
+  // 阅读主题持久化（仅作用于阅读页）
   useEffect(() => {
-    const t = setInterval(() => setElapsed((s) => s + 1), 1000);
-    return () => clearInterval(t);
-  }, []);
+    localStorage.setItem('reading-theme', readingTheme);
+  }, [readingTheme]);
 
   // 滚动定位：恢复上次读到位置
   useEffect(() => {
@@ -70,7 +77,7 @@ export function ReadingPassagePage() {
     }
   }, [detail?.id]);
 
-  // 可见句检测 + 防抖保存进度
+  // 可见句检测 + 防抖保存进度（visibleSeq 用 ref 记录，避免 effect 反复重建监听器）
   useEffect(() => {
     if (!detail) return;
     const onScroll = (): void => {
@@ -83,7 +90,8 @@ export function ReadingPassagePage() {
         const dist = Math.abs(r.top + r.height / 2 - mid);
         if (!best || dist < best.dist) best = { seq, dist };
       }
-      if (best && best.seq !== visibleSeq) {
+      if (best && best.seq !== visibleSeqRef.current) {
+        visibleSeqRef.current = best.seq;
         setVisibleSeq(best.seq);
         if (saveTimer.current) clearTimeout(saveTimer.current);
         saveTimer.current = setTimeout(() => {
@@ -92,14 +100,12 @@ export function ReadingPassagePage() {
       }
     };
     onScroll();
-    containerRef.current?.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
-      containerRef.current?.removeEventListener('scroll', onScroll);
       window.removeEventListener('scroll', onScroll);
       if (saveTimer.current) clearTimeout(saveTimer.current);
     };
-  }, [detail?.id, visibleSeq, id]);
+  }, [detail?.id, id]);
 
   const paper = papers?.find((p) => p.id === detail?.paperId);
 
@@ -117,7 +123,8 @@ export function ReadingPassagePage() {
                   ? { ...prev, entry: { word: r.word ?? raw, meaning: r.meaning ?? '', phonetic: r.phonetic, source: r.source } }
                   : prev,
               );
-            }          })
+            }
+          })
           .catch(() => undefined);
       }
     },
@@ -128,13 +135,13 @@ export function ReadingPassagePage() {
     (word: string, action: 'save' | 'remove') => {
       setSavedWords((prev) => {
         const next = new Set(prev);
-        if (action === 'save') next.add(word.toLowerCase());
-        else next.delete(word.toLowerCase());
+        if (action === 'save') next.add(normalizeReadingWord(word));
+        else next.delete(normalizeReadingWord(word));
         return next;
       });
       markReadingWord(id, word, action)
         .then((res) => {
-          setSavedWords(new Set(res.savedWords.map((w) => w.toLowerCase())));
+          setSavedWords(new Set(res.savedWords.map((w) => normalizeReadingWord(w))));
         })
         .catch(() => undefined);
     },
@@ -144,6 +151,7 @@ export function ReadingPassagePage() {
   const onSubmit = useCallback(async () => {
     if (!detail || submitting) return;
     setSubmitting(true);
+    setSubmitError(null);
     try {
       const payload = detail.questions.map((q) => ({ seq: q.seq, choice: answers[q.seq] ?? '' })).filter((a) => a.choice);
       const res = await submitReadingAnswers(id, payload);
@@ -152,26 +160,26 @@ export function ReadingPassagePage() {
         if (r.choice) acc[r.seq] = r.choice;
         return acc;
       }, {}));
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : '提交失败，请重试');
     } finally {
       setSubmitting(false);
     }
   }, [detail, id, answers, submitting]);
 
-  const mm = useMemo(() => `${Math.floor(elapsed / 60)}:${String(elapsed % 60).padStart(2, '0')}`, [elapsed]);
-
-  if (isLoading || !detail) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-400">
-        <p>{isError ? `加载失败：${error instanceof Error ? error.message : '未知错误'}` : '加载中…'}</p>
-        {isError && (
-          <button onClick={() => refetch()} className="ml-2 text-cyan-400 underline">重试</button>
-        )}
-      </div>
-    );
-  }
+  const hasStructure = detail?.sentences.some((s) => s.structure?.clauses?.length) ?? false;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div data-reading-theme={readingTheme} className="min-h-screen bg-slate-950 text-slate-100">
+      {isLoading || !detail ? (
+        <div className="flex min-h-screen items-center justify-center">
+          <p className="text-slate-400">{isError ? `加载失败：${error instanceof Error ? error.message : '未知错误'}` : '加载中…'}</p>
+          {isError && (
+            <button onClick={() => refetch()} className="ml-2 text-cyan-400 underline">重试</button>
+          )}
+        </div>
+      ) : (
+      <>
       {/* 顶栏 */}
       <header className="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/90 px-4 py-3 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3">
@@ -201,13 +209,18 @@ export function ReadingPassagePage() {
           )}
 
           <div className="ml-auto flex items-center gap-2">
-            <span className="hidden rounded-full bg-slate-800/60 px-2.5 py-1 text-xs tabular-nums text-slate-300 sm:inline">
-              ⏱ {mm}
-            </span>
+            <ThemeSwitcher value={readingTheme} onChange={setReadingTheme} />
+            <ReadingTimer />
             <button
               onClick={() => setStructureOn((v) => !v)}
+              disabled={!hasStructure}
+              title={hasStructure ? '切换结构标注' : '本年度暂无结构标注'}
               className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
-                structureOn ? 'border-violet-500/40 bg-violet-500/10 text-violet-300' : 'border-slate-700 bg-slate-800/60 text-slate-400'
+                !hasStructure
+                  ? 'cursor-not-allowed border-slate-800 bg-slate-900/60 text-slate-600'
+                  : structureOn
+                    ? 'border-violet-500/40 bg-violet-500/10 text-violet-300'
+                    : 'border-slate-700 bg-slate-800/60 text-slate-400'
               }`}
             >
               结构
@@ -295,6 +308,7 @@ export function ReadingPassagePage() {
               }
               result={result}
               submitting={submitting}
+              submitError={submitError}
               onSubmit={() => onSubmit()}
             />
           </div>
@@ -307,7 +321,7 @@ export function ReadingPassagePage() {
       {activeWord && (
         <WordPopover
           state={activeWord}
-          saved={savedWords.has(activeWord.raw.toLowerCase())}
+          saved={savedWords.has(normalizeReadingWord(activeWord.raw))}
           onToggleSave={toggleSave}
           onClose={() => setActiveWord(null)}
         />
@@ -331,7 +345,25 @@ export function ReadingPassagePage() {
           }}
         />
       )}
+      </>
+      )}
     </div>
+  );
+}
+
+// 计时器：自持 state，避免整页每秒重渲染
+function ReadingTimer() {
+  const [elapsed, setElapsed] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setElapsed((s) => s + 1), 1000);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <span className="hidden rounded-full bg-slate-800/60 px-2.5 py-1 text-xs tabular-nums text-slate-300 sm:inline">
+      ⏱ {`${Math.floor(elapsed / 60)}:${String(elapsed % 60).padStart(2, '0')}`}
+    </span>
   );
 }
 

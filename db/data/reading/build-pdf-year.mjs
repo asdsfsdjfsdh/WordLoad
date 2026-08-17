@@ -1,21 +1,16 @@
 // 由 PDF 提取文本（pdf.txt）构建 <year>/textN.json
 // 原文+题目取 PDF（权威完整）；段落锚点/答案+解析可来自 offcn 汇总文本（<offcnAll>）或解析 JSON（<offcnDir>）
 // 用法： node build-pdf-year.mjs <year> <pdf.txt> <offcnAll|offcnDir> [extra.mjs]
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { CODE, clean, writeTextJson } from './build-shared.mjs';
 
 const YEAR = process.argv[2];
 const INP = process.argv[3];
 const OFFCN = process.argv[4];
 const EXTRA = process.argv[5] ? (await import(pathToFileURL(resolve(process.cwd(), process.argv[5])).href)).default : {};
 const OUT = resolve(import.meta.dirname, YEAR);
-
-const clean = (t) =>
-  t
-    .replace(/&mdash;/g, '—').replace(/&ndash;/g, '–').replace(/&hellip;/g, '…')
-    .replace(/&rsquo;/g, '\u2019').replace(/&ldquo;/g, '\u201C').replace(/&rdquo;/g, '\u201D')
-    .replace(/&lsquo;/g, '\u2018').replace(/&quot;/g, '"');
 
 const norm = (t) =>
   (t || '').toLowerCase().replace(/[\u2018\u2019']/g, ' ').replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(Boolean);
@@ -239,7 +234,6 @@ const alignParagraphs = (fullText, firsts) => {
   return { sents, assigned };
 };
 
-const CODE = ['A', 'B', 'C', 'D'];
 mkdirSync(OUT, { recursive: true });
 for (let t = 0; t < 4; t++) {
   const sectionEnd = sectionEnds[t];
@@ -252,16 +246,8 @@ for (let t = 0; t < 4; t++) {
     if (!a?.answer) throw new Error(`${YEAR} ${CODE[t]} 缺 ${q.seq} 答案/解析`);
     return { ...q, answer: a.answer, analysis: a.analysis || '（解析待补充）', ...(a.remark ? { remark: a.remark } : {}) };
   });
-  const file = {
-    code: CODE[t],
-    title: `Text ${t + 1}`,
-    subtitle: EXTRA.SUBTITLES?.[YEAR]?.[CODE[t]] || '',
-    questionsStart: outQ[0]?.seq ?? 21,
-    sentences,
-    questions: outQ,
-    glossary: {},
-  };
-  writeFileSync(resolve(OUT, `text${t + 1}.json`), JSON.stringify(file, null, 2), 'utf-8');
+  const subtitle = EXTRA.SUBTITLES?.[YEAR]?.[CODE[t]] || '';
+  writeTextJson(OUT, t, { subtitle, questionsStart: outQ[0]?.seq ?? 21, sentences, questions: outQ });
   const paras = new Set(assigned).size;
   console.log(`[ok] ${YEAR}/${CODE[t]}：段落 ${paras}、句子 ${sentences.length}、题目 ${outQ.length}`);
 }

@@ -20,6 +20,7 @@ import {
   tokenizeReadingSentence,
 } from '@word-journey/shared';
 import type { ReadingSentenceStructure } from '@word-journey/shared';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { scoreReading } from './scoring';
 
@@ -81,7 +82,14 @@ export class ReadingService {
     });
     if (!passage) throw new NotFoundException('篇章不存在');
 
-    const [progress, answers, savedWords, linkedProgress] = await Promise.all([
+    // 本篇 token 集合（静态数据，供"生词"标注判定）
+    const passageTokens = new Set<string>();
+    for (const s of passage.sentences) {
+      for (const t of tokenizeReadingSentence(s.en)) if (t.word) passageTokens.add(normalizeReadingWord(t.word));
+    }
+    const tokenList = [...passageTokens];
+
+    const [progress, answers, savedWords, linkedProgress, bankWords, bankProgress] = await Promise.all([
       this.prisma.readingProgress.findUnique({ where: { userId_passageId: { userId, passageId } } }),
       this.prisma.readingAnswer.findMany({ where: { userId, passageId } }),
       this.prisma.readingSavedWord.findMany({ where: { userId, passageId } }),
@@ -94,6 +102,15 @@ export class ReadingService {
             })
           : Promise.resolve([]);
       })(),
+      tokenList.length
+        ? this.prisma.word.findMany({ where: { text: { in: tokenList } }, select: { id: true, text: true, tier: true } })
+        : Promise.resolve([]),
+      tokenList.length
+        ? this.prisma.userWordProgress.findMany({
+            where: { userId, word: { text: { in: tokenList } } },
+            select: { wordId: true, mastery: true },
+          })
+        : Promise.resolve([]),
     ]);
 
     const wordProg = new Map(linkedProgress.map((p) => [p.wordId, p]));
@@ -113,19 +130,6 @@ export class ReadingService {
     });
 
     // 单词库掌握度：本篇出现的词（含屈折词形）→ 是否已掌握 + 档位（供"生词"标注判定）
-    const passageTokens = new Set<string>();
-    for (const s of passage.sentences) {
-      for (const t of tokenizeReadingSentence(s.en)) if (t.word) passageTokens.add(normalizeReadingWord(t.word));
-    }
-    const bankWords = passageTokens.size
-      ? await this.prisma.word.findMany({ where: { text: { in: [...passageTokens] } }, select: { id: true, text: true, tier: true } })
-      : [];
-    const bankProgress = bankWords.length
-      ? await this.prisma.userWordProgress.findMany({
-          where: { userId, wordId: { in: bankWords.map((w) => w.id) } },
-          select: { wordId: true, mastery: true },
-        })
-      : [];
     const bankMastery = new Map(bankProgress.map((p) => [p.wordId, p.mastery]));
     const wordStatus: Record<string, { mastered: boolean; tier?: string }> = {};
     for (const w of bankWords) {
@@ -151,7 +155,6 @@ export class ReadingService {
       subtitle: passage.subtitle ?? undefined,
       questionsStart: passage.questionsStart,
       content: passage.content,
-      translation: passage.translation,
       sentences: passage.sentences.map((s) => ({
         seq: s.seq,
         para: s.para,
@@ -190,8 +193,15 @@ export class ReadingService {
     });
     if (!passage) throw new NotFoundException('篇章不存在');
 
+    // 防御：只保留本篇题号范围内的答案，重复题号取末次作答
+    const validSeqs = new Set(passage.questions.map((q) => q.seq));
+    const deduped = new Map<number, string>();
+    for (const a of answers) if (validSeqs.has(a.seq)) deduped.set(a.seq, a.choice);
+    const cleanAnswers = [...deduped].map(([seq, choice]) => ({ seq, choice }));
+    if (cleanAnswers.length === 0) throw new BadRequestException('未提交任何有效答案');
+
     const scored = scoreReading(
-      answers,
+      cleanAnswers,
       passage.questions.map((q) => ({
         seq: q.seq,
         stem: q.stem,
@@ -202,23 +212,24 @@ export class ReadingService {
     );
     const now = new Date();
 
-    const prev = await this.prisma.readingProgress.findUnique({
-      where: { userId_passageId: { userId, passageId } },
-    });
-    if ((prev?.submitCount ?? 0) >= MAX_SUBMISSIONS) {
-      throw new BadRequestException(`提交次数已达上限（${MAX_SUBMISSIONS} 次）`);
-    }
-    const prevBest = prev?.bestScore ?? 0;
-    const bestScore = Math.max(prevBest, scored.score);
-    const recordBroken = scored.score > prevBest;
-
     // 全部答完 → done；否则 reading
-    const allAnswered = await this.allAnswered(userId, passageId, passage.questions.length, answers);
+    const allAnswered = await this.allAnswered(userId, passageId, passage.questions.length, cleanAnswers);
     const status: ReadingPassageStatus = allAnswered ? 'done' : 'reading';
 
-    await this.prisma.$transaction([
-      this.prisma.readingAnswer.createMany({
-        data: answers.map((a) => {
+    // 防刷上限校验 + 答题写入放进同一事务；上限用条件更新强制（乐观锁，杜绝并发突破）
+    const { bestScore, recordBroken } = await this.prisma.$transaction(async (tx) => {
+      const prev = await tx.readingProgress.findUnique({
+        where: { userId_passageId: { userId, passageId } },
+      });
+      if ((prev?.submitCount ?? 0) >= MAX_SUBMISSIONS) {
+        throw new BadRequestException(`提交次数已达上限（${MAX_SUBMISSIONS} 次）`);
+      }
+      const prevBest = prev?.bestScore ?? 0;
+      const bestScore = Math.max(prevBest, scored.score);
+      const recordBroken = scored.score > prevBest;
+
+      await tx.readingAnswer.createMany({
+        data: cleanAnswers.map((a) => {
           const q = passage.questions.find((qq) => qq.seq === a.seq);
           return {
             userId,
@@ -229,30 +240,59 @@ export class ReadingService {
             submittedAt: now,
           };
         }),
-      }),
-      this.prisma.readingProgress.upsert({
-        where: { userId_passageId: { userId, passageId } },
-        create: {
-          userId,
-          passageId,
-          status,
-          bestScore,
-          totalQuestions: scored.totalQuestions,
-          correctCount: Math.floor(bestScore / 2),
-          currentSentence: prev?.currentSentence ?? 0,
-          submitCount: 1,
-          lastReadAt: now,
-        },
-        update: {
-          status,
-          bestScore,
-          totalQuestions: scored.totalQuestions,
-          correctCount: Math.floor(bestScore / 2),
-          submitCount: { increment: 1 },
-          lastReadAt: now,
-        },
-      }),
-    ]);
+      });
+
+      if (!prev) {
+        try {
+          await tx.readingProgress.create({
+            data: {
+              userId,
+              passageId,
+              status,
+              bestScore,
+              totalQuestions: scored.totalQuestions,
+              correctCount: Math.floor(bestScore / 2),
+              currentSentence: 0,
+              submitCount: 1,
+              lastReadAt: now,
+            },
+          });
+        } catch (err) {
+          // 并发首次提交：另一事务已建进度行，退回条件更新路径
+          if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
+            const updated = await tx.readingProgress.updateMany({
+              where: { userId, passageId, submitCount: { lt: MAX_SUBMISSIONS } },
+              data: {
+                status,
+                bestScore,
+                totalQuestions: scored.totalQuestions,
+                correctCount: Math.floor(bestScore / 2),
+                submitCount: { increment: 1 },
+                lastReadAt: now,
+              },
+            });
+            if (updated.count === 0) throw new BadRequestException(`提交次数已达上限（${MAX_SUBMISSIONS} 次）`);
+          } else {
+            throw err;
+          }
+        }
+      } else {
+        // 条件更新：仅当 submitCount 仍低于上限时递增（行锁 + 条件原子判定）
+        const updated = await tx.readingProgress.updateMany({
+          where: { userId, passageId, submitCount: { lt: MAX_SUBMISSIONS } },
+          data: {
+            status,
+            bestScore,
+            totalQuestions: scored.totalQuestions,
+            correctCount: Math.floor(bestScore / 2),
+            submitCount: { increment: 1 },
+            lastReadAt: now,
+          },
+        });
+        if (updated.count === 0) throw new BadRequestException(`提交次数已达上限（${MAX_SUBMISSIONS} 次）`);
+      }
+      return { bestScore, recordBroken };
+    });
 
     return {
       totalQuestions: scored.totalQuestions,
@@ -318,39 +358,60 @@ export class ReadingService {
     const wordId = entry?.wordId ?? null;
 
     const saved = body.action === 'save';
-    if (saved) {
-      await this.prisma.readingSavedWord.upsert({
-        where: { userId_passageId_word: { userId, passageId, word: body.word } },
-        create: { userId, passageId, word: body.word, meaning },
-        update: { meaning },
-      });
-    } else {
-      await this.prisma.readingSavedWord.deleteMany({ where: { userId, passageId, word: body.word } });
-    }
 
-    // 词库联动：同步图鉴生词本（inVocabBook）
+    // 收藏写入 + 词库联动放进同一事务
     let inVocabBook: boolean | undefined;
-    if (wordId) {
+    await this.prisma.$transaction(async (tx) => {
       if (saved) {
-        await this.prisma.userWordProgress.upsert({
-          where: { userId_wordId: { userId, wordId } },
-          create: {
-            userId,
-            wordId,
-            inVocabBook: true,
-            firstEncounteredAt: new Date(),
-            lastEncounteredAt: new Date(),
-          },
-          update: { inVocabBook: true, lastEncounteredAt: new Date() },
+        await tx.readingSavedWord.upsert({
+          where: { userId_passageId_word: { userId, passageId, word: body.word } },
+          create: { userId, passageId, word: body.word, meaning },
+          update: { meaning },
         });
       } else {
-        await this.prisma.userWordProgress.updateMany({
-          where: { userId, wordId },
-          data: { inVocabBook: false },
-        });
+        await tx.readingSavedWord.deleteMany({ where: { userId, passageId, word: body.word } });
       }
-      inVocabBook = saved;
-    }
+
+      if (wordId) {
+        if (saved) {
+          await tx.userWordProgress.upsert({
+            where: { userId_wordId: { userId, wordId } },
+            create: {
+              userId,
+              wordId,
+              inVocabBook: true,
+              firstEncounteredAt: new Date(),
+              lastEncounteredAt: new Date(),
+            },
+            update: { inVocabBook: true, lastEncounteredAt: new Date() },
+          });
+          inVocabBook = true;
+        } else {
+          // 取消收藏：仅当用户在所有篇章都不再收藏命中同一 wordId 的词时，才清掉生词本标记
+          const remaining = await tx.readingSavedWord.findMany({
+            where: { userId },
+            select: { passageId: true, word: true },
+          });
+          let stillSaved = false;
+          if (remaining.length > 0) {
+            const passageIds = [...new Set(remaining.map((r) => r.passageId))];
+            const others = await tx.readingPassage.findMany({
+              where: { id: { in: passageIds } },
+              include: { glossary: { select: { word: true, wordId: true } } },
+            });
+            const wordIdByForm = new Map<string, string>();
+            for (const p of others) {
+              for (const g of p.glossary) if (g.wordId) wordIdByForm.set(normalizeReadingWord(g.word), g.wordId);
+            }
+            stillSaved = remaining.some((r) => wordIdByForm.get(normalizeReadingWord(r.word)) === wordId);
+          }
+          if (!stillSaved) {
+            await tx.userWordProgress.updateMany({ where: { userId, wordId }, data: { inVocabBook: false } });
+          }
+          inVocabBook = stillSaved;
+        }
+      }
+    });
 
     const savedWords = (await this.prisma.readingSavedWord.findMany({
       where: { userId, passageId },
@@ -379,11 +440,16 @@ export class ReadingService {
     }
 
     // 2) 回退单词库（MySQL 默认大小写不敏感；带屈折回退，支持复数/时态词形）
-    for (const candidate of readingWordCandidates(word)) {
-      const w = await this.prisma.word.findFirst({
-        where: { text: candidate },
-        include: { senses: { orderBy: { idx: 'asc' }, take: 1 } },
-      });
+    const candidates = readingWordCandidates(word);
+    const words = candidates.length
+      ? await this.prisma.word.findMany({
+          where: { text: { in: candidates } },
+          include: { senses: { orderBy: { idx: 'asc' }, take: 1 } },
+        })
+      : [];
+    const wordByText = new Map(words.map((w) => [w.text, w]));
+    for (const candidate of candidates) {
+      const w = wordByText.get(candidate);
       if (w && w.senses.length > 0) {
         return {
           found: true,
@@ -406,14 +472,10 @@ export class ReadingService {
   ): Promise<boolean> {
     const rows = await this.prisma.readingAnswer.findMany({
       where: { userId, passageId },
-      select: { seq: true, submittedAt: true },
+      select: { seq: true },
+      distinct: ['seq'],
     });
-    const latest = new Map<number, number>();
-    for (const r of rows) {
-      const cur = latest.get(r.seq);
-      if (cur === undefined || r.submittedAt.getTime() > cur) latest.set(r.seq, r.submittedAt.getTime());
-    }
-    const seqSet = new Set<number>(latest.keys());
+    const seqSet = new Set(rows.map((r) => r.seq));
     for (const a of incoming) seqSet.add(a.seq);
     return seqSet.size >= total;
   }

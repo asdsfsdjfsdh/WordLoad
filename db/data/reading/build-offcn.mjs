@@ -1,20 +1,15 @@
 // 由中公 offcn 汇总页（all.txt：Text1-4 原文+题目+答案+解析）构建 <year>/textN.json
 // 用法： node build-offcn.mjs <year> <all.txt> [extra.mjs]
-// extra.mjs 可选：export const SUBTITLES / export const FIX_TEXT(段文本替换) / export const REMARKS
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+// extra.mjs 可选：export const SUBTITLES / export const FIX_TEXT(段文本替换)
+import { readFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { CODE, clean, splitSentencesSimple, writeTextJson } from './build-shared.mjs';
 
 const YEAR = process.argv[2];
 const INP = process.argv[3];
 const EXTRA = process.argv[4] ? (await import(pathToFileURL(resolve(process.cwd(), process.argv[4])).href)).default : {};
 const OUT = resolve(import.meta.dirname, YEAR);
-
-const clean = (t) =>
-  t
-    .replace(/&mdash;/g, '—').replace(/&ndash;/g, '–').replace(/&hellip;/g, '…')
-    .replace(/&rsquo;/g, '\u2019').replace(/&ldquo;/g, '\u201C').replace(/&rdquo;/g, '\u201D')
-    .replace(/&lsquo;/g, '\u2018').replace(/&quot;/g, '"');
 
 const lines = readFileSync(INP, 'utf-8').split('\n').map((l) => l.trim()).filter(Boolean);
 
@@ -72,11 +67,9 @@ const answers = (lines, start, end) => {
   return map;
 };
 
-const splitSentences = (para) =>
-  [...para.matchAll(/[^.!?]+[.!?]*["\u201D)]?/g)].map((m) => m[0].trim()).filter(Boolean);
+const splitSentences = splitSentencesSimple;
 
 mkdirSync(OUT, { recursive: true });
-const code = ['A', 'B', 'C', 'D'];
 for (let t = 0; t < 4; t++) {
   const [start, end] = bounds[t];
   let paras = paragraphs(lines, start, end);
@@ -84,7 +77,7 @@ for (let t = 0; t < 4; t++) {
   const ans = answers(lines, start, end);
 
   // 省略段修复（FIX_TEXT）
-  const fixed = (EXTRA.FIX_TEXT && EXTRA.FIX_TEXT[YEAR]?.[code[t]]) || {};
+  const fixed = (EXTRA.FIX_TEXT && EXTRA.FIX_TEXT[YEAR]?.[CODE[t]]) || {};
   paras = paras.map((p) => (fixed[p] ? fixed[p] : p));
 
   const sentences = [];
@@ -95,27 +88,17 @@ for (let t = 0; t < 4; t++) {
 
   const outQ = qs.map((q) => {
     const a = ans[q.seq];
-    if (!a) throw new Error(`${YEAR} ${code[t]} 缺 ${q.seq} 答案`);
+    if (!a) throw new Error(`${YEAR} ${CODE[t]} 缺 ${q.seq} 答案`);
     return {
       ...q,
       answer: a.answer,
       analysis: a.analysis || '（解析待补充）',
-      ...(EXTRA.REMARKS?.[YEAR]?.[code[t]]?.includes(q.seq) ? { remark: '此题答案待权威来源复核' } : {}),
     };
   });
 
-  const file = {
-    code: code[t],
-    title: `Text ${t + 1}`,
-    subtitle: (EXTRA.SUBTITLES && EXTRA.SUBTITLES[YEAR]?.[code[t]]) || '',
-    questionsStart: qs[0]?.seq ?? 21,
-    sentences,
-    questions: outQ,
-    glossary: {},
-  };
-  const p = resolve(OUT, `text${t + 1}.json`);
-  writeFileSync(p, JSON.stringify(file, null, 2), 'utf-8');
-  console.log(`[ok] ${YEAR}/${code[t]} Text ${t + 1}：句子 ${sentences.length}、题目 ${outQ.length}、解析 ${outQ.filter((q) => q.analysis.length > 30).length} 题详细`);
+  const subtitle = (EXTRA.SUBTITLES && EXTRA.SUBTITLES[YEAR]?.[CODE[t]]) || '';
+  writeTextJson(OUT, t, { subtitle, questionsStart: qs[0]?.seq ?? 21, sentences, questions: outQ });
+  console.log(`[ok] ${YEAR}/${CODE[t]} Text ${t + 1}：句子 ${sentences.length}、题目 ${outQ.length}、解析 ${outQ.filter((q) => q.analysis.length > 30).length} 题详细`);
 }
 
 // 输出含省略号的段（供修复）
@@ -123,7 +106,7 @@ const ellipsis = [];
 for (let t = 0; t < 4; t++) {
   const [start, end] = bounds[t];
   paragraphs(lines, start, end).forEach((p, i) => {
-    if (p.includes('...')) ellipsis.push(`${code[t]}#${i + 1}: ${p.slice(0, 90)}`);
+    if (p.includes('...')) ellipsis.push(`${CODE[t]}#${i + 1}: ${p.slice(0, 90)}`);
   });
 }
 if (ellipsis.length) console.log('\n[省略段待修复]\n' + ellipsis.join('\n'));

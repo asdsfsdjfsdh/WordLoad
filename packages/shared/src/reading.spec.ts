@@ -3,6 +3,7 @@ import {
   assignTokenClauses,
   clauseRoleInfo,
   deriveSentenceKnowledge,
+  groupReadingRoleRuns,
   isReadingBaseWord,
   locateClauseSpans,
   lookupReadingWord,
@@ -141,6 +142,44 @@ describe('locateClauseSpans / assignTokenClauses', () => {
     const tokens = tokenizeReadingSentence(sentence);
     const roles = assignTokenClauses(tokens, []);
     expect(roles.every((r) => r === undefined)).toBe(true);
+  });
+});
+
+describe('groupReadingRoleRuns', () => {
+  const sentence = 'A study last year gave barely half of US states a grade B+ or higher, which was a surprise.';
+  const clauses = [
+    { role: 'main' as const, label: '主句', text: 'A study last year gave barely half of US states a grade B+ or higher' },
+    { role: 'adj' as const, label: '定语从句', text: 'which was a surprise' },
+  ];
+
+  it('merges consecutive same-role words into one run (spaces absorbed)', () => {
+    const tokens = tokenizeReadingSentence(sentence);
+    const roles = assignTokenClauses(tokens, locateClauseSpans(sentence, clauses));
+    const runs = groupReadingRoleRuns(tokens, roles);
+    const main = runs.find((r) => r.role === 'main')!;
+    const adj = runs.find((r) => r.role === 'adj')!;
+    expect(main.tokens.filter((t) => t.word).map((t) => t.word)).toEqual([
+      'a', 'study', 'last', 'year', 'gave', 'barely', 'half', 'of', 'us', 'states', 'a', 'grade', 'b', 'or', 'higher',
+    ]);
+    expect(adj.tokens.filter((t) => t.word).map((t) => t.word)).toEqual(['which', 'was', 'a', 'surprise']);
+    // 空白被吸收进 run，保证背景连续
+    expect(main.tokens.some((t) => t.word === undefined)).toBe(true);
+    expect(adj.tokens.some((t) => t.word === undefined)).toBe(true);
+  });
+
+  it('breaks runs at role boundaries and punctuation', () => {
+    const tokens = tokenizeReadingSentence(sentence);
+    const roles = assignTokenClauses(tokens, locateClauseSpans(sentence, clauses));
+    const runs = groupReadingRoleRuns(tokens, roles);
+    expect(runs.map((r) => r.role ?? '')).toEqual(['main', '', 'adj', '']);
+  });
+
+  it('yields single plain run when no roles', () => {
+    const tokens = tokenizeReadingSentence('No structure here at all.');
+    const runs = groupReadingRoleRuns(tokens, tokens.map(() => undefined));
+    expect(runs).toHaveLength(1);
+    expect(runs[0]!.role).toBeUndefined();
+    expect(runs[0]!.tokens).toHaveLength(tokens.length);
   });
 });
 

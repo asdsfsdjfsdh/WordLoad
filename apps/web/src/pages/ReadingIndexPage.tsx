@@ -75,7 +75,6 @@ function PassageCard({ pa }: { pa: ReadingPassageSummary }) {
     <Link
       to={`/reading/passage/${pa.id}`}
       className="group rounded-xl border border-slate-800 bg-slate-900/60 p-4 transition hover:-translate-y-0.5 hover:border-slate-600"
-      style={{ boxShadow: `0 0 0 rgba(0,0,0,0)` }}
     >
       <div className="mb-2 flex items-center justify-between">
         <span

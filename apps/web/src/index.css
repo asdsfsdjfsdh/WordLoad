@@ -62,3 +62,87 @@ body {
   from { opacity: 0; transform: scale(0.92) translateY(8px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
+
+/* ===== 阅读主题（仅作用于带 data-reading-theme 的阅读页容器）=====
+   阅读组件大量使用硬编码 slate 色阶；Tailwind v4 的工具类引用 var(--color-*)，
+   因此在容器上覆盖色阶变量即可整体重排明暗，无需改动组件 class。
+   dark（默认）继承 :root 原值；light / sepia 在此重新映射。 */
+[data-reading-theme="light"],
+[data-reading-theme="sepia"] {
+  color-scheme: light;
+  /* 强调色浅阶 → 深阶：白/米底上保证可读（引用 :root 原值，避免链式覆盖） */
+  --color-cyan-100: var(--color-cyan-900);
+  --color-cyan-200: var(--color-cyan-800);
+  --color-cyan-300: var(--color-cyan-700);
+  --color-cyan-400: var(--color-cyan-600);
+  --color-amber-100: var(--color-amber-900);
+  --color-amber-200: var(--color-amber-800);
+  --color-amber-300: var(--color-amber-700);
+  --color-amber-400: var(--color-amber-600);
+  --color-violet-100: var(--color-violet-900);
+  --color-violet-200: var(--color-violet-800);
+  --color-violet-300: var(--color-violet-700);
+  --color-violet-400: var(--color-violet-600);
+  --color-emerald-100: var(--color-emerald-900);
+  --color-emerald-200: var(--color-emerald-800);
+  --color-emerald-300: var(--color-emerald-700);
+  --color-emerald-400: var(--color-emerald-600);
+  --color-red-100: var(--color-red-900);
+  --color-red-200: var(--color-red-800);
+  --color-red-300: var(--color-red-700);
+  --color-red-400: var(--color-red-600);
+  --color-sky-100: var(--color-sky-900);
+  --color-sky-200: var(--color-sky-800);
+  --color-sky-300: var(--color-sky-700);
+  --color-sky-400: var(--color-sky-600);
+  --color-rose-100: var(--color-rose-900);
+  --color-rose-200: var(--color-rose-800);
+  --color-rose-300: var(--color-rose-700);
+  --color-rose-400: var(--color-rose-600);
+  --color-teal-100: var(--color-teal-900);
+  --color-teal-200: var(--color-teal-800);
+  --color-teal-300: var(--color-teal-700);
+  --color-teal-400: var(--color-teal-600);
+  --color-fuchsia-100: var(--color-fuchsia-900);
+  --color-fuchsia-200: var(--color-fuchsia-800);
+  --color-fuchsia-300: var(--color-fuchsia-700);
+  --color-fuchsia-400: var(--color-fuchsia-600);
+  --color-orange-100: var(--color-orange-900);
+  --color-orange-200: var(--color-orange-800);
+  --color-orange-300: var(--color-orange-700);
+  --color-orange-400: var(--color-orange-600);
+  --color-lime-100: var(--color-lime-900);
+  --color-lime-200: var(--color-lime-800);
+  --color-lime-300: var(--color-lime-700);
+  --color-lime-400: var(--color-lime-600);
+}
+
+/* 亮白：slate 反相（深→浅作背景，浅→深作文字） */
+[data-reading-theme="light"] {
+  --color-slate-950: oklch(96.8% 0.007 247.896); /* slate-100  页面底 */
+  --color-slate-900: oklch(92.9% 0.013 255.508); /* slate-200  面板 */
+  --color-slate-800: oklch(86.9% 0.022 252.894); /* slate-300  卡片/边框/按钮 */
+  --color-slate-700: oklch(70.4% 0.04 256.788);  /* slate-400  软边框 */
+  --color-slate-600: oklch(55.4% 0.046 257.417); /* slate-500  边框 */
+  --color-slate-500: oklch(55.4% 0.046 257.417); /* slate-500  虚线/三级文字 */
+  --color-slate-400: oklch(44.6% 0.043 257.281); /* slate-600  次级文字 */
+  --color-slate-300: oklch(37.2% 0.044 257.287); /* slate-700  主文字 */
+  --color-slate-200: oklch(27.9% 0.041 260.031); /* slate-800  强文字 */
+  --color-slate-100: oklch(20.8% 0.042 265.755); /* slate-900  最强文字 */
+  --color-slate-50:  oklch(20.8% 0.042 265.755);
+}
+
+/* 米黄护眼：暖纸底 + 深暖文字 */
+[data-reading-theme="sepia"] {
+  --color-slate-950: #faf6ef; /* 页面底 */
+  --color-slate-900: #f2ecdf; /* 面板 */
+  --color-slate-800: #e9e0cd; /* 卡片/边框/按钮 */
+  --color-slate-700: #d8ccb4; /* 软边框 */
+  --color-slate-600: #c3b49a; /* 边框 */
+  --color-slate-500: #a08d6f; /* 虚线/三级文字 */
+  --color-slate-400: #85755b; /* 次级文字 */
+  --color-slate-300: #6a5c45; /* 主文字 */
+  --color-slate-200: #4d4230; /* 强文字 */
+  --color-slate-100: #332c1f; /* 最强文字 */
+  --color-slate-50:  #332c1f;
+}
