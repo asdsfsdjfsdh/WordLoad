@@ -1,0 +1,166 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "最高法院对腐败官员的裁决",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "In a rare unanimous ruling, the US Supreme Court has overturned the corruption conviction of a former Virginia governor, Robert McDonnell."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "But it did so while holding its nose at the ethics of his conduct, which included accepting gifts such as a Rolex watch and a Ferrari automobile from a company seeking access to government."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "The high court's decision said the judge in Mr.. McDonnell's trial failed to tell a jury that it must look only at his \"official acts,\" or the former governor's decisions on \"specific\" and \"unsettled\" issues related to his duties."
+    },
+    {
+      "para": 3,
+      "seq": 3,
+      "en": "Merely helping a gift-giver gain access to other officials, unless done with clear intent to pressure those officials, is not corruption, the justices found."
+    },
+    {
+      "para": 4,
+      "seq": 4,
+      "en": "The court did suggest that accepting favors in return for opening doors is \"distasteful\" and \"nasty.\""
+    },
+    {
+      "para": 4,
+      "seq": 5,
+      "en": "But under anti-bribery laws, proof must be made of concrete benefits, such as approval of a contract or regulation."
+    },
+    {
+      "para": 4,
+      "seq": 6,
+      "en": "Simply arranging a meeting, making a phone call, or hosting an event is not an \"official act.\""
+    },
+    {
+      "para": 5,
+      "seq": 7,
+      "en": "The court's ruling is legally sound in defining a kind of favoritism that is not criminal."
+    },
+    {
+      "para": 5,
+      "seq": 8,
+      "en": "Elected leaders must be allowed to help supporters deal with bureaucratic problems without fear of prosecution for bribery."
+    },
+    {
+      "para": 5,
+      "seq": 9,
+      "en": "\"The basic compact underlying representative government,\" wrote Chief Justice John Roberts for the court, \"assumes that public officials will hear from their constituents and act on their concerns.\""
+    },
+    {
+      "para": 6,
+      "seq": 10,
+      "en": "But the ruling reinforces the need for citizens and their elected representatives, not the courts, to ensure equality of access to government."
+    },
+    {
+      "para": 6,
+      "seq": 11,
+      "en": "Officials must not be allowed to play favorites in providing information or in arranging meetings simply because an individual or group provides a campaign donation or a personal gift."
+    },
+    {
+      "para": 6,
+      "seq": 12,
+      "en": "This type of integrity requires well- enforced laws in government transparency, such as records of official meetings, rules on lobbying, and information about each elected leader's source of wealth."
+    },
+    {
+      "para": 7,
+      "seq": 13,
+      "en": "Favoritism in official access can fan public perceptions of corruption."
+    },
+    {
+      "para": 7,
+      "seq": 14,
+      "en": "But it is not always corruption."
+    },
+    {
+      "para": 7,
+      "seq": 15,
+      "en": "Rather officials must avoid double standards, or different types of access for average people and the wealthy."
+    },
+    {
+      "para": 7,
+      "seq": 16,
+      "en": "If connections can be bought, a basic premise of democratic society — that all are equal in treatment by government — is undermined."
+    },
+    {
+      "para": 7,
+      "seq": 17,
+      "en": "Good government rests on an understanding of the inherent worth of each individual."
+    },
+    {
+      "para": 8,
+      "seq": 18,
+      "en": "The court's ruling is a step forward in the struggle against both corruption and official favoritism."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "The underlined sentence (Para. 1) most probably shows that the court ____",
+      "options": {
+        "A": "avoided defining the extent of McDonnell’s duties.",
+        "B": "made no compromise in convicting McDonnell.",
+        "C": "was contemptuous of McDonnell’s conduct.",
+        "D": "refused to comment on McDonnell’s ethics."
+      },
+      "answer": "C",
+      "analysis": "题干在问，第一段划线部分“But it did so while holding its...”最可能表明什么?此题为句意题。前一句说，最高法院推翻了对前官员的腐败方面的定罪，划线部分后面说，该官员收受了各种贿赂，前后用But连接，是反义的关系，所以C答案正确。"
+    },
+    {
+      "seq": 37,
+      "stem": "According to Paragraph 4, an official act is deemed corruptive only if it involves ____",
+      "options": {
+        "A": "concrete returns for gift-givers.",
+        "B": "sizable gains in the form of gifts.",
+        "C": "leaking secrets intentionally.",
+        "D": "breaking contracts officially."
+      },
+      "answer": "A",
+      "analysis": "第四段第一句The court did suggest that accepting favors in return for opening doors is “distasteful” and “nasty.”……But under anti-bribery laws, proof must be made of concrete benefits.可以看出，如果接受了送礼和好处，并且有明确的证据就能说明这种行为是腐败的，A选项符合题意。因此选A。"
+    },
+    {
+      "seq": 38,
+      "stem": "The court’s ruling is based on the assumption that public officials are ____",
+      "options": {
+        "A": "allowed to focus on the concerns of their supporters.",
+        "B": "qualified to deal independently with bureaucratic issues.",
+        "C": "justified in addressing the needs of their constituents.",
+        "D": "exempt from conviction on the charge of favoritism."
+      },
+      "answer": "C",
+      "analysis": "第五段最后一句assumes that public officials will hear from their constituents and act on their concerns意为政府官员要倾听选民的意愿，以他们所关心的问题为工作重点，C选项要关注选民的需求符合题意。因此选择C选项。"
+    },
+    {
+      "seq": 39,
+      "stem": "Well-enforced laws in government transparency are needed to ____",
+      "options": {
+        "A": "awaken the conscience of officials.",
+        "B": "guarantee fair play in official access.",
+        "C": "allow for certain kinds of lobbying.",
+        "D": "inspire hopes in average people."
+      },
+      "answer": "B",
+      "analysis": "第六段前面提到to ensure equality of access to government. 后面提到This type of integrity requires will-enforced laws in government transparency，也就是说进入政府系统的公平公正性需要法律的保障。因此选择B项。"
+    },
+    {
+      "seq": 40,
+      "stem": "The author’s attitude toward the court’s ruling is ____",
+      "options": {
+        "A": "sarcastic.",
+        "B": "tolerant.",
+        "C": "skeptical.",
+        "D": "supportive."
+      },
+      "answer": "D",
+      "analysis": "文章最后一句The court’s ruling is a step forward in the struggle against both corruption and official favoritism.法律法规有利用对抗政治腐败，可以看出作者的态度是支持的。因此选D项。"
+    }
+  ],
+  "glossary": {}
+}

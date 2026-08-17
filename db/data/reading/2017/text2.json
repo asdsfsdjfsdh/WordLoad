@@ -1,0 +1,176 @@
+{
+  "code": "B",
+  "title": "Text 2",
+  "subtitle": "莫纳克亚望远镜之争：天文学与夏威夷文化",
+  "questionsStart": 26,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "\"The ancient Hawaiians were astronomers,\" wrote Queen Liliuokalani, Hawaii's last reigning monarch, in 1897."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Star watchers were among the most esteemed members of Hawaiian society."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "Sadly, all is not well with astronomy in Hawaii today."
+    },
+    {
+      "para": 1,
+      "seq": 3,
+      "en": "Protests have erupted over construction of the Thirty Meter Telescope (TMT), a giant observatory that promises to revolutionize humanity's view of the cosmos."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "At issue is the TMT's planned location on Mauna Kea, a dormant volcano worshiped by some Hawaiians as the piko, that connects the Hawaiian Islands to the heavens."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "But Mauna Kea is also home to some of the world's most powerful telescopes."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "Rested in the Pacific Ocean, Mauna Kea's peak rises above the bulk of our planet's dense atmosphere, where conditions allow telescopes to obtain images of unsurpassed clarity."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "Opposition to telescopes on Mauna Kea is nothing new."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "A small but vocal group of Hawaiians and environmentalists have long viewed their presence as disrespect for sacred land and a painful reminder of the occupation of what was once a sovereign nation."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "Some blame for the current controversy belongs to astronomers."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "In their eagerness to build bigger telescopes, they forgot that science is not the only way of understanding the world."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "They did not always prioritize the protection of Mauna Kea's fragile ecosystems or its holiness to the islands' inhabitants."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "Hawaiian culture is not a relic of the past; it is a living culture undergoing a renaissance today."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "Yet science has a cultural history, too, with roots going back to the dawn of civilization."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "The same curiosity to find what lies beyond the horizon that first brought early Polynesians to Hawaii's shores inspires astronomers today to explore the heavens."
+    },
+    {
+      "para": 5,
+      "seq": 15,
+      "en": "Calls to disassemble all telescopes on Mauna Kea or to ban future development there ignore the reality that astronomy and Hawaiian culture both seek to answer big questions about who we are, where we come from and where we are going."
+    },
+    {
+      "para": 5,
+      "seq": 16,
+      "en": "Perhaps that is why we explore the starry skies, as if answering a primal calling to know ourselves and our true ancestral homes."
+    },
+    {
+      "para": 6,
+      "seq": 17,
+      "en": "The astronomy community is making compromises to change its use of Mauna Kea."
+    },
+    {
+      "para": 6,
+      "seq": 18,
+      "en": "The TMT site was chosen to minimize the telescope's visibility around the island and to avoid archaeological and environmental impact."
+    },
+    {
+      "para": 6,
+      "seq": 19,
+      "en": "To limit the number of telescopes on Mauna Kea, old ones will be removed at the end of their lifetimes and their sites returned to a natural state."
+    },
+    {
+      "para": 6,
+      "seq": 20,
+      "en": "There is no reason why everyone cannot be welcomed on Mauna Kea to embrace their cultural heritage and to study the stars."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 26,
+      "stem": "Queen Liliuokalani’s remark in Paragraph 1 indicates ____",
+      "options": {
+        "A": "her conservative view on the historical role of astronomy.",
+        "B": "the importance of astronomy in ancient Hawaiian society.",
+        "C": "the regrettable decline of astronomy in ancient times.",
+        "D": "her appreciation of star watchers’ feats in her time."
+      },
+      "answer": "B",
+      "analysis": "本题属于推断题，定位在第一段。The ancient Hawaiians were astronomers, 古代的夏威夷人都是天文学家，Star watchers were among the most esteemed members of Hawaiian society，星象观察者在古代备受尊重，所以最佳答案应该是the importance of astronomy in ancient Hawaiian society.在古代夏威夷天文学是非常重要的。"
+    },
+    {
+      "seq": 27,
+      "stem": "Mauna Kea is deemed as an ideal astronomical site due to ____",
+      "options": {
+        "A": "its geographical features.",
+        "B": "its protective surroundings.",
+        "C": "its religious implications.",
+        "D": "its existing infrastructure."
+      },
+      "answer": "A",
+      "analysis": "本题属于细节题，定位在第二段。Mauna Kea's peak rises above…, where conditions allow telescopes to obtain images of unsurpassed clarity. 在Mauna Kea的环境或条件，望远镜能看到非常清晰的太空的情况，所以是由于地理位置才被选为理想的天文观测地。"
+    },
+    {
+      "seq": 28,
+      "stem": "The construction of the TMT is opposed by some locals partly because ____",
+      "options": {
+        "A": "it may risk ruining their intellectual life.",
+        "B": "it reminds them of a humiliating history.",
+        "C": "their culture will lose a chance of revival.",
+        "D": "they fear losing control of Mauna Kea."
+      },
+      "answer": "B",
+      "analysis": "本题属于细节题，定位在第三段。A small but local group of Hawaiians and environmentalists have long viewed their presence as disrespect far sacred land and a painful reminder of the occupation of what was once a sovereign nation，一小部分本地人反对是认为Mauna Kea是神圣不可侵犯，并且提醒他们曾经痛苦的一段历史，所以与答案B符合，it reminds them of a humiliating history。"
+    },
+    {
+      "seq": 29,
+      "stem": "It can be inferred from Paragraph 5 that progress in today’s astronomy ____",
+      "options": {
+        "A": "is fulfilling the dreams of ancient Hawaiians.",
+        "B": "helps spread Hawaiian culture across the world.",
+        "C": "may uncover the origin of Hawaiian culture.",
+        "D": "will eventually soften Hawaiians’ hostility."
+      },
+      "answer": "C",
+      "analysis": "本题属于推断题，定位在第五段。Calls to… Mauna Kea or to ban future development there ignore the reality that astronomy and Hawaiian culture both seek to answer big questions about who we are, where we come from and where we are going.通过这部分的论述表明天文学和夏威夷文化寻求回答我们是谁，从哪来，到哪去的这些问题，所以题干问天文学的进步可能会怎样，只有C符合原文含义，揭露夏威夷文化的起源，其他三项中的文章并未提及。"
+    },
+    {
+      "seq": 30,
+      "stem": "The author’s attitude toward choosing Mauna Kea as the TMT site is one of ____",
+      "options": {
+        "A": "severe criticism.",
+        "B": "passive acceptance.",
+        "C": "slight hesitancy.",
+        "D": "full approval."
+      },
+      "answer": "B",
+      "analysis": "本题属于观点态度题，主要定位在最后一段。作者说There is no reason why everyone cannot be welcomed on Mauna Kea to embrace their cultural heritage and to study the stars.欢迎每个人来Mauna Kea来拥抱文化遗产，研究星象。说明是比较支持的态度，但有不是完全支持，作者赞同天文学领域人士做出让步，保护当地的生态环境，所以D是错误的。"
+    }
+  ],
+  "glossary": {}
+}

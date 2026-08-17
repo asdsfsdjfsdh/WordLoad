@@ -1,0 +1,166 @@
+{
+  "code": "C",
+  "title": "Text 3",
+  "subtitle": "GDP 的局限：英国脱欧的启示",
+  "questionsStart": 31,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Robert F. Kennedy once said that a country's GDP measures \"everything except that which makes life worthwhile.\""
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "With Britain voting to leave the European Union, and GDP already predicted to slow as a result, it is now a timely moment to assess what he was referring to."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "The question of GDP and its usefulness has annoyed policymakers for over half a century."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Many argue that it is a flawed concept."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "It measures things that do not matter and misses things that do."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "By most recent measures, the UK's GDP has been the envy of the Western world, with record low unemployment and high growth figures."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "If everything was going so well, then why did over 17 million people vote for Brexit, despite the warnings about what it could do to their country's economic prospects?"
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "A recent annual study of countries and their ability to convert growth into well-being sheds some light on that question."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "Across the 163 countries measured, the UK is one of the poorest performers in ensuring that economic growth is translated into meaningful improvements for its citizens."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "Rather than just focusing on GDP, over 40 different sets of criteria from health, education and civil society engagement have been measured to get a more rounded assessment of how countries are performing."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "While all of these countries face their own challenges, there are a number of consistent themes."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "Yes, there has been a budding economic recovery since the 2008 global crash, but in key indicators in areas such as health and education, major economies have continued to decline."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "Yet this isn't the case with all countries."
+    },
+    {
+      "para": 4,
+      "seq": 13,
+      "en": "Some relatively poor European countries have seen huge improvements across measures including civil society, income equality and environment."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "This is a lesson that rich countries can learn: When GDP is no longer regarded as the sole measure of a country's success, the world looks very different."
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "So, what Kennedy was referring to was that while GDP has been the most common method for measuring the economic activity of nations, as a measure, it is no longer enough."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "It does not include important factors such as environmental quality or education outcomes — all things that contribute to a person's sense of well-being."
+    },
+    {
+      "para": 7,
+      "seq": 17,
+      "en": "The sharp hit to growth predicted around the world and in the UK could lead to a decline in the everyday services we depend on for our well-being and for growth."
+    },
+    {
+      "para": 7,
+      "seq": 18,
+      "en": "But policymakers who refocus efforts on improving well-being rather than simply worrying about GDP figures could avoid the forecasted doom and may even see progress."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 31,
+      "stem": "Robert F. Kennedy is cited because he ____",
+      "options": {
+        "A": "praised the UK for its GDP.",
+        "B": "identified GDP with happiness.",
+        "C": "misinterpreted the role of GDP.",
+        "D": "had a low opinion of GDP."
+      },
+      "answer": "D",
+      "analysis": "第一段肯尼迪认为GDP能衡量一切，但不能衡量什么让生活更有意义。可以看出他对GDP的看法并不是很高很积极，D选项 a low opinion符合题意。因此选D。"
+    },
+    {
+      "seq": 32,
+      "stem": "It can be inferred from Paragraph 2 that ____",
+      "options": {
+        "A": "the UK is reluctant to remold its economic pattern.",
+        "B": "the UK will contribute less to the world economy.",
+        "C": "GDP as the measure of success is widely defied in the UK.",
+        "D": "policymakers in the UK are paying less attention to GDP."
+      },
+      "answer": "C",
+      "analysis": "从第二段可以看出尽管英国GDP增长迅速，失业率低，但群众依旧选择脱欧，说明人们并不认同GDP就是衡量成功的标准。因此选C。"
+    },
+    {
+      "seq": 33,
+      "stem": "Which of the following is true about the recent annual study?",
+      "options": {
+        "A": "It excludes GDP as an indicator.",
+        "B": "It is sponsored by 163 countries.",
+        "C": "Its criteria are questionable.",
+        "D": "Its results are enlightening."
+      },
+      "answer": "D",
+      "analysis": "该项研究以163个国家作为研究对象，发现英国并不能确保将GDP增长转变为人民群众生活的提高。除GDP以外，医疗、教育等因素也是衡量一个国家的标准。这样的研究结果显然是很有启发性的。因此选D。"
+    },
+    {
+      "seq": 34,
+      "stem": "In the last two paragraphs, the author suggests that ____",
+      "options": {
+        "A": "the UK is preparing for an economic boom.",
+        "B": "high GDP foreshadows an economic decline.",
+        "C": "it is essential to consider factors beyond GDP.",
+        "D": "it requires caution to handle economic issues."
+      },
+      "answer": "C",
+      "analysis": "从最后两段可以看出GDP作为衡量一个国家经济的标准是远远不够的，还应该包括环境问题、教育问题。决策者不仅要看GDP数字，更要考虑到人民幸福问题，这样才能避免经济低迷实现发展。C选项意为还要考虑到GDP以外的因素，符合题意。因此选C。"
+    },
+    {
+      "seq": 35,
+      "stem": "Which of the following is the best title for the text?",
+      "options": {
+        "A": "High GDP But Inadequate Well-being, a UK Lesson.",
+        "B": "GDP Figures, a Window on Global Economic Health.",
+        "C": "Robert F. Kennedy, a Terminator of GDP.",
+        "D": "Brexit, the UK’s Gateway to Well-being."
+      },
+      "answer": "A",
+      "analysis": "结合内容，可以看到全文以英国为例，讲述英国GDP指数高但人民依旧选择脱欧说明GDP并不是衡量一个国家成功的唯一因素，而应该考虑到更多关于幸福的因素，例如环境、教育、社会等问题，A选项从英国脱欧学到一课：高GDP低幸福感最符合题意。因此选A。"
+    }
+  ],
+  "glossary": {}
+}

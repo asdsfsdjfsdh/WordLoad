@@ -1,0 +1,181 @@
+{
+  "code": "A",
+  "title": "Text 1",
+  "subtitle": "美国机场安检拥堵与 PreCheck 之困",
+  "questionsStart": 21,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "First two hours, now three hours — this is how far in advance authorities are recommending people show up to catch a domestic flight, at least at some major U.S. airports with increasingly massive security lines."
+    },
+    {
+      "para": 2,
+      "seq": 1,
+      "en": "Americans are willing to tolerate time-consuming security procedures in return for increased safety."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "The crash of EgyptAir Flight 804, which terrorists may have downed over the Mediterranean Sea, provides another tragic reminder of why."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "But demanding too much of air travelers or providing too little security in return undermines public support for the process."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "And it should: Wasted time is a drag on Americans' economic and private lives, not to mention infuriating."
+    },
+    {
+      "para": 3,
+      "seq": 5,
+      "en": "Last year, the Transportation Security Administration (TSA) found in a secret check that undercover investigators were able to sneak weapons — both fake and real — past airport security nearly every time they tried."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "Enhanced security measures since then, combined with a rise in airline travel due to the improving economy and low oil prices, have resulted in long waits at major airports such as Chicago's O'Hare International."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "It is not yet clear how much more effective airline security has become — but the lines are obvious."
+    },
+    {
+      "para": 4,
+      "seq": 8,
+      "en": "Part of the issue is that the government did not anticipate the steep increase in airline travel, so the TSA is now rushing to get new screeners on the line."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "Part of the issue is that airports have only so much room for screening lanes."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "Another factor may be that more people are trying to overpack their carry-on bags to avoid checked-baggage fees, though the airlines strongly dispute this."
+    },
+    {
+      "para": 5,
+      "seq": 11,
+      "en": "There is one step the TSA could take that would not require remodeling airports or rushing to hire: Enroll more people in the PreCheck program."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "PreCheck is supposed to be a win-win for travelers and the TSA."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "Passengers who pass a background check are eligible to use expedited screening lanes."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "This allows the TSA to focus on travelers who are higher risk, saving time for everyone involved."
+    },
+    {
+      "para": 5,
+      "seq": 15,
+      "en": "The TSA wants to enroll 25 million people in PreCheck."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "It has not gotten anywhere close to that, and one big reason is sticker shock: Passengers must pay $85 every five years to process their background checks."
+    },
+    {
+      "para": 6,
+      "seq": 17,
+      "en": "Since the beginning, this price tag has been PreCheck's fatal flaw."
+    },
+    {
+      "para": 6,
+      "seq": 18,
+      "en": "Upcoming reforms might bring the price to a more reasonable level."
+    },
+    {
+      "para": 6,
+      "seq": 19,
+      "en": "But Congress should look into doing so directly, by helping to finance PreCheck enrollment or to cut costs in other ways."
+    },
+    {
+      "para": 7,
+      "seq": 20,
+      "en": "The TSA cannot continue diverting resources into underused PreCheck lanes while most of the traveling public suffers in unnecessary lines."
+    },
+    {
+      "para": 7,
+      "seq": 21,
+      "en": "It is long past time to make the program work."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 21,
+      "stem": "The crash of EgyptAir Flight 804 is mentioned to ____",
+      "options": {
+        "A": "explain Americans’ tolerance of current security checks.",
+        "B": "stress the urgency to strengthen security worldwide.",
+        "C": "highlight the necessity of upgrading major U.S. airports.",
+        "D": "emphasize the importance of privacy protection."
+      },
+      "answer": "A",
+      "analysis": "本题属于例证题，定位在第二段根据例证题的解题技巧。答案应该在例子的前面找，也就是本段的段首句：Americans are willing to tolerate time-consuming security protocols in return for increased safety. 美国人愿意忍受耗费时间的安全检查协议，为了换来更高的安全性。正好符合A选项解释了美国人能够忍受长时间的安全检查。"
+    },
+    {
+      "seq": 22,
+      "stem": "Which of the following contributes to long waits at major airports?",
+      "options": {
+        "A": "New restrictions on carry-on bags.",
+        "B": "The declining efficiency of the TSA.",
+        "C": "An increase in the number of travelers.",
+        "D": "Frequent unexpected secret checks."
+      },
+      "answer": "C",
+      "analysis": "本题属于细节题，定位在第三段。Enhanced security measures since then, combined with a rise in airline travel due to the improving economy and low oil prices, have resulted in long waits at major airports…, 安检措施的加强，航空旅游人员的增加，…导致了在主要机场的长时间等待。其他三项均不符合原文意思。"
+    },
+    {
+      "seq": 23,
+      "stem": "The word “expedited” (Para. 5) is closest in meaning to ____",
+      "options": {
+        "A": "quieter.",
+        "B": "cheaper.",
+        "C": "wider.",
+        "D": "faster."
+      },
+      "answer": "D",
+      "analysis": "本题属于猜词题，定位在第五段，expedited这个词所在的这句话，Passengers who pass a background check are eligible to use expedited screening lanes. 通过背景核查的乘客有资格使用…拍摄通道；前文说Enroll more people in the PreCheck program，让更多的人注册预先检查程序，预先就是更快的，所以应该是faster。"
+    },
+    {
+      "seq": 24,
+      "stem": "One problem with the PreCheck program is ____",
+      "options": {
+        "A": "a dramatic reduction of its scale.",
+        "B": "its wrongly-directed implementation.",
+        "C": "the government’s reluctance to back it.",
+        "D": "an unreasonable price for enrollment."
+      },
+      "answer": "D",
+      "analysis": "本题属于细节题，定位在第六段。this price tag has been PreCheck's fatal flaw.价格问题是precheck的知名弱点，也就是题干中的问题，所以答案是an unreasonable price for enrollment，注册所需价格的不合理。"
+    },
+    {
+      "seq": 25,
+      "stem": "Which of the following would be the best title for the text?",
+      "options": {
+        "A": "Less Screening for More Safety.",
+        "B": "PreCheck — a Belated Solution.",
+        "C": "Getting Stuck in Security Lines.",
+        "D": "Underused PreCheck Lanes."
+      },
+      "answer": "C",
+      "analysis": "本题属于主旨题，纵观全文，选择最佳答案。A. Less Screening for More Safety更少的检查，更多的安全. 与原文意思相反，原文说检查更多为了更多的安全；B. PreCheck – a Belated Solution. 预先检查-迟来的解决方案，文章是说道PreCheck，但它病没有从根本上解决旅客滞留的问题，所以也不对；D. 只是文章的一部分；只有C选项Getting Stuck in Security Lines，全文都是在围绕安检导致旅客滞留，解决方案PreCheck，但It is long past time to make the program work.并未根本解决问题。所以C更能概括全文。"
+    }
+  ],
+  "glossary": {}
+}
