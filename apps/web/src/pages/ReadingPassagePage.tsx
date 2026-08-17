@@ -168,6 +168,7 @@ export function ReadingPassagePage() {
   }, [detail, id, answers, submitting]);
 
   const hasStructure = detail?.sentences.some((s) => s.structure?.clauses?.length) ?? false;
+  const hasZh = detail?.sentences.some((s) => s.zh) ?? false;
 
   return (
     <div data-reading-theme={readingTheme} className="min-h-screen bg-slate-950 text-slate-100">
@@ -235,8 +236,14 @@ export function ReadingPassagePage() {
             </button>
             <button
               onClick={() => setShowZh((v) => !v)}
+              disabled={!hasZh}
+              title={hasZh ? '切换译文' : '本年度暂无译文'}
               className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
-                showZh ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300' : 'border-slate-700 bg-slate-800/60 text-slate-400'
+                !hasZh
+                  ? 'cursor-not-allowed border-slate-800 bg-slate-900/60 text-slate-600'
+                  : showZh
+                    ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300'
+                    : 'border-slate-700 bg-slate-800/60 text-slate-400'
               }`}
             >
               译文

@@ -58,7 +58,7 @@ const paragraphFullText = (start, qStart) => {
   const segs = lines
     .slice(start + 1, qStart)
     .filter((l) => !/^===== PAGE/.test(l))
-    .filter((l) => !/^\s*\d+\s+https?:\/\/zhenti\.burningvocabulary\.(com|cn)\s*$/.test(l));
+    .filter((l) => !/^\s*\d+\s+https?:\/\/zhenti\.burningvocabulary\.(com|cn)\/?\s*$/.test(l));
   let txt = '';
   for (const raw of segs) {
     const s = raw.trim();
@@ -69,7 +69,9 @@ const paragraphFullText = (start, qStart) => {
     if (/[”"’)\]!?.,;:]/.test(nextFirst) || /[“"‘(\[]/.test(prevLast)) txt += s;
     else txt += ' ' + s;
   }
-  return txt.replace(/\s+/g, ' ').replace(/(\d)\.\s+(\d)/g, '$1.$2').replace(/--/g, '—').trim();
+  return txt
+    .replace(/\d+\s*https?:\/\/zhenti\.burningvocabulary\.(com|cn)\/?\s*/g, ' ')
+    .replace(/\s+/g, ' ').replace(/(\d)\.\s+(\d)/g, '$1.$2').replace(/--/g, '—').trim();
 };
 
 const splitSentences = (t) =>

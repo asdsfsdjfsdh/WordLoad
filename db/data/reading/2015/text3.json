@@ -1,0 +1,156 @@
+{
+  "code": "C",
+  "title": "Text 3",
+  "subtitle": "《科学》杂志加强论文统计审查",
+  "questionsStart": 31,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "The journal Science is adding an extra round of statistical checks to its peer-review process, editor-in-chief Marcia McNutt announced today."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "The policy follows similar efforts from other journals, after widespread concern that basic mistakes in data analysis are contributing to the irreproducibility of many published research findings."
+    },
+    {
+      "para": 2,
+      "seq": 2,
+      "en": "\"Readers must have confidence in the conclusions published in our journal,\" writes McNutt in an editorial."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Working with the American Statistical Association, the journal has appointed seven experts to a statistics board of reviewing editors (SBoRE)."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "Manuscript will be flagged up for additional scrutiny by the journal's internal editors, or by its existing Board of Reviewing Editors or by outside peer reviewers."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "The SBoRE panel will then find external statisticians to review these manuscripts."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "Asked whether any particular papers had impelled the change, McNutt said: \"The creation of the 'statistics board' was motivated by concerns broadly with the application of statistics and data analysis in scientific research and is part of Science's overall drive to increase reproducibility in the research we publish.\""
+    },
+    {
+      "para": 4,
+      "seq": 7,
+      "en": "Giovanni Parmigiani, a biostatistician at the Harvard School of Public Health, a member of the SBoRE group, says he expects the board to \"play primarily an advisory role\"."
+    },
+    {
+      "para": 4,
+      "seq": 8,
+      "en": "He agreed to join because he \"found the foresight behind the establishment of the SBoRE to be novel, unique and likely to have a lasting impact."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "This impact will not only be through the publications in Science itself, but hopefully through a larger group of publishing places that may want to model their approach after Science.\""
+    },
+    {
+      "para": 5,
+      "seq": 10,
+      "en": "John Ioannidis, a physician who studies research methodology, says that the policy is \"a most welcome step forward\" and \"long overdue\"."
+    },
+    {
+      "para": 5,
+      "seq": 11,
+      "en": "\"Most journals are weak in statistical review, and this damages the quality of what they publish."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "I think that, for the majority of scientific papers nowadays, statistical review is more essential than expert review,\" he says."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "But he noted that biomedical journals such as Annals of Internal Medicine, the Journal of the American Medical Association and The Lancet pay strong attention to statistical review."
+    },
+    {
+      "para": 6,
+      "seq": 14,
+      "en": "Professional scientists are expected to know how to analyse data, but statistical errors are alarmingly common in published research, according to David Vaux, a cell biologist."
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "Researchers should improve their standards, he wrote in 2012, but journals should also take a tougher line, \"engaging reviewers who are statistically literate and editors who can verify the process\"."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "Vaux says that Science's idea to pass some papers to statisticians \"has some merit, but a weakness is that it relies on the board of reviewing editors to identify 'the papers that need scrutiny' in the first place\""
+    }
+  ],
+  "questions": [
+    {
+      "seq": 31,
+      "stem": "It can be learned from Paragraph 1 that ____",
+      "options": {
+        "A": "Science intends to simplify its peer-review process.",
+        "B": "journals are strengthening their statistical checks.",
+        "C": "few journals are blamed for mistakes in data analysis.",
+        "D": "lack of data analysis is common in research projects."
+      },
+      "answer": "B",
+      "analysis": "推理题。根据题干直接定位到第一段。解题关键在于第二句The policy follows similar efforts from other journals（该政策得到其他期刊类似的努力）the policy指第一句The journal Science is adding an extra round of statistical checks to its peer-review process, （《科学》杂志把统计检查额外添加到它的同行评审过程中），由此可直接推断出正确答案为[B] journals are strengthening their statistical checks (各大期刊正在加强统计数字检查)。选项[A]中simplify与原文语意不符，所以选项C、D属于无中生有。"
+    },
+    {
+      "seq": 32,
+      "stem": "The phrase “flagged up” (Para. 2) is the closest in meaning to ____",
+      "options": {
+        "A": "found.",
+        "B": "marked.",
+        "C": "revised.",
+        "D": "stored."
+      },
+      "answer": "B",
+      "analysis": "词义题。根据题干定位回第二段第三句Manuscript will be flagged up for additional scrutiny by the journal's internal editors, （杂志内部编辑将通过更多的审查来标记手稿）。文中运用代入法，把各选项代入句中替换，可知选项C marked(标记)为正确答案。选项A found(发现，找到)，选项B revised（修改），选项 D stored(存储)。"
+    },
+    {
+      "seq": 33,
+      "stem": "Giovanni Parmigiani believes that the establishment of the SBoRE may ____",
+      "options": {
+        "A": "pose a threat to all its peers.",
+        "B": "meet with strong opposition.",
+        "C": "increase Science’s circulation.",
+        "D": "set an example for other journals."
+      },
+      "answer": "D",
+      "analysis": "细节题。根据题干关键词Giovanni Parmigiani，the establishment of the SBoRE和may定位到第四段的最后一句\"… but hopefully through a larger group of publishing places that may want to model their approach after Science。选项中的example是model的同义替换，others journals是原文中a larger group of publishing places的同义替换。 文章中出现了hopefully，表示作者积极的态度。选项A中的threat，选项B中的opposition分别表达负向消极的态度，所以错误。选项C increase Science's circulation(增加《科学》杂志的发行量)，文章并未提到，属于无中生有。"
+    },
+    {
+      "seq": 34,
+      "stem": "David Vaux holds that what Science is doing now ____",
+      "options": {
+        "A": "adds to researchers’ workload.",
+        "B": "diminishes the role of reviewers.",
+        "C": "has room for further improvement.",
+        "D": "is to fail in the foreseeable future."
+      },
+      "answer": "C",
+      "analysis": "细节题。由题干关键词David Vaux和Science，可定位到第六段最后一句。Vaux says that Science's idea to pass some papers to statisticians \"has some merit, but a weakness is that it relies on the board of reviewing editors to identify 'the papers that need scrutiny' in the first place\". (《科学》杂志把论文推给统计员审核有一些优点，但缺点是它依赖于审稿编委会首先需要确定审查的文件。) 选项A中workload，选项B. diminish the role of reviewers和选项D中的foreseeable future没有提到，属于无中生有。"
+    },
+    {
+      "seq": 35,
+      "stem": "Which of the following is the best title of the text?",
+      "options": {
+        "A": "Science Joins Push to Screen Statistics in Papers.",
+        "B": "Professional Statisticians Deserve More Respect.",
+        "C": "Data Analysis Finds Its Way onto Editors’ Desks.",
+        "D": "Statisticians Are Coming Back with Science."
+      },
+      "answer": "A",
+      "analysis": "文章第一段由Science将增加statistical checks引出话题，接下来各段就此问题McNutt, Giovanni Parmigianni, John Ioannidis, David Vaux提出各自的看法。文中statistical，papers反复提及，可知该词是文中核心词。选项B和选项D首先排除，偏离主题，statisticians仅在文中提及，非重点讨论内容；选项C与文中主题相差较大，因此排除。 Text 4"
+    }
+  ],
+  "glossary": {}
+}

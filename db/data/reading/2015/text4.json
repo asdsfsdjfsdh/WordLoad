@@ -1,0 +1,176 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "新闻伦理之殇：电话窃听与媒体自律",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "Two years ago, Rupert Murdoch's daughter, Elisabeth, spoke of the \"unsettling dearth of integrity across so many of our institutions\"."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Integrity had collapsed, she argued, because of a collective acceptance that the only \"sorting mechanism\" in society should be profit and the market."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "But \"it's us, human beings, we the people who create the society we want, not profit.\""
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Driving her point home, she continued: \"It's increasingly apparent that the absence of purpose, of a moral language within government, media or business could become one of the most dangerous goals for capitalism and freedom.\""
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "This same absence of moral purpose was wounding companies such as News International, she thought, making it more likely that it would lose its way as it had with widespread illegal telephone hacking."
+    },
+    {
+      "para": 3,
+      "seq": 5,
+      "en": "As the hacking trial concludes — finding guilty one ex-editor of the News of the World, Andy Coulson, for conspiring to hack phones, and finding his predecessor, Rebekah Brooks, innocent of the same charge — the wider issue of dearth of integrity still stands."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "Journalists are known to have hacked the phones of up to 5,500 people."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "This is hacking on an industrial scale, as was acknowledged by Glenn Mulcaire, the man hired by the News of the World in 2001 to be the point person for phone hacking."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "Others await trial."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "This long story still unfolds."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "In many respects, the dearth of moral purpose frames not only the fact of such widespread phone hacking but the terms on which the trial took place."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "One of the astonishing revelations was how little Rebekah Brooks knew of what went on in her newsroom, how little she thought to ask and the fact that she never inquired how the stories arrived."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "The core of her successful defence was that she knew nothing."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "In today's world, it has become normal that well-paid executives should not be accountable for what happens in the organisations that they run."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "Perhaps we should not be so surprised."
+    },
+    {
+      "para": 5,
+      "seq": 15,
+      "en": "For a generation, the collective doctrine has been that the sorting mechanism of society should be profit."
+    },
+    {
+      "para": 5,
+      "seq": 16,
+      "en": "The words that have mattered are efficiency, flexibility, shareholder value, business-friendly, wealth generation, sales, impact and, in newspapers, circulation."
+    },
+    {
+      "para": 5,
+      "seq": 17,
+      "en": "Words degraded to the margin have been justice, fairness, tolerance, proportionality and accountability."
+    },
+    {
+      "para": 6,
+      "seq": 18,
+      "en": "The purpose of editing the News of the World was not to promote reader understanding, to be fair in what was written or to betray any common humanity."
+    },
+    {
+      "para": 6,
+      "seq": 19,
+      "en": "It was to ruin lives in the quest for circulation and impact."
+    },
+    {
+      "para": 6,
+      "seq": 20,
+      "en": "Ms Brooks may or may not have had suspicions about how her journalists got their stories, but she asked no questions, gave no instructions — nor received traceable, recorded answers."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "According to the first two paragraphs, Elisabeth was upset by ____",
+      "options": {
+        "A": "the consequences of the current sorting mechanism.",
+        "B": "companies’ financial loss due to immoral practices.",
+        "C": "governmental ineffectiveness on moral issues.",
+        "D": "the wide misuse of integrity among institutions."
+      },
+      "answer": "A",
+      "analysis": "通过题干可以将此题锁定在前两段。第一段指出Elisabeth谈到了\"我们很多机构都面临着令人沮丧的正直感的丧失\"。接下来第二句指出这种正直感的丧失是因为大家普遍认为社会中唯一的分类机制（sorting mechanism）应该是利益和市场。而从第一段最后一句我们看出，她认为\"应该是我们人类自己创造我们想要的社会，而不应该是利益\"。可见，Elisabeth很不认可目前的这种分类机制（sorting mechanism）以及所造成的不良后果，这也正是她感到沮丧的原因。故A选项consequence of the current sorting mechanism（目前这种分类机制的后果）是真正让她沮丧的原因。"
+    },
+    {
+      "seq": 37,
+      "stem": "It can be inferred from Paragraph 3 that ____",
+      "options": {
+        "A": "Glenn Mulcaire may deny phone hacking as a crime.",
+        "B": "more journalists may be found guilty of phone hacking.",
+        "C": "Andy Coulson should be held innocent of the charge.",
+        "D": "phone hacking will be accepted on certain occasions."
+      },
+      "answer": "B",
+      "analysis": "第三段第一句指出，Andy Coulson因为参与手机黑客案件被裁定有罪，然而他的前任却被认定是无罪的。通过这一事件，作者得出由此造成的道德沦丧广泛问题依然存在（the wider issue of dearth of integrity still stands）。即仍然存在一些人没有被裁定有罪。接着文章指出了在新闻业中，已经有记者被认定非法侵入用户手机。而还有一些在等待审判（others await trial），由此可以推出，将会有更多的记者因为涉及手机黑客案件而被裁定有罪。故正确答案为选项B。"
+    },
+    {
+      "seq": 38,
+      "stem": "The author believes that Rebekah Brooks’s defence ____",
+      "options": {
+        "A": "revealed a cunning personality.",
+        "B": "centered on trivial issues.",
+        "C": "was hardly convincing.",
+        "D": "was part of a conspiracy."
+      },
+      "answer": "C",
+      "analysis": "根据题干中的\"defence\"可以回文定位到文章第四段最后一句话。该句指出Ms. Brooks辩护成功的关键在于她对这个事件一无所知（she knew nothing）。而作者在该段第一句话中指出，道德丧失不仅体现在普遍存在的手机黑客这一事实上，更体现在一些审判案件所使用的条款上，其中最震惊的就是对Ms. Brooks的审判。可见，作者对该案的审判持否定态度。因此，认为她的辩护是不可信的。故正确答案为C。"
+    },
+    {
+      "seq": 39,
+      "stem": "The author holds that the current collective doctrine shows ____",
+      "options": {
+        "A": "generally distorted values.",
+        "B": "unfair wealth distribution.",
+        "C": "a marginalized lifestyle.",
+        "D": "a rigid moral code."
+      },
+      "answer": "A",
+      "analysis": "通过题干中的\"collective doctrine\"可以直接定位到文中第五段第三行。该句指出\"collective doctrine\"是社会的分类机制应该是利益。接下来可以看出，那些真正起作用的是那些表示利益的词\"efficiency，flexibility，shareholder value，business-friendly，wealth generation…\"，而表示公平、正义的词（Justice，fairness，tolerance…）则被置于边缘。可见，这种教义（collective doctrine）只关注利益，而忽略了公平与正义，这显然是一种扭曲的价值观。故A选项正确。"
+    },
+    {
+      "seq": 40,
+      "stem": "Which of the following is suggested in the last paragraph?",
+      "options": {
+        "A": "The quality of writings is of primary importance.",
+        "B": "Common humanity is central to news reporting.",
+        "C": "Moral awareness matters in editing a newspaper.",
+        "D": "Journalists need stricter industrial regulations."
+      },
+      "answer": "C",
+      "analysis": "这是一道开放式推理题。作者在最后一段前两句话指出，新闻报道的目的不是为了促进读者的理解，也不是为了追求公平或者违背人类共有的人性，而是通过追求发行量的影响率来破坏人们的生活。即文章从一开始指出的一个问题，为了追求利益而造成了正值感的丧失。从\"ruin\"一词可以看出，作者对新闻记者的这一行为持否定的态度。并且通过Ms. Brooks女士的行为加以佐证。作者通过正话反说的方式，突出新闻报道过程中正值感的重要性。故正确答案为C，moral awareness matters in editing a newspaper（在新闻报道中，道德意识很重要），其中moral awareness和integrity是同义互换。"
+    }
+  ],
+  "glossary": {}
+}

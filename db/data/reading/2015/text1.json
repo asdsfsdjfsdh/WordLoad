@@ -1,0 +1,171 @@
+{
+  "code": "A",
+  "title": "Text 1",
+  "subtitle": "欧洲君主制困境：西班牙国王卡洛斯退位",
+  "questionsStart": 21,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "King Juan Carlos of Spain once insisted \"kings don't abdicate, they die in their sleep\"."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "But embarrassing scandals and the popularity of the republican left in the recent Euro- elections have forced him to eat his words and stand down."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "So, does the Spanish crisis suggest that monarchy is seeing its last days?"
+    },
+    {
+      "para": 1,
+      "seq": 3,
+      "en": "Does that mean the writing is on the wall for all European royals, with their magnificent uniforms and majestic lifestyles?"
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "The Spanish case provides arguments both for and against monarchy."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "When public opinion is particularly polarised, as it was following the end of the Franco regime, monarchs can rise above \"mere\" politics and \"embody\" a spirit of national unity."
+    },
+    {
+      "para": 3,
+      "seq": 6,
+      "en": "It is this apparent transcendence of politics that explains monarchs' continuing popularity as heads of state."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "And so, the Middle East excepted, Europe is the most monarch- infested region in the world, with 10 kingdoms (not counting Vatican City and Andorra)."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "But unlike their absolutist counterparts in the Gulf and Asia, most royal families have survived because they allow voters to avoid the difficult search for a non-controversial but respected public figure."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "Even so, kings and queens undoubtedly have a downside."
+    },
+    {
+      "para": 4,
+      "seq": 10,
+      "en": "Symbolic of national unity as they claim to be, their very history — and sometimes the way they behave today — embodies outdated and indefensible privileges and inequalities."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "At a time when Thomas Piketty and other economists are warning of rising inequality and the increasing power of inherited wealth, it is bizarre that wealthy aristocratic families should still be the symbolic heart of modern democratic states."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "The most successful monarchies strive to abandon or hide their old aristocratic ways."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "Princes and princesses have day-jobs and ride bicycles, not horses (or helicopters)."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "Even so, these are wealthy families who party with the international 1%, and media intrusiveness makes it increasingly difficult to maintain the right image."
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "While Europe's monarchies will no doubt be smart enough to survive for some time to come, it is the British royals who have most to fear from the Spanish example."
+    },
+    {
+      "para": 7,
+      "seq": 16,
+      "en": "It is only the Queen who has preserved the monarchy's reputation with her rather ordinary (if well-heeled) granny style."
+    },
+    {
+      "para": 7,
+      "seq": 17,
+      "en": "The danger will come with Charles, who has both an expensive taste of lifestyle and a pretty hierarchical view of the world."
+    },
+    {
+      "para": 7,
+      "seq": 18,
+      "en": "He has failed to understand that monarchies have largely survived because they provide a service — as non- controversial and non-political heads of state."
+    },
+    {
+      "para": 7,
+      "seq": 19,
+      "en": "Charles ought to know that as English history shows, it is kings, not republicans, who are the monarchy's worst enemies."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 21,
+      "stem": "According to the first two paragraphs, King Juan Carlos of Spain ____",
+      "options": {
+        "A": "used to enjoy high public support.",
+        "B": "was unpopular among European royals.",
+        "C": "eased his relationship with his rivals.",
+        "D": "ended his reign in embarrassment."
+      },
+      "answer": "D",
+      "analysis": "事实细节题。根据题干要求，定位到文章前两段。而文章第一段的第二句话提到\"But embarrassing scandals and the popularity of the republican left in the recent Euro-elections have forced him to eat his words and stand down.\"（在最近的欧洲选举中，令人尴尬的丑闻和受欢迎的共和党，均迫使Carlos收回前言并退位）。D选项中，\"stand down\"是\"end reign\"的同义置换，且\"embarrassment\"与导致Carlos卸任的原因\"embarrassing scandals\"是相呼应的。故D是正确答案。A、B、C均属于无中生有。"
+    },
+    {
+      "seq": 22,
+      "stem": "Monarchs are kept as heads of state in Europe mostly ____",
+      "options": {
+        "A": "owing to their undoubted and respectable status.",
+        "B": "to achieve a balance between tradition and reality.",
+        "C": "to give voters more public figures to look up to.",
+        "D": "due to their everlasting political embodiment."
+      },
+      "answer": "A",
+      "analysis": "事实细节题。根据题干关键词\"monarchs\"和\"heads of state\"，定位到第三段的最后一句话\"...most royal families have survived because they allow voters to avoid the difficult search for a non-controversial but respected public figure.\"（大多数的王室幸存下来是由于他们让选民可以避免去寻找一个不受争议且受尊敬的公众人物的困难）其中\"non-controversial but respected public figure\"正是A选项中\"undoubted and respectable status\"的同义置换。故A是正确答案。"
+    },
+    {
+      "seq": 23,
+      "stem": "Which of the following is shown to be odd, according to Paragraph 4?",
+      "options": {
+        "A": "Aristocrats’ excessive reliance on inherited wealth.",
+        "B": "The role of the nobility in modern democracies.",
+        "C": "The simple lifestyle of the aristocratic families.",
+        "D": "The nobility’s adherence to their privileges."
+      },
+      "answer": "B",
+      "analysis": "事实细节题。定位在第四段的最后一句话\"...it is bizarre that wealthy aristocratic families should still be the symbolic heart of modern democratic states.\"（离奇的是，富有的贵族竟然仍是现代民主国家的象征核心）其中，the symbolic heart of modern democratic states是题干the role of the nobility in modern democracies的同义置换。"
+    },
+    {
+      "seq": 24,
+      "stem": "The British royals “have most to fear” because Charles ____",
+      "options": {
+        "A": "takes a tough line on political issues.",
+        "B": "fails to change his lifestyle as advised.",
+        "C": "takes republicans as his potential allies.",
+        "D": "fails to adapt himself to his future role."
+      },
+      "answer": "D",
+      "analysis": "事实细节题。该题考查：英国皇家贵族们非常害怕是因为查尔斯……。根据题干专有名词Charles可定位到文章第七段\"the danger will come with Charles...worst enemies\"。本段指出\"危险源自于查尔斯，他生活奢靡，等级观念显著；并且他没有意识到君王的幸存很大程度上取决于君王提供了公共服务，同时，查尔斯并不知道，国王才是君主制度最大的敌人，而非共和党人。\"选项A意为：对待政治问题态度强硬，文章并无提及；选项B意为，对待建议的生活方式改变失败，文章中提到生活方式，但并未提到改变生活方式；选项C意为：视共和党人为潜在盟友，文章中提到，共和党人并非最大的敌人，并未指明把共和党人视为盟友，属于偷换概念，选项D意为：适应未来身份失败，文章指出查尔斯的生活方式，世界观以及他对于君王制度的错误理解均为身份特殊的他的不正确言行，与选项D表述吻合，故为正确答案。"
+    },
+    {
+      "seq": 25,
+      "stem": "Which of the following is the best title of the text?",
+      "options": {
+        "A": "Carlos, Glory and Disgrace Combined.",
+        "B": "Charles, Anxious to Succeed to the Throne.",
+        "C": "Carlos, a Lesson for All European Monarchs.",
+        "D": "Charles, Slow to React to the Coming Threats."
+      },
+      "answer": "C",
+      "analysis": "主旨大意题。该题考察四个选项中哪个可作为文章最佳标题。文章从西班牙国王Carlos退位事件切入，主要讨论当下欧洲君王制度所存在的问题，并非讨论查尔斯的事件，即可排除选项B\"查尔斯-继位焦虑\"和D\"查尔斯-应对威胁缓慢\"，而选项A\"卡洛斯-荣辱并存\" 和C\"卡洛斯-欧洲君王们的前车之鉴\"中，选项A属于细节信息，不能概括文章大意，选项C可概括，故为正确答案。另外，文章主题词Monarch只有在选项C中出现，也可作为迅速解题的依据。 Text 2"
+    }
+  ],
+  "glossary": {}
+}

@@ -11,6 +11,7 @@ import {
   tokenizeReadingSentence,
 } from '@word-journey/shared';
 import { getTts } from '../../lib/tts';
+import { WordPopover, type WordPopoverState } from './WordPopover';
 
 export interface ReadingIntensiveModalProps {
   sentences: ReadingSentenceView[];
@@ -21,17 +22,6 @@ export interface ReadingIntensiveModalProps {
   onSentenceChange: (seq: number) => void;
   onToggleSave: (word: string, action: 'save' | 'remove') => void;
   lookupWord?: (raw: string) => Promise<ReadingGlossaryEntry | undefined>;
-}
-
-interface SelectedWord {
-  raw: string;
-  entry: ReadingGlossaryEntry | undefined;
-}
-
-interface LookupResult {
-  raw: string;
-  meaning: string;
-  phonetic?: string;
 }
 
 export function ReadingIntensiveModal({
@@ -47,8 +37,7 @@ export function ReadingIntensiveModal({
   const [idx, setIdx] = useState(() => Math.max(0, sentences.findIndex((s) => s.seq === initialSeq)));
   const [structureOn, setStructureOn] = useState(true);
   const [zhOpen, setZhOpen] = useState(true);
-  const [selected, setSelected] = useState<SelectedWord | null>(null);
-  const [lookupResult, setLookupResult] = useState<LookupResult | null>(null);
+  const [popover, setPopover] = useState<WordPopoverState | null>(null);
 
   const glossaryMap = useMemo(() => {
     const m: Record<string, ReadingGlossaryEntry> = {};
@@ -81,18 +70,18 @@ export function ReadingIntensiveModal({
   const go = (next: number): void => {
     const clamped = Math.max(0, Math.min(sentences.length - 1, next));
     setIdx(clamped);
-    setSelected(null);
-    setLookupResult(null);
+    setPopover(null);
     onSentenceChange(sentences[clamped]!.seq);
   };
 
-  const onWordTap = (raw: string, entry: ReadingGlossaryEntry | undefined): void => {
-    setSelected({ raw, entry });
-    setLookupResult(null);
+  const onWordTap = (raw: string, entry: ReadingGlossaryEntry | undefined, e: React.MouseEvent): void => {
+    setPopover({ raw, entry, x: e.clientX, y: e.clientY });
     if (!entry && lookupWord) {
       lookupWord(raw)
         .then((r) => {
-          if (r?.meaning) setLookupResult({ raw, meaning: r.meaning, phonetic: r.phonetic });
+          if (r?.meaning) {
+            setPopover((prev) => (prev && prev.raw === raw ? { ...prev, entry: r } : prev));
+          }
         })
         .catch(() => undefined);
     }
@@ -109,9 +98,6 @@ export function ReadingIntensiveModal({
     return () => window.removeEventListener('keydown', onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx, sentences.length, onClose]);
-
-  const selectedMeaning = selected?.entry?.meaning ?? (selected && lookupResult?.raw === selected.raw ? lookupResult.meaning : undefined);
-  const selectedPhonetic = selected?.entry?.phonetic ?? (selected && lookupResult?.raw === selected.raw ? lookupResult.phonetic : undefined);
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-slate-950/95 backdrop-blur-sm">
@@ -136,8 +122,14 @@ export function ReadingIntensiveModal({
           </button>
           <button
             onClick={() => setZhOpen((v) => !v)}
+            disabled={!cur.zh}
+            title={cur.zh ? '切换译文' : '本句暂无译文'}
             className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
-              zhOpen ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300' : 'border-slate-700 bg-slate-800/60 text-slate-400'
+              !cur.zh
+                ? 'cursor-not-allowed border-slate-800 bg-slate-900/60 text-slate-600'
+                : zhOpen
+                  ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300'
+                  : 'border-slate-700 bg-slate-800/60 text-slate-400'
             }`}
           >
             译文
@@ -173,7 +165,7 @@ export function ReadingIntensiveModal({
                 const entry = lookupReadingWord(glossaryMap, t.word);
                 const saved = savedWords.has(t.word);
                 const role = clauseRoles[i];
-                const isSelected = selected !== null && normalizeReadingWord(selected.raw) === t.word;
+                const isSelected = popover !== null && normalizeReadingWord(popover.raw) === t.word;
                 const info = role ? clauseRoleInfo(role) : null;
                 let cls = '';
                 if (isSelected) cls = 'rounded-sm bg-cyan-500/25 text-cyan-100';
@@ -184,7 +176,7 @@ export function ReadingIntensiveModal({
                     key={i}
                     aria-label={`查看单词 ${t.text} 释义`}
                     className={`inline cursor-pointer rounded-sm px-px transition hover:bg-slate-700/40 ${cls} ${saved ? 'text-amber-300' : ''}`}
-                    onClick={() => onWordTap(t.text, entry)}
+                    onClick={(e) => onWordTap(t.text, entry, e)}
                   >
                     {t.text}
                   </button>
@@ -292,39 +284,9 @@ export function ReadingIntensiveModal({
         </div>
       </div>
 
-      {/* 底部：词义条 + 导航 */}
+      {/* 底部：导航 */}
       <div className="border-t border-slate-800 bg-slate-950/95 px-4 py-3">
         <div className="mx-auto max-w-2xl">
-          {/* 词义条 */}
-          <div className="mb-3 flex min-h-[44px] items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/80 px-3 py-2">
-            {selected ? (
-              <>
-                <span className="shrink-0 text-base font-bold text-cyan-300">{selected.raw}</span>
-                {selectedPhonetic && <span className="shrink-0 text-xs text-slate-500">{selectedPhonetic}</span>}
-                <span className="min-w-0 flex-1 text-sm text-slate-300">{selectedMeaning ?? '（暂无收录释义）'}</span>
-                <button
-                  onClick={() => getTts().speak(selected.raw, { rate: 0.9 })}
-                  aria-label={`朗读 ${selected.raw}`}
-                  className="shrink-0 rounded-lg border border-slate-600 bg-slate-800/60 px-2.5 py-1 text-xs text-slate-200 transition hover:border-cyan-500/40 hover:text-cyan-300"
-                >
-                  朗读
-                </button>
-                <button
-                  onClick={() => onToggleSave(selected.raw, savedWords.has(normalizeReadingWord(selected.raw)) ? 'remove' : 'save')}
-                  className={`shrink-0 rounded-lg border px-2.5 py-1 text-xs transition ${
-                    savedWords.has(normalizeReadingWord(selected.raw))
-                      ? 'border-amber-500/50 bg-amber-500/10 text-amber-300'
-                      : 'border-slate-600 bg-slate-800/60 text-slate-200 hover:border-amber-500/40 hover:text-amber-300'
-                  }`}
-                >
-                  {savedWords.has(normalizeReadingWord(selected.raw)) ? '已收藏' : '收藏生词'}
-                </button>
-              </>
-            ) : (
-              <span className="text-sm text-slate-500">点击句中单词查看释义</span>
-            )}
-          </div>
-
           {/* 导航 */}
           <div className="grid grid-cols-3 gap-3">
             <button
@@ -357,6 +319,15 @@ export function ReadingIntensiveModal({
           </div>
         </div>
       </div>
+
+      {popover && (
+        <WordPopover
+          state={popover}
+          saved={savedWords.has(normalizeReadingWord(popover.raw))}
+          onToggleSave={onToggleSave}
+          onClose={() => setPopover(null)}
+        />
+      )}
     </div>
   );
 }
