@@ -1,0 +1,161 @@
+{
+  "code": "C",
+  "title": "Text 3",
+  "subtitle": "企业社会责任与贿赂案量刑",
+  "questionsStart": 31,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "\"There is one and only one social responsibility of business,\" wrote Milton Friedman, a Nobel prize-winning economist, \"That is, to use its resources and engage in activities designed to increase its profits.\""
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "But even if you accept Friedman's premise and regard corporate social responsibility (CSR) policies as a waste of shareholders' money, things may not be absolutely clear-cut."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "New research suggests that CSR may create monetary value for companies — at least when they are prosecuted for corruption."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "The largest firms in America and Britain together spend more than $15 billion a year on CSR, according to an estimate by EPG, a consulting firm."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "This could add value to their businesses in three ways."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "First, consumers may take CSR spending as a \"signal\" that a company's products are of high quality."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "Second, customers may be willing to buy a company's products as an indirect way to donate to the good causes it helps."
+    },
+    {
+      "para": 2,
+      "seq": 7,
+      "en": "And third, through a more diffuse \"halo effect,\" whereby its good deeds earn it greater consideration from consumers and others."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "Previous studies on CSR have had trouble differentiating these effects because consumers can be affected by all three."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "A recent study attempts to separate them by looking at bribery prosecutions under America's Foreign Corrupt Practices Act (FCPA)."
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "It argues that since prosecutors do not consume a company's products as part of their investigations, they could be influenced only by the halo effect."
+    },
+    {
+      "para": 4,
+      "seq": 11,
+      "en": "The study found that, among prosecuted firms, those with the most comprehensive CSR programmes tended to get more lenient penalties."
+    },
+    {
+      "para": 4,
+      "seq": 12,
+      "en": "Their analysis ruled out the possibility that it was firms' political influence, rather than their CSR stand, that accounted for the leniency: Companies that contributed more to political campaigns did not receive lower fines."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "In all, the study concludes that whereas prosecutors should only evaluate a case based on its merits, they do seem to be influenced by a company's record in CSR."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "\"We estimate that either eliminating a substantial labour-rights concern, such as child labour, or increasing corporate giving by about 20% results in fines that generally are 40% lower than the typical punishment for bribing foreign officials,\" says one researcher."
+    },
+    {
+      "para": 6,
+      "seq": 15,
+      "en": "Researchers admit that their study does not answer the question of how much businesses ought to spend on CSR."
+    },
+    {
+      "para": 6,
+      "seq": 16,
+      "en": "Nor does it reveal how much companies are banking on the halo effect, rather than the other possible benefits, when they decide their do-gooding policies."
+    },
+    {
+      "para": 6,
+      "seq": 17,
+      "en": "But at least they have demonstrated that when companies get into trouble with the law, evidence of good character can win them a less costly punishment."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 31,
+      "stem": "The author views Milton Friedman’s statement about CSR with ____",
+      "options": {
+        "A": "tolerance.",
+        "B": "skepticism.",
+        "C": "uncertainty.",
+        "D": "approval."
+      },
+      "answer": "B",
+      "analysis": "观点态度题。题干问的是作者对有关CSR方面Milton Friedman的说法是什么态度。根据信号词Milton Friedman这个人定位到首段。注意题干问的是作者的看法，因此定位到第二句but转折处。But后句子的主干为：things may not be absolutely clear-cut，可见作者对Milton Friedman所说的内容并不完全赞同，故选择答案[B]项怀疑。[A]项容忍，[C]项不确定，[D]项赞同，这三项均不是作者的态度，故排除。"
+    },
+    {
+      "seq": 32,
+      "stem": "According to Paragraph 2, CSR helps a company by ____",
+      "options": {
+        "A": "winning trust from consumers.",
+        "B": "guarding it against malpractices.",
+        "C": "protecting it from being defamed.",
+        "D": "raising the quality of its products."
+      },
+      "answer": "A",
+      "analysis": "细节题。根据题干中的出处提示“Paragraph 2”定位到第二段第二句：This could add value to their businesses in three ways. This指的是CSR，根据接下来讲到的三点：第一点是，消费者认为这样的公司产品质量比较高；第二点是，顾客更愿意购买这样公司的产品；第三点是，通过一个更为广泛的“晕轮效应”，消费者会更多地考虑这样的公司的产品。可知，有CSR支出的公司会吸引更多的消费者，[A]项“赢得消费者的信任”，是对整个三点的总结，故为正确答案。[B]项 防止公司里的玩忽职守，[C]项 保护公司免受毁谤，[D]项 提升公司产品的质量，均在原文中未提及，故排除。"
+    },
+    {
+      "seq": 33,
+      "stem": "The expression “more lenient” (Para. 4) is closest in meaning to ____",
+      "options": {
+        "A": "more effective.",
+        "B": "less controversial.",
+        "C": "less severe.",
+        "D": "more lasting."
+      },
+      "answer": "C",
+      "analysis": "猜词题。根据题干中的出处提示“line 2, para. 4”及信号词“more lenient”定位到原文中的第四段第一句：The study found that...penalties。明显此句中more lenient 修饰 penalties(惩罚) ，要想推测出more lenient的含义，需要知道被起诉的公司中，那些有着全面的CSR项目的公司和penalties 之间的联系。本项在第五段的最后一句最容易被看出来，第五段最后一句提到那些在CSR有较大投资的公司，当被起诉有贿赂行为时，所受到的罚金要比通常的罚金低40%左右，可知这样的公司会受到较轻的惩罚，故more lenient是较轻，即较不严重的意思，故选[C]项。[A]项 更有效的，[B]项 较少有争议的，[D]项 更持久的，这三项均不是more lenient的意思，故排除。"
+    },
+    {
+      "seq": 34,
+      "stem": "When prosecutors evaluate a case, a company’s CSR record ____",
+      "options": {
+        "A": "has an impact on their decision.",
+        "B": "comes across as reliable evidence.",
+        "C": "increases the chance of being penalized.",
+        "D": "constitutes part of the investigation."
+      },
+      "answer": "A",
+      "analysis": "细节题。题干问的是 CSR record 与 prosecutors evaluate a case 的关系，根据题干中的信号词prosecutors evaluate a case可回文中定位到第五段第一句：In all...in CSR。这里的be influenced与[A]项 has an impact 对应，即一个公司的CSR会影响检察官对其案件的评估，故选[A]项。[B]项被检察官认为是可靠的证据，[C]项 增加了被惩罚的机会，[D]项 构成了调查的一部分，这三项均在原文中没有提及，故排除。"
+    },
+    {
+      "seq": 35,
+      "stem": "Which of the following is true of CSR, according to the last paragraph?",
+      "options": {
+        "A": "Its negative effects on businesses are often overlooked.",
+        "B": "The necessary amount of companies’ spending on it is unknown.",
+        "C": "Companies’ financial capacity for it has been overestimated.",
+        "D": "It has brought much benefit to the banking industry."
+      },
+      "answer": "B",
+      "analysis": "判断题题干问的是根据最后一段，有关CSR的论述哪个是对的。定位到原文最后一段，根据其内容可知“研究人员承认到其研究没有回答如下问题：公司应该在CSR方面花费多少钱”。[B]项的意思是“公司在CSR方面的花费是未知的”，属于原文的同义替换，故正确。[A]项 CSR对公司的负面影响经常被忽视，[C]项 公司对CSR的经济承担力被过高估计了，[D]项 CSR给银行业带来了很多好处，这三项在文中均为提及，故排除。"
+    }
+  ],
+  "glossary": {}
+}

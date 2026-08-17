@@ -1,0 +1,231 @@
+{
+  "code": "B",
+  "title": "Text 2",
+  "subtitle": "乡村与规划：英国住房危机的另一面",
+  "questionsStart": 26,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "For the first time in history more people live in towns than in the country."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "In Britain this has had a curious result."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "While polls show Britons rate \"the countryside\" alongside the royal family, Shakespeare and the National Health Service (NHS) as what makes them proudest of their country, this has limited political support."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "A century ago Octavia Hill launched the National Trust not to rescue stylish houses but to save \"the beauty of natural places for everyone forever.\""
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "It was specifically to provide city dwellers with spaces for leisure where they could experience \"a refreshing air.\""
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "Hill's pressure later led to the creation of national parks and green belts."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "They don't make countryside any more, and every year concrete consumes more of it."
+    },
+    {
+      "para": 2,
+      "seq": 7,
+      "en": "It needs constant guardianship."
+    },
+    {
+      "para": 3,
+      "seq": 8,
+      "en": "At the next election none of the big parties seem likely to endorse this sentiment."
+    },
+    {
+      "para": 3,
+      "seq": 9,
+      "en": "The Conservatives' planning reform explicitly gives rural development priority over conservation, even authorising \"off-plan\" building where local people might object."
+    },
+    {
+      "para": 3,
+      "seq": 10,
+      "en": "The concept of sustainable development has been defined as profitable."
+    },
+    {
+      "para": 3,
+      "seq": 11,
+      "en": "Labour likewise wants to discontinue local planning where councils oppose development."
+    },
+    {
+      "para": 3,
+      "seq": 12,
+      "en": "The Liberal Democrats are silent."
+    },
+    {
+      "para": 3,
+      "seq": 13,
+      "en": "Only Ukip, sensing its chance, has sided with those pleading for a more considered approach to using green land."
+    },
+    {
+      "para": 3,
+      "seq": 14,
+      "en": "Its Campaign to Protect Rural England struck terror into many local Conservative parties."
+    },
+    {
+      "para": 4,
+      "seq": 15,
+      "en": "The sensible place to build new houses, factories and offices is where people are, in cities and towns where infrastructure is in place."
+    },
+    {
+      "para": 4,
+      "seq": 16,
+      "en": "The London agents Stirling Ackroyd recently identified enough sites for half a million houses in the London area alone, with no intrusion on green belt."
+    },
+    {
+      "para": 4,
+      "seq": 17,
+      "en": "What is true of London is even truer of the provinces."
+    },
+    {
+      "para": 5,
+      "seq": 18,
+      "en": "The idea that \"housing crisis\" equals \"concreted meadows\" is pure lobby talk."
+    },
+    {
+      "para": 5,
+      "seq": 19,
+      "en": "The issue is not the need for more houses but, as always, where to put them."
+    },
+    {
+      "para": 5,
+      "seq": 20,
+      "en": "Under lobby pressure, George Osborne favours rural new-build against urban renovation and renewal."
+    },
+    {
+      "para": 5,
+      "seq": 21,
+      "en": "He favours out-of-town shopping sites against high streets."
+    },
+    {
+      "para": 5,
+      "seq": 22,
+      "en": "This is not a free market but a biased one."
+    },
+    {
+      "para": 5,
+      "seq": 23,
+      "en": "Rural towns and villages have grown and will always grow."
+    },
+    {
+      "para": 5,
+      "seq": 24,
+      "en": "They do so best where building sticks to their edges and respects their character."
+    },
+    {
+      "para": 5,
+      "seq": 25,
+      "en": "We do not ruin urban conservation areas."
+    },
+    {
+      "para": 5,
+      "seq": 26,
+      "en": "Why ruin rural ones?"
+    },
+    {
+      "para": 6,
+      "seq": 27,
+      "en": "Development should be planned, not let rip."
+    },
+    {
+      "para": 6,
+      "seq": 28,
+      "en": "After the Netherlands, Britain is Europe's most crowded country."
+    },
+    {
+      "para": 6,
+      "seq": 29,
+      "en": "Half a century of town and country planning has enabled it to retain an enviable rural coherence, while still permitting low-density urban living."
+    },
+    {
+      "para": 6,
+      "seq": 30,
+      "en": "There is no doubt of the alternative — the corrupted landscapes of southern Portugal, Spain or Ireland."
+    },
+    {
+      "para": 6,
+      "seq": 31,
+      "en": "Avoiding this rather than promoting it should unite the left and right of the political spectrum."
+    }
+  ],
+  "questions": [
+    {
+      "seq": 26,
+      "stem": "Britain’s public sentiment about the countryside ____",
+      "options": {
+        "A": "didn’t start till the Shakespearean age.",
+        "B": "has brought much benefit to the NHS.",
+        "C": "is fully backed by the royal family.",
+        "D": "is not well reflected in politics."
+      },
+      "answer": "D",
+      "analysis": "细节题。根据题干回到原文精确定位到首段最后一句：“然而民意调查显示英国人把乡村与皇室家族、莎士比亚和国家医疗服务体系一起视为使他们为自己国家感到最自豪的事物，这拥有有限的政治支持”，该句中的polls“民意调查“对应题干中的public sentiment，“this has limited political support”对应[D]项“is not well reflected in politics”，意为“在政治上没有得到很好的反响”，是对原文的同义替换。[B]项“给国家医疗服务体系带了了很多益处”，[A]项“直到莎士比亚时期才开始”，[C]项“得到了皇室家族的全力支持”，文章均未提及，属于“无中生有”。"
+    },
+    {
+      "seq": 27,
+      "stem": "According to Paragraph 2, the achievements of the National Trust are now being ____",
+      "options": {
+        "A": "gradually destroyed.",
+        "B": "effectively reinforced.",
+        "C": "largely overshadowed.",
+        "D": "properly protected."
+      },
+      "answer": "C",
+      "analysis": "细节题。根据题干中的the National Trust定位到第二段首句。第二段首句提到这一项目的目的是为每个人永久保存自然地区的美丽。再根据第二段的第三句“Hill的项目创造出国家公园和绿地。他们不再制造乡村了，而且每年钢筋混凝土消耗的乡村越来越多。乡村需要持久的保护”。可知当时的项目取得的成就已经不再发挥影响，[D]项“被大大夺去了光辉（即失去了影响力）”为正确选项。[A]项“被渐渐破坏”，[B]项“被有效地加强了”，[C]项“被合理地保护”，均不符合题意。"
+    },
+    {
+      "seq": 28,
+      "stem": "Which of the following can be inferred from Paragraph 3?",
+      "options": {
+        "A": "Labour is under attack for opposing development.",
+        "B": "The Conservatives may abandon “off-plan” building.",
+        "C": "The Liberal Democrats are losing political influence.",
+        "D": "Ukip may gain from its support for rural conservation."
+      },
+      "answer": "D",
+      "analysis": "推断题。根据题干定位到第三段。第二段提到乡村亟待保护，第三段首句提到在接下来的选举中似乎没有一个大的政党支持这种（公众）情绪。第六七句提到：只有Ukip意识到其机会，支持那些恳求在使用绿地上有更周全的方法的人，它发起的“保护英国乡村”的运动使许多当地的保守党感到恐惧。可见Ukip的做法符合大众情绪，会因此获益。[A]项的“Ukip可能因支持保护乡村而获益”是对原文的同义替换。"
+    },
+    {
+      "seq": 29,
+      "stem": "The author holds that George Osborne’s preference ____",
+      "options": {
+        "A": "highlights his firm stand against lobby pressure.",
+        "B": "shows his disregard for the character of rural areas.",
+        "C": "stresses the necessity of easing the housing crisis.",
+        "D": "reveals a strong prejudice against urban areas."
+      },
+      "answer": "B",
+      "analysis": "细节题。根据关键词George Osborne定位至第五段，第五段第二句提到Osborne支持乡村新建住宅反对城市改造和重建，支持郊区购物场所反对城市商业街。由此可知Osborne的是支持城市保护，反对乡村保护。接下来几句作者表达了自己的观点：这不是一个自由的市场而是一个有偏见的市场。接着提到：乡村的小镇和农村已经得到发展并将继续发展，它们在建筑坚持界线和尊重它们的特点方面做的非常好，我们没有破坏城市受保护的区域，为什么要破坏乡村的呢？可见Osborne的观点只强调城市，忽视了乡村，[B]项“表明他对乡村区域特色的忽视”符合文意，为正确选项。[A]项“揭示出对城市区域的强烈偏见”，Osborne重视城市反对乡村，与文意相悖；[C]项“强调了缓解住房压力的必要性”，[D]项“突出了他反对游说团压力的坚定立场”，文中并未提及，属于“无中生有”。"
+    },
+    {
+      "seq": 30,
+      "stem": "In the last paragraph, the author shows his appreciation of ____",
+      "options": {
+        "A": "the size of population in Britain.",
+        "B": "the political life in today’s Britain.",
+        "C": "the enviable urban lifestyle in Britain.",
+        "D": "the town-and-country planning in Britain."
+      },
+      "answer": "D",
+      "analysis": "细节题。根据题干定位到最后一段第二句：“Half a century of town and country planning has enabled it to retain an enviable rural coherence, while still permitting low-density urban living.”，[C]项的“the town-and-country planning in Britain”是对原文的同义替换，为正确选项。[A]项“英国人口的规模”，[B]项“英国令人羡慕的都市生活方式”，[D]项“当今英国的政治生活”，均不符合题意。"
+    }
+  ],
+  "glossary": {}
+}

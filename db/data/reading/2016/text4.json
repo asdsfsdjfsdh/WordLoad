@@ -1,0 +1,201 @@
+{
+  "code": "D",
+  "title": "Text 4",
+  "subtitle": "《纽约时报》纸质版的去留",
+  "questionsStart": 36,
+  "sentences": [
+    {
+      "para": 1,
+      "seq": 0,
+      "en": "There will eventually come a day when The New York Times ceases to publish stories on newsprint."
+    },
+    {
+      "para": 1,
+      "seq": 1,
+      "en": "Exactly when that day will be is a matter of debate."
+    },
+    {
+      "para": 1,
+      "seq": 2,
+      "en": "\"Sometime in the future,\" the paper's publisher said back in 2010."
+    },
+    {
+      "para": 2,
+      "seq": 3,
+      "en": "Nostalgia for ink on paper and the rustle of pages aside, there's plenty of incentive to ditch print."
+    },
+    {
+      "para": 2,
+      "seq": 4,
+      "en": "The infrastructure required to make a physical newspaper — printing presses, delivery trucks — isn't just expensive; it's excessive at a time when online-only competitors don't have the same set of financial constraints."
+    },
+    {
+      "para": 2,
+      "seq": 5,
+      "en": "Readers are migrating away from print anyway."
+    },
+    {
+      "para": 2,
+      "seq": 6,
+      "en": "And though print ad sales still dwarf their online and mobile counterparts, revenue from print is still declining."
+    },
+    {
+      "para": 3,
+      "seq": 7,
+      "en": "Overhead may be high and circulation lower, but rushing to eliminate its print edition would be a mistake, says BuzzFeed CEO Jonah Peretti."
+    },
+    {
+      "para": 4,
+      "seq": 8,
+      "en": "Peretti says the Times shouldn't waste time getting out of the print business, but only if they go about doing it the right way."
+    },
+    {
+      "para": 4,
+      "seq": 9,
+      "en": "\"Figuring out a way to accelerate that transition would make sense for them,\" he said, \"but if you discontinue it, you're going to have your most loyal customers really upset with you.\""
+    },
+    {
+      "para": 5,
+      "seq": 10,
+      "en": "Sometimes that's worth making a change anyway."
+    },
+    {
+      "para": 5,
+      "seq": 11,
+      "en": "Peretti gives the example of Netflix discontinuing its DVD-mailing service to focus on streaming."
+    },
+    {
+      "para": 5,
+      "seq": 12,
+      "en": "\"It was seen as a blunder,\" he said."
+    },
+    {
+      "para": 5,
+      "seq": 13,
+      "en": "The move turned out to be foresighted."
+    },
+    {
+      "para": 5,
+      "seq": 14,
+      "en": "And if Peretti were in charge at the Times?"
+    },
+    {
+      "para": 5,
+      "seq": 15,
+      "en": "\"I wouldn't pick a year to end print,\" he said."
+    },
+    {
+      "para": 5,
+      "seq": 16,
+      "en": "\"I would raise prices and make it into more of a legacy product.\""
+    },
+    {
+      "para": 6,
+      "seq": 17,
+      "en": "The most loyal customers would still get the product they favor, the idea goes, and they'd feel like they were helping sustain the quality of something they believe in."
+    },
+    {
+      "para": 6,
+      "seq": 18,
+      "en": "\"So if you're overpaying for print, you could feel like you were helping,\" Peretti said."
+    },
+    {
+      "para": 6,
+      "seq": 19,
+      "en": "\"Then increase it at a higher rate each year and essentially try to generate additional revenue.\""
+    },
+    {
+      "para": 6,
+      "seq": 20,
+      "en": "In other words, if you're going to make a print product, make it for the people who are already obsessed with it."
+    },
+    {
+      "para": 6,
+      "seq": 21,
+      "en": "Which may be what the Times is doing already."
+    },
+    {
+      "para": 6,
+      "seq": 22,
+      "en": "Getting the print edition seven days a week costs nearly $500 a year — more than twice as much as a digital-only subscription."
+    },
+    {
+      "para": 7,
+      "seq": 23,
+      "en": "\"It's a really hard thing to do and it's a tremendous luxury that BuzzFeed doesn't have a legacy business,\" Peretti remarked."
+    },
+    {
+      "para": 7,
+      "seq": 24,
+      "en": "\"But we're going to have questions like that where we have things we're doing that don't make sense when the market changes and the world changes."
+    },
+    {
+      "para": 7,
+      "seq": 25,
+      "en": "In those situations, it's better to be more aggressive than less aggressive.\""
+    }
+  ],
+  "questions": [
+    {
+      "seq": 36,
+      "stem": "The New York Times is considering ending its print edition partly due to ____",
+      "options": {
+        "A": "the high cost of operation.",
+        "B": "the pressure from its investors.",
+        "C": "the complaints from its readers.",
+        "D": "the increasing online ad sales."
+      },
+      "answer": "A",
+      "analysis": "细节题。题干问的是《纽约时报》考虑停止纸质版新闻印刷出版的原因是什么。文章首段首句即是此内容的同义表达，第二段解释具体原因，第二句：The infrastructure...isn’t just expensive; it’s excessive at a time when online-only competitors don’t have the same set of financial constraints. 意思是纸质印刷所要求的基础设施不仅仅贵而且多余，因为他们的网络竞争对手没有这样的经济上的限制。[C]项“运行的高成本”是对原文内容的总结，故正确。[A]项 来自于投资者的压力，[B]项 来自于读者的投诉，[D]项 网络广告销售的增长，这三项在文中均未提及，故排除。"
+    },
+    {
+      "seq": 37,
+      "stem": "Peretti suggests that, in face of the present situation, the Times should ____",
+      "options": {
+        "A": "seek new sources of readership.",
+        "B": "end the print edition for good.",
+        "C": "aim for efficient management.",
+        "D": "make strategic adjustments."
+      },
+      "answer": "D",
+      "analysis": "细节题。题干问的是：面对目前的形势，Peretti建议《纽约时报》怎么做。根据信号词Peretti回原文中定位至第四段，首句内容是Peretti说《纽约时报》不该浪费时间去想着如何停止纸质印刷，而应该找到一种正确的方法去解决这件事。接着第二句Peretti说找到一种方式来促进这种转变会对他们来说有用处。可知Peretti认为《纽约时报》应当做出一些改变而非停止纸质版的发行，[A]项“做出策略上的调整”是对原文的同义转述，故正确。[B]项 永远结束纸质版，与原文意思相反，故排除；[C]项 寻求新的读者资源，[D]项 以高效的管理为目标，在原文中未提及，故排除。"
+    },
+    {
+      "seq": 38,
+      "stem": "It can be inferred from Paragraphs 5 and 6 that a “legacy product” ____",
+      "options": {
+        "A": "helps restore the glory of former times.",
+        "B": "is meant for the most loyal customers.",
+        "C": "will have the cost of printing reduced.",
+        "D": "expands the popularity of the paper."
+      },
+      "answer": "B",
+      "analysis": "推断题。 题干意思为：从第五、六段可以推断出“传承产品” 。根据信号词legacy product定位到第五段最后一句：I would raise prices and make it into more of a legacy product.不仅要提高价格还要将它变为一种遗留品。单单这一句不足以做出选择，需要继续往下看在第六段中有没有对于这个词的解释。第六段开头提到了他认为大部分忠实的消费者依旧会坚持购买他们喜欢的产品，而且他们会认为是在帮助维持他们所信任的产品的质量。可见Peretti认为忠实的购买者不会有改变，如果可以每年增加一些比例，那么依旧是可以创收的。紧接着出现了in other worlds(换句话说)，如果我们要做这些print product(印刷产品)，那就为那些已经痴迷于他们的人而做吧。[B]项“是为多数忠实的顾客设计的”，是对原文内容的同义替换，为正确答案。[A]项 会降低印刷成本，[C]项 重建以往的荣耀，[D]项 扩大报纸的受欢迎程度，这三项均在文中未提及，故排除。"
+    },
+    {
+      "seq": 39,
+      "stem": "Peretti believes that, in a changing world, ____",
+      "options": {
+        "A": "legacy businesses are becoming outdated.",
+        "B": "cautiousness facilitates problem-solving.",
+        "C": "aggressiveness better meets challenges.",
+        "D": "traditional luxuries can stay unaffected."
+      },
+      "answer": "C",
+      "analysis": "细节题。 题干以为：Peretti认为，在一个变化的世界里 。根据信号词Peretti和changing world可回文中定位到文章最后一段，由最后一段可知Peretti认为在市场在变化、世界在变化的情况中，更有进取心是更好的。[B]项“进取精神可以更好地迎接挑战”，本项是对原文的同义转述，故正确。[A]项 传统的奢侈品不会受到影响，在文中未提及，故排除；[C]项 谨慎小心促进问题的解决，与原文意思相反，故排除；[D]项 传统产业正在变得过时，在文中未提及，故排除。"
+    },
+    {
+      "seq": 40,
+      "stem": "Which of the following would be the best title of the text?",
+      "options": {
+        "A": "Shift to Online Newspapers All at Once.",
+        "B": "Cherish the Newspaper Still in Your Hand.",
+        "C": "Make Your Print Newspaper a Luxury Good.",
+        "D": "Keep Your Newspapers Forever in Fashion."
+      },
+      "answer": "C",
+      "analysis": "主旨题。 全文由《纽约时报》纸质版终有一天会面临倒闭的危机引出话题，重点阐述Peretti对此问题的看法：《纽约时报》纸质版应该考虑转型——为大部分忠实的顾客提供遗留品。后面接着阐述了如何将《纽约时报》做成这种专为忠实的顾客制作的高价遗留品。[A]项“将你的印刷报纸做成一个奢侈品”，a luxury good是对原文中提到的高价“legacy product”的同义转述，故正确。B.始终保持你的报纸时尚前沿，[C]项 珍惜你手中仍然拥有的报纸，[D]项 立刻转向网络在线报纸，均不是本文要的主旨，故排除。"
+    }
+  ],
+  "glossary": {}
+}
