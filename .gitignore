@@ -23,6 +23,9 @@ db/data/*.json
 db/data/*.sql
 !db/data/.gitkeep
 !db/data/README.md
+# 阅读结构标注管线中间产物（不入库）
+db/data/reading/*.anno-*.json
+db/data/reading/*-export.json
 
 # logs / os
 *.log
