@@ -571,6 +571,7 @@ export interface LeaderboardEntry {
   // unit Run：该纪录局是否通关（未通关按已掌握词数降序补位）
   cleared: boolean;
   masteredCount?: number;    // unit：该纪录局结束时已掌握词数
+  accuracy?: number;         // unit：该纪录局作答正确率（效率排序用）
   isMe: boolean;
 }
 
@@ -579,5 +580,5 @@ export interface StageLeaderboard {
   stageId: number;
   totalPlayers: number;
   entries: LeaderboardEntry[];
-  me: { rank: number; days: number; bossClearedCount: number; cleared: boolean; masteredCount?: number } | null;
+  me: { rank: number; days: number; bossClearedCount: number; cleared: boolean; masteredCount?: number; accuracy?: number } | null;
 }

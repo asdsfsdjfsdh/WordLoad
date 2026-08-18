@@ -320,9 +320,11 @@ export class BanksService {
 
     const progress = await this.prisma.userWordProgress.findMany({
       where: { userId, wordId: { in: levelWords.map((bw) => bw.wordId) } },
-      select: { wordId: true, mastery: true },
+      select: { wordId: true, mastery: true, correctCount: true },
     });
     const wordMastery = new Map(progress.map((p) => [p.wordId, p.mastery]));
+    // O6 口径统一：Run HUD 的"已会"= 历史答对过（correctCount≥1），LevelMap 同口径，避免双轨脱节
+    const wordKnown = new Map(progress.map((p) => [p.wordId, (p.correctCount ?? 0) >= 1]));
 
     // 通关状态：unit Run 击破 Final Boss 即通关（替代旧 LearningSession 评级判定）
     const clearedRuns = await this.prisma.run.findMany({
@@ -353,8 +355,8 @@ export class BanksService {
     return levelIds.map((stageId, i) => {
       const entry = byLevel.get(stageId)!;
       const encountered = entry.words.filter((wid) => wordMastery.has(wid)).length;
-      const mastered = entry.words.filter((wid) => (wordMastery.get(wid) ?? 0) >= 100).length;
-      // 进度 = 已掌握词占比（与"全词掌握 → Final Boss"通关语义一致）
+      const mastered = entry.words.filter((wid) => wordKnown.get(wid) ?? false).length;
+      // 进度 = 已会词占比（"全词会了 → Final Boss"通关语义一致）
       const progressPct = entry.total > 0 ? Math.round((mastered / entry.total) * 100) : 0;
       const cleared = clearedLevelIds.has(stageId);
 
@@ -403,14 +405,15 @@ export class BanksService {
       select: { id: true, userId: true, day: true, bossClearedCount: true, cleared: true, createdAt: true },
     });
 
-    // unit：每局结束时已掌握词数（结算口径：该局出题词中 mastery≥100 的去重个数）
+    // unit：每局结束时已掌握词数（结算口径：该局出题词中 mastery≥100 的去重个数）+ 作答正确率（效率排序用）
     let masteredByRun = new Map<number, number>();
+    let accuracyByRun = new Map<number, number>();
     if (unitMode && runs.length > 0) {
       const runIds = runs.map((r) => r.id);
       const userIdOfRun = new Map(runs.map((r) => [r.id, r.userId]));
       const items = await this.prisma.runItem.findMany({
         where: { runId: { in: runIds } },
-        select: { runId: true, wordId: true },
+        select: { runId: true, wordId: true, correct: true },
       });
       const wordIds = [...new Set(items.map((i) => i.wordId))];
       const progress = wordIds.length
@@ -421,9 +424,20 @@ export class BanksService {
         : [];
       const mastered = new Set(progress.filter((p) => p.mastery >= 100).map((p) => `${p.userId}:${p.wordId}`));
       const countByRun = new Map<number, number>();
+      const accByRun = new Map<number, { ok: number; total: number }>();
       const seen = new Set<string>();
       for (const it of items) {
         const key = `${it.runId}:${it.wordId}`;
+        if (it.correct === true) {
+          const a = accByRun.get(it.runId) ?? { ok: 0, total: 0 };
+          a.ok++;
+          accByRun.set(it.runId, a);
+        }
+        if (it.correct !== null) {
+          const a = accByRun.get(it.runId) ?? { ok: 0, total: 0 };
+          a.total++;
+          accByRun.set(it.runId, a);
+        }
         if (seen.has(key)) continue;
         seen.add(key);
         const uid = userIdOfRun.get(it.runId);
@@ -432,6 +446,9 @@ export class BanksService {
         }
       }
       masteredByRun = countByRun;
+      for (const [rid, a] of accByRun) {
+        if (a.total > 0) accuracyByRun.set(rid, Math.round((a.ok / a.total) * 1000) / 1000);
+      }
     }
 
     const userIds = [...new Set(runs.map((r) => r.userId))];
@@ -446,6 +463,7 @@ export class BanksService {
       bossClearedCount: r.bossClearedCount,
       cleared: r.cleared,
       masteredCount: masteredByRun.get(r.id) ?? 0,
+      accuracy: accuracyByRun.get(r.id),
       createdAt: r.createdAt,
     }));
     const { entries, me, totalPlayers } = buildLeaderboard(leaderRuns, usernames, userId, 10, unitMode);
@@ -460,6 +478,7 @@ interface LeaderRun {
   bossClearedCount: number;
   cleared: boolean;
   masteredCount: number;
+  accuracy?: number;
   createdAt: Date;
 }
 
@@ -471,12 +490,15 @@ export function buildLeaderboard(
   top = 10,
   unitMode = false,
 ): { entries: LeaderboardEntry[]; me: StageLeaderboard['me']; totalPlayers: number } {
-  // 两局优劣比较：unit = 通关者优先、通关天数少者优；未通关按已掌握词数降序；
+  // 两局优劣比较：unit = 通关者优先、通关天数少者优、同天数正确率（效率）高者优；未通关按已掌握词数降序；
   // survival = 天数降序、首领数更多、更早达成
   const better = (a: LeaderRun, b: LeaderRun): boolean => {
     if (unitMode) {
       if (a.cleared !== b.cleared) return a.cleared;
-      if (a.cleared) return a.day < b.day;
+      if (a.cleared) {
+        if (a.day !== b.day) return a.day < b.day;
+        return (a.accuracy ?? 0) > (b.accuracy ?? 0);
+      }
       if (a.masteredCount !== b.masteredCount) return a.masteredCount > b.masteredCount;
       return a.createdAt.getTime() < b.createdAt.getTime();
     }
@@ -496,7 +518,7 @@ export function buildLeaderboard(
     if (unitMode) {
       if (a.cleared !== b.cleared) return a.cleared ? -1 : 1;
       if (a.cleared) {
-        return a.day - b.day || b.bossClearedCount - a.bossClearedCount || a.createdAt.getTime() - b.createdAt.getTime();
+        return a.day - b.day || (b.accuracy ?? 0) - (a.accuracy ?? 0) || a.createdAt.getTime() - b.createdAt.getTime();
       }
       return b.masteredCount - a.masteredCount || b.day - a.day || a.createdAt.getTime() - b.createdAt.getTime();
     }
@@ -511,6 +533,7 @@ export function buildLeaderboard(
     bossClearedCount: r.bossClearedCount,
     cleared: r.cleared,
     masteredCount: unitMode ? r.masteredCount : undefined,
+    accuracy: unitMode ? r.accuracy : undefined,
     isMe: r.userId === selfUserId,
   }));
 
@@ -522,6 +545,7 @@ export function buildLeaderboard(
         bossClearedCount: my.bossClearedCount,
         cleared: my.cleared,
         masteredCount: unitMode ? my.masteredCount : undefined,
+        accuracy: unitMode ? my.accuracy : undefined,
       }
     : null;
 

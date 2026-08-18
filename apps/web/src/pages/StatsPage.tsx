@@ -43,7 +43,7 @@ export function StatsPage() {
   const isLoading = overviewQ.isLoading || trendQ.isLoading || heatmapQ.isLoading;
   const isError = overviewQ.isError || trendQ.isError || heatmapQ.isError;
   const s = overviewQ.data;
-  const fresh = s && s.totalSessions === 0 && s.totalRuns === 0;
+  const fresh = s && s.totalSessions === 0 && s.totalRuns === 0 && s.totalUnitRuns === 0;
 
   return (
     <div className="min-h-screen bg-slate-950">
@@ -154,6 +154,26 @@ export function StatsPage() {
                   { label: '击破 Boss', value: s.totalBossCleared, cls: 'text-red-400' },
                 ].map((c) => (
                   <div key={c.label} className="rounded-lg border border-amber-500/20 bg-amber-500/5 py-2">
+                    <div className="text-base font-bold tabular-nums">{c.value}</div>
+                    <div className={`mt-0.5 text-[10px] ${c.cls}`}>{c.label}</div>
+                  </div>
+                ))}
+              </div>
+            </Panel>
+
+            {/* Unit 闯关卡 */}
+            <Panel>
+              <div className="mb-2 flex items-center justify-between">
+                <span className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-emerald-400">
+                  🗺️ Unit 闯关
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-1.5 text-center">
+                {[
+                  { label: '累计闯关', value: s.totalUnitRuns, cls: 'text-slate-100' },
+                  { label: '通关 Unit', value: s.unitCleared > 0 ? `${s.unitCleared} 个` : '—', cls: 'text-emerald-400' },
+                ].map((c) => (
+                  <div key={c.label} className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 py-2">
                     <div className="text-base font-bold tabular-nums">{c.value}</div>
                     <div className={`mt-0.5 text-[10px] ${c.cls}`}>{c.label}</div>
                   </div>

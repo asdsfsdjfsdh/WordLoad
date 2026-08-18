@@ -37,6 +37,9 @@ export interface StatsOverview {
   bestRunDays: number;      // 历史最高生存天数
   totalBossCleared: number; // 累计击破 Boss 次数
   activeRunCount: number;   // 进行中的 Run（0/1）
+  // Unit 闯关（红宝书肉鸽）
+  totalUnitRuns: number;    // 累计结束的 Unit Run 场数
+  unitCleared: number;      // 累计通关的 Unit 数
 }
 
 export interface StatsTrendPoint {

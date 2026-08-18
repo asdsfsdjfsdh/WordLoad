@@ -26,7 +26,7 @@ export class StatsService {
       }),
       this.prisma.run.findMany({
         where: { userId, status: 'finished' },
-        select: { day: true, bossClearedCount: true },
+        select: { day: true, bossClearedCount: true, kind: true, cleared: true },
       }),
       this.prisma.run.count({ where: { userId, status: 'active' } }),
     ]);
@@ -96,7 +96,13 @@ export class StatsService {
       longestStreak: longest,
       ratingCounts,
       tierStats,
-      ...aggregateRuns(runs, activeRuns),
+      // survival 与 unit 分口径聚合，避免互相污染
+      ...aggregateRuns(
+        runs.filter((r) => r.kind !== 'unit'),
+        activeRuns,
+      ),
+      totalUnitRuns: runs.filter((r) => r.kind === 'unit').length,
+      unitCleared: runs.filter((r) => r.kind === 'unit' && r.cleared).length,
     };
   }
 
