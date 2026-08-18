@@ -45,7 +45,7 @@ import { cleanRateOf, computePoolStages, questionsPerDayFor, shouldExpand } from
 import { pickBuffs, pickLegends } from './buff-picker';
 import { computeRewards, isRecordBroken } from './rewards';
 import { finalBossHp } from './unit-boss';
-import { isFirstClear, isPreKnown, isUnitDone, needsRetest, pickNewWords, unitProgressOf as unitProgressOfFn, type UnitWordState } from './unit-clear';
+import { isFirstClear, isPreKnown, needsRetest, pickNewWords, unitProgressOf as unitProgressOfFn, weakTierOf, type UnitWordState } from './unit-clear';
 import {
   MASTER_STAGE,
   appendStageHistory,
@@ -521,9 +521,9 @@ export class RunsService {
           ? buildFoilPool(await this.stagePoolMany(run.bankId, runStages))
           : undefined,
       bossWave: isBossWave,
-      bossHp: isBossWave
-        ? (run.kind === 'unit' && run.finalBossHp != null ? run.finalBossHp : pending.length)
-        : undefined, // unit Final Boss 以服务端随机血量为准；其余与回放口径一致（实际题数）
+      // 首领波血量 = 本波实际题数（pending 即剩余血量：buildBossWave 按剩余血量补题）。
+      // 不能用 run.finalBossHp——补题波重连时会把 Boss 血回满（与 advance 重放口径一致，见下方注释）
+      bossHp: isBossWave ? pending.length : undefined,
       buffChoices: pendingPick.buffs.length > 0 ? pendingPick.buffs : undefined,
       legendChoices: pendingPick.legends.length > 0 ? pendingPick.legends : undefined,
       ended: false,
@@ -572,8 +572,6 @@ export class RunsService {
     if (!character) throw new BadRequestException('角色未初始化');
     const atkLv = character.atkLv;
     const isUnit = run.kind === 'unit';
-    // unit Final Boss 血量（服务端 roll 并落库，回放口径与题目数一致）
-    const unitBossHp = isUnit && run.finalBossHp != null ? run.finalBossHp : undefined;
 
     // 应用玩家选择的 buff / 传说技能（仅允许上一波持久化的候选集；非法/过期选择忽略，防注入）
     const pendingPick = readPendingPick(run.extra);
@@ -631,7 +629,7 @@ export class RunsService {
             len: wordRows.get(it.wordId)?.text.length ?? 4,
           })),
           bossWave: answered.every((i) => i.type === 'boss'),
-          bossHp: answered.every((i) => i.type === 'boss') ? (unitBossHp ?? answered.length) : undefined,
+          bossHp: answered.every((i) => i.type === 'boss') ? answered.length : undefined,
           initialCombo,
         });
         for (const it of answered) sim.step(it.correct === true);
@@ -675,6 +673,7 @@ export class RunsService {
           correct: resolveCorrect(i),
         })),
         tx,
+        run.mode === 'dictation',
       );
 
       const isBossWave = pending.every((i) => i.type === 'boss');
@@ -702,8 +701,9 @@ export class RunsService {
           len: wordRows.get(it.wordId)?.text.length ?? 4,
         })),
         bossWave: isBossWave,
-        // 首领波：unit 用服务端随机血量；其余收敛到实际题数，词池不足时仍可击破（避免必败波）
-        bossHp: isBossWave ? (unitBossHp ?? pending.length) : undefined,
+        // 首领波血量：每波题数即本波应打血量（buildBossWave 按剩余血量补题；词池不足收敛到实际题数）。
+        // 不能以 run.finalBossHp（完整血量）重放——未击破续战时会把 Boss 血回满，导致永远打不死。
+        bossHp: isBossWave ? pending.length : undefined,
         initialCombo,
       });
       for (const it of pending) sim.step(resolveCorrect(it));
@@ -936,14 +936,15 @@ export class RunsService {
         return items ? memoryOf(items) : emptyMemory();
       };
 
-      // 分层：错词（未恢复）→ 新词（未出场且非预会）→ 复习（已会，仅填空）
+      // 分层：错词（本局未恢复 或 全局错题本）→ 新词（未出场且非预会）→ 复习（已会，仅填空）
       const wrongCands: ReviewCandidate[] = [];
       const newCands: { wordId: string; word: WordRow }[] = [];
       const reviewCands: ReviewCandidate[] = [];
       for (const w of pool) {
         const s = stateByWord.get(w.wordId);
         if (!s || s.skipped) continue;
-        if (isPreKnown(s)) continue; // 预会（重开继承）：不出题
+        // 预会（重开继承）且无需重测 → 直接算完成、不出题
+        if (isPreKnown(s) && !needsRetest(s)) continue;
         if (needsRetest(s)) {
           wrongCands.push({ wordId: w.wordId, memory: memOf(w.wordId), preMastery: s.preMastery / 100 });
         } else if (!s.served) {
@@ -953,11 +954,24 @@ export class RunsService {
         }
       }
 
-      // 错词全量优先（超 20 时按遗忘紧迫度取 20）→ 新词填空 → 复习补位
+      // 错词全量优先（超 20 时按遗忘紧迫度取 20）→ 新词（O3 难度混合 + C4 弱项 tier 提前）→ 复习补位
       const wrongNeed = Math.min(questionsPerDay, wrongCands.length);
       const wrongPicked = pickReviewWords({ candidates: wrongCands, need: wrongNeed, maxSeq, rng: Math.random });
-      const newNeed = Math.min(questionsPerDay - wrongPicked.length, newCands.length);
-      const newPicked = newCands.slice(0, newNeed);
+      // O5 弱玩家保护：近期正确率过低 → 收紧新词量（多复习少新词）
+      const newBudget = acc < UNIT_BOSS.ACC_LOW ? UNIT_BOSS.NEW_CAP_LOW : questionsPerDay;
+      const newNeed = Math.min(questionsPerDay - wrongPicked.length, newCands.length, newBudget);
+      const tierOfWord = (wid: string): DifficultyTier | undefined => {
+        const t = poolById.get(wid)?.word.tier as DifficultyTier | undefined;
+        return t && ['I', 'II', 'III', 'IV'].includes(t) ? t : undefined;
+      };
+      const weakTier = weakTierOf(states, tierOfWord);
+      const newPicked = pickNewWords(
+        newCands.map((w) => ({ wordId: w.wordId, tier: tierOfWord(w.wordId) ?? 'I' })),
+        newNeed,
+        weakTier,
+      )
+        .map((c) => poolById.get(c.wordId))
+        .filter((w): w is { wordId: string; word: WordRow } => !!w);
       const reviewNeed = Math.max(0, questionsPerDay - wrongPicked.length - newPicked.length);
       const reviewPicked = pickReviewWords({ candidates: reviewCands, need: reviewNeed, maxSeq, rng: Math.random });
 
@@ -1375,6 +1389,7 @@ export class RunsService {
     runId: number,
     items: { wordId: string; senseIdx: number; correct: boolean }[],
     tx: Prisma.TransactionClient,
+    dictation?: boolean,
   ): Promise<void> {
     if (items.length === 0) return;
 
@@ -1398,6 +1413,8 @@ export class RunsService {
         : { inWrongBook: false, wrongStreak: 0 };
       for (const it of list) {
         srs = srsSchedule(srs, it.correct);
+        // 听写精通：dictation 答对额外 +1 档（更快掌握，更高阶挑战的回报）
+        if (dictation && it.correct) srs = srsSchedule(srs, true);
         const next = applyWrongbookState(wb, [{ correct: it.correct }]);
         wb.inWrongBook = next.inWrongBook;
         wb.wrongStreak = next.wrongStreak;
@@ -1464,7 +1481,11 @@ export class RunsService {
         where: { userId_wordId_senseIdx: { userId, wordId: wordId!, senseIdx } },
       });
       let srs = cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null;
-      for (const it of list) srs = srsSchedule(srs, it.correct);
+      for (const it of list) {
+        srs = srsSchedule(srs, it.correct);
+        // 听写精通：与词级同口径，dictation 答对额外 +1 档
+        if (dictation && it.correct) srs = srsSchedule(srs, true);
+      }
       const s = srs ?? { reviewStage: 0, ease: 2.5 };
       const now = Date.now();
       const next = s.reviewStage > 0 ? new Date(now + intervalDays(s.reviewStage) * 86400000) : null;
@@ -1533,7 +1554,7 @@ export class RunsService {
   // ── 内部：统一结算 ──
   private async settle(
     userId: number,
-    run: { id: number; hp: number; day: number; stageId: number; kind?: string; cleared?: boolean; bossClearedCount?: number; maxCombo?: number; playSeconds?: number | null },
+    run: { id: number; hp: number; day: number; stageId: number; kind?: string; mode?: string; cleared?: boolean; bossClearedCount?: number; maxCombo?: number; playSeconds?: number | null },
     surrender: boolean,
     tx?: Prisma.TransactionClient,
   ): Promise<RunFinish> {
@@ -1607,6 +1628,8 @@ export class RunsService {
       perfect: acc === 1,
     });
     const xp = rewards.xp;
+    // 听写精通：更高阶模式 xp ×1.5
+    const xpFinal = run.mode === 'dictation' ? Math.round(xp * 1.5) : xp;
     let coins = rewards.coins;
     // unit 首通一次性加成（幂等：仅首个通关结算触发）
     if (unitFirstClear) coins += UNIT_BOSS.FIRST_CLEAR_COINS;
@@ -1636,7 +1659,7 @@ export class RunsService {
 
       await t.userCharacter.update({
         where: { userId },
-        data: { exp: { increment: xp } },
+        data: { exp: { increment: xpFinal } },
       });
       // 等级随经验重算写回（否则 level 恒 1，强化上限 level+4 永不增长）
       const charAfter = await t.userCharacter.findUnique({ where: { userId } });

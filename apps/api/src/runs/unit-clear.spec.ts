@@ -6,6 +6,7 @@ import {
   pickNewWords,
   requiredStreak,
   unitProgressOf,
+  weakTierOf,
   type UnitWordState,
 } from './unit-clear';
 
@@ -137,6 +138,35 @@ describe('pickNewWords（难度混合 + 弱项 tier 提前）', () => {
   it('候选不足时返回全部', () => {
     const picked = pickNewWords([{ wordId: 'a', tier: 'I' as const }], 5, null);
     expect(picked).toHaveLength(1);
+  });
+});
+
+describe('weakTierOf（弱项 tier）', () => {
+  const tierOf = new Map([
+    ['a', 'I'],
+    ['b', 'II'],
+    ['c', 'III'],
+    ['d', 'IV'],
+  ]);
+  const fn = (id: string) => tierOf.get(id) as 'I' | 'II' | 'III' | 'IV' | undefined;
+
+  it('错词最多的档为弱项', () => {
+    const states = [
+      st({ wordId: 'a', wrongCount: 1, streak: 0 }),
+      st({ wordId: 'b', wrongCount: 1, streak: 0 }),
+      st({ wordId: 'c', wrongCount: 1, streak: 0 }),
+      st({ wordId: 'd', wrongCount: 1, streak: 0 }),
+    ];
+    expect(weakTierOf(states, fn)).toBe('I'); // a/b 两词均 I 档
+  });
+
+  it('无错词 → null', () => {
+    expect(weakTierOf([st({ wordId: 'a' }), st({ wordId: 'd' })], fn)).toBeNull();
+  });
+
+  it('已斩词不参与', () => {
+    const states = [st({ wordId: 'a', skipped: true, wrongCount: 1, streak: 0 })];
+    expect(weakTierOf(states, fn)).toBeNull();
   });
 });
 

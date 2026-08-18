@@ -658,6 +658,35 @@ describe('RunsService', () => {
       expect(data[0]!.seq).toBe(9004);
       expect(data[0]!.type).toBe('boss');
     });
+
+    it('unit Final Boss 补题波重放：按剩余血量（题数）而非完整 finalBossHp 判定击破（回归：Boss 重复复活）', async () => {
+      // 场景 = Run 52：finalBossHp=9，第一波 8 对 1 错 → Boss 剩 1 HP → 补 1 题。
+      // 本波提交这 1 题且答对 → 应判定击破通关（cleared=true）。
+      // 旧 bug：重放 bossHp 取 run.finalBossHp(9) → 1 对只打掉 1 血 → 未击破 → 继续补题 → 永远打不死。
+      const items = [{
+        id: 1, seq: 9004, wordId: 'a', senseIdx: 0,
+        type: 'boss', answered: false,
+      }];
+      const run = {
+        id: 1, userId: 1, bankId: 10, stageId: 1, mode: 'zh2en', kind: 'unit',
+        day: 3, hp: 20, maxHp: 22, buffs: [], lastInjectDay: 1, surrendered: false,
+        recordBroken: false, extra: {}, status: 'active', createdAt: new Date(),
+        finalBossHp: 9, cleared: false, bossClearedCount: 0, everBoss: true, lastBossDay: 3, lastBossConsumed: 0,
+      };
+      (prisma.run.findFirst as jest.Mock).mockResolvedValue(run);
+      (prisma.runItem.findMany as jest.Mock).mockResolvedValue(items);
+      const answers = items.map((it) => ({ seq: it.seq, correct: true, elapsedMs: 5000, typed: it.wordId }));
+      (prisma.runItem.update as jest.Mock).mockResolvedValue({});
+      mockAdvanceTx(run, items);
+
+      const r = await svc.advance(1, 1, { answers, expectedDay: 3 });
+      // 1 HP 被打完 → 击破 → unit 通关终局
+      expect(r.bossCleared).toBe(true);
+      expect(r.cleared).toBe(true);
+      expect(r.ended).toBe(true);
+      expect(r.bossHp).toBeUndefined();
+      expect(r.questions).toHaveLength(0);
+    });
   });
 
   describe('finish 收枪', () => {

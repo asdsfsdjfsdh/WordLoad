@@ -109,6 +109,23 @@ export function pickNewWords(
   return picked;
 }
 
+// C4 弱项 tier：本局需要重测（错词）的词中，出现最多的难度档（个性化难度信号）
+export function weakTierOf(
+  states: UnitWordState[],
+  tierOf: (wordId: string) => DifficultyTier | undefined,
+): DifficultyTier | null {
+  const counts = new Map<DifficultyTier, number>();
+  let best: DifficultyTier | null = null;
+  for (const s of states) {
+    if (s.skipped || !needsRetest(s)) continue;
+    const t = tierOf(s.wordId);
+    if (!t) continue;
+    counts.set(t, (counts.get(t) ?? 0) + 1);
+    if (best === null || (counts.get(t) ?? 0) > (counts.get(best) ?? 0)) best = t;
+  }
+  return best;
+}
+
 // 首通判定：此前无通关记录 → 结算给一次性加成
 export function isFirstClear(hasPriorClear: boolean): boolean {
   return !hasPriorClear;
