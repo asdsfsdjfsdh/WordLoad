@@ -1,0 +1,2162 @@
+﻿[
+    {
+        "year":  2020,
+        "code":  "A",
+        "title":  "Text 1",
+        "content":  "A group of Labour MPs, among them Yvette Cooper, are bringing in the new year with a call to institute a UK “town of culture” award. The proposal is that it should sit alongside the existing city of culture title, which was held by Hull in 2017, and has been awarded to Coventry for 2021. Cooper and her colleagues argue that the success of the crown for Hull, where it brought in £220m of investment and an avalanche of arts, ought not to be confined to cities. Britain’s towns, it is true, are not prevented from applying, but they generally lack the resources to put together a bid to beat their bigger competitors. A town of culture award could, it is argued, become an annual event, attracting funding and creating jobs.\n\nSome might see the proposal as a booby prize for the fact that Britain is no longer able to apply for the much more prestigious title of European capital of culture, a sought- after award bagged by Glasgow in 1990 and Liverpool in 2008. A cynic might speculate that the UK is on the verge of disappearing into an endless fever of self-celebration in its desperation to reinvent itself for the post-Brexit world: after town of culture, who knows what will follow — village of culture? Suburb of culture? Hamlet of culture?\n\nIt is also wise to recall that such titles are not a cure-all. A badly run “year of culture” washes in and out of a place like the tide, bringing prominence for a spell but leaving no lasting benefits to the community. The really successful holders of such titles are those that do a great deal more than fill hotel bedrooms and bring in high-profile arts events and good press for a year. They transform the aspirations of the people who live there; they nudge the self-image of the city into a bolder and more optimistic light.\n\nIt is hard to get right, and requires a remarkable degree of vision, as well as cooperation between city authorities, the private sector, community groups and cultural organisations. But it can be done: Glasgow’s year as European capital of culture can certainly be seen as one of a complex series of factors that have turned the city into the powerhouse of art, music and theatre that it remains today.\n\nA “town of culture” could be not just about the arts but about honouring a town’s peculiarities — helping sustain its high street, supporting local facilities and above all celebrating its people.\n\nJeremy Wright, the culture secretary, should welcome this positive hope-filled proposal, and turn it into action.",
+        "sentences":  [
+                          {
+                              "key":  "2020:A:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "A group of Labour MPs, among them Yvette Cooper, are bringing in the new year with a call to institute a UK “town of culture” award.",
+                              "zh":  "一群工党议员（其中包括伊薇特·库珀）在新年之际呼吁设立英国“文化小镇”奖。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A group of Labour MPs, among them Yvette Cooper, are bringing in the new year"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "among them Yvette Cooper,"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "with a call to institute a UK “town of culture” award"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to institute a UK “town of culture” award"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A group of Labour MPs",
+                                                             "predicate":  "are bringing in",
+                                                             "object":  "the new year"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "The proposal is that it should sit alongside the existing city of culture title, which was held by Hull in 2017, and has been awarded to Coventry for 2021.",
+                              "zh":  "这项提议是，该奖项应与现有的“文化城市”称号并列，“文化城市”称号2017年由赫尔获得，2021年的称号已授予考文垂。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The proposal is"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that it should sit alongside the existing city of culture title,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which was held by Hull in 2017,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and has been awarded to Coventry for 2021"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The proposal",
+                                                             "predicate":  "is",
+                                                             "object":  "that it should sit alongside the existing city of culture title"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:2",
+                              "seq":  2,
+                              "para":  1,
+                              "en":  "Cooper and her colleagues argue that the success of the crown for Hull, where it brought in £220m of investment and an avalanche of arts, ought not to be confined to cities.",
+                              "zh":  "库珀及其同事们认为，“文化城市”称号为赫尔带来了2.2亿英镑的投资和大量的艺术活动，这样的成功不应局限于城市。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Cooper and her colleagues argue"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the success of the crown for Hull, where it brought in £220m of investment and an avalanche of arts, ought not to be confined to cities"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "where it brought in £220m of investment and an avalanche of arts,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Cooper and her colleagues",
+                                                             "predicate":  "argue",
+                                                             "object":  "that the success of the crown for Hull ought not to be confined to cities"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:3",
+                              "seq":  3,
+                              "para":  1,
+                              "en":  "Britain’s towns, it is true, are not prevented from applying, but they generally lack the resources to put together a bid to beat their bigger competitors.",
+                              "zh":  "诚然，英国的小镇并没有被禁止申请，但它们通常缺乏足够的资源来提交一份能够击败更大竞争对手的申请。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Britain’s towns, it is true, are not prevented from applying,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but they generally lack the resources to put together a bid to beat their bigger competitors"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to put together a bid to beat their bigger competitors"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Britain’s towns",
+                                                             "predicate":  "are not prevented from applying"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:4",
+                              "seq":  4,
+                              "para":  1,
+                              "en":  "A town of culture award could, it is argued, become an annual event, attracting funding and creating jobs.",
+                              "zh":  "有人认为，“文化小镇”奖可以成为一年一度的盛事，吸引资金并创造就业机会。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A town of culture award could, it is argued, become an annual event,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "attracting funding and creating jobs"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A town of culture award",
+                                                             "predicate":  "could become",
+                                                             "object":  "an annual event"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "Some might see the proposal as a booby prize for the fact that Britain is no longer able to apply for the much more prestigious title of European capital of culture, a sought- after award bagged by Glasgow in 1990 and Liverpool in 2008.",
+                              "zh":  "有些人可能会把这个提议看作是一种安慰奖，因为英国已不能再申请更负盛名的“欧洲文化之都”称号，这一奖项广受追捧，格拉斯哥于1990年、利物浦于2008年曾获此殊荣。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Some might see the proposal as a booby prize"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "for the fact that Britain is no longer able to apply for the much more prestigious title of European capital of culture,"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that Britain is no longer able to apply for the much more prestigious title of European capital of culture,"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "a sought- after award bagged by Glasgow in 1990 and Liverpool in 2008"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "bagged by Glasgow in 1990 and Liverpool in 2008"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Some",
+                                                             "predicate":  "might see",
+                                                             "object":  "the proposal"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:6",
+                              "seq":  6,
+                              "para":  2,
+                              "en":  "A cynic might speculate that the UK is on the verge of disappearing into an endless fever of self-celebration in its desperation to reinvent itself for the post-Brexit world: after town of culture, who knows what will follow — village of culture?",
+                              "zh":  "愤世嫉俗者可能会推测，英国正处于无尽的自我庆祝狂热之中，它急于在脱欧后的世界里重塑自我：继“文化小镇”之后，谁知道接下来会是什么——“文化村”？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A cynic might speculate"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the UK is on the verge of disappearing into an endless fever of self-celebration in its desperation to reinvent itself for the post-Brexit world: after town of culture, who knows what will follow — village of culture?"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to reinvent itself for the post-Brexit world"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A cynic",
+                                                             "predicate":  "might speculate",
+                                                             "object":  "that the UK is on the verge of disappearing into an endless fever of self-celebration"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:7",
+                              "seq":  7,
+                              "para":  2,
+                              "en":  "Suburb of culture?",
+                              "zh":  "“文化郊区”？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Suburb of culture?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Suburb of culture",
+                                                             "predicate":  "（承接上文，省略谓语）"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:8",
+                              "seq":  8,
+                              "para":  2,
+                              "en":  "Hamlet of culture?",
+                              "zh":  "“文化小村”？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Hamlet of culture?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Hamlet of culture",
+                                                             "predicate":  "（承接上文，省略谓语）"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:9",
+                              "seq":  9,
+                              "para":  3,
+                              "en":  "It is also wise to recall that such titles are not a cure-all.",
+                              "zh":  "同样明智的做法是记住，这类称号并非包治百病的灵丹妙药。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "It is also wise to recall"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to recall that such titles are not a cure-all"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that such titles are not a cure-all"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "It（形式主语）",
+                                                             "predicate":  "is",
+                                                             "object":  "wise to recall that such titles are not a cure-all"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:10",
+                              "seq":  10,
+                              "para":  3,
+                              "en":  "A badly run “year of culture” washes in and out of a place like the tide, bringing prominence for a spell but leaving no lasting benefits to the community.",
+                              "zh":  "一场组织糟糕的“文化年”活动会像潮水一样涌进又涌出某个地方，一时带来关注，却不会给社区留下任何持久的益处。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A badly run “year of culture” washes in and out of a place like the tide,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "bringing prominence for a spell but leaving no lasting benefits to the community"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A badly run “year of culture”",
+                                                             "predicate":  "washes in and out of",
+                                                             "object":  "a place"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:11",
+                              "seq":  11,
+                              "para":  3,
+                              "en":  "The really successful holders of such titles are those that do a great deal more than fill hotel bedrooms and bring in high-profile arts events and good press for a year.",
+                              "zh":  "真正成功获得这类称号的城市所做的远不止让酒店客房住满、引入备受瞩目的艺术活动并获得一年的良好报道。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The really successful holders of such titles are those"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that do a great deal more than fill hotel bedrooms and bring in high-profile arts events and good press for a year"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and bring in high-profile arts events and good press for a year"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The really successful holders of such titles",
+                                                             "predicate":  "are",
+                                                             "object":  "those"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:12",
+                              "seq":  12,
+                              "para":  3,
+                              "en":  "They transform the aspirations of the people who live there; they nudge the self-image of the city into a bolder and more optimistic light.",
+                              "zh":  "它们改变了当地居民的抱负；它们促使城市重塑自我形象，变得更加大胆、更加乐观。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "They transform the aspirations of the people"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who live there"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "; they nudge the self-image of the city into a bolder and more optimistic light"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "They",
+                                                             "predicate":  "transform",
+                                                             "object":  "the aspirations of the people"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:13",
+                              "seq":  13,
+                              "para":  4,
+                              "en":  "It is hard to get right, and requires a remarkable degree of vision, as well as cooperation between city authorities, the private sector, community groups and cultural organisations.",
+                              "zh":  "要做到这一点很难，需要非凡的远见，还需要市政当局、私营部门、社区团体和文化组织之间的合作。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "It is hard to get right,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to get right"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and requires a remarkable degree of vision, as well as cooperation between city authorities, the private sector, community groups and cultural organisations"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "It",
+                                                             "predicate":  "is hard to get right, and requires",
+                                                             "object":  "a remarkable degree of vision"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:14",
+                              "seq":  14,
+                              "para":  4,
+                              "en":  "But it can be done: Glasgow’s year as European capital of culture can certainly be seen as one of a complex series of factors that have turned the city into the powerhouse of art, music and theatre that it remains today.",
+                              "zh":  "但这是可以做到的：格拉斯哥当选“欧洲文化之都”的那一年，无疑可以被视为一系列复杂因素之一，正是这些因素使这座城市成为艺术、音乐和戏剧的重镇，并延续至今。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But it can be done:"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "Glasgow’s year as European capital of culture can certainly be seen as one of a complex series of factors"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that have turned the city into the powerhouse of art, music and theatre"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that it remains today"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "it",
+                                                             "predicate":  "can be done"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:15",
+                              "seq":  15,
+                              "para":  5,
+                              "en":  "A “town of culture” could be not just about the arts but about honouring a town’s peculiarities — helping sustain its high street, supporting local facilities and above all celebrating its people.",
+                              "zh":  "“文化小镇”不仅可以关乎艺术，还可以关乎彰显小镇的特色——帮助维持其商业主街的活力，支持当地设施，最重要的是赞美这里的人民。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A “town of culture” could be not just about the arts but about honouring a town’s peculiarities —"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "helping sustain its high street, supporting local facilities and above all celebrating its people"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A “town of culture”",
+                                                             "predicate":  "could be",
+                                                             "object":  "not just about the arts but about honouring a town’s peculiarities"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:A:16",
+                              "seq":  16,
+                              "para":  6,
+                              "en":  "Jeremy Wright, the culture secretary, should welcome this positive hope-filled proposal, and turn it into action.",
+                              "zh":  "文化大臣杰里米·赖特应该欢迎这一积极而充满希望的提议，并将其付诸行动。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Jeremy Wright, the culture secretary, should welcome this positive hope-filled proposal,"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "the culture secretary,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and turn it into action"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Jeremy Wright",
+                                                             "predicate":  "should welcome",
+                                                             "object":  "this positive hope-filled proposal"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2020,
+        "code":  "B",
+        "title":  "Text 2",
+        "content":  "Scientific publishing has long been a licence to print money.\n\nScientists need journals in which to publish their research, so they will supply the articles without monetary reward. Other scientists perform the specialised work of peer review also for free, because it is a central element in the acquisition of status and the production of scientific knowledge.\n\nWith the content of papers secured for free, the publisher needs only to find a market for its journal. Until this century, university libraries were not very price sensitive. Scientific publishers routinely report profit margins approaching 40% on their operations, at a time when the rest of the publishing industry is in an existential crisis.\n\nThe Dutch giant Elsevier, which claims to publish 25% of the scientific papers produced in the world, made profits of more than £900m last year, while UK universities alone spent more than £210m in 2016 to enable researchers to access their own publicly funded research; both figures seem to rise unstoppably despite increasingly desperate efforts to change them.\n\nThe most drastic, and thoroughly illegal, reaction has been the emergence of Sci- Hub, a kind of global photocopier for scientific papers, set up in 2012, which now claims to offer access to every paywalled article published since 2015. The success of Sci-Hub, which relies on researchers passing on copies they have themselves legally accessed, shows the legal ecosystem has lost legitimacy among its users and must be transformed so that it works for all participants.\n\nIn Britain the move towards open access publishing has been driven by funding bodies. In some ways it has been very successful. More than half of all British scientific research is now published under open access terms: either freely available from the moment of publication, or paywalled for a year or more so that the publishers can make a profit before being placed on general release.\n\nYet the new system has not worked out any cheaper for the universities. Publishers have responded to the demand that they make their product free to readers by charging their writers fees to cover the costs of preparing an article. These range from around £500 to $5,000. A report last year pointed out that the costs both of subscriptions and of these “article preparation costs” had been steadily rising at a rate above inflation.\n\nIn some ways the scientific publishing model resembles the economy of the social internet: labour is provided free in exchange for the hope of status, while huge profits are made by a few big firms who run the market places.\n\nIn both cases, we need a rebalancing of power.",
+        "sentences":  [
+                          {
+                              "key":  "2020:B:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "Scientific publishing has long been a licence to print money.",
+                              "zh":  "科学出版长期以来一直是一项一本万利的生意。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Scientific publishing has long been a licence to print money"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to print money"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Scientific publishing",
+                                                             "predicate":  "has been",
+                                                             "object":  "a licence"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:1",
+                              "seq":  1,
+                              "para":  2,
+                              "en":  "Scientists need journals in which to publish their research, so they will supply the articles without monetary reward.",
+                              "zh":  "科学家需要期刊来发表他们的研究成果，因此他们愿意无偿提供文章。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Scientists need journals in which to publish their research,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "so they will supply the articles without monetary reward"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Scientists",
+                                                             "predicate":  "need",
+                                                             "object":  "journals"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:2",
+                              "seq":  2,
+                              "para":  2,
+                              "en":  "Other scientists perform the specialised work of peer review also for free, because it is a central element in the acquisition of status and the production of scientific knowledge.",
+                              "zh":  "其他科学家也免费从事同行评审这一专业工作，因为它是获取学术地位和产生科学知识的核心要素。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Other scientists perform the specialised work of peer review also for free,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "because it is a central element in the acquisition of status and the production of scientific knowledge"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Other scientists",
+                                                             "predicate":  "perform",
+                                                             "object":  "the specialised work of peer review"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:3",
+                              "seq":  3,
+                              "para":  3,
+                              "en":  "With the content of papers secured for free, the publisher needs only to find a market for its journal.",
+                              "zh":  "论文内容可以免费获得，出版商只需为其期刊找到市场即可。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "With the content of papers secured for free,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "the publisher needs only to find a market for its journal"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to find a market for its journal"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the publisher",
+                                                             "predicate":  "needs",
+                                                             "object":  "to find a market for its journal"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:4",
+                              "seq":  4,
+                              "para":  3,
+                              "en":  "Until this century, university libraries were not very price sensitive.",
+                              "zh":  "进入本世纪以前，大学图书馆对价格并不十分敏感。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "Until this century,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "university libraries were not very price sensitive"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "university libraries",
+                                                             "predicate":  "were not price sensitive"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:5",
+                              "seq":  5,
+                              "para":  3,
+                              "en":  "Scientific publishers routinely report profit margins approaching 40% on their operations, at a time when the rest of the publishing industry is in an existential crisis.",
+                              "zh":  "科学出版商报告的营业利润率经常接近40%，而此时出版业的其他领域正深陷生存危机。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Scientific publishers routinely report profit margins approaching 40% on their operations,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "approaching 40% on their operations,"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "at a time when the rest of the publishing industry is in an existential crisis"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "when the rest of the publishing industry is in an existential crisis"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Scientific publishers",
+                                                             "predicate":  "report",
+                                                             "object":  "profit margins"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:6",
+                              "seq":  6,
+                              "para":  4,
+                              "en":  "The Dutch giant Elsevier, which claims to publish 25% of the scientific papers produced in the world, made profits of more than £900m last year, while UK universities alone spent more than £210m in 2016 to enable researchers to access their own publicly funded research; both figures seem to rise unstoppably despite increasingly desperate efforts to change them.",
+                              "zh":  "荷兰出版巨头爱思唯尔声称其发表的科学论文占全球产量的25%，去年利润超过9亿英镑，而仅英国的大学就在2016年花费超过2.1亿英镑，让研究人员得以查阅自己以公共资金资助的研究成果；尽管改变这一局面的努力越来越急切，这两项数字却似乎仍势不可挡地增长。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The Dutch giant Elsevier, which claims to publish 25% of the scientific papers produced in the world, made profits of more than £900m last year,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which claims to publish 25% of the scientific papers produced in the world,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to publish 25% of the scientific papers produced in the world"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "produced in the world,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "while UK universities alone spent more than £210m in 2016 to enable researchers to access their own publicly funded research;"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to enable researchers to access their own publicly funded research"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "both figures seem to rise unstoppably despite increasingly desperate efforts to change them"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The Dutch giant Elsevier",
+                                                             "predicate":  "made",
+                                                             "object":  "profits of more than £900m"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:7",
+                              "seq":  7,
+                              "para":  5,
+                              "en":  "The most drastic, and thoroughly illegal, reaction has been the emergence of Sci- Hub, a kind of global photocopier for scientific papers, set up in 2012, which now claims to offer access to every paywalled article published since 2015.",
+                              "zh":  "最激烈、也完全非法的反应是Sci-Hub的出现。这个网站成立于2012年，就像是科学论文的全球复印机，如今声称可以访问2015年以来发表的所有付费文章。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The most drastic, and thoroughly illegal, reaction has been the emergence of Sci- Hub,"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "a kind of global photocopier for scientific papers,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "set up in 2012,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which now claims to offer access to every paywalled article published since 2015"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to offer access to every paywalled article published since 2015"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "published since 2015"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The most drastic, and thoroughly illegal, reaction",
+                                                             "predicate":  "has been",
+                                                             "object":  "the emergence of Sci- Hub"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:8",
+                              "seq":  8,
+                              "para":  5,
+                              "en":  "The success of Sci-Hub, which relies on researchers passing on copies they have themselves legally accessed, shows the legal ecosystem has lost legitimacy among its users and must be transformed so that it works for all participants.",
+                              "zh":  "Sci-Hub的成功依赖于研究人员传递他们自己合法获取的论文副本，它的成功表明，合法出版生态系统在用户心中已经失去了合法性，必须进行变革，使其惠及所有参与者。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The success of Sci-Hub, which relies on researchers passing on copies they have themselves legally accessed, shows the legal ecosystem has lost legitimacy among its users and must be transformed"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which relies on researchers passing on copies they have themselves legally accessed,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "they have themselves legally accessed,"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "the legal ecosystem has lost legitimacy among its users and must be transformed"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "so that it works for all participants"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The success of Sci-Hub",
+                                                             "predicate":  "shows",
+                                                             "object":  "the legal ecosystem has lost legitimacy among its users and must be transformed"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:9",
+                              "seq":  9,
+                              "para":  6,
+                              "en":  "In Britain the move towards open access publishing has been driven by funding bodies.",
+                              "zh":  "在英国，向开放获取出版迈进的行动是由资助机构推动的。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "In Britain"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "the move towards open access publishing has been driven by funding bodies"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the move towards open access publishing",
+                                                             "predicate":  "has been driven"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:10",
+                              "seq":  10,
+                              "para":  6,
+                              "en":  "In some ways it has been very successful.",
+                              "zh":  "从某些方面来说，这一举措非常成功。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "In some ways"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "it has been very successful"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "it",
+                                                             "predicate":  "has been successful"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:11",
+                              "seq":  11,
+                              "para":  6,
+                              "en":  "More than half of all British scientific research is now published under open access terms: either freely available from the moment of publication, or paywalled for a year or more so that the publishers can make a profit before being placed on general release.",
+                              "zh":  "如今，英国超过一半的科学研究成果以开放获取条款发表：要么在发表时即可免费获取，要么先付费订阅一年或更长时间，让出版商赚取利润，然后再公开发布。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "More than half of all British scientific research is now published under open access terms:"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "either freely available from the moment of publication, or paywalled for a year or more"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "so that the publishers can make a profit"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "before being placed on general release"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "More than half of all British scientific research",
+                                                             "predicate":  "is published"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:12",
+                              "seq":  12,
+                              "para":  7,
+                              "en":  "Yet the new system has not worked out any cheaper for the universities.",
+                              "zh":  "然而，对大学来说，这套新制度并没有变得更便宜。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Yet the new system has not worked out any cheaper for the universities"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the new system",
+                                                             "predicate":  "has not worked out"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:13",
+                              "seq":  13,
+                              "para":  7,
+                              "en":  "Publishers have responded to the demand that they make their product free to readers by charging their writers fees to cover the costs of preparing an article.",
+                              "zh":  "出版商对“让读者免费获取其产品”这一要求的回应是，向作者收取费用，以弥补文章编辑准备的成本。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Publishers have responded to the demand"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "that they make their product free to readers"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "by charging their writers fees"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to cover the costs of preparing an article"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "preparing an article"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Publishers",
+                                                             "predicate":  "have responded to",
+                                                             "object":  "the demand"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:14",
+                              "seq":  14,
+                              "para":  7,
+                              "en":  "These range from around £500 to $5,000.",
+                              "zh":  "这些费用从大约500英镑到5000美元不等。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "These range from around £500 to $5,000"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "These",
+                                                             "predicate":  "range"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:15",
+                              "seq":  15,
+                              "para":  7,
+                              "en":  "A report last year pointed out that the costs both of subscriptions and of these “article preparation costs” had been steadily rising at a rate above inflation.",
+                              "zh":  "去年的一份报告指出，订阅费用和这些“文章编辑准备费用”一直在以高于通胀率的速度稳步上涨。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A report last year pointed out"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the costs both of subscriptions and of these “article preparation costs” had been steadily rising at a rate above inflation"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A report",
+                                                             "predicate":  "pointed out",
+                                                             "object":  "that the costs of subscriptions and article preparation costs had been steadily rising at a rate above inflation"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:16",
+                              "seq":  16,
+                              "para":  8,
+                              "en":  "In some ways the scientific publishing model resembles the economy of the social internet: labour is provided free in exchange for the hope of status, while huge profits are made by a few big firms who run the market places.",
+                              "zh":  "从某些方面来看，科学出版模式类似于社交互联网的经济模式：人们免费提供劳动，以换取获得地位的希望，而经营这些市场的少数大公司则攫取了巨额利润。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "In some ways"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "the scientific publishing model resembles the economy of the social internet:"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "labour is provided free in exchange for the hope of status,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "while huge profits are made by a few big firms who run the market places"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who run the market places"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the scientific publishing model",
+                                                             "predicate":  "resembles",
+                                                             "object":  "the economy of the social internet"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:B:17",
+                              "seq":  17,
+                              "para":  9,
+                              "en":  "In both cases, we need a rebalancing of power.",
+                              "zh":  "在这两种情况下，我们都需要重新平衡权力。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "In both cases,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "we need a rebalancing of power"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "we",
+                                                             "predicate":  "need",
+                                                             "object":  "a rebalancing of power"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2020,
+        "code":  "C",
+        "title":  "Text 3",
+        "content":  "Progressives often support diversity mandates as a path to equality and a way to level the playing field. But all too often such policies are an insincere form of virtue-signaling that benefits only the most privileged and does little to help average people.\n\nA pair of bills sponsored by Massachusetts state Senator Jason Lewis and House Speaker Pro Tempore Patricia Haddad, to ensure “gender parity” on boards and commissions, provide a case in point.\n\nHaddad and Lewis are concerned that more than half the state-government boards are less than 40 percent female. In order to ensure that elite women have more such opportunities, they have proposed imposing government quotas. If the bills become law, state boards and commissions will be required to set aside 50 percent of board seats for women by 2022.\n\nThe bills are similar to a measure recently adopted in California, which last year became the first state to require gender quotas for private companies. In signing the measure, California’s Governor Jerry Brown admitted that the law, which expressly classifies people on the basis of sex, is probably unconstitutional. The US Supreme Court frowns on sex-based classifications unless they are designed to address an “important” policy interest.\n\nBecause the California law applies to all boards, even where there is no history of prior discrimination, courts are likely to rule that the law violates the constitutional guarantee of “equal protection”.\n\nBut are such government mandates even necessary? Female participation on corporate boards may not currently mirror the percentage of women in the general population, but so what?\n\nThe number of women on corporate boards has been steadily increasing without government interference. According to a study by Catalyst, between 2010 and 2015 the share of women on the boards of global corporations increased by 54 percent.\n\nRequiring companies to make gender the primary qualification for board membership will inevitably lead to less experienced private sector boards. That is exactly what happened when Norway adopted a nationwide corporate gender quota.\n\nWriting in The New Republic, Alice Lee notes that increasing the number of opportunities for board membership without increasing the pool of qualified women to serve on such boards has led to a “golden skirt” phenomenon, where the same elite women scoop up multiple seats on a variety of boards.\n\nNext time somebody pushes corporate quotas as a way to promote gender equity, remember that such policies are largely self-serving measures that make their sponsors feel good but do little to help average women.",
+        "sentences":  [
+                          {
+                              "key":  "2020:C:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "Progressives often support diversity mandates as a path to equality and a way to level the playing field.",
+                              "zh":  "进步人士常常支持多元化强制要求，认为这是通往平等的路径，也是创造公平竞争环境的方式。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Progressives often support diversity mandates as a path to equality and a way to level the playing field"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to level the playing field"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Progressives",
+                                                             "predicate":  "support",
+                                                             "object":  "diversity mandates"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "But all too often such policies are an insincere form of virtue-signaling that benefits only the most privileged and does little to help average people.",
+                              "zh":  "但这些政策往往只是一种虚伪的道德作秀，只惠及最有权势的精英，对普通人帮助甚微。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But all too often such policies are an insincere form of virtue-signaling"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that benefits only the most privileged and does little to help average people"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and does little to help average people"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to help average people"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "such policies",
+                                                             "predicate":  "are",
+                                                             "object":  "an insincere form of virtue-signaling"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:2",
+                              "seq":  2,
+                              "para":  2,
+                              "en":  "A pair of bills sponsored by Massachusetts state Senator Jason Lewis and House Speaker Pro Tempore Patricia Haddad, to ensure “gender parity” on boards and commissions, provide a case in point.",
+                              "zh":  "马萨诸塞州参议员杰森·刘易斯和众议院临时议长帕特里夏·哈达德联名提出的两项法案，旨在确保董事会和委员会的“性别平等”，就是一个很好的例子。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A pair of bills sponsored by Massachusetts state Senator Jason Lewis and House Speaker Pro Tempore Patricia Haddad, to ensure “gender parity” on boards and commissions, provide a case in point"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "sponsored by Massachusetts state Senator Jason Lewis and House Speaker Pro Tempore Patricia Haddad,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to ensure “gender parity” on boards and commissions,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A pair of bills",
+                                                             "predicate":  "provide",
+                                                             "object":  "a case in point"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:3",
+                              "seq":  3,
+                              "para":  3,
+                              "en":  "Haddad and Lewis are concerned that more than half the state-government boards are less than 40 percent female.",
+                              "zh":  "哈达德和刘易斯担心，该州一半以上的政府委员会中女性占比不足40%。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Haddad and Lewis are concerned"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that more than half the state-government boards are less than 40 percent female"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Haddad and Lewis",
+                                                             "predicate":  "are concerned",
+                                                             "object":  "that more than half the state-government boards are less than 40 percent female"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:4",
+                              "seq":  4,
+                              "para":  3,
+                              "en":  "In order to ensure that elite women have more such opportunities, they have proposed imposing government quotas.",
+                              "zh":  "为了确保精英女性有更多这样的机会，他们提议实行政府配额制。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "In order to ensure that elite women have more such opportunities,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to ensure that elite women have more such opportunities"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that elite women have more such opportunities"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "they have proposed imposing government quotas"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "imposing government quotas"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "they",
+                                                             "predicate":  "have proposed",
+                                                             "object":  "imposing government quotas"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:5",
+                              "seq":  5,
+                              "para":  3,
+                              "en":  "If the bills become law, state boards and commissions will be required to set aside 50 percent of board seats for women by 2022.",
+                              "zh":  "如果这两项法案成为法律，到2022年，州政府及委员会将被要求为女性留出50%的席位。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "If the bills become law,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "state boards and commissions will be required to set aside 50 percent of board seats for women by 2022"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to set aside 50 percent of board seats for women by 2022"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "state boards and commissions",
+                                                             "predicate":  "will be required",
+                                                             "object":  "to set aside 50 percent of board seats for women by 2022"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:6",
+                              "seq":  6,
+                              "para":  4,
+                              "en":  "The bills are similar to a measure recently adopted in California, which last year became the first state to require gender quotas for private companies.",
+                              "zh":  "这两项法案与加利福尼亚州最近通过的一项措施类似，加州去年成为第一个要求私营企业实行性别配额的州。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The bills are similar to a measure recently adopted in California,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "recently adopted in California,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which last year became the first state to require gender quotas for private companies"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to require gender quotas for private companies"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The bills",
+                                                             "predicate":  "are similar to",
+                                                             "object":  "a measure recently adopted in California"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:7",
+                              "seq":  7,
+                              "para":  4,
+                              "en":  "In signing the measure, California’s Governor Jerry Brown admitted that the law, which expressly classifies people on the basis of sex, is probably unconstitutional.",
+                              "zh":  "加州州长杰里·布朗在签署该措施时承认，这部明确按性别对人群进行分类的法律很可能是违宪的。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "In signing the measure,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "California’s Governor Jerry Brown admitted"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the law, which expressly classifies people on the basis of sex, is probably unconstitutional"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which expressly classifies people on the basis of sex,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "California’s Governor Jerry Brown",
+                                                             "predicate":  "admitted",
+                                                             "object":  "that the law is probably unconstitutional"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:8",
+                              "seq":  8,
+                              "para":  4,
+                              "en":  "The US Supreme Court frowns on sex-based classifications unless they are designed to address an “important” policy interest.",
+                              "zh":  "美国最高法院不赞成基于性别的分类，除非这些分类旨在解决“重要”的政策利益问题。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The US Supreme Court frowns on sex-based classifications"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "unless they are designed to address an “important” policy interest"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to address an “important” policy interest"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The US Supreme Court",
+                                                             "predicate":  "frowns on",
+                                                             "object":  "sex-based classifications"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:9",
+                              "seq":  9,
+                              "para":  5,
+                              "en":  "Because the California law applies to all boards, even where there is no history of prior discrimination, courts are likely to rule that the law violates the constitutional guarantee of “equal protection”.",
+                              "zh":  "由于加州这部法律适用于所有董事会，即使在没有先前歧视历史的地方也是如此，法院很可能会裁定该法律违反了宪法所保障的“平等保护”。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "Because the California law applies to all boards, even where there is no history of prior discrimination,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "even where there is no history of prior discrimination,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "courts are likely to rule"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the law violates the constitutional guarantee of “equal protection”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "courts",
+                                                             "predicate":  "are likely to rule",
+                                                             "object":  "that the law violates the constitutional guarantee of “equal protection”"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:10",
+                              "seq":  10,
+                              "para":  6,
+                              "en":  "But are such government mandates even necessary?",
+                              "zh":  "但这样的政府强制措施真的有必要吗？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But are such government mandates even necessary?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "such government mandates",
+                                                             "predicate":  "are necessary"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:11",
+                              "seq":  11,
+                              "para":  6,
+                              "en":  "Female participation on corporate boards may not currently mirror the percentage of women in the general population, but so what?",
+                              "zh":  "目前，女性在企业董事会的参与比例可能并没有反映女性在总人口中所占的百分比，但那又怎样呢？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Female participation on corporate boards may not currently mirror the percentage of women in the general population,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but so what?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Female participation on corporate boards",
+                                                             "predicate":  "may not mirror",
+                                                             "object":  "the percentage of women in the general population"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:12",
+                              "seq":  12,
+                              "para":  7,
+                              "en":  "The number of women on corporate boards has been steadily increasing without government interference.",
+                              "zh":  "在没有政府干预的情况下，企业董事会中的女性人数一直在稳步增加。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The number of women on corporate boards has been steadily increasing without government interference"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The number of women on corporate boards",
+                                                             "predicate":  "has been increasing"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:13",
+                              "seq":  13,
+                              "para":  7,
+                              "en":  "According to a study by Catalyst, between 2010 and 2015 the share of women on the boards of global corporations increased by 54 percent.",
+                              "zh":  "根据Catalyst（卡特利斯特）的一项研究，2010年至2015年间，全球企业董事会中女性的比例增长了54%。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "According to a study by Catalyst,"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "between 2010 and 2015"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "the share of women on the boards of global corporations increased by 54 percent"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the share of women on the boards of global corporations",
+                                                             "predicate":  "increased"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:14",
+                              "seq":  14,
+                              "para":  8,
+                              "en":  "Requiring companies to make gender the primary qualification for board membership will inevitably lead to less experienced private sector boards.",
+                              "zh":  "要求企业将性别作为进入董事会的首要资格，将不可避免地导致私营部门董事会经验不足。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "Requiring companies to make gender the primary qualification for board membership"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to make gender the primary qualification for board membership"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "will inevitably lead to less experienced private sector boards"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Requiring companies to make gender the primary qualification for board membership",
+                                                             "predicate":  "will lead to",
+                                                             "object":  "less experienced private sector boards"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:15",
+                              "seq":  15,
+                              "para":  8,
+                              "en":  "That is exactly what happened when Norway adopted a nationwide corporate gender quota.",
+                              "zh":  "挪威在全国范围内实行企业性别配额制时，情况正是如此。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "That is exactly what happened"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "what happened"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "when Norway adopted a nationwide corporate gender quota"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "That",
+                                                             "predicate":  "is",
+                                                             "object":  "what happened"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:16",
+                              "seq":  16,
+                              "para":  9,
+                              "en":  "Writing in The New Republic, Alice Lee notes that increasing the number of opportunities for board membership without increasing the pool of qualified women to serve on such boards has led to a “golden skirt” phenomenon, where the same elite women scoop up multiple seats on a variety of boards.",
+                              "zh":  "爱丽丝·李在《新共和》杂志撰文指出，在合格女性人才储备没有增加的情况下增加董事会成员的任职机会，导致了“黄金裙”现象，即同一批精英女性在各种董事会中一人身兼多职。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "Writing in The New Republic,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Alice Lee notes"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that increasing the number of opportunities for board membership without increasing the pool of qualified women to serve on such boards has led to a “golden skirt” phenomenon,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "increasing the number of opportunities for board membership"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "increasing the pool of qualified women to serve on such boards"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to serve on such boards"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "where the same elite women scoop up multiple seats on a variety of boards"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Alice Lee",
+                                                             "predicate":  "notes",
+                                                             "object":  "that increasing opportunities without increasing the pool of qualified women has led to a “golden skirt” phenomenon"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:C:17",
+                              "seq":  17,
+                              "para":  10,
+                              "en":  "Next time somebody pushes corporate quotas as a way to promote gender equity, remember that such policies are largely self-serving measures that make their sponsors feel good but do little to help average women.",
+                              "zh":  "下次若有人把企业配额作为促进性别平等的途径加以推行，请记住，这类政策在很大程度上是利己之举，它们让提出者自我感觉良好，却对普通女性帮助甚微。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "Next time somebody pushes corporate quotas as a way to promote gender equity,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "remember that such policies are largely self-serving measures that make their sponsors feel good but do little to help average women"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that such policies are largely self-serving measures that make their sponsors feel good but do little to help average women"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that make their sponsors feel good"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but do little to help average women"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to promote gender equity"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to help average women"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "you（省略）",
+                                                             "predicate":  "remember",
+                                                             "object":  "that such policies are largely self-serving measures that make their sponsors feel good but do little to help average women"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2020,
+        "code":  "D",
+        "title":  "Text 4",
+        "content":  "Last Thursday, the French Senate passed a digital services tax, which would impose an entirely new tax on large multinationals that provide digital services to consumers or users in France. Digital services include everything from providing a platform for selling goods and services online to targeting advertising based on user data, and the tax applies to gross revenue from such services. Many French politicians and media outlets have referred to this as a “GAFA tax,” meaning that it is designed to apply primarily to companies such as Google, Apple, Facebook and Amazon — in other words, multinational tech companies based in the United States. The digital services tax now awaits the signature of President Emmanuel Macron, who has expressed support for the measure, and it could go into effect within the next few weeks. But it has already sparked significant controversy, with the United States trade representative opening an investigation into whether the tax discriminates against American companies, which in turn could lead to trade sanctions against France. The French tax is not just a unilateral move by one country in need of revenue. Instead, the digital services tax is part of a much larger trend, with countries over the past few years proposing or putting in place an alphabet soup of new international tax provisions. These have included Britain’s DPT (diverted profits tax), Australia’s MAAL (multinational antiavoidance law), and India’s SEP (significant economic presence) test, to name but a few. At the same time, the European Union, Spain, Britain and several other countries have all seriously contemplated digital services taxes.\n\nThese unilateral developments differ in their specifics, but they are all designed to tax multinationals on income and revenue that countries believe they should have a right to tax, even if international tax rules do not grant them that right. In other words, they all share a view that the international tax system has failed to keep up with the current economy. In response to these many unilateral measures, the Organization for Economic Cooperation and Development (OECD) is currently working with 131 countries to reach a consensus by the end of 2020 on an international solution.\n\nBoth France and the United States are involved in the organization’s work, but France’s digital services tax and the American response raise questions about what the future holds for the international tax system.\n\nFrance’s planned tax is a clear warning: Unless a broad consensus can be reached on reforming the international tax system, other nations are likely to follow suit, and American companies will face a cascade of different taxes from dozens of nations that will prove burdensome and costly.",
+        "sentences":  [
+                          {
+                              "key":  "2020:D:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "Last Thursday, the French Senate passed a digital services tax, which would impose an entirely new tax on large multinationals that provide digital services to consumers or users in France.",
+                              "zh":  "上周四，法国参议院通过了一项数字服务税，该税将向为法国消费者或用户提供数字服务的大型跨国公司征收一种全新的税收。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Last Thursday, the French Senate passed a digital services tax,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which would impose an entirely new tax on large multinationals"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that provide digital services to consumers or users in France"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the French Senate",
+                                                             "predicate":  "passed",
+                                                             "object":  "a digital services tax"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "Digital services include everything from providing a platform for selling goods and services online to targeting advertising based on user data, and the tax applies to gross revenue from such services.",
+                              "zh":  "数字服务既包括提供在线销售商品和服务的平台，也包括基于用户数据进行定向广告投放，该税种针对的是此类服务的总营收。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Digital services include everything from providing a platform for selling goods and services online to targeting advertising based on user data,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "based on user data,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and the tax applies to gross revenue from such services"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Digital services",
+                                                             "predicate":  "include",
+                                                             "object":  "everything from providing a platform ... to targeting advertising"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:2",
+                              "seq":  2,
+                              "para":  1,
+                              "en":  "Many French politicians and media outlets have referred to this as a “GAFA tax,” meaning that it is designed to apply primarily to companies such as Google, Apple, Facebook and Amazon — in other words, multinational tech companies based in the United States.",
+                              "zh":  "许多法国政界人士和媒体将这项税收称为“GAFA税”，意即它主要针对谷歌、苹果、脸书和亚马逊等公司——换句话说，即总部设在美国的跨国科技企业。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Many French politicians and media outlets have referred to this as a “GAFA tax,”"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "meaning that it is designed to apply primarily to companies such as Google, Apple, Facebook and Amazon — in other words, multinational tech companies based in the United States"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that it is designed to apply primarily to companies such as Google, Apple, Facebook and Amazon — in other words, multinational tech companies based in the United States"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "based in the United States"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Many French politicians and media outlets",
+                                                             "predicate":  "have referred to",
+                                                             "object":  "this as a “GAFA tax”"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:3",
+                              "seq":  3,
+                              "para":  1,
+                              "en":  "The digital services tax now awaits the signature of President Emmanuel Macron, who has expressed support for the measure, and it could go into effect within the next few weeks.",
+                              "zh":  "这项数字服务税现在等待法国总统埃马纽埃尔·马克龙的签署，他已表示支持该措施，这项税收可能在未来几周内生效。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The digital services tax now awaits the signature of President Emmanuel Macron,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who has expressed support for the measure,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and it could go into effect within the next few weeks"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The digital services tax",
+                                                             "predicate":  "awaits",
+                                                             "object":  "the signature of President Emmanuel Macron"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:4",
+                              "seq":  4,
+                              "para":  1,
+                              "en":  "But it has already sparked significant controversy, with the United States trade representative opening an investigation into whether the tax discriminates against American companies, which in turn could lead to trade sanctions against France.",
+                              "zh":  "但这项税收已经引发了重大争议，美国贸易代表已就这项税收是否歧视美国公司展开调查，这反过来又可能导致对法国实施贸易制裁。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But it has already sparked significant controversy,"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "with the United States trade representative opening an investigation into whether the tax discriminates against American companies,"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "whether the tax discriminates against American companies,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which in turn could lead to trade sanctions against France"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "it",
+                                                             "predicate":  "has sparked",
+                                                             "object":  "significant controversy"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:5",
+                              "seq":  5,
+                              "para":  1,
+                              "en":  "The French tax is not just a unilateral move by one country in need of revenue.",
+                              "zh":  "法国的这项税收并不仅仅是一个急需收入的国家采取的单边行动。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The French tax is not just a unilateral move by one country in need of revenue"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The French tax",
+                                                             "predicate":  "is",
+                                                             "object":  "a unilateral move by one country in need of revenue"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:6",
+                              "seq":  6,
+                              "para":  1,
+                              "en":  "Instead, the digital services tax is part of a much larger trend, with countries over the past few years proposing or putting in place an alphabet soup of new international tax provisions.",
+                              "zh":  "相反，数字服务税是更大趋势的一部分，过去几年里，各国纷纷提出或出台了一系列五花八门的新国际税收条款。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Instead, the digital services tax is part of a much larger trend,"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "with countries over the past few years proposing or putting in place an alphabet soup of new international tax provisions"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "proposing or putting in place an alphabet soup of new international tax provisions"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the digital services tax",
+                                                             "predicate":  "is",
+                                                             "object":  "part of a much larger trend"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:7",
+                              "seq":  7,
+                              "para":  1,
+                              "en":  "These have included Britain’s DPT (diverted profits tax), Australia’s MAAL (multinational antiavoidance law), and India’s SEP (significant economic presence) test, to name but a few.",
+                              "zh":  "其中包括英国的DPT（转移利润税）、澳大利亚的MAAL（跨国企业反避税法）和印度的SEP（重大经济存在）测试，仅举几例。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "These have included Britain’s DPT (diverted profits tax), Australia’s MAAL (multinational antiavoidance law), and India’s SEP (significant economic presence) test,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to name but a few"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "These",
+                                                             "predicate":  "have included",
+                                                             "object":  "Britain’s DPT, Australia’s MAAL, and India’s SEP test"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:8",
+                              "seq":  8,
+                              "para":  1,
+                              "en":  "At the same time, the European Union, Spain, Britain and several other countries have all seriously contemplated digital services taxes.",
+                              "zh":  "与此同时，欧盟、西班牙、英国以及其他几个国家都在认真考虑征收数字服务税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "At the same time,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "the European Union, Spain, Britain and several other countries have all seriously contemplated digital services taxes"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the European Union, Spain, Britain and several other countries",
+                                                             "predicate":  "have contemplated",
+                                                             "object":  "digital services taxes"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:9",
+                              "seq":  9,
+                              "para":  2,
+                              "en":  "These unilateral developments differ in their specifics, but they are all designed to tax multinationals on income and revenue that countries believe they should have a right to tax, even if international tax rules do not grant them that right.",
+                              "zh":  "这些单边行动的具体内容各不相同，但它们都旨在对跨国公司就某些收入和营收征税，而这些国家认为即使国际税收规则没有授予它们这种权利，它们也有权对此征税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "These unilateral developments differ in their specifics,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but they are all designed to tax multinationals on income and revenue"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to tax multinationals on income and revenue"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that countries believe they should have a right to tax,"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "they should have a right to tax,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "even if international tax rules do not grant them that right"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "These unilateral developments",
+                                                             "predicate":  "differ"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:10",
+                              "seq":  10,
+                              "para":  2,
+                              "en":  "In other words, they all share a view that the international tax system has failed to keep up with the current economy.",
+                              "zh":  "换句话说，它们都认为国际税收体系已跟不上当前经济的发展。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "In other words,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "they all share a view"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "that the international tax system has failed to keep up with the current economy"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to keep up with the current economy"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "they",
+                                                             "predicate":  "share",
+                                                             "object":  "a view"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:11",
+                              "seq":  11,
+                              "para":  2,
+                              "en":  "In response to these many unilateral measures, the Organization for Economic Cooperation and Development (OECD) is currently working with 131 countries to reach a consensus by the end of 2020 on an international solution.",
+                              "zh":  "针对这些众多的单边措施，经济合作与发展组织（经合组织）目前正与131个国家合作，力争在2020年底前就一项国际解决方案达成共识。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "In response to these many unilateral measures,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "the Organization for Economic Cooperation and Development (OECD) is currently working with 131 countries"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to reach a consensus by the end of 2020 on an international solution"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the Organization for Economic Cooperation and Development (OECD)",
+                                                             "predicate":  "is working",
+                                                             "object":  "to reach a consensus by the end of 2020"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:12",
+                              "seq":  12,
+                              "para":  3,
+                              "en":  "Both France and the United States are involved in the organization’s work, but France’s digital services tax and the American response raise questions about what the future holds for the international tax system.",
+                              "zh":  "法国和美国都参与了该组织的工作，但法国的数字服务税和美国的回应引发了人们对国际税收体系未来的疑问。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Both France and the United States are involved in the organization’s work,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but France’s digital services tax and the American response raise questions about what the future holds for the international tax system"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "what the future holds for the international tax system"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Both France and the United States",
+                                                             "predicate":  "are involved in",
+                                                             "object":  "the organization’s work"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2020:D:13",
+                              "seq":  13,
+                              "para":  4,
+                              "en":  "France’s planned tax is a clear warning: Unless a broad consensus can be reached on reforming the international tax system, other nations are likely to follow suit, and American companies will face a cascade of different taxes from dozens of nations that will prove burdensome and costly.",
+                              "zh":  "法国计划的这项税收是一个明确的警告：除非在改革国际税收体系方面能够达成广泛共识，否则其他国家很可能会纷纷效仿，美国公司届时将面临来自数十个国家的层层叠叠、令人不堪重负且代价高昂的不同税收。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "France’s planned tax is a clear warning:"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "Unless a broad consensus can be reached on reforming the international tax system,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "other nations are likely to follow suit,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to follow suit"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and American companies will face a cascade of different taxes from dozens of nations"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that will prove burdensome and costly"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "France’s planned tax",
+                                                             "predicate":  "is",
+                                                             "object":  "a clear warning"
+                                                         }
+                                            }
+                          }
+                      ]
+    }
+]

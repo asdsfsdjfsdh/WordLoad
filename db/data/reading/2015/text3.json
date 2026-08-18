@@ -7,87 +7,104 @@
     {
       "para": 1,
       "seq": 0,
-      "en": "The journal Science is adding an extra round of statistical checks to its peer-review process, editor-in-chief Marcia McNutt announced today."
+      "en": "The journal Science is adding an extra round of statistical checks to its peer-review process, editor-in-chief Marcia McNutt announced today.",
+      "zh": "《科学》杂志主编玛西亚·麦克纳特今天宣布，该杂志将在其同行评审过程中增加一轮额外的统计审查。"
     },
     {
       "para": 1,
       "seq": 1,
-      "en": "The policy follows similar efforts from other journals, after widespread concern that basic mistakes in data analysis are contributing to the irreproducibility of many published research findings."
+      "en": "The policy follows similar efforts from other journals, after widespread concern that basic mistakes in data analysis are contributing to the irreproducibility of many published research findings.",
+      "zh": "这一政策是在其他期刊采取类似举措之后出台的，此前人们普遍担心数据分析中的基本错误正导致许多已发表的研究成果难以复现。"
     },
     {
       "para": 2,
       "seq": 2,
-      "en": "\"Readers must have confidence in the conclusions published in our journal,\" writes McNutt in an editorial."
+      "en": "\"Readers must have confidence in the conclusions published in our journal,\" writes McNutt in an editorial.",
+      "zh": "麦克纳特在一篇社论中写道：“读者必须对我们杂志上发表的结论有信心。”"
     },
     {
       "para": 2,
       "seq": 3,
-      "en": "Working with the American Statistical Association, the journal has appointed seven experts to a statistics board of reviewing editors (SBoRE)."
+      "en": "Working with the American Statistical Association, the journal has appointed seven experts to a statistics board of reviewing editors (SBoRE).",
+      "zh": "《科学》杂志与美国统计协会合作，任命了七位专家组成统计审稿编辑委员会（SBoRE）。"
     },
     {
       "para": 2,
       "seq": 4,
-      "en": "Manuscript will be flagged up for additional scrutiny by the journal's internal editors, or by its existing Board of Reviewing Editors or by outside peer reviewers."
+      "en": "Manuscript will be flagged up for additional scrutiny by the journal's internal editors, or by its existing Board of Reviewing Editors or by outside peer reviewers.",
+      "zh": "稿件将由杂志内部编辑、现有的审稿编辑委员会或外部同行评审人标记出来，接受额外的审查。"
     },
     {
       "para": 2,
       "seq": 5,
-      "en": "The SBoRE panel will then find external statisticians to review these manuscripts."
+      "en": "The SBoRE panel will then find external statisticians to review these manuscripts.",
+      "zh": "随后，统计审稿编辑委员会将物色外部统计学家来审查这些稿件。"
     },
     {
       "para": 3,
       "seq": 6,
-      "en": "Asked whether any particular papers had impelled the change, McNutt said: \"The creation of the 'statistics board' was motivated by concerns broadly with the application of statistics and data analysis in scientific research and is part of Science's overall drive to increase reproducibility in the research we publish.\""
+      "en": "Asked whether any particular papers had impelled the change, McNutt said: \"The creation of the 'statistics board' was motivated by concerns broadly with the application of statistics and data analysis in scientific research and is part of Science's overall drive to increase reproducibility in the research we publish.\"",
+      "zh": "在被问及是否某篇具体的论文促使了这一改变时，麦克纳特说：“设立‘统计委员会’是出于对科学研究中统计和数据分析应用的广泛关切，也是《科学》杂志为提升所发表研究可复现性的整体努力的一部分。”"
     },
     {
       "para": 4,
       "seq": 7,
-      "en": "Giovanni Parmigiani, a biostatistician at the Harvard School of Public Health, a member of the SBoRE group, says he expects the board to \"play primarily an advisory role\"."
+      "en": "Giovanni Parmigiani, a biostatistician at the Harvard School of Public Health, a member of the SBoRE group, says he expects the board to \"play primarily an advisory role\".",
+      "zh": "哈佛大学公共卫生学院的生物统计学家、统计审稿编辑委员会成员乔瓦尼·帕米贾尼表示，他预计该委员会将“主要发挥咨询作用”。"
     },
     {
       "para": 4,
       "seq": 8,
-      "en": "He agreed to join because he \"found the foresight behind the establishment of the SBoRE to be novel, unique and likely to have a lasting impact."
+      "en": "He agreed to join because he \"found the foresight behind the establishment of the SBoRE to be novel, unique and likely to have a lasting impact.",
+      "zh": "他同意加入，是因为他“发现设立统计审稿编辑委员会背后的远见卓识是新颖而独特的，并且很可能产生持久的影响”。"
     },
     {
       "para": 4,
       "seq": 9,
-      "en": "This impact will not only be through the publications in Science itself, but hopefully through a larger group of publishing places that may want to model their approach after Science.\""
+      "en": "This impact will not only be through the publications in Science itself, but hopefully through a larger group of publishing places that may want to model their approach after Science.\"",
+      "zh": "这种影响将不仅体现在《科学》杂志自己发表的文章上，还有望通过更多愿意效仿《科学》杂志做法的出版机构产生。”"
     },
     {
       "para": 5,
       "seq": 10,
-      "en": "John Ioannidis, a physician who studies research methodology, says that the policy is \"a most welcome step forward\" and \"long overdue\"."
+      "en": "John Ioannidis, a physician who studies research methodology, says that the policy is \"a most welcome step forward\" and \"long overdue\".",
+      "zh": "研究科研方法学的医生约翰·伊奥尼迪斯说，这一政策是“非常受欢迎的进步之举”，而且是“早该采取的措施”。"
     },
     {
       "para": 5,
       "seq": 11,
-      "en": "\"Most journals are weak in statistical review, and this damages the quality of what they publish."
+      "en": "\"Most journals are weak in statistical review, and this damages the quality of what they publish.",
+      "zh": "“大多数杂志在统计审查方面比较薄弱，这损害了它们发表内容的质量。"
     },
     {
       "para": 5,
       "seq": 12,
-      "en": "I think that, for the majority of scientific papers nowadays, statistical review is more essential than expert review,\" he says."
+      "en": "I think that, for the majority of scientific papers nowadays, statistical review is more essential than expert review,\" he says.",
+      "zh": "他说：“我认为，对于当今的大多数科学论文来说，统计审查比专家审查更为必要。”"
     },
     {
       "para": 5,
       "seq": 13,
-      "en": "But he noted that biomedical journals such as Annals of Internal Medicine, the Journal of the American Medical Association and The Lancet pay strong attention to statistical review."
+      "en": "But he noted that biomedical journals such as Annals of Internal Medicine, the Journal of the American Medical Association and The Lancet pay strong attention to statistical review.",
+      "zh": "但他也指出，《内科学年鉴》《美国医学会杂志》和《柳叶刀》等生物医学杂志非常重视统计审查。"
     },
     {
       "para": 6,
       "seq": 14,
-      "en": "Professional scientists are expected to know how to analyse data, but statistical errors are alarmingly common in published research, according to David Vaux, a cell biologist."
+      "en": "Professional scientists are expected to know how to analyse data, but statistical errors are alarmingly common in published research, according to David Vaux, a cell biologist.",
+      "zh": "细胞生物学家戴维·沃克斯表示，专业科学家理应知道如何分析数据，但统计错误在已发表的研究中却异常普遍，令人震惊。"
     },
     {
       "para": 6,
       "seq": 15,
-      "en": "Researchers should improve their standards, he wrote in 2012, but journals should also take a tougher line, \"engaging reviewers who are statistically literate and editors who can verify the process\"."
+      "en": "Researchers should improve their standards, he wrote in 2012, but journals should also take a tougher line, \"engaging reviewers who are statistically literate and editors who can verify the process\".",
+      "zh": "他在2012年写道，研究人员应当提高自身水准，但杂志也应采取更强硬的立场，“聘请懂统计学的审稿人以及能够核实这一过程的编辑”。"
     },
     {
       "para": 6,
       "seq": 16,
-      "en": "Vaux says that Science's idea to pass some papers to statisticians \"has some merit, but a weakness is that it relies on the board of reviewing editors to identify 'the papers that need scrutiny' in the first place\""
+      "en": "Vaux says that Science's idea to pass some papers to statisticians \"has some merit, but a weakness is that it relies on the board of reviewing editors to identify 'the papers that need scrutiny' in the first place\"",
+      "zh": "沃克斯说，《科学》杂志把一些论文交给统计学家审阅的想法“有一些可取之处，但缺点是它首先依赖审稿编辑委员会来甄别‘需要仔细审查的论文’”。"
     }
   ],
   "questions": [

@@ -1,0 +1,1006 @@
+{
+  "2020:A:0": {
+    "grammar": [
+      { "title": "同位语插入语 among them + 名词", "text": "among them Yvette Cooper 夹在主谓之间，among them 是介词短语，后面直接跟名词，没有谓语动词，是对 A group of Labour MPs 的补充说明（列举其中一人）。阅读时可先跳过这一段，抓住 A group of Labour MPs are bringing in the new year 的主干。" },
+      { "title": "主谓一致 A group of + 复数名词 + are", "text": "主语是 A group of Labour MPs，谓语用 are bringing in。group 虽为单数名词，但此处强调'一组议员'这一集体中的多个成员，按复数处理，注意与 the group is 的区别。" },
+      { "title": "不定式 to institute 作 call 的后置定语", "text": "with a call to institute a UK “town of culture” award 中，to institute 不定式修饰 call，说明'呼吁的内容是设立什么'，而不是目的状语。翻译时按定语处理：'呼吁设立……的号召'。" }
+    ],
+    "words": [
+      { "word": "institute", "meaning": "v. 设立、制定", "note": "此处为动词，不是名词'机构'；institute a new law 为常用搭配。" },
+      { "word": "call", "meaning": "n. 呼吁", "note": "此处作名词；a call to do sth 为'做某事的呼吁'。" },
+      { "word": "MP", "meaning": "英国议会议员", "note": "Member of Parliament 的缩写。" }
+    ],
+    "phrases": [
+      { "text": "bring in the new year", "meaning": "迎接新年", "note": "此处 bring in 意为'迎来、带入'，不是'引进'。" },
+      { "text": "a call to institute", "meaning": "设立……的呼吁" }
+    ]
+  },
+  "2020:A:1": {
+    "grammar": [
+      { "title": "表语从句 that...", "text": "The proposal is that it should sit alongside... 中 that 从句作 is 的表语，说明'提议的具体内容'。主句谓语只有 is，抓主干时先看到 The proposal is，再用'（提议）是……'引导出整句含义。" },
+      { "title": "非限定性定语从句 + 从句内并列谓语", "text": "which was held by Hull in 2017, and has been awarded to Coventry for 2021 中，which 指代 the existing city of culture title，两个谓语 was held 与 has been awarded 由 and 并列，都属于这个 which 从句，而不是与主句并列。要防止误读成主句也有两个动作。" }
+    ],
+    "words": [
+      { "word": "proposal", "meaning": "n. 提议", "note": "propose 的名词；前文的 call 与它同义。" },
+      { "word": "alongside", "meaning": "prep. 与……并列", "note": "along side 的合成；此处'与已有的文化城市称号并列'，即并存不冲突。" },
+      { "word": "title", "meaning": "n. 称号", "note": "此处不是'标题'，而是'头衔、称号'。" },
+      { "word": "award", "meaning": "v. 授予、颁发", "note": "be awarded to sb 为'被授予某人'，注意后接人。" }
+    ],
+    "phrases": [
+      { "text": "sit alongside", "meaning": "与……并存、并列", "note": "sit 在此引申为'处于（某一位置）'。" }
+    ]
+  },
+  "2020:A:2": {
+    "grammar": [
+      { "title": "非限定性定语从句插在宾语从句主谓之间", "text": "that the success of the crown for Hull, where it brought in... , ought not to be confined to cities 中，where 引导的定语从句修饰 Hull，被插在主语 the success of the crown for Hull 与谓语 ought not to be confined 之间，造成主谓割裂。阅读时应先找到谓语 ought not to be confined，把 where 从句整体当作插入成分跳过。" },
+      { "title": "情态动词否定 ought not to be confined", "text": "ought to 意为'应该'，否定形式为 ought not to，此处后接被动语态，表示'不应该被局限于城市'。" }
+    ],
+    "words": [
+      { "word": "crown", "meaning": "n. 桂冠、荣誉", "note": "此处指'城市文化称号'这一荣誉，非'皇冠'。" },
+      { "word": "investment", "meaning": "n. 投资", "note": "brought in £220m of investment 意为'带来了2.2亿英镑的投资'。" },
+      { "word": "avalanche", "meaning": "n. 大量涌现的东西", "note": "本义'雪崩'，引申为'铺天盖地、大量'，an avalanche of arts 即'海量的艺术活动'。" },
+      { "word": "confine", "meaning": "v. 限制、局限于", "note": "be confined to 为'局限于……'；to 是介词，后接名词。" }
+    ],
+    "phrases": [
+      { "text": "bring in", "meaning": "带来、创造（收益）", "note": "此处指为赫尔带来投资与艺术活动。" },
+      { "text": "an avalanche of", "meaning": "大量的……" },
+      { "text": "be confined to", "meaning": "被局限于……" }
+    ]
+  },
+  "2020:A:3": {
+    "grammar": [
+      { "title": "插入语 it is true", "text": "it is true 插在 Britain's towns 与 are not prevented 之间，表让步（'诚然、的确'），阅读时可跳过，先看主干 Britain's towns are not prevented from applying。翻译时常提到句首：'诚然，……'。" },
+      { "title": "but 转折并列句", "text": "逗号后 but they generally lack the resources... 与前半句构成转折，前半句承认'没有被禁止申请'，后半句点明障碍是'缺乏资源'。抓住 but 后的内容是作者的真实论点所在。" }
+    ],
+    "words": [
+      { "word": "prevent", "meaning": "v. 阻止、防止", "note": "be prevented from doing 为'被阻止做某事'的被动式。" },
+      { "word": "apply", "meaning": "v. 申请", "note": "apply (for sth) 为'申请'；注意与 apply to（适用于）区分。" },
+      { "word": "bid", "meaning": "n. 申请、投标", "note": "put together a bid 意为'拼凑出（递交）一份申请/投标书'。" },
+      { "word": "competitor", "meaning": "n. 竞争者、对手", "note": "compete 的同根名词，此处指更大的城市竞争者。" }
+    ],
+    "phrases": [
+      { "text": "prevent sb from doing", "meaning": "阻止某人做某事", "note": "被动式 be prevented from applying 即'被阻止申请'。" },
+      { "text": "put together a bid", "meaning": "整合、制作一份申请", "note": "put together 表'拼凑、整合资源'。" },
+      { "text": "lack the resources to", "meaning": "缺乏做……的资源", "note": "lack 作动词直接带宾语，无需介词。" }
+    ]
+  },
+  "2020:A:4": {
+    "grammar": [
+      { "title": "插入语 it is argued", "text": "it is argued 插入 could 与 become 之间，意为'有人认为、据称'，表达观点来源的婉转。阅读时跳过它，主干是 A town of culture award could become an annual event。" },
+      { "title": "现在分词短语作结果/伴随状语", "text": "attracting funding and creating jobs 与主语是主动关系，补充说明'成为年度盛事'带来的结果，可译成'从而吸引资金、创造就业'。" }
+    ],
+    "words": [
+      { "word": "annual", "meaning": "adj. 一年一度的", "note": "an annual event 即'年度盛事'；注意与 anniversary（周年纪念）区分。" }
+    ],
+    "phrases": [
+      { "text": "it is argued", "meaning": "有人认为、据称", "note": "常用婉转表达观点插入语。" }
+    ]
+  },
+  "2020:A:5": {
+    "grammar": [
+      { "title": "see sth as + 宾语补足语", "text": "see the proposal as a booby prize 中，as 引出对 proposal 的评价，'把提议看作安慰奖'。as 后的名词短语是理解重点。" },
+      { "title": "同位语从句 for the fact that...", "text": "for the fact that Britain is no longer able to apply for... 中，that 从句是 the fact 的同位语，解释'这一事实'的具体内容。介词 for 表原因，整个部分解释'为何是安慰奖'。" },
+      { "title": "过去分词短语作后置定语", "text": "a sought-after award bagged by Glasgow in 1990 and Liverpool in 2008 是 European capital of culture 的同位语，其中 bagged by... 是过去分词短语，因 award 是'被获得'故用被动，翻译为'由……获得的奖项'。" }
+    ],
+    "words": [
+      { "word": "booby prize", "meaning": "n. 安慰奖", "note": "本义为给垫底者的'末等奖'，此处带贬义，表'名不副实的安慰'。" },
+      { "word": "prestigious", "meaning": "adj. 享有盛誉的", "note": "the much more prestigious title 即'更负盛名的称号'。" },
+      { "word": "sought-after", "meaning": "adj. 广受欢迎的、被追捧的", "note": "由动词短语 seek after 变来，'求之不得的'。" },
+      { "word": "bag", "meaning": "v. 获得、拿下", "note": "口语化的'夺得、拿下（奖项）'。" }
+    ],
+    "phrases": [
+      { "text": "see...as...", "meaning": "把……看作……" },
+      { "text": "apply for", "meaning": "申请", "note": "apply for the title 即'申请该称号'。" },
+      { "text": "no longer", "meaning": "不再", "note": "no longer be able to do 即'再也不能做……'。" }
+    ]
+  },
+  "2020:A:6": {
+    "grammar": [
+      { "title": "宾语从句 that... + 主谓割裂", "text": "might speculate that 后接一长句，其主干为 the UK is on the verge of disappearing...，后面的 in its desperation to reinvent itself for the post-Brexit world 是补充说明原因。阅读时先找到 is on the verge of，再吸收状语信息。" },
+      { "title": "冒号后反问句", "text": "冒号引出对前文的嘲讽式延伸：after town of culture, who knows what will follow — village of culture? 这是反问，答案不言而喻'天知道还会有什么'。疑问词 who knows what will follow 为疑问句套宾语从句。" }
+    ],
+    "words": [
+      { "word": "cynic", "meaning": "n. 愤世嫉俗者", "note": "cynical 的名词；此类人爱唱反调、讽刺。" },
+      { "word": "speculate", "meaning": "v. 推测", "note": "speculate that... 后接推测的内容。" },
+      { "word": "verge", "meaning": "n. 边缘", "note": "on the verge of 为'濒临、即将'，of 后接动名词。" },
+      { "word": "desperation", "meaning": "n. 绝望、极度迫切", "note": "in one's desperation to do 为'在急于做……的绝望中'。" },
+      { "word": "reinvent", "meaning": "v. 重塑、彻底改造", "note": "reinvent oneself 为'重塑自我'。" }
+    ],
+    "phrases": [
+      { "text": "on the verge of", "meaning": "濒临、即将", "note": "后接名词或动名词。" },
+      { "text": "in one's desperation to do", "meaning": "急于做某事、铤而走险", "note": "desperation 表急迫而绝望的心态。" },
+      { "text": "reinvent oneself", "meaning": "重塑自我" }
+    ]
+  },
+  "2020:A:7": {
+    "grammar": [
+      { "title": "省略句 + 反问呼应", "text": "Suburb of culture? 只有名词短语加问号，承接上一句的反问模式，把 town 换成了 suburb，构成排比反问，意思是'（接下来是）文化郊区吗？'。理解时需补出上文 who knows what will follow 的结构。" }
+    ],
+    "words": [
+      { "word": "suburb", "meaning": "n. 郊区", "note": "此处是讽刺性替换，与 town、village、hamlet 形成由大到小的递降。" }
+    ],
+    "phrases": []
+  },
+  "2020:A:8": {
+    "grammar": [
+      { "title": "省略句 + 反问呼应", "text": "Hamlet of culture? 同上一句，仅有名词短语，承接 who knows what will follow 的反问，把递降推到更小的 hamlet（小村庄），强化'英国自我庆祝无底线'的讽刺。" }
+    ],
+    "words": [
+      { "word": "hamlet", "meaning": "n. 小村庄", "note": "比 village 更小的聚落；注意大写 Hamlet 是莎剧主人公，此处为普通名词。" }
+    ],
+    "phrases": []
+  },
+  "2020:A:9": {
+    "grammar": [
+      { "title": "形式主语 It + 不定式", "text": "It is wise to recall that... 中 It 是形式主语，真正主语是 to recall that...。理解时还原为 To recall that such titles are not a cure-all is wise，即'记住这类称号并非万灵药是明智的'。" },
+      { "title": "宾语从句 that such titles are not a cure-all", "text": "recall 后接 that 从句，说明'要记住的内容'。cure-all 是复合名词，注意其为单数概念。" }
+    ],
+    "words": [
+      { "word": "wise", "meaning": "adj. 明智的", "note": "It is wise to do 为'做某事是明智的'。" },
+      { "word": "recall", "meaning": "v. 回忆、牢记", "note": "此处意为'牢记、别忘了'，recall that... 后接事实。" },
+      { "word": "cure-all", "meaning": "n. 灵丹妙药、万能药", "note": "cure 加 all 合成的复合名词，表'包治百病的药'。" }
+    ],
+    "phrases": []
+  },
+  "2020:A:10": {
+    "grammar": [
+      { "title": "过去分词 badly run 前置定语", "text": "A badly run “year of culture” 中，run 是 run 的过去分词，与 badly 构成'（被）糟糕地运营的'，修饰 year of culture。名词前由'副词+过去分词'充当定语，是常见表达，如 a well-known writer。" },
+      { "title": "现在分词伴随状语 + 并列对比", "text": "bringing prominence for a spell but leaving no lasting benefits to the community 是两个现在分词短语由 but 连接，补充说明'涌进涌出'的结果，前褒后贬形成对比：'一时带来关注，却留不下持久好处'。" }
+    ],
+    "words": [
+      { "word": "prominence", "meaning": "n. 显著、受关注", "note": "bring prominence for a spell 即'一时引人注目'。" },
+      { "word": "spell", "meaning": "n. 一段时间", "note": "for a spell 为'一段时间'；注意与'拼写'义区分。" },
+      { "word": "lasting", "meaning": "adj. 持久的", "note": "lasting benefits 即'持久的益处'；last 的形容词形。" },
+      { "word": "tide", "meaning": "n. 潮水", "note": "like the tide 作比喻，形象说明'潮起潮落、来了又走'。" }
+    ],
+    "phrases": [
+      { "text": "wash in and out of", "meaning": "涌进又涌出", "note": "借潮水的意象，形容活动来了又走、留不下东西。" },
+      { "text": "for a spell", "meaning": "一段时间" }
+    ]
+  },
+  "2020:A:11": {
+    "grammar": [
+      { "title": "表语 those + that 定语从句", "text": "the holders... are those that do... 中，those 指代前文的'那些（称号的持有者）'，that 引导定语从句具体说明他们'做了什么'。those 与 that 的呼应使定语从句紧贴先行词。" },
+      { "title": "more than + 动词原形 的比较结构", "text": "do a great deal more than fill hotel bedrooms and bring in... 中，more than 后直接接动词原形 fill 与 bring in，表示'所做的事远不止这些动作'，即'不止于让客房住满、引入高曝光活动与获得好评'。" }
+    ],
+    "words": [
+      { "word": "holder", "meaning": "n. 持有者、获得者", "note": "hold 加 -er；the holders of such titles 即'这类称号的获得者'。" },
+      { "word": "high-profile", "meaning": "adj. 高知名度的、备受瞩目的", "note": "profile 表'形象、关注度'，high-profile events 即'高曝光活动'。" },
+      { "word": "press", "meaning": "n. 新闻报道、媒体评价", "note": "good press 即'正面报道、好评'；press 作'新闻界'讲。" }
+    ],
+    "phrases": [
+      { "text": "a great deal more than", "meaning": "远远不止于", "note": "a great deal 加强 more than 的程度。" },
+      { "text": "bring in", "meaning": "带来、引入", "note": "bring in arts events and good press 即'引入艺术活动并带来好评'。" }
+    ]
+  },
+  "2020:A:12": {
+    "grammar": [
+      { "title": "分号连接两个并列分句", "text": "分号把两个完整句子并列起来，说明'此类活动'的两种效果：transform the aspirations（改变抱负）与 nudge the self-image（推动自我形象），结构对仗，可译为两个'它们……'。" },
+      { "title": "定语从句 who live there", "text": "the people who live there 中 who 引导定语从句修饰 people，there 指代上文城市/小镇。因 people 作先行词，关系词用 who。" }
+    ],
+    "words": [
+      { "word": "transform", "meaning": "v. 转变、改造", "note": "transform the aspirations 即'改变……的抱负'。" },
+      { "word": "aspiration", "meaning": "n. 抱负、志向", "note": "常与 desire 近义；aspirations of the people 即'人们的追求'。" },
+      { "word": "nudge", "meaning": "v. 轻推、促使", "note": "nudge sth into... 即'把某物轻轻推向……'，比 force 温和。" },
+      { "word": "self-image", "meaning": "n. 自我形象" }
+    ],
+    "phrases": [
+      { "text": "nudge...into...", "meaning": "促使……进入/朝向……", "note": "into 后接结果，如 into a bolder and more optimistic light。" },
+      { "text": "a bolder and more optimistic light", "meaning": "更加大胆、更加乐观的形象/角度", "note": "light 此处表'（看待事物的）角度、形象'。" }
+    ]
+  },
+  "2020:A:13": {
+    "grammar": [
+      { "title": "形式主语 It is hard to get right", "text": "It is hard to get right 中 It 形式主语，to get right 为真正主语。get right 是'把……做对'的固定短语，get 后接宾语+补语，此处宾语省略（指上文'做成此事'）。" },
+      { "title": "as well as 连接并列成分", "text": "requires a remarkable degree of vision, as well as cooperation between... 中，as well as 连接 vision 与 cooperation，意为'不仅需要……还需要……'，重心在前者。阅读时注意 as well as 引出的内容常是补充信息。" }
+    ],
+    "words": [
+      { "word": "remarkable", "meaning": "adj. 非凡的", "note": "a remarkable degree of 即'极度的、非凡的'。" },
+      { "word": "vision", "meaning": "n. 远见、眼光", "note": "此处不可数，指'洞察力、远见'。" },
+      { "word": "cooperation", "meaning": "n. 合作", "note": "cooperate 的名词；cooperation between A and B 为'……之间的合作'。" },
+      { "word": "sector", "meaning": "n. 部门、领域", "note": "the private sector 即'私营部门、私人领域'。" }
+    ],
+    "phrases": [
+      { "text": "get sth right", "meaning": "把某事做对", "note": "It is hard to get right 即'很难做对'。" },
+      { "text": "as well as", "meaning": "以及、还", "note": "强调前者，连接两个名词性成分。" },
+      { "text": "a remarkable degree of", "meaning": "很大程度的……" }
+    ]
+  },
+  "2020:A:14": {
+    "grammar": [
+      { "title": "冒号引出解释说明", "text": "But it can be done: 冒号后以格拉斯哥为例具体说明'可以做到'。阅读时冒号后的内容是对前文的支撑论据，可迅速把握主句观点再读例子。" },
+      { "title": "双重定语从句嵌套", "text": "factors that have turned the city into the powerhouse of art, music and theatre that it remains today 中，第一个 that 从句修饰 factors，说明因素的作用；第二个 that 修饰 powerhouse，且 that 在从句中作 remain 的状语（等同于 where/which），意为'（这座城市）至今仍是这样的重镇'。两个 that 相隔很近，注意各自修饰的对象。" }
+    ],
+    "words": [
+      { "word": "powerhouse", "meaning": "n. 重要的中心、强国", "note": "the powerhouse of art, music and theatre 即'艺术、音乐和戏剧的重镇'。" },
+      { "word": "series", "meaning": "n. 一系列", "note": "a series of factors 即'一系列因素'；单复数同形。" },
+      { "word": "certainly", "meaning": "adv. 无疑、肯定" }
+    ],
+    "phrases": [
+      { "text": "be seen as", "meaning": "被看作", "note": "see sth as 的被动式。" },
+      { "text": "turn...into...", "meaning": "把……变成……", "note": "turn the city into the powerhouse 即'使这座城市成为重镇'。" },
+      { "text": "a series of", "meaning": "一系列" }
+    ]
+  },
+  "2020:A:15": {
+    "grammar": [
+      { "title": "not just...but... 并列结构", "text": "could be not just about the arts but about honouring a town's peculiarities 中，not just...but... 表示'不仅……而且……'，连接两个 about 介词短语，重心在 but 之后（honouring a town's peculiarities）。" },
+      { "title": "破折号后动名词并列补充", "text": "破折号后的 helping sustain its high street, supporting local facilities and above all celebrating its people 是三个动名词短语并列，对 honouring a town's peculiarities 作具体举例展开，其中 above all 提示最后一项最重要。" }
+    ],
+    "words": [
+      { "word": "honour", "meaning": "v. 表彰、尊崇", "note": "honouring a town's peculiarities 即'彰显一座小镇的特色'。" },
+      { "word": "peculiarity", "meaning": "n. 独特性、特色", "note": "peculiar（独特的）的名词。" },
+      { "word": "sustain", "meaning": "v. 维持、使……持续", "note": "helping sustain its high street 即'帮助维持其商业主街的活力'。" },
+      { "word": "facility", "meaning": "n. 设施", "note": "local facilities 即'本地设施'；注意 facility 还有'便利'义。" }
+    ],
+    "phrases": [
+      { "text": "not just...but (also)...", "meaning": "不仅……而且……" },
+      { "text": "above all", "meaning": "最重要的是", "note": "强调列举中的最重要项。" },
+      { "text": "high street", "meaning": "（城镇的）商业主街", "note": "英国常用，美国常说 main street。" }
+    ]
+  },
+  "2020:A:16": {
+    "grammar": [
+      { "title": "同位语 the culture secretary", "text": "Jeremy Wright, the culture secretary, should welcome... 中 the culture secretary 是对 Jeremy Wright 身份的同位语补充，用逗号隔开，说明其职务，可译为'文化大臣杰里米·赖特'。" },
+      { "title": "and 连接并列谓语", "text": "should welcome this positive hope-filled proposal, and turn it into action 中，and 连接 welcome 与 turn 两个并列谓语，都是 should 后的动词原形，即'应当欢迎并落实'。" }
+    ],
+    "words": [
+      { "word": "welcome", "meaning": "v. 欢迎、欣然接受", "note": "welcome a proposal 即'欢迎/支持一项提议'。" },
+      { "word": "proposal", "meaning": "n. 提议", "note": "与上文 call 同义呼应。" },
+      { "word": "hope-filled", "meaning": "adj. 充满希望的", "note": "名词 + 过去分词构成的复合形容词。" }
+    ],
+    "phrases": [
+      { "text": "turn...into action", "meaning": "把……付诸行动", "note": "turn it into action 即'将其付诸实施'。" }
+    ]
+  },
+  "2020:B:0": {
+    "grammar": [
+      { "title": "现在完成时 has long been", "text": "has long been 强调'长期以来一直是'，long 表持续之久。理解时注意 licence 用的是引申义而非本义。" },
+      { "title": "不定式 to print money 作后置定语", "text": "a licence to print money 中，to print money 修饰 licence，字面是'印钞的执照'，引申为'一本万利、稳赚不赔的生意'，是全篇论述的起点。" }
+    ],
+    "words": [
+      { "word": "licence", "meaning": "n. 执照、许可", "note": "此处为引申义'特权、通行证'，a licence to print money 比喻稳赚不赔的买卖。" },
+      { "word": "publishing", "meaning": "n. 出版业", "note": "scientific publishing 即'科学出版'。" }
+    ],
+    "phrases": [
+      { "text": "print money", "meaning": "印钞、一本万利", "note": "俗语，形容赚钱极其容易。" }
+    ]
+  },
+  "2020:B:1": {
+    "grammar": [
+      { "title": "介词 + which + 不定式", "text": "journals in which to publish their research 中，which 指代 journals，in which to publish 意为'（在期刊中）发表'，相当于定语从句 in which they publish。这种'介词+which+不定式'的紧凑结构是考研高频考点，理解时还原为 in the journals。" },
+      { "title": "so 引导结果状语从句", "text": "so they will supply the articles without monetary reward 说明'因此'带来的结果——科学家无偿供稿。阅读时 so 连接的是结果，而非目的。" }
+    ],
+    "words": [
+      { "word": "journal", "meaning": "n. 期刊、学报", "note": "scientific journals 即'科学期刊'。" },
+      { "word": "supply", "meaning": "v. 提供、供应", "note": "supply the articles 即'提供文章'。" },
+      { "word": "monetary", "meaning": "adj. 货币的、金钱的", "note": "without monetary reward 即'没有金钱回报'；money 的形容词。" },
+      { "word": "reward", "meaning": "n. 报酬、回报" }
+    ],
+    "phrases": [
+      { "text": "in which to publish", "meaning": "（在其中）发表", "note": "介词+which+不定式的定语结构。" },
+      { "text": "without monetary reward", "meaning": "没有金钱报酬", "note": "without + 名词表'无偿'。" }
+    ]
+  },
+  "2020:B:2": {
+    "grammar": [
+      { "title": "because 原因状语从句", "text": "because it is a central element in the acquisition of status and the production of scientific knowledge 解释'为何免费做同行评审'：因为它是获取地位、产出科学知识的核心环节。阅读时把握 because 后即作者给出的原因。" },
+      { "title": "名词化表达 A of B", "text": "the acquisition of status 与 the production of scientific knowledge 均是把动词（acquire, produce）名词化，翻译时常还原为动词：'获取地位、产出科学知识'。" }
+    ],
+    "words": [
+      { "word": "peer review", "meaning": "n. 同行评审", "note": "学术论文发表前的同行评议制度。" },
+      { "word": "acquisition", "meaning": "n. 获得", "note": "acquire 的名词；the acquisition of status 即'获得地位'。" },
+      { "word": "status", "meaning": "n. 地位、身份", "note": "academic status 即'学术地位'。" },
+      { "word": "specialised", "meaning": "adj. 专业化的", "note": "specialise 的过去分词作形容词，'专门的'。" }
+    ],
+    "phrases": [
+      { "text": "for free", "meaning": "免费地、无偿地" },
+      { "text": "a central element in", "meaning": "……中的核心要素", "note": "element 此处意为'要素、组成部分'。" }
+    ]
+  },
+  "2020:B:3": {
+    "grammar": [
+      { "title": "with + 名词 + 过去分词 独立结构", "text": "With the content of papers secured for free 中，content 是受动者，secured 表'（被）免费获得'，构成'with+名词+过去分词'的独立结构，作条件/原因状语，可译为'既然论文内容可免费获取'。" },
+      { "title": "needs only to find", "text": "the publisher needs only to find a market for its journal 中，need 后接不定式 to find，only 强调'只需'，说明出版社的剩下任务。" }
+    ],
+    "words": [
+      { "word": "secure", "meaning": "v. 获得、弄到", "note": "secured for free 即'免费获得'；注意 secure 作形容词为'安全的'。" },
+      { "word": "publisher", "meaning": "n. 出版商" }
+    ],
+    "phrases": [
+      { "text": "find a market for", "meaning": "为……寻找市场/销路", "note": "market 此处引申为'销路'。" },
+      { "text": "for free", "meaning": "免费地" }
+    ]
+  },
+  "2020:B:4": {
+    "grammar": [
+      { "title": "时间状语前置 Until this century", "text": "Until this century 置于句首作时间状语，强调'进入本世纪之前'这一时间段，句意为'本世纪前大学图书馆对价格并不敏感'。until 后接时间名词，与主句否定式构成'直到……才（一直不）'的意味。" }
+    ],
+    "words": [
+      { "word": "sensitive", "meaning": "adj. 敏感的", "note": "price sensitive 即'对价格敏感的'，此处否定式表示'不在乎价格'。" }
+    ],
+    "phrases": [
+      { "text": "price sensitive", "meaning": "对价格敏感", "note": "复合形容词，常作表语或定语。" }
+    ]
+  },
+  "2020:B:5": {
+    "grammar": [
+      { "title": "现在分词 approaching 作后置定语", "text": "profit margins approaching 40% 中，approaching 修饰 margins，因 margins 是主动'接近'，故用现在分词，意为'接近40%的利润率'。注意这里不是谓语，阅读时别把它当成 report 的并列动词。" },
+      { "title": "at a time when 定语从句", "text": "at a time when the rest of the publishing industry is in an existential crisis 中，when 引导定语从句修饰 time，把'出版商报告高利润'与'行业其他领域危机'形成鲜明对比，是支持论点的重要细节。" }
+    ],
+    "words": [
+      { "word": "margin", "meaning": "n. 利润率", "note": "profit margin 为'利润率、利润空间'。" },
+      { "word": "routinely", "meaning": "adv. 例行地、通常", "note": "routine 的副词，此处表'经常、一贯'。" },
+      { "word": "existential", "meaning": "adj. 关乎存亡的", "note": "existential crisis 即'生存危机'。" }
+    ],
+    "phrases": [
+      { "text": "profit margin", "meaning": "利润率", "note": "margin 有'边缘、幅度'义。" },
+      { "text": "at a time when", "meaning": "在……的时候", "note": "when 引导定语从句的固定句型。" },
+      { "text": "in an existential crisis", "meaning": "处于生存危机中" }
+    ]
+  },
+  "2020:B:6": {
+    "grammar": [
+      { "title": "非限定性定语从句 which claims to publish...", "text": "which claims to publish 25% of the scientific papers produced in the world 修饰 Elsevier，其中 produced in the world 又是过去分词短语修饰 papers（论文'被'产出）。整个 which 从句插在主语与谓语 made 之间，阅读时先跳过它抓住 Elsevier made profits 主干。" },
+      { "title": "while 对比状语从句 + 分号并列", "text": "while UK universities alone spent more than £210m in 2016... 表对比（一方赚、一方花）；分号后再接一个完整分句 both figures seem to rise unstoppably despite... 总结两方面数字仍在上涨。全句形成'出版社利润 vs 大学支出'的双重对比。" },
+      { "title": "不定式 to enable... 作目的状语", "text": "spent more than £210m in 2016 to enable researchers to access their own publicly funded research 中，to enable... 表花钱的目的，enable sb to do 为'使某人能够做……'。" }
+    ],
+    "words": [
+      { "word": "giant", "meaning": "n. 巨头、大型企业", "note": "The Dutch giant 即'荷兰巨头（公司）'。" },
+      { "word": "claim", "meaning": "v. 声称", "note": "claims to publish 即'声称出版'；注意与'索取'义区分。" },
+      { "word": "enable", "meaning": "v. 使能够", "note": "enable sb to do sth 为'使某人能够做某事'。" },
+      { "word": "fund", "meaning": "v. 资助", "note": "publicly funded research 即'公共资金资助的研究'。" },
+      { "word": "desperate", "meaning": "adj. 孤注一掷的、急切的", "note": "increasingly desperate efforts 即'越来越拼命的努力'。" },
+      { "word": "unstoppably", "meaning": "adv. 势不可挡地", "note": "un- + stoppable + -ly，表'无法遏制地'。" }
+    ],
+    "phrases": [
+      { "text": "more than", "meaning": "超过" },
+      { "text": "enable sb to do", "meaning": "使某人能够做某事" },
+      { "text": "publicly funded", "meaning": "由公共资金资助的" },
+      { "text": "despite efforts to do", "meaning": "尽管努力做……", "note": "despite 后接名词短语。" }
+    ]
+  },
+  "2020:B:7": {
+    "grammar": [
+      { "title": "多重复合后置修饰语链", "text": "The most drastic, and thoroughly illegal, reaction has been the emergence of Sci-Hub, a kind of global photocopier for scientific papers, set up in 2012, which now claims to offer access to every paywalled article published since 2015 中，主句为 The most drastic reaction has been the emergence of Sci-Hub，其后依次为同位语 a kind of global photocopier...、过去分词 set up in 2012、定语从句 which claims...。阅读时逐层剥离：是什么→像什么→何时成立→有何功能。" },
+      { "title": "过去分词 published 后置定语", "text": "every paywalled article published since 2015 中，published 修饰 article（文章'被'发表），since 2015 补充时间起点。" }
+    ],
+    "words": [
+      { "word": "drastic", "meaning": "adj. 激烈的、极端的", "note": "the most drastic reaction 即'最极端的反应'。" },
+      { "word": "emergence", "meaning": "n. 出现", "note": "emerge 的名词；the emergence of Sci-Hub 即'Sci-Hub的出现'。" },
+      { "word": "photocopier", "meaning": "n. 复印机", "note": "a global photocopier 为比喻，指复制、分享论文的平台。" },
+      { "word": "paywalled", "meaning": "adj. 收费的、有付费墙的", "note": "paywall 的过去分词作形容词，'需付费才能看的'。" },
+      { "word": "access", "meaning": "n. 访问、获取", "note": "offer access to 为'提供……的访问权限'。" }
+    ],
+    "phrases": [
+      { "text": "set up", "meaning": "建立、成立", "note": "set up in 2012 即'成立于2012年'。" },
+      { "text": "offer access to", "meaning": "提供……的访问/获取渠道", "note": "access 后接 to。" }
+    ]
+  },
+  "2020:B:8": {
+    "grammar": [
+      { "title": "非限定性定语从句 which relies on researchers passing on copies", "text": "which relies on researchers passing on copies they have themselves legally accessed 中，researchers passing on copies 是'名词+动名词'的复合结构作 relies on 的宾语；其后 copies 又被定语从句 they have... accessed 修饰，从句省略了关系代词 that/which。整句结构层层嵌套。" },
+      { "title": "省略 that 的宾语从句", "text": "shows 后的 the legal ecosystem has lost legitimacy among its users and must be transformed 是省略了 that 的宾语从句，内部有两个并列谓语 has lost 与 must be transformed，说明'合法生态系统失去合法性且必须变革'。" },
+      { "title": "so that 目的状语从句", "text": "so that it works for all participants 表目的，'以便让所有参与者受益'。" }
+    ],
+    "words": [
+      { "word": "rely", "meaning": "v. 依赖", "note": "rely on 为'依赖、依靠'。" },
+      { "word": "legitimacy", "meaning": "n. 合法性、正当性", "note": "legitimate（合法的）的名词。" },
+      { "word": "ecosystem", "meaning": "n. 生态系统", "note": "此处指出版生态体系，为比喻用法。" },
+      { "word": "transform", "meaning": "v. 变革、改造" },
+      { "word": "participant", "meaning": "n. 参与者", "note": "participate 的名词。" }
+    ],
+    "phrases": [
+      { "text": "rely on", "meaning": "依赖、依靠", "note": "on 为介词，后接名词/动名词。" },
+      { "text": "pass on", "meaning": "传递、转交", "note": "passing on copies 即'传递论文副本'。" },
+      { "text": "so that", "meaning": "以便、为了", "note": "引导目的状语从句。" }
+    ]
+  },
+  "2020:B:9": {
+    "grammar": [
+      { "title": "被动语态 has been driven by", "text": "the move towards open access publishing has been driven by funding bodies 中，driven 是 drive（推动）的过去分词，'被……推动'，by funding bodies 引出施动者，说明向开放获取出版转型的推动力来自资助机构。" },
+      { "title": "towards 介词短语后置定语", "text": "the move towards open access publishing 中，towards 介词短语修饰 move，说明'朝向开放获取出版的举措'。" }
+    ],
+    "words": [
+      { "word": "move", "meaning": "n. 举措、动向", "note": "the move towards 即'迈向……的行动'。" },
+      { "word": "drive", "meaning": "v. 推动、驱动", "note": "has been driven 为'被推动'。" }
+    ],
+    "phrases": [
+      { "text": "open access publishing", "meaning": "开放获取出版", "note": "学术出版术语，指论文免费公开。" },
+      { "text": "funding bodies", "meaning": "资助机构", "note": "body 此处为'机构、团体'。" }
+    ]
+  },
+  "2020:B:10": {
+    "grammar": [
+      { "title": "现在完成时承接上文评价", "text": "it has been very successful 用现在完成时，说明'（开放获取出版）已很成功'，是对上句 '被资助机构推动' 的效果评价，与下文 Yet 转折形成先扬后抑的论证节奏。" }
+    ],
+    "phrases": [
+      { "text": "in some ways", "meaning": "从某些方面来说", "note": "注意与 in a way（在某种程度上）相近。" }
+    ],
+    "words": []
+  },
+  "2020:B:11": {
+    "grammar": [
+      { "title": "冒号 + either...or... 并列解释", "text": "冒号后 either freely available from the moment of publication, or paywalled for a year or more 是 either...or... 连接的两个并列描述，说明开放获取的两种模式。注意两个分支都是省略主语的形容词/分词，还原为 'published either freely available... or paywalled...'。" },
+      { "title": "so that 目的状语 + before 被动动名词", "text": "so that the publishers can make a profit 说明付费期的目的；before being placed on general release 中 being placed 是被动动名词，意为'在被公开发布之前'，before 后用被动表示文章'被'放上架。" }
+    ],
+    "words": [
+      { "word": "term", "meaning": "n. 条款、条件", "note": "under open access terms 即'按照开放获取条款'。" },
+      { "word": "publication", "meaning": "n. 出版、发表", "note": "the moment of publication 即'发表之时'。" },
+      { "word": "release", "meaning": "n. 发布、发行", "note": "general release 即'全面公开发布'。" },
+      { "word": "freely", "meaning": "adv. 免费地、自由地", "note": "freely available 即'免费可得'。" }
+    ],
+    "phrases": [
+      { "text": "open access terms", "meaning": "开放获取条款", "note": "under...terms 为'按照……条款'。" },
+      { "text": "make a profit", "meaning": "获利、赚钱" },
+      { "text": "on general release", "meaning": "公开发行、全面放开", "note": "指论文结束付费墙后向社会公开。" }
+    ]
+  },
+  "2020:B:12": {
+    "grammar": [
+      { "title": "现在完成时 + 结果含义的 work out", "text": "has not worked out any cheaper 中，work out 意为'结果是、最终是'，any cheaper 表比较结果（'任何更便宜'），整体为'结果一点也没更便宜'。any 用于否定句加强语气，翻译注意'并没有更便宜'。" }
+    ],
+    "words": [
+      { "word": "system", "meaning": "n. 制度、体系", "note": "the new system 指前文的开放获取出版体系。" }
+    ],
+    "phrases": [
+      { "text": "work out", "meaning": "结果是、最终算下来", "note": "此处为'（成本）算下来'，不是'锻炼'。" },
+      { "text": "any cheaper", "meaning": "（一点也）不更便宜", "note": "any + 比较级用于否定，加强语气。" }
+    ]
+  },
+  "2020:B:13": {
+    "grammar": [
+      { "title": "同位语从句 + 虚拟语气", "text": "the demand that they make their product free to readers 中，that 从句是 demand 的同位语，说明'要求的内容'；因 demand 表'要求'，从句用虚拟语气，动词用原形 make（省略 should）。" },
+      { "title": "by + doing 方式状语 + 双宾语", "text": "by charging their writers fees 说明回应要求的方式是'向作者收费'，charging 后接双宾语 their writers 与 fees（charge sb fees）。不定式 to cover the costs 表收费目的。" }
+    ],
+    "words": [
+      { "word": "respond", "meaning": "v. 回应、答复", "note": "respond to 为'回应'。" },
+      { "word": "demand", "meaning": "n. 要求", "note": "the demand that... 后接同位语从句，表'……的要求'。" },
+      { "word": "charge", "meaning": "v. 收费", "note": "charge sb fees 为'向某人收取费用'，双宾语。" },
+      { "word": "cover", "meaning": "v. 足以支付、弥补", "note": "cover the costs 即'覆盖/弥补成本'。" }
+    ],
+    "phrases": [
+      { "text": "respond to", "meaning": "回应、应对" },
+      { "text": "charge sb fees", "meaning": "向某人收费", "note": "charge 后接人和钱两个宾语。" },
+      { "text": "cover the costs of", "meaning": "支付……的成本" }
+    ]
+  },
+  "2020:B:14": {
+    "grammar": [
+      { "title": "range from...to... 表区间", "text": "These range from around £500 to $5,000 中，range from A to B 表示'从A到B不等'，These 指上文的 fees（各项费用），说明收费区间。数字区间结构是阅读长难句外的高频信息点。" }
+    ],
+    "words": [
+      { "word": "range", "meaning": "v. 在一定范围内变动", "note": "range from...to... 为'从……到……不等'。" }
+    ],
+    "phrases": [
+      { "text": "range from...to...", "meaning": "从……到……不等" }
+    ]
+  },
+  "2020:B:15": {
+    "grammar": [
+      { "title": "宾语从句 that + 过去完成进行时", "text": "pointed out that the costs... had been steadily rising 中，that 从句作 point out 的宾语；had been rising 为过去完成进行时，强调在'去年报告'之前一直在持续上涨，注意与通货膨胀率对比。" },
+      { "title": "both...and... 并列两个 of 短语", "text": "the costs both of subscriptions and of these “article preparation costs” 中，both of subscriptions and of... 是 both...and... 并列修饰 the costs，说明'订阅费用和文章准备费用这两类成本'。" }
+    ],
+    "words": [
+      { "word": "point out", "meaning": "指出", "note": "此处指报告指出事实。" },
+      { "word": "subscription", "meaning": "n. 订阅", "note": "the costs of subscriptions 即'订阅费用'。" },
+      { "word": "steadily", "meaning": "adv. 稳步地", "note": "steadily rising 即'稳步上涨'。" },
+      { "word": "inflation", "meaning": "n. 通货膨胀", "note": "above inflation 即'高于通胀（增速）'。" }
+    ],
+    "phrases": [
+      { "text": "point out", "meaning": "指出" },
+      { "text": "at a rate above inflation", "meaning": "以高于通货膨胀的速度", "note": "rate 表'比率、速度'。" }
+    ]
+  },
+  "2020:B:16": {
+    "grammar": [
+      { "title": "冒号引出类比 + while 对比从句", "text": "冒号把科学出版与社交互联网经济作类比：labour is provided free... while huge profits are made by a few big firms...。while 引导对比状语从句，一边'免费劳动换地位希望'，一边'少数大公司赚取巨额利润'，形成鲜明对照，是理解作者观点的关键。" },
+      { "title": "who 定语从句", "text": "a few big firms who run the market places 中，who 修饰 firms，说明'经营这些市场平台的大公司'。" }
+    ],
+    "words": [
+      { "word": "resemble", "meaning": "v. 类似于、像", "note": "resembles the economy 即'与……经济模式相似'；直接带宾语。" },
+      { "word": "labour", "meaning": "n. 劳动、劳力", "note": "labour is provided free 即'劳动被无偿提供'。" },
+      { "word": "exchange", "meaning": "n. 交换", "note": "in exchange for 为'以换取……'。" }
+    ],
+    "phrases": [
+      { "text": "in exchange for", "meaning": "以换取……", "note": "in exchange for the hope of status 即'以换取获得地位的希望'。" },
+      { "text": "in some ways", "meaning": "从某些方面来说" },
+      { "text": "run the market places", "meaning": "经营这些市场平台", "note": "run 此处为'经营、运营'。" }
+    ]
+  },
+  "2020:B:17": {
+    "grammar": [
+      { "title": "介词短语作状语 + 简单主谓宾", "text": "In both cases 置于句首表范围，主干 we need a rebalancing of power 为简单主谓宾。both cases 指代上文的科学出版与社交互联网两个领域，说明'两种情况下都需要权力再平衡'。" }
+    ],
+    "words": [
+      { "word": "rebalancing", "meaning": "n. 重新平衡", "note": "rebalance 的名词；a rebalancing of power 即'权力再平衡'。" }
+    ],
+    "phrases": [
+      { "text": "in both cases", "meaning": "在这两种情况下" }
+    ]
+  },
+  "2020:C:0": {
+    "grammar": [
+      { "title": "as + 名词短语 作方式/说明", "text": "support diversity mandates as a path to equality and a way to level the playing field 中，as 引出'支持'的理由或方式，即'把多元化强制要求当作通往平等的路径'。" },
+      { "title": "and 连接两个并列名词短语", "text": "a path to equality 与 a way to level the playing field 由 and 并列，均为 as 的宾语，说明'通往平等之路'和'创造公平竞争环境之法'两种理由。" }
+    ],
+    "words": [
+      { "word": "progressive", "meaning": "n. 进步派人士", "note": "此处作名词指'主张进步改革的人'。" },
+      { "word": "mandate", "meaning": "n. 强制要求、指令", "note": "diversity mandates 即'多元化强制要求'；注意与命令式含义的扩展用法。" },
+      { "word": "diversity", "meaning": "n. 多元化、多样性", "note": "社会语境常指种族、性别等多元构成。" }
+    ],
+    "phrases": [
+      { "text": "level the playing field", "meaning": "创造公平竞争环境", "note": "playing field 为比喻，指'竞争场地'。" },
+      { "text": "a path to equality", "meaning": "通往平等的路径", "note": "path to + 名词，'通往……之路'。" }
+    ]
+  },
+  "2020:C:1": {
+    "grammar": [
+      { "title": "that 定语从句 + 并列谓语", "text": "an insincere form of virtue-signaling that benefits only the most privileged and does little to help average people 中，that 修饰 virtue-signaling，从句内两个谓语 benefits 与 does 由 and 并列，说明这种'道德作秀'只惠及精英、对普通人无益。" },
+      { "title": "the most privileged 定冠词 + 形容词表一类人", "text": "the most privileged 意为'最有权势/最受优待的人'，是'the+形容词'表示一类人的用法，翻译为'最特权阶层'。" }
+    ],
+    "words": [
+      { "word": "insincere", "meaning": "adj. 不真诚的、虚伪的", "note": "in- 表否定 + sincere。" },
+      { "word": "virtue-signaling", "meaning": "n. 道德作秀、正义展示", "note": "指表面宣扬美德实则作秀的行为，带贬义。" },
+      { "word": "privileged", "meaning": "adj. 享有特权的", "note": "the most privileged 为'最特权的人'。" },
+      { "word": "average", "meaning": "adj. 普通的、一般的", "note": "average people 即'普通人'。" }
+    ],
+    "phrases": [
+      { "text": "all too often", "meaning": "往往、太过频繁", "note": "all too + 副词，强调'非常、过于'。" },
+      { "text": "do little to do", "meaning": "对做……几乎没帮助", "note": "do little to help 即'几乎帮不上忙'。" }
+    ]
+  },
+  "2020:C:2": {
+    "grammar": [
+      { "title": "主语被长修饰成分分隔", "text": "A pair of bills... provide a case in point 中，主语 A pair of bills 与谓语 provide 之间插入了过去分词短语 sponsored by... 和不定式 to ensure...，造成主谓割裂。阅读时跳过插入成分，把 A pair of bills 与 provide 连起来理解。" },
+      { "title": "过去分词 sponsored + 不定式目的", "text": "bills sponsored by... 说明法案'由谁提出'；to ensure “gender parity” on boards and commissions 为不定式表目的，说明提案意图。注意 sponsored 与被修饰词是动宾关系。" }
+    ],
+    "words": [
+      { "word": "sponsor", "meaning": "v. 发起、提出", "note": "bills sponsored by sb 即'由某人提出的法案'。" },
+      { "word": "parity", "meaning": "n. 均等、平等", "note": "gender parity 即'性别平等、性别均衡'。" },
+      { "word": "senator", "meaning": "n. 参议员" },
+      { "word": "commission", "meaning": "n. 委员会", "note": "boards and commissions 即'董事会与委员会'。" }
+    ],
+    "phrases": [
+      { "text": "a case in point", "meaning": "一个典型的例子", "note": "point 指'论点'，'正好说明问题的例子'。" },
+      { "text": "a pair of", "meaning": "一对、两项" },
+      { "text": "Pro Tempore", "meaning": "临时的", "note": "House Speaker Pro Tempore 为'众议院临时议长'。" }
+    ]
+  },
+  "2020:C:3": {
+    "grammar": [
+      { "title": "be concerned that 宾语从句", "text": "are concerned that more than half the state-government boards are less than 40 percent female 中，that 从句说明'担心'的内容。注意 female 在此作形容词作表语：'女性占比不足40%'。" }
+    ],
+    "words": [
+      { "word": "concerned", "meaning": "adj. 担忧的", "note": "be concerned that 为'担心……'。" },
+      { "word": "female", "meaning": "adj./n. 女性的；女性", "note": "less than 40 percent female 意为'女性比例不到40%'。" }
+    ],
+    "phrases": [
+      { "text": "be concerned that", "meaning": "担心、忧虑……" },
+      { "text": "more than half", "meaning": "一半以上", "note": "more than half the boards 后接名词，无需 of。" }
+    ]
+  },
+  "2020:C:4": {
+    "grammar": [
+      { "title": "In order to 目的状语", "text": "In order to ensure that elite women have more such opportunities 置于句首表目的，说明提议配额的出发点。ensure 后接 that 宾语从句。" },
+      { "title": "propose doing 动名词作宾语", "text": "they have proposed imposing government quotas 中，propose 后接动名词 imposing，'提议实行政府配额'。" }
+    ],
+    "words": [
+      { "word": "elite", "meaning": "adj./n. 精英的；精英", "note": "elite women 即'精英女性'。" },
+      { "word": "impose", "meaning": "v. 强加、强制实行", "note": "impose quotas 即'强制实行配额'。" },
+      { "word": "quota", "meaning": "n. 配额、定额" }
+    ],
+    "phrases": [
+      { "text": "in order to", "meaning": "为了、以便" },
+      { "text": "propose doing sth", "meaning": "提议做某事", "note": "propose 后接动名词。" }
+    ]
+  },
+  "2020:C:5": {
+    "grammar": [
+      { "title": "if 条件从句 + 主将从现", "text": "If the bills become law, ... will be required 中，条件从句用一般现在时 become，主句用 will 表示将来，体现'主将从现'的时态规则。" },
+      { "title": "被动语态 be required to do", "text": "state boards and commissions will be required to set aside 50 percent of board seats for women 中，主语是'被要求'的一方，to set aside 为要求的内容，翻译时可用主动'被要求留出50%席位'。" }
+    ],
+    "words": [
+      { "word": "bill", "meaning": "n. 法案", "note": "bills become law 即'法案成为法律'。" },
+      { "word": "require", "meaning": "v. 要求", "note": "be required to do 为'被要求做……'。" }
+    ],
+    "phrases": [
+      { "text": "set aside", "meaning": "留出、拨出", "note": "set aside seats 即'预留席位'。" },
+      { "text": "become law", "meaning": "成为法律" }
+    ]
+  },
+  "2020:C:6": {
+    "grammar": [
+      { "title": "过去分词 recently adopted 作后置定语", "text": "a measure recently adopted in California 中，adopted 修饰 measure，因'措施被通过'故用过去分词，相当于定语从句 which was recently adopted。" },
+      { "title": "非限定性定语从句 which last year became the first state", "text": "which 指代 California，说明加州'去年成为第一个……的州'。注意 which 的先行词是 California 而非 measure。" },
+      { "title": "不定式 to require 作 the first state 的后置定语", "text": "the first state to require gender quotas 中，to require 修饰 the first state，'第一个要求性别配额的州'。" }
+    ],
+    "words": [
+      { "word": "similar", "meaning": "adj. 相似的", "note": "be similar to 为'与……相似'，注意介词 to。" },
+      { "word": "measure", "meaning": "n. 措施", "note": "a measure 即'一项措施'，此处指加州法案。" },
+      { "word": "adopt", "meaning": "v. 通过、采纳", "note": "adopt a measure 即'通过一项措施'。" }
+    ],
+    "phrases": [
+      { "text": "be similar to", "meaning": "与……相似", "note": "介词用 to 而非 with。" },
+      { "text": "gender quotas", "meaning": "性别配额" }
+    ]
+  },
+  "2020:C:7": {
+    "grammar": [
+      { "title": "In + doing 表'在做某事时'", "text": "In signing the measure 中，In 后接动名词，意为'在签署该措施之时'，作时间状语。" },
+      { "title": "非限定性定语从句造成主谓割裂", "text": "that the law, which expressly classifies people on the basis of sex, is probably unconstitutional 中，which 从句修饰 the law，插在主语 the law 与谓语 is 之间。阅读时把 which 从句当插入语跳过，主干为 the law is probably unconstitutional。" }
+    ],
+    "words": [
+      { "word": "expressly", "meaning": "adv. 明确地、明文地", "note": "express 的副词，'明白地'。" },
+      { "word": "classify", "meaning": "v. 分类", "note": "classifies people on the basis of sex 即'按性别给人群分类'。" },
+      { "word": "basis", "meaning": "n. 基础、依据", "note": "on the basis of 为'基于……'。" },
+      { "word": "unconstitutional", "meaning": "adj. 违宪的", "note": "un- + constitutional，'违反宪法的'。" }
+    ],
+    "phrases": [
+      { "text": "on the basis of", "meaning": "基于、根据", "note": "介词短语，注意后接名词。" },
+      { "text": "in signing", "meaning": "在签署……时", "note": "in + 动名词表时间节点。" }
+    ]
+  },
+  "2020:C:8": {
+    "grammar": [
+      { "title": "unless 条件状语从句", "text": "frowns on sex-based classifications unless they are designed to address an “important” policy interest 中，unless 意为'除非'，表示唯一的例外情形：只有用于应对'重要的'政策利益时，性别分类才不被反对。阅读时把握 unless 引出的例外条件。" }
+    ],
+    "words": [
+      { "word": "frown", "meaning": "v. 皱眉、不赞成", "note": "frown on 为'不赞成、反对'，注意介词 on。" },
+      { "word": "sex-based", "meaning": "adj. 基于性别的", "note": "名词+过去分词构成的复合形容词。" },
+      { "word": "address", "meaning": "v. 解决、处理", "note": "address an interest 此处意为'应对、处理'。" }
+    ],
+    "phrases": [
+      { "text": "frown on", "meaning": "不赞成、反对", "note": "frown 本义'皱眉'，引申为'反对'。" },
+      { "text": "be designed to do", "meaning": "旨在做某事" },
+      { "text": "sex-based classifications", "meaning": "基于性别的分类" }
+    ]
+  },
+  "2020:C:9": {
+    "grammar": [
+      { "title": "because 原因从句 + even where 让步从句嵌套", "text": "Because the California law applies to all boards, even where there is no history of prior discrimination 中，because 表原因，其内部又套了 even where 让步状语从句，强调'即使在没有前科歧视的地方也适用'，为下文的判决结论铺垫。" },
+      { "title": "be likely to rule + that 宾语从句", "text": "courts are likely to rule that the law violates... 中，be likely to 表'很可能'，rule 为'裁定'，that 从句说明裁定的内容。注意 rule 此处是法律用语。" }
+    ],
+    "words": [
+      { "word": "apply", "meaning": "v. 适用", "note": "apply to 为'适用于'。" },
+      { "word": "prior", "meaning": "adj. 先前的", "note": "prior discrimination 即'此前的歧视'。" },
+      { "word": "discrimination", "meaning": "n. 歧视" },
+      { "word": "violate", "meaning": "v. 违反、侵犯", "note": "violates the guarantee 即'违反……保障'。" },
+      { "word": "guarantee", "meaning": "n. 保障、保证", "note": "the constitutional guarantee 即'宪法保障'。" }
+    ],
+    "phrases": [
+      { "text": "apply to", "meaning": "适用于", "note": "apply to all boards 即'适用于所有董事会'。" },
+      { "text": "be likely to do", "meaning": "很可能做某事" },
+      { "text": "rule that", "meaning": "裁定……", "note": "法律用语，后接裁定内容。" }
+    ]
+  },
+  "2020:C:10": {
+    "grammar": [
+      { "title": "一般疑问句 + 反问语气", "text": "But are such government mandates even necessary? 是作者提出的反问句，用于质疑政府强制措施的必要性。even 加强反问语气，意为'甚至有必要吗'。阅读时注意此句承上启下，引出下文'女性比例本就在上升'的论据。" }
+    ],
+    "words": [
+      { "word": "mandate", "meaning": "n. 强制要求、法令", "note": "government mandates 即'政府强制措施'。" }
+    ],
+    "phrases": []
+  },
+  "2020:C:11": {
+    "grammar": [
+      { "title": "may not mirror + but so what 双重让步反问", "text": "前半句承认'女性参与比例可能未反映人口比例'，后半句 but so what? 以口语化反问反驳，'那又怎样呢？'。这是典型的先让步再反驳的论证句式，作者观点在 but 之后。" }
+    ],
+    "words": [
+      { "word": "participation", "meaning": "n. 参与", "note": "participate 的名词。" },
+      { "word": "mirror", "meaning": "v. 反映、与……一致", "note": "此处为动词，'反映'，非名词'镜子'。" },
+      { "word": "corporate", "meaning": "adj. 公司的", "note": "corporate boards 即'企业董事会'。" },
+      { "word": "percentage", "meaning": "n. 百分比" }
+    ],
+    "phrases": [
+      { "text": "so what", "meaning": "那又怎样", "note": "口语反问，表'不足为虑'。" }
+    ]
+  },
+  "2020:C:12": {
+    "grammar": [
+      { "title": "the number of + 复数名词 + 单数谓语", "text": "The number of women... has been increasing 中，主语是 the number（数目），谓语用单数 has，与 a number of（许多，谓语复数）相区别。" },
+      { "title": "现在完成进行时 has been steadily increasing", "text": "has been increasing 强调'一直在稳步增加'，动作持续至今，说明无需政府干预女性比例也在上升，支撑上文反问。" }
+    ],
+    "words": [
+      { "word": "interference", "meaning": "n. 干预", "note": "without government interference 即'没有政府干预'。" },
+      { "word": "steadily", "meaning": "adv. 稳步地" }
+    ],
+    "phrases": [
+      { "text": "the number of", "meaning": "……的数量", "note": "谓语用单数，与 a number of 区分。" },
+      { "text": "without government interference", "meaning": "没有政府干预" }
+    ]
+  },
+  "2020:C:13": {
+    "grammar": [
+      { "title": "increase by + 百分比", "text": "increased by 54 percent 中，by 引出增长的幅度（54%）。注意 by 表'净增了多少'，若为 to 则表'增加到多少'。" }
+    ],
+    "words": [
+      { "word": "share", "meaning": "n. 份额、比例", "note": "the share of women 即'女性的占比'。" },
+      { "word": "corporation", "meaning": "n. 公司、企业", "note": "global corporations 即'全球企业'。" },
+      { "word": "according", "meaning": "adv. 依照", "note": "according to 为'根据'，注意拼写。" }
+    ],
+    "phrases": [
+      { "text": "according to", "meaning": "根据", "note": "according to 后接来源，不用 according with。" },
+      { "text": "increase by", "meaning": "增长了（幅度）", "note": "by 后接具体增量。" }
+    ]
+  },
+  "2020:C:14": {
+    "grammar": [
+      { "title": "动名词短语作主语", "text": "Requiring companies to make gender the primary qualification for board membership 整体作句子主语，谓语为 will inevitably lead to。动名词短语较长时注意找到谓语位置，把主语部分整体理解为'要求企业将性别作为首要资格（这件事）'。" },
+      { "title": "make + 宾语 + 宾语补足语", "text": "make gender the primary qualification 中，gender 是宾语，the primary qualification 是宾语补足语，结构为'使性别成为首要资格'。" }
+    ],
+    "words": [
+      { "word": "inevitably", "meaning": "adv. 不可避免地", "note": "inevitable 的副词。" },
+      { "word": "qualification", "meaning": "n. 资格、条件", "note": "the primary qualification for 即'……的首要资格'。" },
+      { "word": "membership", "meaning": "n. 成员资格", "note": "board membership 即'董事会成员资格'。" }
+    ],
+    "phrases": [
+      { "text": "lead to", "meaning": "导致", "note": "lead to + 名词短语，此处为'导致经验不足的董事会'。" },
+      { "text": "make sth the primary qualification", "meaning": "使某物成为首要资格", "note": "make + 宾语 + 补语结构。" },
+      { "text": "private sector", "meaning": "私营部门" }
+    ]
+  },
+  "2020:C:15": {
+    "grammar": [
+      { "title": "表语从句 what happened", "text": "That is exactly what happened 中，what happened 是表语从句，what 在从句中作主语，意为'（正好）发生的事情'，That 指代上文的后果。" },
+      { "title": "when 时间状语从句", "text": "when Norway adopted a nationwide corporate gender quota 说明'正是挪威这样做的时候'发生了上文的后果，即 Norway 的例子印证了作者论断。" }
+    ],
+    "words": [
+      { "word": "adopt", "meaning": "v. 采纳、实行", "note": "adopted a quota 即'实行配额制'。" },
+      { "word": "nationwide", "meaning": "adj. 全国性的" }
+    ],
+    "phrases": []
+  },
+  "2020:C:16": {
+    "grammar": [
+      { "title": "现在分词 Writing 作伴随状语", "text": "Writing in The New Republic 置于句首，逻辑主语是 Alice Lee，表示她'在《新共和》杂志撰文时'，阅读时注意现在分词逻辑主语须与主句主语一致。" },
+      { "title": "宾语从句中动名词主语 + 谓语后置", "text": "notes 后的 that 从句中，主语是 increasing the number of opportunities... without increasing the pool of qualified women to serve on such boards（两个动名词短语对比），谓语 has led to 被长主语推到后面。阅读时先找 has led to，再还原主语部分。" },
+      { "title": "where 定语从句修饰 phenomenon", "text": "a “golden skirt” phenomenon, where the same elite women scoop up multiple seats... 中，where 引导定语从句修饰 phenomenon，说明'黄金裙'现象的具体表现（同一批精英女性身兼多职）。" }
+    ],
+    "words": [
+      { "word": "pool", "meaning": "n. 人才库、储备", "note": "the pool of qualified women 即'合格女性人才储备'。" },
+      { "word": "phenomenon", "meaning": "n. 现象", "note": "复数 phenomena，注意拼写。" },
+      { "word": "scoop", "meaning": "v. 抢先获得、攫取", "note": "scoop up 为'（一网打尽般）获取'。" }
+    ],
+    "phrases": [
+      { "text": "lead to", "meaning": "导致" },
+      { "text": "scoop up", "meaning": "捞取、一举获得", "note": "scoop 本义'舀'。" },
+      { "text": "a variety of", "meaning": "各种各样的" }
+    ]
+  },
+  "2020:C:17": {
+    "grammar": [
+      { "title": "Next time 引导时间状语从句", "text": "Next time somebody pushes corporate quotas as a way to promote gender equity 中，Next time 直接引导状语从句（省略 when），意为'下次有人……时'。这是典型的时间名词短语作连词的用法。" },
+      { "title": "祈使句 remember + 宾语从句 + 定语从句嵌套", "text": "主句为祈使句 remember that...，that 从句内 such policies are largely self-serving measures 又带 that 定语从句（that make their sponsors feel good but do little to help average women），从句谓语 make 与 do 并列。整句是作者对读者的呼吁，是全文结论。" }
+    ],
+    "words": [
+      { "word": "promote", "meaning": "v. 促进、推动", "note": "promote gender equity 即'促进性别平等'。" },
+      { "word": "equity", "meaning": "n. 公平、公正", "note": "gender equity 即'性别平等'，与 equality 近义。" },
+      { "word": "self-serving", "meaning": "adj. 利己的、自私的", "note": "self-serving measures 即'利己之举'。" },
+      { "word": "sponsor", "meaning": "n. 发起者", "note": "make their sponsors feel good 即'让（政策）提出者自我感觉良好'。" }
+    ],
+    "phrases": [
+      { "text": "as a way to", "meaning": "作为……的途径" },
+      { "text": "do little to help", "meaning": "对帮助……几乎无用" },
+      { "text": "feel good", "meaning": "自我感觉良好" }
+    ]
+  },
+  "2020:D:0": {
+    "grammar": [
+      { "title": "非限定性定语从句 which would impose", "text": "which would impose an entirely new tax on large multinationals 修饰 digital services tax，说明该税的'征收对象'。would 表将来/推测，可译'将'。" },
+      { "title": "限定性定语从句 that provide digital services", "text": "that provide digital services to consumers or users in France 修饰 multinationals，限定是'哪些跨国公司'——向法国用户提供数字服务的公司。两个定语从句（which 与 that）形成修饰链。" }
+    ],
+    "words": [
+      { "word": "senate", "meaning": "n. 参议院", "note": "the French Senate 即'法国参议院'。" },
+      { "word": "pass", "meaning": "v. 通过（法案）", "note": "passed a tax 即'通过一项税'，法律用语。" },
+      { "word": "impose", "meaning": "v. 征收、强加", "note": "impose a tax on sb 为'向某人征税'。" },
+      { "word": "multinational", "meaning": "n. 跨国公司", "note": "此处作名词，指跨国企业。" }
+    ],
+    "phrases": [
+      { "text": "impose...on...", "meaning": "把……强加于、对……征收", "note": "impose a tax on large multinationals 即'对跨国公司征税'。" },
+      { "text": "digital services", "meaning": "数字服务" }
+    ]
+  },
+  "2020:D:1": {
+    "grammar": [
+      { "title": "from...to... 并列动名词结构", "text": "everything from providing a platform for selling goods and services online to targeting advertising based on user data 中，from...to... 连接两个动名词 providing 与 targeting，列举数字服务的范围。理解时把 from...to... 视为'既有……又有……'。" },
+      { "title": "过去分词 based on 后置定语", "text": "advertising based on user data 中，based on 修饰 advertising，'基于用户数据的（定向）广告'。" },
+      { "title": "and 连接并列句", "text": "and the tax applies to gross revenue from such services 与前半句并列，前半句界定'什么是数字服务'，后半句说明'税对什么征收'（总营收）。" }
+    ],
+    "words": [
+      { "word": "platform", "meaning": "n. 平台", "note": "a platform for selling 即'销售平台'。" },
+      { "word": "target", "meaning": "v. 定向、瞄准", "note": "targeting advertising 即'定向投放广告'。" },
+      { "word": "gross", "meaning": "adj. 总的、毛的", "note": "gross revenue 即'总营收'，与 net（净）相对。" },
+      { "word": "revenue", "meaning": "n. 收入、营收" }
+    ],
+    "phrases": [
+      { "text": "from...to...", "meaning": "从……到……（此处列举范围）" },
+      { "text": "based on", "meaning": "基于", "note": "based on user data 为'基于用户数据'。" },
+      { "text": "apply to", "meaning": "适用于、针对", "note": "the tax applies to gross revenue 即'该税针对总营收'。" }
+    ]
+  },
+  "2020:D:2": {
+    "grammar": [
+      { "title": "refer to...as...", "text": "have referred to this as a “GAFA tax” 中，refer to sth as 意为'把某物称作'，this 指代数字服务税。" },
+      { "title": "现在分词 meaning 解释 + that 宾语从句", "text": "meaning that it is designed to apply primarily to... 中，meaning 是现在分词，补充说明这一称呼的含义，后接 that 宾语从句。破折号后 in other words... 再作进一步同位语解释。" }
+    ],
+    "words": [
+      { "word": "outlet", "meaning": "n. 媒体、发布渠道", "note": "media outlets 即'媒体机构'。" },
+      { "word": "refer", "meaning": "v. 称、指", "note": "refer to sth as 为'把……称为……'。" },
+      { "word": "primarily", "meaning": "adv. 主要地", "note": "apply primarily to 即'主要针对'。" }
+    ],
+    "phrases": [
+      { "text": "refer to...as...", "meaning": "把……称作……" },
+      { "text": "in other words", "meaning": "换句话说", "note": "插入语，引出更直白的解释。" },
+      { "text": "based in", "meaning": "总部设于", "note": "companies based in the US 即'总部在美国的公司'。" }
+    ]
+  },
+  "2020:D:3": {
+    "grammar": [
+      { "title": "非限定性定语从句 who has expressed support", "text": "who has expressed support for the measure 修饰 President Emmanuel Macron，补充说明其对税收的支持态度。" },
+      { "title": "and 连接并列分句", "text": "and it could go into effect within the next few weeks 与前半句并列，it 指代数字服务税，说明后续生效时间。" }
+    ],
+    "words": [
+      { "word": "await", "meaning": "v. 等待", "note": "awaits the signature 即'等待签署'；比 wait for 正式。" },
+      { "word": "signature", "meaning": "n. 签名、签署", "note": "the signature of the president 即'总统的签署'。" },
+      { "word": "express", "meaning": "v. 表达", "note": "express support for 即'表示支持'。" }
+    ],
+    "phrases": [
+      { "text": "express support for", "meaning": "表示支持……" },
+      { "text": "go into effect", "meaning": "生效", "note": "同义：take effect。" }
+    ]
+  },
+  "2020:D:4": {
+    "grammar": [
+      { "title": "with + 名词 + 现在分词 独立结构", "text": "with the United States trade representative opening an investigation into... 中，opening 的主语是 the trade representative，'with+名词+现在分词'作伴随状语，补充说明争议的具体内容（美方展开调查）。" },
+      { "title": "介词 into 后 whether 宾语从句", "text": "an investigation into whether the tax discriminates against American companies 中，whether 引导宾语从句作 into 的宾语，'调查该税是否歧视美国公司'。" },
+      { "title": "非限定性定语从句 which 指代整句", "text": "which in turn could lead to trade sanctions against France 中，which 指代前面'调查'这整件事，意为'这反过来可能导致对法贸易制裁'。" }
+    ],
+    "words": [
+      { "word": "spark", "meaning": "v. 引发、激起", "note": "sparked controversy 即'引发争议'。" },
+      { "word": "controversy", "meaning": "n. 争议", "note": "significant controversy 即'重大争议'。" },
+      { "word": "investigation", "meaning": "n. 调查", "note": "open an investigation into 即'就……展开调查'。" },
+      { "word": "discriminate", "meaning": "v. 歧视", "note": "discriminate against 为'歧视'。" },
+      { "word": "sanction", "meaning": "n. 制裁", "note": "trade sanctions 即'贸易制裁'。" }
+    ],
+    "phrases": [
+      { "text": "spark controversy", "meaning": "引发争议" },
+      { "text": "discriminate against", "meaning": "歧视……" },
+      { "text": "lead to", "meaning": "导致" }
+    ]
+  },
+  "2020:D:5": {
+    "grammar": [
+      { "title": "not just... 的强调否定", "text": "The French tax is not just a unilateral move... 意为'法国的税收不仅仅是……'，not just 暗示下文还有更深层意义（接 Instead 引出'更大趋势的一部分'）。" }
+    ],
+    "words": [
+      { "word": "unilateral", "meaning": "adj. 单方面的", "note": "uni-（单）+ lateral（侧），'单边的'。" },
+      { "word": "move", "meaning": "n. 行动、举动", "note": "a unilateral move 即'单边行动'。" },
+      { "word": "revenue", "meaning": "n. 财政收入", "note": "in need of revenue 即'急需财政收入'。" }
+    ],
+    "phrases": [
+      { "text": "in need of", "meaning": "需要……", "note": "in need of revenue 即'需要收入'。" },
+      { "text": "not just... but...", "meaning": "不仅……而且……" }
+    ]
+  },
+  "2020:D:6": {
+    "grammar": [
+      { "title": "with + 名词 + 现在分词 独立结构", "text": "with countries over the past few years proposing or putting in place an alphabet soup of new international tax provisions 中，countries 是 proposing/putting 的逻辑主语，'with+名词+现在分词'作伴随/补充说明，解释'更大趋势'的具体表现：各国都在出台各种新税收条款。" }
+    ],
+    "words": [
+      { "word": "trend", "meaning": "n. 趋势", "note": "a much larger trend 即'更大范围的趋势'。" },
+      { "word": "provision", "meaning": "n. 条款、规定", "note": "tax provisions 即'税收条款'。" },
+      { "word": "alphabet", "meaning": "n. 字母表", "note": "alphabet soup 引申为'五花八门、让人眼花缭乱的东西'。" }
+    ],
+    "phrases": [
+      { "text": "put in place", "meaning": "实施、出台", "note": "putting in place provisions 即'实施条款'。" },
+      { "text": "an alphabet soup of", "meaning": "五花八门的……", "note": "比喻各种缩写名词纷繁杂乱（如 DPT、MAAL、SEP）。" }
+    ]
+  },
+  "2020:D:7": {
+    "grammar": [
+      { "title": "不定式 to name but a few 作插入语", "text": "句末 to name but a few 意为'仅举几例'，是不定式短语作插入语，表明前面的列举只是其中部分，与前文'an alphabet soup'呼应。" }
+    ],
+    "words": [
+      { "word": "diverted", "meaning": "adj. 被转移的", "note": "diverted profits tax 即'转移利润税'。" },
+      { "word": "anti-avoidance", "meaning": "adj. 反避税的", "note": "anti- + avoidance（规避）。" },
+      { "word": "presence", "meaning": "n. 存在", "note": "significant economic presence 即'重大经济存在'。" }
+    ],
+    "phrases": [
+      { "text": "to name but a few", "meaning": "仅举几例", "note": "常见插入语，表示列举未尽。" }
+    ]
+  },
+  "2020:D:8": {
+    "grammar": [
+      { "title": "现在完成时 + all 的位置", "text": "have all seriously contemplated digital services taxes 中，all 指前面的欧盟、西班牙、英国等所有主体，放在助动词后，强调'都'认真考虑过。contemplate 为及物动词，直接带宾语。" }
+    ],
+    "words": [
+      { "word": "contemplate", "meaning": "v. 考虑、深思", "note": "seriously contemplated 即'认真考虑'。" },
+      { "word": "seriously", "meaning": "adv. 认真地" }
+    ],
+    "phrases": [
+      { "text": "at the same time", "meaning": "与此同时" }
+    ]
+  },
+  "2020:D:9": {
+    "grammar": [
+      { "title": "定语从句 that countries believe they should have a right to tax", "text": "income and revenue that countries believe they should have a right to tax 中，that 是 tax 的宾语，从句内又套宾语从句 countries believe (that) they should have a right to tax，即'各国认为他们有权征税的收入'。阅读时先跳过 believe 找到 tax，再把 they should have a right to 还原。" },
+      { "title": "even if 让步状语从句", "text": "even if international tax rules do not grant them that right 表让步，'即使国际税收规则没有授予他们这一权利'，说明各国行为的越界性质。" }
+    ],
+    "words": [
+      { "word": "specific", "meaning": "n. 细节、具体情况", "note": "differ in their specifics 即'具体内容各不相同'。" },
+      { "word": "grant", "meaning": "v. 授予、给予", "note": "grant sb the right 即'授予某人权利'，双宾语。" },
+      { "word": "unilateral", "meaning": "adj. 单边的" }
+    ],
+    "phrases": [
+      { "text": "be designed to", "meaning": "旨在……" },
+      { "text": "a right to", "meaning": "……的权利", "note": "a right to tax 即'征税权'。" },
+      { "text": "even if", "meaning": "即使", "note": "表让步，语气比 even though 更强" }
+    ]
+  },
+  "2020:D:10": {
+    "grammar": [
+      { "title": "同位语从句 that the international tax system has failed to...", "text": "they all share a view that the international tax system has failed to keep up with the current economy 中，that 从句是 view 的同位语，说明'共同的观点'内容：国际税收体系已跟不上经济现实。" },
+      { "title": "fail to do 表'未能'", "text": "has failed to keep up with 意为'没能跟上'，fail to 后接不定式，强调'没有做到'。" }
+    ],
+    "words": [
+      { "word": "share", "meaning": "v. 共同持有、都认为", "note": "share a view 即'有共识'。" },
+      { "word": "economy", "meaning": "n. 经济", "note": "the current economy 即'当前的经济现实'。" }
+    ],
+    "phrases": [
+      { "text": "in other words", "meaning": "换句话说" },
+      { "text": "keep up with", "meaning": "跟上、赶得上" },
+      { "text": "fail to do", "meaning": "未能做到……" }
+    ]
+  },
+  "2020:D:11": {
+    "grammar": [
+      { "title": "In response to 介词短语作状语", "text": "In response to these many unilateral measures 置于句首，说明 OECD 行动的动因，'针对这些单边措施'。" },
+      { "title": "不定式 to reach a consensus 作目的状语", "text": "is working with 131 countries to reach a consensus by the end of 2020 on an international solution 中，to reach... 表工作目的，by the end of 2020 为时间节点，on an international solution 为达成共识的议题。注意时间状语与议题状语后置的语序。" }
+    ],
+    "words": [
+      { "word": "response", "meaning": "n. 回应、应对", "note": "in response to 为'针对、作为对……的回应'。" },
+      { "word": "consensus", "meaning": "n. 共识、一致意见", "note": "reach a consensus 即'达成共识'。" },
+      { "word": "solution", "meaning": "n. 解决方案", "note": "an international solution 即'国际解决方案'。" }
+    ],
+    "phrases": [
+      { "text": "in response to", "meaning": "针对、作为对……的回应" },
+      { "text": "reach a consensus", "meaning": "达成共识" },
+      { "text": "by the end of", "meaning": "到……结束时、在……之前" }
+    ]
+  },
+  "2020:D:12": {
+    "grammar": [
+      { "title": "Both...and... 并列主语", "text": "Both France and the United States are involved in the organization's work 中，both...and... 连接两个国家作并列主语，谓语用复数 are。" },
+      { "title": "介词 about 后宾语从句 what the future holds", "text": "raise questions about what the future holds for the international tax system 中，about 后接 what 引导的宾语从句，what 在从句中作 holds 的宾语，意为'未来为国际税收体系准备了什么'（即'国际税收体系的未来如何'）。" }
+    ],
+    "words": [
+      { "word": "involve", "meaning": "v. 使参与", "note": "be involved in 为'参与、卷入'。" },
+      { "word": "hold", "meaning": "v. 使……保持、为……保留", "note": "what the future holds for 即'未来为……预示着……'。" }
+    ],
+    "phrases": [
+      { "text": "be involved in", "meaning": "参与、涉足", "note": "被动结构，注意介词 in。" },
+      { "text": "raise questions about", "meaning": "引发关于……的疑问" },
+      { "text": "both...and...", "meaning": "两者都……" }
+    ]
+  },
+  "2020:D:13": {
+    "grammar": [
+      { "title": "冒号引出警告内容 + unless 否定条件从句", "text": "France's planned tax is a clear warning: 冒号后具体说明警告内容。Unless a broad consensus can be reached... 中 unless 相当于 if...not，'除非……否则'，是全句的否定条件。" },
+      { "title": "被动语态 can be reached + 并列主句", "text": "unless 从句用被动 can be reached（共识'被达成'）；主句为两个并列分句：other nations are likely to follow suit, and American companies will face a cascade of different taxes...，说明不达成共识的两种后果。" },
+      { "title": "that 定语从句修饰 nations", "text": "taxes from dozens of nations that will prove burdensome and costly 中，that 修饰 nations，说明这些国家的税'将被证明是繁重且昂贵的'。" }
+    ],
+    "words": [
+      { "word": "consensus", "meaning": "n. 共识", "note": "a broad consensus 即'广泛共识'。" },
+      { "word": "cascade", "meaning": "n. 一系列、瀑布", "note": "a cascade of 为'接连不断的……'，此处形容多种税层层叠加。" },
+      { "word": "burdensome", "meaning": "adj. 繁重的、沉重的", "note": "burden（负担）+ -some。" },
+      { "word": "costly", "meaning": "adj. 代价高昂的" }
+    ],
+    "phrases": [
+      { "text": "follow suit", "meaning": "效仿、跟着做", "note": "suit 此处指'同花色的牌'，引申'照做'。" },
+      { "text": "a cascade of", "meaning": "一连串、层层叠叠的……" },
+      { "text": "a broad consensus", "meaning": "广泛共识" }
+    ]
+  }
+}

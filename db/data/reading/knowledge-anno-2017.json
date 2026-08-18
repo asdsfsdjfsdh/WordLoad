@@ -1,0 +1,1188 @@
+{
+  "2017:A:0": {
+    "grammar": [
+      { "title": "破折号引出主句 + how far 引导表语从句", "text": "句首 First two hours, now three hours 是时间递进铺垫，破折号后 this is... 才是主句；how far in advance authorities are recommending people show up 作 is 的表语从句，how far in advance 意为'提前多久'，是理解全句的关键。" },
+      { "title": "recommend 后省略 that 的宾语从句", "text": "recommending people show up 中 show up 前省略 that，且在 recommend 后动词用原形（虚拟式/不带 to 的不定式），意为'建议人们（应）到场'，是 recommend/suggest 类动词的典型用法。" }
+    ],
+    "words": [
+      { "word": "authorities", "meaning": "当局、官方机构", "note": "名词复数，指政府部门，高频考词。" },
+      { "word": "domestic", "meaning": "国内的", "note": "形容词，domestic flight 即'国内航班'，对比 international。" },
+      { "word": "massive", "meaning": "庞大的、大规模的", "note": "形容词，修饰 security lines，指安检队伍又长又多。" },
+      { "word": "increasingly", "meaning": "日益、越来越", "note": "副词，由 increase 派生，常修饰形容词表趋势。" }
+    ],
+    "phrases": [
+      { "text": "in advance", "meaning": "提前", "note": "how far in advance 即'提前多久'，副词 how far 与短语 in advance 组合。" },
+      { "text": "show up", "meaning": "出现、到场", "note": "口语化短语，此处指旅客提前到机场。" },
+      { "text": "security lines", "meaning": "安检队伍、安检长队", "note": "security 此处指'安检'而非'安全'。" }
+    ]
+  },
+  "2017:A:1": {
+    "grammar": [
+      { "title": "be willing to do 固定结构", "text": "Americans are willing to tolerate... 中 be willing to do sth 意为'愿意做某事'，不定式 to tolerate time-consuming security procedures 说明愿意忍受的内容，先抓该结构再理解 in return for 表目的。" }
+    ],
+    "words": [
+      { "word": "tolerate", "meaning": "容忍、忍受", "note": "动词，高频考词，名词 tolerance；此处宾语为令人不快的安检程序。" },
+      { "word": "time-consuming", "meaning": "耗时的", "note": "复合形容词，由名词+现在分词构成（consume time 的变形）。" },
+      { "word": "procedure", "meaning": "程序、步骤", "note": "名词，此处特指安检流程。" },
+      { "word": "increased", "meaning": "提高的、增强的", "note": "过去分词作形容词，increased safety 即'更高的安全性'。" }
+    ],
+    "phrases": [
+      { "text": "in return for", "meaning": "作为……的回报、以换取", "note": "表交换关系，in return for increased safety 即'以换取更高的安全'。" },
+      { "text": "be willing to do", "meaning": "愿意做某事", "note": "固定搭配，表主观态度。" }
+    ]
+  },
+  "2017:A:2": {
+    "grammar": [
+      { "title": "非限制性定语从句 + may have done 对过去的推测", "text": "which terrorists may have downed over the Mediterranean Sea 是插入主谓之间的非限制性定语从句，修饰 EgyptAir Flight 804；may have downed 表示'可能已经击落'，是对过去事件的推测，阅读时可先跳过该从句抓主句 The crash ... provides another tragic reminder。" },
+      { "title": "介词 of + why 名词性从句", "text": "reminder of why 中 why 引导名词性从句作介词 of 的宾语，指代上一句'美国人愿忍受安检以换取安全'的原因，翻译为'对个中原因的提醒'，需联系上文理解。" }
+    ],
+    "words": [
+      { "word": "crash", "meaning": "坠毁", "note": "名词，The crash of... 即'……的坠毁'；crash 也常作动词。" },
+      { "word": "down", "meaning": "击落", "note": "动词用法（熟词僻义），may have downed 即'可能击落了'，注意与介词 down 区分。" },
+      { "word": "tragic", "meaning": "悲剧的", "note": "形容词，tragic reminder 即'悲剧性的提醒'。" },
+      { "word": "reminder", "meaning": "提醒之物、警示", "note": "名词，remind 的派生词，本句指坠机事件本身是一种警示。" }
+    ],
+    "phrases": [
+      { "text": "the Mediterranean Sea", "meaning": "地中海", "note": "专有名词，注意大写。" }
+    ]
+  },
+  "2017:A:3": {
+    "grammar": [
+      { "title": "动名词短语作主语 + 主谓一致", "text": "demanding too much of air travelers or providing too little security in return 是两个并列动名词短语整体作主语，谓语用单数 undermines；阅读时先圈出 or 连接的动名词主语，再找单数谓语。" }
+    ],
+    "words": [
+      { "word": "undermine", "meaning": "削弱、破坏", "note": "高频考词，此处指削弱公众对安检程序的支持。" },
+      { "word": "security", "meaning": "安全保障、安检", "note": "一词多义：本句 providing too little security 指'安全保障'不足。" }
+    ],
+    "phrases": [
+      { "text": "demand too much of", "meaning": "对……要求过多", "note": "demand sth of sb 结构，此处指对旅客要求过高。" },
+      { "text": "in return", "meaning": "作为回报、反过来", "note": "与前句 in return for 呼应，此处作状语修饰 providing。" },
+      { "text": "public support for", "meaning": "公众对……的支持", "note": "support for 为固定搭配，后接 the process（安检程序）。" }
+    ]
+  },
+  "2017:A:4": {
+    "grammar": [
+      { "title": "省略动词的并列句 It should", "text": "And it should 承接上文，完整形式应为 it should (undermine public support)，should 后省略了动词及宾语，表'这种担心是应当的'；阅读时需回看上一句补全省略内容。" },
+      { "title": "not to mention 补充结构", "text": "not to mention infuriating 意为'更不用说令人恼火了'，对前面的 a drag on... 作追加补充，语气递进。" }
+    ],
+    "words": [
+      { "word": "drag", "meaning": "拖累、累赘", "note": "名词，a drag on 即'对……的拖累'，口语化表达。" },
+      { "word": "infuriating", "meaning": "令人恼怒的", "note": "形容词，由 infuriate（使大怒）派生，表强烈不满。" },
+      { "word": "wasted", "meaning": "被浪费的", "note": "过去分词作定语，wasted time 即'浪费掉的时间'。" }
+    ],
+    "phrases": [
+      { "text": "a drag on", "meaning": "对……的拖累", "note": "be a drag on sb/sth 为固定搭配。" },
+      { "text": "not to mention", "meaning": "更不用说", "note": "表递进补充的固定短语，后接名词或动名词。" }
+    ]
+  },
+  "2017:A:5": {
+    "grammar": [
+      { "title": "宾语从句中插入状语", "text": "found in a secret check that undercover investigators were able to sneak weapons past airport security 中，宾语从句被介词短语 in a secret check 与主句谓语 found 隔开，阅读时应先看 found 后接的 that 从句内容，in a secret check 只是方式状语。" },
+      { "title": "every time 引导时间状语从句", "text": "nearly every time they tried 中 every time 直接引导时间状语从句（表'每次'），相当于 whenever，说明便衣人员几乎每次尝试都能成功。" }
+    ],
+    "words": [
+      { "word": "undercover", "meaning": "卧底的、秘密的", "note": "形容词，undercover investigators 即'便衣调查人员'。" },
+      { "word": "investigator", "meaning": "调查人员", "note": "名词，investigate 的派生词。" },
+      { "word": "sneak", "meaning": "偷偷携带、潜入", "note": "动词，sneak weapons past security 即'偷偷把武器带过安检'。" },
+      { "word": "fake", "meaning": "假的", "note": "形容词，与 real 相对，both fake and real 即'真假都有'。" },
+      { "word": "weapon", "meaning": "武器", "note": "名词，注意复数 weapons。" }
+    ],
+    "phrases": [
+      { "text": "sneak ... past", "meaning": "把……偷偷带过", "note": "动词+介词搭配，sneak weapons past airport security 意为偷带武器混过安检。" },
+      { "text": "a secret check", "meaning": "秘密检查", "note": "in a secret check 作方式状语，交代发现方式。" }
+    ]
+  },
+  "2017:A:6": {
+    "grammar": [
+      { "title": "过去分词短语插入语 + 主谓一致", "text": "combined with a rise in airline travel... 是过去分词短语作插入修饰语，真正主语是 Enhanced security measures（复数），故谓语用 have resulted in；主语与谓语被插入语隔开，阅读时容易误判主谓。" },
+      { "title": "due to 原因介词短语", "text": "due to the improving economy and low oil prices 解释航空出行增长的原因，due to 后接名词性成分，不能接句子；the improving economy 与 low oil prices 并列作宾语。" }
+    ],
+    "words": [
+      { "word": "enhanced", "meaning": "加强的、增强的", "note": "过去分词作形容词，enhanced security measures 即'加强的安检措施'。" },
+      { "word": "combined", "meaning": "结合的", "note": "combine 的过去分词，combined with 表'与……相结合'。" },
+      { "word": "airline travel", "meaning": "航空出行", "note": "名词短语，指乘坐飞机的出行人数/次数。" }
+    ],
+    "phrases": [
+      { "text": "combined with", "meaning": "与……相结合、加上", "note": "表叠加因素，加强的安检措施加上出行人数增加共同导致长队。" },
+      { "text": "due to", "meaning": "由于", "note": "表原因，后接名词短语，不能接句子。" },
+      { "text": "result in", "meaning": "导致、造成", "note": "高频搭配，result in long waits 即'导致长时间排队'。" }
+    ]
+  },
+  "2017:A:7": {
+    "grammar": [
+      { "title": "形式主语 it + how much 主语从句", "text": "It is not yet clear how much more effective airline security has become 中，it 为形式主语，真正主语是 how much more effective airline security has become 这个从句；how much more effective 表'在多大程度上更有效'，理解重点在'尚不清楚其效果提升多少'。" },
+      { "title": "but 转折对比", "text": "破折号后 but the lines are obvious 与前文 not yet clear 形成鲜明对比：有效性的提升不清楚，但排队的现实一目了然，是作者讽刺性对比的关键。" }
+    ],
+    "words": [
+      { "word": "effective", "meaning": "有效的", "note": "形容词，此处比较级 more effective。" },
+      { "word": "obvious", "meaning": "明显的", "note": "形容词，the lines are obvious 即'队伍明摆着'。" }
+    ],
+    "phrases": []
+  },
+  "2017:A:8": {
+    "grammar": [
+      { "title": "表语从句 + so 结果状语从句", "text": "Part of the issue is that... 中 that 引导表语从句说明'问题所在'；后半句 so the TSA is now rushing... 中 so 引导结果状语从句表'因此'，与前半句构成因果链。" },
+      { "title": "rushing to do 目的不定式", "text": "rushing to get new screeners on the line 中不定式 to get 说明匆忙的目的，get sb on the line 意为'使某人上岗'，on the line 此处指'在岗'。" }
+    ],
+    "words": [
+      { "word": "anticipate", "meaning": "预料、预见", "note": "动词，高频考词，did not anticipate 即'没有预见到'。" },
+      { "word": "steep", "meaning": "急剧的、陡峭的", "note": "形容词，the steep increase 即'急剧增长'。" },
+      { "word": "screener", "meaning": "安检员、检查员", "note": "名词，screen（检查）+ -er，指做安检扫描的人员。" },
+      { "word": "rush", "meaning": "匆忙、急于", "note": "动词，be rushing to do 表'正急于做某事'。" }
+    ],
+    "phrases": [
+      { "text": "part of the issue", "meaning": "部分问题", "note": "问题的一部分，后接表语从句解释原因。" },
+      { "text": "get ... on the line", "meaning": "使……上岗", "note": "on the line 此处为'在工作岗位上'，指招募安检员投入工作。" }
+    ]
+  },
+  "2017:A:9": {
+    "grammar": [
+      { "title": "表语从句 + only so much 限定", "text": "Part of the issue is that airports have only so much room for screening lanes 中 that 引导表语从句；only so much room 意为'只有那么多空间'，隐含'空间有限、无法再容纳更多安检通道'，是理解句意的关键。" }
+    ],
+    "words": [
+      { "word": "screening", "meaning": "安检、筛查", "note": "动名词，screening lanes 即'安检通道'。" },
+      { "word": "lane", "meaning": "通道、车道", "note": "名词，此处指机场安检通道。" }
+    ],
+    "phrases": [
+      { "text": "only so much", "meaning": "只有那么多（有限的）", "note": "表数量有限，是本句的核心限定表达。" }
+    ]
+  },
+  "2017:A:10": {
+    "grammar": [
+      { "title": "表语从句 + 目的不定式", "text": "Another factor may be that... 中 that 引导表语从句；从句内 to avoid checked-baggage fees 是不定式作目的状语，说明乘客把随身行李塞满的目的（规避托运行李费）。" },
+      { "title": "though 让步状语从句", "text": "though the airlines strongly dispute this 为让步状语从句，表示'尽管航空公司强烈否认这一点'，与前文形成转折，说明航空公司不认同此说法。" }
+    ],
+    "words": [
+      { "word": "overpack", "meaning": "塞得过满、过度打包", "note": "动词，前缀 over- 表'过度'，把 carry-on bags 塞满以省托运费。" },
+      { "word": "carry-on", "meaning": "随身携带的", "note": "形容词/名词，carry-on bags 即'随身行李'。" },
+      { "word": "checked-baggage", "meaning": "托运行李", "note": "复合名词，checked 指'托运的'。" },
+      { "word": "dispute", "meaning": "否认、质疑", "note": "动词，strongly dispute this 即'强烈否认这一点'。" }
+    ],
+    "phrases": [
+      { "text": "carry-on bags", "meaning": "随身行李", "note": "与 checked-baggage 相对，机场场景高频词。" },
+      { "text": "checked-baggage fees", "meaning": "托运行李费", "note": "托运需额外付费，是乘客塞随身行李的原因。" }
+    ]
+  },
+  "2017:A:11": {
+    "grammar": [
+      { "title": "双层定语从句修饰 one step", "text": "There is one step the TSA could take that would not require remodeling... 中 one step 后先接省略关系代词的定语从句 the TSA could take，再接 that 引导的定语从句 that would not require...；两个从句共同限定'TSA 可采取的一个步骤'，注意 that 从句的先行词是 step。" },
+      { "title": "冒号引出具体内容", "text": "冒号后的 Enroll more people in the PreCheck program 是祈使句，具体说明那'一个步骤'是什么，阅读时先看冒号前再落到冒号后的解决方案。" }
+    ],
+    "words": [
+      { "word": "remodel", "meaning": "改造、改建", "note": "动词，前缀 re- 表'重新'，remodel airports 即'改造机场'。" },
+      { "word": "enroll", "meaning": "招收、登记加入", "note": "动词，enroll sb in a program 即'使某人加入某计划'。" },
+      { "word": "hire", "meaning": "雇用", "note": "动词/名词，rushing to hire 即'急于招人'。" }
+    ],
+    "phrases": [
+      { "text": "enroll ... in", "meaning": "使……加入", "note": "enroll in 为固定搭配，此处祈使句呼吁让更多人加入 PreCheck 计划。" },
+      { "text": "the PreCheck program", "meaning": "预先安检计划", "note": "美国机场的快速安检项目，本文核心名词。" }
+    ]
+  },
+  "2017:A:12": {
+    "grammar": [
+      { "title": "be supposed to do 表应然", "text": "PreCheck is supposed to be a win-win... 中 be supposed to do 意为'本应、理应'，暗含'应当如此但未必做到'的意味，阅读时要注意这一隐含的评价色彩。" }
+    ],
+    "words": [
+      { "word": "win-win", "meaning": "双赢", "note": "名词/形容词，a win-win for A and B 即'对双方都有利'。" }
+    ],
+    "phrases": [
+      { "text": "be supposed to do", "meaning": "本应该、被期望做", "note": "高频搭配，此处表理想状态（计划应带来双赢）。" }
+    ]
+  },
+  "2017:A:13": {
+    "grammar": [
+      { "title": "定语从句 + be eligible to do", "text": "Passengers who pass a background check 中 who 引导定语从句修饰 Passengers，意为'通过背景调查的乘客'；主句用 be eligible to use 表'有资格使用'，结构为主语+定语从句+系表+不定式。" }
+    ],
+    "words": [
+      { "word": "eligible", "meaning": "有资格的、符合条件的", "note": "形容词，be eligible to do sth 为固定搭配。" },
+      { "word": "expedited", "meaning": "加速的、快速的", "note": "形容词，由 expedite 派生，expedited screening lanes 即'快速安检通道'。" }
+    ],
+    "phrases": [
+      { "text": "background check", "meaning": "背景调查", "note": "固定名词短语，pass a background check 即'通过背景调查'。" },
+      { "text": "screening lanes", "meaning": "安检通道", "note": "与 A:9 的 screening lanes 呼应，此处指快速通道。" }
+    ]
+  },
+  "2017:A:14": {
+    "grammar": [
+      { "title": "allow sb to do 结构", "text": "This allows the TSA to focus on travelers who are higher risk 中 allow sb to do sth 表'使某人能做某事'，This 指代上一句 PreCheck 分流旅客的做法；不定式 to focus on 说明聚焦的对象。" },
+      { "title": "现在分词作结果状语", "text": "saving time for everyone involved 是现在分词短语作结果状语，表示'因此为所有人节省时间'，说明 PreCheck 分流带来的好处，阅读时译作'从而……'。" }
+    ],
+    "words": [
+      { "word": "focus", "meaning": "集中（注意力）", "note": "动词，focus on 为固定搭配，此处指把注意力放到高风险旅客上。" },
+      { "word": "involved", "meaning": "涉及的、相关的", "note": "过去分词作后置定语，everyone involved 即'所有相关人员'。" },
+      { "word": "risk", "meaning": "风险", "note": "名词，higher risk 此处作表语，'风险更高的（旅客）'。" }
+    ],
+    "phrases": [
+      { "text": "focus on", "meaning": "专注于", "note": "高频搭配，focus on travelers 即'把注意力放在旅客上'。" },
+      { "text": "everyone involved", "meaning": "所有相关人员", "note": "involved 后置修饰 everyone，分词后置定语的典型用法。" }
+    ]
+  },
+  "2017:A:15": {
+    "grammar": [
+      { "title": "want to do + enroll in 结构", "text": "The TSA wants to enroll 25 million people in PreCheck 中不定式 to enroll 作 wants 的宾语，enroll 25 million people in PreCheck 即'让2500万人加入PreCheck'，本句为简单句，理解重点在 enroll sb in 的搭配。" }
+    ],
+    "words": [
+      { "word": "enroll", "meaning": "使登记加入、招入", "note": "动词，enroll sb in a program 是高频搭配，注意与 register 的近义关系。" },
+      { "word": "million", "meaning": "百万", "note": "数词，25 million people 即'2500万人'，注意不写作 millions。" }
+    ],
+    "phrases": [
+      { "text": "enroll ... in", "meaning": "使……加入", "note": "固定搭配，后接计划/项目名。" }
+    ]
+  },
+  "2017:A:16": {
+    "grammar": [
+      { "title": "not anywhere close to 强调远离目标", "text": "It has not gotten anywhere close to that 中 anywhere close to 意为'（哪怕）接近……'，与 not 连用强调'离那个目标还差得很远'，比 not close to 语气更强。" },
+      { "title": "冒号引出原因解释", "text": "one big reason is sticker shock 后接冒号，Passengers must pay $85 every five years... 具体解释'标价震惊'的内容（收费），阅读时把冒号后视为理由的展开。" }
+    ],
+    "words": [
+      { "word": "sticker shock", "meaning": "标价震惊、价格震惊", "note": "复合名词，指看到标价后产生的惊讶/抵触，是理解本句的关键词。" },
+      { "word": "process", "meaning": "办理、处理", "note": "动词（熟词僻义），to process their background checks 即'办理背景调查'。" }
+    ],
+    "phrases": [
+      { "text": "anywhere close to", "meaning": "（用于否定）接近", "note": "not anywhere close to that 即'远未接近那个目标'。" },
+      { "text": "every five years", "meaning": "每五年", "note": "表频率，every + 时间段表'每隔……'。" }
+    ]
+  },
+  "2017:A:17": {
+    "grammar": [
+      { "title": "现在完成时表持续 + 介词短语前置", "text": "句首 Since the beginning 是时间状语，主句用 has been（现在完成时）表'自始至终一直如此'；this price tag has been PreCheck's fatal flaw 为主系表结构，price tag 此处是比喻用法。" }
+    ],
+    "words": [
+      { "word": "fatal", "meaning": "致命的", "note": "形容词，fatal flaw 即'致命缺陷'，表非常严重的缺点。" },
+      { "word": "flaw", "meaning": "缺陷、瑕疵", "note": "名词，高频考词。" },
+      { "word": "price tag", "meaning": "价格、收费", "note": "本义'价格标签'，此处引申指'这一计划的收费'。" }
+    ],
+    "phrases": [
+      { "text": "fatal flaw", "meaning": "致命缺陷", "note": "固定搭配，指导致整体失败的根本性缺点。" },
+      { "text": "since the beginning", "meaning": "从一开始", "note": "时间状语，与现在完成时 has been 搭配表持续。" }
+    ]
+  },
+  "2017:A:18": {
+    "grammar": [
+      { "title": "情态动词 might + 简单主谓宾", "text": "Upcoming reforms might bring the price to a more reasonable level 为主谓宾+宾补结构，bring sth to a level 意为'把某物带到某水平'；might 表可能，语气较委婉，reforms 与 price 都是本段主题词。" }
+    ],
+    "words": [
+      { "word": "upcoming", "meaning": "即将到来的", "note": "形容词，upcoming reforms 即'即将进行的改革'。" },
+      { "word": "reform", "meaning": "改革", "note": "名词/动词，可数名词，常作复数 reforms。" },
+      { "word": "reasonable", "meaning": "合理的", "note": "形容词，a more reasonable level 即'更合理的水平'。" }
+    ],
+    "phrases": [
+      { "text": "bring ... to a level", "meaning": "把……带到某一水平", "note": "bring sth to a ... level 为固定表达。" }
+    ]
+  },
+  "2017:A:19": {
+    "grammar": [
+      { "title": "look into + doing 表'考虑做'", "text": "Congress should look into doing so directly 中 look into 本义'调查'，此处引申为'研究、考虑（做某事）'，后接动名词 doing so；注意 look into doing 与 look into sth 的搭配差异。" },
+      { "title": "by + 动名词 方式状语", "text": "by helping to finance PreCheck enrollment or to cut costs in other ways 中 by + 动名词表'通过……方式'，两个并列不定式 to finance... 与 to cut costs 说明具体做法。" }
+    ],
+    "words": [
+      { "word": "Congress", "meaning": "美国国会", "note": "专有名词，注意大写，指美国立法机构。" },
+      { "word": "finance", "meaning": "资助、为……提供资金", "note": "动词用法（一词多义），名词义为'财政'。" },
+      { "word": "enrollment", "meaning": "注册、登记", "note": "名词，PreCheck enrollment 即'加入 PreCheck'。" }
+    ],
+    "phrases": [
+      { "text": "look into", "meaning": "研究、考虑（此处）", "note": "本义'调查'，本句表'考虑采取行动'。" },
+      { "text": "cut costs", "meaning": "削减成本", "note": "固定搭配，cut costs in other ways 即'以其他方式降低成本'。" }
+    ]
+  },
+  "2017:A:20": {
+    "grammar": [
+      { "title": "while 对比状语从句", "text": "while most of the traveling public suffers in unnecessary lines 中 while 引导时间/对比状语从句，表'与此同时'，与主句 TSA 把资源投入 PreCheck 形成对照：一边是投入，一边是公众排长队。" },
+      { "title": "continue + doing 表持续", "text": "cannot continue diverting resources into underused PreCheck lanes 中 continue doing sth 表'继续做某事'，divert A into B 意为'把 A 转到 B'，说明持续的错误资源配置。" }
+    ],
+    "words": [
+      { "word": "divert", "meaning": "转移、转投", "note": "动词，divert resources into 即'把资源投入到'。" },
+      { "word": "underused", "meaning": "未被充分利用的", "note": "形容词，under- 前缀表'不足'，underused lanes 即'使用率低的通道'。" },
+      { "word": "unnecessary", "meaning": "不必要的", "note": "形容词，un- 否定前缀 + necessary。" },
+      { "word": "suffer", "meaning": "受苦、受煎熬", "note": "动词，suffers in unnecessary lines 即'在不必要的长队中煎熬'。" }
+    ],
+    "phrases": [
+      { "text": "divert ... into", "meaning": "把……转移至", "note": "divert resources into 为固定搭配。" },
+      { "text": "the traveling public", "meaning": "出行公众", "note": "the + 形容词表一类人，the traveling public 即'广大出行者'。" }
+    ]
+  },
+  "2017:A:21": {
+    "grammar": [
+      { "title": "It is (long past) time to do 表'早该做'", "text": "It is long past time to make the program work 中 It is (long past) time to do sth 为固定句式，表'早就该做某事了'，long past 加强语气；to make the program work 说明该做的具体事项。" },
+      { "title": "make + 宾语 + 动词原形", "text": "make the program work 中 make 后接宾语加不带 to 的不定式，表'使……发挥作用'，work 此处作不及物动词'起作用'。" }
+    ],
+    "words": [
+      { "word": "past", "meaning": "超过、过了", "note": "介词/副词，long past time 即'早过时候了'，表时间紧迫。" }
+    ],
+    "phrases": [
+      { "text": "make ... work", "meaning": "使……发挥作用、奏效", "note": "make sth work 为高频搭配，work 此处为动词。" },
+      { "text": "long past time", "meaning": "早就该（做）", "note": "It is long past time to do sth 表'早该做某事'。" }
+    ]
+  },
+  "2017:B:0": {
+    "grammar": [
+      { "title": "直接引语 + 后置的 wrote", "text": "引语在前，wrote Queen Liliuokalani 主谓倒装后置，阅读时应把引语视为 wrote 的宾语；这种引述结构在新闻/议论文中常见，注意先看引语内容再看说话者。" },
+      { "title": "同位语解释说话人身份", "text": "Hawaii's last reigning monarch 是 Queen Liliuokalani 的同位语，补充其身份'夏威夷最后一位在位君主'，阅读时作为插入信息快速掠过。" }
+    ],
+    "words": [
+      { "word": "astronomer", "meaning": "天文学家", "note": "名词，astronomy 的天文学家名词形式。" },
+      { "word": "reigning", "meaning": "在位的", "note": "现在分词作形容词，reigning monarch 即'在位君主'。" },
+      { "word": "monarch", "meaning": "君主", "note": "名词，指国王/女王，本文指夏威夷女王。" }
+    ],
+    "phrases": [
+      { "text": "reigning monarch", "meaning": "在位的君主", "note": "固定搭配，reign 为'统治'，reigning 表'现任的'。" }
+    ]
+  },
+  "2017:B:1": {
+    "grammar": [
+      { "title": "be among the + 最高级 表'属于……之列'", "text": "were among the most esteemed members 中 be among + 最高级名词短语表示'是……中的一员/属于最……之列'，此处指观星者属于夏威夷社会最受尊敬的人群。" }
+    ],
+    "words": [
+      { "word": "esteem", "meaning": "尊敬、尊重", "note": "动词/名词，esteemed 为'受尊敬的'，与 respected 近义。" },
+      { "word": "watcher", "meaning": "观察者", "note": "名词，Star watchers 即'观星者'，watch + -er。" }
+    ],
+    "phrases": [
+      { "text": "among the most esteemed", "meaning": "属于最受尊敬之列", "note": "among + 最高级结构，表'是……之一'。" }
+    ]
+  },
+  "2017:B:2": {
+    "grammar": [
+      { "title": "all is not well 部分否定", "text": "all is not well with astronomy 中 not 修饰 all，是部分否定，意为'并非一切都好'，即夏威夷天文学现状不佳；阅读时注意不要把 all...not 理解成'全部不好'，这是考研常考的部分否定现象。" }
+    ],
+    "words": [
+      { "word": "sadly", "meaning": "遗憾的是", "note": "副词，句首评论性状语，表遗憾语气。" },
+      { "word": "astronomy", "meaning": "天文学", "note": "名词，本文核心学科名词。" }
+    ],
+    "phrases": [
+      { "text": "not well with", "meaning": "对……不太顺利", "note": "all is not well with 表'（某事）状况不佳'，此处为部分否定。" }
+    ]
+  },
+  "2017:B:3": {
+    "grammar": [
+      { "title": "同位语 + 定语从句解释 TMT", "text": "a giant observatory 是 the Thirty Meter Telescope 的同位语，解释其性质；that promises to revolutionize humanity's view of the cosmos 是定语从句修饰 observatory，说明该望远镜的意义。" },
+      { "title": "promise to do 表'有望'", "text": "promises to revolutionize 中 promise to do 除'承诺做'外，此处表'有望做、预示着'，是熟词僻义考点，阅读时译为'有望彻底改变'。" }
+    ],
+    "words": [
+      { "word": "erupt", "meaning": "爆发、突然发生", "note": "动词，Protests have erupted 即'抗议爆发'，本义指火山喷发。" },
+      { "word": "observatory", "meaning": "天文台、观象台", "note": "名词，observe 的派生词，指观测天文的机构/建筑。" },
+      { "word": "revolutionize", "meaning": "彻底改变、革命性地改变", "note": "动词，revolution + -ize，指使发生根本变化。" },
+      { "word": "cosmos", "meaning": "宇宙", "note": "名词，与 universe 同义，偏文学/哲学色彩。" }
+    ],
+    "phrases": [
+      { "text": "erupt over", "meaning": "因……而爆发", "note": "erupt over sth 表'围绕……爆发（抗议）'。" },
+      { "text": "promise to do", "meaning": "有望做、预示着", "note": "此处非'承诺'，而是表客观可能性的熟词僻义。" }
+    ]
+  },
+  "2017:B:4": {
+    "grammar": [
+      { "title": "表语前置的倒装句", "text": "At issue is the TMT's planned location on Mauna Kea 中 At issue（争论焦点）作表语被提前，主谓倒装，正常语序为 the TMT's planned location is at issue；阅读时把 At issue 还原到句尾理解：'焦点在于……'。" },
+      { "title": "同位语 + 过去分词后置定语 + 分裂定语从句", "text": "a dormant volcano 是 Mauna Kea 的同位语，worshiped by some Hawaiians as the piko 是过去分词短语后置修饰 volcano；that connects the Hawaiian Islands to the heavens 是定语从句修饰 volcano，但被中间的 worshiped 分词短语隔开，注意先行词是 volcano。" }
+    ],
+    "words": [
+      { "word": "dormant", "meaning": "休眠的", "note": "形容词，dormant volcano 即'休眠火山'，与 active（活跃的）相对。" },
+      { "word": "worship", "meaning": "崇拜、敬奉", "note": "动词/名词，be worshiped as 即'被奉为'。" },
+      { "word": "piko", "meaning": "脐带（夏威夷语）", "note": "夏威夷语借词，指连接群岛与上天的脐带，象征神圣纽带。" },
+      { "word": "heaven", "meaning": "上天、天堂", "note": "名词，the heavens 常指'天空、苍穹'。" }
+    ],
+    "phrases": [
+      { "text": "at issue", "meaning": "争论中的、争议的焦点", "note": "固定短语，作表语提前形成倒装，本文重要表达。" },
+      { "text": "connect A to B", "meaning": "把 A 与 B 连接", "note": "connect the islands to the heavens 即'把群岛与上天相连'。" }
+    ]
+  },
+  "2017:B:5": {
+    "grammar": [
+      { "title": "be home to 表'是……的所在地'", "text": "Mauna Kea is also home to some of the world's most powerful telescopes 中 be home to 意为'是……的栖息地/所在地'，是固定表达；some of the + 最高级结构表示'一些最……的'。" }
+    ],
+    "words": [
+      { "word": "powerful", "meaning": "强大的、高性能的", "note": "形容词，powerful telescopes 即'性能强大的望远镜'。" }
+    ],
+    "phrases": [
+      { "text": "be home to", "meaning": "是……的所在地、栖息地", "note": "固定搭配，主语多为地点，后接'存在于该地的对象'。" },
+      { "text": "some of the most ...", "meaning": "一些最……的", "note": "最高级限定结构，表'部分最……的（成员）'。" }
+    ]
+  },
+  "2017:B:6": {
+    "grammar": [
+      { "title": "过去分词作状语", "text": "Rested in the Pacific Ocean 中 rest 此处为不及物动词'坐落、位于'，过去分词短语作状语表状态，逻辑主语是 Mauna Kea's peak，翻译为'莫纳克亚山矗立于太平洋之中'。" },
+      { "title": "where 非限制性定语从句", "text": "where conditions allow telescopes to obtain images of unsurpassed clarity 中 where 引导非限制性定语从句修饰 atmosphere，指在那种条件下望远镜能拍出无比清晰的图像；allow sb to do 表'使……能够做'。" }
+    ],
+    "words": [
+      { "word": "peak", "meaning": "山峰、顶峰", "note": "名词，Mauna Kea's peak 即'莫纳克亚山的山顶'。" },
+      { "word": "bulk", "meaning": "主体、大部分", "note": "名词，the bulk of ... 即'……的主体部分'。" },
+      { "word": "dense", "meaning": "稠密的", "note": "形容词，dense atmosphere 即'稠密的大气层'。" },
+      { "word": "unsurpassed", "meaning": "无与伦比的", "note": "形容词，un- 前缀表否定，surpassed 为'被超越的'。" },
+      { "word": "clarity", "meaning": "清晰度、清晰", "note": "名词，clear 的名词形式，images of unsurpassed clarity 即'清晰度无与伦比的图像'。" }
+    ],
+    "phrases": [
+      { "text": "rise above", "meaning": "高耸于……之上", "note": "rises above the bulk of the atmosphere 即'高出大气层主体'。" },
+      { "text": "rest in", "meaning": "坐落于、位于", "note": "rest 的'坐落'义是熟词僻义。" }
+    ]
+  },
+  "2017:B:7": {
+    "grammar": [
+      { "title": "动名词性主语 + 系表结构", "text": "Opposition to telescopes on Mauna Kea 是主语（opposition 后接 to + 名词表'对……的反对'），is nothing new 为系表结构；nothing new 意为'并非新鲜事'，表该现象由来已久，是理解段落递进的关键。" }
+    ],
+    "words": [
+      { "word": "opposition", "meaning": "反对", "note": "名词，opposition to sth 为固定搭配，to 后接反对的对象。" }
+    ],
+    "phrases": [
+      { "text": "opposition to", "meaning": "对……的反对", "note": "固定搭配，to 为介词，后接名词/动名词。" },
+      { "text": "nothing new", "meaning": "不是新鲜事", "note": "表'由来已久'，用于引出下文'长期存在'的论述。" }
+    ]
+  },
+  "2017:B:8": {
+    "grammar": [
+      { "title": "view A as B 结构", "text": "viewed their presence as disrespect for sacred land and a painful reminder... 中 view A as B 意为'把 A 视为 B'，此处 A 是 their presence（望远镜的存在），B 是并列的 disrespect 与 reminder 两个宾语；阅读时抓住 view...as 框架再填充内容。" },
+      { "title": "what 引导名词性从句", "text": "of what was once a sovereign nation 中 what 引导名词性从句作介词 of 的宾语，意为'曾经是主权国家的地方'，即夏威夷王国；这是 what 从句作介词宾语的典型用法。" },
+      { "title": "现在完成时 + long 表持续", "text": "have long viewed 中现在完成时与副词 long 连用，表'长期以来一直……'，强调反对立场的持续性。" }
+    ],
+    "words": [
+      { "word": "vocal", "meaning": "直言不讳的、发声强烈的", "note": "形容词，a small but vocal group 即'人少但声音很大的一群人'。" },
+      { "word": "environmentalist", "meaning": "环保主义者", "note": "名词，environment + -al + -ist。" },
+      { "word": "disrespect", "meaning": "不敬、亵渎", "note": "名词，dis- 否定前缀，表对圣地的冒犯。" },
+      { "word": "sacred", "meaning": "神圣的", "note": "形容词，sacred land 即'圣地'。" },
+      { "word": "sovereign", "meaning": "主权的、独立自主的", "note": "形容词，a sovereign nation 即'主权国家'。" }
+    ],
+    "phrases": [
+      { "text": "view A as B", "meaning": "把 A 视为 B", "note": "高频搭配，view ... as 表主观认定。" },
+      { "text": "a painful reminder of", "meaning": "对……的痛苦提醒", "note": "reminder of 表'使人想起……的东西'。" }
+    ]
+  },
+  "2017:B:9": {
+    "grammar": [
+      { "title": "belong to 表'责任归属'", "text": "Some blame for the current controversy belongs to astronomers 中 belong to 本义'属于'，此处引申为'（责任）在于'；主语 Some blame（部分责任）与句尾 astronomers 之间由 belongs to 连接，表'部分责任在于天文学家'。" }
+    ],
+    "words": [
+      { "word": "blame", "meaning": "责任、责备", "note": "名词，Some blame 即'部分责任'，blame for sth 表'对某事的责任'。" },
+      { "word": "controversy", "meaning": "争议", "note": "名词，the current controversy 即'当前这场争议'。" }
+    ],
+    "phrases": [
+      { "text": "belong to", "meaning": "属于、（责任）在于", "note": "此处引申表'责任落在……身上'。" },
+      { "text": "blame for", "meaning": "对……的责任", "note": "blame for sth 为固定搭配。" }
+    ]
+  },
+  "2017:B:10": {
+    "grammar": [
+      { "title": "In one's eagerness to do 表原因", "text": "In their eagerness to build bigger telescopes 中 in one's eagerness to do sth 意为'出于做某事的急切心情'，作原因状语，翻译为'因为急于建造更大的望远镜'。" },
+      { "title": "forgot that 宾语从句", "text": "they forgot that science is not the only way of understanding the world 中 that 引导宾语从句，内容是'科学并非理解世界的唯一方式'，这是本段的核心论点句。" }
+    ],
+    "words": [
+      { "word": "eagerness", "meaning": "渴望、急切", "note": "名词，eager 的名词形式，in one's eagerness to do 为固定表达。" }
+    ],
+    "phrases": [
+      { "text": "in one's eagerness to do", "meaning": "出于做某事的急切心情", "note": "表原因的名词性短语，阅读时译作'因为急于……'。" },
+      { "text": "the only way of doing", "meaning": "做某事的唯一方式", "note": "way of + doing 为固定搭配。" }
+    ]
+  },
+  "2017:B:11": {
+    "grammar": [
+      { "title": "not always 部分否定", "text": "They did not always prioritize... 中 not 与 always 连用构成部分否定，意为'并非总是'，即他们有时没有把保护放在首位；注意不能理解成'从不'。" },
+      { "title": "并列宾语", "text": "the protection of Mauna Kea's fragile ecosystems or its holiness to the islands' inhabitants 中 or 连接两个并列宾语：生态系统的保护 与 它对岛上居民的神圣意义；its 指代 Mauna Kea。" }
+    ],
+    "words": [
+      { "word": "prioritize", "meaning": "优先考虑、把……放在首位", "note": "动词，priority 的动词形式，高频考词。" },
+      { "word": "fragile", "meaning": "脆弱的、易碎的", "note": "形容词，fragile ecosystems 即'脆弱的生态系统'。" },
+      { "word": "ecosystem", "meaning": "生态系统", "note": "名词，ecology + system 的合成词。" },
+      { "word": "holiness", "meaning": "神圣性、神圣", "note": "名词，holy 的名词形式。" },
+      { "word": "inhabitant", "meaning": "居民", "note": "名词，inhabit（居住于）+ -ant，the islands' inhabitants 即'岛上居民'。" }
+    ],
+    "phrases": [
+      { "text": "prioritize the protection of", "meaning": "优先考虑保护……", "note": "prioritize + 名词表'把……放在首位'。" }
+    ]
+  },
+  "2017:B:12": {
+    "grammar": [
+      { "title": "分号连接对比分句", "text": "Hawaiian culture is not a relic of the past; it is a living culture undergoing a renaissance today 中分号连接两个并列分句，形成'不是……而是……'的对比，这是本段反驳'夏威夷文化已死'论点的关键句式。" },
+      { "title": "现在分词作后置定语", "text": "a living culture undergoing a renaissance today 中 undergoing 是现在分词短语作后置定语修饰 culture，意为'正在经历复兴的文化'。" }
+    ],
+    "words": [
+      { "word": "relic", "meaning": "遗物、遗迹", "note": "名词，a relic of the past 即'过去的遗物'，此处指过时、失去生命力的东西。" },
+      { "word": "undergo", "meaning": "经历、经受", "note": "动词，undergoing a renaissance 即'正在经历复兴'。" },
+      { "word": "renaissance", "meaning": "复兴、新生", "note": "名词，本义指欧洲文艺复兴，此处泛用为'文化复兴'。" }
+    ],
+    "phrases": [
+      { "text": "a relic of the past", "meaning": "过去的遗物", "note": "表'过时无生命力之物'，与 living culture 形成对比。" },
+      { "text": "a living culture", "meaning": "活生生的文化", "note": "living 此处表'有生命力的、现存的'。" }
+    ]
+  },
+  "2017:B:13": {
+    "grammar": [
+      { "title": "with + 名词 + 分词 独立主格", "text": "with roots going back to the dawn of civilization 是 with 复合结构（with + 宾语 + 现在分词），作补充说明状语，表'其根源可追溯到文明的黎明'；阅读时把该结构视为附加信息，不影响主句理解。" }
+    ],
+    "words": [
+      { "word": "root", "meaning": "根源", "note": "名词复数 roots 表'渊源、根源'，常与 go back to 搭配。" },
+      { "word": "dawn", "meaning": "黎明、开端", "note": "名词，the dawn of civilization 即'文明的曙光/开端'，比喻用法。" },
+      { "word": "civilization", "meaning": "文明", "note": "名词，高频考词。" }
+    ],
+    "phrases": [
+      { "text": "go back to", "meaning": "追溯到", "note": "roots going back to 即'根源可追溯到……'。" },
+      { "text": "the dawn of civilization", "meaning": "文明的曙光、文明之初", "note": "固定表达，dawn 作比喻义'开端'。" }
+    ]
+  },
+  "2017:B:14": {
+    "grammar": [
+      { "title": "主语过长，谓语后置", "text": "主语 The same curiosity 后接两个后置修饰语：不定式 to find what lies beyond the horizon 和定语从句 that first brought early Polynesians to Hawaii's shores，谓语 inspires 直到句中出现；阅读时必须越过修饰成分找到谓语，才能理清'同样的好奇心激励着天文学家'这一主干。" },
+      { "title": "that 定语从句被分隔", "text": "that first brought early Polynesians to Hawaii's shores 是修饰 curiosity 的定语从句，但被前面的不定式短语隔开，与先行词不相邻，注意 that 的先行词是 curiosity 而非 horizon。" },
+      { "title": "what 引导名词性从句", "text": "to find what lies beyond the horizon 中 what 引导宾语从句作 find 的宾语，意为'地平线之外有什么'，这是好奇心指向的内容。" }
+    ],
+    "words": [
+      { "word": "curiosity", "meaning": "好奇心", "note": "名词，The same curiosity 即'同样的好奇心'，本文核心名词。" },
+      { "word": "horizon", "meaning": "地平线", "note": "名词，beyond the horizon 即'地平线之外'。" },
+      { "word": "Polynesian", "meaning": "波利尼西亚人", "note": "名词，早期波利尼西亚人是最早到夏威夷的航海者。" },
+      { "word": "shore", "meaning": "海岸、海滨", "note": "名词，Hawaii's shores 即'夏威夷海岸'。" },
+      { "word": "explore", "meaning": "探索", "note": "动词，explore the heavens 即'探索苍穹'。" }
+    ],
+    "phrases": [
+      { "text": "lie beyond", "meaning": "位于……之外", "note": "what lies beyond the horizon 即'地平线之外的事物'。" },
+      { "text": "bring ... to", "meaning": "把……带到", "note": "that first brought early Polynesians to Hawaii's shores 即'最初把波利尼西亚人带到夏威夷海岸'。" }
+    ]
+  },
+  "2017:B:15": {
+    "grammar": [
+      { "title": "主语+后置定语+谓语结构", "text": "主语 Calls（呼声/主张）后接两个并列不定式定语 to disassemble all telescopes on Mauna Kea or to ban future development there，谓语 ignore 位于句尾，其宾语是 the reality；阅读时先找主语 Calls 再找谓语 ignore，中间内容为修饰。" },
+      { "title": "that 引导同位语从句", "text": "the reality that astronomy and Hawaiian culture both seek to answer big questions... 中 that 引导同位语从句，具体说明'现实'的内容：天文学与夏威夷文化都在寻求回答重大问题。" },
+      { "title": "三个并列名词性从句", "text": "about who we are, where we come from and where we are going 中 who/where 引导的三个从句并列作介词 about 的宾语，构成'我们是谁、从哪来、到哪去'的经典哲学追问，也是本文主题的落脚点。" }
+    ],
+    "words": [
+      { "word": "call", "meaning": "呼声、主张", "note": "名词（熟词僻义），Calls to do sth 表'要求做某事的呼声'。" },
+      { "word": "disassemble", "meaning": "拆除、拆卸", "note": "动词，dis- + assemble（组装）的反义，to disassemble telescopes 即'拆除望远镜'。" },
+      { "word": "ban", "meaning": "禁止", "note": "动词/名词，to ban future development 即'禁止未来开发'。" },
+      { "word": "seek", "meaning": "寻求、试图", "note": "动词，seek to do sth 即'试图做某事'，比 try 正式。" }
+    ],
+    "phrases": [
+      { "text": "seek to do", "meaning": "寻求做某事", "note": "正式表达，相当于 try to do。" },
+      { "text": "answer big questions about", "meaning": "回答关于……的重大问题", "note": "answer questions about 为固定搭配。" }
+    ]
+  },
+  "2017:B:16": {
+    "grammar": [
+      { "title": "why 引导表语从句", "text": "Perhaps that is why we explore the starry skies 中 why 引导表语从句，意为'那就是我们探索星空的原因'，that 指代上一句'天文学与文化都要回答重大问题'，注意 why 从句与中文'这就是为什么'的对应。" },
+      { "title": "as if + 现在分词 省略主语的比较状语", "text": "as if answering a primal calling... 中 as if 后省略了主语和 be 动词（完整为 as if (we are) answering），现在分词表'仿佛在做某事'，是 as if + 分词的常见省略形式。" }
+    ],
+    "words": [
+      { "word": "starry", "meaning": "布满星星的", "note": "形容词，star + -y，starry skies 即'繁星点点的天空'。" },
+      { "word": "primal", "meaning": "原始的、根本的", "note": "形容词，a primal calling 即'原始的召唤'。" },
+      { "word": "calling", "meaning": "召唤、使命", "note": "名词，call 的动名词用法，表'内心的召唤'。" },
+      { "word": "ancestral", "meaning": "祖先的", "note": "形容词，ancestor 的形容词形式，ancestral homes 即'祖先家园'。" }
+    ],
+    "phrases": [
+      { "text": "as if", "meaning": "仿佛、好像", "note": "引导方式状语，本句后接现在分词（省略主语）。" },
+      { "text": "ancestral homes", "meaning": "祖先的家园", "note": "与前面波利尼西亚人航海主题呼应。" }
+    ]
+  },
+  "2017:B:17": {
+    "grammar": [
+      { "title": "现在进行时 + 目的不定式", "text": "is making compromises 用现在进行时表'正在做出让步'这一进行中的举措；to change its use of Mauna Kea 是不定式作目的状语，说明让步的目的。" }
+    ],
+    "words": [
+      { "word": "compromise", "meaning": "妥协、让步", "note": "名词/动词，make compromises 为动宾搭配，此处指天文学界作出让步。" },
+      { "word": "community", "meaning": "（学术）界、团体", "note": "名词，the astronomy community 即'天文学界'。" }
+    ],
+    "phrases": [
+      { "text": "make compromises", "meaning": "做出妥协、让步", "note": "make + 名词表动作的常见搭配。" },
+      { "text": "change one's use of", "meaning": "改变对……的使用方式", "note": "use of sth 表'对某物的使用'。" }
+    ]
+  },
+  "2017:B:18": {
+    "grammar": [
+      { "title": "被动语态 + 并列目的不定式", "text": "The TMT site was chosen 是被动语态，后接两个并列不定式表目的：to minimize the telescope's visibility around the island 与 to avoid archaeological and environmental impact，说明选址的两大考量，阅读时把 and to avoid 与前面的 to minimize 对应起来。" }
+    ],
+    "words": [
+      { "word": "minimize", "meaning": "使最小化", "note": "动词，minimum 的动词形式，to minimize visibility 即'尽量降低可见度'。" },
+      { "word": "visibility", "meaning": "可见度、能见度", "note": "名词，visible 的名词形式，指望远镜被看到的程度。" },
+      { "word": "archaeological", "meaning": "考古的", "note": "形容词，archaeological impact 即'考古方面的影响'。" },
+      { "word": "impact", "meaning": "影响", "note": "名词，此处与 environmental 连用表'环境影响'。" }
+    ],
+    "phrases": [
+      { "text": "be chosen to do", "meaning": "被选中去做", "note": "被动语态，后接不定式表目的。" }
+    ]
+  },
+  "2017:B:19": {
+    "grammar": [
+      { "title": "目的状语前置", "text": "To limit the number of telescopes on Mauna Kea 是不定式短语置于句首作目的状语，表'为了限制望远镜数量'，阅读时先看目的再看主句内容。" },
+      { "title": "并列被动结构中省略 will be", "text": "old ones will be removed... and their sites returned to a natural state 中第二个并列分句省略了 will be，完整为 their sites will be returned，returned 为过去分词表被动；阅读时补全省略的 will be 即可理解。" }
+    ],
+    "words": [
+      { "word": "lifetime", "meaning": "寿命、使用年限", "note": "名词，at the end of their lifetimes 即'在使用寿命结束时'。" },
+      { "word": "natural", "meaning": "自然的", "note": "形容词，a natural state 即'自然状态'，指恢复原貌。" }
+    ],
+    "phrases": [
+      { "text": "at the end of", "meaning": "在……结束时", "note": "at the end of their lifetimes 即'寿命结束后'。" },
+      { "text": "return to a natural state", "meaning": "恢复自然状态", "note": "return to 表'恢复到'，说明场地复垦。" }
+    ]
+  },
+  "2017:B:20": {
+    "grammar": [
+      { "title": "There is no reason why 句式", "text": "There is no reason why everyone cannot be welcomed on Mauna Kea 中 why 引导定语从句修饰 reason，There is no reason why 意为'没有理由……'；注意从句中 cannot 与前面的 no reason 构成双重否定，实际表达肯定语气：'没有理由不能让所有人上山'。" },
+      { "title": "并列目的不定式", "text": "to embrace their cultural heritage and to study the stars 是两个并列不定式作目的状语，说明上山的两重意义：拥抱文化传承与研究星辰。" }
+    ],
+    "words": [
+      { "word": "embrace", "meaning": "拥抱、欣然接受", "note": "动词，此处引申为'拥抱（文化）'，语气积极。" },
+      { "word": "heritage", "meaning": "遗产、传统", "note": "名词，cultural heritage 即'文化遗产'。" },
+      { "word": "welcome", "meaning": "欢迎", "note": "动词被动，be welcomed on Mauna Kea 即'被欢迎登上莫纳克亚山'。" }
+    ],
+    "phrases": [
+      { "text": "there is no reason why", "meaning": "没有理由……", "note": "固定句式，后接从句，常含双重否定表肯定。" },
+      { "text": "cultural heritage", "meaning": "文化遗产", "note": "固定名词短语。" }
+    ]
+  },
+  "2017:C:0": {
+    "grammar": [
+      { "title": "宾语从句 + that which 结构", "text": "said that a country's GDP measures everything... 中 that 引导宾语从句；everything except that which makes life worthwhile 中 that 是指示代词（=the things），which makes life worthwhile 是定语从句修饰 that，整体意为'除那些使生活有价值之物以外的一切'，是理解肯尼迪名言的关键。" }
+    ],
+    "words": [
+      { "word": "measure", "meaning": "衡量", "note": "动词，GDP measures... 即'GDP 衡量……'，本文核心动词。" },
+      { "word": "worthwhile", "meaning": "值得的、有价值的", "note": "形容词，make life worthwhile 即'使生活有价值'。" },
+      { "word": "GDP", "meaning": "国内生产总值", "note": "Gross Domestic Product 缩写，本文核心主题词。" }
+    ],
+    "phrases": [
+      { "text": "everything except", "meaning": "除……之外的一切", "note": "except 后接名词/名词短语表排除。" },
+      { "text": "make life worthwhile", "meaning": "使生活有价值", "note": "make + 宾语 + 形容词的使役结构。" }
+    ]
+  },
+  "2017:C:1": {
+    "grammar": [
+      { "title": "with + 名词 + 分词 独立主格结构", "text": "With Britain voting to leave the European Union, and GDP already predicted to slow as a result 中 with 复合结构表伴随原因：Britain 后用现在分词 voting，GDP 后用过去分词 predicted，两个并列成分说明脱欧与 GDP 放缓这两重背景，阅读时把 with 结构整体视为背景状语。" },
+      { "title": "形式主语 it + 目的不定式 + what 从句", "text": "it is now a timely moment to assess what he was referring to 中 it 为形式主语，真正主语是不定式短语 to assess what he was referring to；what 引导名词性从句作 assess 的宾语，意为'他所指的东西'。" }
+    ],
+    "words": [
+      { "word": "assess", "meaning": "评估、评价", "note": "动词，to assess 即'去评估'，高频考词。" },
+      { "word": "timely", "meaning": "及时的、适时的", "note": "形容词，a timely moment 即'恰当时机'。" },
+      { "word": "predict", "meaning": "预测、预计", "note": "动词，GDP already predicted to slow 即'GDP 已被预计放缓'。" },
+      { "word": "refer", "meaning": "提及、指", "note": "动词，refer to 为固定搭配，what he was referring to 即'他所指的'。" }
+    ],
+    "phrases": [
+      { "text": "as a result", "meaning": "因此、结果", "note": "固定短语，GDP already predicted to slow as a result 即'GDP 因此被预计放缓'。" },
+      { "text": "refer to", "meaning": "指的是、提及", "note": "高频搭配，本文反复出现，须掌握。" },
+      { "text": "vote to do", "meaning": "投票决定做", "note": "Britain voting to leave the EU 即'英国公投决定脱离欧盟'。" }
+    ]
+  },
+  "2017:C:2": {
+    "grammar": [
+      { "title": "主谓一致 + 现在完成时表持续", "text": "主语 The question（单数）后接 of GDP and its usefulness 作后置修饰，谓语用 has annoyed 而非 have；for over half a century 与现在完成时搭配，表'困扰决策者已超过半个世纪'。" }
+    ],
+    "words": [
+      { "word": "annoy", "meaning": "使烦恼、困扰", "note": "动词，has annoyed policymakers 即'一直困扰着决策者'。" },
+      { "word": "policymaker", "meaning": "决策者、政策制定者", "note": "名词，policy + maker，本文核心人群。" },
+      { "word": "usefulness", "meaning": "有用性、效用", "note": "名词，useful 的名词形式，its usefulness 即'它的效用'。" }
+    ],
+    "phrases": [
+      { "text": "for over half a century", "meaning": "半个多世纪以来", "note": "与现在完成时连用表持续，for + 时间段。" }
+    ]
+  },
+  "2017:C:3": {
+    "grammar": [
+      { "title": "名词化形容词作主语 + 宾语从句", "text": "Many argue that it is a flawed concept 中 Many 是形容词名词化用法（相当于 many people），作主语；that 引导宾语从句说明'争论的内容'。" }
+    ],
+    "words": [
+      { "word": "flawed", "meaning": "有缺陷的", "note": "形容词，flaw（缺陷）+ -ed，a flawed concept 即'有缺陷的概念'。" },
+      { "word": "concept", "meaning": "概念", "note": "名词，本文指 GDP 这一概念。" },
+      { "word": "argue", "meaning": "主张、认为", "note": "动词，Many argue that... 即'许多人认为……'，考研议论文高频词。" }
+    ],
+    "phrases": []
+  },
+  "2017:C:4": {
+    "grammar": [
+      { "title": "定语从句 + do 的省略替代", "text": "It measures things that do not matter and misses things that do 中两个 that 定语从句分别修饰 things；第二个从句 that do 用 do 替代 do matter，避免重复，是英语中的动词替代现象，理解时补全为 that do (matter)。" }
+    ],
+    "words": [
+      { "word": "matter", "meaning": "重要、要紧", "note": "动词用法（熟词僻义），things that do not matter 即'无关紧要的东西'。" },
+      { "word": "miss", "meaning": "漏掉、错过", "note": "动词，misses things 即'漏掉了（重要的）东西'。" }
+    ],
+    "phrases": []
+  },
+  "2017:C:5": {
+    "grammar": [
+      { "title": "with + 名词短语 独立结构表补充说明", "text": "with record low unemployment and high growth figures 是 with + 名词短语作附加说明状语，补充英国 GDP 令西方艳羡的具体表现（失业率创新低、增长数字高企），阅读时作为并列信息处理。" },
+      { "title": "the envy of 表'令人羡慕之物'", "text": "has been the envy of the Western world 中 the envy of 意为'……羡慕的对象'，envy 此处为名词，是理解本句表情色彩的关键。" }
+    ],
+    "words": [
+      { "word": "envy", "meaning": "羡慕、嫉妒的对象", "note": "名词（熟词僻义），the envy of 即'令人艳羡之物'；动词义为'嫉妒'。" },
+      { "word": "unemployment", "meaning": "失业", "note": "名词，record low unemployment 即'创纪录的低失业率'。" },
+      { "word": "figure", "meaning": "数字、数据", "note": "名词复数 figures，high growth figures 即'高企的增长数字'。" },
+      { "word": "record", "meaning": "创纪录的", "note": "形容词用法，record low 即'创纪录的新低'。" }
+    ],
+    "phrases": [
+      { "text": "the envy of", "meaning": "令人羡慕的对象", "note": "the envy of the Western world 即'西方世界艳羡的对象'。" },
+      { "text": "record low", "meaning": "创纪录的新低", "note": "record 作形容词'创纪录的'，与 high 相对。" }
+    ]
+  },
+  "2017:C:6": {
+    "grammar": [
+      { "title": "If 条件句 + did 强调疑问句", "text": "If everything was going so well 是条件状语从句，主句 then why did over 17 million people vote for Brexit 是反诘疑问句；did 在这里是强调助动词（did vote），加强'究竟为什么投票'的质问语气。" },
+      { "title": "what 引导名词性从句", "text": "despite the warnings about what it could do to their country's economic prospects 中 what 引导名词性从句作介词 about 的宾语，意为'脱欧可能对经济前景造成的影响'；it 指 Brexit。" }
+    ],
+    "words": [
+      { "word": "Brexit", "meaning": "英国脱欧", "note": "专有名词，Britain + exit 的合成词，2016 年公投事件，本文背景。" },
+      { "word": "prospect", "meaning": "前景、展望", "note": "名词复数 prospects，economic prospects 即'经济前景'。" },
+      { "word": "warning", "meaning": "警告", "note": "名词，the warnings about... 即'关于……的警告'。" }
+    ],
+    "phrases": [
+      { "text": "vote for", "meaning": "投票支持", "note": "vote for Brexit 即'投票支持脱欧'，与 vote against 相对。" },
+      { "text": "despite", "meaning": "尽管", "note": "介词，后接名词/动名词，表让步，同 in spite of。" }
+    ]
+  },
+  "2017:C:7": {
+    "grammar": [
+      { "title": "主语过长，谓语后置", "text": "主语 A recent annual study 后接 of countries and their ability to convert growth into well-being 等修饰成分，谓语 sheds 位于句中后段；阅读时先找主语 study 再找谓语 sheds，中间的修饰成分说明研究对象。" },
+      { "title": "不定式作后置定语", "text": "their ability to convert growth into well-being 中不定式 to convert 作后置定语修饰 ability，意为'将增长转化为幸福的能力'，是理解'研究内容'的关键。" }
+    ],
+    "words": [
+      { "word": "annual", "meaning": "每年的、年度的", "note": "形容词，a recent annual study 即'最近的一项年度研究'。" },
+      { "word": "convert", "meaning": "转化、转变", "note": "动词，convert A into B 即'把 A 转化为 B'。" },
+      { "word": "well-being", "meaning": "幸福感、福祉", "note": "名词，本文核心概念，与 GDP 对比的主题词。" },
+      { "word": "shed", "meaning": "（使）发出、散发", "note": "动词，shed light on 为固定搭配表'阐明'。" }
+    ],
+    "phrases": [
+      { "text": "shed light on", "meaning": "阐明、为……提供线索", "note": "固定搭配，sheds some light on that question 即'为那个问题提供了启示'。" },
+      { "text": "convert A into B", "meaning": "把 A 转化为 B", "note": "convert growth into well-being 即'把增长转化为幸福'。" }
+    ]
+  },
+  "2017:C:8": {
+    "grammar": [
+      { "title": "过去分词作后置定语 + one of the + 最高级", "text": "the 163 countries measured 中过去分词 measured 作后置定语修饰 countries，即'被衡量的163个国家'；one of the poorest performers in... 意为'在……方面表现最差的之一'，后接 in + 动名词结构。" },
+      { "title": "宾语从句表被动转化", "text": "in ensuring that economic growth is translated into meaningful improvements... 中 that 引导宾语从句作 ensuring 的宾语，is translated into 是被动语态，表'被转化为'，说明增长与改善的转化关系。" }
+    ],
+    "words": [
+      { "word": "performer", "meaning": "表现者、执行者", "note": "名词，perform（表现）+ -er，one of the poorest performers 即'表现最差的之一'。" },
+      { "word": "ensure", "meaning": "确保", "note": "动词，in ensuring that... 即'在确保……方面'。" },
+      { "word": "translate", "meaning": "转化、翻译", "note": "动词（熟词僻义），be translated into 表'被转化为'。" },
+      { "word": "meaningful", "meaning": "有意义的、实际的", "note": "形容词，meaningful improvements 即'切实的改善'。" },
+      { "word": "citizen", "meaning": "公民、市民", "note": "名词，for its citizens 即'对其公民'。" }
+    ],
+    "phrases": [
+      { "text": "one of the poorest performers", "meaning": "表现最差的之一", "note": "one of the + 最高级 + 复数名词结构。" },
+      { "text": "be translated into", "meaning": "被转化为", "note": "translate 此处为'转化'义，不是'翻译'。" }
+    ]
+  },
+  "2017:C:9": {
+    "grammar": [
+      { "title": "Rather than + 动名词 表'而不是'", "text": "Rather than just focusing on GDP 置于句首表'不只是关注GDP（而是……）'，rather than 后接动名词 focusing；阅读时注意它提示后文才是重点（40多组标准被衡量）。" },
+      { "title": "被动语态 + 目的不定式 + how 从句", "text": "over 40 different sets of criteria... have been measured 是现在完成时被动语态，主语是 criteria；to get a more rounded assessment 是不定式表目的；of how countries are performing 中 how 引导名词性从句作介词 of 的宾语。" }
+    ],
+    "words": [
+      { "word": "criteria", "meaning": "标准、准则", "note": "名词复数，单数形式为 criterion，常考复数不规则变化。" },
+      { "word": "engagement", "meaning": "参与、投入", "note": "名词，civil society engagement 即'公民社会参与'。" },
+      { "word": "rounded", "meaning": "全面的、完善的", "note": "形容词，a more rounded assessment 即'更全面的评估'。" },
+      { "word": "assessment", "meaning": "评估", "note": "名词，assess 的名词形式。" }
+    ],
+    "phrases": [
+      { "text": "rather than", "meaning": "而不是", "note": "高频连接词，后接名词/动名词，表取舍。" },
+      { "text": "focus on", "meaning": "专注于", "note": "rather than just focusing on GDP 即'而不只是聚焦 GDP'。" },
+      { "text": "a rounded assessment", "meaning": "全面的评估", "note": "rounded 此处为'全面的'，是熟词僻义。" }
+    ]
+  },
+  "2017:C:10": {
+    "grammar": [
+      { "title": "While 让步状语从句", "text": "While all of these countries face their own challenges 中 While 引导让步状语从句，意为'虽然'，主句 there are a number of consistent themes 说明存在共同主题；阅读时把 While 译作'虽然'而非'当……时'。" }
+    ],
+    "words": [
+      { "word": "consistent", "meaning": "一贯的、一致的", "note": "形容词，consistent themes 即'一贯的主题/共同规律'。" },
+      { "word": "theme", "meaning": "主题、规律", "note": "名词，指各国表现中反复出现的共同点。" }
+    ],
+    "phrases": [
+      { "text": "a number of", "meaning": "许多、若干", "note": "后接可数名词复数，a number of consistent themes 即'若干一贯的主题'。" }
+    ]
+  },
+  "2017:C:11": {
+    "grammar": [
+      { "title": "there has been 现在完成时存在句 + but 转折", "text": "there has been a budding economic recovery... 是现在完成时存在句，表'（自2008年以来）已经出现初步复苏'；but 后转而指出另一面：关键指标上主要经济体仍在下滑，构成'复苏表象 vs 深层恶化'的对比。" },
+      { "title": "have continued to do 表持续", "text": "major economies have continued to decline 中现在完成时 + continue to do 表'持续地一直在下滑'，强调恶化的长期性。" }
+    ],
+    "words": [
+      { "word": "budding", "meaning": "初现的、萌芽的", "note": "形容词，bud（发芽）的现在分词，a budding recovery 即'初步的复苏'。" },
+      { "word": "recovery", "meaning": "复苏、恢复", "note": "名词，economic recovery 即'经济复苏'。" },
+      { "word": "indicator", "meaning": "指标", "note": "名词，key indicators 即'关键指标'。" },
+      { "word": "decline", "meaning": "下滑、下降", "note": "动词/名词，have continued to decline 即'持续下滑'。" }
+    ],
+    "phrases": [
+      { "text": "economic recovery", "meaning": "经济复苏", "note": "固定名词短语。" },
+      { "text": "key indicators", "meaning": "关键指标", "note": "与本文反复出现的 measures/criteria 同类概念。" }
+    ]
+  },
+  "2017:C:12": {
+    "grammar": [
+      { "title": "not ... all 部分否定", "text": "Yet this isn't the case with all countries 中 not 与 all 连用构成部分否定，意为'并非所有国家都如此'，即有的国家确实在改善；阅读时注意 it isn't the case with 表'……并非如此'，是承接上文的转折。" }
+    ],
+    "words": [
+      { "word": "case", "meaning": "情况、情形", "note": "名词，this isn't the case 即'情况并非如此'，固定表达。" }
+    ],
+    "phrases": [
+      { "text": "be the case", "meaning": "情况如此、是这样", "note": "固定搭配，it isn't the case with all countries 即'并非所有国家都是这样'。" }
+    ]
+  },
+  "2017:C:13": {
+    "grammar": [
+      { "title": "have seen + 宾语 表'经历了'", "text": "have seen huge improvements 中 see 此处引申为'经历、见证'（熟词僻义），主语为一些相对贫穷的欧洲国家，强调它们取得的进步，阅读时译作'取得了巨大进步'。" },
+      { "title": "including 分词引导举例", "text": "across measures including civil society, income equality and environment 中 including 是现在分词引导列举，说明各项指标的具体范围。" }
+    ],
+    "words": [
+      { "word": "relatively", "meaning": "相对地", "note": "副词，relatively poor 即'相对贫穷的'，表程度比较。" },
+      { "word": "improvement", "meaning": "改善、进步", "note": "名词，huge improvements 即'巨大进步'。" },
+      { "word": "equality", "meaning": "平等", "note": "名词，income equality 即'收入平等'。" }
+    ],
+    "phrases": [
+      { "text": "across measures", "meaning": "在各项指标上", "note": "across 表'遍及、横跨'，指涵盖多个指标。" },
+      { "text": "income equality", "meaning": "收入平等", "note": "固定表达，与 income inequality（不平等）相对。" },
+      { "text": "civil society", "meaning": "公民社会", "note": "固定名词短语，指非政府的社会组织与参与。" }
+    ]
+  },
+  "2017:C:14": {
+    "grammar": [
+      { "title": "定语从句 + 冒号引出解释", "text": "This is a lesson that rich countries can learn 中 that 引导定语从句修饰 lesson；冒号后 When GDP is no longer regarded as... 具体展开'教训'的内容，阅读时把冒号后视为主旨句的说明。" },
+      { "title": "When 时间状语从句 + no longer + 被动", "text": "When GDP is no longer regarded as the sole measure of a country's success 中 When 引导时间状语从句，no longer 意为'不再'，regarded as 为被动语态'被视为'；全句意为'当 GDP 不再被视为衡量国家成功的唯一标准时'。" }
+    ],
+    "words": [
+      { "word": "lesson", "meaning": "教训、经验", "note": "名词，a lesson that rich countries can learn 即'富国可以汲取的教训'。" },
+      { "word": "sole", "meaning": "唯一的", "note": "形容词，the sole measure 即'唯一的标准'，与 only 同义但更正式。" },
+      { "word": "regard", "meaning": "视为、看待", "note": "动词，be regarded as 即'被视为'。" }
+    ],
+    "phrases": [
+      { "text": "be regarded as", "meaning": "被视为", "note": "固定搭配，regard A as B 的被动形式。" },
+      { "text": "no longer", "meaning": "不再", "note": "固定短语，表状态的终止，与 not...any more 同义。" }
+    ]
+  },
+  "2017:C:15": {
+    "grammar": [
+      { "title": "what 主语从句 + 表语从句套让步状语", "text": "what Kennedy was referring to was... 中 what 引导主语从句作主语，系动词 was 后接 that 引导的表语从句；表语从句内又含 while 引导的让步状语从句（尽管 GDP 是最常用方法），层次为'肯尼迪所指的其实是：尽管……但……'，阅读时先剥出 while 从句再抓主句 it is no longer enough。" }
+    ],
+    "words": [
+      { "word": "common", "meaning": "常见的、普遍的", "note": "形容词，the most common method 即'最常用的方法'。" },
+      { "word": "activity", "meaning": "活动、行为", "note": "名词，economic activity 即'经济活动'。" },
+      { "word": "method", "meaning": "方法", "note": "名词，method for doing 表'做某事的方法'。" }
+    ],
+    "phrases": [
+      { "text": "refer to", "meaning": "指、提及", "note": "与 C:1 呼应，what Kennedy was referring to 即'肯尼迪所指的'。" },
+      { "text": "as a measure", "meaning": "作为一种衡量标准", "note": "as a measure 作插入语，补充评价角度。" }
+    ]
+  },
+  "2017:C:16": {
+    "grammar": [
+      { "title": "such as 举例 + 破折号同位语", "text": "such as environmental quality or education outcomes 举例说明'重要因素'；破折号后的 all things that contribute to a person's sense of well-being 是同位语，对前面列举的因素作概括补充，说明它们都关乎幸福感。" },
+      { "title": "that 定语从句", "text": "all things that contribute to a person's sense of well-being 中 that 引导定语从句修饰 things，contribute to 意为'有助于、促成'，说明这些因素的作用。" }
+    ],
+    "words": [
+      { "word": "outcome", "meaning": "结果、成果", "note": "名词，education outcomes 即'教育成果'。" },
+      { "word": "contribute", "meaning": "有助于、促成", "note": "动词，contribute to 为固定搭配，表'对……有贡献/作用'。" },
+      { "word": "sense", "meaning": "感觉、意识", "note": "名词，a sense of well-being 即'幸福感'。" }
+    ],
+    "phrases": [
+      { "text": "such as", "meaning": "例如", "note": "举例连接词，后接名词或并列名词。" },
+      { "text": "contribute to", "meaning": "有助于、促进", "note": "高频搭配，to 为介词，后接名词/动名词。" },
+      { "text": "a sense of well-being", "meaning": "幸福感", "note": "sense of ... 表'……的感觉'，本文核心概念。" }
+    ]
+  },
+  "2017:C:17": {
+    "grammar": [
+      { "title": "过去分词作后置定语", "text": "The sharp hit to growth predicted around the world and in the UK 中过去分词 predicted 作后置定语修饰 hit，意为'预计将在全球和英国出现的增长重创'，注意主语核心是 hit（名词'打击'）。" },
+      { "title": "省略关系词的定语从句", "text": "the everyday services we depend on for our well-being and for growth 中定语从句 we depend on（省略 that）修饰 services，for our well-being and for growth 说明依赖的目的；阅读时补出关系词 we (that) depend on 即可。" }
+    ],
+    "words": [
+      { "word": "sharp", "meaning": "剧烈的、急剧的", "note": "形容词，the sharp hit 即'重创'，sharp 表程度大。" },
+      { "word": "hit", "meaning": "打击、重创", "note": "名词（熟词僻义），The sharp hit to growth 即'对增长的重创'；动词义为'打击'。" },
+      { "word": "decline", "meaning": "下降、减少", "note": "名词，a decline in the everyday services 即'日常服务的减少'。" },
+      { "word": "depend", "meaning": "依赖", "note": "动词，depend on 为固定搭配。" }
+    ],
+    "phrases": [
+      { "text": "lead to", "meaning": "导致", "note": "高频搭配，could lead to a decline 即'可能导致下降'。" },
+      { "text": "depend on", "meaning": "依赖、依靠", "note": "services we depend on 即'我们所依赖的服务'。" },
+      { "text": "everyday services", "meaning": "日常服务", "note": "everyday 为形容词'日常的'，注意与 every day 区分。" }
+    ]
+  },
+  "2017:C:18": {
+    "grammar": [
+      { "title": "定语从句 + 并列谓语", "text": "policymakers who refocus efforts on improving well-being rather than simply worrying about GDP figures 中 who 引导定语从句修饰 policymakers；主句用并列谓语 could avoid the forecasted doom and may even see progress，说明正确做法的两种结果。" },
+      { "title": "rather than + 动名词 表取舍", "text": "rather than simply worrying about GDP figures 表'而不是仅仅担心 GDP 数字'，与前面 improving well-being 形成对比，点明正确方向；rather than 后接动名词 worrying。" }
+    ],
+    "words": [
+      { "word": "refocus", "meaning": "重新聚焦、重新集中", "note": "动词，re- 前缀表'重新'，refocus efforts on 即'把精力重新集中于'。" },
+      { "word": "forecasted", "meaning": "被预测的", "note": "过去分词作形容词，the forecasted doom 即'被预测的厄运'。" },
+      { "word": "doom", "meaning": "厄运、毁灭", "note": "名词，the forecasted doom 指前文提到的经济下滑前景。" },
+      { "word": "progress", "meaning": "进步", "note": "名词，see progress 即'看到进步'，与 doom 相对。" }
+    ],
+    "phrases": [
+      { "text": "refocus efforts on", "meaning": "把精力重新集中于", "note": "refocus ... on 为固定搭配，表调整重点。" },
+      { "text": "worry about", "meaning": "担忧", "note": "高频搭配，worrying about GDP figures 即'为 GDP 数字担忧'。" }
+    ]
+  },
+  "2017:D:0": {
+    "grammar": [
+      { "title": "同位语解释人名", "text": "of a former Virginia governor, Robert McDonnell 中 Robert McDonnell 是 former Virginia governor 的同位语，补充说明被定罪者的姓名与身份，阅读时作为插入信息掠过。" }
+    ],
+    "words": [
+      { "word": "unanimous", "meaning": "全体一致的、无异议的", "note": "形容词，a rare unanimous ruling 即'罕见的全体一致裁决'，表难得的一致。" },
+      { "word": "ruling", "meaning": "裁决、裁定", "note": "名词，rule 的名词形式，法院的判决。" },
+      { "word": "overturn", "meaning": "推翻、撤销", "note": "动词，has overturned the conviction 即'推翻了定罪'。" },
+      { "word": "corruption", "meaning": "腐败", "note": "名词，本文核心主题词。" },
+      { "word": "conviction", "meaning": "定罪", "note": "名词，convict（判罪）的名词形式。" },
+      { "word": "governor", "meaning": "州长", "note": "名词，美国各州行政长官。" }
+    ],
+    "phrases": [
+      { "text": "overturn a conviction", "meaning": "推翻定罪", "note": "法律语境固定搭配，overturn 表'撤销原判'。" }
+    ]
+  },
+  "2017:D:1": {
+    "grammar": [
+      { "title": "did so 替代前文动作", "text": "But it did so while holding its nose... 中 did so 指代上一句的 overturned the corruption conviction，避免重复；while + 现在分词 holding 作伴随状语，表'在做出裁决的同时却对……嗤之以鼻'。" },
+      { "title": "非限制性定语从句 + 分词后置定语", "text": "which included accepting gifts... 是非限制性定语从句修饰 his conduct（行为）；from a company seeking access to government 中现在分词 seeking 作后置定语修饰 company，说明送礼公司的动机。" }
+    ],
+    "words": [
+      { "word": "ethics", "meaning": "道德、伦理", "note": "名词，the ethics of his conduct 即'他行为的道德问题'。" },
+      { "word": "conduct", "meaning": "行为、操行", "note": "名词，指麦克唐纳接受礼物的行为。" },
+      { "word": "seek", "meaning": "寻求", "note": "动词，seeking access to government 即'寻求接近政府的机会'。" },
+      { "word": "access", "meaning": "接近机会、通道", "note": "名词，access to government 即'接近政府的机会'，本文高频词。" }
+    ],
+    "phrases": [
+      { "text": "hold one's nose", "meaning": "掩鼻、带着厌恶（勉强接受）", "note": "习语，while holding its nose at the ethics... 表'对其道德问题嗤之以鼻'。" },
+      { "text": "seek access to", "meaning": "寻求接近……的机会", "note": "seek access to government 即'寻求接近政府'，本文关键搭配。" }
+    ]
+  },
+  "2017:D:2": {
+    "grammar": [
+      { "title": "said 后双层宾语从句", "text": "The high court's decision said the judge ... failed to tell a jury that... 中 said 后接省略 that 的宾语从句（the judge ... failed to tell），该从句内 tell a jury 后又有 that 引导的宾语从句（it must look only at his official acts）；阅读时先理清'裁决指出：法官未能告知陪审团……'这一双层结构。" },
+      { "title": "过去分词作后置定语", "text": "issues related to his duties 中过去分词短语 related to 作后置定语修饰 issues，意为'与其职责相关的问题'。" }
+    ],
+    "words": [
+      { "word": "jury", "meaning": "陪审团", "note": "名词，法律语境核心词，a jury 即'陪审团'。" },
+      { "word": "specific", "meaning": "具体的", "note": "形容词，'specific' issues 即'具体的问题'，原文带引号表强调。" },
+      { "word": "unsettled", "meaning": "未决的、悬而未决的", "note": "形容词，un- 前缀 + settled（已定的），'unsettled' issues 即'未决的问题'。" },
+      { "word": "duties", "meaning": "职责", "note": "名词复数，duty 表'职责、义务'，related to his duties 即'与其职责相关'。" }
+    ],
+    "phrases": [
+      { "text": "fail to do", "meaning": "未能做", "note": "固定搭配，failed to tell a jury 即'未能告知陪审团'。" },
+      { "text": "look at", "meaning": "看、考虑", "note": "look only at his official acts 即'只看他的公务行为'。" },
+      { "text": "related to", "meaning": "与……相关", "note": "固定搭配，过去分词短语作后置定语。" }
+    ]
+  },
+  "2017:D:3": {
+    "grammar": [
+      { "title": "动名词短语作主语 + 插入的省略条件句", "text": "Merely helping a gift-giver gain access to other officials... is not corruption 中动名词短语作主语，谓语是 is not；unless done with clear intent to pressure those officials 是省略的条件状语从句（完整为 unless it is done...），插在主语与谓语之间，阅读时先括出该插入语再找主谓。" },
+      { "title": "宾语从句倒装后置", "text": "the justices found 放在句末，是宾语从句的后置引述结构，正常语序为 the justices found (that) ... is not corruption；阅读时把句末的 found 与句中的判断内容对应起来。" }
+    ],
+    "words": [
+      { "word": "merely", "meaning": "仅仅、只是", "note": "副词，Merely helping 即'仅仅是帮助'，限定范围。" },
+      { "word": "gift-giver", "meaning": "送礼者", "note": "名词，gift + giver 合成词。" },
+      { "word": "intent", "meaning": "意图、目的", "note": "名词，with clear intent to do 即'有明确的……意图'。" },
+      { "word": "pressure", "meaning": "施压、施加压力", "note": "动词用法，to pressure those officials 即'向那些官员施压'。" },
+      { "word": "justice", "meaning": "大法官", "note": "名词，the justices 即'（最高法院的）大法官们'。" }
+    ],
+    "phrases": [
+      { "text": "gain access to", "meaning": "获得接近……的机会", "note": "高频搭配，gain access to other officials 即'接近其他官员'。" },
+      { "text": "with intent to do", "meaning": "带有做某事的意图", "note": "with clear intent to pressure 即'出于明确的施压意图'。" }
+    ]
+  },
+  "2017:D:4": {
+    "grammar": [
+      { "title": "did 强调谓语", "text": "The court did suggest that... 中 did 是强调助动词，加强 suggest 的语气，意为'法院确实指出过……'，用来承认法院并非完全否认此类行为不当。" },
+      { "title": "动名词短语作宾语从句主语", "text": "that accepting favors in return for opening doors is distasteful and nasty 中 accepting favors in return for opening doors 是动名词短语作从句主语，谓语是 is；in return for + 动名词表'以换取……'。" }
+    ],
+    "words": [
+      { "word": "favor", "meaning": "好处、恩惠", "note": "名词，accepting favors 即'收受好处'。" },
+      { "word": "distasteful", "meaning": "令人反感的、令人不快的", "note": "形容词，dis- 前缀 + tasteful，表讨厌。" },
+      { "word": "nasty", "meaning": "恶劣的、卑鄙的", "note": "形容词，与 distasteful 并列，表道德上令人厌恶。" }
+    ],
+    "phrases": [
+      { "text": "in return for", "meaning": "作为……的交换、以换取", "note": "固定搭配，in return for opening doors 即'以换取开门路'。" },
+      { "text": "open doors", "meaning": "开门路、提供便利", "note": "习语，指为送礼者打通关系。" }
+    ]
+  },
+  "2017:D:5": {
+    "grammar": [
+      { "title": "make proof of 的被动结构", "text": "proof must be made of concrete benefits 中 make proof of sth 意为'证明某事'，此处为被动语态（make proof of 的 of 后置），阅读时还原为 must make proof of concrete benefits 即'必须证明有具体的利益'。" },
+      { "title": "such as 举例说明", "text": "such as approval of a contract or regulation 举例说明'具体利益'的形态：批准合同或法规。" }
+    ],
+    "words": [
+      { "word": "anti-bribery", "meaning": "反贿赂的", "note": "复合形容词，anti- 前缀表'反、防'，anti-bribery laws 即'反贿赂法'。" },
+      { "word": "proof", "meaning": "证据、证明", "note": "名词，proof must be made of... 即'必须证明……'。" },
+      { "word": "concrete", "meaning": "具体的、实在的", "note": "形容词，concrete benefits 即'具体的利益'，与抽象相对。" },
+      { "word": "approval", "meaning": "批准、同意", "note": "名词，approval of a contract 即'合同的批准'。" },
+      { "word": "regulation", "meaning": "法规、规章", "note": "名词，approval of a contract or regulation 即'批准合同或法规'。" }
+    ],
+    "phrases": [
+      { "text": "make proof of", "meaning": "证明", "note": "make proof of 为动宾搭配，此处被动语态 of 后置。" },
+      { "text": "such as", "meaning": "例如", "note": "举例连接词。" }
+    ]
+  },
+  "2017:D:6": {
+    "grammar": [
+      { "title": "三个并列动名词作主语 + 单数谓语", "text": "Simply arranging a meeting, making a phone call, or hosting an event 是三个并列动名词短语整体作主语，谓语用单数 is not；阅读时把 or 连接的三个并列项视为一个主语整体，理解'这些都算不上一项公务行为'。" }
+    ],
+    "words": [
+      { "word": "simply", "meaning": "仅仅、只是", "note": "副词，Simply arranging 即'仅仅是安排'，限定范围。" },
+      { "word": "arrange", "meaning": "安排", "note": "动词，arranging a meeting 即'安排会面'。" },
+      { "word": "host", "meaning": "主办、举办", "note": "动词，hosting an event 即'主办活动'。" }
+    ],
+    "phrases": [
+      { "text": "official act", "meaning": "公务行为", "note": "法律语境关键短语，本文反复出现，指官员的正式职务行为。" }
+    ]
+  },
+  "2017:D:7": {
+    "grammar": [
+      { "title": "be sound in doing 表'在某方面站得住脚'", "text": "The court's ruling is legally sound in defining a kind of favoritism that is not criminal 中 be sound in doing sth 意为'在做某事方面可靠/站得住脚'，说明裁决在法律上的合理性；in defining 说明'在界定……方面'。" },
+      { "title": "that 定语从句", "text": "a kind of favoritism that is not criminal 中 that 引导定语从句修饰 favoritism，表'一种不构成犯罪的偏袒'，是法律定性上的关键限定。" }
+    ],
+    "words": [
+      { "word": "sound", "meaning": "可靠的、合理的", "note": "形容词（熟词僻义），legally sound 即'法律上站得住脚的'。" },
+      { "word": "favoritism", "meaning": "偏袒、偏私", "note": "名词，favorite 的衍生词，本文核心概念。" },
+      { "word": "criminal", "meaning": "犯罪的", "note": "形容词，not criminal 即'不构成犯罪'。" },
+      { "word": "define", "meaning": "界定、定义", "note": "动词，in defining 即'在界定……时'。" }
+    ],
+    "phrases": [
+      { "text": "be sound in", "meaning": "在某方面可靠、站得住脚", "note": "sound 此处为'可靠'义，与 solid 近义。" }
+    ]
+  },
+  "2017:D:8": {
+    "grammar": [
+      { "title": "be allowed to do + help sb (to) do", "text": "Elected leaders must be allowed to help supporters deal with bureaucratic problems 中 be allowed to do 表'被允许做'；help supporters deal with 中 help 后接宾语加不带 to 的不定式 deal with，是 help sb do sth 的省略结构。" },
+      { "title": "without + 名词 否定伴随", "text": "without fear of prosecution for bribery 是 without + 名词短语作方式状语，意为'不必担心因贿赂而被起诉'，说明被允许帮助的宽松前提。" }
+    ],
+    "words": [
+      { "word": "elected", "meaning": "选举产生的", "note": "过去分词作形容词，Elected leaders 即'民选领导人'。" },
+      { "word": "bureaucratic", "meaning": "官僚的、官僚体制的", "note": "形容词，bureaucratic problems 即'官僚体制问题'。" },
+      { "word": "prosecution", "meaning": "起诉、检控", "note": "名词，prosecute 的名词形式，prosecution for bribery 即'因贿赂被起诉'。" },
+      { "word": "bribery", "meaning": "贿赂", "note": "名词，bribe 的名词形式，法律语境核心词。" },
+      { "word": "supporter", "meaning": "支持者", "note": "名词，help supporters 即'帮助支持者'。" }
+    ],
+    "phrases": [
+      { "text": "deal with", "meaning": "处理、应对", "note": "高频搭配，deal with bureaucratic problems 即'处理官僚体制问题'。" },
+      { "text": "without fear of", "meaning": "不必担心", "note": "without + fear of 表'没有……的顾虑'。" }
+    ]
+  },
+  "2017:D:9": {
+    "grammar": [
+      { "title": "直接引语分裂结构", "text": "引语被 wrote Chief Justice John Roberts for the court 从中间隔开：引语前半部分是主语 The basic compact underlying representative government，中间插入引述动词，后半部分 assumes that... 是谓语与宾语；阅读时应把引语拼接完整再理解'基本契约假定公职人员会……'。" },
+      { "title": "现在分词作后置定语", "text": "The basic compact underlying representative government 中现在分词 underlying 作后置定语修饰 compact，意为'作为代议制政府基础的基本契约'。" }
+    ],
+    "words": [
+      { "word": "compact", "meaning": "契约、协定", "note": "名词，The basic compact 即'基本契约'，指社会政治的基本约定。" },
+      { "word": "underlie", "meaning": "作为……的基础", "note": "动词，underlying representative government 即'支撑代议制政府的'。" },
+      { "word": "constituent", "meaning": "选民", "note": "名词，hear from their constituents 即'听取选民的意见'。" },
+      { "word": "assume", "meaning": "假定、设想", "note": "动词，assumes that... 即'假定……'。" },
+      { "word": "concern", "meaning": "关切、担忧", "note": "名词，act on their concerns 即'针对他们的关切采取行动'。" }
+    ],
+    "phrases": [
+      { "text": "hear from", "meaning": "听取……的意见、收到……的消息", "note": "hear from their constituents 即'听取选民意见'。" },
+      { "text": "act on", "meaning": "根据……采取行动", "note": "act on their concerns 即'就他们的关切采取行动'。" }
+    ]
+  },
+  "2017:D:10": {
+    "grammar": [
+      { "title": "the need for sb to do 结构", "text": "reinforces the need for citizens and their elected representatives, not the courts, to ensure equality of access to government 中 the need for sb to do sth 意为'某人做某事的必要性'；not the courts 作插入语，排除法院，强调责任在公民与民选代表。" }
+    ],
+    "words": [
+      { "word": "reinforce", "meaning": "强化、加强", "note": "动词，reinforces the need 即'强化了这一需要'。" },
+      { "word": "ensure", "meaning": "确保", "note": "动词，to ensure equality 即'确保平等'。" },
+      { "word": "equality", "meaning": "平等", "note": "名词，equality of access 即'接近机会的平等'。" },
+      { "word": "representative", "meaning": "代表", "note": "名词，elected representatives 即'民选代表'。" }
+    ],
+    "phrases": [
+      { "text": "equality of access", "meaning": "平等的接近机会", "note": "access to government 的平等性，本文主题。" },
+      { "text": "the need for sb to do sth", "meaning": "某人做某事的必要性", "note": "for sb 与 to do 构成 need 的补足结构。" }
+    ]
+  },
+  "2017:D:11": {
+    "grammar": [
+      { "title": "be allowed to do + 原因状语从句", "text": "Officials must not be allowed to play favorites in providing information or in arranging meetings 中 be allowed to do 表'被允许做'；simply because an individual or group provides a campaign donation or a personal gift 是 because 引导的原因状语从句，说明禁止偏袒的触发条件。" },
+      { "title": "并列介词短语 in doing", "text": "in providing information or in arranging meetings 是两个并列的 in + 动名词短语，限定偏袒发生的两个领域：提供信息与安排会面。" }
+    ],
+    "words": [
+      { "word": "favorites", "meaning": "偏袒、偏爱", "note": "名词复数，play favorites 为习语表'徇私偏袒'。" },
+      { "word": "campaign", "meaning": "竞选、运动", "note": "名词，a campaign donation 即'竞选捐款'。" },
+      { "word": "donation", "meaning": "捐款、捐赠", "note": "名词，donate 的名词形式。" },
+      { "word": "individual", "meaning": "个人", "note": "名词/形容词，an individual or group 即'个人或团体'。" }
+    ],
+    "phrases": [
+      { "text": "play favorites", "meaning": "有所偏袒、徇私", "note": "固定习语，play favorites in doing sth 表'在做某事上偏袒'。" },
+      { "text": "campaign donation", "meaning": "竞选捐款", "note": "固定名词短语，美国政治语境常见。" }
+    ]
+  },
+  "2017:D:12": {
+    "grammar": [
+      { "title": "such as 列举 + 三个并列名词短语", "text": "such as records of official meetings, rules on lobbying, and information about each elected leader's source of wealth 中 such as 后接三个并列名词短语，列举保障廉洁所需的透明化措施：会议记录、游说规则、财富来源信息。" }
+    ],
+    "words": [
+      { "word": "integrity", "meaning": "正直、诚信", "note": "名词，This type of integrity 即'这种正直品格'，指官员的操守。" },
+      { "word": "transparency", "meaning": "透明、公开", "note": "名词，government transparency 即'政府透明'，高频考词。" },
+      { "word": "lobbying", "meaning": "游说", "note": "名词/动名词，rules on lobbying 即'关于游说的规则'。" },
+      { "word": "wealth", "meaning": "财富", "note": "名词，source of wealth 即'财富来源'。" },
+      { "word": "enforce", "meaning": "执行、实施", "note": "动词，well-enforced 为复合形容词'得到切实执行的'。" }
+    ],
+    "phrases": [
+      { "text": "well-enforced laws", "meaning": "得到切实执行的法律", "note": "well- + 过去分词作复合形容词。" },
+      { "text": "source of wealth", "meaning": "财富来源", "note": "固定名词短语。" }
+    ]
+  },
+  "2017:D:13": {
+    "grammar": [
+      { "title": "can fan 表'助长'", "text": "Favoritism in official access can fan public perceptions of corruption 中 can fan 意为'可能助长/煽动'，fan 此处为动词'煽动'；本句为主谓宾简单句，理解重点在 fan 的动词义与 perceptions of 的组合。" }
+    ],
+    "words": [
+      { "word": "fan", "meaning": "煽动、助长", "note": "动词（熟词僻义），can fan public perceptions 即'会助长公众的看法'；名词义为'扇子、粉丝'。" },
+      { "word": "perception", "meaning": "看法、认知", "note": "名词，public perceptions of corruption 即'公众对腐败的看法'。" }
+    ],
+    "phrases": [
+      { "text": "public perceptions of", "meaning": "公众对……的看法", "note": "perceptions of sth 表'对某事的认知/观感'。" }
+    ]
+  },
+  "2017:D:14": {
+    "grammar": [
+      { "title": "not always 部分否定", "text": "But it is not always corruption 中 not 与 always 连用构成部分否定，意为'并不总是腐败'，即前面提到的偏袒与接近机会不均未必都构成犯罪，为下文'应避免双重标准'作铺垫。" }
+    ],
+    "words": [
+      { "word": "always", "meaning": "总是", "note": "副词，与 not 连用构成部分否定是考点。" }
+    ],
+    "phrases": []
+  },
+  "2017:D:15": {
+    "grammar": [
+      { "title": "or 引出同位语解释", "text": "officials must avoid double standards, or different types of access for average people and the wealthy 中 or 引导同位语/解释成分，对 double standards 作具体说明：对不同人群提供不同的接近机会。" }
+    ],
+    "words": [
+      { "word": "double", "meaning": "双重的", "note": "形容词，double standards 即'双重标准'。" },
+      { "word": "standard", "meaning": "标准", "note": "名词，复数 standards 表'标准、准则'。" },
+      { "word": "average", "meaning": "普通的、一般的", "note": "形容词，average people 即'普通人'。" }
+    ],
+    "phrases": [
+      { "text": "double standards", "meaning": "双重标准", "note": "固定短语，指对不同对象适用不同准则。" },
+      { "text": "the wealthy", "meaning": "富人", "note": "the + 形容词表一类人，与 average people 相对。" }
+    ]
+  },
+  "2017:D:16": {
+    "grammar": [
+      { "title": "If 条件状语从句 + 主谓被同位语分隔", "text": "If connections can be bought 是条件状语从句；主句主语 a basic premise of democratic society 与谓语 is undermined 之间插入了破折号引出的同位语从句 that all are equal in treatment by government，阅读时把破折号部分括出，再还原'民主社会的基本前提受到削弱'这一主干。" },
+      { "title": "that 引导同位语从句", "text": "that all are equal in treatment by government 是 premise 的同位语从句，说明'前提'的内容：政府平等对待所有人。" }
+    ],
+    "words": [
+      { "word": "connection", "meaning": "关系、人脉", "note": "名词复数 connections 此处指'（官商）关系'，是熟词僻义。" },
+      { "word": "premise", "meaning": "前提", "note": "名词，a basic premise 即'基本前提'。" },
+      { "word": "democratic", "meaning": "民主的", "note": "形容词，democratic society 即'民主社会'。" },
+      { "word": "undermine", "meaning": "削弱", "note": "动词，is undermined 即'受到削弱'，与 A:3 同词。" },
+      { "word": "treatment", "meaning": "待遇、对待", "note": "名词，equal in treatment 即'待遇平等'。" }
+    ],
+    "phrases": [
+      { "text": "be equal in treatment", "meaning": "受到平等对待", "note": "be equal in + 方面 表'在某方面平等'。" }
+    ]
+  },
+  "2017:D:17": {
+    "grammar": [
+      { "title": "rest on 表'基于、取决于'", "text": "Good government rests on an understanding of the inherent worth of each individual 中 rest on 意为'取决于、建立在……之上'（本义'倚靠'）；本句为主谓宾结构，理解重点在 rest on 的抽象义与 inherent worth（固有价值）。" }
+    ],
+    "words": [
+      { "word": "rest", "meaning": "取决于、倚靠", "note": "动词（熟词僻义），rest on 表'建立在……之上'，与 B:6 的'坐落'义同源。" },
+      { "word": "inherent", "meaning": "固有的、内在的", "note": "形容词，the inherent worth 即'固有价值'。" },
+      { "word": "worth", "meaning": "价值", "note": "名词，the worth of each individual 即'每个个体的价值'。" }
+    ],
+    "phrases": [
+      { "text": "rest on", "meaning": "取决于、基于", "note": "固定搭配，good government rests on... 即'良好政府有赖于……'。" },
+      { "text": "the inherent worth", "meaning": "固有价值", "note": "inherent 表'与生俱来、内在的'。" }
+    ]
+  },
+  "2017:D:18": {
+    "grammar": [
+      { "title": "both ... and 并列", "text": "in the struggle against both corruption and official favoritism 中 both...and 连接两个并列对象：腐败 与 官员偏袒，说明裁决在两方面都有进步意义；本句为主系表简单句。" }
+    ],
+    "words": [
+      { "word": "struggle", "meaning": "斗争、抗争", "note": "名词，the struggle against 即'反对……的斗争'。" },
+      { "word": "favoritism", "meaning": "偏袒、偏私", "note": "名词，与 D:7 呼应，official favoritism 即'官员的偏袒'。" }
+    ],
+    "phrases": [
+      { "text": "a step forward", "meaning": "向前迈出的一步、进步", "note": "is a step forward 即'是向前迈出的一步'。" },
+      { "text": "in the struggle against", "meaning": "在反对……的斗争中", "note": "struggle against 表'为反对……而斗争'。" }
+    ]
+  }
+}

@@ -1,0 +1,1076 @@
+{
+  "2019:A:0": {
+    "grammar": [
+      { "title": "现在完成时 + impose...on", "text": "谓语 have imposed 用现在完成时，表示动作发生在过去但影响延续至今。impose 与 on 搭配为 impose sth on sb/sth，宾语核心是 a rather unusual rule，介词短语 on the bosses of big banks 表示规则的施加对象。先抓 \"谁对谁做了什么事\"：监管机构对银行老板施加了规则。" }
+    ],
+    "words": [
+      { "word": "regulator", "meaning": "n. 监管机构", "note": "由 regulate（监管）+ -or 构成；financial regulators 金融监管机构。" },
+      { "word": "impose", "meaning": "v. 强加、实施", "note": "impose a rule/tax on... 对...实施规则/征税，是阅读理解高频词。" },
+      { "word": "rather", "meaning": "adv. 相当、颇", "note": "此处 a rather unusual rule 中修饰形容词 unusual，意为\"相当不同寻常的\"。" }
+    ],
+    "phrases": [
+      { "text": "the bosses of big banks", "meaning": "各大银行的老板（高管）", "note": "bosses 在银行业语境常指高层管理者。" }
+    ]
+  },
+  "2019:A:1": {
+    "grammar": [
+      { "title": "现在分词短语作时间状语", "text": "Starting next year 为现在分词短语置于句首作时间状语，逻辑主语与主句主语一致。阅读时可改写为 when it starts next year，帮助理解\"从明年开始\"的时间背景。" },
+      { "title": "被动语态 + 条件状语从句", "text": "主句 any guaranteed bonus... could be delayed 10 years 为含情态动词的被动语态（could be delayed），后面的 if their banks are under investigation for wrongdoing 是条件状语，交代奖金被推迟的触发前提。断句：条件在后，先看结果再看条件。" }
+    ],
+    "words": [
+      { "word": "guaranteed", "meaning": "adj. 有保证的", "note": "guarantee 的过去分词作定语，guaranteed bonus 有保证的奖金（即保证发放的奖金）。" },
+      { "word": "executive", "meaning": "n. 高管、主管", "note": "top executives 高层主管；financial 语境中常指银行高管。" },
+      { "word": "delay", "meaning": "v. 推迟、延迟", "note": "delay 10 years 推迟十年；名词义为\"延误\"。" },
+      { "word": "wrongdoing", "meaning": "n. 不当行为、违法行为", "note": "wrong + doing，复合词，与 misconduct 近义。" }
+    ],
+    "phrases": [
+      { "text": "be under investigation for", "meaning": "因...而受到调查", "note": "under investigation 处于调查中，为\"under + 名词\"表状态的用法。" }
+    ]
+  },
+  "2019:A:2": {
+    "grammar": [
+      { "title": "系表结构 + 并列不定式作表语", "text": "主语 The main purpose... is 后接两个并列的不定式作表语：to hold bankers accountable for... 和 and to restore public trust...，共同说明规则的两个目的。阅读时注意 and 连接的不定式与第一个在结构上平行。" },
+      { "title": "hold sb accountable for 结构", "text": "hold bankers accountable for harmful risk-taking 中，accountable for 引出承担责任的对象（有害冒险行为），即\"让银行家为...负责\"。" }
+    ],
+    "words": [
+      { "word": "clawback", "meaning": "n. 追回（已发款项）", "note": "由 claw（抓）+ back 构成，这里指回收已发放奖金的制度，是本文核心词。" },
+      { "word": "accountable", "meaning": "adj. 负有责任的", "note": "accountable for... 对...负责；与 responsible 近义。" },
+      { "word": "risk-taking", "meaning": "n. 冒险行为", "note": "合成词，harmful risk-taking 有害的冒险（行为）。" },
+      { "word": "restore", "meaning": "v. 恢复", "note": "restore public trust in... 恢复对...的公众信任。" }
+    ],
+    "phrases": [
+      { "text": "hold sb accountable for", "meaning": "让某人为...负责", "note": "高频搭配，阅读与写作都常用。" },
+      { "text": "public trust in", "meaning": "公众对...的信任", "note": "trust in sb/sth，介词用 in。" }
+    ]
+  },
+  "2019:A:3": {
+    "grammar": [
+      { "title": "冒号引出同位语", "text": "a much larger benefit 后用冒号引出具体内容 more long-term decision-making...，冒号后的部分是对\"更大的好处\"的展开说明。阅读时可把冒号理解为\"即\"。" },
+      { "title": "not only...but...并列结构", "text": "not only by banks but by all corporations 是 not only...but (also)... 的省略形式，两个 by 介词短语并列，强调受益对象\"不仅银行，还有所有企业\"。" },
+      { "title": "不定式表目的", "text": "句末 to build a stronger economy for future generations 是不定式作目的状语，说明长期决策的最终目的。" }
+    ],
+    "words": [
+      { "word": "benefit", "meaning": "n. 好处、利益", "note": "此处为名词；hope for a benefit 期望一个好处。" },
+      { "word": "corporation", "meaning": "n. 公司、企业", "note": "corporate 为形容词形式，本文反复出现。" },
+      { "word": "generation", "meaning": "n. 一代人", "note": "for future generations 为子孙后代。" }
+    ],
+    "phrases": [
+      { "text": "hope for", "meaning": "期望、希望得到", "note": "hope for + 名词，注意 hope 作动词与 for 搭配。" },
+      { "text": "not only...but...", "meaning": "不仅...而且...", "note": "此处省略 also，连接两个介词短语。" },
+      { "text": "for future generations", "meaning": "为子孙后代", "note": "介词 for 表目的对象。" }
+    ]
+  },
+  "2019:A:4": {
+    "grammar": [
+      { "title": "引述倒装结构", "text": "says the Bank of England's top economist, Andrew Haldane 中，谓语动词 says 置于主语之前，主语很长（含同位语），后置是为了避免句子头重脚轻。这种倒装常见于新闻报道引用语境。" },
+      { "title": "or 连接同位成分", "text": "Short-termism or the desire for quick profits 中 or 前后是同一概念的不同说法，后者是对前者的解释，理解成\"短期主义，即追求快速获利的欲望\"。" }
+    ],
+    "words": [
+      { "word": "short-termism", "meaning": "n. 短期主义（只顾眼前利益）", "note": "本文核心概念词，与后文 long-termism 相对。" },
+      { "word": "worsen", "meaning": "v. 恶化、加剧", "note": "由 worse 转化而来，has worsened 已愈演愈烈。" },
+      { "word": "economist", "meaning": "n. 经济学家", "note": "top economist 首席经济学家。" }
+    ],
+    "phrases": [
+      { "text": "the desire for", "meaning": "对...的渴望、欲望", "note": "desire 后接 for，表追求对象。" },
+      { "text": "publicly traded companies", "meaning": "上市公司", "note": "也可说 listed companies；publicly traded 公开交易的。" }
+    ]
+  },
+  "2019:A:5": {
+    "grammar": [
+      { "title": "describe sth as doing 结构", "text": "in describing this financial impatience as acting like... 是 in doing sth 结构（在...过程中），核心动词 describe...as...（把...描述为）。阅读时注意 as 后面的 acting 与 describing 同逻辑主语 He。" },
+      { "title": "who 引导定语从句 + 嵌套不定式", "text": "children who pick the plums out of their pudding to eat them at once 中 who 修饰 children，从句里 to eat them at once 是不定式表目的，与后文 rather than putting them aside to be eaten last 构成对比。" },
+      { "title": "rather than 并列结构", "text": "rather than putting them aside 与前面的 picking/eating 形成\"而非\"的对举，翻译为\"而不是\"。to be eaten last 是不定式被动，表\"留到最后才吃\"。" }
+    ],
+    "words": [
+      { "word": "quote", "meaning": "v. 引用", "note": "quote sb 引用某人的话；名词义为\"报价\"。" },
+      { "word": "impatience", "meaning": "n. 急于求成、不耐烦", "note": "由 impatient + -ce；financial impatience 金融上的急功近利。" },
+      { "word": "pudding", "meaning": "n. 布丁", "note": "典型文化词，可结合\"布丁里的李子\"比喻理解取舍。" }
+    ],
+    "phrases": [
+      { "text": "describe...as...", "meaning": "把...描述为...", "note": "常用结构，此处为 describing this financial impatience as acting like...。" },
+      { "text": "pick out", "meaning": "挑出", "note": "pick the plums out of their pudding 从布丁里把李子挑出来。" },
+      { "text": "put aside", "meaning": "放到一边、留出", "note": "putting them aside 把它们留起来（不吃）。" },
+      { "text": "rather than", "meaning": "而不是", "note": "此处后接动名词 putting，连接对比成分。" }
+    ]
+  },
+  "2019:A:6": {
+    "grammar": [
+      { "title": "插入语分隔主谓", "text": "主语 The average time... 与谓语 has dropped 之间插入 he notes（他指出），阅读时应跳过插入语先把主干连起来：The average time... has dropped from seven years to seven months。" },
+      { "title": "现在完成时 + from...to...", "text": "has dropped from seven years to seven months 用现在完成时强调变化的累积结果，from...to... 给出数量变化的两个端点。" }
+    ],
+    "words": [
+      { "word": "stock", "meaning": "n. 股票", "note": "holding a stock 持有股票；复数 stocks 也可指\"股份\"。" },
+      { "word": "note", "meaning": "v. 指出、注意到", "note": "此处 he notes 为插入语，同 point out。" },
+      { "word": "decade", "meaning": "n. 十年", "note": "in recent decades 近几十年来。" }
+    ],
+    "phrases": [
+      { "text": "the average time for doing sth", "meaning": "做某事的平均时间", "note": "for holding a stock 为\"持有股票\"。" },
+      { "text": "drop from...to...", "meaning": "从...下降到...", "note": "drop 与数字搭配表下降，注意 from/to 对应。" }
+    ]
+  },
+  "2019:A:7": {
+    "grammar": [
+      { "title": "非限制性定语从句", "text": "Transient investors, who demand high quarterly profits from companies, can hinder... 中 who 从句补充说明投资者的特征，与主句之间用逗号隔开。阅读时可先把从句剔除读主干：Transient investors can hinder a firm's efforts。" },
+      { "title": "不定式作后置定语 + or 并列", "text": "efforts to invest in long-term research or to build up customer loyalty 中，两个不定式 to invest... 和 to build up... 并列作 efforts 的定语，说明努力的方向。" }
+    ],
+    "words": [
+      { "word": "transient", "meaning": "adj. 短暂的、转瞬即逝的", "note": "transient investors 短线投资者，与 long-term 相对，是理解本段对比的关键词。" },
+      { "word": "quarterly", "meaning": "adj. 每季度的", "note": "high quarterly profits 高额的季度利润；副词亦为 quarterly。" },
+      { "word": "hinder", "meaning": "v. 阻碍、妨碍", "note": "hinder a firm's efforts 妨碍公司的努力，与 prevent 近义。" },
+      { "word": "loyalty", "meaning": "n. 忠诚", "note": "customer loyalty 客户忠诚度。" }
+    ],
+    "phrases": [
+      { "text": "demand sth from", "meaning": "向...索取某物", "note": "demand high quarterly profits from companies 向公司索取高额季度利润。" },
+      { "text": "invest in", "meaning": "投资于", "note": "invest in long-term research 投资长期研究。" },
+      { "text": "build up", "meaning": "逐步建立、培养", "note": "build up customer loyalty 培养客户忠诚度。" }
+    ]
+  },
+  "2019:A:8": {
+    "grammar": [
+      { "title": "被动语态 + 复合宾语", "text": "has been dubbed \"quarterly capitalism\" 是被动语态（dub 称...为），\"quarterly capitalism\" 是宾语补足语，意为\"被称为...\"。dub 常接 A B 结构表示给 A 取绰号 B。" }
+    ],
+    "words": [
+      { "word": "dub", "meaning": "v. 把...称为", "note": "be dubbed... 被称为...，常用于命名/绰号，属熟词僻义，注意不是\"配音\"（虽然确有配音义）。" },
+      { "word": "capitalism", "meaning": "n. 资本主义", "note": "quarterly capitalism 季度资本主义，为文中的命名概念。" }
+    ],
+    "phrases": []
+  },
+  "2019:A:9": {
+    "grammar": [
+      { "title": "have allowed + 三个并列宾语", "text": "have allowed 后接 more rapid trading of equities, quicker use of information 和 (and thus) shorter attention spans in financial markets 三个并列宾语，allowed 在此意为\"使...成为可能\"。读懂三个并列项及其\"因-果\"递进（thus 提示注意力缩短是前两者的结果）即可把握全句。" }
+    ],
+    "words": [
+      { "word": "equity", "meaning": "n. 股票、股权", "note": "复数 equities 常指股票/证券，贸易语境中常见。" },
+      { "word": "rapid", "meaning": "adj. 迅速的", "note": "rapid trading 快速交易。" },
+      { "word": "span", "meaning": "n. 持续时间、跨度", "note": "attention span 注意力持续时间，是学习心理学常考的搭配。" }
+    ],
+    "phrases": [
+      { "text": "in addition", "meaning": "此外", "note": "承接上文的过渡词。" },
+      { "text": "attention span", "meaning": "注意力持续时间", "note": "shorter attention spans 更短的注意力持续时间。" },
+      { "text": "financial markets", "meaning": "金融市场", "note": "复数的市场。" }
+    ]
+  },
+  "2019:A:10": {
+    "grammar": [
+      { "title": "There seems to be 存在句", "text": "There seems to be a predominance... 是存在句的拓展形式，seems 给存在句加上\"似乎\"的推测语气，相当于 It seems that there is a predominance...。翻译为\"似乎存在着...\"。" },
+      { "title": "引述倒装", "text": "said Commissioner Daniel Gallagher of the US Securities and Exchange Commission in a speech this week 中 said 置于主语前，主语带长头衔（of... 介词短语作定语），倒装避免头重脚轻。" }
+    ],
+    "words": [
+      { "word": "predominance", "meaning": "n. 主导地位、优势", "note": "a predominance of... 以...为主导；由 predominant 派生。" },
+      { "word": "commissioner", "meaning": "n. 委员、专员", "note": "机构头衔用词；Commissioner 委员会成员。" },
+      { "word": "expense", "meaning": "n. 代价、费用", "note": "at the expense of 以...为代价。" }
+    ],
+    "phrases": [
+      { "text": "at the expense of", "meaning": "以...为代价、牺牲", "note": "高频搭配，at the expense of long-term investing 牺牲长期投资。" },
+      { "text": "short-term thinking", "meaning": "短期思维", "note": "与 long-term investing 相对，构成全文核心对比。" }
+    ]
+  },
+  "2019:A:11": {
+    "grammar": [
+      { "title": "push sb to do 结构", "text": "has pushed most public companies to defer performance bonuses 中，push 后接\"宾语 + 不定式\"，意为\"促使/推动...做...\"。to defer... by about a year 表示推迟的幅度。" },
+      { "title": "现在分词作结果状语", "text": "句末 slightly helping reduce \"short-termism\" 是现在分词短语作结果状语，说明前文\"推迟奖金\"带来的后果（在一定程度上减少短期主义），阅读时补上\"从而\"理解。" }
+    ],
+    "words": [
+      { "word": "defer", "meaning": "v. 推迟、延期", "note": "defer bonuses 推迟发放奖金；与 delay 近义。" },
+      { "word": "performance", "meaning": "n. 业绩、绩效", "note": "performance bonuses 绩效奖金；注意与\"表演\"义的区分。" },
+      { "word": "slightly", "meaning": "adv. 稍微、略微", "note": "slightly helping 略微有助于。" }
+    ],
+    "phrases": [
+      { "text": "push sb to do sth", "meaning": "促使某人做某事", "note": "has pushed most public companies to defer..." },
+      { "text": "performance bonuses", "meaning": "绩效奖金", "note": "与前面的 guaranteed bonus 形成对比。" },
+      { "text": "senior executives", "meaning": "高管", "note": "senior 高级的。" }
+    ]
+  },
+  "2019:A:12": {
+    "grammar": [
+      { "title": "宾语从句", "text": "finds that \"a substantial part\" of executive pay is now tied to performance 中，that 引导宾语从句作 finds 的宾语，从句为被动语态 be tied to。句首 In its latest survey... 为状语，交代调查来源。" }
+    ],
+    "words": [
+      { "word": "survey", "meaning": "n. 调查", "note": "a survey of... 对...的调查；latest survey 最新调查。" },
+      { "word": "substantial", "meaning": "adj. 相当大的、可观的", "note": "a substantial part 相当大的一部分。" },
+      { "word": "tie", "meaning": "v. 使联系、挂钩", "note": "be tied to performance 与业绩挂钩，此处为被动。" }
+    ],
+    "phrases": [
+      { "text": "be tied to", "meaning": "与...挂钩、与...相关", "note": "高频搭配，be tied to performance 与业绩挂钩。" },
+      { "text": "CEO pay", "meaning": "CEO 薪酬", "note": "pay 此处为名词\"薪酬\"。" }
+    ]
+  },
+  "2019:A:13": {
+    "grammar": [
+      { "title": "被动语态 + 不定式表目的", "text": "Much more could be done to encourage \"long-termism\" 为被动语态（could be done），不定式 to encourage... 说明\"还能做更多事\"的目的。such as 引出具体措施的两个例子。" }
+    ],
+    "words": [
+      { "word": "encourage", "meaning": "v. 鼓励、促进", "note": "encourage long-termism 促进长期主义。" },
+      { "word": "disclosure", "meaning": "n. 披露、公开", "note": "quicker disclosure of stock acquisitions 更快披露股票收购；金融术语。" },
+      { "word": "acquisition", "meaning": "n. 收购、获得", "note": "stock acquisitions 股票收购。" }
+    ],
+    "phrases": [
+      { "text": "such as", "meaning": "例如", "note": "举例标志词。" },
+      { "text": "the tax code", "meaning": "税法", "note": "changes in the tax code 税法方面的修改。" },
+      { "text": "stock acquisitions", "meaning": "股票收购", "note": "金融语境词汇。" }
+    ]
+  },
+  "2019:A:14": {
+    "grammar": [
+      { "title": "定语从句 + 情态动词", "text": "shareholders who hold onto a company investment for at least two years 中 who 从句作 shareholders 的定语，句子的真正谓语是 can sometimes earn。断句：先把 who 从句划开，主干为 shareholders can earn more voting rights。" }
+    ],
+    "words": [
+      { "word": "shareholder", "meaning": "n. 股东", "note": "share + holder，持股人。" },
+      { "word": "earn", "meaning": "v. 获得、赢得", "note": "earn voting rights 获得投票权。" },
+      { "word": "vote", "meaning": "v./n. 投票、表决", "note": "voting rights 投票权，voting 为动名词作定语。" }
+    ],
+    "phrases": [
+      { "text": "hold onto", "meaning": "持有、紧握", "note": "hold onto an investment 长期持有投资。" },
+      { "text": "voting rights", "meaning": "投票权", "note": "股东权利用语。" },
+      { "text": "for at least two years", "meaning": "至少两年", "note": "for + 时间段表示持续时长。" }
+    ]
+  },
+  "2019:A:15": {
+    "grammar": [
+      { "title": "for sb to do 结构", "text": "provide incentives for executives to think beyond... 是\"for + 宾语 + 不定式\"作 incentives 的定语，说明激励的对象（高管）和行为（长远思考）。" },
+      { "title": "and 并列两个介词短语", "text": "to think beyond their own time at the company and on behalf of all stakeholders 中，beyond their own time... 与 on behalf of all stakeholders 是 and 连接的两个并列介词短语，说明\"超越自身任期\"和\"为全体利益相关者\"两个思考方向。" }
+    ],
+    "words": [
+      { "word": "compensation", "meaning": "n. 薪酬、补偿", "note": "compensation design 薪酬设计。" },
+      { "word": "incentive", "meaning": "n. 激励、动机", "note": "provide incentives for... 为...提供激励。" },
+      { "word": "stakeholder", "meaning": "n. 利益相关者", "note": "all stakeholders 所有利益相关者，商务高频词。" }
+    ],
+    "phrases": [
+      { "text": "on behalf of", "meaning": "代表、为了...的利益", "note": "on behalf of all stakeholders 为全体利益相关者的利益。" },
+      { "text": "the right compensation design", "meaning": "合理的薪酬设计", "note": "right 此处为\"恰当的\"。" }
+    ]
+  },
+  "2019:A:16": {
+    "grammar": [
+      { "title": "名词性从句作同位语", "text": "a reminder to bankers that society has an interest in their performance 中，that 从句是 reminder 的同位语，说明\"提醒的内容\"。阅读时把 that 后的句子独立出来理解即可。" },
+      { "title": "not just...but...并列", "text": "not just for the short term but for the long term 是两个介词短语并列，意为\"不仅为短期，也为长期\"，回指 society has an interest 的理由。" }
+    ],
+    "words": [
+      { "word": "reminder", "meaning": "n. 提醒物、提示", "note": "a reminder to sb that... 对某人的一个提醒（内容为 that 从句）。" },
+      { "word": "performance", "meaning": "n. 表现、业绩", "note": "their performance 指银行家们的表现/业绩。" },
+      { "word": "society", "meaning": "n. 社会", "note": "society has an interest... 社会对...有利益关切。" }
+    ],
+    "phrases": [
+      { "text": "have an interest in", "meaning": "对...感兴趣、与...有利益关系", "note": "have an interest in their performance 社会对他们的表现有利益关切。" },
+      { "text": "not just...but...", "meaning": "不仅...而且...", "note": "与 not only...but also 同义。" }
+    ]
+  },
+  "2019:B:0": {
+    "grammar": [
+      { "title": "破折号插入同位语", "text": "Grade inflation — the gradual increase... — is often considered... 中，破折号之间的名词短语是 Grade inflation 的同位语，起解释作用。阅读时可先把破折号内容跳过，抓住主干：Grade inflation is often considered a product of a consumer era。" },
+      { "title": "in which 定语从句", "text": "a consumer era in higher education, in which students are treated like customers to be pleased 中，in which 引导定语从句修饰 era（= in that era），从句为被动语态 be treated like，不定式被动 to be pleased 作 customers 的定语。" }
+    ],
+    "words": [
+      { "word": "inflation", "meaning": "n. 膨胀、通胀", "note": "grade inflation 分数通胀（成绩虚高），是本文核心话题词。" },
+      { "word": "gradual", "meaning": "adj. 逐渐的", "note": "gradual increase 逐渐上升。" },
+      { "word": "grade-point average", "meaning": "绩点平均分（GPA）", "note": "括号中为 GPA 全称，美国高校学分绩点。" }
+    ],
+    "phrases": [
+      { "text": "grade inflation", "meaning": "分数通胀", "note": "全篇核心概念。" },
+      { "text": "be treated like", "meaning": "被当作...对待", "note": "treated like customers 被当作顾客。" }
+    ]
+  },
+  "2019:B:1": {
+    "grammar": [
+      { "title": "破折号同位语 + 长修饰", "text": "another, related force — a policy often buried deep in course catalogs called \"grade forgiveness\" 中破折号后的名词短语 a policy... 是 force 的同位语，其中 buried deep in course catalogs（过去分词短语）和 called \"grade forgiveness\"（过去分词）都修饰 policy。主句谓语是 is helping raise GPAs。" }
+    ],
+    "words": [
+      { "word": "related", "meaning": "adj. 相关的", "note": "another, related force 另一股相关的力量。" },
+      { "word": "catalog", "meaning": "n. 目录", "note": "course catalogs 课程目录（选课手册）。" },
+      { "word": "forgiveness", "meaning": "n. 宽恕、免除", "note": "grade forgiveness 成绩宽恕（允许重修并抹掉低分），本文核心概念。" },
+      { "word": "bury", "meaning": "v. 埋藏", "note": "buried deep in... 深藏于...，此处为过去分词。" }
+    ],
+    "phrases": [
+      { "text": "be buried deep in", "meaning": "深藏于", "note": "buried deep in course catalogs 深藏在课程目录里（即鲜为人知）。" },
+      { "text": "grade forgiveness", "meaning": "成绩宽恕制度", "note": "贯穿全篇的概念，指允许学生重修来消除低分。" },
+      { "text": "help do sth", "meaning": "有助于做某事", "note": "help raise GPAs，help 后接动词原形。" }
+    ]
+  },
+  "2019:B:2": {
+    "grammar": [
+      { "title": "in which 定语从句", "text": "a course in which they received a low grade 中 in which 引导定语从句修饰 course（= in that course），意为\"他们得了低分的课程\"。" },
+      { "title": "and 连接并列分句 + 嵌套定语从句", "text": "and the most recent grade or the highest grade is the only one that counts in calculating... 是 and 连接的第二分句，其中 that counts 是修饰 the only one 的定语从句，count 意为\"被计入\"。" }
+    ],
+    "words": [
+      { "word": "retake", "meaning": "v. 重修、重考", "note": "retake a course 重修课程，take 加前缀 re-。" },
+      { "word": "grade", "meaning": "n. 成绩、等级", "note": "low grade 低分；highest grade 最高分。" },
+      { "word": "overall", "meaning": "adj. 总的、整体的", "note": "overall GPA 总绩点。" }
+    ],
+    "phrases": [
+      { "text": "allow sb to do sth", "meaning": "允许某人做某事", "note": "allows students to retake a course。" },
+      { "text": "count in", "meaning": "被计入、算入", "note": "that counts in calculating... 在计算...时被计入。" },
+      { "text": "in calculating", "meaning": "在计算...时", "note": "in + 动名词表\"在做某事时\"。" }
+    ]
+  },
+  "2019:B:3": {
+    "grammar": [
+      { "title": "as 引导原因状语从句", "text": "The use... has accelerated..., as colleges continue to... 中 as 从句说明加速的原因/伴随背景：因为大学继续竭尽全力留住学生并提高毕业率。阅读时 as 译作\"随着/因为\"。" },
+      { "title": "do one's utmost to do + 并列不定式", "text": "do their utmost to keep students in school (and paying tuition) and improve their graduation rates 中，utmost 后接 to keep... 说明竭尽全力的目的；and 连接的 improve 与 keep 并列（同为不定式）。" }
+    ],
+    "words": [
+      { "word": "accelerate", "meaning": "v. 加快、加速", "note": "has accelerated 已加速/愈演愈烈。" },
+      { "word": "utmost", "meaning": "n. 最大努力、极限", "note": "do one's utmost 尽最大努力。" },
+      { "word": "tuition", "meaning": "n. 学费", "note": "paying tuition 缴纳学费。" }
+    ],
+    "phrases": [
+      { "text": "do one's utmost", "meaning": "竭尽全力", "note": "= try one's best，后接 to do。" },
+      { "text": "keep students in school", "meaning": "留住学生（不退学）", "note": "括号里 and paying tuition 补充说明\"并让他们继续交学费\"。" },
+      { "text": "graduation rates", "meaning": "毕业率", "note": "大学管理指标，下文 metrics 的同义概念。" }
+    ]
+  },
+  "2019:B:4": {
+    "grammar": [
+      { "title": "When 时间状语从句 + 主句", "text": "When this practice first started decades ago 是时间状语，主句 it was usually limited to freshmen 为被动语态。句首 When 交代背景时间，主句说明当时适用范围有限。" },
+      { "title": "不定式表目的", "text": "to give them a second chance... 是不定式作目的状语，说明限制对象为大一新生的用意。其内部又嵌套 to take a class in their first year（不定式作 chance 的定语）和 if they struggled in their transition（条件状语从句）。" }
+    ],
+    "words": [
+      { "word": "freshman", "meaning": "n. 大一新生", "note": "复数 freshmen；美式大学年级称谓。" },
+      { "word": "transition", "meaning": "n. 过渡、转变", "note": "their transition to college-level courses 向大学课程（难度）的过渡。" },
+      { "word": "struggle", "meaning": "v. 挣扎、艰难应对", "note": "struggle in... 在...上吃力。" }
+    ],
+    "phrases": [
+      { "text": "be limited to", "meaning": "仅限于", "note": "was usually limited to freshmen 通常只限于大一新生。" },
+      { "text": "a second chance", "meaning": "第二次机会", "note": "give them a second chance 给他们第二次机会。" },
+      { "text": "in one's transition to", "meaning": "在向...过渡的过程中", "note": "transition to college-level courses。" }
+    ]
+  },
+  "2019:B:5": {
+    "grammar": [
+      { "title": "插入语 save for", "text": "most colleges, save for many selective campuses, allow... 中 save for（除...之外）引导的介词短语作插入语，表示例外。阅读时可将其括起，主干为 most colleges allow all undergraduates and even graduate students to get their low grades forgiven。" },
+      { "title": "get sth done 使役结构", "text": "to get their low grades forgiven 中 get + 宾语 + 过去分词，表示\"让低分被（从成绩单上）抹除\"。注意 forgiven 是 forgive 的过去分词。" }
+    ],
+    "words": [
+      { "word": "selective", "meaning": "adj. 择优录取的", "note": "selective campuses 择优录取的高校（名校）。" },
+      { "word": "undergraduate", "meaning": "n. 本科生", "note": "与 graduate students（研究生）相对。" },
+      { "word": "forgive", "meaning": "v. 免除、原谅", "note": "get their low grades forgiven 让低分被免除。" }
+    ],
+    "phrases": [
+      { "text": "save for", "meaning": "除...之外", "note": "此处为介词，不是\"为...储蓄\"，熟词僻义易错点。" },
+      { "text": "get sth done", "meaning": "使某事被完成/处理", "note": "get their low grades forgiven 让低分被豁免。" }
+    ]
+  },
+  "2019:B:6": {
+    "grammar": [
+      { "title": "less...and more...对比结构", "text": "the goal... is less about the grade itself and more about encouraging students to retake courses... 中 less about A and more about B 意为\"与其说是关于 A，不如说是关于 B\"，是全句核心判断。阅读时抓住这一对比即可把握句意。" },
+      { "title": "形容词短语作后置定语", "text": "courses critical to their degree program and graduation 中，critical to... 是形容词短语作 courses 的后置定语，意为\"对他们的学位课程和毕业至关重要的课程\"。" }
+    ],
+    "words": [
+      { "word": "official", "meaning": "n. 官员、管理人员", "note": "College officials 大学管理人员。" },
+      { "word": "emphasize", "meaning": "v. 强调", "note": "tend to emphasize that... 往往强调..." },
+      { "word": "critical", "meaning": "adj. 至关重要的", "note": "be critical to 对...至关重要；另有\"批判的\"义。" },
+      { "word": "incur", "meaning": "v. 招致、惹来", "note": "without incurring a big penalty 而无需付出重大代价。" },
+      { "word": "penalty", "meaning": "n. 处罚、代价", "note": "a big penalty 重大代价。" }
+    ],
+    "phrases": [
+      { "text": "tend to", "meaning": "往往、倾向于", "note": "College officials tend to emphasize... 管理人员往往强调..." },
+      { "text": "less...and more...", "meaning": "与其说...不如说...", "note": "句意重心在 more 之后。" },
+      { "text": "be critical to", "meaning": "对...至关重要", "note": "courses critical to their degree program。" }
+    ]
+  },
+  "2019:B:7": {
+    "grammar": [
+      { "title": "引述倒装 + 并列插入成分", "text": "said Jack Miner, Ohio State University's registrar 中 said 倒装在主语前，紧随其后的是同位语 registrar（说明 Jack Miner 的身份）。引语被拆成前后两段（\"Ultimately,\" ... \"we see...\"）。" },
+      { "title": "see sb do + 多层并列", "text": "we see students achieve more success 中 see + 宾语 + 动词原形（感官动词宾语补足语不带 to）。because 从句中 retake a course 与 do better in subsequent courses or master the content 构成并列（and...or...），master 后的 the content that allows them to graduate on time 又带 that 定语从句。" }
+    ],
+    "words": [
+      { "word": "registrar", "meaning": "n. 教务长", "note": "大学行政职务名，注册/教务负责人。" },
+      { "word": "subsequent", "meaning": "adj. 随后的", "note": "subsequent courses 后续课程。" },
+      { "word": "master", "meaning": "v. 掌握、精通", "note": "master the content 掌握内容。" },
+      { "word": "ultimately", "meaning": "adv. 归根结底、最终", "note": "句中作独立成分放引语开头。" }
+    ],
+    "phrases": [
+      { "text": "on time", "meaning": "按时、准时", "note": "graduate on time 按时毕业。" },
+      { "text": "see sb achieve", "meaning": "看到某人取得（成就）", "note": "感官动词 + 宾语 + 原形动词。" }
+    ]
+  },
+  "2019:B:8": {
+    "grammar": [
+      { "title": "That said 独立结构", "text": "That said（话虽如此）是常见的过渡语，相当于 Nevertheless，表示让步转折。其后是 there be 句型 a way，再接 in which 定语从句修饰 way。" },
+      { "title": "in which 定语从句", "text": "a way in which grade forgiveness satisfies colleges' own needs 中 in which 修饰 way，意为\"成绩宽恕在何种方式上满足大学自身需求\"。翻译时可转为主谓结构：\"在满足大学自身需求这方面\"。" }
+    ],
+    "words": [
+      { "word": "satisfy", "meaning": "v. 满足", "note": "satisfies colleges' own needs 满足大学自身的需求。" }
+    ],
+    "phrases": [
+      { "text": "that said", "meaning": "话虽如此", "note": "表示转折的过渡短语，常放句首。" },
+      { "text": "as well", "meaning": "也", "note": "置于句末，与 too 同义。" }
+    ]
+  },
+  "2019:B:9": {
+    "grammar": [
+      { "title": "破折号 + so 并列结果句", "text": "破折号后 so better grades can... mean more money 是表结果的并列分句，与破折号前的说明构成因果关系：拨款与指标挂钩，因此更好的成绩意味着更多资金。" },
+      { "title": "插入介词短语作方式状语", "text": "by boosting figures like those 插在 can 与 mean 之间作方式状语，说明\"靠提升这些数字\"。阅读时把 by 短语先摘出，主干为 better grades can mean more money。" }
+    ],
+    "words": [
+      { "word": "institution", "meaning": "n. 机构、院校", "note": "public institutions 公立院校。" },
+      { "word": "metric", "meaning": "n. 指标", "note": "metrics such as... 诸如...的指标。" },
+      { "word": "retention", "meaning": "n. 保持、留存", "note": "student retention 学生保持率（在读率），高等教育管理术语。" }
+    ],
+    "phrases": [
+      { "text": "be tied to", "meaning": "与...挂钩", "note": "funds are tied to their success 拨款与它们的表现挂钩。" },
+      { "text": "student retention", "meaning": "学生保持率", "note": "与 graduation rates 并列的办学指标。" },
+      { "text": "boost figures", "meaning": "提升数字（指标数据）", "note": "figures 指标数据。" }
+    ]
+  },
+  "2019:B:10": {
+    "grammar": [
+      { "title": "make sb do 结构（动词原形宾补）", "text": "anything... will likely make students feel they've gotten... 中 make + 宾语 students + 动词原形 feel，feel 后接宾语从句（省略 that）。理解时注意 make sb do 不带 to。" },
+      { "title": "破折号插入定语从句", "text": "students — who, at the end of the day, are paying the bill — 中 who 从句作插入成分说明\"掏钱的归根结底是学生\"。阅读时把破折号内容跳过，主干为 anything that raises GPAs will make students feel...。" },
+      { "title": "which 非限制性定语从句", "text": "句末 which is another big concern for colleges 中 which 指代前面整个主句内容（学生觉得学费物有所值这件事），翻译为\"这\"。" }
+    ],
+    "words": [
+      { "word": "raise", "meaning": "v. 提高", "note": "raises GPAs 提高绩点。" },
+      { "word": "value", "meaning": "n. 价值、划算", "note": "get a better value for... 在...上物有所值。" },
+      { "word": "concern", "meaning": "n. 忧虑、关切的事", "note": "another big concern for colleges 大学关切的另一大事。" }
+    ],
+    "phrases": [
+      { "text": "at the end of the day", "meaning": "归根结底、说到底", "note": "固定插入语，表最终意义上。" },
+      { "text": "pay the bill", "meaning": "买单、付账", "note": "此处喻指\"掏学费的人\"。" },
+      { "text": "get value for money", "meaning": "钱花得值", "note": "a better value for their tuition dollars 学费花得物有所值。" }
+    ]
+  },
+  "2019:B:11": {
+    "grammar": [
+      { "title": "way 后的定语从句省略关系词", "text": "another way that universities are responding to consumers' expectations 中 that 引导定语从句修饰 way。注意：先行词是 way 时，关系副词可以是 in which 或省略 that，本句用了 that。" }
+    ],
+    "words": [
+      { "word": "indeed", "meaning": "adv. 确实、事实上", "note": "承上启下的连接词，引出总结判断。" },
+      { "word": "respond", "meaning": "v. 回应", "note": "respond to... 回应...。" },
+      { "word": "expectation", "meaning": "n. 期望", "note": "consumers' expectations for higher education 消费者对高等教育的期望。" }
+    ],
+    "phrases": [
+      { "text": "respond to", "meaning": "回应、对...作出反应", "note": "responding to consumers' expectations 回应消费者期望。" },
+      { "text": "just another way", "meaning": "只是另一种方式", "note": "just 加强语气，说明并不特殊。" }
+    ]
+  },
+  "2019:B:12": {
+    "grammar": [
+      { "title": "Since 原因状语从句 + expect sb to do", "text": "Since students and parents expect a colleges degree to lead to a job 中 Since 表原因（既然），expect 后接\"宾语 + 不定式\"结构。a colleges degree 即 a college's degree，原文为印刷用法。" },
+      { "title": "形式主语 it", "text": "it is in the best interest of a school to turn out graduates 中 it 为形式主语，真正主语是后面的不定式 to turn out graduates（培养出毕业生）。译为\"（这样做）最符合学校的利益\"。" },
+      { "title": "as...as possible + 省略", "text": "graduates who are as qualified as possible — or at least appear to be 中 as qualified as possible 尽可能合格；appear to be 后省略 qualified（避免重复），意为\"至少表面看起来（合格）\"。" }
+    ],
+    "words": [
+      { "word": "degree", "meaning": "n. 学位", "note": "a college degree 大学学位。" },
+      { "word": "qualified", "meaning": "adj. 合格的", "note": "as qualified as possible 尽可能合格。" },
+      { "word": "at least", "meaning": "adv. 至少", "note": "or at least 或至少。" }
+    ],
+    "phrases": [
+      { "text": "lead to", "meaning": "通向、导致", "note": "lead to a job 带来一份工作。" },
+      { "text": "be in the best interest of", "meaning": "符合...的最大利益", "note": "it is in the best interest of a school... 这样做最符合学校利益。" },
+      { "text": "turn out", "meaning": "培养出、产出", "note": "turn out graduates 培养毕业生。" },
+      { "text": "as...as possible", "meaning": "尽可能...", "note": "as qualified as possible 尽可能合格。" }
+    ]
+  },
+  "2019:B:13": {
+    "grammar": [
+      { "title": "seem to be + 过去分词", "text": "incentives seem to be aligned 中 seem to be 表示\"似乎/看来\"，aligned 是 align（使一致）的过去分词，构成系表结构，意为\"动机似乎是一致的\"。" }
+    ],
+    "words": [
+      { "word": "incentive", "meaning": "n. 动机、激励", "note": "students' and colleges' incentives 学生和大学的动机。" },
+      { "word": "align", "meaning": "v. 使一致、使对齐", "note": "be aligned 一致的，此处为被动。" }
+    ],
+    "phrases": [
+      { "text": "on this", "meaning": "在这一点上", "note": "承接上文，指代前面讨论的\"分数宽恕\"问题。" },
+      { "text": "seem to be aligned", "meaning": "似乎是（相互）一致的", "note": "主语是复数 incentives，故\"互相一致\"。" }
+    ]
+  },
+  "2019:C:0": {
+    "grammar": [
+      { "title": "主谓宾简单句 + since 时间点", "text": "主干为 This year marks exactly two centuries，since the publication of... 是介词短语说明\"自...出版以来\"，mark 意为\"标志着/恰逢\"。书名用斜体标注，; or, 是原书副标题写法。" }
+    ],
+    "words": [
+      { "word": "mark", "meaning": "v. 标志、标志着（重大事件）", "note": "marks exactly two centuries 恰逢两百年。" },
+      { "word": "century", "meaning": "n. 世纪", "note": "two centuries 两个世纪、两百年。" },
+      { "word": "publication", "meaning": "n. 出版、发表", "note": "the publication of... ...的出版。" }
+    ],
+    "phrases": []
+  },
+  "2019:C:1": {
+    "grammar": [
+      { "title": "that 定语从句 + 嵌套不定式被动", "text": "a remarkable work of speculative fiction that would foreshadow many ethical questions to be raised by technologies yet to come 中 that 从句修饰 work，其中 to be raised by... 是不定式被动作 questions 的后置定语，意为\"将由...提出的问题\"。" },
+      { "title": "yet to come 后置定语", "text": "technologies yet to come 中 yet to come 修饰 technologies，表示\"尚未来临的技术\"。阅读时注意 yet to 表\"尚未\"。" }
+    ],
+    "words": [
+      { "word": "invention", "meaning": "n. 发明", "note": "the invention of the electric light bulb 电灯泡的发明。" },
+      { "word": "speculative", "meaning": "adj. 推想的、思辨的", "note": "speculative fiction 推想小说（科幻的近亲）。" },
+      { "word": "foreshadow", "meaning": "v. 预示、成为...的前兆", "note": "would foreshadow 预示（了），词根 fore-（预先）。" },
+      { "word": "raise", "meaning": "v. 提出、引起", "note": "questions to be raised 将要提出的问题。" }
+    ],
+    "phrases": [
+      { "text": "speculative fiction", "meaning": "推想小说", "note": "文学术语，含科幻/反乌托邦类作品。" },
+      { "text": "yet to come", "meaning": "尚未到来的", "note": "technologies yet to come 未来技术。" }
+    ]
+  },
+  "2019:C:2": {
+    "grammar": [
+      { "title": "冒号引出直接疑问句", "text": "raises fundamental questions 后用冒号引出具体的问题（What is intelligence, identity, or consciousness?）。冒号后的疑问句是直接引语式的列举，阅读时按问句独立理解。" }
+    ],
+    "words": [
+      { "word": "artificial", "meaning": "adj. 人工的、人造的", "note": "artificial intelligence 人工智能。" },
+      { "word": "fundamental", "meaning": "adj. 根本的、基本的", "note": "fundamental questions 根本性问题。" },
+      { "word": "consciousness", "meaning": "n. 意识", "note": "本文核心概念词，与 intelligence、identity 并列。" },
+      { "word": "identity", "meaning": "n. 身份、同一性", "note": "What is identity? 什么是身份/自我？" }
+    ],
+    "phrases": [
+      { "text": "artificial intelligence (AI)", "meaning": "人工智能", "note": "全文主题词。" },
+      { "text": "raise questions", "meaning": "提出/引发问题", "note": "raises fundamental questions 提出根本性问题。" }
+    ]
+  },
+  "2019:C:3": {
+    "grammar": [
+      { "title": "make + 宾语 + 名词宾补", "text": "What makes humans humans? 中第一个 humans 是宾语，第二个 humans 是名词作宾语补足语，意为\"使人类成为人类\"。这是对\"人的本质\"的哲学追问，是承上文的引语。" }
+    ],
+    "words": [
+      { "word": "make", "meaning": "v. 使成为", "note": "make A B 使 A 成为 B，此处 A 和 B 同是 humans，构成独特表达。" }
+    ],
+    "phrases": []
+  },
+  "2019:C:4": {
+    "grammar": [
+      { "title": "what 主语从句 + 被动进行时", "text": "What is being called artificial general intelligence 是 what 引导的主语从句作全句主语，其中 is being called 是\"进行时被动\"，意为\"正被称为...的\"。理解时译作\"所谓的人工通用智能\"。" },
+      { "title": "同位语 + 定语从句", "text": "machines that would imitate the way humans think 是 artificial general intelligence 的同位语（对它作解释），that 从句修饰 machines，其中 the way humans think 又是 way 后接省略关系词的定语（the way (in which) humans think）。谓语是 continues to evade scientists。" }
+    ],
+    "words": [
+      { "word": "general", "meaning": "adj. 通用的、普通的", "note": "artificial general intelligence（AGI）通用人工智能。" },
+      { "word": "imitate", "meaning": "v. 模仿", "note": "imitate the way humans think 模仿人类的思维方式。" },
+      { "word": "evade", "meaning": "v. 逃避、（使）无法企及", "note": "continues to evade scientists 至今仍让科学家无法实现，此处为\"难倒\"义。" }
+    ],
+    "phrases": [
+      { "text": "artificial general intelligence", "meaning": "通用人工智能", "note": "AI 领域核心术语，常缩写 AGI。" },
+      { "text": "the way humans think", "meaning": "人类的思维方式", "note": "the way 后接句子省略 in which/that。" }
+    ]
+  },
+  "2019:C:5": {
+    "grammar": [
+      { "title": "remain + 过去分词 系表结构", "text": "humans remain fascinated by the idea of robots 中 remain 作系动词，后接过去分词 fascinated 表持续状态，意为\"人类依然着迷于...\"。" },
+      { "title": "that 定语从句 + 形容词短语后置", "text": "robots that would look, move, and respond like humans 中 that 从句列举机器人的三个相似点。句末 similar to those recently depicted on... 是形容词短语作定语修饰 robots，其中过去分词 depicted 修饰 those（那些机器人）。" }
+    ],
+    "words": [
+      { "word": "fascinated", "meaning": "adj. 着迷的", "note": "be/remain fascinated by 对...着迷。" },
+      { "word": "depict", "meaning": "v. 描绘、刻画", "note": "recently depicted on TV series 最近在电视剧中描绘的。" },
+      { "word": "sci-fi", "meaning": "n. 科幻", "note": "science fiction 的缩写，作定语。" }
+    ],
+    "phrases": [
+      { "text": "remain fascinated by", "meaning": "对...持续着迷", "note": "remain + 形容词表状态延续。" },
+      { "text": "similar to", "meaning": "与...相似", "note": "similar to those depicted... 与所描绘的那些相似。" },
+      { "text": "TV series", "meaning": "电视剧", "note": "such as \"Westworld\" and \"Humans\" 列举剧名。" }
+    ]
+  },
+  "2019:C:6": {
+    "grammar": [
+      { "title": "主语从句 + too...to 结构", "text": "Just how people think is still far too complex to be understood 中 Just how people think 是主语从句作主语（\"人类究竟如何思考\"），too complex to be understood 意为\"复杂到无法被理解\"（too...to 表否定）。" },
+      { "title": "let alone 递进否定", "text": "let alone reproduced 意为\"更不用说被复制了\"，是递进否定结构。前后成分平行：to be understood, let alone reproduced，都承接 too complex。" }
+    ],
+    "words": [
+      { "word": "complex", "meaning": "adj. 复杂的", "note": "far too complex 过于复杂。" },
+      { "word": "reproduce", "meaning": "v. 复制、重现", "note": "reproduced 被复制，此处指复刻人类思维。" },
+      { "word": "neuroscientist", "meaning": "n. 神经科学家", "note": "同位语说明 David Eagleman 的身份。" }
+    ],
+    "phrases": [
+      { "text": "too...to be done", "meaning": "太...以至于无法被...", "note": "too complex to be understood 复杂到无法理解。" },
+      { "text": "let alone", "meaning": "更不用说", "note": "强调否定递进，常接与前文平行的成分。" }
+    ]
+  },
+  "2019:C:7": {
+    "grammar": [
+      { "title": "where 定语从句", "text": "a situation where there are no good theories 中 where 引导定语从句修饰 situation（= in which situation），意为\"没有好理论的境况\"。" },
+      { "title": "现在分词短语作定语 + 并列宾语从句", "text": "theories explaining what consciousness actually is and how you could ever build a machine to get there 中现在分词 explaining 作 theories 的定语，其后接两个并列的宾语从句（what... is 与 how... build...）。" }
+    ],
+    "words": [
+      { "word": "situation", "meaning": "n. 处境、境况", "note": "in a situation where... 处于...的境地。" },
+      { "word": "theory", "meaning": "n. 理论", "note": "no good theories 没有好的理论。" }
+    ],
+    "phrases": [
+      { "text": "in a situation where", "meaning": "身处...的境况中", "note": "where 定语从句，表\"此时此地\"。" },
+      { "text": "get there", "meaning": "达到那种状态", "note": "there 指代\"意识那样的状态\"，属代词性用法。" }
+    ]
+  },
+  "2019:C:8": {
+    "grammar": [
+      { "title": "双重否定", "text": "doesn't mean... aren't at hand 是\"否定 + 否定\"，表示肯定：\"这并不意味着...不会出现\"。翻译时注意不要漏译否定，正确理解为\"关键伦理问题就在眼前\"。" },
+      { "title": "现在分词作后置定语", "text": "crucial ethical issues involving AI 中现在分词短语 involving AI 作 issues 的定语，意为\"涉及 AI 的关键伦理问题\"。" }
+    ],
+    "words": [
+      { "word": "crucial", "meaning": "adj. 关键的、至关重要的", "note": "crucial ethical issues 关键伦理问题。" },
+      { "word": "ethical", "meaning": "adj. 伦理的", "note": "ethics 的名词形式为伦理。" },
+      { "word": "involve", "meaning": "v. 涉及、包含", "note": "issues involving AI 涉及 AI 的问题。" }
+    ],
+    "phrases": [
+      { "text": "at hand", "meaning": "即将到来、就在眼前", "note": "aren't at hand 不会马上出现；at hand 本义\"在手边\"。" },
+      { "text": "doesn't mean...aren't...", "meaning": "并不意味着...不...", "note": "双重否定表肯定，阅读重点。" }
+    ]
+  },
+  "2019:C:9": {
+    "grammar": [
+      { "title": "主谓宾简单句 + 插入语", "text": "The coming use of autonomous vehicles poses thorny ethical questions 为主谓宾结构，for example 作插入语，可略去阅读。coming 为现在分词作定语，表\"即将到来的\"。" }
+    ],
+    "words": [
+      { "word": "autonomous", "meaning": "adj. 自主的、自动的", "note": "autonomous vehicles 自动驾驶汽车。" },
+      { "word": "pose", "meaning": "v. 提出（问题）、构成（威胁）", "note": "poses thorny ethical questions 提出棘手的伦理问题。" },
+      { "word": "thorny", "meaning": "adj. 棘手的、多刺的", "note": "thorny questions 棘手问题，与 thorn（刺）同源。" }
+    ],
+    "phrases": [
+      { "text": "for example", "meaning": "例如", "note": "作插入语，承上文举例。" },
+      { "text": "autonomous vehicles", "meaning": "自动驾驶汽车", "note": "本段讨论对象。" }
+    ]
+  },
+  "2019:C:10": {
+    "grammar": [
+      { "title": "情态动词 must + 简单主谓宾", "text": "Human drivers sometimes must make split-second decisions 为主谓宾简单句，must 表必要性，split-second 为合成形容词修饰 decisions，意为\"瞬间的\"。该句为理解下句（reactions 的复杂性）铺垫。" }
+    ],
+    "words": [
+      { "word": "split-second", "meaning": "adj. 一瞬间的、分秒之间的", "note": "合成词，split 分裂 + second 秒。" }
+    ],
+    "phrases": [
+      { "text": "make decisions", "meaning": "做决定", "note": "make split-second decisions 在瞬间做出决定。" }
+    ]
+  },
+  "2019:C:11": {
+    "grammar": [
+      { "title": "三个并列宾语 + what 从句", "text": "a complex combination of instant reflexes, input from past driving experiences, and what their eyes and ears tell them in that moment 中 of 后接三个并列成分：两个名词短语和一个 what 引导的名词性从句，共同说明\"复杂结合\"的构成要素。阅读时按顿号逐一提取。" }
+    ],
+    "words": [
+      { "word": "reflex", "meaning": "n. 反射、本能反应", "note": "instant reflexes 瞬间的本能反应，生理学术语。" },
+      { "word": "combination", "meaning": "n. 结合、组合", "note": "a complex combination of... 多种因素复杂结合。" },
+      { "word": "instant", "meaning": "adj. 即时的", "note": "instant reflexes 即时反射。" }
+    ],
+    "phrases": [
+      { "text": "a combination of", "meaning": "...的结合", "note": "a complex combination of 多种...的复杂结合。" },
+      { "text": "past driving experiences", "meaning": "过往驾驶经验", "note": "input from... 来自...的输入/信息。" }
+    ]
+  },
+  "2019:C:12": {
+    "grammar": [
+      { "title": "not nearly as...as 比较结构", "text": "is not nearly as sophisticated as that of humans 中 not nearly as...as 意为\"远不如...\"（nearly 表程度）。that 指代前面的 vision（AI 的\"视觉\"）以避免重复，即\"远不如人类的视觉精密\"。" }
+    ],
+    "words": [
+      { "word": "sophisticated", "meaning": "adj. 精密的、复杂的", "note": "as sophisticated as... 与...一样精密。" },
+      { "word": "nearly", "meaning": "adv. 接近、几乎", "note": "not nearly 远不（用于比较级否定）。" }
+    ],
+    "phrases": [
+      { "text": "not nearly as...as", "meaning": "远不如...", "note": "高频比较句型，表差距大。" },
+      { "text": "that of humans", "meaning": "人类的（视觉）", "note": "that 代替上文名词避免重复。" }
+    ]
+  },
+  "2019:C:13": {
+    "grammar": [
+      { "title": "不定式作主语", "text": "to anticipate every imaginable driving situation is a difficult programming problem 中不定式短语作主语，谓语是 is。理解时可改写为 it is a difficult programming problem to anticipate...，意为\"要预见到每种可想象的情况是个难题\"。" }
+    ],
+    "words": [
+      { "word": "anticipate", "meaning": "v. 预见、预期", "note": "anticipate every driving situation 预见每种驾驶情形。" },
+      { "word": "imaginable", "meaning": "adj. 可想象的", "note": "every imaginable... 每种可想象的..." },
+      { "word": "programming", "meaning": "n. 编程、程序设计", "note": "programming problem 编程问题。" }
+    ],
+    "phrases": [
+      { "text": "anticipate a situation", "meaning": "预见某种情形", "note": "anticipate + 宾语，表提前想到。" }
+    ]
+  },
+  "2019:C:14": {
+    "grammar": [
+      { "title": "Whenever 状语从句", "text": "Whenever decisions are based on masses of data 中 Whenever 引导时间/条件状语从句，意为\"只要.../每当...\"，从句为被动语态 be based on。" },
+      { "title": "引述倒装 + 同位语 + 定语从句", "text": "notes Tan Kiat How, chief executive of a Singapore-based agency 中 notes 倒装在主语前，chief executive... 是同位语说明身份，that is helping the government develop... 是定语从句修饰 agency。" }
+    ],
+    "words": [
+      { "word": "mass", "meaning": "n. 大量", "note": "masses of data 海量数据，mass 常用复数表\"大量\"。" },
+      { "word": "voluntary", "meaning": "adj. 自愿的", "note": "a voluntary code 自愿性准则（非强制）。" },
+      { "word": "code", "meaning": "n. 准则、规范", "note": "a code for the ethical use of AI 关于 AI 伦理使用的准则。" }
+    ],
+    "phrases": [
+      { "text": "be based on", "meaning": "基于", "note": "decisions are based on masses of data 决策基于海量数据。" },
+      { "text": "masses of data", "meaning": "海量数据", "note": "大数据语境常用表达。" },
+      { "text": "get into", "meaning": "陷入", "note": "get into a lot of ethical questions 陷入大量伦理问题。" },
+      { "text": "chief executive", "meaning": "首席执行官", "note": "chief executive of an agency 某机构的首席执行官。" }
+    ]
+  },
+  "2019:C:15": {
+    "grammar": [
+      { "title": "现在进行时 + 不定式宾语", "text": "are beginning to establish their own guidelines 中 are beginning 是现在进行时表\"正开始\"，不定式 to establish... 作 begin 的宾语。along with Singapore 意为\"与新加坡一样\"，是介词短语作状语。" }
+    ],
+    "words": [
+      { "word": "establish", "meaning": "v. 建立、制定", "note": "establish guidelines 制定准则。" },
+      { "word": "guideline", "meaning": "n. 指导方针、准则", "note": "their own guidelines 各自的准则。" },
+      { "word": "mega-corporation", "meaning": "n. 大型企业集团", "note": "mega- 前缀表\"巨大的\"。" }
+    ],
+    "phrases": [
+      { "text": "along with", "meaning": "与...一起、以及", "note": "along with Singapore 与新加坡一道。" },
+      { "text": "establish guidelines", "meaning": "制定准则", "note": "是全文各国应对 AI 伦理动作的概括。" }
+    ]
+  },
+  "2019:C:16": {
+    "grammar": [
+      { "title": "现在进行时", "text": "Britain is setting up a data ethics center 为现在进行时，强调动作正在推进。set up 为短语动词，宾语是 a data ethics center。" }
+    ],
+    "words": [
+      { "word": "ethics", "meaning": "n. 伦理、道德规范", "note": "data ethics 数据伦理。" }
+    ],
+    "phrases": [
+      { "text": "set up", "meaning": "建立、设立", "note": "set up a center 建立中心。" }
+    ]
+  },
+  "2019:C:17": {
+    "grammar": [
+      { "title": "一般过去时简单句", "text": "India released its AI ethics strategy this spring 为主谓宾简单句，released 用一般过去时交代已发生的动作，this spring 作时间状语。" }
+    ],
+    "words": [
+      { "word": "release", "meaning": "v. 发布、公布", "note": "release a strategy 发布战略。" },
+      { "word": "strategy", "meaning": "n. 战略、策略", "note": "AI ethics strategy AI 伦理战略。" }
+    ],
+    "phrases": [
+      { "text": "this spring", "meaning": "今年春天", "note": "this + 季节 表示今年该季节。" }
+    ]
+  },
+  "2019:C:18": {
+    "grammar": [
+      { "title": "pledge not to do 结构", "text": "Google pledged not to \"design or deploy AI\" 中 pledge 后接不定式，not to 表否定承诺（承诺不做什么）。破折号后 or to develop... or use... 与 to design or deploy 并列，说明承诺不做的其它两类事。" },
+      { "title": "两个 that 定语从句", "text": "that would cause \"overall harm\" 修饰 AI，that would violate international norms 修饰 surveillance。注意第二个 that 从句的先行词是 surveillance（监视活动），不要误接前面的 weapons。" }
+    ],
+    "words": [
+      { "word": "pledge", "meaning": "v./n. 承诺、保证", "note": "pledge not to do 承诺不做..." },
+      { "word": "deploy", "meaning": "v. 部署", "note": "deploy AI 部署 AI；军事/科技语境常用。" },
+      { "word": "surveillance", "meaning": "n. 监视、监控", "note": "use AI for surveillance 利用 AI 进行监视。" },
+      { "word": "violate", "meaning": "v. 违反、违背", "note": "violate international norms 违反国际准则。" },
+      { "word": "norm", "meaning": "n. 准则、规范", "note": "international norms 国际规范。" }
+    ],
+    "phrases": [
+      { "text": "pledge to do sth", "meaning": "承诺做某事", "note": "pledged not to... 承诺不..." },
+      { "text": "overall harm", "meaning": "整体危害", "note": "cause \"overall harm\" 造成\"整体危害\"。" },
+      { "text": "international norms", "meaning": "国际准则", "note": "violate international norms 违反国际准则。" }
+    ]
+  },
+  "2019:C:19": {
+    "grammar": [
+      { "title": "whose 引导定语从句", "text": "AI whose use would violate international laws or human rights 中 whose 引导定语从句修饰 AI，use 是主语、would violate 是谓语，意为\"用途会违反国际法或人权的 AI\"。阅读时把 whose 从句译成\"其...的\"即可。" }
+    ],
+    "words": [
+      { "word": "violate", "meaning": "v. 违反", "note": "violate international laws 违反国际法。" },
+      { "word": "human rights", "meaning": "n. 人权", "note": "violate... or human rights 违反...或侵犯人权。" }
+    ],
+    "phrases": [
+      { "text": "human rights", "meaning": "人权", "note": "固定复合名词，常大写首字母。" }
+    ]
+  },
+  "2019:C:20": {
+    "grammar": [
+      { "title": "While 让步状语从句", "text": "While the statement is vague 中 While 表让步，意为\"尽管/虽然\"（不是\"当...时\"）。主句 it represents one starting point 表明\"尽管含糊，仍代表一个起点\"。让步与转折的对照是理解关键。" }
+    ],
+    "words": [
+      { "word": "vague", "meaning": "adj. 含糊的、模糊的", "note": "the statement is vague 声明措辞含糊。" },
+      { "word": "represent", "meaning": "v. 代表", "note": "represents one starting point 代表一个起点。" }
+    ],
+    "phrases": [
+      { "text": "starting point", "meaning": "起点", "note": "one starting point 一个（好的）开端。" },
+      { "text": "While + 句子", "meaning": "尽管...", "note": "句首 While 表让步，为本句关键。" }
+    ]
+  },
+  "2019:C:21": {
+    "grammar": [
+      { "title": "So does 倒装", "text": "So does the idea that... 是 So + 助动词 + 主语的倒装结构，承接前句\"it represents one starting point\"，意为\"...的想法也同样（代表一个起点）\"。does 代替前面提到的 represents a starting point。" },
+      { "title": "that 同位语从句 + 过去分词后置定语", "text": "the idea that decisions made by AI systems should be explainable, transparent, and fair 中 that 从句是 idea 的同位语，说明想法的内容；made by AI systems 是过去分词短语作 decisions 的定语。" }
+    ],
+    "words": [
+      { "word": "explainable", "meaning": "adj. 可解释的", "note": "AI 伦理三原则之一，与 transparent、fair 并列。" },
+      { "word": "transparent", "meaning": "adj. 透明的", "note": "decision-making 透明可查。" },
+      { "word": "fair", "meaning": "adj. 公平的", "note": "should be explainable, transparent, and fair 应可解释、透明且公平。" }
+    ],
+    "phrases": [
+      { "text": "so does...", "meaning": "...也如此", "note": "倒装省略，承接上文同一谓语。" },
+      { "text": "made by AI systems", "meaning": "由 AI 系统作出的", "note": "过去分词短语作定语修饰 decisions。" }
+    ]
+  },
+  "2019:C:22": {
+    "grammar": [
+      { "title": "不定式作独立成分", "text": "To put it another way 是不定式短语作插入语/独立成分，意为\"换句话说\"，引出对前文问题的重述。" },
+      { "title": "make sure that 宾语从句", "text": "How can we make sure that the thinking of intelligent machines reflects humanity's highest values? 中 make sure 后接 that 宾语从句，全句为特殊疑问句（How 引导）。思考对象是\"智能机器的思考能否反映人类最高价值观\"。" }
+    ],
+    "words": [
+      { "word": "reflect", "meaning": "v. 反映", "note": "reflects humanity's highest values 反映人类最高价值观。" },
+      { "word": "humanity", "meaning": "n. 人类；人性", "note": "humanity's highest values 人类的最高价值。" },
+      { "word": "value", "meaning": "n. 价值观念", "note": "常复数 values 表\"价值观\"。" }
+    ],
+    "phrases": [
+      { "text": "put it another way", "meaning": "换句话说", "note": "固定表达，用于换一种说法重述。" },
+      { "text": "make sure", "meaning": "确保", "note": "make sure that + 从句。" }
+    ]
+  },
+  "2019:C:23": {
+    "grammar": [
+      { "title": "Only then 部分倒装", "text": "Only then will they be useful servants... 中 Only 置于句首，引起部分倒装，助动词 will 提前至主语 they 前。Only then 意为\"只有到那时\"，承接上文\"确保机器反映人类价值观\"的条件。理解时还原为 they will be useful servants only then。" }
+    ],
+    "words": [
+      { "word": "servant", "meaning": "n. 仆人", "note": "useful servants 有用的仆人（工具的喻义）。" },
+      { "word": "out-of-control", "meaning": "adj. 失控的", "note": "合成形容词，修饰 monster。" }
+    ],
+    "phrases": [
+      { "text": "only then", "meaning": "只有到那时", "note": "句首 Only 倒装结构的标志词。" }
+    ]
+  },
+  "2019:D:0": {
+    "grammar": [
+      { "title": "主句 + 多层修饰", "text": "主干为 States will be able to force more people to pay sales tax，when they make online purchases 是时间状语，under a Supreme Court decision Thursday 说明依据。理解顺序：州（依据周四的最高法院裁决）将能迫使更多人（网购时）缴税。" },
+      { "title": "that 定语从句（含并列谓语）", "text": "a Supreme Court decision Thursday that will leave shoppers with lighter wallets but is a big financial win for states 中 that 修饰 decision，从句含两个并列谓语（will leave... but is...），分别从购物者和州两个角度评价裁决。" }
+    ],
+    "words": [
+      { "word": "force", "meaning": "v. 迫使", "note": "force sb to do 迫使某人做。" },
+      { "word": "purchase", "meaning": "n./v. 购买", "note": "online purchases 网上购物。" },
+      { "word": "wallet", "meaning": "n. 钱包", "note": "leave shoppers with lighter wallets 让购物者钱包变瘪（花更多钱）。" }
+    ],
+    "phrases": [
+      { "text": "sales tax", "meaning": "销售税", "note": "美国州级消费税，全文主题词。" },
+      { "text": "online purchases", "meaning": "网上购物", "note": "make online purchases 进行网上购物。" },
+      { "text": "a financial win for", "meaning": "对...的财政胜利", "note": "win 此处为名词\"胜利、获益\"。" }
+    ]
+  },
+  "2019:D:1": {
+    "grammar": [
+      { "title": "定语从句嵌套引用", "text": "a pair of decades-old decisions that states said cost them billions of dollars in lost revenue annually 中 that 从句修饰 decisions，从句内 states said 是插入语，真正谓语是 cost。即\"各州称（这些裁决）每年使它们损失数十亿美元\"。阅读时把 states said 括起理解。" }
+    ],
+    "words": [
+      { "word": "opinion", "meaning": "n. 意见、（法庭的）裁决意见", "note": "the Court's opinion 法院的意见书/裁决。" },
+      { "word": "overrule", "meaning": "v. 推翻、否决（判决）", "note": "overruled a pair of decisions 推翻两项裁决。" },
+      { "word": "revenue", "meaning": "n. 收入、财政收入", "note": "lost revenue 损失的税收收入。" }
+    ],
+    "phrases": [
+      { "text": "decades-old decisions", "meaning": "几十年前的裁决", "note": "decades-old 复合形容词\"几十年的\"。" },
+      { "text": "billions of dollars", "meaning": "数十亿美元", "note": "billions of 数十亿。" },
+      { "text": "lost revenue", "meaning": "损失的收入", "note": "in lost revenue 以损失的税收计。" }
+    ]
+  },
+  "2019:D:2": {
+    "grammar": [
+      { "title": "形式宾语 it", "text": "made it more difficult for states to collect sales tax 中 it 是形式宾语，真正的宾语是后面的不定式 to collect sales tax，more difficult 为宾补。理解时还原为：made (to collect...) more difficult，即\"使（征税）变得更加困难\"。" }
+    ],
+    "words": [
+      { "word": "collect", "meaning": "v. 征收、收取", "note": "collect sales tax 征收销售税，本文反复出现的核心动词。" }
+    ],
+    "phrases": [
+      { "text": "make it + adj. + for sb to do", "meaning": "使做某事对某人更...", "note": "make it more difficult for states to collect..." },
+      { "text": "certain online purchases", "meaning": "某些网上购物", "note": "certain 某些（非\"确定\"义）。" }
+    ]
+  },
+  "2019:D:3": {
+    "grammar": [
+      { "title": "省略 that 的定语从句", "text": "The cases the court overturned said that... 中 the court overturned 是省略关系词 that 的定语从句修饰 cases（the cases (that) the court overturned）。阅读时先识别这是\"被法院推翻的那些案件规定\"。" },
+      { "title": "if 条件状语 + where 定语从句嵌套", "text": "if a business was shipping... to a state where the business didn't have a physical presence... 中 if 引导条件从句，其中 where 从句修饰 state（指那些州），说明\"无实体存在\"的地点条件。主句是 the business didn't have to collect sales tax for the state。" }
+    ],
+    "words": [
+      { "word": "overturn", "meaning": "v. 推翻", "note": "the court overturned 法院推翻的（定语从句）。" },
+      { "word": "physical", "meaning": "adj. 实体的、物理的", "note": "physical presence 实体存在（线下门店等）。" },
+      { "word": "presence", "meaning": "n. 存在", "note": "have a physical presence 有实体存在。" },
+      { "word": "warehouse", "meaning": "n. 仓库", "note": "such as a warehouse or office 例如仓库或办公室。" }
+    ],
+    "phrases": [
+      { "text": "physical presence", "meaning": "实体存在", "note": "美国销售税判定的核心概念（有实体店才需代收税）。" },
+      { "text": "such as", "meaning": "例如", "note": "引出对 presence 的例举。" },
+      { "text": "didn't have to", "meaning": "不必", "note": "have to 的否定表\"没有义务\"。" }
+    ]
+  },
+  "2019:D:4": {
+    "grammar": [
+      { "title": "be responsible for doing", "text": "Customers were generally responsible for paying the sales tax to the state themselves 中 be responsible for + 名词/动名词表\"有责任做...\"。if they weren't charged it 是条件从句，被动形式 charge sb sth 变体。" },
+      { "title": "but 并列句 + 省略 that 宾语从句", "text": "but most didn't realize they owed it and few paid 是 but 连接的并列分句，其中 didn't realize 后接省略 that 的宾语从句 they owed it（他们欠这笔税），and few paid 中 paid 后省略 sales tax。" }
+    ],
+    "words": [
+      { "word": "responsible", "meaning": "adj. 负责任的", "note": "be responsible for 对...负责。" },
+      { "word": "charge", "meaning": "v. 收取（费用）", "note": "charge sb the tax 向某人收取该税，此处被动 weren't charged。" },
+      { "word": "owe", "meaning": "v. 欠（钱）", "note": "they owed it 他们欠这笔税。" }
+    ],
+    "phrases": [
+      { "text": "be responsible for", "meaning": "对...负责、承担", "note": "responsible for paying... 有责任支付..." },
+      { "text": "few paid", "meaning": "真正缴纳的人寥寥无几", "note": "few（否定）几乎无人，与 a few 区分。" }
+    ]
+  },
+  "2019:D:5": {
+    "grammar": [
+      { "title": "宾语从句", "text": "wrote that the previous decisions were flawed 中 that 引导宾语从句，作 wrote 的宾语，从句为系表结构。该句短小，是引出下文肯尼迪观点的过渡句。" }
+    ],
+    "words": [
+      { "word": "justice", "meaning": "n. 法官、大法官", "note": "Justice Anthony Kennedy 大法官安东尼·肯尼迪（职称+人名）。" },
+      { "word": "flawed", "meaning": "adj. 有缺陷的", "note": "were flawed 存在缺陷；flaw 名词\"缺陷\"。" },
+      { "word": "previous", "meaning": "adj. 之前的", "note": "the previous decisions 此前的裁决。" }
+    ],
+    "phrases": []
+  },
+  "2019:D:6": {
+    "grammar": [
+      { "title": "被动结构 be(come) removed from", "text": "becomes further removed from economic reality 中 removed 是过去分词作表语，becomes + 形容词化的分词表状态变化，意为\"变得日益脱离经济现实\"。" },
+      { "title": "and 并列谓语 + 过去分词后置定语", "text": "becomes further removed... and results in significant revenue losses... 是 and 连接的两个并列谓语。句末 he wrote in an opinion joined by four other justices 中，joined by 是过去分词短语作 opinion 的后置定语，意为\"四名大法官联署的意见书\"。" }
+    ],
+    "words": [
+      { "word": "removed", "meaning": "adj. 远离的、脱离的", "note": "be removed from 脱离、远离。" },
+      { "word": "significant", "meaning": "adj. 重大的、显著的", "note": "significant revenue losses 重大税收损失。" },
+      { "word": "opinion", "meaning": "n. （法院的）意见书", "note": "in an opinion 在一份意见书中。" }
+    ],
+    "phrases": [
+      { "text": "be removed from", "meaning": "脱离、与...疏远", "note": "becomes further removed from economic reality 日益脱离经济现实。" },
+      { "text": "result in", "meaning": "导致", "note": "results in revenue losses 造成税收损失。" },
+      { "text": "joined by", "meaning": "由...共同签署/联署", "note": "opinion joined by four other justices 四名大法官联署的意见书。" }
+    ]
+  },
+  "2019:D:7": {
+    "grammar": [
+      { "title": "宾语从句 + 并列谓语", "text": "wrote that the rule \"limited states' ability... and has prevented market participants from competing...\" 中 that 从句内有两个并列谓语：limited... 与 has prevented... from doing，共同说明该规则的两大危害。" },
+      { "title": "prevent sb from doing", "text": "has prevented market participants from competing on an even playing field 中 prevent + 宾语 + from + 动名词，意为\"阻止市场参与者公平竞争\"。" }
+    ],
+    "words": [
+      { "word": "prosperity", "meaning": "n. 繁荣", "note": "long-term prosperity 长期繁荣。" },
+      { "word": "participant", "meaning": "n. 参与者", "note": "market participants 市场参与者。" },
+      { "word": "compete", "meaning": "v. 竞争", "note": "competing on an even playing field 在公平的环境竞争。" }
+    ],
+    "phrases": [
+      { "text": "prevent sb from doing", "meaning": "阻止某人做某事", "note": "has prevented... from competing 阻碍了...竞争。" },
+      { "text": "an even playing field", "meaning": "公平的竞争环境", "note": "固定表达，playing field 竞争场域。" },
+      { "text": "seek prosperity", "meaning": "谋求繁荣", "note": "seek long-term prosperity 谋求长期繁荣。" }
+    ]
+  },
+  "2019:D:8": {
+    "grammar": [
+      { "title": "since 原因状语从句", "text": "The ruling is a victory for big chains..., since they usually collect sales tax on online purchases already 中 since 表原因（因为），说明为何裁决对大型连锁是胜利——它们本就在代收销售税。阅读时 since 译作\"因为\"。" }
+    ],
+    "words": [
+      { "word": "ruling", "meaning": "n. 裁决、裁定", "note": "the ruling 指代前文最高法院的裁决。" },
+      { "word": "chain", "meaning": "n. 连锁（企业）", "note": "big chains 大型连锁企业。" }
+    ],
+    "phrases": [
+      { "text": "big chains", "meaning": "大型连锁企业", "note": "零售业术语，retail chains。" },
+      { "text": "a victory for", "meaning": "对...而言的胜利", "note": "victory 后接 for 表示受益方。" }
+    ]
+  },
+  "2019:D:9": {
+    "grammar": [
+      { "title": "将来进行时 + where 地点状语从句", "text": "will be charging sales tax 是将来进行时，强调\"届时将开始（在以前不征税的地方）征税\"。where they hadn't before 是地点状语从句，其中 hadn't 后省略 charged sales tax（hadn't (charged sales tax) before）。" }
+    ],
+    "words": [
+      { "word": "rival", "meaning": "n. 竞争对手", "note": "rivals 此处指中小竞争者。" }
+    ],
+    "phrases": [
+      { "text": "charge sales tax", "meaning": "征收销售税", "note": "where they hadn't before 中省略了该短语。" }
+    ]
+  },
+  "2019:D:10": {
+    "grammar": [
+      { "title": "现在完成进行时", "text": "have been collecting sales tax nationwide 用现在完成进行时，强调\"一直（并在继续）在全国范围内征税\"。because 从句说明原因。" },
+      { "title": "whatever 引导名词性从句", "text": "in whatever state a purchase is being shipped to 中 whatever 引导名词性从句作 in 的宾语，意为\"在商品被运往的任何一个州\"。注意从句是正常语序 a purchase is being shipped to (state)。" }
+    ],
+    "words": [
+      { "word": "nationwide", "meaning": "adv./adj. 全国范围地", "note": "collect sales tax nationwide 全国范围内征税。" },
+      { "word": "typically", "meaning": "adv. 通常、典型地", "note": "they typically have physical stores 它们通常有实体店。" }
+    ],
+    "phrases": [
+      { "text": "physical stores", "meaning": "实体门店", "note": "与 physical presence 呼应。" },
+      { "text": "be shipped to", "meaning": "被运往", "note": "a purchase is being shipped to 商品正被运往。" }
+    ]
+  },
+  "2019:D:11": {
+    "grammar": [
+      { "title": "插入介词短语", "text": "Amazon.com, with its network of warehouses, also collects... 中 with... 是介词短语作插入语，说明亚马逊的资本（仓库网络），阅读时可括起。" },
+      { "title": "though 让步状语 + 省略", "text": "though third-party sellers who use the site don't have to 中 though 表让步，don't have to 后省略 collect sales tax。who use the site 是定语从句修饰 sellers。" }
+    ],
+    "words": [
+      { "word": "warehouse", "meaning": "n. 仓库", "note": "its network of warehouses 它的仓库网络。" },
+      { "word": "third-party", "meaning": "adj. 第三方的", "note": "third-party sellers 第三方卖家（平台上的小商家）。" }
+    ],
+    "phrases": [
+      { "text": "network of warehouses", "meaning": "仓库网络", "note": "亚马逊的物流基础，解释其为何能各州征税。" },
+      { "text": "third-party sellers", "meaning": "第三方卖家", "note": "电子商务术语。" },
+      { "text": "don't have to", "meaning": "不必（省略征税）", "note": "省略了 collect sales tax，靠上下文补全。" }
+    ]
+  },
+  "2019:D:12": {
+    "grammar": [
+      { "title": "that 定语从句分隔主语", "text": "many sellers that have a physical presence in only a single state or a few states 中 that 从句修饰主语 sellers，把主语和谓语（have been able to avoid...）隔开。阅读时把定语从句括起，主干为 many sellers have been able to avoid charging sales taxes。" },
+      { "title": "现在完成时 + when 时间状语", "text": "have been able to avoid charging sales taxes 是现在完成时（持续到现在的状态），avoid 后接动名词；when they ship to addresses outside those states 是时间状语，交代\"在向州外地址发货时\"免征税。" }
+    ],
+    "words": [
+      { "word": "avoid", "meaning": "v. 避免", "note": "avoid doing sth 避免做某事（后接动名词）。" },
+      { "word": "ship", "meaning": "v. 运送、发货", "note": "ship to addresses 运往（各）地址。" }
+    ],
+    "phrases": [
+      { "text": "physical presence", "meaning": "实体存在", "note": "在 only a single state or a few states 中说明小卖家的情况。" },
+      { "text": "avoid doing sth", "meaning": "避免做某事", "note": "avoid charging sales taxes 免于征收销售税。" },
+      { "text": "until now", "meaning": "迄今为止", "note": "常与现在完成时连用，暗示情况将改变。" }
+    ]
+  },
+  "2019:D:13": {
+    "grammar": [
+      { "title": "that 定语从句 + which 非限制性定语从句", "text": "Sellers that use eBay and Etsy, which provide platforms for smaller sellers, also haven't been collecting sales tax nationwide 中 that 从句修饰 Sellers（限定主句主语），which 从句是非限制性定语修饰 eBay and Etsy，起补充说明作用。阅读时 which 部分可作插入语跳过。" }
+    ],
+    "words": [
+      { "word": "platform", "meaning": "n. 平台", "note": "provide platforms for smaller sellers 为小卖家提供平台。" }
+    ],
+    "phrases": [
+      { "text": "provide platforms for", "meaning": "为...提供平台", "note": "which 从句说明 eBay、Etsy 的作用。" },
+      { "text": "haven't been collecting", "meaning": "一直没在征收", "note": "现在完成进行时的否定，表示持续至今。" }
+    ]
+  },
+  "2019:D:14": {
+    "grammar": [
+      { "title": "现在分词作后置定语", "text": "laws requiring out-of-state sellers to collect the state's sales tax from customers 中现在分词短语 requiring sb to do 作 laws 的定语，意为\"要求州外卖家代收税的法律\"。" },
+      { "title": "并列不定式", "text": "requiring 后的 to collect the state's sales tax from customers and send it to the state 中 and 连接 to collect 与 send（共用一个 to），表示\"征收并上缴\"两个动作。" }
+    ],
+    "words": [
+      { "word": "require", "meaning": "v. 要求", "note": "require sb to do 要求某人做。" },
+      { "word": "out-of-state", "meaning": "adj. 州外的", "note": "out-of-state sellers 州外卖家。" }
+    ],
+    "phrases": [
+      { "text": "pass laws", "meaning": "通过/制定法律", "note": "states can pass laws 各州可立法。" },
+      { "text": "require sb to do", "meaning": "要求某人做某事", "note": "requiring out-of-state sellers to collect..." },
+      { "text": "under the ruling", "meaning": "依据该裁决", "note": "Under the ruling Thursday 根据周四的裁决。" }
+    ]
+  },
+  "2019:D:15": {
+    "grammar": [
+      { "title": "现在分词作伴随状语", "text": "praised the ruling, saying it levels the playing field... 中现在分词短语 saying... 作伴随状语，说明称赞的同时给出的理由。saying 后接省略 that 的宾语从句。" }
+    ],
+    "words": [
+      { "word": "retail", "meaning": "adj./n. 零售", "note": "Retail trade groups 零售行业团体。" },
+      { "word": "praise", "meaning": "v. 称赞、赞扬", "note": "praised the ruling 称赞该裁决。" }
+    ],
+    "phrases": [
+      { "text": "level the playing field", "meaning": "创造公平竞争环境", "note": "level 此处为动词\"使平坦\"，playing field 竞争场域。" },
+      { "text": "trade groups", "meaning": "行业协会、同业组织", "note": "Retail trade groups 零售业协会。" }
+    ]
+  },
+  "2019:D:16": {
+    "grammar": [
+      { "title": "插入语倒装", "text": "The losers, said retail analyst Neil Saunders, are online-only retailers... 中 said retail analyst Neil Saunders 是插入语（主谓倒装），把主语 The losers 与系动词 are 分隔开。阅读时把插入语括起，主干为 The losers are online-only retailers。" }
+    ],
+    "words": [
+      { "word": "analyst", "meaning": "n. 分析师", "note": "retail analyst 零售业分析师。" },
+      { "word": "retailer", "meaning": "n. 零售商", "note": "online-only retailers 纯线上零售商。" },
+      { "word": "online-only", "meaning": "adj. 仅线上经营的", "note": "合成形容词，only 表\"仅仅\"。" }
+    ],
+    "phrases": [
+      { "text": "online-only retailers", "meaning": "纯线上零售商", "note": "especially smaller ones 尤指较小者。" }
+    ]
+  },
+  "2019:D:17": {
+    "grammar": [
+      { "title": "现在分词作伴随/方式状语", "text": "may face headaches complying with various state sales tax laws 中现在分词短语 complying with... 作伴随状语，说明\"头疼\"的具体来源（要遵守各州不同的税法）。可理解为 face headaches (while) complying with...。" }
+    ],
+    "words": [
+      { "word": "comply", "meaning": "v. 遵守、服从", "note": "comply with laws 遵守法律。" },
+      { "word": "headache", "meaning": "n. 头痛；令人头疼的事", "note": "face headaches 面对麻烦/头疼事。" },
+      { "word": "various", "meaning": "adj. 各种各样的", "note": "various state sales tax laws 各州不同的销售税法。" }
+    ],
+    "phrases": [
+      { "text": "comply with", "meaning": "遵守、符合", "note": "高频搭配，comply with laws/regulations。" },
+      { "text": "face headaches", "meaning": "面临麻烦", "note": "face + 宾语表\"面对、遭遇\"。" }
+    ]
+  },
+  "2019:D:18": {
+    "grammar": [
+      { "title": "直接引语作宾语 + 被动否定", "text": "said in a statement, \"Small businesses and internet entrepreneurs are not well served at all by this decision.\" 中引语是 said 的宾语（直接引语形式），引语为被动语态（are served），at all 强化否定，意为\"这一裁决对...毫无益处\"。" }
+    ],
+    "words": [
+      { "word": "entrepreneurship", "meaning": "n. 创业、企业家精神", "note": "Council 名称中的一部分，组织名。" },
+      { "word": "entrepreneur", "meaning": "n. 创业者、企业家", "note": "internet entrepreneurs 互联网创业者。" },
+      { "word": "advocacy", "meaning": "n. 倡导、宣传", "note": "advocacy group 倡导组织。" },
+      { "word": "serve", "meaning": "v. 服务、有益于", "note": "are not well served 未得到良好服务/受益。" }
+    ],
+    "phrases": [
+      { "text": "in a statement", "meaning": "在一份声明中", "note": "said in a statement 在声明中表示。" },
+      { "text": "advocacy group", "meaning": "倡导组织", "note": "组织名称含于专有名词中。" },
+      { "text": "not...at all", "meaning": "一点也不", "note": "are not well served at all 毫无益处。" }
+    ]
+  }
+}

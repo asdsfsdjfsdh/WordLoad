@@ -1,7 +1,13 @@
 // ── 后台管理（单词库 / 阅读库编辑）──
 import type { DifficultyTier } from './api.js';
-import type { ReadingPassageCode, ReadingSentenceStructure, ReadingSentenceView } from './reading.js';
-import type { ReadingGlossaryEntry, ReadingQuestionView } from './reading.js';
+import type {
+  ReadingGlossaryEntry,
+  ReadingPassageCode,
+  ReadingQuestionView,
+  ReadingSentenceKnowledge,
+  ReadingSentenceStructure,
+  ReadingSentenceView,
+} from './reading.js';
 
 // 单词列表项
 export interface AdminWordSummary {
@@ -93,6 +99,7 @@ export interface AdminSentenceUpdate {
   en?: string;
   zh?: string;
   structure?: ReadingSentenceStructure | null;
+  knowledge?: ReadingSentenceKnowledge | null;
 }
 
 export interface AdminQuestionUpdate {

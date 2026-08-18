@@ -7,122 +7,146 @@
     {
       "para": 1,
       "seq": 0,
-      "en": "This year marks exactly two centuries since the publication of Frankenstein; or, The Modern Prometheus, by Mary Shelley."
+      "en": "This year marks exactly two centuries since the publication of Frankenstein; or, The Modern Prometheus, by Mary Shelley.",
+      "zh": "今年恰好是玛丽·雪莱的《弗兰肯斯坦——或现代普罗米修斯》出版两百周年。"
     },
     {
       "para": 1,
       "seq": 1,
-      "en": "Even before the invention of the electric light bulb, the author produced a remarkable work of speculative fiction that would foreshadow many ethical questions to be raised by technologies yet to come."
+      "en": "Even before the invention of the electric light bulb, the author produced a remarkable work of speculative fiction that would foreshadow many ethical questions to be raised by technologies yet to come.",
+      "zh": "早在电灯泡发明之前，作者就创作了一部杰出的推想小说，预示了未来技术将提出的许多伦理问题。"
     },
     {
       "para": 1,
       "seq": 2,
-      "en": "Today the rapid growth of artificial intelligence (AI) raises fundamental questions: “What is intelligence, identity, or consciousness?"
+      "en": "Today the rapid growth of artificial intelligence (AI) raises fundamental questions: “What is intelligence, identity, or consciousness?",
+      "zh": "如今，人工智能（AI）的飞速发展提出了一些根本性的问题：\"什么是智能、身份或意识？"
     },
     {
       "para": 1,
       "seq": 3,
-      "en": "What makes humans humans?”"
+      "en": "What makes humans humans?”",
+      "zh": "是什么让人成为人？\""
     },
     {
       "para": 1,
       "seq": 4,
-      "en": "What is being called artificial general intelligence, machines that would imitate the way humans think, continues to evade scientists."
+      "en": "What is being called artificial general intelligence, machines that would imitate the way humans think, continues to evade scientists.",
+      "zh": "所谓的人工通用智能——模仿人类思维方式的机器——至今仍是科学家们无法企及的目标。"
     },
     {
       "para": 2,
       "seq": 5,
-      "en": "Yet humans remain fascinated by the idea of robots that would look, move, and respond like humans, similar to those recently depicted on popular sci-fi TV series such as “Westworld” and “Humans.”"
+      "en": "Yet humans remain fascinated by the idea of robots that would look, move, and respond like humans, similar to those recently depicted on popular sci-fi TV series such as “Westworld” and “Humans.”",
+      "zh": "然而，人类依然对在相貌、动作和反应上都与人类相似的机器人的想法着迷，类似最近在《西部世界》《人形》等热门科幻电视剧中描绘的那种机器人。"
     },
     {
       "para": 2,
       "seq": 6,
-      "en": "Just how people think is still far too complex to be understood, let alone reproduced, says David Eagleman, a Stanford University neuroscientist."
+      "en": "Just how people think is still far too complex to be understood, let alone reproduced, says David Eagleman, a Stanford University neuroscientist.",
+      "zh": "斯坦福大学的神经科学家戴维·伊格尔曼说，人类究竟是如何思考的，这个问题仍然过于复杂，难以理解，更不用说复制了。"
     },
     {
       "para": 2,
       "seq": 7,
-      "en": "“We are just in a situation where there are no good theories explaining what consciousness actually is and how you could ever build a machine to get there.”"
+      "en": "“We are just in a situation where there are no good theories explaining what consciousness actually is and how you could ever build a machine to get there.”",
+      "zh": "\"我们只是身处这样一种境况：没有好的理论能够解释意识到底是什么，以及你怎样才能造出一台机器达到那种状态。\""
     },
     {
       "para": 2,
       "seq": 8,
-      "en": "But that doesn’t mean crucial ethical issues involving AI aren’t at hand."
+      "en": "But that doesn’t mean crucial ethical issues involving AI aren’t at hand.",
+      "zh": "但这并不意味着涉及AI的关键伦理问题不会出现。"
     },
     {
       "para": 3,
       "seq": 9,
-      "en": "The coming use of autonomous vehicles, for example, poses thorny ethical questions."
+      "en": "The coming use of autonomous vehicles, for example, poses thorny ethical questions.",
+      "zh": "例如，即将投入使用的自动驾驶汽车就带来了棘手的伦理问题。"
     },
     {
       "para": 3,
       "seq": 10,
-      "en": "Human drivers sometimes must make split-second decisions."
+      "en": "Human drivers sometimes must make split-second decisions.",
+      "zh": "人类驾驶员有时必须在瞬间做出决定。"
     },
     {
       "para": 3,
       "seq": 11,
-      "en": "Their reactions may be a complex combination of instant reflexes, input from past driving experiences, and what their eyes and ears tell them in that moment."
+      "en": "Their reactions may be a complex combination of instant reflexes, input from past driving experiences, and what their eyes and ears tell them in that moment.",
+      "zh": "他们的反应可能是本能反应、过往驾驶经验以及那一刻眼睛和耳朵所接收的信息等多种因素复杂结合的结果。"
     },
     {
       "para": 3,
       "seq": 12,
-      "en": "AI “vision” today is not nearly as sophisticated as that of humans."
+      "en": "AI “vision” today is not nearly as sophisticated as that of humans.",
+      "zh": "如今，AI的\"视觉\"远不如人类的视觉精密。"
     },
     {
       "para": 3,
       "seq": 13,
-      "en": "And to anticipate every imaginable driving situation is a difficult programming problem."
+      "en": "And to anticipate every imaginable driving situation is a difficult programming problem.",
+      "zh": "而要预见到所有可以想象到的驾驶状况，是一个难以解决的编程问题。"
     },
     {
       "para": 4,
       "seq": 14,
-      "en": "Whenever decisions are based on masses of data, “you quickly get into a lot of ethical questions,” notes Tan Kiat How, chief executive of a Singapore-based agency that is helping the government develop a voluntary code for the ethical use of AI."
+      "en": "Whenever decisions are based on masses of data, “you quickly get into a lot of ethical questions,” notes Tan Kiat How, chief executive of a Singapore-based agency that is helping the government develop a voluntary code for the ethical use of AI.",
+      "zh": "Tan Kiat How表示，只要决策基于海量数据，\"你就会很快陷入大量伦理问题之中\"。Tan Kiat How是一家新加坡机构的首席执行官，该机构正在协助政府制定AI伦理使用的自愿准则。"
     },
     {
       "para": 4,
       "seq": 15,
-      "en": "Along with Singapore, other governments and mega-corporations are beginning to establish their own guidelines."
+      "en": "Along with Singapore, other governments and mega-corporations are beginning to establish their own guidelines.",
+      "zh": "与新加坡一样，其他国家和大型企业也正开始制定自己的准则。"
     },
     {
       "para": 4,
       "seq": 16,
-      "en": "Britain is setting up a data ethics center."
+      "en": "Britain is setting up a data ethics center.",
+      "zh": "英国正在建立数据伦理中心。"
     },
     {
       "para": 4,
       "seq": 17,
-      "en": "India released its AI ethics strategy this spring."
+      "en": "India released its AI ethics strategy this spring.",
+      "zh": "印度今年春天发布了其AI伦理战略。"
     },
     {
       "para": 4,
       "seq": 18,
-      "en": "On June 7 Google pledged not to “design or deploy AI” that would cause “overall harm,” or to develop AI-directed weapons or use AI for surveillance that would violate international norms."
+      "en": "On June 7 Google pledged not to “design or deploy AI” that would cause “overall harm,” or to develop AI-directed weapons or use AI for surveillance that would violate international norms.",
+      "zh": "6月7日，谷歌承诺不会\"设计或部署\"会造成\"整体危害\"的AI，也不会研发AI武器或利用AI从事违反国际准则的监视活动。"
     },
     {
       "para": 4,
       "seq": 19,
-      "en": "It also pledged not to deploy AI whose use would violate international laws or human rights."
+      "en": "It also pledged not to deploy AI whose use would violate international laws or human rights.",
+      "zh": "它还承诺不会部署其用途会违反国际法或人权的AI。"
     },
     {
       "para": 4,
       "seq": 20,
-      "en": "While the statement is vague, it represents one starting point."
+      "en": "While the statement is vague, it represents one starting point.",
+      "zh": "尽管这一声明措辞含糊，但它代表了一个起点。"
     },
     {
       "para": 4,
       "seq": 21,
-      "en": "So does the idea that decisions made by AI systems should be explainable, transparent, and fair."
+      "en": "So does the idea that decisions made by AI systems should be explainable, transparent, and fair.",
+      "zh": "AI系统作出的决策应该可以解释、透明且公平，这一想法同样也是一个起点。"
     },
     {
       "para": 5,
       "seq": 22,
-      "en": "To put it another way: How can we make sure that the thinking of intelligent machines reflects humanity’s highest values?"
+      "en": "To put it another way: How can we make sure that the thinking of intelligent machines reflects humanity’s highest values?",
+      "zh": "换句话说：我们怎样才能确保智能机器的思考反映出人类最高的价值观？"
     },
     {
       "para": 6,
       "seq": 23,
-      "en": "Only then will they be useful servants and not Frankenstein’s out-of-control monster."
+      "en": "Only then will they be useful servants and not Frankenstein’s out-of-control monster.",
+      "zh": "只有到那时，它们才会成为有用的仆人，而不是弗兰肯斯坦那个失控的怪物。"
     }
   ],
   "questions": [

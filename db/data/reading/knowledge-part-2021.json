@@ -1,0 +1,2268 @@
+﻿[
+    {
+        "year":  2021,
+        "code":  "A",
+        "title":  "Text 1",
+        "content":  "How can Britain’s train operators possibly justify yet another increase to rail passenger fares? It has become a grimly reliable annual ritual: every January the cost of travelling by train rises, imposing a significant extra burden on those who have no option but to use the rail network to get to work or otherwise. This year’s rise, an average of 2.7 percent, may be a fraction lower than last year’s, but it is still well above the official Consumer Price Index (CPI) measure of inflation.\n\nSuccessive governments have permitted such increases on the grounds that the cost of investing in and running the rail network should be borne by those who use it, rather than the general taxpayer. Why, the argument goes, should a car-driving pensioner from Lincolnshire have to subsidise the daily commute of a stockbroker from Surrey? Equally, there is a sense that the travails of commuters in the South East, many of whom will face among the biggest rises, have received too much attention compared to those who must endure the relatively poor infrastructure of the Midlands and the North.\n\nHowever, over the past 12 months, those commuters have also experienced some of the worst rail strikes in years. It is all very well train operators trumpeting the improvements they are making to the network, but passengers should be able to expect a basic level of service for the substantial sums they are now paying to travel. The responsibility for the latest wave of strikes rests on the unions. However, there is a strong case that those who have been worst affected by industrial action should receive compensation for the disruption they have suffered.\n\nThe Government has pledged to change the law to introduce a minimum service requirement so that, even when strikes occur, services can continue to operate. This should form part of a wider package of measures to address the long-running problems on Britain’s railways. Yes, more investment is needed, but passengers will not be willing to pay more indefinitely if they must also endure cramped, unreliable services, interrupted by regular chaos when timetables are changed, or planned maintenance is managed incompetently. The threat of nationalisation may have been seen off for now, but it will return with a vengeance if the justified anger of passengers is not addressed in short order.",
+        "sentences":  [
+                          {
+                              "key":  "2021:A:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "How can Britain’s train operators possibly justify yet another increase to rail passenger fares?",
+                              "zh":  "英国的火车运营商怎么还能为又一次上调铁路票价辩护？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "How can Britain’s train operators possibly justify yet another increase to rail passenger fares?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Britain’s train operators",
+                                                             "predicate":  "justify",
+                                                             "object":  "yet another increase to rail passenger fares"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "It has become a grimly reliable annual ritual: every January the cost of travelling by train rises, imposing a significant extra burden on those who have no option but to use the rail network to get to work or otherwise.",
+                              "zh":  "这已成为一个每年如期而至的令人沮丧的惯例：每年一月，乘火车出行的成本都会上涨，给那些除了乘坐铁路上下班或出行之外别无选择的人带来了沉重的额外负担。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "It has become a grimly reliable annual ritual"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "every January the cost of travelling by train rises"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "imposing a significant extra burden on those"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who have no option but to use the rail network to get to work or otherwise"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to get to work or otherwise"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "It",
+                                                             "predicate":  "has become",
+                                                             "object":  "a grimly reliable annual ritual"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:2",
+                              "seq":  2,
+                              "para":  1,
+                              "en":  "This year’s rise, an average of 2.7 percent, may be a fraction lower than last year’s, but it is still well above the official Consumer Price Index (CPI) measure of inflation.",
+                              "zh":  "今年的涨幅平均为2.7%，可能比去年的略低一点，但仍远高于官方消费者价格指数（CPI）所衡量的通货膨胀水平。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "This year’s rise, an average of 2.7 percent, may be a fraction lower than last year’s"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "an average of 2.7 percent"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but it is still well above the official Consumer Price Index (CPI) measure of inflation"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "This year’s rise",
+                                                             "predicate":  "may be",
+                                                             "object":  "a fraction lower than last year’s"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:3",
+                              "seq":  3,
+                              "para":  2,
+                              "en":  "Successive governments have permitted such increases on the grounds that the cost of investing in and running the rail network should be borne by those who use it, rather than the general taxpayer.",
+                              "zh":  "历届政府之所以允许此类涨价，理由是投资和运营铁路网络的成本应由使用铁路的人来承担，而非由普通纳税人来承担。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Successive governments have permitted such increases on the grounds"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the cost of investing in and running the rail network should be borne by those"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who use it"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "rather than the general taxpayer"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Successive governments",
+                                                             "predicate":  "have permitted",
+                                                             "object":  "such increases"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:4",
+                              "seq":  4,
+                              "para":  2,
+                              "en":  "Why, the argument goes, should a car-driving pensioner from Lincolnshire have to subsidise the daily commute of a stockbroker from Surrey?",
+                              "zh":  "有观点认为，为什么来自林肯郡的开车退休老人非得补贴来自萨里郡的股票经纪人的日常通勤呢？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Why, the argument goes, should a car-driving pensioner from Lincolnshire have to subsidise the daily commute of a stockbroker from Surrey?"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to subsidise the daily commute of a stockbroker from Surrey"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "a car-driving pensioner from Lincolnshire",
+                                                             "predicate":  "have to subsidise",
+                                                             "object":  "the daily commute of a stockbroker from Surrey"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "Equally, there is a sense that the travails of commuters in the South East, many of whom will face among the biggest rises, have received too much attention compared to those who must endure the relatively poor infrastructure of the Midlands and the North.",
+                              "zh":  "同样，人们也有一种感觉：与那些必须忍受英格兰中部和北部相对落后基础设施的通勤者相比，英格兰东南部通勤者的艰难处境——其中许多人将面临最大的涨幅——受到了过多的关注。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Equally, there is a sense"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the travails of commuters in the South East, many of whom will face among the biggest rises, have received too much attention compared to those"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "many of whom will face among the biggest rises"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "compared to those"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who must endure the relatively poor infrastructure of the Midlands and the North"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "there",
+                                                             "predicate":  "is",
+                                                             "object":  "a sense"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:6",
+                              "seq":  6,
+                              "para":  3,
+                              "en":  "However, over the past 12 months, those commuters have also experienced some of the worst rail strikes in years.",
+                              "zh":  "然而，在过去12个月里，这些通勤者也遭遇了多年来最严重的铁路罢工。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "However, over the past 12 months, those commuters have also experienced some of the worst rail strikes in years"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "over the past 12 months"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "those commuters",
+                                                             "predicate":  "have experienced",
+                                                             "object":  "some of the worst rail strikes in years"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:7",
+                              "seq":  7,
+                              "para":  3,
+                              "en":  "It is all very well train operators trumpeting the improvements they are making to the network, but passengers should be able to expect a basic level of service for the substantial sums they are now paying to travel.",
+                              "zh":  "火车运营商吹嘘自己正在对铁路网络进行改进固然很好，但乘客现在为乘车支付了高额费用，理应期望得到基本的服务水平。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "It is all very well train operators trumpeting the improvements"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "trumpeting the improvements"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "they are making to the network"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but passengers should be able to expect a basic level of service for the substantial sums"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to expect a basic level of service for the substantial sums"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "they are now paying to travel"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to travel"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "passengers",
+                                                             "predicate":  "should be able to expect",
+                                                             "object":  "a basic level of service"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:8",
+                              "seq":  8,
+                              "para":  3,
+                              "en":  "The responsibility for the latest wave of strikes rests on the unions.",
+                              "zh":  "最近这波罢工的责任在于工会。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The responsibility for the latest wave of strikes rests on the unions"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The responsibility for the latest wave of strikes",
+                                                             "predicate":  "rests on",
+                                                             "object":  "the unions"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:9",
+                              "seq":  9,
+                              "para":  3,
+                              "en":  "However, there is a strong case that those who have been worst affected by industrial action should receive compensation for the disruption they have suffered.",
+                              "zh":  "然而，有充分的理由认为，那些受罢工影响最为严重的人应该就其所遭受的干扰获得赔偿。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "However, there is a strong case"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that those who have been worst affected by industrial action should receive compensation for the disruption"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who have been worst affected by industrial action"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "they have suffered"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "there",
+                                                             "predicate":  "is",
+                                                             "object":  "a strong case"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:10",
+                              "seq":  10,
+                              "para":  4,
+                              "en":  "The Government has pledged to change the law to introduce a minimum service requirement so that, even when strikes occur, services can continue to operate.",
+                              "zh":  "政府已承诺修改法律，引入最低服务要求，以便即使发生罢工，铁路服务仍能继续运营。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The Government has pledged to change the law"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to change the law"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to introduce a minimum service requirement"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "so that, even when strikes occur, services can continue to operate"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "even when strikes occur"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The Government",
+                                                             "predicate":  "has pledged",
+                                                             "object":  "to change the law"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:11",
+                              "seq":  11,
+                              "para":  4,
+                              "en":  "This should form part of a wider package of measures to address the long-running problems on Britain’s railways.",
+                              "zh":  "这应成为解决英国铁路长期存在问题的一揽子更广泛措施的一部分。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "This should form part of a wider package of measures"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to address the long-running problems on Britain’s railways"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "This",
+                                                             "predicate":  "should form",
+                                                             "object":  "part of a wider package of measures"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:12",
+                              "seq":  12,
+                              "para":  4,
+                              "en":  "Yes, more investment is needed, but passengers will not be willing to pay more indefinitely if they must also endure cramped, unreliable services, interrupted by regular chaos when timetables are changed, or planned maintenance is managed incompetently.",
+                              "zh":  "诚然，确实需要更多投资，但如果乘客还必须忍受拥挤不堪、不可靠的服务，并且经常因时刻表变更或计划维护管理不善而陷入混乱之中，他们是不会愿意无限期地支付更多费用的。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Yes, more investment is needed"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but passengers will not be willing to pay more indefinitely"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "if they must also endure cramped, unreliable services, interrupted by regular chaos"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "interrupted by regular chaos"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "when timetables are changed"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "or planned maintenance is managed incompetently"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "passengers",
+                                                             "predicate":  "will not be willing to pay",
+                                                             "object":  "more"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:A:13",
+                              "seq":  13,
+                              "para":  4,
+                              "en":  "The threat of nationalisation may have been seen off for now, but it will return with a vengeance if the justified anger of passengers is not addressed in short order.",
+                              "zh":  "国有化的威胁或许暂时被化解了，但如果乘客正当的愤怒得不到及时解决，这种威胁必将变本加厉地卷土重来。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The threat of nationalisation may have been seen off for now"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but it will return with a vengeance"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "if the justified anger of passengers is not addressed in short order"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The threat of nationalisation",
+                                                             "predicate":  "may have been seen off"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2021,
+        "code":  "B",
+        "title":  "Text 2",
+        "content":  "Last year marked the third year in a row that Indonesia’s bleak rate of deforestation has slowed in pace. One reason for the turnaround may be the country’s antipoverty program.\n\nIn 2007, Indonesia started phasing in a program that gives money to its poorest residents under certain conditions, such as requiring people to keep kids in school or get regular medical care. Called conditional cash transfers or CCTs, these social assistance programs are designed to reduce inequality and break the cycle of poverty. They’re already used in dozens of countries worldwide. In Indonesia, the program has provided enough food and medicine to substantially reduce severe growth problems among children.\n\nBut CCT programs don’t generally consider effects on the environment. In fact, poverty alleviation and environmental protection are often viewed as conflicting goals, says Paul Ferraro, an economist at Johns Hopkins University.\n\nThat’s because economic growth can be correlated with environmental degradation, while protecting the environment is sometimes correlated with greater poverty. However, those correlations don’t prove cause and effect. The only previous study analyzing causality, based on an area in Mexico that had instituted CCTs, supported the traditional view. There, as people got more money, some of them may have more cleared land for cattle to raise for meat, Ferraro says.\n\nSuch programs do not have to negatively affect the environment, though. Ferraro wanted to see if Indonesia’s poverty-alleviation program was affecting deforestation. Indonesia has the third-largest area of tropical forest in the world and one of the highest deforestation rates.\n\nFerraro analyzed satellite data showing annual forest loss from 2008 to 2012 — including during Indonesia’s phase-in of the antipoverty program — in 7,468 forested villages across 15 provinces. “We see that the program is associated with a 30 percent reduction in deforestation,” Ferraro says.\n\nThat’s likely because the rural poor are using the money as makeshift insurance policies against inclement weather, Ferraro says. Typically, if rains are delayed, people may clear land to plant more rice to supplement their harvests. With the CCTs, individuals instead can use the money to supplement their harvests.\n\nWhether this research translates elsewhere is anybody’s guess. Ferraro suggests the results may transfer to other parts of Asia, due to commonalities such as the importance of growing rice and market access. And regardless of transferability, the study shows that what’s good for people may also be good for the environment. Even if this program didn’t reduce poverty, Ferraro says, “the value of the avoided deforestation just for carbon dioxide emissions alone is more than the program costs.”",
+        "sentences":  [
+                          {
+                              "key":  "2021:B:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "Last year marked the third year in a row that Indonesia’s bleak rate of deforestation has slowed in pace.",
+                              "zh":  "去年是印度尼西亚令人担忧的森林砍伐速度连续第三年放缓。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Last year marked the third year in a row"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that Indonesia’s bleak rate of deforestation has slowed in pace"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Last year",
+                                                             "predicate":  "marked",
+                                                             "object":  "the third year in a row"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "One reason for the turnaround may be the country’s antipoverty program.",
+                              "zh":  "出现这一转变的一个原因可能是该国的扶贫计划。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "One reason for the turnaround may be the country’s antipoverty program."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "One reason for the turnaround",
+                                                             "predicate":  "may be",
+                                                             "object":  "the country’s antipoverty program"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:2",
+                              "seq":  2,
+                              "para":  2,
+                              "en":  "In 2007, Indonesia started phasing in a program that gives money to its poorest residents under certain conditions, such as requiring people to keep kids in school or get regular medical care.",
+                              "zh":  "2007年，印度尼西亚开始逐步推行一项计划，在某些条件下向最贫困的居民发放资金，例如要求人们让孩子坚持上学或接受定期医疗护理。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "In 2007, Indonesia started phasing in a program"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that gives money to its poorest residents under certain conditions"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "such as requiring people to keep kids in school or get regular medical care"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Indonesia",
+                                                             "predicate":  "started",
+                                                             "object":  "phasing in a program"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:3",
+                              "seq":  3,
+                              "para":  2,
+                              "en":  "Called conditional cash transfers or CCTs, these social assistance programs are designed to reduce inequality and break the cycle of poverty.",
+                              "zh":  "这些社会援助计划被称为有条件现金转移，或CCT，旨在减少不平等、打破贫困的恶性循环。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "Called conditional cash transfers or CCTs"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "these social assistance programs are designed to reduce inequality and break the cycle of poverty"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to reduce inequality and break the cycle of poverty"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "these social assistance programs",
+                                                             "predicate":  "are designed",
+                                                             "object":  "to reduce inequality and break the cycle of poverty"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:4",
+                              "seq":  4,
+                              "para":  2,
+                              "en":  "They’re already used in dozens of countries worldwide.",
+                              "zh":  "这类计划已在世界几十个国家推行。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "They’re already used in dozens of countries worldwide."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "They",
+                                                             "predicate":  "are already used"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "In Indonesia, the program has provided enough food and medicine to substantially reduce severe growth problems among children.",
+                              "zh":  "在印度尼西亚，该计划提供了充足的食物和药品，大幅减少了儿童严重的生长发育问题。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "In Indonesia, the program has provided enough food and medicine"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to substantially reduce severe growth problems among children"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the program",
+                                                             "predicate":  "has provided",
+                                                             "object":  "enough food and medicine"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:6",
+                              "seq":  6,
+                              "para":  3,
+                              "en":  "But CCT programs don’t generally consider effects on the environment.",
+                              "zh":  "但CCT计划通常不考虑对环境的影响。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But CCT programs don’t generally consider effects on the environment"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "CCT programs",
+                                                             "predicate":  "don’t consider",
+                                                             "object":  "effects on the environment"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:7",
+                              "seq":  7,
+                              "para":  3,
+                              "en":  "In fact, poverty alleviation and environmental protection are often viewed as conflicting goals, says Paul Ferraro, an economist at Johns Hopkins University.",
+                              "zh":  "事实上，约翰斯·霍普金斯大学经济学家保罗·费拉罗表示，扶贫和环境保护常常被视为相互冲突的目标。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "poverty alleviation and environmental protection are often viewed as conflicting goals"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "says Paul Ferraro"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "an economist at Johns Hopkins University"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "poverty alleviation and environmental protection",
+                                                             "predicate":  "are often viewed as",
+                                                             "object":  "conflicting goals"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:8",
+                              "seq":  8,
+                              "para":  4,
+                              "en":  "That’s because economic growth can be correlated with environmental degradation, while protecting the environment is sometimes correlated with greater poverty.",
+                              "zh":  "这是因为经济增长可能与环境恶化相关，而保护环境有时又与更大的贫困相关。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "That’s"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "because economic growth can be correlated with environmental degradation"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "while protecting the environment is sometimes correlated with greater poverty"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "That",
+                                                             "predicate":  "is",
+                                                             "object":  "because economic growth can be correlated with environmental degradation"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:9",
+                              "seq":  9,
+                              "para":  4,
+                              "en":  "However, those correlations don’t prove cause and effect.",
+                              "zh":  "然而，这些相关性并不能证明存在因果关系。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "However, those correlations don’t prove cause and effect"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "those correlations",
+                                                             "predicate":  "don’t prove",
+                                                             "object":  "cause and effect"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:10",
+                              "seq":  10,
+                              "para":  4,
+                              "en":  "The only previous study analyzing causality, based on an area in Mexico that had instituted CCTs, supported the traditional view.",
+                              "zh":  "此前唯一一项分析因果关系的研究，基于墨西哥一个已实施CCT计划的地区，结果支持了传统观点。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The only previous study analyzing causality, based on an area in Mexico that had instituted CCTs, supported the traditional view"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "analyzing causality"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "based on an area in Mexico"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that had instituted CCTs"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The only previous study",
+                                                             "predicate":  "supported",
+                                                             "object":  "the traditional view"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:11",
+                              "seq":  11,
+                              "para":  4,
+                              "en":  "There, as people got more money, some of them may have more cleared land for cattle to raise for meat, Ferraro says.",
+                              "zh":  "费拉罗说，在那里，随着人们获得更多的钱，其中一些人可能会开垦更多的土地来养牛，以获取肉类。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "as people got more money"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "some of them may have more cleared land for cattle to raise for meat"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to raise for meat"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "Ferraro says"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "some of them",
+                                                             "predicate":  "may have",
+                                                             "object":  "more cleared land for cattle to raise for meat"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:12",
+                              "seq":  12,
+                              "para":  5,
+                              "en":  "Such programs do not have to negatively affect the environment, though.",
+                              "zh":  "不过，此类计划并不一定对环境产生负面影响。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Such programs do not have to negatively affect the environment, though"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Such programs",
+                                                             "predicate":  "do not have to negatively affect",
+                                                             "object":  "the environment"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:13",
+                              "seq":  13,
+                              "para":  5,
+                              "en":  "Ferraro wanted to see if Indonesia’s poverty-alleviation program was affecting deforestation.",
+                              "zh":  "费拉罗想看看印度尼西亚的扶贫计划是否影响了森林砍伐。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Ferraro wanted to see"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "if Indonesia’s poverty-alleviation program was affecting deforestation"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Ferraro",
+                                                             "predicate":  "wanted",
+                                                             "object":  "to see"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:14",
+                              "seq":  14,
+                              "para":  5,
+                              "en":  "Indonesia has the third-largest area of tropical forest in the world and one of the highest deforestation rates.",
+                              "zh":  "印度尼西亚拥有世界第三大的热带雨林面积，也是森林砍伐率最高的国家之一。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Indonesia has the third-largest area of tropical forest in the world"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and one of the highest deforestation rates"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Indonesia",
+                                                             "predicate":  "has",
+                                                             "object":  "the third-largest area of tropical forest in the world and one of the highest deforestation rates"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:15",
+                              "seq":  15,
+                              "para":  6,
+                              "en":  "Ferraro analyzed satellite data showing annual forest loss from 2008 to 2012 — including during Indonesia’s phase-in of the antipoverty program — in 7,468 forested villages across 15 provinces.",
+                              "zh":  "费拉罗分析了2008年至2012年（包括印度尼西亚逐步实施扶贫计划期间）15个省7468个森林村庄的年度森林流失卫星数据。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Ferraro analyzed satellite data"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "showing annual forest loss from 2008 to 2012"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "— including during Indonesia’s phase-in of the antipoverty program —"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "in 7,468 forested villages across 15 provinces"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Ferraro",
+                                                             "predicate":  "analyzed",
+                                                             "object":  "satellite data"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:16",
+                              "seq":  16,
+                              "para":  6,
+                              "en":  "“We see that the program is associated with a 30 percent reduction in deforestation,” Ferraro says.",
+                              "zh":  "费拉罗说：“我们发现，该计划与森林砍伐量减少30%有关。”",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“We see that the program is associated with a 30 percent reduction in deforestation,”"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the program is associated with a 30 percent reduction in deforestation"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "Ferraro says"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "We",
+                                                             "predicate":  "see",
+                                                             "object":  "that the program is associated with a 30 percent reduction in deforestation"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:17",
+                              "seq":  17,
+                              "para":  7,
+                              "en":  "That’s likely because the rural poor are using the money as makeshift insurance policies against inclement weather, Ferraro says.",
+                              "zh":  "费拉罗说，这很可能是因为农村贫困人口把这些钱当作抵御恶劣天气的临时保险。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "That’s likely"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "because the rural poor are using the money as makeshift insurance policies against inclement weather"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "Ferraro says"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "That",
+                                                             "predicate":  "is likely"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:18",
+                              "seq":  18,
+                              "para":  7,
+                              "en":  "Typically, if rains are delayed, people may clear land to plant more rice to supplement their harvests.",
+                              "zh":  "通常情况下，如果雨季推迟，人们可能会开垦土地种植更多水稻以补充收成。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "people may clear land"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "if rains are delayed"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to plant more rice"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to supplement their harvests"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "people",
+                                                             "predicate":  "may clear",
+                                                             "object":  "land"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:19",
+                              "seq":  19,
+                              "para":  7,
+                              "en":  "With the CCTs, individuals instead can use the money to supplement their harvests.",
+                              "zh":  "有了CCT，人们反而可以用这笔钱来补充收成。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "With the CCTs, individuals instead can use the money"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to supplement their harvests"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "individuals",
+                                                             "predicate":  "can use",
+                                                             "object":  "the money"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:20",
+                              "seq":  20,
+                              "para":  8,
+                              "en":  "Whether this research translates elsewhere is anybody’s guess.",
+                              "zh":  "这项研究的结论能否适用于其他地方，谁也说不准。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "Whether this research translates elsewhere"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "is anybody’s guess"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Whether this research translates elsewhere",
+                                                             "predicate":  "is",
+                                                             "object":  "anybody’s guess"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:21",
+                              "seq":  21,
+                              "para":  8,
+                              "en":  "Ferraro suggests the results may transfer to other parts of Asia, due to commonalities such as the importance of growing rice and market access.",
+                              "zh":  "费拉罗认为，由于种植水稻的重要性和市场准入等共同点，这些结果可能也适用于亚洲其他地区。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Ferraro suggests"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "the results may transfer to other parts of Asia"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "due to commonalities such as the importance of growing rice and market access"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Ferraro",
+                                                             "predicate":  "suggests",
+                                                             "object":  "the results may transfer to other parts of Asia"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:22",
+                              "seq":  22,
+                              "para":  8,
+                              "en":  "And regardless of transferability, the study shows that what’s good for people may also be good for the environment.",
+                              "zh":  "而且，无论结论是否具有可推广性，这项研究表明，对人们有益的事情可能对环境也有益。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "regardless of transferability"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "the study shows"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that what’s good for people may also be good for the environment"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "what’s good for people"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the study",
+                                                             "predicate":  "shows",
+                                                             "object":  "that what’s good for people may also be good for the environment"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:B:23",
+                              "seq":  23,
+                              "para":  8,
+                              "en":  "Even if this program didn’t reduce poverty, Ferraro says, “the value of the avoided deforestation just for carbon dioxide emissions alone is more than the program costs.”",
+                              "zh":  "费拉罗说，即使这项计划没能减少贫困，“仅就避免森林砍伐、减少二氧化碳排放而言，其价值就已超过该计划的成本。”",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "Even if this program didn’t reduce poverty"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Ferraro says,"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "“the value of the avoided deforestation just for carbon dioxide emissions alone is more than the program costs.”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Ferraro",
+                                                             "predicate":  "says",
+                                                             "object":  "“the value of the avoided deforestation just for carbon dioxide emissions alone is more than the program costs.”"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2021,
+        "code":  "C",
+        "title":  "Text 3",
+        "content":  "As a historian who’s always searching for the text or the image that makes us re- evaluate the past, I’ve become preoccupied with looking for photographs that show our Victorian ancestors smiling (what better way to shatter the image of 19th-century prudery?). I’ve found quite a few, and — since I started posting them on Twitter — they have been causing quite a stir. People have been surprised to see evidence that Victorians had fun and could, and did, laugh. They are noting that the Victorians suddenly seem to become more human as the hundred-or-so years that separate us fade away through our common experience of laughter.\n\nOf course, I need to concede that my collection of “Smiling Victorians” makes up only a tiny percentage of the vast catalogue of photographic portraiture created between 1840 and 1900, the majority of which show sitters posing miserably and stiffly in front of painted backdrops, or staring absently into the middle distance. How do we explain this trend?\n\nDuring the 1840s and 1850s, in the early days of photography, exposure times were notoriously long: the daguerreotype photographic method (producing an image on a silvered copper plate) could take several minutes to complete, resulting in blurred images as sitters shifted position or adjusted their limbs. The thought of holding a fixed grin as the camera performed its magical duties was too much to contemplate, and so a non- committal blank stare became the norm.\n\nBut exposure times were much quicker by the 1880s, and the introduction of the Box Brownie and other portable cameras meant that, though slow by today’s digital standards, the exposure was almost instantaneous. Spontaneous smiles were relatively easy to capture by the 1890s, so we must look elsewhere for an explanation of why Victorians still hesitated to smile.\n\nOne explanation might be the loss of dignity displayed through a cheesy grin. “Nature gave us lips to conceal our teeth,” ran one popular Victorian saying, alluding to the fact that before the birth of proper dentistry, mouths were often in a shocking state of hygiene. A flashing set of healthy and clean, regular “pearly whites” was a rare sight in Victorian society, the preserve of the super-rich (and even then, dental hygiene was not guaranteed).\n\nA toothy grin (especially when there were gaps or blackened teeth) lacked class: drunks, tramps, and music hall performers might gurn and grin with a smile as wide as Lewis Carroll’s gum-exposing Cheshire Cat, but it was not a becoming look for properly bred persons. Even Mark Twain, a man who enjoyed a hearty laugh, said that when it came to photographic portraits there could be “nothing more damning than a silly, foolish smile fixed forever”.",
+        "sentences":  [
+                          {
+                              "key":  "2021:C:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "As a historian who’s always searching for the text or the image that makes us re- evaluate the past, I’ve become preoccupied with looking for photographs that show our Victorian ancestors smiling (what better way to shatter the image of 19th-century prudery?).",
+                              "zh":  "作为一名一直致力于寻找能让我们重新评价过去的文本或图像的历史学家，我痴迷于寻找能展现维多利亚时代祖先微笑的照片（还有什么比这更能粉碎19世纪假正经的形象呢？）。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "As a historian"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who’s always searching for the text or the image"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that makes us re- evaluate the past"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "I’ve become preoccupied with looking for photographs"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that show our Victorian ancestors smiling"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "(what better way to shatter the image of 19th-century prudery?)"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to shatter the image of 19th-century prudery"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "I",
+                                                             "predicate":  "have become preoccupied with",
+                                                             "object":  "looking for photographs"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "I’ve found quite a few, and — since I started posting them on Twitter — they have been causing quite a stir.",
+                              "zh":  "我已经找到了不少这样的照片，而且——自从我开始把它们发到Twitter上以来——它们引起了不小的轰动。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "I’ve found quite a few"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and — since I started posting them on Twitter — they have been causing quite a stir"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "since I started posting them on Twitter"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "I",
+                                                             "predicate":  "have found",
+                                                             "object":  "quite a few"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:2",
+                              "seq":  2,
+                              "para":  1,
+                              "en":  "People have been surprised to see evidence that Victorians had fun and could, and did, laugh.",
+                              "zh":  "人们惊讶地发现，有证据表明维多利亚时代的人也会寻欢作乐，能够欢笑，而且确实笑了。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "People have been surprised to see evidence"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to see evidence"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "that Victorians had fun and could, and did, laugh"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "People",
+                                                             "predicate":  "have been surprised",
+                                                             "object":  "to see evidence"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:3",
+                              "seq":  3,
+                              "para":  1,
+                              "en":  "They are noting that the Victorians suddenly seem to become more human as the hundred-or-so years that separate us fade away through our common experience of laughter.",
+                              "zh":  "他们注意到，随着把我们隔开的百年左右的时光在共同的欢笑体验中消融，维多利亚时代的人似乎突然变得更加有人情味了。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "They are noting"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the Victorians suddenly seem to become more human"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "as the hundred-or-so years that separate us fade away through our common experience of laughter"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that separate us"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "They",
+                                                             "predicate":  "are noting",
+                                                             "object":  "that the Victorians suddenly seem to become more human"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:4",
+                              "seq":  4,
+                              "para":  2,
+                              "en":  "Of course, I need to concede that my collection of “Smiling Victorians” makes up only a tiny percentage of the vast catalogue of photographic portraiture created between 1840 and 1900, the majority of which show sitters posing miserably and stiffly in front of painted backdrops, or staring absently into the middle distance.",
+                              "zh":  "当然，我必须承认，我收集的“微笑的维多利亚人”只占1840年至1900年间拍摄的海量摄影肖像中的极小一部分，其中大多数照片里的被摄者要么在绘制的背景前痛苦而僵硬地摆着姿势，要么茫然地盯着中景发呆。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Of course, I need to concede"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that my collection of “Smiling Victorians” makes up only a tiny percentage of the vast catalogue of photographic portraiture created between 1840 and 1900"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "created between 1840 and 1900"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "the majority of which show sitters posing miserably and stiffly in front of painted backdrops, or staring absently into the middle distance"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "posing miserably and stiffly in front of painted backdrops"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "staring absently into the middle distance"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "I",
+                                                             "predicate":  "need to concede",
+                                                             "object":  "that my collection of “Smiling Victorians” makes up only a tiny percentage of the vast catalogue of photographic portraiture"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "How do we explain this trend?",
+                              "zh":  "我们该如何解释这一趋势呢？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "How do we explain this trend?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "we",
+                                                             "predicate":  "do explain",
+                                                             "object":  "this trend"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:6",
+                              "seq":  6,
+                              "para":  3,
+                              "en":  "During the 1840s and 1850s, in the early days of photography, exposure times were notoriously long: the daguerreotype photographic method (producing an image on a silvered copper plate) could take several minutes to complete, resulting in blurred images as sitters shifted position or adjusted their limbs.",
+                              "zh":  "在19世纪40年代和50年代，摄影术尚处于早期，曝光时间以漫长而著称：达盖尔银版摄影法（在镀银铜板上成像）可能需要几分钟才能完成，由于被摄者移动位置或调整肢体，结果导致图像模糊。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "During the 1840s and 1850s, in the early days of photography"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "exposure times were notoriously long"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "the daguerreotype photographic method (producing an image on a silvered copper plate) could take several minutes to complete"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "producing an image on a silvered copper plate"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "resulting in blurred images"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "as sitters shifted position or adjusted their limbs"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "exposure times",
+                                                             "predicate":  "were",
+                                                             "object":  "notoriously long"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:7",
+                              "seq":  7,
+                              "para":  3,
+                              "en":  "The thought of holding a fixed grin as the camera performed its magical duties was too much to contemplate, and so a non- committal blank stare became the norm.",
+                              "zh":  "一想到要在相机执行其神奇任务时保持固定的咧嘴笑容，实在令人难以忍受，于是面无表情的呆滞凝视便成了常态。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The thought of holding a fixed grin as the camera performed its magical duties was too much to contemplate"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "holding a fixed grin"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "as the camera performed its magical duties"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to contemplate"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and so a non- committal blank stare became the norm"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The thought of holding a fixed grin",
+                                                             "predicate":  "was",
+                                                             "object":  "too much to contemplate"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:8",
+                              "seq":  8,
+                              "para":  4,
+                              "en":  "But exposure times were much quicker by the 1880s, and the introduction of the Box Brownie and other portable cameras meant that, though slow by today’s digital standards, the exposure was almost instantaneous.",
+                              "zh":  "但到19世纪80年代，曝光时间已经快得多，布朗尼盒式相机等便携式相机的问世意味着，虽然以今天的数码标准来看速度仍显缓慢，但曝光几乎是瞬间完成的。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But exposure times were much quicker by the 1880s"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and the introduction of the Box Brownie and other portable cameras meant"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that, though slow by today’s digital standards, the exposure was almost instantaneous"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "though slow by today’s digital standards"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the introduction of the Box Brownie and other portable cameras",
+                                                             "predicate":  "meant",
+                                                             "object":  "that, though slow by today’s digital standards, the exposure was almost instantaneous"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:9",
+                              "seq":  9,
+                              "para":  4,
+                              "en":  "Spontaneous smiles were relatively easy to capture by the 1890s, so we must look elsewhere for an explanation of why Victorians still hesitated to smile.",
+                              "zh":  "到19世纪90年代，捕捉自然流露的微笑已相对容易，因此，要解释维多利亚时代的人为何仍不愿微笑，我们只能另寻原因。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Spontaneous smiles were relatively easy to capture by the 1890s"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "so we must look elsewhere for an explanation"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "of why Victorians still hesitated to smile"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "why Victorians still hesitated to smile"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to smile"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Spontaneous smiles",
+                                                             "predicate":  "were",
+                                                             "object":  "relatively easy to capture"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:10",
+                              "seq":  10,
+                              "para":  5,
+                              "en":  "One explanation might be the loss of dignity displayed through a cheesy grin.",
+                              "zh":  "一种解释可能是，露齿傻笑会显得有失尊严。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "One explanation might be the loss of dignity"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "displayed through a cheesy grin"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "One explanation",
+                                                             "predicate":  "might be",
+                                                             "object":  "the loss of dignity"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:11",
+                              "seq":  11,
+                              "para":  5,
+                              "en":  "“Nature gave us lips to conceal our teeth,” ran one popular Victorian saying, alluding to the fact that before the birth of proper dentistry, mouths were often in a shocking state of hygiene.",
+                              "zh":  "“大自然赐予我们嘴唇来遮蔽牙齿。”一句维多利亚时代的流行谚语这样说道，它暗指这样一个事实：在现代牙科诞生之前，人们的口腔常常处于令人震惊的卫生状况。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“Nature gave us lips to conceal our teeth,”"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to conceal our teeth"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "ran one popular Victorian saying"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "alluding to the fact"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that before the birth of proper dentistry, mouths were often in a shocking state of hygiene"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Nature",
+                                                             "predicate":  "gave",
+                                                             "object":  "us lips"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:12",
+                              "seq":  12,
+                              "para":  5,
+                              "en":  "A flashing set of healthy and clean, regular “pearly whites” was a rare sight in Victorian society, the preserve of the super-rich (and even then, dental hygiene was not guaranteed).",
+                              "zh":  "在维多利亚时代的社会里，一口健康、清洁、整齐的“珍珠白”牙齿十分罕见，那是超级富豪的专属（即便如此，也未必能保证口腔卫生）。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A flashing set of healthy and clean, regular “pearly whites” was a rare sight in Victorian society"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "the preserve of the super-rich"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "(and even then, dental hygiene was not guaranteed)"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A flashing set of healthy and clean, regular “pearly whites”",
+                                                             "predicate":  "was",
+                                                             "object":  "a rare sight in Victorian society"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:13",
+                              "seq":  13,
+                              "para":  6,
+                              "en":  "A toothy grin (especially when there were gaps or blackened teeth) lacked class: drunks, tramps, and music hall performers might gurn and grin with a smile as wide as Lewis Carroll’s gum-exposing Cheshire Cat, but it was not a becoming look for properly bred persons.",
+                              "zh":  "龇牙咧嘴的笑（尤其当牙齿有豁口或发黑时）显得很没档次：醉汉、流浪汉和音乐厅演员或许会做出鬼脸，咧嘴笑到像刘易斯·卡罗尔笔下咧嘴露牙龈的柴郡猫一样大，但对教养良好的人来说，这可不是体面的样子。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A toothy grin (especially when there were gaps or blackened teeth) lacked class"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "when there were gaps or blackened teeth"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "drunks, tramps, and music hall performers might gurn and grin with a smile as wide as Lewis Carroll’s gum-exposing Cheshire Cat"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but it was not a becoming look for properly bred persons"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A toothy grin",
+                                                             "predicate":  "lacked",
+                                                             "object":  "class"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:C:14",
+                              "seq":  14,
+                              "para":  6,
+                              "en":  "Even Mark Twain, a man who enjoyed a hearty laugh, said that when it came to photographic portraits there could be “nothing more damning than a silly, foolish smile fixed forever”.",
+                              "zh":  "就连喜欢开怀大笑的马克·吐温都说，谈及摄影肖像，没有比“一个愚蠢的、傻乎乎的笑容被永远定格”更糟糕的了。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Even Mark Twain, a man who enjoyed a hearty laugh, said"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "a man who enjoyed a hearty laugh"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who enjoyed a hearty laugh"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that when it came to photographic portraits there could be “nothing more damning than a silly, foolish smile fixed forever”"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "when it came to photographic portraits"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "fixed forever"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Even Mark Twain",
+                                                             "predicate":  "said",
+                                                             "object":  "that when it came to photographic portraits there could be “nothing more damning than a silly, foolish smile fixed forever”"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2021,
+        "code":  "D",
+        "title":  "Text 4",
+        "content":  "From the early days of broadband, advocates for consumers and web-based companies worried that the cable and phone companies selling broadband connections had the power and incentive to favor affiliated websites over their rivals’. That’s why there has been such a strong demand for rules that would prevent broadband providers from picking winners and losers online, preserving the freedom and innovation that have been the lifeblood of the Internet.\n\nYet that demand has been almost impossible to fill — in part because of pushback from broadband providers, anti-regulatory conservatives and the courts. A federal appeals court weighed in again Tuesday, but instead of providing a badly needed resolution, it only prolonged the fight. At issue before the US Court of Appeals for the District of Columbia Circuit was the latest take of the Federal Communications Commission (FCC) on net neutrality, adopted on a party-line vote in 2017. The Republican penned order not only eliminated the strict net neutrality rules the FCC had adopted when it had a Democratic majority in 2015, but rejected the commission’s authority to require broadband providers to do much of anything. The order also declared that state and local governments couldn’t regulate broadband providers either.\n\nThe commission argued that other agencies would protect against anti-competitive behavior, such as a broadband-providing conglomerate like AT\u0026T favoring its own video- streaming service at the expense of Netflix and Apple TV. Yet the FCC also ended the investigations of broadband providers that imposed data caps on their rivals’ streaming services but not their own.\n\nOn Tuesday, the appeals court unanimously upheld the 2017 order deregulating broadband providers, citing a Supreme Court ruling from 2005 that upheld a similarly deregulatory move. But Judge Patricia Millett rightly argued in a concurring opinion that “the result is unhinged from the realities of modern broadband service,” and said Congress or the Supreme Court could intervene to “avoid trapping Internet regulation in technological anachronism.”\n\nIn the meantime, the court threw out the FCC’s attempt to block all state rules on net neutrality, while preserving the commission’s power to preempt individual state laws that undermine its order. That means more battles like the one now going on between the Justice Department and California, which enacted a tough net neutrality law in the wake of the FCC’s abdication.\n\nThe endless legal battles and back-and-forth at the FCC cry out for Congress to act. It needs to give the commission explicit authority once and for all to bar broadband providers from meddling in the traffic on their network and to create clear rules protecting openness and innovation online.",
+        "sentences":  [
+                          {
+                              "key":  "2021:D:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "From the early days of broadband, advocates for consumers and web-based companies worried that the cable and phone companies selling broadband connections had the power and incentive to favor affiliated websites over their rivals’.",
+                              "zh":  "从宽带问世之初，消费者和网络公司的倡导者就担心，销售宽带连接的有线电视和电话公司既有能力也有动机偏袒关联网站，而打压竞争对手的网站。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "From the early days of broadband"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "advocates for consumers and web-based companies worried"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the cable and phone companies selling broadband connections had the power and incentive to favor affiliated websites over their rivals’"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "selling broadband connections"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to favor affiliated websites over their rivals’"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "advocates for consumers and web-based companies",
+                                                             "predicate":  "worried",
+                                                             "object":  "that the cable and phone companies selling broadband connections had the power and incentive to favor affiliated websites over their rivals’"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "That’s why there has been such a strong demand for rules that would prevent broadband providers from picking winners and losers online, preserving the freedom and innovation that have been the lifeblood of the Internet.",
+                              "zh":  "这就是为什么人们一直强烈要求制定规则，防止宽带供应商在网上任意挑选赢家和输家，以保护作为互联网命脉的自由与创新。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "That’s"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "why there has been such a strong demand for rules"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that would prevent broadband providers from picking winners and losers online"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "preserving the freedom and innovation"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that have been the lifeblood of the Internet"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "That",
+                                                             "predicate":  "is",
+                                                             "object":  "why there has been such a strong demand for rules"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:2",
+                              "seq":  2,
+                              "para":  2,
+                              "en":  "Yet that demand has been almost impossible to fill — in part because of pushback from broadband providers, anti-regulatory conservatives and the courts.",
+                              "zh":  "然而，这一诉求几乎不可能实现——部分原因是宽带供应商、反对监管的保守派人士以及法院的阻挠。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Yet that demand has been almost impossible to fill"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to fill"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "— in part because of pushback from broadband providers, anti-regulatory conservatives and the courts"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "that demand",
+                                                             "predicate":  "has been",
+                                                             "object":  "almost impossible to fill"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:3",
+                              "seq":  3,
+                              "para":  2,
+                              "en":  "A federal appeals court weighed in again Tuesday, but instead of providing a badly needed resolution, it only prolonged the fight.",
+                              "zh":  "周二，联邦上诉法院再次介入，但它非但没有提供一个急需的解决方案，反而只是延长了这场争斗。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "A federal appeals court weighed in again Tuesday"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but instead of providing a badly needed resolution, it only prolonged the fight"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "providing a badly needed resolution"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "A federal appeals court",
+                                                             "predicate":  "weighed in"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:4",
+                              "seq":  4,
+                              "para":  2,
+                              "en":  "At issue before the US Court of Appeals for the District of Columbia Circuit was the latest take of the Federal Communications Commission (FCC) on net neutrality, adopted on a party-line vote in 2017.",
+                              "zh":  "美国哥伦比亚特区巡回上诉法院审理的争议焦点是联邦通信委员会（FCC）对网络中立的最新立场，该立场是2017年按党派划线投票通过的。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "At issue before the US Court of Appeals for the District of Columbia Circuit was the latest take of the Federal Communications Commission (FCC) on net neutrality"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "adopted on a party-line vote in 2017"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the latest take of the Federal Communications Commission (FCC) on net neutrality",
+                                                             "predicate":  "was",
+                                                             "object":  "at issue"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "The Republican penned order not only eliminated the strict net neutrality rules the FCC had adopted when it had a Democratic majority in 2015, but rejected the commission’s authority to require broadband providers to do much of anything.",
+                              "zh":  "这份由共和党人起草的命令不仅废除了FCC在2015年民主党占多数时通过的严格网络中立规则，而且否定了该委员会要求宽带供应商做任何事情的权力。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The Republican penned order not only eliminated the strict net neutrality rules"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "the FCC had adopted"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "when it had a Democratic majority in 2015"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but rejected the commission’s authority to require broadband providers to do much of anything"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to require broadband providers to do much of anything"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The Republican penned order",
+                                                             "predicate":  "eliminated",
+                                                             "object":  "the strict net neutrality rules"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:6",
+                              "seq":  6,
+                              "para":  2,
+                              "en":  "The order also declared that state and local governments couldn’t regulate broadband providers either.",
+                              "zh":  "该命令还宣布，州政府和地方政府也不能监管宽带供应商。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The order also declared"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that state and local governments couldn’t regulate broadband providers either"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The order",
+                                                             "predicate":  "declared",
+                                                             "object":  "that state and local governments couldn’t regulate broadband providers either"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:7",
+                              "seq":  7,
+                              "para":  3,
+                              "en":  "The commission argued that other agencies would protect against anti-competitive behavior, such as a broadband-providing conglomerate like AT\u0026T favoring its own video- streaming service at the expense of Netflix and Apple TV.",
+                              "zh":  "该委员会辩称，其他机构会防范反竞争行为，例如像AT\u0026T这样的宽带供应巨头以牺牲Netflix和Apple TV为代价偏袒自家的视频流媒体服务。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The commission argued"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that other agencies would protect against anti-competitive behavior"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "such as a broadband-providing conglomerate like AT\u0026T favoring its own video- streaming service at the expense of Netflix and Apple TV"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "favoring its own video- streaming service at the expense of Netflix and Apple TV"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The commission",
+                                                             "predicate":  "argued",
+                                                             "object":  "that other agencies would protect against anti-competitive behavior"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:8",
+                              "seq":  8,
+                              "para":  3,
+                              "en":  "Yet the FCC also ended the investigations of broadband providers that imposed data caps on their rivals’ streaming services but not their own.",
+                              "zh":  "然而，FCC还终止了对宽带供应商的调查，这些供应商对竞争对手的流媒体服务设置了数据流量上限，却对自己的服务不加限制。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Yet the FCC also ended the investigations of broadband providers"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that imposed data caps on their rivals’ streaming services but not their own"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the FCC",
+                                                             "predicate":  "ended",
+                                                             "object":  "the investigations of broadband providers"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:9",
+                              "seq":  9,
+                              "para":  4,
+                              "en":  "On Tuesday, the appeals court unanimously upheld the 2017 order deregulating broadband providers, citing a Supreme Court ruling from 2005 that upheld a similarly deregulatory move.",
+                              "zh":  "周二，上诉法院一致维持了2017年放松对宽带供应商监管的命令，并援引了最高法院2005年一项支持类似放松监管举措的裁决。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "On Tuesday, the appeals court unanimously upheld the 2017 order"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "deregulating broadband providers"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "citing a Supreme Court ruling from 2005"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that upheld a similarly deregulatory move"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the appeals court",
+                                                             "predicate":  "upheld",
+                                                             "object":  "the 2017 order"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:10",
+                              "seq":  10,
+                              "para":  4,
+                              "en":  "But Judge Patricia Millett rightly argued in a concurring opinion that “the result is unhinged from the realities of modern broadband service,” and said Congress or the Supreme Court could intervene to “avoid trapping Internet regulation in technological anachronism.”",
+                              "zh":  "但帕特里夏·米利特法官在附随意见中正确地指出，“这一结果脱离了现代宽带服务的现实”，并表示国会或最高法院可以出面干预，“避免互联网监管陷入技术上的时代错误”。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But Judge Patricia Millett rightly argued in a concurring opinion"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that “the result is unhinged from the realities of modern broadband service,”"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and said Congress or the Supreme Court could intervene to “avoid trapping Internet regulation in technological anachronism.”"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to “avoid trapping Internet regulation in technological anachronism.”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Judge Patricia Millett",
+                                                             "predicate":  "argued",
+                                                             "object":  "that “the result is unhinged from the realities of modern broadband service,”"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:11",
+                              "seq":  11,
+                              "para":  5,
+                              "en":  "In the meantime, the court threw out the FCC’s attempt to block all state rules on net neutrality, while preserving the commission’s power to preempt individual state laws that undermine its order.",
+                              "zh":  "与此同时，法院否决了FCC试图阻止各州出台网络中立规则的举措，同时保留了该委员会先发制人地否决损害其命令的个别州法律的权力。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "In the meantime, the court threw out the FCC’s attempt"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to block all state rules on net neutrality"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "while preserving the commission’s power to preempt individual state laws"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to preempt individual state laws"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that undermine its order"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the court",
+                                                             "predicate":  "threw out",
+                                                             "object":  "the FCC’s attempt"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:12",
+                              "seq":  12,
+                              "para":  5,
+                              "en":  "That means more battles like the one now going on between the Justice Department and California, which enacted a tough net neutrality law in the wake of the FCC’s abdication.",
+                              "zh":  "这意味着还会有更多类似司法部与加利福尼亚州之间正在进行的较量——加州在FCC放弃监管职责后颁布了一项严厉的网络中立法。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "That means more battles like the one now going on between the Justice Department and California"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "now going on between the Justice Department and California"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which enacted a tough net neutrality law in the wake of the FCC’s abdication"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "That",
+                                                             "predicate":  "means",
+                                                             "object":  "more battles"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:13",
+                              "seq":  13,
+                              "para":  6,
+                              "en":  "The endless legal battles and back-and-forth at the FCC cry out for Congress to act.",
+                              "zh":  "FCC无休止的法律斗争和反复摇摆迫切要求国会采取行动。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The endless legal battles and back-and-forth at the FCC cry out for Congress to act"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to act"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The endless legal battles and back-and-forth at the FCC",
+                                                             "predicate":  "cry out for",
+                                                             "object":  "Congress to act"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2021:D:14",
+                              "seq":  14,
+                              "para":  6,
+                              "en":  "It needs to give the commission explicit authority once and for all to bar broadband providers from meddling in the traffic on their network and to create clear rules protecting openness and innovation online.",
+                              "zh":  "国会需要一劳永逸地赋予该委员会明确的权力，禁止宽带供应商干预其网络上的流量，并制定明确的规则来保护网上的开放与创新。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "It needs"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to give the commission explicit authority once and for all"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to bar broadband providers from meddling in the traffic on their network"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "meddling in the traffic on their network"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and to create clear rules protecting openness and innovation online"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "protecting openness and innovation online"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "It",
+                                                             "predicate":  "needs",
+                                                             "object":  "to give the commission explicit authority"
+                                                         }
+                                            }
+                          }
+                      ]
+    }
+]

@@ -7,117 +7,140 @@
     {
       "para": 1,
       "seq": 0,
-      "en": "Any fair-minded assessment of the dangers of the deal between Britain's National Health Service (NHS) and DeepMind must start by acknowledging that both sides mean well."
+      "en": "Any fair-minded assessment of the dangers of the deal between Britain's National Health Service (NHS) and DeepMind must start by acknowledging that both sides mean well.",
+      "zh": "任何对英国国家医疗服务体系（NHS）与DeepMind之间交易风险所作的公正评估，都必须首先承认双方都是出于好意。"
     },
     {
       "para": 1,
       "seq": 1,
-      "en": "DeepMind is one of the leading artificial intelligence (AI) companies in the world."
+      "en": "DeepMind is one of the leading artificial intelligence (AI) companies in the world.",
+      "zh": "DeepMind是全球领先的人工智能公司之一。"
     },
     {
       "para": 1,
       "seq": 2,
-      "en": "The potential of this work applied to healthcare is very great, but it could also lead to further concentration of power in the tech giants."
+      "en": "The potential of this work applied to healthcare is very great, but it could also lead to further concentration of power in the tech giants.",
+      "zh": "将这项工作应用于医疗保健的潜力非常巨大，但这也可能导致权力进一步集中于科技巨头手中。"
     },
     {
       "para": 1,
       "seq": 3,
-      "en": "It is against that background that the information commissioner, Elizabeth Denham, has issued her damning verdict against the Royal Free hospital trust under the NHS, which handed over to DeepMind the records of 1.6 million patients in 2015 on the basis of a vague agreement which took far too little account of the patients' rights and their expectations of privacy."
+      "en": "It is against that background that the information commissioner, Elizabeth Denham, has issued her damning verdict against the Royal Free hospital trust under the NHS, which handed over to DeepMind the records of 1.6 million patients in 2015 on the basis of a vague agreement which took far too little account of the patients' rights and their expectations of privacy.",
+      "zh": "正是在这一背景下，信息专员伊丽莎白·德纳姆对NHS下属的皇家自由医院信托基金作出了措辞严厉的裁决：该医院信托基金2015年依据一项含糊的协议，将160万患者的病历交给了DeepMind，而该协议对患者的权利及其隐私期望考虑得太少。"
     },
     {
       "para": 2,
       "seq": 4,
-      "en": "DeepMind has almost apologized."
+      "en": "DeepMind has almost apologized.",
+      "zh": "DeepMind已近乎道歉。"
     },
     {
       "para": 2,
       "seq": 5,
-      "en": "The NHS trust has mended its ways."
+      "en": "The NHS trust has mended its ways.",
+      "zh": "NHS信托基金已改过自新。"
     },
     {
       "para": 2,
       "seq": 6,
-      "en": "Further arrangements — and there may be many — between the NHS and DeepMind will be carefully scrutinised to ensure that all necessary permissions have been asked of patients and all unnecessary data has been cleaned."
+      "en": "Further arrangements — and there may be many — between the NHS and DeepMind will be carefully scrutinised to ensure that all necessary permissions have been asked of patients and all unnecessary data has been cleaned.",
+      "zh": "NHS与DeepMind之间进一步（而且可能还会有很多）的合作安排将受到仔细审查，以确保已征得患者所有必要的许可，并清除所有不必要的数据。"
     },
     {
       "para": 2,
       "seq": 7,
-      "en": "There are lessons about informed patient consent to learn."
+      "en": "There are lessons about informed patient consent to learn.",
+      "zh": "在患者知情同意方面，有教训值得吸取。"
     },
     {
       "para": 2,
       "seq": 8,
-      "en": "But privacy is not the only angle in this case and not even the most important."
+      "en": "But privacy is not the only angle in this case and not even the most important.",
+      "zh": "但隐私并非此案唯一的视角，甚至不是最重要的视角。"
     },
     {
       "para": 2,
       "seq": 9,
-      "en": "Ms Denham chose to concentrate the blame on the NHS trust, since under existing law it \"controlled\" the data and DeepMind merely \"processed\" it."
+      "en": "Ms Denham chose to concentrate the blame on the NHS trust, since under existing law it \"controlled\" the data and DeepMind merely \"processed\" it.",
+      "zh": "德纳姆女士选择将责任集中在NHS信托基金身上，因为根据现行法律，它“控制”了这些数据，而DeepMind只是“处理”了这些数据。"
     },
     {
       "para": 2,
       "seq": 10,
-      "en": "But this distinction misses the point that it is processing and aggregation, not the mere possession of bits, that gives the data value."
+      "en": "But this distinction misses the point that it is processing and aggregation, not the mere possession of bits, that gives the data value.",
+      "zh": "但这种区分忽略了这样一个要点：赋予数据价值的正是处理与整合，而非仅仅占有数据位。"
     },
     {
       "para": 3,
       "seq": 11,
-      "en": "The great question is who should benefit from the analysis of all the data that our lives now generate."
+      "en": "The great question is who should benefit from the analysis of all the data that our lives now generate.",
+      "zh": "最大的问题是，谁应该从对我们生活所产生的所有数据的分析中获益。"
     },
     {
       "para": 3,
       "seq": 12,
-      "en": "Privacy law builds on the concept of damage to an individual from identifiable knowledge about them."
+      "en": "Privacy law builds on the concept of damage to an individual from identifiable knowledge about them.",
+      "zh": "隐私法建立在“可识别身份的信息会对个人造成损害”这一概念之上。"
     },
     {
       "para": 3,
       "seq": 13,
-      "en": "That misses the way the surveillance economy works."
+      "en": "That misses the way the surveillance economy works.",
+      "zh": "这忽略了监控经济的运作方式。"
     },
     {
       "para": 3,
       "seq": 14,
-      "en": "The data of an individual there gains its value only when it is compared with the data of countless millions more."
+      "en": "The data of an individual there gains its value only when it is compared with the data of countless millions more.",
+      "zh": "在监控经济中，个人的数据只有在与千百万其他人的数据进行比较时才有价值。"
     },
     {
       "para": 4,
       "seq": 15,
-      "en": "The use of privacy law to curb the tech giants in this instance feels slightly maladapted."
+      "en": "The use of privacy law to curb the tech giants in this instance feels slightly maladapted.",
+      "zh": "在此案中运用隐私法来约束科技巨头，感觉有些不太合适。"
     },
     {
       "para": 4,
       "seq": 16,
-      "en": "This practice does not address the real worry."
+      "en": "This practice does not address the real worry.",
+      "zh": "这种做法并没有解决真正的担忧。"
     },
     {
       "para": 4,
       "seq": 17,
-      "en": "It is not enough to say that the algorithms DeepMind develops will benefit patients and save lives."
+      "en": "It is not enough to say that the algorithms DeepMind develops will benefit patients and save lives.",
+      "zh": "仅仅说DeepMind开发的算法将使患者受益并拯救生命，这是不够的。"
     },
     {
       "para": 4,
       "seq": 18,
-      "en": "What matters is that they will belong to a private monopoly which developed them using public resources."
+      "en": "What matters is that they will belong to a private monopoly which developed them using public resources.",
+      "zh": "关键在于，这些算法将属于一家利用公共资源开发它们的私人垄断企业。"
     },
     {
       "para": 4,
       "seq": 19,
-      "en": "If software promises to save lives on the scale that drugs now can, big data may be expected to behave as a big pharma has done."
+      "en": "If software promises to save lives on the scale that drugs now can, big data may be expected to behave as a big pharma has done.",
+      "zh": "如果软件能像现在的药物那样有望大规模拯救生命，那么大数据的表现或许就会像大型制药公司一样。"
     },
     {
       "para": 4,
       "seq": 20,
-      "en": "We are still at the beginning of this revolution and small choices now may turn out to have gigantic consequences later."
+      "en": "We are still at the beginning of this revolution and small choices now may turn out to have gigantic consequences later.",
+      "zh": "我们仍处于这场革命的起步阶段，现在的一些小选择，将来可能会产生巨大的后果。"
     },
     {
       "para": 4,
       "seq": 21,
-      "en": "A long struggle will be needed to avoid a future of digital feudalism."
+      "en": "A long struggle will be needed to avoid a future of digital feudalism.",
+      "zh": "要避免数字封建主义的未来，需要长期的努力。"
     },
     {
       "para": 4,
       "seq": 22,
-      "en": "Ms Denham's report is a welcome start."
+      "en": "Ms Denham's report is a welcome start.",
+      "zh": "德纳姆女士的报告是一个值得欢迎的开端。"
     }
   ],
   "questions": [

@@ -1,0 +1,1050 @@
+{
+  "2021:A:0": {
+    "grammar": [
+      { "title": "特殊疑问句（疑问词 + 情态动词提前）", "text": "How can ... justify 为疑问词 How 引出的一般疑问句倒装语序，正常语序为 Britain's train operators can justify。阅读时还原为陈述语序即可；yet another 意为'又一个'，暗含'已经涨过多次'的不满情绪。" }
+    ],
+    "words": [
+      { "word": "justify", "meaning": "v. 为……辩护、证明……正当", "note": "高频考词；宾语常为 decisions/actions/costs 等，后可接 to sb。" },
+      { "word": "possibly", "meaning": "adv. 竟能、怎么可能", "note": "在疑问句中表怀疑/惊讶，how can sb possibly do sth = '某人怎么可能做到……'。" },
+      { "word": "fares", "meaning": "n. 票价、车费", "note": "复数泛指；rail passenger fares 即'铁路客运票价'。" }
+    ],
+    "phrases": [
+      { "text": "yet another increase", "meaning": "又一次涨价", "note": "yet another 强调'又来了一个'，含抱怨语气。" }
+    ]
+  },
+  "2021:A:1": {
+    "grammar": [
+      { "title": "冒号引出解释说明", "text": "冒号后的 every January ... rises 是对前句 annual ritual 的具体说明，冒号处可理解为'即、也就是说'。" },
+      { "title": "现在分词作结果状语", "text": "imposing a significant extra burden on those ... 是 rises 的直接结果，可译作'从而/结果给……带来负担'，阅读时把它与主句断开成一层新意思。" },
+      { "title": "have no option but to do 句型", "text": "those who have no option but to use ... 中 but 表'除了'，整体意为'除了……别无选择'，是固定句型，but 后接不带 to 或带 to 的不定式取决于结构。" }
+    ],
+    "words": [
+      { "word": "grimly", "meaning": "adv. 令人沮丧地、严峻地", "note": "由 grim（严峻的）加 -ly 而来；grimly reliable 语义矛盾却又贴切：'可靠得令人沮丧'。" },
+      { "word": "ritual", "meaning": "n. 惯例、固定程序", "note": "此处非宗教义，指'每年照例发生的事'。" },
+      { "word": "impose", "meaning": "v. 施加、强加", "note": "impose a burden on sb 为常用搭配；impose 还可表'征税'。" },
+      { "word": "burden", "meaning": "n. 负担", "note": "significant extra burden 即'沉重的额外负担'。" },
+      { "word": "option", "meaning": "n. 选择", "note": "have no option but to do = have no choice but to do，'别无选择只能……'。" }
+    ],
+    "phrases": [
+      { "text": "have no option but to", "meaning": "别无选择只能……", "note": "与 have no choice but to 同义，是高频固定句型。" },
+      { "text": "get to work", "meaning": "去上班、通勤", "note": "get to 此处表'到达'，非'得到'。" },
+      { "text": "or otherwise", "meaning": "或以其他方式", "note": "otherwise 承接上文，'（去上班）或以其他目的出行'。" }
+    ]
+  },
+  "2021:A:2": {
+    "grammar": [
+      { "title": "同位语", "text": "an average of 2.7 percent 插在 rise 与 may be 之间，补充说明 rise 的具体数值，阅读时可视为插入成分先跳过，抓主干 This year's rise may be a fraction lower than last year's。" },
+      { "title": "but 并列转折 + 程度修饰", "text": "but 连接两个分句形成对比；a fraction 与 well above 都是程度修饰语，分别表'一点点'与'远远高于'，对比反衬出涨幅依然偏高。" }
+    ],
+    "words": [
+      { "word": "fraction", "meaning": "n. 一小部分、一点儿", "note": "a fraction lower = '略低一点'，此处不可按'分数'直译。" },
+      { "word": "official", "meaning": "adj. 官方的", "note": "the official CPI measure 即'官方的衡量指标'。" },
+      { "word": "measure", "meaning": "n. 衡量标准、尺度", "note": "the official ... measure of inflation 即'官方对通胀的衡量标准'。" },
+      { "word": "inflation", "meaning": "n. 通货膨胀", "note": "CPI 的展开释义，属于经济类高频词。" }
+    ],
+    "phrases": [
+      { "text": "well above", "meaning": "远高于", "note": "well 修饰比较级表程度，'远远地'。" },
+      { "text": "a fraction lower than", "meaning": "比……略低一点", "note": "fraction 在此强调幅度小，与 well above 形成反差。" }
+    ]
+  },
+  "2021:A:3": {
+    "grammar": [
+      { "title": "on the grounds that + 原因状语", "text": "on the grounds that 引出允许涨价所依据的理由（'以……为由'），that 从句说明具体理由，阅读时可整体译为'理由是……'。" },
+      { "title": "should be borne by 情态动词 + 被动语态", "text": "the cost ... should be borne by those 中 should 表'应该'，被动语态表'由谁承担'；转换成主动概念就是 those should bear the cost。" },
+      { "title": "rather than 结构", "text": "rather than the general taxpayer 与前面的 by those who use it 对比，意为'而不是由普通纳税人承担'，阅读时注意它是对等成分的否定。" }
+    ],
+    "words": [
+      { "word": "successive", "meaning": "adj. 连续的、接二连三的", "note": "successive governments 即'历届政府'。" },
+      { "word": "permit", "meaning": "v. 允许", "note": "permit such increases = '允许此类涨价'；注意与 promise 区分。" },
+      { "word": "borne", "meaning": "v. 承担（bear 的过去分词）", "note": "be borne by sb = '由某人承担'，bear the cost 为固定搭配。" },
+      { "word": "grounds", "meaning": "n. 理由、根据", "note": "on the grounds that 为固定短语；grounds 作'理由'常复数。" },
+      { "word": "taxpayer", "meaning": "n. 纳税人", "note": "the general taxpayer 即'普通纳税人'，是政治经济类高频词。" }
+    ],
+    "phrases": [
+      { "text": "on the grounds that", "meaning": "以……为理由、基于……", "note": "引出原因的书面语短语，真题高频。" },
+      { "text": "rather than", "meaning": "而不是", "note": "连接对等成分表取舍，阅读时抓住'肯定前、否定后'。" },
+      { "text": "investing in", "meaning": "投资于", "note": "invest in and run 并列两个动名词作介词 of 的宾语。" }
+    ]
+  },
+  "2021:A:4": {
+    "grammar": [
+      { "title": "插入语 the argument goes", "text": "the argument goes 插在 Why 与 should 之间，意为'有人这样论证/有种说法认为'，阅读时可先剔除插入语，把主干还原为 Why should a car-driving pensioner ... have to subsidise ...？" },
+      { "title": "特殊疑问句倒装", "text": "Why ... should + 主语 + 动词 构成疑问句语序，反问语气强烈，实为修辞性反问，无需读者回答。" }
+    ],
+    "words": [
+      { "word": "pensioner", "meaning": "n. 领养老金者、退休老人", "note": "由 pension（养老金）派生，英国常用词。" },
+      { "word": "subsidise", "meaning": "v. 补贴、资助", "note": "美式拼写 subsidize；subsidise the commute 即'补贴通勤'。" },
+      { "word": "commute", "meaning": "n. 通勤（路程）", "note": "the daily commute 即'每日通勤'；作动词意为'通勤、上下班往返'。" },
+      { "word": "stockbroker", "meaning": "n. 股票经纪人", "note": "与 pensioner 形成贫富对比，是理解作者反问意图的关键。" }
+    ],
+    "phrases": [
+      { "text": "the argument goes", "meaning": "有观点认为、据说", "note": "插语式转述，表达'该观点是这样的'。" },
+      { "text": "have to", "meaning": "不得不", "note": "此处表'非得（为别人掏钱）'，加强反问语气。" }
+    ]
+  },
+  "2021:A:5": {
+    "grammar": [
+      { "title": "there is a sense that 同位语从句", "text": "there is a sense that ... 中 that 引导的从句说明 a sense 的具体内容，可译为'人们有一种感觉：……'，that 在从句中不作成分。" },
+      { "title": "many of whom 非限定性定语从句", "text": "many of whom will face among the biggest rises 是对 the travails of commuters in the South East 中 commuters 的补充说明，其中 whom 指代 commuters；阅读时插在主语和谓语之间，需先把主句谓语 have received 找出来。" },
+      { "title": "compared to 过去分词作比较状语", "text": "compared to those who ... 表'与……相比'，是 than 类比较的书面变体，引出的比较对象是那些忍受中部和北部落后设施的人。" }
+    ],
+    "words": [
+      { "word": "equally", "meaning": "adv. 同样地", "note": "句首副词起承上启下作用，表示'另一方面、同样地'。" },
+      { "word": "travails", "meaning": "n. 艰辛、磨难", "note": "the travails of commuters 即'通勤者的艰难处境'，书面词。" },
+      { "word": "endure", "meaning": "v. 忍受、承受", "note": "must endure 强调'不得不长期忍受'，与 suffer 近义。" },
+      { "word": "infrastructure", "meaning": "n. 基础设施", "note": "the poor infrastructure 即'落后的基础设施'，社会议题高频词。" }
+    ],
+    "phrases": [
+      { "text": "compared to", "meaning": "与……相比", "note": "引出比较对象，可替换为 compared with。" },
+      { "text": "face among the biggest rises", "meaning": "面临最大幅度的涨价", "note": "face 表'面临'；among the biggest 表'属于最大之一'。" }
+    ]
+  },
+  "2021:A:6": {
+    "grammar": [
+      { "title": "现在完成时 + 时间段状语", "text": "over the past 12 months 与现在完成时 have experienced 连用，强调'近 12 个月以来已经历过'，时间跨度延伸到当下。" }
+    ],
+    "words": [
+      { "word": "commuters", "meaning": "n. 通勤者", "note": "承接上文的通勤者话题；commuter 指每日乘车往返上下班的人。" },
+      { "word": "strikes", "meaning": "n. 罢工", "note": "the worst rail strikes in years 即'多年来最严重的铁路罢工'；strike 作动词还有'罢工、撞击'等义。" }
+    ],
+    "phrases": [
+      { "text": "over the past 12 months", "meaning": "在过去 12 个月里", "note": "时间状语，常与现在完成时搭配。" },
+      { "text": "in years", "meaning": "多年来、数年来", "note": "the worst ... in years 表'多年不遇的最……'。" }
+    ]
+  },
+  "2021:A:7": {
+    "grammar": [
+      { "title": "It is all very well ... but ... 句型", "text": "It is all very well train operators trumpeting ... 意为'运营商吹嘘……固然很好/说得轻巧'，是一个表反讽的固定句型，其真正意图在后半句 but 之后，即'（但）乘客理应……'，阅读重点应放在 but 后。" },
+      { "title": "省略 that 的定语从句", "text": "they are making to the network 与 they are now paying to travel 均为省略关系代词 that 的定语从句，分别修饰 the improvements 与 the substantial sums。" }
+    ],
+    "words": [
+      { "word": "trumpet", "meaning": "v. 吹嘘、大肆宣扬", "note": "名词本义'喇叭'，转作动词表'到处宣扬'，含贬义。" },
+      { "word": "substantial", "meaning": "adj. 大量的、可观的", "note": "the substantial sums 即'大笔金额'，与票价上涨语境呼应。" },
+      { "word": "sums", "meaning": "n. 金额、款项", "note": "可数名词表'钱款数额'。" }
+    ],
+    "phrases": [
+      { "text": "all very well", "meaning": "固然很好、说得容易", "note": "与 but 连用构成反讽句型，先肯定后否定。" },
+      { "text": "be able to expect", "meaning": "理应期望、有权期待", "note": "should be able to 表'理应能够'。" },
+      { "text": "a basic level of service", "meaning": "基本的服务水平", "note": "level of service 为固定搭配，'服务水平'。" }
+    ]
+  },
+  "2021:A:8": {
+    "grammar": [
+      { "title": "简单句 + 动词短语作谓语", "text": "全句主干为 The responsibility ... rests on the unions，主语中的 for the latest wave of strikes 是修饰 responsibility 的后置定语；rest on 意为'在于、取决于'。" }
+    ],
+    "words": [
+      { "word": "responsibility", "meaning": "n. 责任", "note": "the responsibility for ... rests on sb = '……的责任落在某人身上'。" },
+      { "word": "wave", "meaning": "n. 一波、浪潮", "note": "the latest wave of strikes 即'最近一波罢工'，wave 表抽象'浪潮'。" },
+      { "word": "unions", "meaning": "n. 工会", "note": "指 trade unions，劳工话题高频词。" }
+    ],
+    "phrases": [
+      { "text": "rest on", "meaning": "在于、取决于、归（某人）承担", "note": "rest on the unions = '责任在工会'。" }
+    ]
+  },
+  "2021:A:9": {
+    "grammar": [
+      { "title": "there is a strong case that 同位语从句", "text": "there is a strong case that ... 中 that 从句说明 case 的具体内容，意为'有充分的理由认为……'，是书面表达观点的常用句型。" },
+      { "title": "省略 that 的定语从句", "text": "they have suffered 修饰 the disruption，是省略关系代词 that 的定语从句，意为'他们所受的干扰'。" }
+    ],
+    "words": [
+      { "word": "case", "meaning": "n. 理由、论点", "note": "a strong case that ... = '（主张……的）充分理由'，注意此处非'案件'义。" },
+      { "word": "compensation", "meaning": "n. 赔偿、补偿", "note": "receive compensation for ... 即'就……获得赔偿'。" },
+      { "word": "disruption", "meaning": "n. 扰乱、中断", "note": "the disruption they have suffered 即'他们所遭受的干扰'，由动词 disrupt 派生。" },
+      { "word": "industrial action", "meaning": "n. 罢工等劳工行动", "note": "worst affected by industrial action 即'受罢工影响最严重'。" }
+    ],
+    "phrases": [
+      { "text": "a strong case that", "meaning": "有充分理由认为", "note": "高频书面句型，表主张有据。" },
+      { "text": "worst affected", "meaning": "受影响最严重", "note": "badly/severely affected 的最高级形式。" }
+    ]
+  },
+  "2021:A:10": {
+    "grammar": [
+      { "title": "so that 目的状语从句", "text": "so that services can continue to operate 表目的，译为'以便……'；其内部又嵌入 even when strikes occur 这一让步状语从句，阅读时按'以便即使发生罢工，服务也能继续运营'的顺序理解。" },
+      { "title": "连续不定式表目的", "text": "to change the law to introduce a minimum service requirement 中两个不定式逐层表目的，可译为'通过修法来引入最低服务要求'。" }
+    ],
+    "words": [
+      { "word": "pledge", "meaning": "v. 承诺、保证", "note": "pledge to do sth = '承诺做某事'，比 promise 更正式。" },
+      { "word": "minimum", "meaning": "adj. 最低的、最小的", "note": "a minimum service requirement 即'最低服务要求'；反义词 maximum。" },
+      { "word": "requirement", "meaning": "n. 要求、规定", "note": "由动词 require 派生，meet a requirement = '满足要求'。" },
+      { "word": "occur", "meaning": "v. 发生", "note": "when strikes occur 即'当罢工发生时'，较 happen 正式。" },
+      { "word": "operate", "meaning": "v. 运营、运行", "note": "services can continue to operate 即'服务得以继续运营'。" }
+    ],
+    "phrases": [
+      { "text": "so that", "meaning": "以便、为了", "note": "引导目的状语从句，句中还有 even when 作插入让步，需整体理解。" }
+    ]
+  },
+  "2021:A:11": {
+    "grammar": [
+      { "title": "不定式作目的状语", "text": "to address the long-running problems ... 说明 a wider package of measures 的目的，可译为'以解决……问题的更广泛的一揽子措施'。" }
+    ],
+    "words": [
+      { "word": "form", "meaning": "v. 构成、成为", "note": "form part of ... = '构成……的一部分'，此处 form 作动词。" },
+      { "word": "package", "meaning": "n. 一揽子、一套", "note": "a package of measures 即'一揽子措施'，政策类高频搭配。" },
+      { "word": "address", "meaning": "v. 解决、处理", "note": "address the problems 即'解决（长期存在的）问题'，是高频动词义。" },
+      { "word": "long-running", "meaning": "adj. 长期存在的", "note": "复合形容词，修饰 problems，强调问题旷日持久。" }
+    ],
+    "phrases": [
+      { "text": "form part of", "meaning": "构成……的一部分", "note": "常见书面搭配。" },
+      { "text": "a wider package of measures", "meaning": "更广泛的一揽子措施", "note": "package 此处为'成套措施'，经济政策语境常用。" }
+    ]
+  },
+  "2021:A:12": {
+    "grammar": [
+      { "title": "if 条件状语从句 + 分词后置定语", "text": "if they must also endure cramped, unreliable services 是主句 passengers will not be willing to pay more indefinitely 的前提条件；interrupted by regular chaos 是过去分词短语作后置定语修饰 services，阅读时要把 services 与 interrupted 之间的定语关系连起来。" },
+      { "title": "when/or 并列的时间状语从句", "text": "when timetables are changed, or planned maintenance is managed incompetently 由 or 连接两个时间状语从句，共同说明 chaos 出现的时机。" }
+    ],
+    "words": [
+      { "word": "indefinitely", "meaning": "adv. 无限期地、无休止地", "note": "pay more indefinitely 即'无限期地多付钱'，词根 definite（确定的）。" },
+      { "word": "endure", "meaning": "v. 忍受", "note": "if they must also endure ... 与前面 must endure 呼应，表达'还得忍受'。" },
+      { "word": "cramped", "meaning": "adj. 拥挤的、狭窄的", "note": "cramped services 形容车厢拥挤。" },
+      { "word": "unreliable", "meaning": "adj. 不可靠的", "note": "由 reliable 加否定前缀 un- 构成，reliable 一词在首句已出现。" },
+      { "word": "maintenance", "meaning": "n. 维护、保养", "note": "planned maintenance 即'计划性维护'，railway 语境高频。" },
+      { "word": "incompetently", "meaning": "adv. 无能地、管理不善地", "note": "由 competent 派生，in- 表否定，'管理不善地'。" }
+    ],
+    "phrases": [
+      { "text": "be willing to", "meaning": "愿意……", "note": "will not be willing to pay more 即'不愿再多付钱'。" },
+      { "text": "interrupted by", "meaning": "被……中断", "note": "过去分词短语作后置定语，修饰 services。" }
+    ]
+  },
+  "2021:A:13": {
+    "grammar": [
+      { "title": "may have been seen off 情态动词 + 完成被动式", "text": "may have been seen off 表示'（现在）可能已经被化解'——may + 完成体表对过去发生事实的推测，被动语态见 off 的逻辑宾语是 threat，阅读时还原为 'the threat may have been seen off'。" },
+      { "title": "if 条件状语从句 + but 转折", "text": "but it will return with a vengeance 表转折，if the justified anger of passengers is not addressed 是条件，全句意为'若乘客的正当愤怒得不到及时解决，威胁必将变本加厉地卷土重来'。" }
+    ],
+    "words": [
+      { "word": "nationalisation", "meaning": "n. 国有化", "note": "美式拼写 nationalization；the threat of nationalisation 即'国有化的威胁'。" },
+      { "word": "vengeance", "meaning": "n. 报复、复仇", "note": "with a vengeance 为固定搭配，'变本加厉地、猛烈地'。" },
+      { "word": "justified", "meaning": "adj. 正当的、有理由的", "note": "the justified anger 即'正当的愤怒'，由 justify 派生。" },
+      { "word": "address", "meaning": "v. 处理、解决", "note": "anger is not addressed 即'愤怒未得到解决'。" }
+    ],
+    "phrases": [
+      { "text": "see off", "meaning": "化解、摆脱", "note": "原义'送别'，此处引申为'打退、化解（威胁）'。" },
+      { "text": "with a vengeance", "meaning": "变本加厉地、猛烈地", "note": "固定短语，表程度突然加剧。" },
+      { "text": "in short order", "meaning": "很快、在短期内", "note": "书面语，相当于 promptly。" }
+    ]
+  },
+  "2021:B:0": {
+    "grammar": [
+      { "title": "that 定语从句修饰 the third year", "text": "that Indonesia's bleak rate ... has slowed 修饰 the third year，注意这是定语从句而非同位语；in a row 修饰 the third year，意为'连续第三年'。主句主干为 Last year marked the third year。" }
+    ],
+    "words": [
+      { "word": "mark", "meaning": "v. 标志、标志（某年发生某事）", "note": "Last year marked ... 即'去年标志着……'。" },
+      { "word": "bleak", "meaning": "adj. 令人沮丧的、不乐观的", "note": "bleak rate of deforestation 修饰'砍伐率'，传达负面评价。" },
+      { "word": "deforestation", "meaning": "n. 森林砍伐、毁林", "note": "由 forest 加前缀 de-（去除）与后缀 -ation 构成，环保类高频词。" },
+      { "word": "pace", "meaning": "n. 速度、节奏", "note": "slow in pace = '在速度上放缓'。" }
+    ],
+    "phrases": [
+      { "text": "in a row", "meaning": "连续地", "note": "the third year in a row 即'连续第三年'，也可说 three years in a row。" },
+      { "text": "slow in pace", "meaning": "速度放缓", "note": "slow 作动词'放慢'，in pace 说明放缓的方面。" }
+    ]
+  },
+  "2021:B:1": {
+    "grammar": [
+      { "title": "简单句（主系表）", "text": "主干为 One reason ... may be the country's antipoverty program，may be 表'可能是'，语气不确定，为后文论证留悬念。" }
+    ],
+    "words": [
+      { "word": "turnaround", "meaning": "n. 转变、好转", "note": "指上句所说砍伐速度放缓这一向好转变。" },
+      { "word": "antipoverty", "meaning": "adj. 扶贫的、反贫困的", "note": "复合词：anti-（反对）+ poverty；antipoverty program 即'扶贫计划'。" }
+    ],
+    "phrases": [
+      { "text": "reason for", "meaning": "……的原因", "note": "One reason for the turnaround 即'这一转变的一个原因'。" }
+    ]
+  },
+  "2021:B:2": {
+    "grammar": [
+      { "title": "that 定语从句 + such as 举例", "text": "that gives money to its poorest residents 修饰 a program，说明计划内容；such as requiring ... or get ... 举例说明 under certain conditions，注意 such as 后接动名词短语作例证。" }
+    ],
+    "words": [
+      { "word": "phase", "meaning": "v. 分阶段实行", "note": "phase in 为短语动词，'逐步引入'，phase 也可作名词'阶段'。" },
+      { "word": "residents", "meaning": "n. 居民", "note": "poorest residents 即'最贫困的居民'。" },
+      { "word": "require", "meaning": "v. 要求", "note": "requiring people to keep kids in school 中 require sb to do sth 为固定用法。" },
+      { "word": "regular", "meaning": "adj. 定期的、常规的", "note": "regular medical care 即'定期医疗护理'。" },
+      { "word": "medical", "meaning": "adj. 医疗的", "note": "medical care 即'医疗保健'。" }
+    ],
+    "phrases": [
+      { "text": "phase in", "meaning": "逐步推行、分阶段引入", "note": "名词形式为 phase-in（见 B:15）；反义短语 phase out '逐步取消'。" },
+      { "text": "keep kids in school", "meaning": "让孩子坚持上学", "note": "keep sb in school 表'使……保持在学状态'。" }
+    ]
+  },
+  "2021:B:3": {
+    "grammar": [
+      { "title": "过去分词短语作句首状语", "text": "Called conditional cash transfers or CCTs 实为（Being）Called 的省略形式，说明主语 these programs 的称谓，阅读时可还原为 'These programs are called ...'。" },
+      { "title": "be designed to do", "text": "are designed to reduce inequality and break the cycle of poverty 中 be designed to do 表'被设计用来做……'，两个并列不定式说明设计目的。" }
+    ],
+    "words": [
+      { "word": "conditional", "meaning": "adj. 有条件的", "note": "conditional cash transfers 即'有条件现金转移'，CCT 为其缩写。" },
+      { "word": "assistance", "meaning": "n. 援助、帮助", "note": "social assistance programs 即'社会救助项目'。" },
+      { "word": "inequality", "meaning": "n. 不平等", "note": "reduce inequality 即'减少不平等'；反义词 equality。" },
+      { "word": "cycle", "meaning": "n. 循环", "note": "break the cycle of poverty 即'打破贫困的恶性循环'。" },
+      { "word": "poverty", "meaning": "n. 贫困", "note": "全文核心词，反复出现，注意与 property（财产）区分。" }
+    ],
+    "phrases": [
+      { "text": "cash transfers", "meaning": "现金转移支付", "note": "社会政策术语，指直接向个人发放现金的援助方式。" },
+      { "text": "break the cycle of poverty", "meaning": "打破贫困的恶性循环", "note": "高频社科表达，cycle 此处含'循环往复'之意。" }
+    ]
+  },
+  "2021:B:4": {
+    "grammar": [
+      { "title": "被动语态", "text": "They're already used in ... 为一般现在时被动语态，主语 They 指上文的 programs，强调'被使用/被推行'的事实。" }
+    ],
+    "words": [
+      { "word": "dozens", "meaning": "n. 几十个", "note": "dozens of countries 表'数十个国家'，不确指数量的常用表达。" },
+      { "word": "worldwide", "meaning": "adv. 在世界范围内", "note": "同义于 around the world。" }
+    ],
+    "phrases": [
+      { "text": "in dozens of", "meaning": "数十个……", "note": "dozens of 表不精确的大数量，强调多国采用。" }
+    ]
+  },
+  "2021:B:5": {
+    "grammar": [
+      { "title": "现在完成时 + 不定式表结果", "text": "has provided ... to substantially reduce ... 中现在完成时强调'到目前为止已提供'，to reduce 作结果/目的状语，说明提供食物药品所达到的效果。" }
+    ],
+    "words": [
+      { "word": "substantially", "meaning": "adv. 大幅度地、实质性地", "note": "to substantially reduce 即'大幅减少'。" },
+      { "word": "severe", "meaning": "adj. 严重的", "note": "severe growth problems 即'严重的生长发育问题'。" },
+      { "word": "growth", "meaning": "n. 成长、发育", "note": "growth problems among children 指儿童发育问题。" }
+    ],
+    "phrases": [
+      { "text": "enough food and medicine", "meaning": "充足的食物和药品", "note": "enough 修饰名词；to do 不定式说明其作用。" }
+    ]
+  },
+  "2021:B:6": {
+    "grammar": [
+      { "title": "一般现在时 + 否定", "text": "don't generally consider 为一般现在时否定，generally 位置在动词前表'通常'，强调'通常不考虑'这一普遍情形。" }
+    ],
+    "words": [
+      { "word": "consider", "meaning": "v. 考虑", "note": "consider effects on the environment 即'考虑对环境的影响'。" },
+      { "word": "effects", "meaning": "n. 影响", "note": "effects on the environment 中 on 表'对……的（影响）'。" }
+    ],
+    "phrases": [
+      { "text": "effects on", "meaning": "对……的影响", "note": "have/take effects on sth 为常用搭配。" }
+    ]
+  },
+  "2021:B:7": {
+    "grammar": [
+      { "title": "倒装转述（says Paul Ferraro）", "text": "says Paul Ferraro 置于句末，主语（Paul Ferraro）与谓语（says）倒装，是引用转述的常见语序；其后 an economist at Johns Hopkins University 为同位语补充身份。阅读时先看句末谁在说话，再看说了什么。" },
+      { "title": "be viewed as 被动结构", "text": "are often viewed as conflicting goals 意为'常常被视为相互冲突的目标'，view A as B 的被动式。" }
+    ],
+    "words": [
+      { "word": "alleviation", "meaning": "n. 缓解、减轻", "note": "poverty alleviation 即'扶贫'，社科高频词；动词 alleviate。" },
+      { "word": "conflicting", "meaning": "adj. 相互冲突的", "note": "conflicting goals 即'相互矛盾的目标'，由动词 conflict 派生。" },
+      { "word": "economist", "meaning": "n. 经济学家", "note": "says Paul Ferraro, an economist at ... 用于介绍专家身份。" }
+    ],
+    "phrases": [
+      { "text": "be viewed as", "meaning": "被视为", "note": "同义于 be regarded as / be seen as。" },
+      { "text": "poverty alleviation", "meaning": "扶贫、减贫", "note": "固定表达，alleviation 与 relief 近义。" }
+    ]
+  },
+  "2021:B:8": {
+    "grammar": [
+      { "title": "because 表语从句", "text": "That's because ... 中 because 从句作表语，解释'之所以那样（环保与扶贫被认为冲突）是因为……'，注意这是表语从句而非原因状语从句。" },
+      { "title": "while 表对比", "text": "while protecting the environment is sometimes correlated with greater poverty 中 while 表示'然而、而'，将经济增长与环保的两种相关性并列对照。" }
+    ],
+    "words": [
+      { "word": "correlated", "meaning": "adj. 相关的", "note": "be correlated with = '与……相关'，注意介词为 with。" },
+      { "word": "degradation", "meaning": "n. 退化、恶化", "note": "environmental degradation 即'环境恶化'，环保类高频词。" },
+      { "word": "poverty", "meaning": "n. 贫困", "note": "greater poverty 即'更大的贫困'。" }
+    ],
+    "phrases": [
+      { "text": "be correlated with", "meaning": "与……相关", "note": "为句子核心搭配，correlation（相关性）在 B:9 出现名词形式。" }
+    ]
+  },
+  "2021:B:9": {
+    "grammar": [
+      { "title": "简单句 + 否定", "text": "主干为 those correlations don't prove cause and effect，don't 表'并不能'，否定句强调'相关不等于因果'这一论证转折点。" }
+    ],
+    "words": [
+      { "word": "correlations", "meaning": "n. 相关性、关联", "note": "承接上句 correlated，是本文论证关键概念。" },
+      { "word": "prove", "meaning": "v. 证明", "note": "prove cause and effect 即'证明因果关系'。" }
+    ],
+    "phrases": [
+      { "text": "cause and effect", "meaning": "因果关系", "note": "固定名词短语，科学论证常用。" }
+    ]
+  },
+  "2021:B:10": {
+    "grammar": [
+      { "title": "分词短语前后夹击主谓", "text": "主语 The only previous study 与谓语 supported 之间插入 analyzing causality（现在分词作定语）与 based on ...（过去分词作状语）两层修饰，阅读时应先勾出 'The only previous study ... supported the traditional view' 这个主干框架，再吸收两层修饰信息。" },
+      { "title": "that 定语从句", "text": "that had instituted CCTs 修饰 an area in Mexico，说明该地区已实施 CCT 计划。" }
+    ],
+    "words": [
+      { "word": "causality", "meaning": "n. 因果关系、因果性", "note": "analyzing causality 即'分析因果关系'，与 B:9 的 cause and effect 呼应。" },
+      { "word": "institute", "meaning": "v. 实施、设立", "note": "had instituted CCTs 即'已实施 CCT 计划'；注意与 institution 词义区分。" },
+      { "word": "previous", "meaning": "adj. 先前的", "note": "the only previous study 即'此前唯一的研究'，only 强调唯一性。" },
+      { "word": "view", "meaning": "n. 观点", "note": "the traditional view 即'传统观点'。" }
+    ],
+    "phrases": [
+      { "text": "based on", "meaning": "基于、以……为基础", "note": "过去分词短语作状语，说明研究的地域基础。" },
+      { "text": "the traditional view", "meaning": "传统观点", "note": "指'经济增长与环境恶化相关'的传统看法。" }
+    ]
+  },
+  "2021:B:11": {
+    "grammar": [
+      { "title": "as 时间状语从句", "text": "as people got more money 意为'随着人们拿到更多钱'，as 在此表'随着'，说明主句情况发生的伴随过程。" },
+      { "title": "for + 名词 + to do 结构", "text": "for cattle to raise for meat 中 for cattle 是不定式 to raise 的逻辑主语，可译为'供牛去饲养（供人吃肉）'，阅读时理顺 for 的所属关系。" }
+    ],
+    "words": [
+      { "word": "cleared", "meaning": "adj. 已开垦的、被清除的", "note": "cleared land 即'开垦出来的土地'，clear 作动词'清除（树木）'。" },
+      { "word": "cattle", "meaning": "n. 牛（总称）", "note": "复数意义名词，不用 cattle a；用于养牛产业语境。" },
+      { "word": "raise", "meaning": "v. 饲养", "note": "raise cattle for meat 即'养牛以取肉'；raise 还有'抚养、筹集、提出'等义。" }
+    ],
+    "phrases": [
+      { "text": "clear land", "meaning": "开垦土地、砍伐森林", "note": "与环境（森林砍伐）主题直接相关。" }
+    ]
+  },
+  "2021:B:12": {
+    "grammar": [
+      { "title": "do not have to 表'不必'", "text": "do not have to negatively affect 意为'不必对环境产生负面影响'，have to 表必要性；句末 though 作副词，意为'不过、然而'，补充转折。" }
+    ],
+    "words": [
+      { "word": "negatively", "meaning": "adv. 负面地", "note": "negatively affect 即'产生负面影响'。" },
+      { "word": "though", "meaning": "adv. 不过、可是", "note": "置于句末，表转折，相当于 however，是口语及书面通用用法。" }
+    ],
+    "phrases": [
+      { "text": "have to", "meaning": "不得不、必须", "note": "don't have to = '不必'，注意与 mustn't（禁止）区分。" }
+    ]
+  },
+  "2021:B:13": {
+    "grammar": [
+      { "title": "if 引导的宾语从句", "text": "if Indonesia's poverty-alleviation program was affecting deforestation 是 wanted to see 的宾语从句，此处 if 意为'是否'，而非'如果'。" }
+    ],
+    "words": [
+      { "word": "poverty-alleviation", "meaning": "adj. 扶贫的、减贫的", "note": "复合形容词，等价于 poverty alleviation（见 B:7）。" },
+      { "word": "deforestation", "meaning": "n. 森林砍伐", "note": "全文核心词，again 反复出现。" },
+      { "word": "affect", "meaning": "v. 影响", "note": "was affecting 过去进行时，表'当时正在产生影响'。" }
+    ],
+    "phrases": [
+      { "text": "wanted to see", "meaning": "想看看、想弄清", "note": "see 后接 if 从句，'（验证）是否……'。" }
+    ]
+  },
+  "2021:B:14": {
+    "grammar": [
+      { "title": "并列宾语 + 序数/最高级修饰", "text": "has 后接两个并列宾语 the third-largest area ... 与 one of the highest deforestation rates；the third-largest 为'世界第三大'，one of the highest 为'最高之一'。" }
+    ],
+    "words": [
+      { "word": "tropical", "meaning": "adj. 热带的", "note": "tropical forest 即'热带森林'。" },
+      { "word": "deforestation", "meaning": "n. 森林砍伐率", "note": "deforestation rates 即'砍伐率'。" },
+      { "word": "rates", "meaning": "n. 比率", "note": "one of the highest deforestation rates 即'砍伐率最高的国家之一'。" }
+    ],
+    "phrases": [
+      { "text": "one of the + 最高级 + 复数名词", "meaning": "最……的之一", "note": "固定结构，后接可数名词复数。" },
+      { "text": "the third-largest", "meaning": "第三大的", "note": "序数词 + 最高级表排名，如 the second-largest。" }
+    ]
+  },
+  "2021:B:15": {
+    "grammar": [
+      { "title": "现在分词 showing 作后置定语", "text": "showing annual forest loss ... 修饰 satellite data，说明数据的表现内容，阅读时把 showing 引导的部分当作 'which shows' 处理即可。" },
+      { "title": "破折号插入语", "text": "— including during Indonesia's phase-in of the antipoverty program — 是插入的时间补充说明，读时可整体跳过，主干为 Ferraro analyzed satellite data showing annual forest loss ... in 7,468 forested villages across 15 provinces。" }
+    ],
+    "words": [
+      { "word": "satellite", "meaning": "n. 卫星", "note": "satellite data 即'卫星数据'，科技新闻常见。" },
+      { "word": "annual", "meaning": "adj. 每年的", "note": "annual forest loss 即'年度的森林流失'。" },
+      { "word": "phase-in", "meaning": "n. 分阶段实施期", "note": "对应动词短语 phase in（见 B:2），'逐步推行'的名词化。" },
+      { "word": "forested", "meaning": "adj. 有森林覆盖的", "note": "forested villages 即'森林村庄'，forest 派生形容词。" },
+      { "word": "provinces", "meaning": "n. 省份", "note": "across 15 provinces 即'遍及 15 个省'。" }
+    ],
+    "phrases": [
+      { "text": "forest loss", "meaning": "森林面积流失、毁林量", "note": "环保数据术语，与 deforestation 同义语境。" }
+    ]
+  },
+  "2021:B:16": {
+    "grammar": [
+      { "title": "that 宾语从句 + 直接引语转述", "text": "We see that the program is associated with ... 中 that 从句作 see 的宾语；整句为直接引语，句末 Ferraro says 为倒装转述，阅读时先定位说话人，再理解引语内容。" }
+    ],
+    "words": [
+      { "word": "associated", "meaning": "adj. 相关联的", "note": "be associated with = '与……有联系'，表达相关而非因果，与 B:8 的 correlated 呼应。" },
+      { "word": "reduction", "meaning": "n. 减少", "note": "a 30 percent reduction in deforestation 即'砍伐量减少 30%'。" }
+    ],
+    "phrases": [
+      { "text": "be associated with", "meaning": "与……有关联", "note": "核心搭配，研究结论常用表达。" },
+      { "text": "a reduction in", "meaning": "在……方面减少", "note": "注意介词 in 引出的减少对象。" }
+    ]
+  },
+  "2021:B:17": {
+    "grammar": [
+      { "title": "because 表语从句", "text": "That's likely because ... 中 because 从句作表语，likely 为副词修饰系表结构，意为'这很可能是因为……'。" },
+      { "title": "use A as B 结构", "text": "are using the money as makeshift insurance policies against inclement weather 中 use A as B = '把 A 当作 B 使用'，against 表'抵御'。" }
+    ],
+    "words": [
+      { "word": "makeshift", "meaning": "adj. 临时的、权宜的", "note": "makeshift insurance 即'临时的保险'，暗示并非正式保险。" },
+      { "word": "inclement", "meaning": "adj. 恶劣的（天气）", "note": "inclement weather 即'恶劣天气'，较正式。" },
+      { "word": "rural", "meaning": "adj. 农村的", "note": "the rural poor 即'农村贫困人口'，the + adj 表一类人。" },
+      { "word": "policies", "meaning": "n. 保险单", "note": "insurance policies 为固定搭配'保单'，policy 此处非'政策'。" }
+    ],
+    "phrases": [
+      { "text": "insurance policies against", "meaning": "针对……的保险", "note": "against 表'抵御（风险）'。" },
+      { "text": "use ... as", "meaning": "把……用作", "note": "本句把现金比作保险，是理解作者解释逻辑的关键。" }
+    ]
+  },
+  "2021:B:18": {
+    "grammar": [
+      { "title": "if 条件状语从句 + 连续不定式表目的", "text": "if rains are delayed 给出条件，主句 people may clear land 后接 to plant more rice（目的一）和 to supplement their harvests（目的二）两个不定式，阅读时按'为何开垦 → 为何种稻'的链条理解。" }
+    ],
+    "words": [
+      { "word": "delayed", "meaning": "adj. 推迟的", "note": "rains are delayed 即'雨季推迟'。" },
+      { "word": "supplement", "meaning": "v. 补充", "note": "supplement their harvests 即'补充收成'。" },
+      { "word": "harvests", "meaning": "n. 收成、收获", "note": "复数泛指'各季收成'。" },
+      { "word": "clear", "meaning": "v. 开垦、清除", "note": "clear land 即'开垦土地'，与砍伐话题相关。" }
+    ],
+    "phrases": [
+      { "text": "plant rice", "meaning": "种稻", "note": "种植搭配；growing rice 见 B:21。" }
+    ]
+  },
+  "2021:B:19": {
+    "grammar": [
+      { "title": "With 介词短语表'有了'", "text": "With the CCTs 意为'有了（发放现金的）CCT 计划'，相当于 Given the CCTs，提供主句发生的条件背景；instead 修饰谓语，表示'转而、反而'。" }
+    ],
+    "words": [
+      { "word": "individuals", "meaning": "n. 个人", "note": "指受助者个人，与前文 people 呼应。" },
+      { "word": "instead", "meaning": "adv. 反而、转而", "note": "此处强调行为方式改变，注意与 instead of（而不是）区分。" }
+    ],
+    "phrases": [
+      { "text": "use the money to do", "meaning": "用这笔钱来做……", "note": "动词 + 目的不定式结构。" }
+    ]
+  },
+  "2021:B:20": {
+    "grammar": [
+      { "title": "Whether 引导的主语从句", "text": "Whether this research translates elsewhere 作主语，谓语为 is，表语为 anybody's guess；Whether 从句做主语时谓语用单数，阅读时先把主语从句整体圈出。" }
+    ],
+    "words": [
+      { "word": "translates", "meaning": "v. 转化、适用", "note": "translate 在此意为'（研究结论）转化为别处也适用'，熟词僻义。" },
+      { "word": "elsewhere", "meaning": "adv. 在别处", "note": "同义于 in other places。" },
+      { "word": "guess", "meaning": "n. 猜测", "note": "anybody's guess 为固定表达，'谁也说不准'。" }
+    ],
+    "phrases": [
+      { "text": "anybody's guess", "meaning": "谁也说不准、无人知晓", "note": "固定习语，主语多为 whether/wh- 从句。" }
+    ]
+  },
+  "2021:B:21": {
+    "grammar": [
+      { "title": "省略 that 的宾语从句", "text": "Ferraro suggests（that）the results may transfer ... 中宾语从句省略了 that，suggests 表'认为、提出'而非'建议'，阅读时注意辨析。" },
+      { "title": "due to 表原因", "text": "due to commonalities such as ... 是原因状语，such as 举例说明共同点（种稻的重要性和市场准入）。" }
+    ],
+    "words": [
+      { "word": "transfer", "meaning": "v. 转移、迁移", "note": "may transfer to other parts of Asia 即'可能适用于亚洲其他地区'，与 B:20 的 translate 同义。" },
+      { "word": "commonalities", "meaning": "n. 共同点", "note": "由 common 派生，常用复数表'相似之处'。" },
+      { "word": "access", "meaning": "n. 准入、通道", "note": "market access 即'市场准入'，经贸术语。" }
+    ],
+    "phrases": [
+      { "text": "due to", "meaning": "由于", "note": "书面原因表达，相当于 because of。" },
+      { "text": "market access", "meaning": "市场准入", "note": "固定经贸搭配。" }
+    ]
+  },
+  "2021:B:22": {
+    "grammar": [
+      { "title": "regardless of 介词短语", "text": "And regardless of transferability 意为'无论（结论）是否可推广'，regardless of 表'不管、不顾'，引出让步。" },
+      { "title": "宾语从句中套主语从句", "text": "the study shows that what's good for people may also be good for the environment 中 that 引导宾语从句，其内部 what's good for people 又是该从句的主语，阅读时可把 what's good for people 整体理解为'对人们有益的东西'。" }
+    ],
+    "words": [
+      { "word": "transferability", "meaning": "n. 可转移性、可推广性", "note": "由 transfer 派生，指研究结论的适用范围。" },
+      { "word": "regardless", "meaning": "adv. 不顾、不管", "note": "常与 of 连用构成 regardless of；单独使用意为'不管怎样'。" }
+    ],
+    "phrases": [
+      { "text": "regardless of", "meaning": "不论、不管", "note": "引导让步，后接名词/疑问词从句。" },
+      { "text": "be good for", "meaning": "对……有益", "note": "主语 what's good for people 与表语 good for the environment 对称，体现'双赢'结论。" }
+    ]
+  },
+  "2021:B:23": {
+    "grammar": [
+      { "title": "Even if 让步状语从句", "text": "Even if this program didn't reduce poverty 表示'即使该计划没能减少贫困'，是让步假设，不改变主句结论成立。" },
+      { "title": "引语内比较句", "text": "the value of the avoided deforestation ... is more than the program costs 中主语为 the value（of 短语修饰），is more than 表'超过'，句末 the program costs 为完整从句，意为'（该价值）超过计划的成本'。" }
+    ],
+    "words": [
+      { "word": "emissions", "meaning": "n. 排放", "note": "carbon dioxide emissions 即'二氧化碳排放'，环保高频词。" },
+      { "word": "avoided", "meaning": "adj. 被避免的", "note": "the avoided deforestation 即'被避免的森林砍伐'，即本可发生却被阻止的砍伐。" },
+      { "word": "value", "meaning": "n. 价值", "note": "the value ... is more than the program costs 强调生态效益的经济账。" }
+    ],
+    "phrases": [
+      { "text": "even if", "meaning": "即使、尽管", "note": "引导让步条件句，与 if 不同，even if 承认假设成立也不影响主句。" },
+      { "text": "carbon dioxide emissions", "meaning": "二氧化碳排放", "note": "环境气候术语，CO₂ 全称。" }
+    ]
+  },
+  "2021:C:0": {
+    "grammar": [
+      { "title": "多层定语从句嵌套", "text": "句首 As a historian 后连续嵌套两层定语：who's always searching for the text or the image 修饰 historian，其内 that makes us re-evaluate the past 又修饰 the text or the image；主句后 that show our Victorian ancestors smiling 再修饰 photographs。阅读时逐层剥离，先抓主干 I've become preoccupied with looking for photographs。" },
+      { "title": "括号内反诘句", "text": "（what better way to shatter the image of 19th-century prudery?）是插入的修辞性反问，意为'还有什么更好的方式能粉碎……形象呢？'，无需回答，作用是加强语气。" }
+    ],
+    "words": [
+      { "word": "preoccupied", "meaning": "adj. 全神贯注的、沉迷的", "note": "be/become preoccupied with = '专注于'，be 动词后接介词 with。" },
+      { "word": "re-evaluate", "meaning": "v. 重新评价", "note": "前缀 re-（再）+ evaluate（评价）。" },
+      { "word": "ancestors", "meaning": "n. 祖先", "note": "our Victorian ancestors 即'我们维多利亚时代的先辈'。" },
+      { "word": "shatter", "meaning": "v. 粉碎", "note": "shatter the image 即'粉碎（固有）形象'，比喻义。" },
+      { "word": "prudery", "meaning": "n. 假正经、拘谨", "note": "19th-century prudery 指维多利亚时代被公认的'保守假正经'印象。" }
+    ],
+    "phrases": [
+      { "text": "searching for", "meaning": "寻找、搜寻", "note": "be always searching for 表'一直致力于寻找'。" },
+      { "text": "become preoccupied with", "meaning": "沉迷于、专注", "note": "高频搭配，be preoccupied with sth。" },
+      { "text": "looking for", "meaning": "寻找", "note": "与 searching for 同义复用，避免单调。" }
+    ]
+  },
+  "2021:C:1": {
+    "grammar": [
+      { "title": "破折号插入 since 时间状语从句", "text": "— since I started posting them on Twitter — 为插入的时间状语，解释'自从我开始发帖以来'；去掉插入语后主干为 and they have been causing quite a stir，and 连接并列分句。" },
+      { "title": "现在完成进行时", "text": "have been causing 表'从过去开始一直持续到现在'的动作，强调'一直引起轰动'且可能继续。" }
+    ],
+    "words": [
+      { "word": "stir", "meaning": "n. 轰动", "note": "cause a stir 为固定搭配'引起轰动'。" },
+      { "word": "posting", "meaning": "v. 发布、发帖", "note": "started posting them on Twitter 即'开始把它们发到 Twitter 上'。" }
+    ],
+    "phrases": [
+      { "text": "quite a few", "meaning": "相当多", "note": "表数量可观，修饰可数名词；此处用作代词后省略了名词。" },
+      { "text": "cause a stir", "meaning": "引起轰动", "note": "固定搭配，stir 作名词'轰动、骚动'。" }
+    ]
+  },
+  "2021:C:2": {
+    "grammar": [
+      { "title": "be surprised to do 结构", "text": "have been surprised to see ... 表'惊讶地发现'，to see 不定式说明惊讶的原因。" },
+      { "title": "that 同位语从句 + could, and did 强调", "text": "that Victorians had fun and could, and did, laugh 是 evidence 的同位语；could, and did 中 could（能）与 did（确实）并列插入，强调'他们能笑、也确实笑了'。" }
+    ],
+    "words": [
+      { "word": "evidence", "meaning": "n. 证据", "note": "evidence that ... 后接同位语说明证据内容。" },
+      { "word": "surprised", "meaning": "adj. 惊讶的", "note": "be surprised to do sth = '对做某事感到惊讶'。" }
+    ],
+    "phrases": [
+      { "text": "have fun", "meaning": "寻欢作乐、玩得开心", "note": "had fun 表'享受生活、玩乐'，与严肃的维多利亚形象对照。" }
+    ]
+  },
+  "2021:C:3": {
+    "grammar": [
+      { "title": "as 时间状语从句内嵌定语从句", "text": "as the hundred-or-so years that separate us fade away ... 中 as 引导时间状语'随着……消融'，其内部 that separate us 是修饰 the years 的定语从句；阅读时按'随着把我们隔开的百年时光在共同笑声中消融'整体理解。" },
+      { "title": "复合数词 hundred-or-so", "text": "the hundred-or-so years 中 -or-so 后缀表'左右、大约'，即'大约百年'。" }
+    ],
+    "words": [
+      { "word": "noting", "meaning": "v. 注意到", "note": "They are noting that ... = '他们注意到……'，note 动词义，注意与名词'笔记'区分。" },
+      { "word": "fade", "meaning": "v. 消退、变淡", "note": "fade away 即'逐渐消逝'，为短语动词。" },
+      { "word": "human", "meaning": "adj. 有人情味的", "note": "become more human 即'更有人情味'，非'人类'义。" },
+      { "word": "experience", "meaning": "n. 体验、经历", "note": "our common experience of laughter 即'共同的欢笑体验'。" }
+    ],
+    "phrases": [
+      { "text": "fade away", "meaning": "逐渐消失、消退", "note": "表时间距离感的消融，呼应主题。" }
+    ]
+  },
+  "2021:C:4": {
+    "grammar": [
+      { "title": "the majority of which 非限定性定语从句", "text": "the majority of which show ... 中 which 指代 the vast catalogue ... 里的全部照片，意为'其中大多数照片'；阅读时把它当另一层信息独立处理，注意与主句主干 my collection ... makes up only a tiny percentage 形成'极少 vs 大多数'的对比。" },
+      { "title": "see sb doing 结构", "text": "show sitters posing ... or staring ... 中 pose 与 stare 为 see/show 类动词后的现在分词作宾语补足语，描绘被摄者当时的状态；posing 与 staring 由 or 并列。" }
+    ],
+    "words": [
+      { "word": "concede", "meaning": "v. 承认", "note": "I need to concede that ... = '我得承认……'，较 admit 更正式，含'让步'色彩。" },
+      { "word": "catalogue", "meaning": "n. 目录、名录", "note": "the vast catalogue of photographic portraiture 即'海量摄影肖像目录'，此处引申为'全部作品'。" },
+      { "word": "portraiture", "meaning": "n. 肖像摄影（作品）", "note": "photographic portraiture 即'摄影肖像'。" },
+      { "word": "sitters", "meaning": "n. 被拍（照）者、坐姿模特", "note": "摄影语境指'镜头前的人'。" },
+      { "word": "stiffly", "meaning": "adv. 僵硬地", "note": "posing miserably and stiffly 即'痛苦而僵硬地摆姿势'。" },
+      { "word": "absently", "meaning": "adv. 心不在焉地、茫然地", "note": "staring absently 即'茫然凝视'，形容目光放空。" }
+    ],
+    "phrases": [
+      { "text": "makes up", "meaning": "构成、占据", "note": "make up a percentage of 即'占……的比例'。" },
+      { "text": "a tiny percentage of", "meaning": "极小的比例", "note": "tiny 强调微不足道，与 vast 对照。" },
+      { "text": "the majority of", "meaning": "大多数", "note": "与 a tiny percentage 形成数量对比。" }
+    ]
+  },
+  "2021:C:5": {
+    "grammar": [
+      { "title": "特殊疑问句", "text": "How do we explain this trend? 为一般疑问句倒装，是过渡句，承上启下引出后文对'为何维多利亚人不微笑'的解释。" }
+    ],
+    "words": [
+      { "word": "trend", "meaning": "n. 趋势、潮流", "note": "指上句所述'大多数肖像神情痛苦僵硬'这一现象。" },
+      { "word": "explain", "meaning": "v. 解释", "note": "explain this trend 即'解释这一现象'。" }
+    ]
+  },
+  "2021:C:6": {
+    "grammar": [
+      { "title": "冒号后解释说明 + 括号补充", "text": "冒号后 the daguerreotype photographic method ... could take several minutes 是对 exposure times were notoriously long 的具体例证；(producing an image on a silvered copper plate) 用括号解释 daguerreotype 的含义，阅读时可暂跳。" },
+      { "title": "现在分词作结果状语 + as 时间从句", "text": "resulting in blurred images as sitters shifted position or adjusted their limbs 中 resulting in 表'结果导致'，as 引导时间状语说明模糊发生的原因时机。" }
+    ],
+    "words": [
+      { "word": "exposure", "meaning": "n. 曝光（时间）", "note": "摄影术语，exposure times 即'曝光时长'。" },
+      { "word": "notoriously", "meaning": "adv. 以……著称地、出了名地", "note": "notoriously long 即'以漫长而闻名'，常含贬义。" },
+      { "word": "daguerreotype", "meaning": "n. 达盖尔银版法", "note": "早期摄影术名称，括号内解释了其工艺。" },
+      { "word": "silvered", "meaning": "adj. 镀银的", "note": "a silvered copper plate 即'镀银铜板'，silver 名词活用为动词再加 -ed。" },
+      { "word": "blurred", "meaning": "adj. 模糊的", "note": "blurred images 即'模糊的图像'，由动词 blur 派生。" },
+      { "word": "limbs", "meaning": "n. 四肢", "note": "adjusted their limbs 即'调整肢体'。" }
+    ],
+    "phrases": [
+      { "text": "take ... to complete", "meaning": "花（时间）完成", "note": "could take several minutes to complete 即'可能需要几分钟才能完成'。" },
+      { "text": "result in", "meaning": "导致、造成", "note": "表因果结果，注意与 result from（由……引起）区分。" },
+      { "text": "shift position", "meaning": "移动位置", "note": "shift 表'小幅移动'，与 photography 语境相符。" }
+    ]
+  },
+  "2021:C:7": {
+    "grammar": [
+      { "title": "too ... to 结构", "text": "The thought of holding a fixed grin ... was too much to contemplate 中 too ... to 表'太……以至于不能'，即'一想到要保持固定笑容就让人难以忍受'；主语 The thought of ... 是理解难点，谓语 was 在从句 as the camera performed ... 之后。" },
+      { "title": "and so 表结果", "text": "and so a non-committal blank stare became the norm 中 so 表'因此'，说明'不承诺任何表情的呆滞凝视成为常态'这一结果。" }
+    ],
+    "words": [
+      { "word": "grin", "meaning": "n. 露齿的笑、咧嘴笑", "note": "a fixed grin 即'僵住不动的咧嘴笑'。" },
+      { "word": "contemplate", "meaning": "v. 思量、考虑", "note": "too much to contemplate 即'难以去想象/承受'。" },
+      { "word": "non-committal", "meaning": "adj. 不表态的、暧昧的", "note": "复合词 non-（不）+ committal；a non-committal blank stare 即'面无表情、不带任何态度的呆滞凝视'。" },
+      { "word": "blank", "meaning": "adj. 茫然的、空白的", "note": "a blank stare 即'呆滞的目光'。" },
+      { "word": "stare", "meaning": "n. 凝视", "note": "作名词'注视'；也可作动词 stare at。" },
+      { "word": "norm", "meaning": "n. 常态、标准", "note": "became the norm 即'成了普遍现象'。" }
+    ],
+    "phrases": [
+      { "text": "too much to", "meaning": "太……以至于难以……", "note": "too ... to ... 结构，本句为固定搭配 too much to contemplate。" },
+      { "text": "the norm", "meaning": "常态、惯例", "note": "become the norm 即'成为常态'。" }
+    ]
+  },
+  "2021:C:8": {
+    "grammar": [
+      { "title": "宾语从句中嵌套省略式让步", "text": "meant that ... the exposure was almost instantaneous 是宾语从句，其中插入 though slow by today's digital standards，是省略了主语+系动词（though it was slow）的让步状语，阅读时补全为 though it was slow ... 即可。" },
+      { "title": "and 并列两个分句", "text": "But ... were much quicker by the 1880s 与 and the introduction ... meant that ... 构成并列，前句说曝光变快，后句说便携相机问世使曝光近乎瞬时。" }
+    ],
+    "words": [
+      { "word": "portable", "meaning": "adj. 便携的", "note": "portable cameras 即'便携式相机'。" },
+      { "word": "standards", "meaning": "n. 标准", "note": "by today's digital standards 即'按今天数码相机的标准'。" },
+      { "word": "instantaneous", "meaning": "adj. 即时的、瞬间的", "note": "almost instantaneous 即'几乎瞬间完成'，词根 instant。" },
+      { "word": "introduction", "meaning": "n. 引入、问世", "note": "the introduction of the Box Brownie 即'布朗尼相机的问世'。" }
+    ],
+    "phrases": [
+      { "text": "by the 1880s", "meaning": "到 19 世纪 80 年代", "note": "by 表'到……时为止'，常与完成时或状态动词连用。" },
+      { "text": "though slow by today's digital standards", "meaning": "虽然按今天数码标准仍算缓慢", "note": "省略式让步状语，阅读时补全 it was slow。" }
+    ]
+  },
+  "2021:C:9": {
+    "grammar": [
+      { "title": "so 表结果", "text": "前句说 19 世纪 90 年代捕捉自然笑容已较容易，so we must look elsewhere ... 引出推论'因此必须另找原因'，是段际推进的关键。" },
+      { "title": "介词 + 宾语从句（why 从句）", "text": "an explanation of why Victorians still hesitated to smile 中 of 后接 why 引导的宾语从句，说明 explanation 的对象；hesitate to do 为固定搭配'不愿做、犹豫做'。" }
+    ],
+    "words": [
+      { "word": "spontaneous", "meaning": "adj. 自发的、自然的", "note": "Spontaneous smiles 即'自然流露的微笑'，与僵硬的摆拍笑容对照。" },
+      { "word": "capture", "meaning": "v. 捕捉、拍到", "note": "easy to capture 即'容易拍到'，摄影语境常用。" },
+      { "word": "hesitate", "meaning": "v. 犹豫、迟疑", "note": "hesitated to smile 即'不愿露出笑容'。" }
+    ],
+    "phrases": [
+      { "text": "look elsewhere for", "meaning": "到别处寻找", "note": "look ... for 表'为……而寻找'，elsewhere 强调'另寻他处'。" },
+      { "text": "hesitate to do", "meaning": "不愿做、对做……犹豫", "note": "固定搭配，hesitate 后接不定式。" }
+    ]
+  },
+  "2021:C:10": {
+    "grammar": [
+      { "title": "过去分词作后置定语", "text": "displayed through a cheesy grin 修饰 the loss of dignity，意为'通过露齿傻笑所展现出的（尊严）丧失'，阅读时还原为 the loss of dignity which is displayed ...。" }
+    ],
+    "words": [
+      { "word": "dignity", "meaning": "n. 尊严", "note": "the loss of dignity 即'有失尊严'，抽象名词。" },
+      { "word": "cheesy", "meaning": "adj. 做作的、傻气的", "note": "a cheesy grin 即'咧嘴傻笑'，常含'廉价、俗气'义。" },
+      { "word": "grin", "meaning": "n. 露齿的笑", "note": "与 smile 相比更强调'咧开嘴'，此处带贬义。" }
+    ],
+    "phrases": [
+      { "text": "loss of dignity", "meaning": "尊严的丧失、有失体面", "note": "loss of 为常用抽象搭配。" }
+    ]
+  },
+  "2021:C:11": {
+    "grammar": [
+      { "title": "倒装转述 ran one popular Victorian saying", "text": "ran one popular Victorian saying 中谓语 ran 在主语 saying 之前，为倒装，意为'一句流行的维多利亚谚语是这样说的'，与冒号前的引语呼应；ran 在此表'（说法）流传'。" },
+      { "title": "现在分词 alluding to + that 同位语从句", "text": "alluding to the fact that ... 中 alluding to 意为'暗指、暗示'，that 从句是 the fact 的同位语，说明暗指的具体内容。" }
+    ],
+    "words": [
+      { "word": "conceal", "meaning": "v. 隐藏、遮掩", "note": "to conceal our teeth 即'（用嘴唇）遮掩牙齿'，与全文牙齿主题相关。" },
+      { "word": "alluding", "meaning": "v. 暗指、提及", "note": "allude to sth 为固定搭配，'间接提到'。" },
+      { "word": "dentistry", "meaning": "n. 牙科学、牙医业", "note": "the birth of proper dentistry 即'正规牙科的诞生'。" },
+      { "word": "hygiene", "meaning": "n. 卫生", "note": "a shocking state of hygiene 即'令人震惊的卫生状况'。" },
+      { "word": "shocking", "meaning": "adj. 令人震惊的", "note": "a shocking state of ... 表程度恶劣。" }
+    ],
+    "phrases": [
+      { "text": "allude to", "meaning": "暗指、暗示", "note": "固定短语动词，后面常接 the fact that 从句。" },
+      { "text": "the fact that", "meaning": "……这一事实", "note": "that 引导同位语从句补充说明 fact。" },
+      { "text": "in a state of", "meaning": "处于……的状态", "note": "a state of hygiene 即'卫生状况'。" }
+    ]
+  },
+  "2021:C:12": {
+    "grammar": [
+      { "title": "同位语 the preserve of the super-rich", "text": "the preserve of the super-rich 紧跟 a rare sight 之后，补充说明'（白牙）是超级富豪的专属'，preserve 此处意为'独享之物、专属领域'，与前面的 rare 呼应。" },
+      { "title": "括号补充让步", "text": "（and even then, dental hygiene was not guaranteed）在句末作补充说明，even then 意为'即便如此'，强调即便富豪也未必口腔卫生达标。" }
+    ],
+    "words": [
+      { "word": "flashing", "meaning": "adj. 闪亮的、闪耀的", "note": "a flashing set of ... 形容牙齿洁白耀眼，含褒义。" },
+      { "word": "pearly", "meaning": "adj. 珍珠般的", "note": "pearly whites 为口语习语，指'洁白的牙齿'。" },
+      { "word": "preserve", "meaning": "n. 专属领域、（某人）独有的东西", "note": "熟词僻义；常见义为动词'保护、保存'。" },
+      { "word": "super-rich", "meaning": "n. 超级富豪", "note": "the + 形容词表一类人，'超级富人群'。" },
+      { "word": "guaranteed", "meaning": "adj. 有保障的", "note": "was not guaranteed 即'并不（一定有）保障'。" }
+    ],
+    "phrases": [
+      { "text": "a rare sight", "meaning": "罕见的景象", "note": "was a rare sight 即'难得一见'。" },
+      { "text": "a set of", "meaning": "一副、一排", "note": "a set of teeth 指'一口牙'。" },
+      { "text": "pearly whites", "meaning": "洁白的牙齿", "note": "口语习语，white 名词复数表'牙齿'。" }
+    ]
+  },
+  "2021:C:13": {
+    "grammar": [
+      { "title": "括号内时间状语 + 冒号解释", "text": "（especially when there were gaps or blackened teeth）是插入的 when 时间状语从句，说明'尤其当牙齿有豁口或发黑时'；冒号后是具体解释，说明谁才会这样咧嘴笑。" },
+      { "title": "as ... as 比较 + but 转折", "text": "a smile as wide as Lewis Carroll's gum-exposing Cheshire Cat 用 as ... as 比较结构（'像……一样（宽）'）；句末 but it was not a becoming look for properly bred persons 转折，强调'对教养良好者而言不体面'。" }
+    ],
+    "words": [
+      { "word": "toothy", "meaning": "adj. 露齿的", "note": "a toothy grin 即'龇牙咧嘴的笑'，含夸张义。" },
+      { "word": "gaps", "meaning": "n. 豁口、缝隙", "note": "gaps in teeth 指'牙缝、缺牙'。" },
+      { "word": "blackened", "meaning": "adj. 变黑的、发黑的", "note": "blackened teeth 指蛀黑牙齿。" },
+      { "word": "tramps", "meaning": "n. 流浪汉", "note": "与 drunks 并列，指社会底层人士。" },
+      { "word": "gurn", "meaning": "v. 扮鬼脸、龇牙咧嘴", "note": "gurn and grin 连用，渲染夸张咧嘴动作。" },
+      { "word": "becoming", "meaning": "adj. 体面的、相配的", "note": "a becoming look 即'得体的样子'；熟词僻义，注意不是 become 的进行时。" },
+      { "word": "bred", "meaning": "adj. 教养的（bred 为 breed 过去分词）", "note": "properly bred persons 即'教养良好的人'，指上层社会人士。" }
+    ],
+    "phrases": [
+      { "text": "lack class", "meaning": "缺乏格调、上不了台面", "note": "lacked class 中 class 指'档次、格调'。" },
+      { "text": "as wide as", "meaning": "像……一样宽", "note": "as ... as 同级比较结构。" },
+      { "text": "a becoming look", "meaning": "体面的样子", "note": "becoming 为形容词'相称的、合适的'。" }
+    ]
+  },
+  "2021:C:14": {
+    "grammar": [
+      { "title": "同位语 + 定语从句", "text": "a man who enjoyed a hearty laugh 是 Mark Twain 的同位语，其内 who enjoyed ... 修饰 a man；该同位语把主语 Mark Twain 与谓语 said 隔开，阅读时先连主语谓语再回看修饰。" },
+      { "title": "宾语从句中 when it came to 状语 + nothing more ... than", "text": "said that ... there could be 'nothing more damning than a silly, foolish smile fixed forever' 中 that 从句为宾语，内含 when it came to photographic portraits（'说到摄影肖像时'）和 nothing more damning than（'没有比……更糟糕的'）两个关键结构；fixed forever 为过去分词作后置定语修饰 smile。" }
+    ],
+    "words": [
+      { "word": "hearty", "meaning": "adj. 开怀的、尽兴的", "note": "a hearty laugh 即'开怀大笑'。" },
+      { "word": "damning", "meaning": "adj. 使人名誉受损的、糟糕透顶的", "note": "nothing more damning than ... 即'没有比……更糟糕的了'。" },
+      { "word": "portraits", "meaning": "n. 肖像、照片", "note": "photographic portraits 即'摄影肖像'。" }
+    ],
+    "phrases": [
+      { "text": "when it came to", "meaning": "说到、谈到……时", "note": "固定句式，come to 表'涉及、提到'。" },
+      { "text": "a hearty laugh", "meaning": "开怀大笑", "note": "hearty 修饰 laugh，表'尽兴的'。" },
+      { "text": "nothing more damning than", "meaning": "没有比……更糟糕的", "note": "nothing more ... than 表最高级含义，'最……的莫过于'。" }
+    ]
+  },
+  "2021:D:0": {
+    "grammar": [
+      { "title": "that 宾语从句", "text": "worried that the cable and phone companies ... had the power and incentive ... 中 that 从句作 worried 的宾语，说明担忧的具体内容，是句子主干；从句内部 selling broadband connections 为现在分词短语作后置定语修饰 companies。" },
+      { "title": "to favor A over B 结构", "text": "to favor affiliated websites over their rivals' 意为'偏袒关联网站而非（favors）其竞争对手（的网站）'，their rivals' 为名词所有格，中心词 websites 承前省略，阅读时需补全。" }
+    ],
+    "words": [
+      { "word": "advocates", "meaning": "n. 倡导者、拥护者", "note": "advocates for consumers 即'消费者权益倡导者'。" },
+      { "word": "broadband", "meaning": "n. 宽带", "note": "全文核心词；broadband connections 即'宽带连接'。" },
+      { "word": "incentive", "meaning": "n. 动机、诱因", "note": "the power and incentive 即'（既有）能力又有动机'，搭配地道的并列。" },
+      { "word": "affiliated", "meaning": "adj. 附属的、关联的", "note": "affiliated websites 即'关联（自家）网站'，affiliate 派生词。" },
+      { "word": "rivals", "meaning": "n. 竞争对手", "note": "their rivals' 指'竞争对手（的网站）'，所有格省略中心词。" }
+    ],
+    "phrases": [
+      { "text": "favor A over B", "meaning": "偏向 A 而非 B", "note": "over 表'胜过、优先于'，核心搭配，本文反复出现。" },
+      { "text": "the early days of", "meaning": "……的早期", "note": "the early days of broadband 即'宽带早期'。" }
+    ]
+  },
+  "2021:D:1": {
+    "grammar": [
+      { "title": "why 表语从句", "text": "That's why there has been ... 中 why 从句作表语，解释'之所以如此（需要规则）是因为……'，阅读时抓住 why 前的因果关系。" },
+      { "title": "that 定语从句（注意区分 such ... that）", "text": "such a strong demand for rules that would prevent ... 中 that 引导定语从句修饰 rules（不是 such ... that 结果状语），意为'能阻止……的规则'；prevent sb from doing 为固定搭配。" },
+      { "title": "现在分词作结果状语", "text": "preserving the freedom and innovation ... 是前面规则作用的结果，相当于 which preserves ...；其内 that have been the lifeblood of the Internet 又修饰 freedom and innovation。" }
+    ],
+    "words": [
+      { "word": "demand", "meaning": "n. 需求、要求", "note": "a strong demand for rules 即'对规则的强烈要求'，for 引出对象。" },
+      { "word": "providers", "meaning": "n. 供应商", "note": "broadband providers 即'宽带供应商'，全文核心角色。" },
+      { "word": "lifeblood", "meaning": "n. 命脉、生命线", "note": "the lifeblood of the Internet 即'互联网的命脉'，比喻用法。" },
+      { "word": "innovation", "meaning": "n. 创新", "note": "与 freedom 并列，'自由与创新'。" }
+    ],
+    "phrases": [
+      { "text": "prevent ... from doing", "meaning": "阻止……做……", "note": "固定搭配，from 后接动名词。" },
+      { "text": "picking winners and losers", "meaning": "挑选赢家和输家", "note": "比喻'随意决定谁受益谁受损'，网络中立语境特指偏袒行为。" }
+    ]
+  },
+  "2021:D:2": {
+    "grammar": [
+      { "title": "系表结构 + 不定式 to fill", "text": "that demand has been almost impossible to fill 中 impossible to fill 意为'难以填补/实现'，to fill 与主语 demand 构成动宾逻辑（fill the demand），是形容词 + 不定式的典型结构。" },
+      { "title": "because of 原因状语", "text": "— in part because of pushback from ... 用破折号补充原因，in part 表'部分地'，说明并非唯一原因。" }
+    ],
+    "words": [
+      { "word": "fill", "meaning": "v. 满足、填补", "text": "fill the demand 即'满足这一诉求'，动词搭配。" },
+      { "word": "pushback", "meaning": "n. 抵制、反对", "note": "pushback from broadband providers 即'宽带供应商的抵制'，常见于政策语境。" },
+      { "word": "anti-regulatory", "meaning": "adj. 反监管的", "note": "anti- 前缀表'反对'；anti-regulatory conservatives 即'反监管的保守派'。" },
+      { "word": "conservatives", "meaning": "n. 保守派人士", "note": "美国政治语境中与支持管制派相对。" }
+    ],
+    "phrases": [
+      { "text": "in part because of", "meaning": "部分原因是", "note": "in part 表'部分地'，说明原因的权重。" },
+      { "text": "pushback from", "meaning": "来自……的抵制", "note": "pushback 为可数名词，常与 from 连用。" }
+    ]
+  },
+  "2021:D:3": {
+    "grammar": [
+      { "title": "but 转折 + instead of 对比", "text": "but instead of providing a badly needed resolution, it only prolonged the fight 中 instead of + doing 表'而不是'，与 only prolonged 配合强调'非但没解决问题，反而延长纷争'，阅读时抓 'instead of A, only B' 的否定+转折意味。" }
+    ],
+    "words": [
+      { "word": "appeals", "meaning": "n. 上诉", "note": "a federal appeals court 即'联邦上诉法院'，legal 语境。" },
+      { "word": "weighed", "meaning": "v. 介入（weigh in）", "note": "weighed in 为短语动词'参与进来发表意见'。" },
+      { "word": "resolution", "meaning": "n. 解决方案", "note": "a badly needed resolution 即'亟需的解决方案'。" },
+      { "word": "prolonged", "meaning": "v. 延长", "note": "prolonged the fight 即'延长了这场争斗'。" }
+    ],
+    "phrases": [
+      { "text": "weigh in", "meaning": "（对争论）发表意见、介入", "note": "短语动词，报道语境常用。" },
+      { "text": "instead of", "meaning": "而不是", "note": "后接名词/动名词，与 rather than 近义。" },
+      { "text": "badly needed", "meaning": "急需的", "note": "badly 修饰 needed 表'非常'。" }
+    ]
+  },
+  "2021:D:4": {
+    "grammar": [
+      { "title": "完全倒装", "text": "At issue ... was the latest take of the FCC ... 为倒装句，正常语序是 the latest take ... was at issue，句首 At issue 提前起强调作用，意为'争议焦点在于……'，阅读时还原语序更易理解。" },
+      { "title": "过去分词作后置定语", "text": "adopted on a party-line vote in 2017 修饰 the latest take，意为'2017 年按党派划线投票通过的'，说明该立场出台方式。" }
+    ],
+    "words": [
+      { "word": "issue", "meaning": "n. 争议点、焦点", "note": "at issue 为固定短语'有争议、争论焦点'。" },
+      { "word": "circuit", "meaning": "n. 巡回（法院）", "note": "the Court of Appeals for the District of Columbia Circuit 即'哥伦比亚特区巡回上诉法院'。" },
+      { "word": "take", "meaning": "n. 立场、看法", "note": "the latest take on net neutrality 即'对网络中立的最新立场'，熟词僻义。" },
+      { "word": "neutrality", "meaning": "n. 中立", "note": "net neutrality 即'网络中立'，全文核心议题。" },
+      { "word": "party-line", "meaning": "adj. 按党派划线的", "note": "a party-line vote 即'沿政党路线的表决'。" }
+    ],
+    "phrases": [
+      { "text": "at issue", "meaning": "在争议中、争论焦点", "note": "at issue 常置于句首引倒装，'……是争议焦点'。" },
+      { "text": "net neutrality", "meaning": "网络中立", "note": "固定术语，指互联网服务商不得差别对待流量的原则。" },
+      { "text": "on a party-line vote", "meaning": "按党派界线投票", "note": "说明表决具有党派色彩。" }
+    ]
+  },
+  "2021:D:5": {
+    "grammar": [
+      { "title": "not only ... but（also）并列结构", "text": "not only eliminated the strict net neutrality rules ..., but rejected the commission's authority ... 构成递进并列，not only 引出第一层（废除规则），but 引出更严重的第二层（否定监管权力），阅读时注意 not only 部分内部还有定语从句和时间状语从句嵌套。" },
+      { "title": "省略 that 的定语从句 + when 时间状语", "text": "the rules the FCC had adopted 省略了关系代词 that，修饰 rules；when it had a Democratic majority in 2015 为时间状语，说明采纳规则的背景（民主党占多数时）。" }
+    ],
+    "words": [
+      { "word": "penned", "meaning": "v. 撰写（pen 的过去分词）", "note": "The Republican penned order 即'由共和党人撰写的命令'，pen 作动词'写'。" },
+      { "word": "eliminated", "meaning": "v. 废除、消除", "note": "eliminated the strict rules 即'废除了严格的规则'。" },
+      { "word": "authority", "meaning": "n. 权力、权限", "note": "the commission's authority 即'该委员会的权力'。" },
+      { "word": "majority", "meaning": "n. 多数", "note": "a Democratic majority 即'民主党占多数'。" },
+      { "word": "require", "meaning": "v. 要求", "note": "to require broadband providers to do ... 中 require sb to do 为固定搭配。" }
+    ],
+    "phrases": [
+      { "text": "not only ... but", "meaning": "不仅……而且……", "note": "递进并列结构，重点在 but 之后的内容。" },
+      { "text": "have a majority", "meaning": "占多数", "note": "政坛常用，have a Democratic majority 即'民主党占多数'。" },
+      { "text": "do much of anything", "meaning": "做任何（实质性）事情", "note": "否定语气下意为'几乎不能要求其做任何事'。" }
+    ]
+  },
+  "2021:D:6": {
+    "grammar": [
+      { "title": "that 宾语从句 + either 句末", "text": "declared that state and local governments couldn't regulate ... 中 that 从句为宾语；句末 either 用在否定句末尾表'也（不）'，与 too 相对。" }
+    ],
+    "words": [
+      { "word": "declared", "meaning": "v. 宣布、声明", "note": "The order also declared that ... 即'该命令还宣布……'。" },
+      { "word": "regulate", "meaning": "v. 监管", "note": "regulate broadband providers 即'监管宽带供应商'，全文核心动词。" },
+      { "word": "either", "meaning": "adv. 也（不）", "note": "否定句句末的'也'，肯定句用 too。" }
+    ],
+    "phrases": [
+      { "text": "state and local governments", "meaning": "州政府和地方政府", "note": "美国政体表述，固定并列结构。" }
+    ]
+  },
+  "2021:D:7": {
+    "grammar": [
+      { "title": "that 宾语从句 + such as 举例", "text": "argued that other agencies would protect against ... 中 that 从句为宾语；such as a broadband-providing conglomerate ... 举例说明上文的 anti-competitive behavior，其内部 favoring its own video-streaming service 为现在分词作后置定语修饰 conglomerate。" },
+      { "title": "at the expense of 短语", "text": "at the expense of Netflix and Apple TV 意为'以损害 Netflix 和 Apple TV 为代价'，说明偏袒自家服务所挤占的对象。" }
+    ],
+    "words": [
+      { "word": "argued", "meaning": "v. 辩称、主张", "note": "The commission argued that ... = '该委员会辩称……'。" },
+      { "word": "agencies", "meaning": "n. 机构", "note": "other agencies 指其他（监管）机构。" },
+      { "word": "conglomerate", "meaning": "n. 大型联合企业", "note": "a broadband-providing conglomerate 即'宽带供应巨头'。" },
+      { "word": "favoring", "meaning": "v. 偏袒", "note": "favoring its own service 即'偏袒自家服务'，与 D:0 的 favor over 呼应。" }
+    ],
+    "phrases": [
+      { "text": "protect against", "meaning": "防范、防止", "note": "protect against anti-competitive behavior 即'防范反竞争行为'。" },
+      { "text": "at the expense of", "meaning": "以……为代价、损害", "note": "固定短语，表'牺牲某方利益'。" },
+      { "text": "such as", "meaning": "例如", "note": "举例标志词，后接名词性成分。" }
+    ]
+  },
+  "2021:D:8": {
+    "grammar": [
+      { "title": "that 定语从句 + 省略对比", "text": "that imposed data caps on their rivals' streaming services but not their own 修饰 broadband providers，其中 but not their own 为省略式对比，补全为 but did not impose data caps on their own（streaming services），意为'对竞争对手设限却对自家不设限'。" }
+    ],
+    "words": [
+      { "word": "imposed", "meaning": "v. 施加、强加", "note": "imposed data caps 即'设置了流量上限'，impose A on B。" },
+      { "word": "caps", "meaning": "n. 上限", "note": "data caps 即'数据流量上限'，电信行业术语。" },
+      { "word": "rivals", "meaning": "n. 竞争对手", "note": "their rivals' streaming services 即'竞争对手的流媒体服务'。" }
+    ],
+    "phrases": [
+      { "text": "data caps", "meaning": "数据（流量）上限", "note": "电信术语，指对用户数据使用量的限制。" },
+      { "text": "impose ... on", "meaning": "把……强加于", "note": "固定搭配，impose caps on sth。" },
+      { "text": "but not their own", "meaning": "却不是自己的", "note": "省略式对比，阅读时补全为 but not（on）their own services。" }
+    ]
+  },
+  "2021:D:9": {
+    "grammar": [
+      { "title": "现在分词作伴随/补充状语", "text": "citing a Supreme Court ruling from 2005 ... 是伴随状语，说明上诉法院维持命令时援引了判例，逻辑主语为 the appeals court；其内 that upheld a similarly deregulatory move 为定语从句修饰 ruling。" },
+      { "title": "现在分词作后置定语", "text": "deregulating broadband providers 修饰 the 2017 order，意为'放松对宽带供应商监管的（命令）'。" }
+    ],
+    "words": [
+      { "word": "unanimously", "meaning": "adv. 全体一致地", "note": "unanimously upheld 即'一致维持'，表意见统一。" },
+      { "word": "upheld", "meaning": "v. 维持、支持（uphold 过去式）", "note": "upheld the order 即'维持该命令（的法律效力）'，法律用语。" },
+      { "word": "deregulating", "meaning": "v. 放松对……的管制", "note": "de-（去除）+ regulate，deregulating broadband providers 即'放松对供应商的监管'。" },
+      { "word": "ruling", "meaning": "n. 裁决", "note": "a Supreme Court ruling 即'最高法院裁决'。" },
+      { "word": "deregulatory", "meaning": "adj. 放松管制的", "note": "a similarly deregulatory move 即'类似放松管制的举措'。" }
+    ],
+    "phrases": [
+      { "text": "uphold an order/ruling", "meaning": "维持命令/裁决", "note": "法律用语，uphold 后接法律文书作宾语。" },
+      { "text": "citing a ruling", "meaning": "援引裁决", "note": "cite 表'援引（先例）'，法律语境常用。" }
+    ]
+  },
+  "2021:D:10": {
+    "grammar": [
+      { "title": "并列谓语 argued ... and said", "text": "Judge Patricia Millett argued ... and said ... 有两个并列谓语，argue 接 that 宾语从句（引语 1），said 后省略 that 接宾语从句（引语 2），阅读时注意两个谓语共享同一主语。" },
+      { "title": "不定式 + avoid doing 结构", "text": "could intervene to 'avoid trapping Internet regulation in technological anachronism' 中 to avoid doing 表目的，avoid 后接动名词 trapping，'避免使互联网监管陷入技术上的时代错误'。" }
+    ],
+    "words": [
+      { "word": "rightly", "meaning": "adv. 正确地、恰当地", "note": "rightly argued 即'正确地指出'，作者表赞同。" },
+      { "word": "concurring", "meaning": "adj. 附随的、同意的", "note": "a concurring opinion 即'（法官的）附随意见'，法律术语。" },
+      { "word": "unhinged", "meaning": "adj. 脱离的、错乱的", "note": "is unhinged from the realities 即'与现实脱节'。" },
+      { "word": "intervene", "meaning": "v. 介入、干预", "note": "Congress or the Supreme Court could intervene 即'国会或最高法院可以干预'。" },
+      { "word": "anachronism", "meaning": "n. 时代错误、不合时宜的事物", "note": "technological anachronism 即'技术上的时代错位'。" },
+      { "word": "trapping", "meaning": "v. 使陷入（trap 的动名词）", "note": "avoid trapping ... in ... 即'避免使……陷入……'。" }
+    ],
+    "phrases": [
+      { "text": "in a concurring opinion", "meaning": "在附随意见中", "note": "司法语境，指法官同意判决但补充不同理由的意见。" },
+      { "text": "be unhinged from", "meaning": "与……脱节", "note": "unhinged 由 un- + hinge（铰链）派生，'脱钩'义。" },
+      { "text": "trap ... in", "meaning": "使……陷入……", "note": "固定搭配，be trapped in 表'被困于'。" }
+    ]
+  },
+  "2021:D:11": {
+    "grammar": [
+      { "title": "while + 现在分词作伴随对比", "text": "while preserving the commission's power ... 中 while 后接现在分词，相当于 while it preserved ...，表同时存在的另一面，意为'在……的同时还保留着……'，与前半句'否决 FCC 的尝试'形成对照。" },
+      { "title": "不定式作后置定语 + that 定语从句", "text": "the commission's power to preempt individual state laws that undermine its order 中 to preempt ... 作 power 的后置定语，that undermine its order 又修饰 state laws。" }
+    ],
+    "words": [
+      { "word": "threw", "meaning": "v. 扔、抛（throw 过去式）", "note": "threw out the FCC's attempt 中 throw out 为短语动词'否决、驳回'。" },
+      { "word": "block", "meaning": "v. 阻止、封堵", "note": "to block all state rules 即'阻止所有州规则'。" },
+      { "word": "preempt", "meaning": "v. 抢先、先发制人地否决", "note": "联邦法语境，preempt state laws 指联邦以先占原则否决州法。" },
+      { "word": "undermine", "meaning": "v. 削弱、损害", "note": "laws that undermine its order 即'损害其命令的法律'。" }
+    ],
+    "phrases": [
+      { "text": "in the meantime", "meaning": "与此同时", "note": "过渡性短语，引出另一相关事件。" },
+      { "text": "throw out", "meaning": "否决、驳回", "note": "口语化法律用语，相当于 reject。" },
+      { "text": "on net neutrality", "meaning": "关于网络中立", "note": "state rules on net neutrality 即'关于网络中立性的州规则'，on 表'关于'。" }
+    ]
+  },
+  "2021:D:12": {
+    "grammar": [
+      { "title": "现在分词作后置定语", "text": "like the one now going on between the Justice Department and California 中 going on ... 为现在分词短语修饰 the one（指 battle），意为'正在进行的那场争斗'。" },
+      { "title": "which 非限定性定语从句", "text": "which enacted a tough net neutrality law in the wake of the FCC's abdication 补充说明 California 的行为，which 指代 California；in the wake of 意为'紧随……之后'。" }
+    ],
+    "words": [
+      { "word": "battles", "meaning": "n. 争斗、较量", "note": "more battles like the one 即'更多类似的争斗'，呼应前文 legal battles。" },
+      { "word": "enacted", "meaning": "v. 颁布、制定（法律）", "note": "enacted a law 即'颁布法律'，与立法机关搭配。" },
+      { "word": "tough", "meaning": "adj. 严格的、强硬的", "note": "a tough net neutrality law 即'严厉的网络中立法'。" },
+      { "word": "abdication", "meaning": "n. 放弃（职责）", "note": "the FCC's abdication 即'FCC 的弃责/放弃监管'，由 abdicate 派生。" }
+    ],
+    "phrases": [
+      { "text": "go on", "meaning": "进行、持续", "note": "now going on 表'正在进行'。" },
+      { "text": "in the wake of", "meaning": "在……之后、紧随……", "note": "书面短语，表'随着……发生后'。" },
+      { "text": "the Justice Department", "meaning": "（美国）司法部", "note": "美国政府机构名。" }
+    ]
+  },
+  "2021:D:13": {
+    "grammar": [
+      { "title": "cry out for sb to do 结构", "text": "The endless legal battles ... cry out for Congress to act 中 cry out for + 名词/不定式复合结构，意为'迫切要求（国会）采取行动'，主语为两件事（legal battles 与 back-and-forth），谓语用复数 cry。" }
+    ],
+    "words": [
+      { "word": "endless", "meaning": "adj. 无尽的", "note": "The endless legal battles 即'无休止的法律纷争'。" },
+      { "word": "back-and-forth", "meaning": "n. 反复来回、拉锯", "note": "表 FCC 政策摇摆反复，复合名词。" }
+    ],
+    "phrases": [
+      { "text": "cry out for", "meaning": "迫切要求、亟需", "note": "短语动词，主语常为抽象情况。" },
+      { "text": "legal battles", "meaning": "法律斗争", "note": "legal 修饰 battles，法律语境。" }
+    ]
+  },
+  "2021:D:14": {
+    "grammar": [
+      { "title": "两个并列不定式", "text": "to give ... authority ... to bar ... and to create ... 中第一个不定式作 needs 的宾语，第二、三个不定式（to bar ... and to create ...）由 and 并列，是给该权力的目的/内容，阅读时先抓 'needs to give ... authority'，再读两个目的不定式。" },
+      { "title": "bar sb from doing / 分词后置定语", "text": "to bar broadband providers from meddling in the traffic ... 中 bar sb from doing 为固定搭配；creating 后的 protecting openness and innovation online 是现在分词作后置定语修饰 rules。" }
+    ],
+    "words": [
+      { "word": "explicit", "meaning": "adj. 明确的", "note": "explicit authority 即'明确的权力'。" },
+      { "word": "authority", "meaning": "n. 权力、授权", "note": "give the commission explicit authority 即'授予委员会明确权力'。" },
+      { "word": "bar", "meaning": "v. 禁止", "note": "bar ... from doing 为固定搭配'禁止……做……'。" },
+      { "word": "meddling", "meaning": "v. 干涉、干预（meddle 动名词）", "note": "meddling in the traffic 即'干预（网络）流量'，含贬义。" },
+      { "word": "openness", "meaning": "n. 开放性", "note": "openness and innovation online 即'网上的开放与创新'。" }
+    ],
+    "phrases": [
+      { "text": "once and for all", "meaning": "一劳永逸地、最终地", "note": "固定短语，强调彻底解决。" },
+      { "text": "bar ... from ...", "meaning": "禁止……做……", "note": "与 prevent ... from 同义结构，from 后接动名词。" },
+      { "text": "meddle in", "meaning": "干涉、插手", "note": "固定搭配，meddle in sth 含'不该插手却插手'之意。" }
+    ]
+  }
+}

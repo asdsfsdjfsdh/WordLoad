@@ -110,6 +110,10 @@ class SentenceDto {
   @IsOptional()
   @IsObject()
   structure?: Record<string, unknown> | null;
+
+  @IsOptional()
+  @IsObject()
+  knowledge?: Record<string, unknown> | null;
 }
 
 class QuestionDto {
@@ -203,12 +207,13 @@ export class AdminController {
   }
 
   @Put('reading/sentences/:id')
-  @ApiOperation({ summary: '更新句子（英文/译文/结构）' })
+  @ApiOperation({ summary: '更新句子（英文/译文/结构/知识点）' })
   saveSentence(@Req() req: Request & { user: JwtUser }, @Param('id', ParseIntPipe) id: number, @Body() dto: SentenceDto) {
     return this.admin.saveSentence(req.user.sub, id, {
       en: dto.en,
       zh: dto.zh,
       structure: dto.structure as import('@word-journey/shared').ReadingSentenceStructure | null,
+      knowledge: dto.knowledge as import('@word-journey/shared').ReadingSentenceKnowledge | null,
     });
   }
 

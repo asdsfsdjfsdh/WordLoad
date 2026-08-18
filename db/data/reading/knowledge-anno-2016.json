@@ -1,0 +1,1222 @@
+{
+  "2016:A:0": {
+    "grammar": [
+      { "title": "非限制性定语从句插入主谓之间", "text": "France, which prides itself as the global innovator of fashion, has decided... 中 which 引导的非限制性定语从句插在主语 France 与谓语 has decided 之间，阅读时先把 which...fashion 括起来，抓 France + has decided 主干，再回来处理从句。" },
+      { "title": "谓语动词后接宾语从句", "text": "has decided 后直接跟 its fashion industry has lost an absolute right...（省略 that），这是一个完整的宾语从句，表达法国'认定'的具体内容，宾语从句内部以 to define physical beauty for women 不定式作定语修饰 right。" }
+    ],
+    "words": [
+      { "word": "pride", "meaning": "v. 使自豪；以…为荣", "note": "pride oneself on/as sth 自诩、以…为傲；名词义为'自豪、骄傲'。" },
+      { "word": "innovator", "meaning": "n. 创新者", "note": "动词 innovate 创新；名词 innovation 创新。" },
+      { "word": "absolute", "meaning": "adj. 绝对的", "note": "此处作定语修饰 right，强调'不容置疑的权利'。" }
+    ],
+    "phrases": [
+      { "text": "pride itself as", "meaning": "自诩为", "note": "原文为 prides itself as the global innovator of fashion。" },
+      { "text": "define physical beauty", "meaning": "界定形体美", "note": "define 此处不是'下定义'的机械翻译，而是'界定、规定'。" }
+    ]
+  },
+  "2016:A:1": {
+    "grammar": [
+      { "title": "make it + n. + 不定式（形式宾语）", "text": "that would make it a crime to employ ultra-thin models on runways 中，it 是形式宾语，真正宾语是后面的不定式 to employ ultra-thin models，a crime 作宾补。理解顺序：'把雇用超瘦模特这件事定为犯罪'。" },
+      { "title": "定语从句 + 主谓宾分隔", "text": "gave preliminary approval last week to a law 中 give sth to sth 的介词短语 to a law 被时间状语 last week 隔开，且 that 引导的定语从句紧跟在 a law 后修饰它，注意把 give...to a law 连起来读。" }
+    ],
+    "words": [
+      { "word": "preliminary", "meaning": "adj. 初步的", "note": "preliminary approval 初步批准。" },
+      { "word": "employ", "meaning": "v. 雇用", "note": "名词 employment 雇用/就业；此处 hire 义。" },
+      { "word": "runway", "meaning": "n. T台；跑道", "note": "原文 on runways，时装秀语境指'T台'。" }
+    ],
+    "phrases": [
+      { "text": "give approval to", "meaning": "批准", "note": "give preliminary approval to a law 初步批准一项法律。" }
+    ]
+  },
+  "2016:A:2": {
+    "grammar": [
+      { "title": "agree to do + 定语从句 + 方式状语", "text": "agreed to ban websites 为 agree to do 结构；定语从句 that \"incite excessive thinness\" 修饰 websites，by promoting extreme dieting 说明'通过何种方式'煽动，是方式状语，翻译时按'那些通过宣扬极端节食来煽动过度瘦身的网站'处理。" }
+    ],
+    "words": [
+      { "word": "parliament", "meaning": "n. 议会", "note": "the parliament 国会、议会。" },
+      { "word": "incite", "meaning": "v. 煽动、鼓动", "note": "此处指网站'煽动'过度瘦身风气。" },
+      { "word": "excessive", "meaning": "adj. 过度的", "note": "excess 过度 + -ive 形容词后缀。" },
+      { "word": "dieting", "meaning": "n. 节食", "note": "diet 名词本义'日常饮食'，dieting 特指'节食减肥'。" }
+    ],
+    "phrases": [
+      { "text": "promote extreme dieting", "meaning": "宣扬极端节食", "note": "promote 此处是'宣传、鼓吹'，不是'晋升'。" }
+    ]
+  },
+  "2016:A:3": {
+    "grammar": [
+      { "title": "主谓宾简单句", "text": "Such measures have a couple of uplifting motives 主干直接，Such 指代上文禁令，a couple of uplifting motives 作宾语，阅读重点是搞清楚 Such measures 的指代对象（上文的禁令措施）。" }
+    ],
+    "words": [
+      { "word": "uplifting", "meaning": "adj. 令人振奋的、鼓舞人心的", "note": "up（向上）+ lift（提升）+ -ing；与鼓舞人心对应。" },
+      { "word": "motive", "meaning": "n. 动机、目的", "note": "motivate 动词'激励'；同根词。" }
+    ],
+    "phrases": [
+      { "text": "a couple of", "meaning": "几个、若干", "note": "口语化表达，此处不是'一对'。" }
+    ]
+  },
+  "2016:A:4": {
+    "grammar": [
+      { "title": "suggest 后接宾语从句（省略 that）", "text": "They suggest beauty should not be defined... 中 suggest 后省略 that，从句以被动语态 be defined 承接，译作'它们表明，美不应由…来界定'。" },
+      { "title": "定语从句 that end up impinging on health", "text": "that 引导定语从句修饰 looks，end up doing 意为'最终……'，整句指'那些最终损害健康的外表'，这是作者对'美'的定义加上的限定条件。" }
+    ],
+    "words": [
+      { "word": "impinge", "meaning": "v. 损害、侵犯、影响", "note": "impinge on 对…造成影响/侵害；本句 impinging on health 即'损害健康'。" }
+    ],
+    "phrases": [
+      { "text": "end up doing", "meaning": "最终、到头来（做某事）", "note": "原文 that end up impinging on health。" },
+      { "text": "be defined by", "meaning": "由…界定", "note": "should not be defined by looks 不应由外表来界定。" }
+    ]
+  },
+  "2016:A:5": {
+    "grammar": [
+      { "title": "主系表 + 指示代词指代", "text": "That's a start 中 That 指代上一句'美不应以损害健康的外表来界定'这一主张，a start 意为'（好的）开端'，是作者对其有限肯定的评价。" }
+    ],
+    "words": []
+  },
+  "2016:A:6": {
+    "grammar": [
+      { "title": "seem to do + go beyond doing", "text": "the ban ... seems to go beyond protecting models 中 seem to 表'似乎'，go beyond doing 意为'不仅限于做某事'，说明该禁令的用意超出了'防止模特饿死'这一层。" },
+      { "title": "as 引导的定语从句", "text": "as some have done 中 as 作关系代词指代前面 starving themselves to death 这类行为，'正如一些人所做的那样（饿死）'，补充说明某些模特确实为此丧命。" }
+    ],
+    "words": [
+      { "word": "ban", "meaning": "n. 禁令；v. 禁止", "note": "the ban on ultra-thin models 对超瘦模特的禁令，ban on 固定搭配。" },
+      { "word": "starve", "meaning": "v. 饿死、挨饿", "note": "starve oneself to death 把自己饿死；starving 常作'饥饿的'。" }
+    ],
+    "phrases": [
+      { "text": "go beyond", "meaning": "超越、不限于", "note": "go beyond protecting... 不只是为了保护……。" },
+      { "text": "protect...from...", "meaning": "保护…免受…", "note": "protecting models from starving themselves to death 保护模特不至于饿死。" }
+    ]
+  },
+  "2016:A:7": {
+    "grammar": [
+      { "title": "tell sb + that 宾语从句", "text": "It tells the fashion industry that it must take responsibility... 中 that 引导宾语从句，说明'告诫时尚业的（具体）内容'。" },
+      { "title": "省略关系代词的双重定语从句", "text": "the signal it sends women 中 it sends 是省略 that 的定语从句修饰 signal（send sb sth 双宾语）；the social tape-measure they must use... 中 they must use 同样省略关系代词，修饰 tape-measure。两处省略让句子紧凑，理解时要补出先行词。" }
+    ],
+    "words": [
+      { "word": "signal", "meaning": "n. 信号、讯号", "note": "此处是隐喻，指时尚业传递给女性的'信号/暗示'。" },
+      { "word": "tape-measure", "meaning": "n. 卷尺、皮尺", "note": "the social tape-measure 隐喻'社会用以衡量人的标尺'，不可直译。" },
+      { "word": "worth", "meaning": "n. 价值", "note": "individual worth 个人价值。" }
+    ],
+    "phrases": [
+      { "text": "take responsibility for", "meaning": "对…负责", "note": "take responsibility for the signal it sends women。" },
+      { "text": "send sb sth", "meaning": "向某人传达某物", "note": "the signal it sends women 它向女性传递的信号。" }
+    ]
+  },
+  "2016:A:8": {
+    "grammar": [
+      { "title": "条件状语从句的省略（if + 过去分词）", "text": "if fully enforced 是 if they are fully enforced 的省略式，enforced 过去分词表被动；阅读时补出主语 '（禁令）被全面实施时'。" },
+      { "title": "使役动词 let sb be", "text": "they should not let others be arbiters of their beauty 中 let others be... 为'让某人成为…'，arbiters 作宾补，全句意为'不应让他人充当她们美貌的评判者'。" }
+    ],
+    "words": [
+      { "word": "enforce", "meaning": "v. 实施、强制执行", "note": "if fully enforced 若得以全面实施；名词 enforcement。" },
+      { "word": "arbiter", "meaning": "n. 仲裁者、评判者", "note": "arbitrate 仲裁；此处指'美的裁判'。" }
+    ],
+    "phrases": [
+      { "text": "suggest to sb that...", "meaning": "向某人暗示/传达…", "note": "would suggest to women that... 将向女性传达这样的信息。" }
+    ]
+  },
+  "2016:A:9": {
+    "grammar": [
+      { "title": "rather than 连接并列成分", "text": "look to intangible qualities like character and intellect rather than dieting their way to size zero 中 rather than 连接两个并列动宾结构（look to... 与 dieting...），意为'应关注无形品质，而非通过节食…'，注意前后对比的对象。" }
+    ],
+    "words": [
+      { "word": "faintly", "meaning": "adv. 隐约地、微弱地", "note": "perhaps faintly 也许隐隐约约地；faint 微弱的。" },
+      { "word": "hint", "meaning": "v. 暗示；n. 提示", "note": "they hint that... 它们暗示…。" },
+      { "word": "intangible", "meaning": "adj. 无形的", "note": "in-（不）+ tangible 可触知的；intangible qualities 无形的品质。" },
+      { "word": "intellect", "meaning": "n. 智力、才智", "note": "与 character（品格）并列，均属'无形品质'。" },
+      { "word": "wasp-waist", "meaning": "n. 蜂腰", "note": "wasp 黄蜂，wasp-waist 以黄蜂细腰喻'极细的腰身'。" }
+    ],
+    "phrases": [
+      { "text": "look to", "meaning": "关注、寄希望于", "note": "look to intangible qualities 关注无形品质。" },
+      { "text": "diet one's way to", "meaning": "靠节食达到…", "note": "dieting their way to size zero 靠节食追求零号身材。" },
+      { "text": "rather than", "meaning": "而不是", "note": "连接取舍对比的两项。" }
+    ]
+  },
+  "2016:A:10": {
+    "grammar": [
+      { "title": "rely on A to do B", "text": "rely too much on severe punishment to change a culture 中 rely on 后接宾语 severe punishment，to change a culture 为目的状语，整句意为'过分依赖严厉惩罚来改变一种文化'。" },
+      { "title": "定语从句 + regard A as B", "text": "a culture that still regards beauty as skin-deep 中 that 定语从句修饰 culture，regards beauty as... 为'把美视为…'，skin-deep 与 bone-showing 均为比喻性形容词。" }
+    ],
+    "words": [
+      { "word": "severe", "meaning": "adj. 严厉的、严重的", "note": "severe punishment 严厉惩罚。" },
+      { "word": "regard", "meaning": "v. 认为、把…视为", "note": "regard A as B 把 A 看作 B。" },
+      { "word": "skin-deep", "meaning": "adj. 肤浅的、表面的", "note": "beauty is skin-deep 谚语'美丽是表面的'，此处接 bone-showing（瘦骨嶙峋）构成递进讽刺。" }
+    ],
+    "phrases": [
+      { "text": "rely on", "meaning": "依赖、依靠", "note": "rely too much on severe punishment。" },
+      { "text": "too much", "meaning": "过多地", "note": "修饰 rely，强调'过分'。" }
+    ]
+  },
+  "2016:A:11": {
+    "grammar": [
+      { "title": "动名词短语作主语", "text": "using a fashion model that does not meet a government-defined index of body mass 整体作主语，谓语 could result in a fine... 用单数；主语内部 that 引导定语从句修饰 model，说明'不符合政府规定的身体质量指数'的模特。" }
+    ],
+    "words": [
+      { "word": "index", "meaning": "n. 指数、指标", "note": "a government-defined index of body mass 政府规定的身体质量指数。" },
+      { "word": "fine", "meaning": "n. 罚款", "note": "a $85,000 fine 8.5万美元罚款。" },
+      { "word": "mass", "meaning": "n. 质量、体量", "note": "body mass 身体质量，body mass index（BMI）即身体质量指数。" }
+    ],
+    "phrases": [
+      { "text": "result in", "meaning": "导致、造成", "note": "could result in a $85,000 fine and six months in prison。" },
+      { "text": "under the law", "meaning": "根据该法律", "note": "句首介词短语作条件状语。" }
+    ]
+  },
+  "2016:A:12": {
+    "grammar": [
+      { "title": "knows 后接宾语从句（省略 that）", "text": "knows it has an inherent problem... 中宾语从句省略 that；从句内 have a problem in doing sth 为'在某方面存在问题'，in 接动名词 focusing on..." }
+    ],
+    "words": [
+      { "word": "inherent", "meaning": "adj. 固有的、内在的", "note": "in- + her（黏附）+ -ent，'天生带有的'。" },
+      { "word": "adornment", "meaning": "n. 装饰、点缀", "note": "adorn 装饰；material adornment 物质装点。" },
+      { "word": "idealize", "meaning": "v. 理想化", "note": "idealized body types 理想化的体型。" }
+    ],
+    "phrases": [
+      { "text": "have a problem in", "meaning": "在…方面存在问题", "note": "in focusing on... 即问题之所在。" },
+      { "text": "focus on", "meaning": "专注于", "note": "focusing on material adornment and idealized body types。" }
+    ]
+  },
+  "2016:A:13": {
+    "grammar": [
+      { "title": "定语从句 that rely on...", "text": "standards for models and fashion images that rely more on peer pressure for enforcement 中 that 引导定语从句，先行词是 standards（标准和形象），rely on...for... 意为'在…上依赖…'，说明这些标准的落实更多靠同行压力。" }
+    ],
+    "words": [
+      { "word": "voluntary", "meaning": "adj. 自愿的", "note": "voluntary standards 自愿性标准，与法律强制相对。" },
+      { "word": "peer", "meaning": "n. 同辈、同行", "note": "peer pressure 同龄人/同行压力。" },
+      { "word": "enforcement", "meaning": "n. 执行、强制实施", "note": "for enforcement 指标准的'落实'。" }
+    ],
+    "phrases": [
+      { "text": "set standards", "meaning": "制定标准", "note": "set voluntary standards for models and fashion images。" },
+      { "text": "peer pressure", "meaning": "同伴压力、同行压力", "note": "靠同行压力而非法律来执行。" }
+    ]
+  },
+  "2016:A:14": {
+    "grammar": [
+      { "title": "介词短语 In contrast to 置于句首作状语", "text": "In contrast to France's actions 表示'与法国的做法相反'，为全文对比逻辑定调，后面主句讲丹麦的做法。" },
+      { "title": "agree on + 介词 regarding", "text": "agreed last month on rules and sanctions 中 agree on 表'就…达成一致'；regarding the age, health... 为介词'关于'，限定规则针对的范围。" }
+    ],
+    "words": [
+      { "word": "sanction", "meaning": "n. 制裁；v. 批准", "note": "rules and sanctions 规则与制裁措施。" },
+      { "word": "regarding", "meaning": "prep. 关于", "note": "regarding the age, health... 关于年龄、健康…。" }
+    ],
+    "phrases": [
+      { "text": "in contrast to", "meaning": "与…相反、对比", "note": "句首点明对比关系。" },
+      { "text": "agree on", "meaning": "就…达成一致", "note": "agree on rules and sanctions 就规则与制裁达成一致。" }
+    ]
+  },
+  "2016:A:15": {
+    "grammar": [
+      { "title": "两个并列动词共用一个宾语", "text": "We are aware of and take responsibility for the impact 中 be aware of 与 take responsibility for 共用宾语 the impact，阅读时要把 of 与 for 分别接回 the impact，即'意识到这一影响、并为之负责'。" },
+      { "title": "省略关系代词的定语从句", "text": "the impact the fashion industry has on body ideals 中 the fashion industry has 是省略 that 的定语从句，have impact on 为'对…产生影响'，故实为 the impact (that) the fashion industry has on body ideals。" }
+    ],
+    "words": [
+      { "word": "revise", "meaning": "v. 修订", "note": "newly revised 新修订的；名词 revision。" },
+      { "word": "charter", "meaning": "n. 宪章、章程", "note": "Danish Fashion Ethical Charter 丹麦时尚道德宪章。" },
+      { "word": "impact", "meaning": "n. 影响", "note": "have impact on 对…的影响。" }
+    ],
+    "phrases": [
+      { "text": "be aware of", "meaning": "意识到", "note": "be aware of and take responsibility for 并列共用宾语。" },
+      { "text": "take responsibility for", "meaning": "对…负责", "note": "见本句并列结构。" },
+      { "text": "have impact on", "meaning": "对…产生影响", "note": "the impact the fashion industry has on body ideals。" }
+    ]
+  },
+  "2016:A:16": {
+    "grammar": [
+      { "title": "不定式作表语", "text": "is to deny access... 中不定式 to deny access 作表语说明'主要执行手段是什么'，表目的/功能。" },
+      { "title": "which 非限制性定语从句", "text": "Copenhagen Fashion Week (CFW), which is run by the Danish Fashion Institute 中 which 补充说明时装周由丹麦时装学院主办，run 表'运营、主办'。" }
+    ],
+    "words": [
+      { "word": "deny", "meaning": "v. 拒绝给予", "note": "deny access to 拒绝准入；非'否认'义。" },
+      { "word": "access", "meaning": "n. 进入权、准入", "note": "deny access for sb to sth 禁止某人进入某地。" },
+      { "word": "institute", "meaning": "n. 机构、学院", "note": "the Danish Fashion Institute 丹麦时装学院。" }
+    ],
+    "phrases": [
+      { "text": "deny access to", "meaning": "拒绝准入", "note": "deny access for designers and modeling agencies to Copenhagen Fashion Week。" },
+      { "text": "the main tool of enforcement", "meaning": "主要的执行手段", "note": "tool 此处为抽象'手段、办法'。" }
+    ]
+  },
+  "2016:A:17": {
+    "grammar": [
+      { "title": "主谓宾简单句 + 名词性合成词作定语", "text": "it relies on a name-and-shame method of compliance 主干为 it relies on + 宾语；name-and-shame 是由 name（点名）与 shame（羞辱）合成的形容词，指'点名羞辱'式做法，是理解本句的关键。" }
+    ],
+    "words": [
+      { "word": "compliance", "meaning": "n. 遵从、服从", "note": "comply 动词'遵守'；method of compliance 遵约方式。" },
+      { "word": "name-and-shame", "meaning": "adj. 点名羞辱的", "note": "商业/媒体用语，指公开曝光以施加压力。" }
+    ],
+    "phrases": [
+      { "text": "in general", "meaning": "总的来说", "note": "句首状语，与上句的强制执行形成对照。" },
+      { "text": "rely on", "meaning": "依靠", "note": "relies on a name-and-shame method of compliance。" }
+    ]
+  },
+  "2016:A:18": {
+    "grammar": [
+      { "title": "动名词短语作主语", "text": "Relying on ethical persuasion rather than law to address the misuse of body ideals 整段作主语，谓语是 may be；主语内部 rely on A rather than B 表'依靠A而非B'，to address... 为目的状语。" }
+    ],
+    "words": [
+      { "word": "persuasion", "meaning": "n. 劝说", "note": "ethical persuasion 道德劝说，与法律强制相对。" },
+      { "word": "misuse", "meaning": "n. 误用、滥用", "note": "the misuse of body ideals 对形体理想的滥用/不当宣扬。" },
+      { "word": "address", "meaning": "v. 处理、应对", "note": "to address the misuse 处理（这一）滥用问题。" }
+    ],
+    "phrases": [
+      { "text": "rather than", "meaning": "而不是", "note": "ethical persuasion rather than law 道德劝说而非法律。" },
+      { "text": "rely on", "meaning": "依靠", "note": "Relying on ethical persuasion。" }
+    ]
+  },
+  "2016:A:19": {
+    "grammar": [
+      { "title": "表语前置的倒装结构", "text": "Even better would be to help elevate... 中表语 Even better 提前、主语（不定式）后置，语序实为 to help elevate notions... would be even better，阅读时调整为正常语序更易理解。" },
+      { "title": "help (to) do 省略 to", "text": "to help elevate notions of beauty 中 help 后接不定式可省略 to，即 help (to) elevate，意为'帮助提升美的观念'。" }
+    ],
+    "words": [
+      { "word": "elevate", "meaning": "v. 提升、抬高", "note": "elevate notions of beauty 提升对美的观念。" },
+      { "word": "notion", "meaning": "n. 观念、看法", "note": "notions of beauty 关于美的观念。" },
+      { "word": "material", "meaning": "adj. 物质的", "note": "material standards 物质标准，与精神层面的美相对。" }
+    ],
+    "phrases": [
+      { "text": "beyond the standards of", "meaning": "超越…的标准", "note": "beyond the material standards of a particular industry。" }
+    ]
+  },
+  "2016:B:0": {
+    "grammar": [
+      { "title": "比较结构 than 后省略主谓", "text": "more people live in towns than in the country 中比较的对象是地点状语 in towns 与 in the country，than 后省略与前面相同的部分，实质是 more people live in towns than (people live) in the country，意为'住城镇的人比住农村的人多'。" }
+    ],
+    "words": [],
+    "phrases": [
+      { "text": "for the first time in history", "meaning": "历史上第一次", "note": "句首时间状语。" }
+    ]
+  },
+  "2016:B:1": {
+    "grammar": [
+      { "title": "主谓宾简单句", "text": "this has had a curious result 中 this 指代上一句'城镇人口首次超过农村'这一事实，have a result 为'产生结果'，阅读重点是把握 this 的指代。" }
+    ],
+    "words": [
+      { "word": "curious", "meaning": "adj. 奇怪的、奇特的", "note": "此处非'好奇的'，而是'令人费解的'。" }
+    ]
+  },
+  "2016:B:2": {
+    "grammar": [
+      { "title": "While 引导让步状语从句", "text": "While polls show Britons rate... 中 While 置于句首表'尽管、虽然'，不是'当…时'；主句 this has limited political support 是被让步的部分，阅读时抓住'尽管…但支持有限'的转折。" },
+      { "title": "rate A alongside B as C", "text": "rate \"the countryside\" alongside the royal family, Shakespeare and the NHS as what makes them proudest 中 rate A as C 为'把A评为C'，alongside 表示'与…并列'，what 从句作 as 的宾语。" }
+    ],
+    "words": [
+      { "word": "alongside", "meaning": "prep. 与…并列、与…一起", "note": "rate the countryside alongside... 把乡村与…相提并论。" },
+      { "word": "rate", "meaning": "v. 评价、评级", "note": "rate A as B 把 A 评为 B。" },
+      { "word": "poll", "meaning": "n. 民意调查", "note": "polls show... 民调显示…。" }
+    ],
+    "phrases": [
+      { "text": "proudest of", "meaning": "最感到自豪的", "note": "what makes them proudest of their country 令他们最引以为傲之物。" }
+    ]
+  },
+  "2016:B:3": {
+    "grammar": [
+      { "title": "not...but... 并列不定式作目的状语", "text": "launched the National Trust not to rescue stylish houses but to save \"the beauty of natural places...\" 中 not to...but to... 连接两个目的状语，表'不是为了A，而是为了B'，强调组织创立的初衷。" }
+    ],
+    "words": [
+      { "word": "launch", "meaning": "v. 发起、创立", "note": "launched the National Trust 创立国民托管组织。" },
+      { "word": "rescue", "meaning": "v. 拯救、营救", "note": "not to rescue stylish houses 不是为了拯救漂亮宅邸。" },
+      { "word": "stylish", "meaning": "adj. 时髦的、漂亮的", "note": "stylish houses 时尚住宅。" }
+    ],
+    "phrases": [
+      { "text": "not...but...", "meaning": "不是…而是…", "note": "并列对比创立目的。" }
+    ]
+  },
+  "2016:B:4": {
+    "grammar": [
+      { "title": "be to do 表意图", "text": "It was specifically to provide city dwellers with spaces 中 was to provide 表'（创立的）目的是提供'，specifically 强调'正是、特意'。" },
+      { "title": "where 引导定语从句", "text": "spaces for leisure where they could experience \"a refreshing air\" 中 where 引导定语从句修饰 spaces，先行词是表地点的 spaces。" }
+    ],
+    "words": [
+      { "word": "dweller", "meaning": "n. 居民、居住者", "note": "dwell 居住；city dwellers 城市居民。" },
+      { "word": "leisure", "meaning": "n. 闲暇、休闲", "note": "spaces for leisure 休闲空间。" },
+      { "word": "refreshing", "meaning": "adj. 令人精神焕发的", "note": "a refreshing air 令人神清气爽的空气。" }
+    ],
+    "phrases": [
+      { "text": "provide sb with sth", "meaning": "为某人提供某物", "note": "provide city dwellers with spaces for leisure。" }
+    ]
+  },
+  "2016:B:5": {
+    "grammar": [
+      { "title": "主谓宾简单句", "text": "Hill's pressure later led to the creation of... 主干为 pressure led to the creation，注意主语是抽象名词 pressure（压力、推动力），lead to 表'促成、导致'。" }
+    ],
+    "words": [
+      { "word": "pressure", "meaning": "n. 压力、推动力", "note": "Hill's pressure 希尔（施加的）推动力。" },
+      { "word": "belt", "meaning": "n. 地带", "note": "green belts 绿化带；belt 亦作'腰带'。" }
+    ],
+    "phrases": [
+      { "text": "lead to", "meaning": "导致、促成", "note": "led to the creation of national parks and green belts。" }
+    ]
+  },
+  "2016:B:6": {
+    "grammar": [
+      { "title": "and 连接的并列句 + any more", "text": "They don't make countryside any more 与 every year concrete consumes more of it 用 and 并列；not...any more 意为'不再'，第二分句主语 concrete（混凝土）为不可数名词作抽象主语，指'城市化吞噬土地'。" }
+    ],
+    "words": [
+      { "word": "concrete", "meaning": "n. 混凝土", "note": "此处作名词借代'城市化建设'，动词义'用混凝土铺'。" },
+      { "word": "consume", "meaning": "v. 消耗、吞噬", "note": "concrete consumes more of it 混凝土吞噬更多乡村土地。" }
+    ],
+    "phrases": [
+      { "text": "not...any more", "meaning": "不再", "note": "don't make countryside any more 乡村不会再（自己）生长出来。" }
+    ]
+  },
+  "2016:B:7": {
+    "grammar": [
+      { "title": "主谓宾简单句", "text": "It needs constant guardianship 中 It 指代上文的 countryside（乡村），needs 宾语为 abstract 名词 guardianship，强调乡村需要持续守护。" }
+    ],
+    "words": [
+      { "word": "guardianship", "meaning": "n. 守护、监护", "note": "guardian 守护者 + -ship 名词后缀。" },
+      { "word": "constant", "meaning": "adj. 持续的、不断的", "note": "constant guardianship 持续守护。" }
+    ]
+  },
+  "2016:B:8": {
+    "grammar": [
+      { "title": "none of + 复数 + seem likely to do", "text": "none of the big parties seem likely to endorse this sentiment 中 none of 表'没有一个'（谓语用复数表否定全体），seem likely to endorse 为'似乎很可能支持'。" }
+    ],
+    "words": [
+      { "word": "endorse", "meaning": "v. 支持、赞同", "note": "endorse this sentiment 支持这种（保护乡村的）情绪。" },
+      { "word": "sentiment", "meaning": "n. 情绪、情感", "note": "this sentiment 指上文对乡村的自豪之情。" }
+    ],
+    "phrases": [
+      { "text": "none of", "meaning": "…中没有一个", "note": "none of the big parties 各大政党都（不）。" },
+      { "text": "seem likely to", "meaning": "似乎很可能", "note": "seem likely to endorse。" }
+    ]
+  },
+  "2016:B:9": {
+    "grammar": [
+      { "title": "give A priority over B", "text": "gives rural development priority over conservation 中 give A priority over B 意为'让 A 优先于 B'，即'乡村开发优先于自然保护'。" },
+      { "title": "现在分词作伴随/结果状语", "text": "even authorising \"off-plan\" building 为现在分词短语补充说明前面的行为，相当于 and even authorises...，其中 where local people might object 为地点状语从句修饰 building（在可能遭反对的地区建房）。" }
+    ],
+    "words": [
+      { "word": "explicitly", "meaning": "adv. 明确地", "note": "explicit 明确的。" },
+      { "word": "authorise", "meaning": "v. 批准、授权", "note": "美式拼写 authorize；authorising off-plan building 批准计划外建设。" },
+      { "word": "object", "meaning": "v. 反对", "note": "object to sth 反对；where local people might object。" }
+    ],
+    "phrases": [
+      { "text": "give priority over", "meaning": "使…优先于", "note": "gives rural development priority over conservation。" },
+      { "text": "off-plan", "meaning": "计划外的", "note": "英国规划术语，指绕过既定规划许可的开发。" }
+    ]
+  },
+  "2016:B:10": {
+    "grammar": [
+      { "title": "被动语态 + define A as B", "text": "has been defined as profitable 为现在完成时被动语态，define A as B 意为'把 A 界定为 B'，全句'可持续发展概念已被定义为有利可图的'，隐含批判意味。" }
+    ],
+    "words": [
+      { "word": "sustainable", "meaning": "adj. 可持续的", "note": "sustain 维持 + -able；sustainable development 可持续发展。" },
+      { "word": "profitable", "meaning": "adj. 有利可图的", "note": "profit 利润 + -able。" },
+      { "word": "concept", "meaning": "n. 概念", "note": "the concept of sustainable development。" }
+    ],
+    "phrases": [
+      { "text": "be defined as", "meaning": "被定义为", "note": "has been defined as profitable。" }
+    ]
+  },
+  "2016:B:11": {
+    "grammar": [
+      { "title": "where 引导定语从句修饰 planning", "text": "to discontinue local planning where councils oppose development 中 where 引导定语从句修饰 local planning（此处 planning 指'地方规划（涉及的地区）'），可译为'在议会反对开发的地方终止地方规划'。" }
+    ],
+    "words": [
+      { "word": "discontinue", "meaning": "v. 终止、停止", "note": "continue 的反义加 dis- 前缀。" },
+      { "word": "council", "meaning": "n. 地方议会", "note": "local councils 地方议会/地方政府。" }
+    ],
+    "phrases": [
+      { "text": "likewise", "meaning": "同样地", "note": "副词作状语，承接上文表明工党与保守党类似态度。" }
+    ]
+  },
+  "2016:B:12": {
+    "grammar": [
+      { "title": "主系表简单句", "text": "The Liberal Democrats are silent 主干直白，silent 表'（对此）沉默、不发一言'，承接上文列举各党对乡村保护的态度。" }
+    ],
+    "words": [
+      { "word": "silent", "meaning": "adj. 沉默的", "note": "be silent 保持沉默。" }
+    ]
+  },
+  "2016:B:13": {
+    "grammar": [
+      { "title": "现在分词作状语 + 作后置定语", "text": "sensing its chance 是现在分词短语作伴随状语，说明 Ukip 之所以表态是因为'嗅到机会'；pleading for a more considered approach to using green land 是现在分词短语作后置定语修饰 those（那些呼吁的人）。" },
+      { "title": "side with sb", "text": "has sided with those... 中 side with 为固定搭配'站在…一边'，表支持对象。" }
+    ],
+    "words": [
+      { "word": "sense", "meaning": "v. 察觉、意识到", "note": "sensing its chance 嗅到机会；名词义'感觉'。" },
+      { "word": "plead", "meaning": "v. 恳求、呼吁", "note": "pleading for 呼吁、主张。" },
+      { "word": "considered", "meaning": "adj. 深思熟虑的", "note": "a more considered approach 更审慎的做法。" }
+    ],
+    "phrases": [
+      { "text": "side with", "meaning": "站在…一边、支持", "note": "has sided with those pleading..." },
+      { "text": "an approach to doing", "meaning": "做…的方法", "note": "approach to using green land 利用绿地的方式，to 后接动名词。" }
+    ]
+  },
+  "2016:B:14": {
+    "grammar": [
+      { "title": "主谓宾 + 不定式作定语", "text": "Its Campaign to Protect Rural England struck terror into many local Conservative parties 中 to Protect Rural England 是不定式作定语修饰 Campaign（'保护英格兰乡村'运动），struck terror into 为'使…惊恐'。" }
+    ],
+    "words": [
+      { "word": "campaign", "meaning": "n. 运动、活动", "note": "指有组织的宣传/行动。" },
+      { "word": "terror", "meaning": "n. 恐惧、惊骇", "note": "strike terror into 使惊恐。" }
+    ],
+    "phrases": [
+      { "text": "strike terror into", "meaning": "使…感到恐惧", "note": "struck terror into many local Conservative parties。" }
+    ]
+  },
+  "2016:B:15": {
+    "grammar": [
+      { "title": "不定式作定语 + 表语从句", "text": "The sensible place to build... 中不定式 to build new houses, factories and offices 作定语修饰 place；is where people are 中 where 引导表语从句，说明'合理位置就是人们所在之处'。" },
+      { "title": "where 定语从句修饰 cities and towns", "text": "in cities and towns where infrastructure is in place 中 where 引导定语从句修饰城镇，is in place 意为'（设施）就位、齐备'。" }
+    ],
+    "words": [
+      { "word": "sensible", "meaning": "adj. 明智的、合理的", "note": "sense 理智；the sensible place 合理的位置。" },
+      { "word": "infrastructure", "meaning": "n. 基础设施", "note": "in-（下）+ structure（结构），'底层设施'。" }
+    ],
+    "phrases": [
+      { "text": "in place", "meaning": "就位、到位", "note": "where infrastructure is in place 基础设施齐备之处。" }
+    ]
+  },
+  "2016:B:16": {
+    "grammar": [
+      { "title": "with 复合结构作伴随状语", "text": "with no intrusion on green belt 是'with + 名词 + 介词短语'的独立结构，补充说明'且不会侵占绿化带'，起伴随说明作用。" }
+    ],
+    "words": [
+      { "word": "identify", "meaning": "v. 找到、确认", "note": "identified enough sites 找到足够的地块。" },
+      { "word": "intrusion", "meaning": "n. 侵入、侵占", "note": "intrude 侵入；intrusion on 对…的侵占。" },
+      { "word": "agent", "meaning": "n. 代理、中介", "note": "London agents 伦敦的房产中介。" }
+    ],
+    "phrases": [
+      { "text": "half a million", "meaning": "五十万", "note": "enough sites for half a million houses。" },
+      { "text": "green belt", "meaning": "绿化带", "note": "urban green belt 城市绿化带，本句指不侵占它。" }
+    ]
+  },
+  "2016:B:17": {
+    "grammar": [
+      { "title": "what 引导主语从句", "text": "What is true of London is even truer of the provinces 中 What is true of London 为主语从句，谓语为 is；全句意为'适用于伦敦的情况，对各省更适用'，be true of 表示'对…成立'。" }
+    ],
+    "words": [
+      { "word": "province", "meaning": "n. 省、地方", "note": "the provinces 指伦敦以外的外省/地方。" },
+      { "word": "true", "meaning": "adj. 适用的、成立的", "note": "be true of 对…适用；truer 比较级。" }
+    ],
+    "phrases": [
+      { "text": "be true of", "meaning": "对…适用、成立", "note": "What is true of London is even truer of the provinces。" }
+    ]
+  },
+  "2016:B:18": {
+    "grammar": [
+      { "title": "that 引导同位语从句", "text": "The idea that \"housing crisis\" equals \"concreted meadows\" 中 that 从句作 idea 的同位语，说明'这一说法的具体内容'；全句主干为 The idea is pure lobby talk，is 是谓语。" }
+    ],
+    "words": [
+      { "word": "meadow", "meaning": "n. 草地、牧场", "note": "concreted meadows 被混凝土覆盖的草地。" },
+      { "word": "lobby", "meaning": "n. 游说集团", "note": "lobby talk 游说（集团）的言论；lobbyist 说客。" },
+      { "word": "pure", "meaning": "adj. 纯粹的", "note": "pure lobby talk 纯属游说言论。" }
+    ],
+    "phrases": []
+  },
+  "2016:B:19": {
+    "grammar": [
+      { "title": "not A but B 并列 + 疑问词 + 不定式", "text": "is not the need for more houses but, as always, where to put them 中 not...but... 连接表语：前项为名词短语，后项为'疑问词 + 不定式'（where to put them），作表语；as always 为插入语'一如既往'。" }
+    ],
+    "words": [
+      { "word": "issue", "meaning": "n. 问题、议题", "note": "The issue is not... 问题不在于…。" }
+    ],
+    "phrases": [
+      { "text": "not...but...", "meaning": "不是…而是…", "note": "not the need for more houses but where to put them。" },
+      { "text": "as always", "meaning": "一如既往、照例", "note": "插入语，强调问题一贯如此。" }
+    ]
+  },
+  "2016:B:20": {
+    "grammar": [
+      { "title": "favour A against B 对比结构", "text": "favours rural new-build against urban renovation and renewal 中 favour 接宾语 A（rural new-build），against B 表'而非 B'，构成'偏好A、反对/轻视B'的对比。" }
+    ],
+    "words": [
+      { "word": "favour", "meaning": "v. 偏袒、支持", "note": "英式拼写；美式 favor。favour A against B。" },
+      { "word": "renovation", "meaning": "n. 翻新、整修", "note": "renovate 翻新。" },
+      { "word": "renewal", "meaning": "n. 更新、改造", "note": "urban renovation and renewal 城市翻新与改造。" }
+    ],
+    "phrases": [
+      { "text": "under pressure", "meaning": "在压力之下", "note": "Under lobby pressure 在游说集团的压力下。" }
+    ]
+  },
+  "2016:B:21": {
+    "grammar": [
+      { "title": "favour A against B（承接上句结构）", "text": "favours out-of-town shopping sites against high streets 与上句同构：偏好城外购物场所，against high streets 表'而非市中心商业街'。" }
+    ],
+    "words": [
+      { "word": "high street", "meaning": "n. 商业大街", "note": "英国说法，指城镇中心的商业街（美语 main street）。" }
+    ],
+    "phrases": [
+      { "text": "out-of-town", "meaning": "城外的、市郊的", "note": "out-of-town shopping sites 城外购物场所。" }
+    ]
+  },
+  "2016:B:22": {
+    "grammar": [
+      { "title": "not...but... 并列表语", "text": "This is not a free market but a biased one 中 not A but B 表'不是A而是B'，one 为代词替代 market 避免重复，biased 指'有偏倚的'。" }
+    ],
+    "words": [
+      { "word": "biased", "meaning": "adj. 有偏见的、有偏向的", "note": "bias 偏见 + -ed；a biased one 有偏向的市场。" }
+    ],
+    "phrases": [
+      { "text": "not...but...", "meaning": "不是…而是…", "note": "not a free market but a biased one。" }
+    ]
+  },
+  "2016:B:23": {
+    "grammar": [
+      { "title": "并列谓语：现在完成时 + 一般将来时", "text": "have grown and will always grow 中两个并列谓语表达'一直发展、并将永远发展'，时态对比强调持续与未来。" }
+    ],
+    "words": [
+      { "word": "rural", "meaning": "adj. 乡村的", "note": "与 urban 相对。" }
+    ]
+  },
+  "2016:B:24": {
+    "grammar": [
+      { "title": "do so 替代前文动作", "text": "They do so best 中 do so 替代上句的 grow（发展），避免重复；where building sticks to their edges and respects their character 为地点状语从句，说明'在建筑贴着城镇边缘、尊重其特色之处'发展得最好。" }
+    ],
+    "words": [
+      { "word": "stick", "meaning": "v. 紧贴、粘住", "note": "sticks to their edges 紧贴着（城镇的）边缘。" },
+      { "word": "character", "meaning": "n. 特色、风格", "note": "respect their character 尊重其（乡村）特色。" }
+    ],
+    "phrases": [
+      { "text": "do so", "meaning": "这样做", "note": "替代前文的 grow，避免重复。" },
+      { "text": "stick to", "meaning": "紧贴、坚持", "note": "此处是'紧贴'义，非'坚持'。" }
+    ]
+  },
+  "2016:B:25": {
+    "grammar": [
+      { "title": "主谓宾简单句", "text": "We do not ruin urban conservation areas 主干直白，urbaan conservation areas 指'城市（历史风貌）保护区'，呼应上文'不破坏城市保护区'。" }
+    ],
+    "words": [
+      { "word": "ruin", "meaning": "v. 毁坏、破坏", "note": "名词义'废墟'。" },
+      { "word": "conservation", "meaning": "n. 保护", "note": "conservation areas 保护区；conserve 动词保护。" }
+    ]
+  },
+  "2016:B:26": {
+    "grammar": [
+      { "title": "Why + 动词原形的省略问句", "text": "Why ruin rural ones? 是 Why do we ruin rural ones? 的省略式口语问句，ones 替代 conservation areas，与前句形成反问，语气强烈：'（我们）为什么要毁掉乡村保护区呢？'" }
+    ],
+    "words": [],
+    "phrases": []
+  },
+  "2016:B:27": {
+    "grammar": [
+      { "title": "被动语态 + 习语 let rip", "text": "should be planned, not let rip 中前项为被动语态'应被规划'，后项 not let rip 使用习语'任其失控/放任自流'，形成'有计划 vs 放任'的对立。" }
+    ],
+    "words": [
+      { "word": "rip", "meaning": "v. 撕、扯", "note": "let rip 为固定习语，与'撕'的本义无关，意为'不加控制、放任'。" }
+    ],
+    "phrases": [
+      { "text": "let rip", "meaning": "任其失控、放任自流", "note": "not let rip 不能任其失控。" }
+    ]
+  },
+  "2016:B:28": {
+    "grammar": [
+      { "title": "最高级 + After 表比较基准", "text": "Britain is Europe's most crowded country 为最高级；After the Netherlands 意为'仅次于荷兰'，即荷兰第一、英国第二，是最高级的隐含比较。" }
+    ],
+    "words": [
+      { "word": "crowded", "meaning": "adj. 拥挤的、人口稠密的", "note": "crowd 人群；most crowded 人口最稠密。" }
+    ],
+    "phrases": []
+  },
+  "2016:B:29": {
+    "grammar": [
+      { "title": "enable sb to do", "text": "has enabled it to retain an enviable rural coherence 中 enable it to retain 为'使它能保持'，it 指代英国（Britain）。" },
+      { "title": "while + 现在分词作伴随状语", "text": "while still permitting low-density urban living 中 while + 现在分词表'同时'，即'在保持乡村整体风貌的同时，仍允许低密度城市居住'。" }
+    ],
+    "words": [
+      { "word": "retain", "meaning": "v. 保持、保留", "note": "retain an enviable rural coherence 保持令人羡慕的乡村整体风貌。" },
+      { "word": "enviable", "meaning": "adj. 令人羡慕的", "note": "envy 嫉妒/羡慕 + -able。" },
+      { "word": "coherence", "meaning": "n. 连贯性、整体性", "note": "cohere 连贯；rural coherence 乡村风貌的整体性。" }
+    ],
+    "phrases": [
+      { "text": "enable sb to do", "meaning": "使某人能够…", "note": "has enabled it to retain..." },
+      { "text": "low-density", "meaning": "低密度的", "note": "low-density urban living 低密度城市居住。" }
+    ]
+  },
+  "2016:B:30": {
+    "grammar": [
+      { "title": "there is no doubt of + 破折号同位语", "text": "There is no doubt of the alternative 为存在句，破折号后 the corrupted landscapes of southern Portugal, Spain or Ireland 是 the alternative 的同位语，具体说明'另一种选择/后果'是什么。" }
+    ],
+    "words": [
+      { "word": "alternative", "meaning": "n. 替代方案、另一选择", "note": "the alternative 指不规划就放任的后果。" },
+      { "word": "corrupt", "meaning": "v. 破坏、腐化", "note": "corrupted landscapes 被（乱开发）破坏的景观；注意此处非'腐败'义。" },
+      { "word": "landscape", "meaning": "n. 景观、风景", "note": "corrupted landscapes 被破坏的自然景观。" }
+    ],
+    "phrases": [
+      { "text": "there is no doubt of", "meaning": "对…毫无疑问", "note": "There is no doubt of the alternative 后果毋庸置疑。" }
+    ]
+  },
+  "2016:B:31": {
+    "grammar": [
+      { "title": "动名词短语作主语 + rather than 并列", "text": "Avoiding this rather than promoting it 整体作主语，Avoiding 与 promoting 两个动名词经 rather than 连接形成对比（'避免它而非促成它'），谓语 should unite the left and right of the political spectrum。" }
+    ],
+    "words": [
+      { "word": "promote", "meaning": "v. 促进、促成", "note": "promoting it 促成这种（破坏）后果。" },
+      { "word": "unite", "meaning": "v. 使团结", "note": "unite the left and right 团结左翼与右翼。" },
+      { "word": "spectrum", "meaning": "n. 范围、谱系", "note": "the political spectrum 政治光谱/政坛各派。" }
+    ],
+    "phrases": [
+      { "text": "rather than", "meaning": "而不是", "note": "Avoiding this rather than promoting it。" }
+    ]
+  },
+  "2016:C:0": {
+    "grammar": [
+      { "title": "直接引语 + 倒装主句", "text": "wrote Milton Friedman, a Nobel prize-winning economist 为主谓倒装（引语前置），正常语序为 Milton Friedman wrote...；a Nobel prize-winning economist 是 Friedman 的同位语。" },
+      { "title": "That is + 不定式表语", "text": "That is, to use its resources and engage in activities 中 That is 指代前文 responsibility，不定式 to use... and engage... 作其说明，表'即利用资源、从事活动'。" },
+      { "title": "过去分词作后置定语", "text": "activities designed to increase its profits 中 designed to... 是过去分词短语作定语修饰 activities，意为'旨在增加利润的活动'。" }
+    ],
+    "words": [
+      { "word": "engage", "meaning": "v. 从事、参与", "note": "engage in activities 从事活动。" },
+      { "word": "profit", "meaning": "n. 利润", "note": "increase its profits 增加利润；profitable 有利可图的。" }
+    ],
+    "phrases": [
+      { "text": "engage in", "meaning": "从事、参与", "note": "engage in activities designed to increase its profits。" },
+      { "text": "be designed to", "meaning": "旨在、被设计用来", "note": "activities designed to increase its profits。" }
+    ]
+  },
+  "2016:C:1": {
+    "grammar": [
+      { "title": "even if 引导让步状语从句", "text": "But even if you accept Friedman's premise and regard... 中 even if 表'即使、即便'，从句内 and 连接两个谓语 accept 与 regard，主句 things may not be absolutely clear-cut 表'事情未必那么简单'。" },
+      { "title": "regard A as B", "text": "regard corporate social responsibility (CSR) policies as a waste of shareholders' money 中 regard A as B 为'把A视为B'，as 后是名词短语 a waste of...。" }
+    ],
+    "words": [
+      { "word": "premise", "meaning": "n. 前提", "note": "accept Friedman's premise 接受弗里德曼的前提。" },
+      { "word": "shareholder", "meaning": "n. 股东", "note": "share 股份 + holder 持有者。" },
+      { "word": "clear-cut", "meaning": "adj. 明确清楚的、一目了然的", "note": "not absolutely clear-cut 并非绝对简单明了。" }
+    ],
+    "phrases": [
+      { "text": "even if", "meaning": "即使", "note": "让步假设，退一步说。" },
+      { "text": "regard...as...", "meaning": "把…视为…", "note": "regard CSR policies as a waste of shareholders' money。" },
+      { "text": "a waste of", "meaning": "…的浪费", "note": "a waste of shareholders' money 浪费股东的钱财。" }
+    ]
+  },
+  "2016:C:2": {
+    "grammar": [
+      { "title": "suggest 后接 that 宾语从句 + 破折号补充", "text": "suggests that CSR may create monetary value for companies 中 that 引导宾语从句；破折号后 at least when they are prosecuted for corruption 是限定性补充，'至少在公司因腐败被起诉时'如此。" },
+      { "title": "when 时间状语从句 + 被动", "text": "when they are prosecuted for corruption 中 when 引导时间状语，are prosecuted for 为'因…被起诉'。" }
+    ],
+    "words": [
+      { "word": "monetary", "meaning": "n./adj. 金钱的", "note": "monetary value 金钱价值；money 的形容词。" },
+      { "word": "prosecute", "meaning": "v. 起诉", "note": "be prosecuted for corruption 因腐败被起诉；prosecutor 检察官。" },
+      { "word": "corruption", "meaning": "n. 腐败", "note": "corrupt 腐败的。" }
+    ],
+    "phrases": [
+      { "text": "be prosecuted for", "meaning": "因…而被起诉", "note": "when they are prosecuted for corruption。" }
+    ]
+  },
+  "2016:C:3": {
+    "grammar": [
+      { "title": "spend...on... 搭配 + 同位语", "text": "spend more than $15 billion a year on CSR 为 spend...on... 结构；according to an estimate by EPG 为插入语'据EPG估计'，a consulting firm 是 EPG 的同位语。" }
+    ],
+    "words": [
+      { "word": "estimate", "meaning": "n. 估计", "note": "according to an estimate by EPG 据EPG估计。" },
+      { "word": "consulting", "meaning": "adj. 咨询的", "note": "a consulting firm 咨询公司。" }
+    ],
+    "phrases": [
+      { "text": "spend...on...", "meaning": "在…上花费", "note": "spend more than $15 billion a year on CSR。" },
+      { "text": "according to", "meaning": "根据", "note": "according to an estimate by EPG。" }
+    ]
+  },
+  "2016:C:4": {
+    "grammar": [
+      { "title": "主谓宾 + 方式状语", "text": "This could add value to their businesses in three ways 主干为 add value to...（为…增值），in three ways 点明下文分三点展开，起承上启下作用。" }
+    ],
+    "words": [],
+    "phrases": [
+      { "text": "add value to", "meaning": "为…增值", "note": "add value to their businesses。" },
+      { "text": "in three ways", "meaning": "以三种方式", "note": "承上启下的展开标记。" }
+    ]
+  },
+  "2016:C:5": {
+    "grammar": [
+      { "title": "take A as B + that 同位语从句", "text": "may take CSR spending as a \"signal\" 中 take A as B 为'把A当作B'；that a company's products are of high quality 是 signal 的同位语从句，说明信号的内容。" },
+      { "title": "be of + 名词结构", "text": "a company's products are of high quality 中 be of + 抽象名词相当于 be + 形容词，即 are of high quality = are high-quality。" }
+    ],
+    "words": [
+      { "word": "signal", "meaning": "n. 信号", "note": "as a signal 作为（质量好的）信号。" }
+    ],
+    "phrases": [
+      { "text": "take A as B", "meaning": "把 A 当作 B", "note": "take CSR spending as a signal。" },
+      { "text": "be of high quality", "meaning": "质量上乘", "note": "be of + 名词表性质。" }
+    ]
+  },
+  "2016:C:6": {
+    "grammar": [
+      { "title": "be willing to do + 不定式作定语", "text": "may be willing to buy 为'愿意购买'；as an indirect way to donate to the good causes 中不定式 to donate 作定语修饰 way。" },
+      { "title": "省略关系代词的定语从句", "text": "the good causes it helps 中 it helps 是省略 that 的定语从句修饰 causes，help 与 cause 构成'资助（公益）事业'关系。" }
+    ],
+    "words": [
+      { "word": "willing", "meaning": "adj. 愿意的", "note": "be willing to do 愿意做。" },
+      { "word": "indirect", "meaning": "adj. 间接的", "note": "as an indirect way 作为一种间接方式。" },
+      { "word": "donate", "meaning": "v. 捐赠", "note": "donate to the good causes 向公益事业捐款；donation 名词。" },
+      { "word": "cause", "meaning": "n. 事业", "note": "good causes 公益事业、善举。" }
+    ],
+    "phrases": [
+      { "text": "be willing to", "meaning": "愿意做", "note": "may be willing to buy..." },
+      { "text": "donate to", "meaning": "向…捐赠", "note": "donate to the good causes it helps。" }
+    ]
+  },
+  "2016:C:7": {
+    "grammar": [
+      { "title": "whereby 引导定语从句", "text": "a more diffuse \"halo effect,\" whereby its good deeds earn it greater consideration 中 whereby 是关系副词，相当于 by which，引导定语从句修饰 halo effect，'经由它，公司的善举赢得更多青睐'。" },
+      { "title": "earn sb sth 双宾语", "text": "its good deeds earn it greater consideration from consumers and others 中 earn it greater consideration 为'为其赢得更多青睐'，it 间接宾语指公司。" }
+    ],
+    "words": [
+      { "word": "diffuse", "meaning": "adj. 弥漫的、分散的", "note": "a more diffuse halo effect 更普遍/更弥散的光环效应。" },
+      { "word": "deed", "meaning": "n. 行为、善行", "note": "good deeds 善举。" },
+      { "word": "consideration", "meaning": "n. 重视、好感", "note": "greater consideration from consumers 来自消费者的更多青睐。" }
+    ],
+    "phrases": [
+      { "text": "halo effect", "meaning": "光环效应", "note": "心理学名词，指因某方面好印象而整体好评。" },
+      { "text": "earn sb sth", "meaning": "为某人赢得某物", "note": "earn it greater consideration。" }
+    ]
+  },
+  "2016:C:8": {
+    "grammar": [
+      { "title": "have trouble doing sth", "text": "have had trouble differentiating these effects 中 have trouble (in) doing 为'做某事有困难'，动名词 differentiating 作宾语，注意 not have difficulty doing 的固定用法。" },
+      { "title": "because 原因状语从句", "text": "because consumers can be affected by all three 中 because 从句解释困难的原因：三种效应会同时影响消费者。" }
+    ],
+    "words": [
+      { "word": "differentiate", "meaning": "v. 区分、辨别", "note": "differentiate these effects 区分这些效应。" }
+    ],
+    "phrases": [
+      { "text": "have trouble doing", "meaning": "做…有困难", "note": "have had trouble differentiating these effects。" },
+      { "text": "be affected by", "meaning": "受…影响", "note": "consumers can be affected by all three。" }
+    ]
+  },
+  "2016:C:9": {
+    "grammar": [
+      { "title": "attempt to do + by 动名词方式状语", "text": "attempts to separate them 为'试图区分它们'；by looking at bribery prosecutions 以'考察行贿诉讼'的方式，under America's Foreign Corrupt Practices Act 说明诉讼的法律依据。" }
+    ],
+    "words": [
+      { "word": "attempt", "meaning": "v. 试图", "note": "attempts to separate them 试图区分它们。" },
+      { "word": "bribery", "meaning": "n. 行贿、贿赂", "note": "bribe 贿赂（动词/名词）；bribery prosecutions 贿赂诉讼。" },
+      { "word": "prosecution", "meaning": "n. 起诉、诉讼", "note": "prosecute 起诉。" }
+    ],
+    "phrases": [
+      { "text": "attempt to do", "meaning": "试图做", "note": "attempts to separate them。" },
+      { "text": "look at", "meaning": "考察、研究", "note": "by looking at bribery prosecutions。" }
+    ]
+  },
+  "2016:C:10": {
+    "grammar": [
+      { "title": "that 宾语从句内嵌 since 原因状语从句", "text": "It argues that since prosecutors do not consume... they could be influenced only by the halo effect 中 that 从句是 argue 的宾语，从句内部 since 引导原因状语（'由于检察官不消费公司产品'），主句 they could be influenced... 是结论。" }
+    ],
+    "words": [
+      { "word": "prosecutor", "meaning": "n. 检察官", "note": "prosecute 起诉；prosecutor 检控方。" },
+      { "word": "consume", "meaning": "v. 消费、食用", "note": "do not consume a company's products 不消费公司产品。" },
+      { "word": "investigation", "meaning": "n. 调查", "note": "as part of their investigations 作为调查的一部分。" }
+    ],
+    "phrases": [
+      { "text": "as part of", "meaning": "作为…的一部分", "note": "as part of their investigations。" },
+      { "text": "be influenced by", "meaning": "受…影响", "note": "be influenced only by the halo effect。" }
+    ]
+  },
+  "2016:C:11": {
+    "grammar": [
+      { "title": "that 宾语从句 + 插入语", "text": "The study found that, among prosecuted firms, those with the most comprehensive CSR programmes tended to get more lenient penalties 中 that 引导宾语从句，among prosecuted firms 为插入语'在被起诉的公司中'，those 指代 firms。" },
+      { "title": "tend to do", "text": "those... tended to get more lenient penalties 中 tend to do 表'倾向于、往往'，说明规律性发现。" }
+    ],
+    "words": [
+      { "word": "comprehensive", "meaning": "adj. 全面的、综合的", "note": "the most comprehensive CSR programmes 最全面的企业社会责任计划。" },
+      { "word": "lenient", "meaning": "adj. 宽大的、仁慈的", "note": "more lenient penalties 较宽大的处罚。" },
+      { "word": "penalty", "meaning": "n. 处罚、惩罚", "note": "penal 刑罚的。" }
+    ],
+    "phrases": [
+      { "text": "tend to", "meaning": "倾向于、往往", "note": "tended to get more lenient penalties。" }
+    ]
+  },
+  "2016:C:12": {
+    "grammar": [
+      { "title": "rule out + that 同位语从句", "text": "ruled out the possibility that it was firms' political influence, rather than their CSR stand, that accounted for the leniency 中 that 从句是 possibility 的同位语，说明'被排除的可能性'的内容。" },
+      { "title": "it was...that... 强调句", "text": "同位语从句内部 it was firms' political influence, rather than their CSR stand, that accounted for the leniency 是强调结构，突出'是政治影响力（而非CSR立场）解释了宽大处理'，阅读时去掉 it was...that 框架还原句子。" },
+      { "title": "冒号引出佐证", "text": "冒号后 Companies that contributed more to political campaigns did not receive lower fines 是对排除结论的实证支持：政治捐款多的公司并未获得更低罚款。" }
+    ],
+    "words": [
+      { "word": "account", "meaning": "v. 解释、说明", "note": "account for the leniency 解释了宽大处理的原因。" },
+      { "word": "contribute", "meaning": "v. 捐款、贡献", "note": "contributed more to political campaigns 为政治活动捐款更多。" },
+      { "word": "campaign", "meaning": "n. 运动、活动", "note": "political campaigns 政治竞选活动。" },
+      { "word": "fine", "meaning": "n. 罚款", "note": "did not receive lower fines 未获更低的罚款。" }
+    ],
+    "phrases": [
+      { "text": "rule out", "meaning": "排除（可能性）", "note": "ruled out the possibility..." },
+      { "text": "account for", "meaning": "解释、说明", "note": "accounted for the leniency。" },
+      { "text": "contribute to", "meaning": "为…做出贡献/捐款", "note": "contributed more to political campaigns。" },
+      { "text": "rather than", "meaning": "而不是", "note": "political influence, rather than their CSR stand。" }
+    ]
+  },
+  "2016:C:13": {
+    "grammar": [
+      { "title": "that 宾语从句内嵌 whereas 让步状语从句", "text": "concludes that whereas prosecutors should only evaluate a case based on its merits, they do seem to be influenced... 中 that 引导宾语从句，从句内 whereas 表'尽管'引导让步，they do seem 为结论部分。" },
+      { "title": "do 强调谓语 + based on 分词状语", "text": "they do seem to be influenced 中 do 为强调助动词'确实'；based on its merits 为过去分词短语作方式状语，'基于案情本身'。" }
+    ],
+    "words": [
+      { "word": "whereas", "meaning": "conj. 尽管、然而", "note": "引导让步，相当于 although，且形成对比。" },
+      { "word": "merit", "meaning": "n. 优点、是非", "note": "based on its merits 基于案情本身的是非。" },
+      { "word": "record", "meaning": "n. 记录、履历", "note": "a company's record in CSR 公司在企业社会责任方面的记录。" }
+    ],
+    "phrases": [
+      { "text": "in all", "meaning": "总之、合计", "note": "In all 总结前文。" },
+      { "text": "based on", "meaning": "基于", "note": "evaluate a case based on its merits。" }
+    ]
+  },
+  "2016:C:14": {
+    "grammar": [
+      { "title": "estimate that + 宾语从句 + either...or 并列主语", "text": "We estimate that either eliminating a substantial labour-rights concern, such as child labour, or increasing corporate giving by about 20% results in fines... 中 that 从句作 estimate 宾语，从句主语由 either eliminating... or increasing... 并列的动名词短语充当，谓语 results 用单数。" },
+      { "title": "定语从句 + 倍数比较", "text": "fines that generally are 40% lower than the typical punishment for bribing foreign officials 中 that 引导定语从句修饰 fines，lower than 表'比…低'，数字对比具体量化了效果。" }
+    ],
+    "words": [
+      { "word": "eliminate", "meaning": "v. 消除", "note": "eliminating a substantial labour-rights concern 消除重大的劳工权益问题。" },
+      { "word": "substantial", "meaning": "adj. 重大的、可观的", "note": "a substantial labour-rights concern。" },
+      { "word": "corporate", "meaning": "adj. 公司的、企业的", "note": "corporate giving 企业捐赠。" },
+      { "word": "bribe", "meaning": "v. 贿赂", "note": "bribing foreign officials 贿赂外国官员。" }
+    ],
+    "phrases": [
+      { "text": "either...or...", "meaning": "要么…要么…", "note": "连接两个并列主语。" },
+      { "text": "such as", "meaning": "例如", "note": "such as child labour 例如童工问题。" },
+      { "text": "result in", "meaning": "导致", "note": "results in fines that are 40% lower。" }
+    ]
+  },
+  "2016:C:15": {
+    "grammar": [
+      { "title": "admit that 宾语从句 + of 后接疑问词从句", "text": "admits that their study does not answer the question of how much businesses ought to spend on CSR 中 that 从句作宾语；of how much... 中 how much 引导的名词从句作 of 的宾语，即'投入多少这一问题'。" }
+    ],
+    "words": [
+      { "word": "admit", "meaning": "v. 承认", "note": "Researchers admit that... 研究人员承认…。" }
+    ],
+    "phrases": [
+      { "text": "ought to", "meaning": "应该", "note": "ought to spend on CSR 应在企业社会责任上投入。" },
+      { "text": "spend on", "meaning": "在…上花费", "note": "how much businesses ought to spend on CSR。" }
+    ]
+  },
+  "2016:C:16": {
+    "grammar": [
+      { "title": "Nor 开头的部分倒装", "text": "Nor does it reveal... 中否定副词 Nor 置于句首，句子部分倒装（助动词 does 提前），意为'该研究也没有揭示…'，承接上一句的否定。" },
+      { "title": "宾语从句 + when 时间状语", "text": "how much companies are banking on the halo effect, rather than the other possible benefits, when they decide their do-gooding policies 中 how much 引导名词从句作 reveal 宾语，when 从句为时间状语，说明'在制定行善政策时'。" }
+    ],
+    "words": [
+      { "word": "bank", "meaning": "v. 指望、寄希望于", "note": "bank on 依赖、指望，口语化。" },
+      { "word": "do-gooding", "meaning": "adj. 行善的", "note": "their do-gooding policies 他们的行善政策。" }
+    ],
+    "phrases": [
+      { "text": "bank on", "meaning": "指望、寄望于", "note": "banking on the halo effect 寄望于光环效应。" },
+      { "text": "rather than", "meaning": "而不是", "note": "rather than the other possible benefits。" }
+    ]
+  },
+  "2016:C:17": {
+    "grammar": [
+      { "title": "that 宾语从句内嵌 when 时间状语", "text": "have demonstrated that when companies get into trouble with the law, evidence of good character can win them a less costly punishment 中 that 引导宾语从句，从句内 when 引导时间状语，主句为 evidence... can win them..." },
+      { "title": "win sb sth 双宾语", "text": "evidence of good character can win them a less costly punishment 中 win 接双宾语：them（公司）与 a less costly punishment，'为公司赢得代价较小的处罚'。" }
+    ],
+    "words": [
+      { "word": "demonstrate", "meaning": "v. 证明、论证", "note": "have demonstrated that... 已证明…。" },
+      { "word": "evidence", "meaning": "n. 证据", "note": "evidence of good character 品行良好的证据。" },
+      { "word": "costly", "meaning": "adj. 代价高昂的", "note": "a less costly punishment 代价较小的惩罚。" }
+    ],
+    "phrases": [
+      { "text": "at least", "meaning": "至少", "note": "But at least they have demonstrated..." },
+      { "text": "get into trouble with", "meaning": "与…产生麻烦、触犯", "note": "when companies get into trouble with the law 当公司触犯法律时。" }
+    ]
+  },
+  "2016:D:0": {
+    "grammar": [
+      { "title": "There 存在句 + when 定语从句", "text": "There will eventually come a day 是存在句的一种变体（正常语序为 a day will come），真正主语是 a day；when The New York Times ceases to publish stories on newsprint 为定语从句修饰 a day。" }
+    ],
+    "words": [
+      { "word": "eventually", "meaning": "adv. 最终", "note": "eventual 最终的。" },
+      { "word": "cease", "meaning": "v. 停止", "note": "cease to publish 停止出版；正式用语。" },
+      { "word": "newsprint", "meaning": "n. 新闻纸", "note": "news + print，指印刷报纸的纸张，此处借代'纸质版'。" }
+    ],
+    "phrases": [
+      { "text": "there will come a day", "meaning": "终有一天", "note": "存在句变体，表示'会有那么一天'。" },
+      { "text": "cease to do", "meaning": "停止做", "note": "ceases to publish stories on newsprint。" }
+    ]
+  },
+  "2016:D:1": {
+    "grammar": [
+      { "title": "wh- 名词性从句作主语", "text": "Exactly when that day will be is a matter of debate 中 Exactly when that day will be 是疑问词引导的主语从句（'那一天究竟何时到来'），谓语为 is。" }
+    ],
+    "words": [
+      { "word": "exactly", "meaning": "adv. 究竟、确切地", "note": "Exactly when 究竟何时，加强疑问语气。" },
+      { "word": "debate", "meaning": "n. 争论、讨论", "note": "a matter of debate 有争议的问题。" }
+    ],
+    "phrases": [
+      { "text": "a matter of", "meaning": "…的问题", "note": "a matter of debate 尚待讨论的问题。" }
+    ]
+  },
+  "2016:D:2": {
+    "grammar": [
+      { "title": "直接引语前置 + 主谓倒装", "text": "\"Sometime in the future,\" the paper's publisher said back in 2010 中直接引语前置，主句 the publisher said 未倒装；back in 2010 为时间状语'早在2010年'。" }
+    ],
+    "words": [
+      { "word": "publisher", "meaning": "n. 出版人、发行人", "note": "publish 出版；the paper's publisher 该报发行人。" }
+    ],
+    "phrases": []
+  },
+  "2016:D:3": {
+    "grammar": [
+      { "title": "名词 + aside 的独立主格", "text": "Nostalgia for ink on paper and the rustle of pages aside 是'名词 + aside（在一边）'构成的独立结构作让步状语，意为'暂且抛开对纸张印刷与翻页声的怀旧不谈'。" },
+      { "title": "There is + plenty of + 不定式", "text": "there's plenty of incentive to ditch print 中不定式 to ditch print 作 incentive 的定语，'抛弃纸质版的（理由/动力）非常充分'。" }
+    ],
+    "words": [
+      { "word": "nostalgia", "meaning": "n. 怀旧、乡愁", "note": "nostalgia for 对…的怀念。" },
+      { "word": "rustle", "meaning": "n. 沙沙声", "note": "the rustle of pages 翻页的沙沙声。" },
+      { "word": "incentive", "meaning": "n. 动机、激励", "note": "plenty of incentive 充分的理由/动力。" },
+      { "word": "ditch", "meaning": "v. 抛弃、甩掉", "note": "to ditch print 抛弃纸质版；口语色彩。" }
+    ],
+    "phrases": [
+      { "text": "plenty of", "meaning": "大量的、充足的", "note": "there's plenty of incentive。" }
+    ]
+  },
+  "2016:D:4": {
+    "grammar": [
+      { "title": "过去分词作后置定语", "text": "The infrastructure required to make a physical newspaper 中 required to... 是过去分词短语作定语修饰 infrastructure，意为'制造实体报纸所需的基础设施'。" },
+      { "title": "破折号同位语 + 分号并列", "text": "— printing presses, delivery trucks — 是 infrastructure 的同位语举例；分号前后为两个并列分句：isn't just expensive; it's excessive...，构成'不仅贵，而且多余'的递进。" },
+      { "title": "when 定语从句", "text": "at a time when online-only competitors don't have the same set of financial constraints 中 when 引导定语从句修饰 a time，'在纯在线竞争者没有同样财务约束的时代'。" }
+    ],
+    "words": [
+      { "word": "infrastructure", "meaning": "n. 基础设施", "note": "印刷机、送货卡车等硬件设施。" },
+      { "word": "physical", "meaning": "adj. 实体的、有形的", "note": "a physical newspaper 实体报纸，与在线版相对。" },
+      { "word": "excessive", "meaning": "adj. 过多的、多余的", "note": "isn't just expensive; it's excessive 不只是昂贵，而是多余。" },
+      { "word": "constraint", "meaning": "n. 约束、限制", "note": "financial constraints 财务约束/负担。" }
+    ],
+    "phrases": [
+      { "text": "required to do", "meaning": "做…所必需的", "note": "infrastructure required to make a physical newspaper。" },
+      { "text": "a set of", "meaning": "一套", "note": "the same set of financial constraints 同样的财务负担。" }
+    ]
+  },
+  "2016:D:5": {
+    "grammar": [
+      { "title": "现在进行时表趋势", "text": "Readers are migrating away from print anyway 用现在进行时说明'读者正在逐渐远离纸质报纸'这一趋势，anyway 加强'无论如何'语气。" }
+    ],
+    "words": [
+      { "word": "migrate", "meaning": "v. 迁移、转移", "note": "migrate away from 逐渐离开；本文中意为'读者转向线上'。" }
+    ],
+    "phrases": [
+      { "text": "migrate away from", "meaning": "逐渐离开、转向他处", "note": "Readers are migrating away from print。" }
+    ]
+  },
+  "2016:D:6": {
+    "grammar": [
+      { "title": "though 引导让步状语从句", "text": "And though print ad sales still dwarf their online and mobile counterparts, revenue from print is still declining 中 though 表'尽管'，让步部分说'纸质广告销售仍远超在线和移动端'，主句转折说'纸质收入仍在下降'。" }
+    ],
+    "words": [
+      { "word": "dwarf", "meaning": "v. 使相形见绌", "note": "此处为动词'远大于、使…显得渺小'，非名词'矮人'。" },
+      { "word": "counterpart", "meaning": "n. 对应物", "note": "their online and mobile counterparts 其在线与移动端（广告）对应物。" },
+      { "word": "decline", "meaning": "v. 下降", "note": "revenue... is declining 收入在下降。" }
+    ],
+    "phrases": []
+  },
+  "2016:D:7": {
+    "grammar": [
+      { "title": "并列句 + 省略", "text": "Overhead may be high and circulation lower 中 and 连接两个分句，第二分句省略谓语 is（circulation [is] lower）；but 引出转折分句 rushing to eliminate its print edition would be a mistake。" },
+      { "title": "动名词短语作主语", "text": "rushing to eliminate its print edition 整体作主语，would be a mistake 为谓语部分，'仓促停办纸质版将是个错误'。" },
+      { "title": "引语后置的主谓倒装", "text": "says BuzzFeed CEO Jonah Peretti 放在句末，为引用句的倒装语序，正常语序为 BuzzFeed CEO Jonah Peretti says..." }
+    ],
+    "words": [
+      { "word": "overhead", "meaning": "n. 管理费用、营运开支", "note": "Overhead may be high 管理费用可能居高不下。" },
+      { "word": "circulation", "meaning": "n. 发行量、流通量", "note": "circulation lower 发行量（更）低。" },
+      { "word": "eliminate", "meaning": "v. 取消、消除", "note": "eliminate its print edition 停办纸质版。" }
+    ],
+    "phrases": []
+  },
+  "2016:D:8": {
+    "grammar": [
+      { "title": "宾语从句省略 that + waste time doing", "text": "Peretti says the Times shouldn't waste time getting out of the print business 中 says 后省略 that；waste time (in) doing 为'浪费时间做某事'，getting out of... 为'退出…'。" },
+      { "title": "only if 条件从句", "text": "but only if they go about doing it the right way 中 only if 表'只有（在…条件下）'，go about doing 为'着手做'，it 指退出纸质业务这件事。" }
+    ],
+    "words": [],
+    "phrases": [
+      { "text": "waste time doing", "meaning": "浪费时间做某事", "note": "shouldn't waste time getting out of the print business。" },
+      { "text": "get out of", "meaning": "退出、摆脱", "note": "getting out of the print business 退出纸质业务。" },
+      { "text": "go about doing", "meaning": "着手做", "note": "go about doing it the right way 以正确方式着手。" },
+      { "text": "only if", "meaning": "只有", "note": "but only if they go about doing it the right way。" }
+    ]
+  },
+  "2016:D:9": {
+    "grammar": [
+      { "title": "动名词短语作主语", "text": "\"Figuring out a way to accelerate that transition would make sense for them\" 中动名词短语 Figuring out a way... 作主语，would make sense 为'是明智的/有意义'。" },
+      { "title": "if 条件从句 + have sb + 形容词宾补", "text": "if you discontinue it, you're going to have your most loyal customers really upset with you 中 if 引导条件句，have your customers upset 为'使顾客感到不满'，upset 是形容词作宾补。" }
+    ],
+    "words": [
+      { "word": "accelerate", "meaning": "v. 加速", "note": "accelerate that transition 加速这一转变。" },
+      { "word": "transition", "meaning": "n. 过渡、转变", "note": "that transition 指从纸质转向数字。" },
+      { "word": "discontinue", "meaning": "v. 停止、中止", "note": "if you discontinue it 若你停掉（纸质版）。" },
+      { "word": "loyal", "meaning": "adj. 忠诚的", "note": "your most loyal customers 最忠实的读者。" }
+    ],
+    "phrases": [
+      { "text": "figure out", "meaning": "想出、弄明白", "note": "Figuring out a way to accelerate..." },
+      { "text": "make sense", "meaning": "有道理、明智", "note": "would make sense for them。" },
+      { "text": "be upset with", "meaning": "对…不满", "note": "really upset with you。" }
+    ]
+  },
+  "2016:D:10": {
+    "grammar": [
+      { "title": "be worth doing", "text": "Sometimes that's worth making a change anyway 中 be worth doing 为'值得做'，that 指代'让忠实读者不满'这一代价，anyway 表'即便如此'。" }
+    ],
+    "words": [],
+    "phrases": [
+      { "text": "be worth doing", "meaning": "值得做", "note": "that's worth making a change。" },
+      { "text": "make a change", "meaning": "做出改变", "note": "worth making a change anyway。" }
+    ]
+  },
+  "2016:D:11": {
+    "grammar": [
+      { "title": "动名词复合结构作介词宾语", "text": "the example of Netflix discontinuing its DVD-mailing service 中 Netflix discontinuing... 是'名词 + 动名词'的复合结构作 of 的宾语，即'奈飞停掉DVD邮寄服务的例子'。" },
+      { "title": "不定式表目的", "text": "to focus on streaming 为不定式表目的，说明停掉DVD服务是为了'专注于流媒体'。" }
+    ],
+    "words": [
+      { "word": "streaming", "meaning": "n. 流媒体", "note": "stream 播放流；focus on streaming 专注于流媒体业务。" }
+    ],
+    "phrases": [
+      { "text": "give the example of", "meaning": "举…的例子", "note": "gives the example of Netflix..." },
+      { "text": "focus on", "meaning": "专注于", "note": "to focus on streaming。" }
+    ]
+  },
+  "2016:D:12": {
+    "grammar": [
+      { "title": "be seen as 被动语态", "text": "It was seen as a blunder 中 be seen as 为'被视为'，it 指代奈飞停掉DVD服务的举动，a blunder 为'重大失误'。" }
+    ],
+    "words": [
+      { "word": "blunder", "meaning": "n. 愚蠢的错误、重大失误", "note": "指当时人们普遍认为的失误判断。" }
+    ],
+    "phrases": [
+      { "text": "be seen as", "meaning": "被视为", "note": "It was seen as a blunder。" }
+    ]
+  },
+  "2016:D:13": {
+    "grammar": [
+      { "title": "turn out to be", "text": "The move turned out to be foresighted 中 turn out to be 表'结果证明是'，与上句'被视为失误'形成反转，the move 指停掉DVD服务这一决定。" }
+    ],
+    "words": [
+      { "word": "foresighted", "meaning": "adj. 有远见的", "note": "foresight 远见 + -ed；turned out to be foresighted 结果被证明有远见。" }
+    ],
+    "phrases": [
+      { "text": "turn out to be", "meaning": "结果证明是", "note": "The move turned out to be foresighted。" }
+    ]
+  },
+  "2016:D:14": {
+    "grammar": [
+      { "title": "虚拟语气 + 省略主句的问句", "text": "And if Peretti were in charge at the Times? 是省略主句的条件问句（完整形式可理解为 What would happen if...?），were 用虚拟式表与现在事实相反的假设，设问'若佩雷蒂执掌时报会怎样'。" }
+    ],
+    "words": [
+      { "word": "in charge", "meaning": "phr. 负责、主管", "note": "be in charge of 掌管；此处 in charge at the Times 执掌时报。" }
+    ],
+    "phrases": [
+      { "text": "in charge", "meaning": "主管、掌权", "note": "if Peretti were in charge at the Times。" }
+    ]
+  },
+  "2016:D:15": {
+    "grammar": [
+      { "title": "wouldn't + 不定式作定语", "text": "I wouldn't pick a year to end print 中 wouldn't 表'不会（这样做）'；不定式 to end print 作定语修饰 a year，'选定（结束纸质版的）某一年'。" }
+    ],
+    "words": [
+      { "word": "pick", "meaning": "v. 挑选、选择", "note": "wouldn't pick a year 不会选某个年份。" }
+    ],
+    "phrases": []
+  },
+  "2016:D:16": {
+    "grammar": [
+      { "title": "and 连接并列谓语 + make A into B", "text": "I would raise prices and make it into more of a legacy product 中 and 连接两个谓语（raise 与 make），make A into B 为'把A变成B'，it 指纸质版。" }
+    ],
+    "words": [
+      { "word": "legacy", "meaning": "n./adj. 遗产；传统的", "note": "a legacy product 经典/传统型产品，指把小众但有价值的产品保留下来。" }
+    ],
+    "phrases": [
+      { "text": "make...into...", "meaning": "把…变成…", "note": "make it into more of a legacy product。" },
+      { "text": "more of a", "meaning": "更称得上一个", "note": "more of a legacy product 更像一种经典产品。" }
+    ]
+  },
+  "2016:D:17": {
+    "grammar": [
+      { "title": "插入语 the idea goes", "text": "The most loyal customers would still get the product they favor, the idea goes, and... 中 the idea goes 为插入语，意为'按照这种思路'，相当于 according to this idea。" },
+      { "title": "省略关系代词的定语从句", "text": "the product they favor 中 they favor 省略了关系代词 that/which；something they believe in 同理，believe in 为'信奉'，介词 in 保留。" },
+      { "title": "feel like + 宾语从句", "text": "they'd feel like they were helping sustain the quality of something 中 feel like 后接（省略 that 的）从句，'感觉自己在帮助维持…的质量'，从句用 were 为虚拟语气表主观感觉。" }
+    ],
+    "words": [
+      { "word": "favor", "meaning": "v. 喜爱、偏爱", "note": "美式拼写；英式 favour。the product they favor 他们钟爱的产品。" },
+      { "word": "sustain", "meaning": "v. 维持", "note": "sustain the quality 维持质量。" }
+    ],
+    "phrases": [
+      { "text": "the idea goes", "meaning": "按照这种思路", "note": "插入语，引出推断逻辑。" },
+      { "text": "feel like", "meaning": "感觉好像", "note": "they'd feel like they were helping..." },
+      { "text": "believe in", "meaning": "相信、信奉", "note": "something they believe in 他们信奉的东西。" }
+    ]
+  },
+  "2016:D:18": {
+    "grammar": [
+      { "title": "if 条件从句 + feel like 从句", "text": "if you're overpaying for print, you could feel like you were helping 中 if 引导真实条件句，主句 feel like 后接省略 that 的从句（表主观感觉），'若为纸质版多付钱，你会觉得在帮忙'。" }
+    ],
+    "words": [
+      { "word": "overpay", "meaning": "v. 多付（钱）", "note": "over- 过多 + pay；overpaying for print 为纸质版多付钱。" }
+    ],
+    "phrases": []
+  },
+  "2016:D:19": {
+    "grammar": [
+      { "title": "祈使句并列 + try to do", "text": "Then increase it at a higher rate each year and essentially try to generate additional revenue 为省略主语 You 的祈使句，and 连接 increase 与 try 两个谓语，表建议步骤；try to do 为'试图/设法做'。" }
+    ],
+    "words": [
+      { "word": "revenue", "meaning": "n. 收入、收益", "note": "additional revenue 额外的收入。" },
+      { "word": "essentially", "meaning": "adv. 本质上", "note": "essentially try to generate... 本质上就是要创造…。" }
+    ],
+    "phrases": [
+      { "text": "at a higher rate", "meaning": "以更高的幅度", "note": "increase it at a higher rate each year 每年以更高幅度提价。" },
+      { "text": "generate revenue", "meaning": "创造收入", "note": "try to generate additional revenue。" }
+    ]
+  },
+  "2016:D:20": {
+    "grammar": [
+      { "title": "if 条件从句 + who 定语从句", "text": "if you're going to make a print product, make it for the people who are already obsessed with it 中 if 引导条件句，主句为祈使句 make it for the people；who are already obsessed with it 为定语从句修饰 people。" }
+    ],
+    "words": [
+      { "word": "obsessed", "meaning": "adj. 痴迷的、着迷的", "note": "be obsessed with 对…着迷。" }
+    ],
+    "phrases": [
+      { "text": "in other words", "meaning": "换句话说", "note": "承上启下的解释语。" },
+      { "text": "be going to", "meaning": "打算、将要", "note": "if you're going to make a print product。" },
+      { "text": "be obsessed with", "meaning": "对…痴迷", "note": "people who are already obsessed with it。" }
+    ]
+  },
+  "2016:D:21": {
+    "grammar": [
+      { "title": "关系代词 Which 承接上句（独立成句的非限制性定语从句）", "text": "Which may be what the Times is doing already 中 Which 指代上句'为痴迷者做纸质产品'的整句内容，which 引导的非限制性定语从句独立成句，阅读时可理解为'而这或许正是时报已经在做的'。" },
+      { "title": "what 引导表语从句", "text": "be what the Times is doing already 中 what 引导表语从句，'正是时报正在做的事情'。" }
+    ],
+    "words": [],
+    "phrases": []
+  },
+  "2016:D:22": {
+    "grammar": [
+      { "title": "动名词短语作主语", "text": "Getting the print edition seven days a week 作主语，谓语 costs 用单数；seven days a week 为名词短语作时间状语'每周七天'。" },
+      { "title": "倍数比较 more than twice as much as", "text": "more than twice as much as a digital-only subscription 中 twice as much as 表'是…的两倍'，more than 加强为'两倍多'，比较对象是订阅价格。" }
+    ],
+    "words": [
+      { "word": "subscription", "meaning": "n. 订阅、订阅费", "note": "subscribe 订阅；a digital-only subscription 纯数字订阅。" }
+    ],
+    "phrases": [
+      { "text": "seven days a week", "meaning": "每周七天", "note": "表示订阅的持续性。" },
+      { "text": "more than twice as much as", "meaning": "是…的两倍多", "note": "倍数比较结构。" }
+    ]
+  },
+  "2016:D:23": {
+    "grammar": [
+      { "title": "it 形式主语 + that 从句 + and 并列", "text": "It's a really hard thing to do and it's a tremendous luxury that BuzzFeed doesn't have a legacy business 中 and 连接两个分句；第二分句 it 是形式主语，真正主语是 that BuzzFeed doesn't have a legacy business，即'时报没有（传统）业务是莫大的幸事'。" }
+    ],
+    "words": [
+      { "word": "tremendous", "meaning": "adj. 巨大的、极大的", "note": "a tremendous luxury 极大的幸事。" },
+      { "word": "luxury", "meaning": "n. 奢侈、难得之物", "note": "此处引申为'（难得的）好事'。" },
+      { "word": "remark", "meaning": "v. 评论", "note": "Peretti remarked 佩雷蒂评论道。" }
+    ],
+    "phrases": []
+  },
+  "2016:D:24": {
+    "grammar": [
+      { "title": "多重嵌套定语从句", "text": "we're going to have questions like that where we have things we're doing that don't make sense 中 where 引导定语从句修饰 questions，其内部又嵌套 we're doing（省略 that 的定语从句修饰 things）与 that don't make sense（定语从句修饰 things），三层嵌套是理解难点，可逐层拆解为'我们会遇到这样的问题：在我们正做的事情中，有些事变得不合常理'。" },
+      { "title": "when 时间状语从句", "text": "when the market changes and the world changes 为时间状语，说明'不合常理'发生的时间条件（当市场与世界变化时）。" }
+    ],
+    "words": [],
+    "phrases": [
+      { "text": "make sense", "meaning": "合理、有意义", "note": "that don't make sense 变得不合时宜。" }
+    ]
+  },
+  "2016:D:25": {
+    "grammar": [
+      { "title": "it 形式主语 + 比较结构", "text": "it's better to be more aggressive than less aggressive 中 it 是形式主语，真正主语为不定式 to be more aggressive than less aggressive；比较结构比较两个程度，'更激进比不够激进好'。" }
+    ],
+    "words": [
+      { "word": "aggressive", "meaning": "adj. 激进的、进取的", "note": "此处是'进取、果断'义，非'好斗'。" }
+    ],
+    "phrases": []
+  }
+}

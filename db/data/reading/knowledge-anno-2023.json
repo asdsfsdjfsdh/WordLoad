@@ -1,0 +1,2662 @@
+{
+  "2023:A:0": {
+    "grammar": [
+      {
+        "title": "情态动词 + 现在完成时表推测",
+        "text": "The weather in Texas may have cooled 中 may have done 表示对已发生情况的推测，意为“可能已经凉下来了”。阅读时要意识到这是不确定的推测语气，而非陈述事实。"
+      },
+      {
+        "title": "but 引导的并列转折",
+        "text": "前半句说天气凉了，but 后 the temperature will be high 语义转折——temperature 此处实指会议的气氛/紧张度而非气温，是本句的核心理解点。"
+      },
+      {
+        "title": "as 引导的状语从句",
+        "text": "句末 as officials debate how climate change is taught in Texas schools 说明“温度高”的背景，as 可理解为“当……时/随着”，交代争论的背景。"
+      },
+      {
+        "title": "how 引导的名词性从句",
+        "text": "debate 后接 how climate change is taught，how 从句作 debate 的宾语；从句用被动语态 is taught，注意是“被教授”，即学校如何教授气候变化。"
+      }
+    ],
+    "words": [
+      {
+        "word": "cooled",
+        "meaning": "变凉、降温",
+        "note": "动词 cool 的过去分词，此处不及物用法，指气温下降。"
+      },
+      {
+        "word": "debate",
+        "meaning": "v. 争论、辩论",
+        "note": "名词义为“辩论、争论”；后可直接接 how 从句。"
+      },
+      {
+        "word": "board",
+        "meaning": "n. 委员会、理事会",
+        "note": "熟词僻义，常见义为“木板/董事会”，此处 the State Board of Education 指州教育委员会。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "extreme heat",
+        "meaning": "极端高温"
+      },
+      {
+        "text": "the State Board of Education",
+        "meaning": "州教育委员会",
+        "note": "美国各州管理公立教育的机构。"
+      },
+      {
+        "text": "climate change",
+        "meaning": "气候变化",
+        "note": "本文核心话题词。"
+      }
+    ]
+  },
+  "2023:A:1": {
+    "grammar": [
+      {
+        "title": "非限制性定语从句",
+        "text": "who sympathises with views of the energy sector 修饰 Pat Hardy，说明其立场（同情能源行业），与主句 is resisting 形成“立场—行为”的对照，是理解人物态度的关键。"
+      },
+      {
+        "title": "过去分词作定语",
+        "text": "proposed changes 中 proposed 是过去分词修饰 changes，意为“被提议的修改/提案中的修改”，不能读成动词。"
+      }
+    ],
+    "words": [
+      {
+        "word": "sympathise",
+        "meaning": "v. 同情；赞同",
+        "note": "英式拼写，美式为 sympathize；此处“同情能源部门的观点”实指倾向、赞同其立场。"
+      },
+      {
+        "word": "resist",
+        "meaning": "v. 抵制、反抗",
+        "note": "高频词；resist + 名词/doing。"
+      },
+      {
+        "word": "pre-teen",
+        "meaning": "adj. 低龄的（11岁以下）",
+        "note": "前缀 pre- 表“之前”，teen 指青少年，pre-teen 即青春前期。"
+      },
+      {
+        "word": "sector",
+        "meaning": "n. 部门、行业",
+        "note": "the energy sector 能源部门/行业。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "sympathise with",
+        "meaning": "同情；赞同某观点",
+        "note": "with 后接人/观点。"
+      },
+      {
+        "text": "science standards",
+        "meaning": "科学课程标准",
+        "note": "全篇关键概念，指各州制定的科学教学标准。"
+      }
+    ]
+  },
+  "2023:A:2": {
+    "grammar": [
+      {
+        "title": "并列谓语结构",
+        "text": "These could emphasise ... and encourage ... 两个并列谓语共用一个主语 These（指上文的 proposed changes），阅读时把 and 后视为第二个动作，避免误以为 encourage 开启新的主谓结构。"
+      },
+      {
+        "title": "情态动词 could 表可能性",
+        "text": "could 在此表“可能、也许”，语气弱于 will，说明修改方案可能产生的影响而非必然发生。"
+      }
+    ],
+    "words": [
+      {
+        "word": "primacy",
+        "meaning": "n. 首位、主导地位",
+        "note": "词根 prim-（第一），the primacy of human activity 即人类活动的主导作用。"
+      },
+      {
+        "word": "mitigation",
+        "meaning": "n. 缓解、减缓",
+        "note": "动词 mitigate；mitigation measures 减缓措施。"
+      },
+      {
+        "word": "emphasise",
+        "meaning": "v. 强调",
+        "note": "美式拼写 emphasize。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "mitigation measures",
+        "meaning": "减缓措施",
+        "note": "指减缓气候变化的措施。"
+      },
+      {
+        "text": "human activity",
+        "meaning": "人类活动",
+        "note": "气候变化成因语境中的高频搭配。"
+      }
+    ]
+  },
+  "2023:A:3": {
+    "grammar": [
+      {
+        "title": "主谓宾简单句 + 副词修饰",
+        "text": "主干为 Most scientists and experts dispute Hardy's views，sharply 作状语修饰 dispute，表示反对程度之强烈。阅读时先抓主谓宾再吸收副词程度。"
+      }
+    ],
+    "words": [
+      {
+        "word": "sharply",
+        "meaning": "强烈地、激烈地",
+        "note": "副词；此处修饰 dispute（反对），表态度激烈，注意不是“尖锐地”的直译。"
+      },
+      {
+        "word": "dispute",
+        "meaning": "v. 反驳、反对",
+        "note": "高频考词，与 argue 近义；名词义为“争论、争端”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "dispute one's views",
+        "meaning": "反对某人的观点",
+        "note": "动宾搭配，注意 views 复数表“观点、看法”。"
+      }
+    ]
+  },
+  "2023:A:4": {
+    "grammar": [
+      {
+        "title": "dismiss ... as ... 结构",
+        "text": "They casually dismiss the career work of scholars and scientists as just another misguided opinion 中 dismiss + 宾语 + as + 补语是固定搭配，意为“把……轻蔑地当作……而不予理会”，是本句语义核心：对方把学者成果“当作又一个错误观点打发掉”。"
+      },
+      {
+        "title": "多重同位语 + 定语从句",
+        "text": "senior communications strategist at the Texas Freedom Network 是 Dan Quinn 的同位语，a non-profit group that monitors public education 又是该组织的同位语，句中被逗号连缀的成分都是解释说明，主干实为引语加 says Dan Quinn。"
+      }
+    ],
+    "words": [
+      {
+        "word": "casually",
+        "meaning": "随意地、漫不经心地",
+        "note": "副词，强调 dismiss 的轻率态度。"
+      },
+      {
+        "word": "dismiss",
+        "meaning": "v. 不予考虑；贬低",
+        "note": "高频考词，dismiss ... as ... 是重点搭配。"
+      },
+      {
+        "word": "misguided",
+        "meaning": "adj. 被误导的、错误引导的",
+        "note": "前缀 mis- 表“错误”，guide 引导。"
+      },
+      {
+        "word": "monitor",
+        "meaning": "v. 监督、监测",
+        "note": "名词义为“显示器/监视器”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "dismiss ... as ...",
+        "meaning": "把……当作……而不予理会",
+        "note": "阅读高频结构。"
+      },
+      {
+        "text": "career work",
+        "meaning": "毕生的事业成果",
+        "note": "指学者/科学家一生的工作积累。"
+      }
+    ]
+  },
+  "2023:A:5": {
+    "grammar": [
+      {
+        "title": "what 引导的主语从句",
+        "text": "What millions of Texas kids learn in their public schools 整体作主语，意为“孩子们在公立学校所学的内容”。阅读时先看 what 从句后的谓语 is determined，再回看整个从句作主语。"
+      },
+      {
+        "title": "被动语态 + by 引出施动者",
+        "text": "is determined ... by the political ideology of partisan board members 说明“决定者”是委员会成员的政治意识形态，与后文 rather than facts 形成“意识形态 vs 事实”的对立。"
+      },
+      {
+        "title": "rather than 取舍结构",
+        "text": "rather than facts and sound scholarship 否定后者、肯定前者：决定学习内容的不是事实和严谨学术，而是政治意识形态。"
+      }
+    ],
+    "words": [
+      {
+        "word": "ideology",
+        "meaning": "n. 意识形态、思想体系"
+      },
+      {
+        "word": "partisan",
+        "meaning": "adj. 党派性的、党派的",
+        "note": "名词 party（政党）变体，含贬义“偏袒党派的”。"
+      },
+      {
+        "word": "sound",
+        "meaning": "adj. 可靠的、扎实的",
+        "note": "熟词僻义，常见义为“声音”；此处 sound scholarship 指严谨可靠的学术。"
+      },
+      {
+        "word": "scholarship",
+        "meaning": "n. 学术、学问",
+        "note": "另一常见义为“奖学金”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "rather than",
+        "meaning": "而不是",
+        "note": "表示取舍、否定后者。"
+      },
+      {
+        "text": "board members",
+        "meaning": "委员会成员"
+      },
+      {
+        "text": "public schools",
+        "meaning": "公立学校"
+      }
+    ]
+  },
+  "2023:A:6": {
+    "grammar": [
+      {
+        "title": "as 引导的状语从句",
+        "text": "句末 as researchers, policymakers, teachers and students step up demands 说明 debates reflect 的背景：随着各方加大呼吁，争论随之而来。as 从句中主语是四个并列名词，需一口气读完。"
+      },
+      {
+        "title": "for 引导的介词短语作 demands 的补充",
+        "text": "demands for a greater focus on teaching about the facts of climate change in schools 中 for 后连续用 of/on/about 连接，指明“呼吁的具体内容”，阅读时按介词逐层剥开：对“更注重教授气候变化事实”的要求。"
+      }
+    ],
+    "words": [
+      {
+        "word": "fierce",
+        "meaning": "adj. 激烈的、猛烈的"
+      },
+      {
+        "word": "reflect",
+        "meaning": "v. 反映",
+        "note": "常考词，另一义为“反思”。"
+      },
+      {
+        "word": "policymaker",
+        "meaning": "n. 政策制定者",
+        "note": "policy（政策）+ maker。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "step up demands for",
+        "meaning": "加大对……的呼声/要求"
+      },
+      {
+        "text": "focus on",
+        "meaning": "注重、聚焦于"
+      }
+    ]
+  },
+  "2023:A:7": {
+    "grammar": [
+      {
+        "title": "主语与谓语被长插入语分隔",
+        "text": "主干为 A study ... gave barely half of US states a grade B+ or higher。主语 A study 后紧跟同位语 a non-profit group ... 和分词短语 looking at ...，把谓语 gave 推到很后面。阅读时看到 a study 应预判后面接 gave，中间的逗号内容先跳过。"
+      },
+      {
+        "title": "give 接双宾语",
+        "text": "gave barely half of US states a grade 中，间接宾语是 half of US states（约一半的州），直接宾语是 a grade B+ or higher，即“只给约一半的州打了 B+ 以上的分数”。"
+      },
+      {
+        "title": "how 引导的宾语从句",
+        "text": "looking at how state public schools ... address climate change in science classes 中 how 从句作 looking at 的宾语，说明研究考察的内容。"
+      }
+    ],
+    "words": [
+      {
+        "word": "address",
+        "meaning": "v. 处理、应对",
+        "note": "熟词僻义，常见义为“地址/演讲”，此处 address climate change 即“应对气候变化”。"
+      },
+      {
+        "word": "barely",
+        "meaning": "adv. 仅仅、勉强",
+        "note": "表“少得可怜”，barely half 意为“勉强一半”。"
+      },
+      {
+        "word": "grade",
+        "meaning": "n. 评分等级",
+        "note": "此处指学校评级（B+、F 等）。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "give sb a grade",
+        "meaning": "给某人打分/评级",
+        "note": "双宾语结构。"
+      }
+    ]
+  },
+  "2023:A:8": {
+    "grammar": [
+      {
+        "title": "完全倒装结构",
+        "text": "Among the 10 worst performers were some of the most populous states 把介词短语 Among ... 提到句首，主语 some of the most populous states 后置。这是倒装强调，意思是“人口最多的几个州也在表现最差的十个州之中”，翻译时先恢复正常语序。"
+      },
+      {
+        "title": "which 引导的非限制性定语从句",
+        "text": "which was given the lowest grade (F) and has a disproportionate influence 补充说明 Texas，两个并列谓语说明得州的两个特点：拿了最低分 F，却有不成比例的影响力。"
+      },
+      {
+        "title": "because 引导的原因状语从句",
+        "text": "because its textbooks are widely sold elsewhere 解释 why 得州影响力大：教材在别处广泛销售。"
+      }
+    ],
+    "words": [
+      {
+        "word": "populous",
+        "meaning": "adj. 人口众多的",
+        "note": "词根 popul-（人民），population 人口。"
+      },
+      {
+        "word": "disproportionate",
+        "meaning": "adj. 不成比例的",
+        "note": "前缀 dis- 表否定 + proportionate（成比例的）。"
+      },
+      {
+        "word": "performer",
+        "meaning": "n. 表现者",
+        "note": "此处指评级中的“表现排名”，worst performers 即表现最差的州。"
+      },
+      {
+        "word": "elsewhere",
+        "meaning": "adv. 在别处",
+        "note": "else + where。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "worst performers",
+        "meaning": "表现最差的（州）"
+      },
+      {
+        "text": "have a disproportionate influence",
+        "meaning": "有不成比例的巨大影响力"
+      }
+    ]
+  },
+  "2023:A:9": {
+    "grammar": [
+      {
+        "title": "同位语插入主语后",
+        "text": "the centre's deputy director 夹在主语 Glenn Branch 与谓语 cautions 之间，是对 Glenn Branch 的身份说明，可先跳过不译。"
+      },
+      {
+        "title": "动名词短语作宾语从句主语",
+        "text": "that setting state-level science standards is only one limited benchmark 中，setting state-level science standards 是 that 从句的主语，谓语是 is，即“制定州级标准只是有限的基准”。"
+      },
+      {
+        "title": "that 引导的定语从句",
+        "text": "in a country that decentralises decisions to local school boards 修饰 a country，说明“把决策权下放给地方董事会的国家”，交代有限基准成立的背景。"
+      }
+    ],
+    "words": [
+      {
+        "word": "deputy",
+        "meaning": "adj. 副的",
+        "note": "deputy director 副主任。"
+      },
+      {
+        "word": "caution",
+        "meaning": "v. 提醒、告诫",
+        "note": "名词义为“谨慎、警告”。"
+      },
+      {
+        "word": "benchmark",
+        "meaning": "n. 基准、衡量标准",
+        "note": "bench（基准线）+ mark（标记）。"
+      },
+      {
+        "word": "decentralise",
+        "meaning": "v. 下放（权力）、使分散",
+        "note": "de-（去掉）+ centralise（集中），反义为 centralise。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "local school boards",
+        "meaning": "地方学校董事会"
+      },
+      {
+        "text": "science standards",
+        "meaning": "科学课程标准"
+      }
+    ]
+  },
+  "2023:A:10": {
+    "grammar": [
+      {
+        "title": "Even if 让步状语从句",
+        "text": "Even if a state is considered a high performer in its science standards 先承认前提（某州标准被评为优秀），主句 that does not mean it will be taught 转折：标准好不代表会真去教。even if 表“即使”，主句才是重点。"
+      },
+      {
+        "title": "省略 that 的宾语从句",
+        "text": "it will be taught 是 mean 的宾语从句（省略 that），其中 it 指代前面的 science standards，被动态意为“这些标准被教授”，即真正落实到教学中。"
+      }
+    ],
+    "words": [
+      {
+        "word": "mean",
+        "meaning": "v. 意味着",
+        "note": "does not mean 后接从句。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "Even if",
+        "meaning": "即使、即便",
+        "note": "引导让步状语从句。"
+      },
+      {
+        "text": "be considered a high performer",
+        "meaning": "被认为表现优异"
+      }
+    ]
+  },
+  "2023:A:11": {
+    "grammar": [
+      {
+        "title": "表语从句 + while 让步从句内嵌",
+        "text": "Another issue is that ... 中 that 引导表语从句；从句内部又嵌套 while 让步状语从句（“虽然气候变化已很好融入某些学科和年龄段”），破折号插入 such as 举例，真正的核心是 it is not as well represented ...。阅读时把 while 部分当铺垫，重点看语义转折后的 not as well represented。"
+      },
+      {
+        "title": "not as ... as 的省略比较",
+        "text": "it is not as well represented in ... 是 not as ... as 的省略，完整含义为“不如在（前面提到的学科/年龄段）那样得到充分体现”，理解时要补出被比较项。"
+      },
+      {
+        "title": "that 引导的定语从句",
+        "text": "subjects that are more widely taught, such as biology and chemistry 中 that 从句修饰 subjects，即“开设更广的科目”，such as 后具体列举生物和化学。"
+      }
+    ],
+    "words": [
+      {
+        "word": "integrate",
+        "meaning": "v. 使一体化、融入",
+        "note": "be well integrated into 被很好融入。"
+      },
+      {
+        "word": "represent",
+        "meaning": "v. 体现、呈现",
+        "note": "be represented in 在……中得到体现。"
+      },
+      {
+        "word": "curricula",
+        "meaning": "n. 课程（复数）",
+        "note": "单数形式为 curriculum。"
+      },
+      {
+        "word": "subject",
+        "meaning": "n. 学科、科目"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "be integrated into",
+        "meaning": "被整合进、融入"
+      },
+      {
+        "text": "be represented in",
+        "meaning": "在……中得到体现"
+      }
+    ]
+  },
+  "2023:A:12": {
+    "grammar": [
+      {
+        "title": "系表结构 + 比较级",
+        "text": "It is also less prominent in many social studies courses 中 It 指上文的 climate change，less prominent 是“不那么突出”的比较级。主干简单，注意 less + 形容词表程度降低。"
+      }
+    ],
+    "words": [
+      {
+        "word": "prominent",
+        "meaning": "adj. 突出的、显著的",
+        "note": "名词 prominence（突出、重要性）。"
+      },
+      {
+        "word": "course",
+        "meaning": "n. 课程"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "social studies",
+        "meaning": "社会研究（课程）",
+        "note": "美国中学综合科目。"
+      },
+      {
+        "text": "less prominent",
+        "meaning": "不那么突出"
+      }
+    ]
+  },
+  "2023:A:13": {
+    "grammar": [
+      {
+        "title": "宾语从句 + even if 让步",
+        "text": "Branch points out that ... 中 that 引导宾语从句；从句内部 even if a growing number of official guidelines and textbooks reflect scientific consensus 是让步状语（“尽管官方材料反映科学共识”），真正的主句是 unofficial educational materials ... are being distributed to teachers。"
+      },
+      {
+        "title": "被动语态进行时",
+        "text": "are being distributed to teachers 表示“正在被分发到教师手中”，说明动作正在进行且主语材料是被动承受者。"
+      },
+      {
+        "title": "that 引导的定语从句",
+        "text": "materials that convey more slanted perspectives 中 that 从句修饰 materials，即“传达更偏颇观点的材料”，与前面的 official 形成官方/非官方对比。"
+      }
+    ],
+    "words": [
+      {
+        "word": "guideline",
+        "meaning": "n. 指南、指导方针",
+        "note": "多用作复数 guidelines。"
+      },
+      {
+        "word": "consensus",
+        "meaning": "n. 共识、一致意见"
+      },
+      {
+        "word": "slanted",
+        "meaning": "adj. 有偏见的、倾斜的",
+        "note": "动词 slant（倾斜/歪曲），此处含贬义“观点偏颇”。"
+      },
+      {
+        "word": "distribute",
+        "meaning": "v. 分发、散布"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "point out",
+        "meaning": "指出"
+      },
+      {
+        "text": "scientific consensus",
+        "meaning": "科学共识"
+      },
+      {
+        "text": "educational materials",
+        "meaning": "教学材料"
+      }
+    ]
+  },
+  "2023:A:14": {
+    "grammar": [
+      {
+        "title": "过去分词短语作后置定语",
+        "text": "sponsored by libertarian think-tanks and energy industry associations 是过去分词短语，后置修饰 materials，相当于定语从句 which are sponsored by ...，意为“由智库和能源行业协会资助的材料”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "sponsor",
+        "meaning": "v. 赞助、资助",
+        "note": "名词义为“赞助商”。"
+      },
+      {
+        "word": "libertarian",
+        "meaning": "adj. 自由意志主义的",
+        "note": "一种崇尚个人自由、反对政府干预的政治思潮。"
+      },
+      {
+        "word": "association",
+        "meaning": "n. 协会、联合会"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "think-tanks",
+        "meaning": "智库",
+        "note": "独立研究机构。"
+      },
+      {
+        "text": "energy industry",
+        "meaning": "能源行业"
+      }
+    ]
+  },
+  "2023:B:0": {
+    "grammar": [
+      {
+        "title": "现在完成进行时",
+        "text": "have been attempting to regulate 表示从过去某一时间点开始一直持续到现在的动作（一直在尝试监管），配合 since 时间状语强调动作的延续性。"
+      },
+      {
+        "title": "since 引导的时间状语从句",
+        "text": "since sites like Airbnb took off in the 2010s 说明“开始尝试”的起点：自从 Airbnb 等平台在 2010 年代兴起以来。"
+      }
+    ],
+    "words": [
+      {
+        "word": "regulate",
+        "meaning": "v. 监管、管理",
+        "note": "名词 regulation（监管、规章）。"
+      },
+      {
+        "word": "rental",
+        "meaning": "n. 租赁；出租的房屋",
+        "note": "short-term rentals 短期租赁（房源）。"
+      },
+      {
+        "word": "attempt",
+        "meaning": "v. 尝试、试图",
+        "note": "attempt to do 试图做某事。"
+      },
+      {
+        "word": "community",
+        "meaning": "n. 社区、居民区"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "take off",
+        "meaning": "迅速发展、腾飞",
+        "note": "此处指 Airbnb 等平台迅速走红，非“起飞”直译。"
+      },
+      {
+        "text": "short-term rentals",
+        "meaning": "短期租赁",
+        "note": "全文核心概念。"
+      }
+    ]
+  },
+  "2023:B:1": {
+    "grammar": [
+      {
+        "title": "with + 名词短语 表原因/伴随",
+        "text": "句首 with record-high home prices and historically low inventory 意为“在房价创新高、库存历史性低位的情况下”，交代紧迫性上升的背景。with 复合结构是常见背景铺垫，可译作“由于/在……情况下”。"
+      },
+      {
+        "title": "there be 存在句型 + 后置限定",
+        "text": "there's an increased urgency in such regulation 中 in such regulation 与 particularly among those 分别限定“哪方面的紧迫”和“在哪些人中”，阅读时按介词短语逐层定位。"
+      },
+      {
+        "title": "who 定语从句嵌套 that 宾语从句",
+        "text": "those who worry that developers will come in and buy up swaths of housing 中 who 修饰 those，that 从句作 worry 的宾语，说明担心的具体内容。"
+      },
+      {
+        "title": "不定式表目的",
+        "text": "to flip for a fortune on the short-term rental market 说明开发商买房的目的是“在短期租赁市场上转手牟取暴利”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "inventory",
+        "meaning": "n. 库存、存量",
+        "note": "此处指市场上的房源存量，非“货物清单”。"
+      },
+      {
+        "word": "urgency",
+        "meaning": "n. 紧迫性",
+        "note": "形容词 urgent（紧迫的）。"
+      },
+      {
+        "word": "developer",
+        "meaning": "n. 开发商"
+      },
+      {
+        "word": "swath",
+        "meaning": "n. 一大片",
+        "note": "buy up swaths of housing 成片买下住房。"
+      },
+      {
+        "word": "flip",
+        "meaning": "v. 快速转手倒卖",
+        "note": "房地产语境指“倒卖赚差价”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "record-high",
+        "meaning": "创纪录的、空前的"
+      },
+      {
+        "text": "buy up",
+        "meaning": "大量买进、囤积"
+      },
+      {
+        "text": "flip for a fortune",
+        "meaning": "倒卖以牟取暴利",
+        "note": "for a fortune 表目的“为了一笔财富”。"
+      }
+    ]
+  },
+  "2023:B:2": {
+    "grammar": [
+      {
+        "title": "where 引导的非限制性定语从句",
+        "text": "where the rental vacancy rate has dropped below 1 percent 修饰 In New Hampshire，补充说明该州的具体背景（空置率已低于 1%），为后文“市场紧张”作铺垫。"
+      },
+      {
+        "title": "省略 that 的宾语从句",
+        "text": "housing advocates fear unchecked short-term rentals will put further pressure on ... 中 fear 后省略了 that，整个从句作宾语。注意 unchecked 修饰 rentals，意为“不受约束的短期租赁”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "vacancy",
+        "meaning": "n. 空置；空缺",
+        "note": "vacancy rate 空置率。"
+      },
+      {
+        "word": "advocate",
+        "meaning": "n. 倡导者、支持者",
+        "note": "动词义为“提倡”。"
+      },
+      {
+        "word": "unchecked",
+        "meaning": "adj. 不受约束的、放任的",
+        "note": "un-（不）+ checked（受抑制的）。"
+      },
+      {
+        "word": "strained",
+        "meaning": "adj. 紧张的、受压的",
+        "note": "动词 strain 使紧张；an already strained market 本已紧张的市场。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "vacancy rate",
+        "meaning": "空置率"
+      },
+      {
+        "text": "put pressure on",
+        "meaning": "给……施加压力"
+      }
+    ]
+  },
+  "2023:B:3": {
+    "grammar": [
+      {
+        "title": "would have done 表示与过去事实相反的假设",
+        "text": "that would've made it illegal for towns to create legislation 是虚拟语气过去式，说明该法案原本会使“城镇制定限制短期租赁的地方法规”成为非法——但议会否决了该法案，所以这一假设未发生。would've 是 would have 的缩写。"
+      },
+      {
+        "title": "it 作形式宾语",
+        "text": "made it illegal for towns to create legislation 中 it 是形式宾语，真正宾语是 for towns to create legislation，即“使城镇立法这件事成为非法”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "legislature",
+        "meaning": "n. 立法机关、议会",
+        "note": "美式指州议会。"
+      },
+      {
+        "word": "bill",
+        "meaning": "n. 法案",
+        "note": "另一常见义为“账单”。"
+      },
+      {
+        "word": "illegal",
+        "meaning": "adj. 非法的",
+        "note": "反义词 legal（合法的）。"
+      },
+      {
+        "word": "legislation",
+        "meaning": "n. 立法；法规",
+        "note": "与 legislature、bill 同属“立法”语义场。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "vote against",
+        "meaning": "投票反对",
+        "note": "反义搭配 vote for 投票支持。"
+      },
+      {
+        "text": "make it illegal for sb to do sth",
+        "meaning": "使某人做某事成为非法",
+        "note": "it 形式宾语结构。"
+      }
+    ]
+  },
+  "2023:B:4": {
+    "grammar": [
+      {
+        "title": "引述分句的主谓倒装",
+        "text": "said Nick Taylor 中谓语位于主语前（倒装），这是引语后的常见语序；后面的 executive director of the Workforce Housing Coalition ... 是 Nick Taylor 的同位语，交代其职务。"
+      },
+      {
+        "title": "介词短语作表语",
+        "text": "We are at a crisis level on the supply of rental housing 中 at a crisis level 作表语，表示“处于危机水平”，on the supply of rental housing 限定是“出租住房供应方面”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "crisis",
+        "meaning": "n. 危机",
+        "note": "复数 crises。"
+      },
+      {
+        "word": "coalition",
+        "meaning": "n. 联盟、联合组织"
+      },
+      {
+        "word": "executive",
+        "meaning": "adj. 行政的、执行的",
+        "note": "executive director 执行主任。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "at a crisis level",
+        "meaning": "处于危机水平"
+      },
+      {
+        "text": "rental housing",
+        "meaning": "出租住房"
+      }
+    ]
+  },
+  "2023:B:5": {
+    "grammar": [
+      {
+        "title": "Without + 名词 表示假设条件",
+        "text": "句首 Without enough affordable housing 相当于 If there were not enough affordable housing，是含蓄虚拟条件，即“若没有足够的可负担住房”，后句说明后果（雇主难找住处）。"
+      },
+      {
+        "title": "have a hard time doing 固定句型",
+        "text": "are having a hard time finding a place to live 中 have a hard time 后接动名词（finding），意为“做某事有困难”，中间的介词 in 常省略。"
+      }
+    ],
+    "words": [
+      {
+        "word": "affordable",
+        "meaning": "adj. 负担得起的、价格合适的",
+        "note": "动词 afford（负担得起）。"
+      },
+      {
+        "word": "employer",
+        "meaning": "n. 雇主",
+        "note": "反义词 employee（雇员）。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "affordable housing",
+        "meaning": "经济适用住房",
+        "note": "住房政策领域的核心词。"
+      },
+      {
+        "text": "have a hard time doing sth",
+        "meaning": "做某事很困难",
+        "note": "高频固定搭配。"
+      }
+    ]
+  },
+  "2023:B:6": {
+    "grammar": [
+      {
+        "title": "引述分句倒装",
+        "text": "pointed out Ryan Castle 是引语后的倒装（谓语在前、主语在后），相当于 Ryan Castle pointed out。CEO of a local Association of Realtors 是其同位语。"
+      },
+      {
+        "title": "provide sth for sb 结构",
+        "text": "provide housing for tourists 中 provide + 物 + for + 人，即“为游客提供住房”，也可写成 provide tourists with housing。"
+      }
+    ],
+    "words": [
+      {
+        "word": "realtor",
+        "meaning": "n. 房地产经纪人",
+        "note": "美式用语，Association of Realtors 房地产经纪人协会。"
+      },
+      {
+        "word": "tourist",
+        "meaning": "n. 游客、观光客"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "point out",
+        "meaning": "指出"
+      },
+      {
+        "text": "provide sth for sb",
+        "meaning": "为某人提供某物",
+        "note": "等同 provide sb with sth。"
+      }
+    ]
+  },
+  "2023:B:7": {
+    "grammar": [
+      {
+        "title": "主动与被动的语义对照",
+        "text": "前句 workers are servicing the tourist industry（工人服务旅游业）与后句 the tourism industry is serviced by those people（旅游业又被这些人服务）用被动语态形成相互服务的循环，是本句论证“循环效应”的关键。"
+      },
+      {
+        "title": "现在分词短语作后置定语",
+        "text": "those people coming in short term 中 coming in short term 修饰 people，即“短期前来的那些人”，相当于 who come in short term。"
+      }
+    ],
+    "words": [
+      {
+        "word": "service",
+        "meaning": "v. 服务、为……提供服务",
+        "note": "熟词僻义，常见为名词“服务”，此处作动词。"
+      },
+      {
+        "word": "cyclical",
+        "meaning": "adj. 循环的、周期性的",
+        "note": "cycle（周期）+ -ical。"
+      },
+      {
+        "word": "tourism",
+        "meaning": "n. 旅游业、观光业"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "in short term",
+        "meaning": "短期（地）",
+        "note": "注意此处 in 表方式，非“长期/短期”的 in the short term。"
+      },
+      {
+        "text": "cyclical effect",
+        "meaning": "循环效应"
+      }
+    ]
+  },
+  "2023:B:8": {
+    "grammar": [
+      {
+        "title": "反身代词作同位语强调",
+        "text": "Short-term rentals themselves 中 themselves 强调“短期租赁本身”，暗示问题另有所在，为后文 Horn 关于开发商的质疑做铺垫。"
+      },
+      {
+        "title": "系表结构 + 表语名词短语",
+        "text": "are not the crux of the issue 中 crux 意为“症结、关键”，谓语是系动词 are not，表语说明短期租赁“不是”问题核心。"
+      }
+    ],
+    "words": [
+      {
+        "word": "crux",
+        "meaning": "n. 症结、核心问题",
+        "note": "常考词，the crux of the issue 问题的关键。"
+      },
+      {
+        "word": "expert",
+        "meaning": "n. 专家"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "the crux of the issue",
+        "meaning": "问题的症结"
+      },
+      {
+        "text": "affordable housing",
+        "meaning": "经济适用住房"
+      }
+    ]
+  },
+  "2023:B:9": {
+    "grammar": [
+      {
+        "title": "间接疑问句的语序",
+        "text": "I think the question is 后接 shouldn't a developer ... be treated ... 是保留疑问语序的间接问句（否定疑问句），语气带有“难道不应该吗”的反问意味。"
+      },
+      {
+        "title": "who 定语从句 + but 连接的两个现在分词",
+        "text": "a developer who's really building a hotel, but disguising it as not a hotel 中 who 从句描述开发商行为，but 连接 building 与 disguising 两个并列动作，形成“真建酒店却伪装成非酒店”的反差。"
+      },
+      {
+        "title": "被动语态并列",
+        "text": "be treated and taxed and regulated like a hotel 三个被动动词并列，意为“像酒店一样被对待、征税、监管”，以反问形式呼吁对这类开发商一视同仁。"
+      }
+    ],
+    "words": [
+      {
+        "word": "disguise",
+        "meaning": "v. 伪装、掩饰",
+        "note": "disguise A as B 把 A 伪装成 B。"
+      },
+      {
+        "word": "developer",
+        "meaning": "n. 开发商"
+      },
+      {
+        "word": "tax",
+        "meaning": "v. 征税",
+        "note": "名词义为“税”。"
+      },
+      {
+        "word": "treat",
+        "meaning": "v. 对待、处理"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "disguise sth as sth",
+        "meaning": "把……伪装成……"
+      },
+      {
+        "text": "be treated like",
+        "meaning": "被像……一样对待"
+      }
+    ]
+  },
+  "2023:B:10": {
+    "grammar": [
+      {
+        "title": "不定式表目的",
+        "text": "signed a bill to rein in those potential investor-buyers 中 to rein in ... 说明签署法案的目的：“约束那些潜在的投资购房者”。rein in 是短语动词，意为“控制、收缰”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "rein",
+        "meaning": "v. 约束、控制",
+        "note": "原义“缰绳”，rein in 引申为“收缰约束”。"
+      },
+      {
+        "word": "governor",
+        "meaning": "n. 州长",
+        "note": "美式指州最高行政长官。"
+      },
+      {
+        "word": "potential",
+        "meaning": "adj. 潜在的",
+        "note": "名词义为“潜力”。"
+      },
+      {
+        "word": "investor",
+        "meaning": "n. 投资者"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "rein in",
+        "meaning": "控制、约束",
+        "note": "短语动词，高频考点。"
+      },
+      {
+        "text": "sign a bill",
+        "meaning": "签署法案",
+        "note": "sign into law 签署成法。"
+      }
+    ]
+  },
+  "2023:B:11": {
+    "grammar": [
+      {
+        "title": "三谓语并列结构",
+        "text": "The bill requires ... , mandates ... , and opens ... 一个主语后接三个并列谓语，分别说法案的三个要求：要求登记、强制买保险、打开地方税的可能性。阅读时抓住 and opens 前的逗号判断并列边界。"
+      },
+      {
+        "title": "require sb to do 与宾语从句并用",
+        "text": "requires every rental host to register with the state 是 require + 宾语 + 不定式；mandates they carry insurance 中 mandates 后接省略 that 的宾语从句（they carry insurance），即“强制他们购买保险”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "mandate",
+        "meaning": "v. 强制要求、授权",
+        "note": "名词义为“授权、命令”。"
+      },
+      {
+        "word": "host",
+        "meaning": "n. 房主、业主",
+        "note": "此处指提供短期租赁的房主。"
+      },
+      {
+        "word": "register",
+        "meaning": "v. 登记、注册",
+        "note": "register with 向……登记。"
+      },
+      {
+        "word": "levy",
+        "meaning": "n. 征税、征收额",
+        "note": "a new state levy 新的州税。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "on top of",
+        "meaning": "在……之上；除……之外",
+        "note": "此处指在州税之外再叠加地方税。"
+      },
+      {
+        "text": "register with",
+        "meaning": "向……登记"
+      },
+      {
+        "text": "require sb to do sth",
+        "meaning": "要求某人做某事"
+      }
+    ]
+  },
+  "2023:B:12": {
+    "grammar": [
+      {
+        "title": "现在分词短语作结果状语",
+        "text": "requiring renters to register with ... 表结果，说明 Boston “更进一步”的具体表现：要求租户也要登记。分词短语与主句共用同一逻辑主语，可理解为 thereby requiring ...。"
+      },
+      {
+        "title": "take sth further 结构",
+        "text": "took things even further 中 further 是 far 的比较级，意为“把事情推得更远”，即比州法案的要求更严格。"
+      }
+    ],
+    "words": [
+      {
+        "word": "renter",
+        "meaning": "n. 租户、承租人",
+        "note": "与 landlord（房东）相对。"
+      },
+      {
+        "word": "department",
+        "meaning": "n. 部门",
+        "note": "Inspectional Services Department 检查服务部门。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "take things further",
+        "meaning": "更进一步",
+        "note": "固定表达。"
+      },
+      {
+        "text": "register with",
+        "meaning": "向……登记"
+      }
+    ]
+  },
+  "2023:B:13": {
+    "grammar": [
+      {
+        "title": "but 引出的转折 + 条件句",
+        "text": "前半句说登记要求可能使困难城镇受益，but 后话锋一转：If we want to make a change in the housing market 是条件状语从句，引出主句 the main one is we have to build a lot more（最主要的办法是必须建更多住房）。"
+      },
+      {
+        "title": "省略 that 的表语从句",
+        "text": "the main one is we have to build a lot more 中 is 后是表语从句（省略 that），the main one 指“主要的改变办法”，we have to build a lot more 说明具体内容。"
+      }
+    ],
+    "words": [
+      {
+        "word": "registration",
+        "meaning": "n. 登记、注册",
+        "note": "动词 register。"
+      },
+      {
+        "word": "benefit",
+        "meaning": "v. 使受益",
+        "note": "名词义为“好处、利益”。"
+      },
+      {
+        "word": "struggling",
+        "meaning": "adj. 挣扎中的、处境艰难的",
+        "note": "现在分词作定语，struggling cities and towns 处境艰难的城市和城镇。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "make a change",
+        "meaning": "做出改变"
+      },
+      {
+        "text": "struggling cities and towns",
+        "meaning": "处境艰难的城市和城镇"
+      }
+    ]
+  },
+  "2023:C:0": {
+    "grammar": [
+      {
+        "title": "If 引导的条件状语从句",
+        "text": "If you're heading for your nearest branch of Waterstones 设定场景，主句 you might have to be prepared to hunt around a bit 是结果。注意 if 从句内插入了同位语 the biggest book retailer in the UK 和介词短语 in search of ...，需先跳过插入成分抓住 heading for ... in search of ... 的主线。"
+      },
+      {
+        "title": "分号连接并列句",
+        "text": "分号后 the same may be true of The President's Daughter 与前句并列，the same 指代“同样要费劲找”，be true of 意为“同样适用于”，即另一本书也是这种情况。"
+      },
+      {
+        "title": "be prepared to do",
+        "text": "be prepared to hunt around 中 be prepared to 意为“做好准备做某事”，配合 may have to 表示“很可能得费一番功夫”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "branch",
+        "meaning": "n. 分店、分支机构",
+        "note": "熟词僻义，常见义为“树枝/分支”。"
+      },
+      {
+        "word": "retailer",
+        "meaning": "n. 零售商",
+        "note": "动词 retail（零售）。"
+      },
+      {
+        "word": "hunt",
+        "meaning": "v. 搜寻、寻找",
+        "note": "hunt around 到处找。"
+      },
+      {
+        "word": "thriller",
+        "meaning": "n. 惊悚小说/电影"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "head for",
+        "meaning": "前往、朝……去"
+      },
+      {
+        "text": "in search of",
+        "meaning": "寻找",
+        "note": "书面语，等同 looking for。"
+      },
+      {
+        "text": "be true of",
+        "meaning": "同样适用于……",
+        "note": "高频考点，the same is true of 亦同。"
+      },
+      {
+        "text": "hunt around",
+        "meaning": "到处搜寻"
+      }
+    ]
+  },
+  "2023:C:1": {
+    "grammar": [
+      {
+        "title": "被动语态表出版动作",
+        "text": "Both of these books are published next week by Penguin Random House 中 books 是出版动作的承受者，by 引出施动者，阅读时转化为主动语义“企鹅兰登书屋将于下周出版这两本书”更顺畅。"
+      },
+      {
+        "title": "同位语 + 过去分词短语作后置定语",
+        "text": "a company currently involved in a stand-off with Waterstones 是 Penguin Random House 的同位语，其中 involved in a stand-off 是过去分词短语修饰 company，说明该公司正与书商陷入对峙。"
+      }
+    ],
+    "words": [
+      {
+        "word": "stand-off",
+        "meaning": "n. 僵局、对峙",
+        "note": "也可写作 standoff，强调互不相让。"
+      },
+      {
+        "word": "publish",
+        "meaning": "v. 出版、发表",
+        "note": "名词 publication（出版物/发表）。"
+      },
+      {
+        "word": "currently",
+        "meaning": "adv. 目前、当前"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "be involved in",
+        "meaning": "卷入、牵涉其中"
+      },
+      {
+        "text": "stand-off with",
+        "meaning": "与……的对峙"
+      }
+    ]
+  },
+  "2023:C:2": {
+    "grammar": [
+      {
+        "title": "when 引导的非限制性定语从句",
+        "text": "when Penguin Random House confirmed ... 修饰 late last year，补充说明“问题始于何时”的具体事件。注意此处的 when 相当于 and at that time。"
+      },
+      {
+        "title": "过去完成时表“过去的过去”",
+        "text": "had introduced a credit limit 用过去完成时，说明该限额在 confirmed 之前就已实行，时间上比主句更早。"
+      }
+    ],
+    "words": [
+      {
+        "word": "confirm",
+        "meaning": "v. 确认、证实"
+      },
+      {
+        "word": "introduce",
+        "meaning": "v. 引入、实行",
+        "note": "此处为“推行（限额）”，非“介绍”。"
+      },
+      {
+        "word": "credit",
+        "meaning": "n. 信用、赊购",
+        "note": "credit limit 信用限额，即允许赊账的上限。"
+      },
+      {
+        "word": "significant",
+        "meaning": "adj. 可观的、显著的",
+        "note": "at a very significant level 额度相当大。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "credit limit",
+        "meaning": "信用限额",
+        "note": "商业语境高频词。"
+      },
+      {
+        "text": "late last year",
+        "meaning": "去年年底"
+      }
+    ]
+  },
+  "2023:C:3": {
+    "grammar": [
+      {
+        "title": "被动语态进行时",
+        "text": "were being told to remove PRH books 中 be being done 表示“正被要求”，说明经理们当时被反复告知要撤书。"
+      },
+      {
+        "title": "并列谓语结构",
+        "text": "that 从句里 Waterstones branch managers were being told to remove ... and were \"quietly retiring them ...\" 是两个并列谓语，说明经理被要求的动作和实际做法。"
+      }
+    ],
+    "words": [
+      {
+        "word": "prominent",
+        "meaning": "adj. 显眼的、突出的",
+        "note": "prominent areas 显眼位置。"
+      },
+      {
+        "word": "retire",
+        "meaning": "v. 撤下、收回",
+        "note": "熟词僻义，常见义为“退休”，此处指把书悄悄撤走。"
+      },
+      {
+        "word": "display",
+        "meaning": "n./v. 展示、陈列",
+        "note": "display spaces 展示区。"
+      },
+      {
+        "word": "relevant",
+        "meaning": "adj. 相关的",
+        "note": "relevant sections 相应书区。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "branch manager",
+        "meaning": "分店经理"
+      },
+      {
+        "text": "trade magazine",
+        "meaning": "行业杂志"
+      }
+    ]
+  },
+  "2023:C:4": {
+    "grammar": [
+      {
+        "title": "decline to do sth",
+        "text": "declined to comment on the issue 中 decline + 不定式表示“婉拒做某事”，比 refuse 更委婉，此处是公关话术（不公开评论）。"
+      },
+      {
+        "title": "the only + n. + 不定式 作后置定语",
+        "text": "the only publisher in the UK to place any limitations on our ability to trade 中不定式 to place ... 修饰 publisher，相当于 who places ...，强调“英国唯一一个限制我们交易能力的出版商”，言外之意是 PRH 单独针对水石。"
+      }
+    ],
+    "words": [
+      {
+        "word": "decline",
+        "meaning": "v. 婉拒、谢绝",
+        "note": "另一常见义为“下降”。"
+      },
+      {
+        "word": "spokesperson",
+        "meaning": "n. 发言人"
+      },
+      {
+        "word": "operate",
+        "meaning": "v. 运营、经营"
+      },
+      {
+        "word": "limitation",
+        "meaning": "n. 限制",
+        "note": "place limitations on 对……施加限制。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "comment on",
+        "meaning": "就……发表评论"
+      },
+      {
+        "text": "credit terms",
+        "meaning": "信用条款、赊账条件"
+      },
+      {
+        "text": "place limitations on",
+        "meaning": "对……施加限制"
+      }
+    ]
+  },
+  "2023:C:5": {
+    "grammar": [
+      {
+        "title": "not ... but ... 转折并列",
+        "text": "We are not boycotting PRH titles but we are doing our utmost to ensure ... 先否定“抵制”再肯定“尽力保证供应”，这是发言人澄清立场的修辞结构。"
+      },
+      {
+        "title": "do one's utmost to do",
+        "text": "are doing our utmost to ensure that ... 中 do one's utmost 后接不定式，意为“尽最大努力去做”。"
+      },
+      {
+        "title": "despite 引导的让步",
+        "text": "despite the lower overall levels of stock 中 despite 后接名词短语表让步，意为“尽管总体库存水平下降”，与主句的 remains good 构成对比。"
+      }
+    ],
+    "words": [
+      {
+        "word": "boycott",
+        "meaning": "v. 抵制",
+        "note": "抵制某商品/服务。"
+      },
+      {
+        "word": "title",
+        "meaning": "n. 书、出版物",
+        "note": "熟词僻义，此处 PRH titles 指企鹅兰登书屋出版的书目。"
+      },
+      {
+        "word": "availability",
+        "meaning": "n. 可获得性、供应",
+        "note": "形容词 available（可获得的）。"
+      },
+      {
+        "word": "stock",
+        "meaning": "n. 库存、存货"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "do one's utmost",
+        "meaning": "尽最大努力",
+        "note": "utmost 为名词“最大限度”。"
+      },
+      {
+        "text": "overall levels of stock",
+        "meaning": "总体库存水平"
+      }
+    ]
+  },
+  "2023:C:6": {
+    "grammar": [
+      {
+        "title": "with + 宾语 + 补语 结构",
+        "text": "with our shops now open again 是“with + 名词 + 形容词”的复合结构，表背景/原因，意为“随着门店重新开业”。"
+      },
+      {
+        "title": "be hopeful + that 从句",
+        "text": "We are hopeful ... that normality will return and that we will be allowed to buy appropriately 中两个 that 从句并列，说明“希望”的具体内容。be hopeful that 与 hope that 同义，但更正式。"
+      }
+    ],
+    "words": [
+      {
+        "word": "hopeful",
+        "meaning": "adj. 抱有希望的",
+        "note": "名词 hope（希望）。"
+      },
+      {
+        "word": "normality",
+        "meaning": "n. 正常状态、常态",
+        "note": "形容词 normal（正常的）。"
+      },
+      {
+        "word": "appropriately",
+        "meaning": "adv. 恰当地、适当地",
+        "note": "此处指“正常地进货/订购”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "be hopeful that",
+        "meaning": "对……抱有希望"
+      },
+      {
+        "text": "return to normality",
+        "meaning": "恢复正常"
+      }
+    ]
+  },
+  "2023:C:7": {
+    "grammar": [
+      {
+        "title": "并列句 + 副词修饰",
+        "text": "Certainly 引出语气词，our shops are exceptionally busy and book sales are very strong 是两个并列主系表结构，主语分别为 our shops 和 book sales。exceptionally 强调 busy 程度“异常繁忙”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "exceptionally",
+        "meaning": "adv. 异常地、极其",
+        "note": "exception（例外）+ -ally，强调程度。"
+      },
+      {
+        "word": "strong",
+        "meaning": "adj. 强劲的",
+        "note": "此处形容销售势头强，非“强壮”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "book sales",
+        "meaning": "图书销量"
+      }
+    ]
+  },
+  "2023:C:8": {
+    "grammar": [
+      {
+        "title": "主谓宾简单句 + 时间状语",
+        "text": "主干 The sales for our May Books of the Month surpassed any month。主语中心词是 The sales（五月月度之书的销量），surpassed 意为“超过”，宾语 any month since 2018 用 since 短语限定比较范围：“比 2018 年以来任何一个月的销量都高”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "surpass",
+        "meaning": "v. 超过、超越",
+        "note": "同义词 exceed。"
+      },
+      {
+        "word": "sales",
+        "meaning": "n. 销量、销售额",
+        "note": "sales 常用复数表“销售业绩”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "Books of the Month",
+        "meaning": "月度之书",
+        "note": "书店的月度促销栏目。"
+      }
+    ]
+  },
+  "2023:C:9": {
+    "grammar": [
+      {
+        "title": "现在完成时表持续状态",
+        "text": "PRH authors have been the losers 用现在完成时，表示“至今一直是输家”的持续状态。losers 呼应前文 stand-off，指这场争端中吃亏的一方。"
+      }
+    ],
+    "words": [
+      {
+        "word": "meantime",
+        "meaning": "n. 其间、与此同时"
+      },
+      {
+        "word": "loser",
+        "meaning": "n. 输家、失败者",
+        "note": "反义词 winner。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "in the meantime",
+        "meaning": "与此同时",
+        "note": "同义于 meanwhile。"
+      }
+    ]
+  },
+  "2023:C:10": {
+    "grammar": [
+      {
+        "title": "强调句型 It is ... who ...",
+        "text": "it's those mid-list authors ... who will be praying for an end to the dispute 是 It is + 被强调部分 + who 的强调结构，强调“真正祈祷争端结束的是中游作者”，与前句 Big-name authors may suffer a bit 形成对比。阅读时去掉 it's/who 框架即可还原为 those mid-list authors will be praying ...。"
+      },
+      {
+        "title": "嵌套的 who 定语从句",
+        "text": "who normally rely on Waterstones staff's passion for promoting books by lesser-known writers 是非限制性定语从句，修饰 mid-list authors，说明他们平时依靠书店员工推荐小众作者的热情。"
+      },
+      {
+        "title": "may 与 will 的语气对比",
+        "text": "前句 Big-name ... may suffer（可能受影响）与后句 who will be praying（将祈祷）并用，may 表不确定、will 表确定，突出中游作者受冲击更确定的处境。"
+      }
+    ],
+    "words": [
+      {
+        "word": "mid-list",
+        "meaning": "adj. 中游的",
+        "note": "指知名度/销量榜居中的作者，处于大牌与小众之间。"
+      },
+      {
+        "word": "lesser-known",
+        "meaning": "adj. 不太知名的",
+        "note": "lesser 是 little 的比较级“较小的”。"
+      },
+      {
+        "word": "passion",
+        "meaning": "n. 热情、热忱"
+      },
+      {
+        "word": "dispute",
+        "meaning": "n. 争端、纠纷"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "rely on",
+        "meaning": "依赖、依靠"
+      },
+      {
+        "text": "pray for an end to sth",
+        "meaning": "祈祷……结束"
+      },
+      {
+        "text": "promote books",
+        "meaning": "推广、推销书籍"
+      }
+    ]
+  },
+  "2023:C:11": {
+    "grammar": [
+      {
+        "title": "when 引导的定语从句",
+        "text": "It comes at a time when authors are already worried ... 中 when 修饰 a time，可译为“值此……之际”，补充说明“争端发生之时作者们已在担忧”。"
+      },
+      {
+        "title": "破折号后的补充说明",
+        "text": "破折号后 the reduction in the number of unaligned UK publishers is likely to lead to ... 是对前句合并后果的具体阐释：独立出版商减少、导致竞价战减少、预付金降低、出版内容趋同。阅读时把破折号后当作对 proposed merger 影响的展开。"
+      },
+      {
+        "title": "in terms of + what 从句",
+        "text": "more conformity in terms of what is published 中 in terms of 意为“就……而言”，what is published 是名词性从句作其宾语，即“就出版内容而言”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "merger",
+        "meaning": "n. 合并、并购",
+        "note": "动词 merge（合并）。"
+      },
+      {
+        "word": "unaligned",
+        "meaning": "adj. 不结盟的、独立的",
+        "note": "un-（不）+ aligned（结盟的），此处指未被大集团并购的独立出版社。"
+      },
+      {
+        "word": "advance",
+        "meaning": "n. 预付金",
+        "note": "出版语境指出版社预付给作者的稿酬。"
+      },
+      {
+        "word": "conformity",
+        "meaning": "n. 一致、趋同",
+        "note": "指出版内容越来越雷同。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "at a time when",
+        "meaning": "在……的时候",
+        "note": "高频句型。"
+      },
+      {
+        "text": "be likely to do",
+        "meaning": "很可能做……"
+      },
+      {
+        "text": "bidding wars",
+        "meaning": "竞价战",
+        "note": "多家出版社争抢同一书稿的出价竞争。"
+      },
+      {
+        "text": "in terms of",
+        "meaning": "就……而言"
+      }
+    ]
+  },
+  "2023:C:12": {
+    "grammar": [
+      {
+        "title": "介词短语作后置定语",
+        "text": "towards concentration of power and cartels 修饰 change，说明“这种更大变化”的方向：权力与联盟的集中。concentration of power 与 cartels（卡特尔、垄断联盟）并列，都指行业集中化。"
+      }
+    ],
+    "words": [
+      {
+        "word": "concentration",
+        "meaning": "n. 集中",
+        "note": "动词 concentrate；concentration of power 权力集中。"
+      },
+      {
+        "word": "cartel",
+        "meaning": "n. 卡特尔、垄断联盟",
+        "note": "指企业联合垄断市场的组织。"
+      },
+      {
+        "word": "wider",
+        "meaning": "adj. 更大的、更广的",
+        "note": "wide 的比较级。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "concentration of power",
+        "meaning": "权力集中"
+      }
+    ]
+  },
+  "2023:C:13": {
+    "grammar": [
+      {
+        "title": "不定式表目的",
+        "text": "are getting bigger to have the clout to negotiate better terms 中第一个 to have the clout 表目的（为了拥有影响力），第二个 to negotiate 作定语修饰 clout（用于谈判的影响力）。"
+      },
+      {
+        "title": "独立主格结构",
+        "text": "publishers consolidating to deal with Amazon 是“名词 + 现在分词”的独立主格，主句主语是 literary agencies，这里换主语补说另一主体的并行动作：“而出版商则在整合以应对亚马逊”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "clout",
+        "meaning": "n. 影响力、势力",
+        "note": "口语色彩浓，指“说话有分量”。"
+      },
+      {
+        "word": "negotiate",
+        "meaning": "v. 谈判、协商"
+      },
+      {
+        "word": "consolidate",
+        "meaning": "v. 整合、合并",
+        "note": "名词 consolidation（合并）。"
+      },
+      {
+        "word": "literary",
+        "meaning": "adj. 文学的"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "literary agency",
+        "meaning": "文学经纪公司",
+        "note": "代理作家作品版权的机构。"
+      },
+      {
+        "text": "deal with",
+        "meaning": "应对、处理"
+      },
+      {
+        "text": "negotiate terms",
+        "meaning": "协商条款"
+      }
+    ]
+  },
+  "2023:C:14": {
+    "grammar": [
+      {
+        "title": "but 转折并列句",
+        "text": "前句 talks about diversity in terms of authors and staff 说出版业只谈“作者和员工”层面的多样性，but 后 it also needs a plurality of ways 指出其不足：还需要传递层面的多元方式。“在……层面”由 in terms of 引出。"
+      }
+    ],
+    "words": [
+      {
+        "word": "plurality",
+        "meaning": "n. 多元性、复数性",
+        "note": "形容词 plural（复数的）。"
+      },
+      {
+        "word": "deliver",
+        "meaning": "v. 传递、提供"
+      },
+      {
+        "word": "intellectual",
+        "meaning": "adj. 智力的、思想的",
+        "note": "intellectual contact 思想上的联结。"
+      },
+      {
+        "word": "diversity",
+        "meaning": "n. 多样性"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "in terms of",
+        "meaning": "就……而言、在……方面"
+      },
+      {
+        "text": "a plurality of ways",
+        "meaning": "多种方式"
+      }
+    ]
+  },
+  "2023:C:15": {
+    "grammar": [
+      {
+        "title": "After all 承接上文表“毕竟”",
+        "text": "After all 引出论据（毕竟近年来最有意思的书多出自小出版社），为主张“出版业需要多元”提供支持。注意 after all 在此表“毕竟、别忘了”而非“终究”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "publisher",
+        "meaning": "n. 出版商、出版社"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "after all",
+        "meaning": "毕竟",
+        "note": "多用于补充理由。"
+      },
+      {
+        "text": "come from",
+        "meaning": "来自、出自"
+      }
+    ]
+  },
+  "2023:C:16": {
+    "grammar": [
+      {
+        "title": "whether 引导的宾语从句",
+        "text": "We shall see whether that plurality is a casualty ... 中 whether 引导 see 的宾语从句，意为“我们将拭目以待这种多元性是否会成为牺牲品”，whether 表“是否”。"
+      },
+      {
+        "title": "不定式双重修饰",
+        "text": "the current need ... to be big enough to take on all-comers 中 to be big enough 修饰 need（“要足够大”的需求），to take on all-comers 是程度补足（“大到足以应对所有对手”）。"
+      }
+    ],
+    "words": [
+      {
+        "word": "casualty",
+        "meaning": "n. 牺牲品、受害者",
+        "note": "原义“伤亡人员”，引申为“被牺牲的事物”。"
+      },
+      {
+        "word": "plurality",
+        "meaning": "n. 多元性"
+      },
+      {
+        "word": "all-comers",
+        "meaning": "n. 所有的竞争者/来者",
+        "note": "此处指出版市场上的一切对手。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "take on",
+        "meaning": "应对、与……较量",
+        "note": "短语动词。"
+      },
+      {
+        "text": "be big enough to do",
+        "meaning": "大到足以做……"
+      }
+    ]
+  },
+  "2023:D:0": {
+    "grammar": [
+      {
+        "title": "系表结构 + 比喻表达",
+        "text": "Scientific papers are the recordkeepers of progress 是简单主系表句。recordkeeper 是作者活用造词，把论文比作“研究进展的记录者”，形象说明论文的记录功能，理解其比喻义即可。"
+      }
+    ],
+    "words": [
+      {
+        "word": "recordkeeper",
+        "meaning": "n. 记录者",
+        "note": "record（记录）+ keeper（保管者），作者自创的比喻性表达。"
+      },
+      {
+        "word": "progress",
+        "meaning": "n. 进展、进步"
+      }
+    ]
+  },
+  "2023:D:1": {
+    "grammar": [
+      {
+        "title": "简单主谓宾 + 时间/地点状语",
+        "text": "Each year 作时间状语，researchers publish millions of papers 是主干，in more than 30,000 journals 表地点（发表在哪里）。"
+      }
+    ],
+    "words": [
+      {
+        "word": "journal",
+        "meaning": "n. 期刊、杂志",
+        "note": "学术语境指学术期刊，全文核心词。"
+      },
+      {
+        "word": "publish",
+        "meaning": "v. 发表、出版"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "millions of",
+        "meaning": "数百万的"
+      },
+      {
+        "text": "more than",
+        "meaning": "超过"
+      }
+    ]
+  },
+  "2023:D:2": {
+    "grammar": [
+      {
+        "title": "including 引出的并列列举",
+        "text": "in a number of ways, including the perceived quality of the journal ... and the number of citations ... 中 including 引出两项衡量标准：期刊的感知质量、论文积累的引用数。阅读时先找 and 连接的并列边界。"
+      },
+      {
+        "title": "省略关系词的定语从句",
+        "text": "the number of citations a specific paper accumulates 中 a specific paper accumulates 是省略 that 的定语从句修饰 citations，即“某篇论文积累的引用数量”。"
+      },
+      {
+        "title": "as reflected by 过去分词短语",
+        "text": "the perceived quality of the journal (as reflected by the title's impact factor) 中 as reflected by 意为“正如……所反映/体现的”，括号内解释感知质量如何衡量：通过期刊影响因子。"
+      }
+    ],
+    "words": [
+      {
+        "word": "community",
+        "meaning": "n. 群体、界",
+        "note": "the scientific community 科学界。"
+      },
+      {
+        "word": "perceived",
+        "meaning": "adj. 被感知的、主观感受到的",
+        "note": "动词 perceive（感知、认为）。"
+      },
+      {
+        "word": "citation",
+        "meaning": "n. 引用、引文",
+        "note": "全文核心词，指论文被引用的次数。"
+      },
+      {
+        "word": "accumulate",
+        "meaning": "v. 累积、积累"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "impact factor",
+        "meaning": "影响因子",
+        "note": "衡量期刊影响力的指标，全文重要术语。"
+      },
+      {
+        "text": "in a number of ways",
+        "meaning": "以多种方式"
+      },
+      {
+        "text": "as reflected by",
+        "meaning": "正如……所反映的"
+      }
+    ]
+  },
+  "2023:D:3": {
+    "grammar": [
+      {
+        "title": "省略 that 的定语从句",
+        "text": "the papers they produce 中 they produce 修饰 papers，省略了关系词，即“他们发表的论文”。"
+      },
+      {
+        "title": "but even more so 的递进",
+        "text": "but even more so on the citations 中 even more so 承前省略了 depend，完整为 but depend even more so on the citations，意为“更取决于引用”，引出全文主题——引用至关重要。"
+      },
+      {
+        "title": "过去分词短语作后置定语",
+        "text": "the citations attracted by these papers 中 attracted by 修饰 citations，即“这些论文所吸引的引用”，相当于 which are attracted by ...。"
+      }
+    ],
+    "words": [
+      {
+        "word": "prestige",
+        "meaning": "n. 声望、威望",
+        "note": "the prestige of the papers 论文的声望。"
+      },
+      {
+        "word": "reputation",
+        "meaning": "n. 声誉、名声"
+      },
+      {
+        "word": "institution",
+        "meaning": "n. 机构",
+        "note": "此处指高校等科研机构。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "depend on",
+        "meaning": "取决于、依赖于"
+      },
+      {
+        "text": "even more so",
+        "meaning": "更加如此",
+        "note": "承前省略的递进表达。"
+      }
+    ]
+  },
+  "2023:D:4": {
+    "grammar": [
+      {
+        "title": "where 引导的非限制性定语从句",
+        "text": "where journals, authors, and institutions conspire to inflate citation numbers 是 where 非限制性定语从句，说明 citation cartels 的运作方式：期刊、作者、机构合谋抬高引用量。注意 where 从句插在主语与谓语 have existed 之间。"
+      },
+      {
+        "title": "conspire + 不定式",
+        "text": "conspire to inflate 中 conspire 后接不定式表合谋的目的，“合谋去夸大引用数字”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "cartel",
+        "meaning": "n. 卡特尔、联盟",
+        "note": "常含贬义，指为共同利益结成的垄断集团。"
+      },
+      {
+        "word": "conspire",
+        "meaning": "v. 合谋、串通"
+      },
+      {
+        "word": "inflate",
+        "meaning": "v. 夸大、抬高",
+        "note": "名词 inflation（膨胀/通货膨胀）。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "citation numbers",
+        "meaning": "引用数量"
+      },
+      {
+        "text": "conspire to do",
+        "meaning": "合谋做……"
+      }
+    ]
+  },
+  "2023:D:5": {
+    "grammar": [
+      {
+        "title": "不定式表目的",
+        "text": "developed an algorithm to recognize suspicious citation patterns 中 to recognize 说明开发算法的目的：识别可疑的引用模式。"
+      },
+      {
+        "title": "including 引出两组并列的可疑对象",
+        "text": "including groups of authors ... and groups of journals ... 列举两类：不成比例互相引用的作者群、频繁互相引用的期刊群，两个 that 定语从句分别修饰 groups of authors / groups of journals。"
+      },
+      {
+        "title": "that 定语从句 + 不定式目的",
+        "text": "journals that cite each other frequently to increase the impact factors 中 that 从句修饰 journals，句末不定式 to increase 说明相互引用频繁的目的：提高影响因子。"
+      }
+    ],
+    "words": [
+      {
+        "word": "algorithm",
+        "meaning": "n. 算法",
+        "note": "近年高频科技词。"
+      },
+      {
+        "word": "suspicious",
+        "meaning": "adj. 可疑的",
+        "note": "动词 suspect（怀疑）。"
+      },
+      {
+        "word": "disproportionately",
+        "meaning": "adv. 不成比例地、失衡地",
+        "note": "disproportionate 的副词形式。"
+      },
+      {
+        "word": "pattern",
+        "meaning": "n. 模式"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "cite one another",
+        "meaning": "相互引用"
+      },
+      {
+        "text": "impact factor",
+        "meaning": "影响因子"
+      }
+    ]
+  },
+  "2023:D:6": {
+    "grammar": [
+      {
+        "title": "冒号引出具体说明",
+        "text": "another expression ... has emerged: so-called support service consultancies ... 冒号后具体说明这种“新的表现”是什么——所谓的支持服务咨询机构。阅读时把冒号后当作前面名词的展开。"
+      },
+      {
+        "title": "主语与谓语被定语从句隔开",
+        "text": "consultancies that provide ... to individual authors and to journals sometimes advise contributors to add ... 中 that 从句把主语 consultancies 与谓语 advise 隔开，看到 consultancies 后应预判谓语 advise。"
+      },
+      {
+        "title": "advise sb to do",
+        "text": "advise contributors to add a number of citations to their articles 中 advise + 宾语 + 不定式，意为“建议投稿人在文章中加若干引用”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "predatory",
+        "meaning": "adj. 掠夺性的、捕食性的",
+        "note": "predatory journals 掠夺性期刊（靠收费敛财、质量低劣的期刊）。"
+      },
+      {
+        "word": "consultancy",
+        "meaning": "n. 咨询机构",
+        "note": "动词 consult（咨询）。"
+      },
+      {
+        "word": "contributor",
+        "meaning": "n. 投稿人、撰稿人",
+        "note": "动词 contribute（投稿/贡献）。"
+      },
+      {
+        "word": "emerge",
+        "meaning": "v. 出现、浮现"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "support service",
+        "meaning": "支持服务（机构）"
+      },
+      {
+        "text": "advise sb to do sth",
+        "meaning": "建议某人做某事"
+      },
+      {
+        "text": "a number of",
+        "meaning": "若干、一定数量的"
+      }
+    ]
+  },
+  "2023:D:7": {
+    "grammar": [
+      {
+        "title": "并列名词短语作主语",
+        "text": "The advent of electronic publishing and authors' need to find outlets ... 是两个并列主语（电子出版的到来 + 作者找渠道的需求），谓语 result in 意为“导致”，主语长、谓语简短，注意别把 need 误当谓语。"
+      },
+      {
+        "title": "不定式作后置定语",
+        "text": "authors' need to find outlets for their papers 中 to find outlets 修饰 need，即“为论文找发表渠道的需求”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "advent",
+        "meaning": "n. 到来、出现",
+        "note": "the advent of ... ……的到来，正式用语。"
+      },
+      {
+        "word": "outlet",
+        "meaning": "n. 出路、发表渠道",
+        "note": "熟词僻义，常见义为“出口/插座”，此处指论文发表的去处。"
+      },
+      {
+        "word": "electronic",
+        "meaning": "adj. 电子的"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "result in",
+        "meaning": "导致、产生",
+        "note": "result from 表“起因于”，注意区分。"
+      },
+      {
+        "text": "find outlets for",
+        "meaning": "为……寻找发表渠道"
+      }
+    ]
+  },
+  "2023:D:8": {
+    "grammar": [
+      {
+        "title": "系表结构 + 时间隐含",
+        "text": "The birth of predatory journals wasn't far behind 是简单主系表句，not far behind 意为“紧随其后、没过多久就出现”，呼应上句“数千种新期刊”，说明掠夺性期刊也紧跟而来。"
+      }
+    ],
+    "words": [
+      {
+        "word": "birth",
+        "meaning": "n. 诞生、出现",
+        "note": "此处 the birth of ... 指“……的出现”。"
+      },
+      {
+        "word": "predatory",
+        "meaning": "adj. 掠夺性的"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "not far behind",
+        "meaning": "紧随其后",
+        "note": "固定表达。"
+      }
+    ]
+  },
+  "2023:D:9": {
+    "grammar": [
+      {
+        "title": "act as 结构",
+        "text": "can act as milk cows 中 act as 意为“充当、起……作用”，milk cow（产奶奶牛）是比喻：这些期刊被当作“产引用的奶牛”，即专门为特定论文提供引用。"
+      },
+      {
+        "title": "where 引导的定语从句",
+        "text": "where every single article in an issue may cite a specific paper or a series of papers 中 where 修饰 milk cows 的情形，相当于 in which，描述“每期每一篇文章都可能引用特定论文”的异常现象。"
+      }
+    ],
+    "words": [
+      {
+        "word": "issue",
+        "meaning": "n. 期",
+        "note": "in an issue 指“在一期期刊中”。"
+      },
+      {
+        "word": "specific",
+        "meaning": "adj. 特定的"
+      },
+      {
+        "word": "article",
+        "meaning": "n. 文章、论文"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "act as",
+        "meaning": "充当、作为"
+      },
+      {
+        "text": "milk cows",
+        "meaning": "产奶奶牛",
+        "note": "喻指被不断榨取资源、任人索取的对象。"
+      },
+      {
+        "text": "a series of",
+        "meaning": "一系列"
+      }
+    ]
+  },
+  "2023:D:10": {
+    "grammar": [
+      {
+        "title": "there be 存在句 + between...and...",
+        "text": "there is absolutely no relationship between A and B 中 there be 表存在，between the content of the article and the citations 限定“哪两者之间”没有关系。absolutely 加强否定语气，意为“完全没有关系”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "instance",
+        "meaning": "n. 情况、事例"
+      },
+      {
+        "word": "relationship",
+        "meaning": "n. 关系"
+      },
+      {
+        "word": "absolutely",
+        "meaning": "adv. 完全地、绝对地"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "in some instances",
+        "meaning": "在某些情况下",
+        "note": "同义于 in some cases。"
+      },
+      {
+        "text": "no relationship between...and...",
+        "meaning": "在……与……之间没有关系"
+      }
+    ]
+  },
+  "2023:D:11": {
+    "grammar": [
+      {
+        "title": "表语从句中嵌套定语从句",
+        "text": "The peculiar part is that the journal ... is not profiting at all 中 that 引导表语从句；从句主语 the journal 又被 that the editor is supposedly working for 修饰（编辑名义上为之工作的期刊），出现两个 that：第一个是表语从句引导词，第二个是定语从句关系词。阅读时先找 the journal 后的谓语 is not profiting。"
+      },
+      {
+        "title": "破折号后的补充说明",
+        "text": "破折号后 it is just providing citations to other journals 解释“期刊为何不获利”：它只是给别的期刊提供引用（帮别人刷引用量）。"
+      },
+      {
+        "title": "not ... at all 强调否定",
+        "text": "is not profiting at all 中 at all 加强否定，“完全没有获利”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "peculiar",
+        "meaning": "adj. 奇怪的、独特的",
+        "note": "the peculiar part 奇怪之处。"
+      },
+      {
+        "word": "supposedly",
+        "meaning": "adv. 据称、名义上",
+        "note": "暗示实际情况未必如此，含怀疑语气。"
+      },
+      {
+        "word": "profit",
+        "meaning": "v. 获利、赚钱",
+        "note": "名词义为“利润”。"
+      },
+      {
+        "word": "editor",
+        "meaning": "n. 编辑"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "work for",
+        "meaning": "为……工作"
+      },
+      {
+        "text": "not ... at all",
+        "meaning": "一点也不、完全不"
+      }
+    ]
+  },
+  "2023:D:12": {
+    "grammar": [
+      {
+        "title": "lead + 宾语 + 不定式",
+        "text": "can lead an article to accrue more than 150 citations 中 lead sth to do 意为“使……产生……”，即“能让一篇文章累积超过 150 次引用”。"
+      },
+      {
+        "title": "the same year that 定语从句",
+        "text": "in the same year that it was published 中 that 修饰 the same year（也可用 when），意为“在发表的那一年”，强调引用激增发生在发表当年，暗示异常。"
+      }
+    ],
+    "words": [
+      {
+        "word": "accrue",
+        "meaning": "v. 累积、积累",
+        "note": "学术/财务语境常用，指随时间逐渐增加。"
+      },
+      {
+        "word": "practice",
+        "meaning": "n. 做法、行为"
+      },
+      {
+        "word": "lead",
+        "meaning": "v. 导致、使得",
+        "note": "lead sb/sth to do 使……做……。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "lead...to do",
+        "meaning": "使……做……"
+      },
+      {
+        "text": "accrue citations",
+        "meaning": "累积引用"
+      }
+    ]
+  },
+  "2023:D:13": {
+    "grammar": [
+      {
+        "title": "How + 形容词 引导的特殊疑问句",
+        "text": "How insidious is this type of citation manipulation? 是特殊疑问句，How insidious 作表语前置，正常语序为 this type of citation manipulation is how insidious。修辞性反问引出下文对此问题严重性的论述。"
+      }
+    ],
+    "words": [
+      {
+        "word": "insidious",
+        "meaning": "adj. 隐蔽的、阴险的",
+        "note": "指危害不易察觉却不断扩散，常考词。"
+      },
+      {
+        "word": "manipulation",
+        "meaning": "n. 操纵、把弄",
+        "note": "动词 manipulate（操纵）。"
+      },
+      {
+        "word": "type",
+        "meaning": "n. 类型"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "citation manipulation",
+        "meaning": "引文操纵",
+        "note": "全文核心概念。"
+      }
+    ]
+  },
+  "2023:D:14": {
+    "grammar": [
+      {
+        "title": "破折号插入的分词短语",
+        "text": "an individual—acting as author, editor, and consultant—was able to use ... 中破折号间的 acting as ... 修饰 an individual，补充其多重身份（作者、编辑、顾问），阅读时可先跳过插入成分抓住主干。"
+      },
+      {
+        "title": "use ... as ... + 过去分词作定语",
+        "text": "use at least 15 journals as citation providers 是“把……用作……”；to articles published by five scientists 中 published by 是过去分词作后置定语，修饰 articles，即“五位科学家发表的论文”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "individual",
+        "meaning": "n. 个人",
+        "note": "形容词义为“个人的”。"
+      },
+      {
+        "word": "consultant",
+        "meaning": "n. 顾问"
+      },
+      {
+        "word": "provider",
+        "meaning": "n. 提供者",
+        "note": "citation providers 引用的提供者。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "act as",
+        "meaning": "充当、扮演"
+      },
+      {
+        "text": "be able to do",
+        "meaning": "能够做……"
+      },
+      {
+        "text": "use ... as ...",
+        "meaning": "把……用作……"
+      }
+    ]
+  },
+  "2023:D:15": {
+    "grammar": [
+      {
+        "title": "同位语 + 非限制性定语从句",
+        "text": "Scopus, a citation database, which includes a high number of the new \"international\" journals 中 a citation database 是 Scopus 的同位语，which 从句补充说明其收录了大量新“国际”期刊，共同交代问题蔓延的场所。"
+      }
+    ],
+    "words": [
+      {
+        "word": "rampant",
+        "meaning": "adj. 猖獗的、泛滥的",
+        "note": "多形容坏事蔓延。"
+      },
+      {
+        "word": "database",
+        "meaning": "n. 数据库"
+      },
+      {
+        "word": "include",
+        "meaning": "v. 包括、收录"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "a high number of",
+        "meaning": "大量的"
+      },
+      {
+        "text": "citation database",
+        "meaning": "引文数据库",
+        "note": "Scopus 是大型学术文献数据库。"
+      }
+    ]
+  },
+  "2023:D:16": {
+    "grammar": [
+      {
+        "title": "seem to be 表推测",
+        "text": "a listing in Scopus seems to be a criterion 中 seem to be 意为“似乎是一个标准”，语气不绝对，暗示作者的判断。"
+      },
+      {
+        "title": "不定式被动形式作后置定语",
+        "text": "a criterion to be targeted in this type of citation manipulation 中 to be targeted 是不定式被动式，修饰 criterion，意为“成为这类引文操纵之目标的标准”，即“被 Scopus 收录”正是操纵者瞄准的标的。"
+      }
+    ],
+    "words": [
+      {
+        "word": "listing",
+        "meaning": "n. 收录、列入名录",
+        "note": "a listing in Scopus 指被 Scopus 收录。"
+      },
+      {
+        "word": "criterion",
+        "meaning": "n. 标准、准则",
+        "note": "复数 criteria。"
+      },
+      {
+        "word": "target",
+        "meaning": "v. 瞄准、以……为目标",
+        "note": "名词义为“目标”。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "in fact",
+        "meaning": "事实上"
+      },
+      {
+        "text": "be targeted",
+        "meaning": "成为目标"
+      }
+    ]
+  },
+  "2023:D:17": {
+    "grammar": [
+      {
+        "title": "形容词后置 + 不定式",
+        "text": "has all the data necessary to detect this malpractice 中 necessary 后置修饰 data（相当于 the data that is necessary），to detect 说明数据的用途“用于检测这种不当行为”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "malpractice",
+        "meaning": "n. 不当行为、渎职",
+        "note": "mal-（坏的）+ practice（做法），此处指学术不当行为。"
+      },
+      {
+        "word": "detect",
+        "meaning": "v. 检测、发现"
+      },
+      {
+        "word": "necessary",
+        "meaning": "adj. 必要的"
+      }
+    ]
+  },
+  "2023:D:18": {
+    "grammar": [
+      {
+        "title": "简单主谓宾 + 时间状语",
+        "text": "Red flags include a large number of citations ... 主干为 red flags include + 宾语。within the first year 限定时间“第一年内”，说明“危险信号”之一是文章首年被大量引用。"
+      }
+    ],
+    "words": [
+      {
+        "word": "flag",
+        "meaning": "n. 旗、标志",
+        "note": "red flag 引申为“危险信号/警示信号”。"
+      },
+      {
+        "word": "citation",
+        "meaning": "n. 引用"
+      },
+      {
+        "word": "include",
+        "meaning": "v. 包括"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "red flags",
+        "meaning": "危险信号、警示信号",
+        "note": "固定表达，喻指预示问题的迹象。"
+      },
+      {
+        "text": "a large number of",
+        "meaning": "大量的"
+      }
+    ]
+  },
+  "2023:D:19": {
+    "grammar": [
+      {
+        "title": "for + who 定语从句 引出建议对象",
+        "text": "for authors who wish to steer clear of citation cartel activities 点明建议对象：想避开引文联盟活动的作者。steer clear of 是固定搭配，意为“避开、远离”。"
+      },
+      {
+        "title": "when 引导的时间状语从句",
+        "text": "when an editor, a reviewer, or a support service asks you to add inappropriate references 说明触发条件：当有人要求你加不恰当引用时。"
+      },
+      {
+        "title": "祈使句 + do 强调",
+        "text": "do not oblige and do report the request to the journal 是祈使句，oblige 意为“顺从、照办”，do 用于强调动词（do report = 务必报告），整句劝告作者“不要照办，务必向期刊举报”。"
+      }
+    ],
+    "words": [
+      {
+        "word": "steer",
+        "meaning": "v. 驾驶、引导",
+        "note": "steer clear of 避开，固定搭配。"
+      },
+      {
+        "word": "reviewer",
+        "meaning": "n. 审稿人"
+      },
+      {
+        "word": "inappropriate",
+        "meaning": "adj. 不恰当的、不当的",
+        "note": "in-（不）+ appropriate（恰当的）。"
+      },
+      {
+        "word": "oblige",
+        "meaning": "v. 顺从、应允",
+        "note": "常考词，do not oblige 不要照办。"
+      },
+      {
+        "word": "reference",
+        "meaning": "n. 参考文献",
+        "note": "复数 references 指文末引用文献列表。"
+      }
+    ],
+    "phrases": [
+      {
+        "text": "steer clear of",
+        "meaning": "避开、远离",
+        "note": "口语化固定搭配，高频考点。"
+      },
+      {
+        "text": "ask sb to do sth",
+        "meaning": "要求某人做某事"
+      }
+    ]
+  }
+}

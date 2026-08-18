@@ -1,0 +1,3217 @@
+{
+    "2022:A:0":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "宾语从句",
+                                         "text":  "complain 后接 that 引导的宾语从句 that plastics are too durable，说明抱怨的具体内容；主句 People often complain 为简单“主谓”结构，that 可省略，阅读时把“complain + 从句内容”连成一句理解即可。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "durable",
+                                       "meaning":  "耐用的、持久的",
+                                       "note":  "形容词，本文核心主题词，与后文 break down（降解）相对；注意 durable 与 duration（持续时间）、endure（忍受）同根。"
+                                   },
+                                   {
+                                       "word":  "complain",
+                                       "meaning":  "抱怨",
+                                       "note":  "动词，常用搭配 complain that / complain about；名词 complaint（投诉、不满）。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:A:1":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "because 原因状语从句 + 并列谓语",
+                                         "text":  "because plastics are everywhere and don’t break down easily 说明垃圾遍地的原因，从句内由 and 连接两个并列谓语 are everywhere 与 don’t break down easily，阅读时先抓住“因为塑料无处不在且不易降解”这个完整原因。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "litter",
+                                       "meaning":  "v. 使…布满垃圾；n. 垃圾",
+                                       "note":  "本文作动词，litter the planet 意为“遍布整个星球”；与 trash（垃圾）相关。"
+                                   },
+                                   {
+                                       "word":  "trash",
+                                       "meaning":  "垃圾、废弃物",
+                                       "note":  "不可数名词，美式英语常用；文中与 bottles、bags 并列列举。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "from ... to ...",
+                                         "meaning":  "从……到……",
+                                         "note":  "此处从珠穆朗玛峰到马里亚纳海沟，极言范围之广。"
+                                     },
+                                     {
+                                         "text":  "break down",
+                                         "meaning":  "（塑料等）降解、分解",
+                                         "note":  "环境语境高频短语，另一常见义为“（机器）出故障”。"
+                                     }
+                                 ]
+                 },
+    "2022:A:2":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "转折 + 时间状语 over time",
+                                         "text":  "But 承接上文“塑料不易降解”引出转折“有些塑料材料会随时间变化”，over time 作时间状语，阅读时注意此句是全文观点转向的标志。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "material",
+                                       "meaning":  "材料、物质",
+                                       "note":  "名词；形容词义为“物质的、重要的”。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "over time",
+                                         "meaning":  "随着时间的推移",
+                                         "note":  "作时间状语，强调渐进过程。"
+                                     }
+                                 ]
+                 },
+    "2022:A:3":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "并列谓语动词",
+                                         "text":  "They 后接两个并列谓语 crack and frizzle，用 and 连接描述塑料劣化的两种表现，阅读时整体理解为“开裂、卷曲变形”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "crack",
+                                       "meaning":  "v. 开裂、破裂",
+                                       "note":  "动词；名词义为“裂缝”，如 a crack in the wall。"
+                                   },
+                                   {
+                                       "word":  "frizzle",
+                                       "meaning":  "卷曲变形（烧焦蜷缩）",
+                                       "note":  "较生僻，本句语境指塑料受热/老化后卷曲变形。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:A:4":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "拟人化用法",
+                                         "text":  "weep 本义为“哭泣”，此处加引号“weep” out 是拟人用法，指塑料像“渗出眼泪”一样析出添加剂，阅读时应体会引号的比喻色彩而非按字面“哭”理解。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "weep",
+                                       "meaning":  "（本义）哭泣；（此处）渗出、析出",
+                                       "note":  "动词，weep out 在本文指物质向外渗出。"
+                                   },
+                                   {
+                                       "word":  "additive",
+                                       "meaning":  "添加剂",
+                                       "note":  "名词，指塑料中人为添加的化学助剂。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:A:5":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "动词 + 介词 into 表示结果",
+                                         "text":  "melt into sludge 中 into 表示变化结果“融化成”，主语 They（指塑料）承接上文的劣化表现，阅读时把 melt into 整体当作“融化成”理解。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "melt",
+                                       "meaning":  "融化、熔化",
+                                       "note":  "动词；melt into 表“融化成某种状态”。"
+                                   },
+                                   {
+                                       "word":  "sludge",
+                                       "meaning":  "泥状物、烂泥",
+                                       "note":  "名词，指塑料降解成的粘稠泥状物质。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "melt into",
+                                         "meaning":  "融化成……",
+                                         "note":  "into 表变化结果，区别于 melt away（慢慢消失）。"
+                                     }
+                                 ]
+                 },
+    "2022:A:6":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "which 引导的非限制性定语从句",
+                                         "text":  "All of which 中 which 指代前面列举的一连串塑料劣化现象（开裂、卷曲、析出、融化等），整句相当于“上述这一切给机构带来大麻烦”，是作者对前文的小结。"
+                                     },
+                                     {
+                                         "title":  "现在分词短语作后置定语",
+                                         "text":  "trying to preserve culturally important objects 作后置定语修饰 institutions，与 such as museums 一起说明是“致力于保存重要文化物品的机构”，翻译时按定语前置处理。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "institution",
+                                       "meaning":  "机构（此处指博物馆等公共机构）",
+                                       "note":  "名词，注意与 institute（学院、研究所）区分。"
+                                   },
+                                   {
+                                       "word":  "preserve",
+                                       "meaning":  "保存、保护",
+                                       "note":  "动词，本文高频词，指文物/物品的保存。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "huge headaches for",
+                                         "meaning":  "给……带来大麻烦",
+                                         "note":  "headache 此处为比喻义“令人头痛的问题”。"
+                                     }
+                                 ]
+                 },
+    "2022:A:7":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "冒号引出列举，具体说明主语",
+                                         "text":  "冒号后的 early radios, avant-garde sculptures, celluloid animation stills... 逐项列举，具体说明“面临风险的塑料物品种类”，阅读时把冒号读作“即/也就是”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "variety",
+                                       "meaning":  "种类繁多、多样性",
+                                       "note":  "the variety of ... 意为“……的种类”。"
+                                   },
+                                   {
+                                       "word":  "dizzying",
+                                       "meaning":  "令人眼花缭乱的、令人眩晕的",
+                                       "note":  "形容词，由动词 dizzy（使眩晕）派生。"
+                                   },
+                                   {
+                                       "word":  "avant-garde",
+                                       "meaning":  "先锋派的",
+                                       "note":  "法语借词，avant-garde sculptures 即先锋派雕塑。"
+                                   },
+                                   {
+                                       "word":  "celluloid",
+                                       "meaning":  "赛璐珞（早期塑料）",
+                                       "note":  "名词，早期电影胶片材质。"
+                                   },
+                                   {
+                                       "word":  "still",
+                                       "meaning":  "（电影）剧照、定格画面",
+                                       "note":  "名词义，此处不是副词“仍然”。"
+                                   },
+                                   {
+                                       "word":  "artificial",
+                                       "meaning":  "人造的、人工的",
+                                       "note":  "artificial heart 人造心脏。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "at risk",
+                                         "meaning":  "面临风险",
+                                         "note":  "介词短语作后置定语，修饰 plastic objects。"
+                                     }
+                                 ]
+                 },
+    "2022:A:8":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "引述句主谓倒装",
+                                         "text":  "says Thea van Oosten 置于句末且主谓倒装，是典型的新闻引语写法；其引语内容为前文 Certain artifacts are especially vulnerable because... 一整段，阅读时把后置的 says 提前还原为正常语序。"
+                                     },
+                                     {
+                                         "title":  "because 原因状语从句内嵌宾语从句",
+                                         "text":  "because some pioneers ... didn’t always know how to mix ingredients properly 中，how to mix ingredients properly 是 know 的宾语（疑问词+不定式），注意 didn’t always 是“并非总是”，不能译成“从不”。"
+                                     },
+                                     {
+                                         "title":  "定语从句中插入时间状语",
+                                         "text":  "who ... worked for decades 修饰 a polymer chemist，中间插入 until retiring a few years ago 作时间状语，把 who 与 worked 隔开，阅读时先跳过插入成分抓住 who worked for decades 这个主干。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "artifact",
+                                       "meaning":  "文物、历史遗物",
+                                       "note":  "名词，注意与 art（艺术）区分；artifact 常作考点。"
+                                   },
+                                   {
+                                       "word":  "vulnerable",
+                                       "meaning":  "脆弱的、易受伤害的",
+                                       "note":  "形容词，常用 be vulnerable to（易受……影响）。"
+                                   },
+                                   {
+                                       "word":  "pioneer",
+                                       "meaning":  "先驱、开创者",
+                                       "note":  "名词，pioneers in plastic art 塑料艺术领域的先驱。"
+                                   },
+                                   {
+                                       "word":  "ingredient",
+                                       "meaning":  "原料、成分",
+                                       "note":  "名词，文中指塑料的配方原料。"
+                                   },
+                                   {
+                                       "word":  "polymer",
+                                       "meaning":  "聚合物",
+                                       "note":  "名词，polymer chemist 即高分子化学家。"
+                                   },
+                                   {
+                                       "word":  "agency",
+                                       "meaning":  "局、机构",
+                                       "note":  "the Cultural Heritage Agency of the Netherlands 荷兰文化遗产局。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "for decades",
+                                         "meaning":  "数十年",
+                                         "note":  "时间状语，说明工作年限之长。"
+                                     }
+                                 ]
+                 },
+    "2022:A:9":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "直接引语 + 后置引述",
+                                         "text":  "引语用双引号引出，she says 置于句末作引述分句；引语内部冒号后的 If you don’t have exact amounts, it goes wrong 是 if 条件状语从句（主句 it goes wrong），用烤蛋糕作类比解释配比不准的危害。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "amount",
+                                       "meaning":  "数量、用量",
+                                       "note":  "exact amounts 精确的用量；amount 常考可数/不可数用法。"
+                                   },
+                                   {
+                                       "word":  "exact",
+                                       "meaning":  "精确的、准确的",
+                                       "note":  "形容词，强调分毫不差。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "go wrong",
+                                         "meaning":  "出问题、出错",
+                                         "note":  "口语常用短语，本句指蛋糕烤砸/配方失败。"
+                                     }
+                                 ]
+                 },
+    "2022:A:10":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "定语从句省略关系代词",
+                                          "text":  "The object you make 中定语从句 you make 修饰 object，关系代词 that/which 作从句宾语被省略，完整形式是 The object (that) you make；该从句夹在主语和谓语 is 之间，阅读时注意断句。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "object",
+                                        "meaning":  "物品、物体",
+                                        "note":  "名词；另一常用义为“目标”“宾语”。"
+                                    },
+                                    {
+                                        "word":  "time bomb",
+                                        "meaning":  "定时炸弹（比喻早晚出问题的事物）",
+                                        "note":  "比喻义，说明制作出来的作品注定会出问题。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:A:11":  {
+                      "grammar":  [
+
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "fault",
+                                        "meaning":  "过错、责任",
+                                        "note":  "名词，it’s not the artist’s fault 不是艺术家的错；blame 也有此义。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:A:12":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "begin + 不定式",
+                                          "text":  "began to create ... 中不定式作 begin 的宾语，表“开始做某事”；句首 In the 1960s 为时间状语前置。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "foam",
+                                        "meaning":  "泡沫塑料",
+                                        "note":  "名词，本文反复出现；foam pieces 泡沫塑料作品。"
+                                    },
+                                    {
+                                        "word":  "piece",
+                                        "meaning":  "（艺术）作品、一件",
+                                        "note":  "名词，艺术语境中常指一件作品。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "hundreds of",
+                                          "meaning":  "数以百计的、数百个",
+                                          "note":  "表示大概数量，类似 dozens of、millions of。"
+                                      }
+                                  ]
+                  },
+    "2022:A:13":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "as well as 连接并列宾语",
+                                          "text":  "included small beds of roses and other items as well as a few dozen “nature carpets” 中 as well as 连接前后两大部分宾语，强调后者“还有、以及”。"
+                                      },
+                                      {
+                                          "title":  "破折号引出同位语 + 过去分词作后置定语",
+                                          "text":  "破折号后的 large rectangles 是 nature carpets 的同位语，具体说明其形状；decorated with foam pumpkins... 是过去分词短语作后置定语修饰 rectangles，阅读时按“用……装饰的大块长方形”前置翻译。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "item",
+                                        "meaning":  "物品、物件",
+                                        "note":  "名词，other items 其他物品。"
+                                    },
+                                    {
+                                        "word":  "rectangle",
+                                        "meaning":  "长方形、矩形",
+                                        "note":  "名词，几何术语。"
+                                    },
+                                    {
+                                        "word":  "decorate",
+                                        "meaning":  "装饰",
+                                        "note":  "动词，decorate with 用……装饰。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "a few dozen",
+                                          "meaning":  "几十个",
+                                          "note":  "dozen（打/十二个）前有数字用单数形式 a few dozen。"
+                                      }
+                                  ]
+                  },
+    "2022:A:14":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "want sb to do sth",
+                                          "text":  "wanted viewers to walk around on the carpets 中不定式 to walk around 作 viewers 的宾语补足语，即“希望参观者在地毯上行走”。"
+                                      },
+                                      {
+                                          "title":  "which 指代整个前句内容的定语从句",
+                                          "text":  "破折号后的 which meant they had to be durable 中 which 指代“参观者要在地毯上行走”这整件事，which meant 后接宾语从句 they had to be durable，即“这意味着（地毯）必须耐用”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "viewer",
+                                        "meaning":  "参观者、观看者",
+                                        "note":  "名词，由 view（观看）派生；艺术语境中常指参观展览的人。"
+                                    },
+                                    {
+                                        "word":  "durable",
+                                        "meaning":  "耐用的",
+                                        "note":  "与全文主题呼应，此处说明地毯须经得起踩踏。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "walk around on",
+                                          "meaning":  "在上面走来走去",
+                                          "note":  "around 表“四处、来回”，walk around 在……上走动。"
+                                      },
+                                      {
+                                          "text":  "have to",
+                                          "meaning":  "不得不、必须",
+                                          "note":  "客观必要性，等于 must。"
+                                      }
+                                  ]
+                  },
+    "2022:A:15":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "定语从句省略关系代词",
+                                          "text":  "the polyurethane foam he used 中 he used 是省略 that/which 的定语从句，修饰 foam；此从句把主语和系动词 is 隔开，阅读时先找到主干 the polyurethane foam is inherently unstable。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "polyurethane",
+                                        "meaning":  "聚氨酯",
+                                        "note":  "名词，一种常见塑料材质。"
+                                    },
+                                    {
+                                        "word":  "inherently",
+                                        "meaning":  "本质上、天生地",
+                                        "note":  "副词，inherently unstable 即“本性就不稳定”，不是后天才变坏。"
+                                    },
+                                    {
+                                        "word":  "unstable",
+                                        "meaning":  "不稳定的",
+                                        "note":  "形容词，反义词 stable（稳定的）。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:A:16":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "and 并列两个分句",
+                                          "text":  "and 连接两个并列分句：It’s especially vulnerable to light damage 与 by the mid-1990s, Gilardi’s pumpkins... were splitting and crumbling，前半句讲材料特性，后半句讲后果。"
+                                      },
+                                      {
+                                          "title":  "be vulnerable to 固定搭配",
+                                          "text":  "be vulnerable to light damage 中 vulnerable 后接介词 to 表“易受……影响”，to 的宾语是名词短语 light damage。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "vulnerable",
+                                        "meaning":  "易受伤害的、脆弱的",
+                                        "note":  "be vulnerable to 高频考点。"
+                                    },
+                                    {
+                                        "word":  "damage",
+                                        "meaning":  "损害、损伤",
+                                        "note":  "名词；light damage 光损害。"
+                                    },
+                                    {
+                                        "word":  "split",
+                                        "meaning":  "裂开、开裂",
+                                        "note":  "动词；名词义为“裂口”。"
+                                    },
+                                    {
+                                        "word":  "crumble",
+                                        "meaning":  "碎裂、崩塌",
+                                        "note":  "动词，与 split 并列描述劣化。"
+                                    },
+                                    {
+                                        "word":  "figure",
+                                        "meaning":  "（这里的）塑像、形象",
+                                        "note":  "名词，指 Gilardi 制作的南瓜、玫瑰等造型作品。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "by the mid-1990s",
+                                          "meaning":  "到20世纪90年代中期",
+                                          "note":  "by + 时间点表示“到……为止”。"
+                                      }
+                                  ]
+                  },
+    "2022:A:17":  {
+                      "grammar":  [
+
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "lock away",
+                                        "meaning":  "锁藏起来、妥善收存",
+                                        "note":  "短语动词，away 表“收起来”，本句指把易损坏的作品锁进暗处。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "in the dark",
+                                          "meaning":  "在黑暗中、在暗处",
+                                          "note":  "因为聚氨酯怕光，所以放暗处保存。"
+                                      }
+                                  ]
+                  },
+    "2022:A:18":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "不定式作目的状语",
+                                          "text":  "worked to preserve Gilardi’s sculptures 中不定式 to preserve 作目的状语，说明“工作”的目的，即努力保存吉拉尔迪的雕塑。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "colleague",
+                                        "meaning":  "同事",
+                                        "note":  "名词，常考拼写。"
+                                    },
+                                    {
+                                        "word":  "sculpture",
+                                        "meaning":  "雕塑、雕塑作品",
+                                        "note":  "名词。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "work to do sth",
+                                          "meaning":  "致力于做某事",
+                                          "note":  "work 后接不定式表目的/努力方向。"
+                                      }
+                                  ]
+                  },
+    "2022:A:19":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "infuse A with B 结构",
+                                          "text":  "infused some with stabilizing and consolidating chemicals 中 some 指代部分雕塑，结构为 infuse A with B“把 B 注入 A”；some 作宾语而 with 短语后置，注意不要把 some 误当作主语的一部分。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "infuse",
+                                        "meaning":  "注入、灌输",
+                                        "note":  "动词，infuse A with B 把B注入A；另一常见义“泡（茶）”。"
+                                    },
+                                    {
+                                        "word":  "stabilize",
+                                        "meaning":  "使稳定",
+                                        "note":  "动词，stabilizing chemicals 起稳定作用的药剂。"
+                                    },
+                                    {
+                                        "word":  "consolidate",
+                                        "meaning":  "加固、巩固",
+                                        "note":  "动词，consolidating chemicals 起加固作用的药剂。"
+                                    },
+                                    {
+                                        "word":  "chemical",
+                                        "meaning":  "化学品、化学药剂",
+                                        "note":  "名词；形容词义为“化学的”。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:A:20":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "call A B 双宾语结构",
+                                          "text":  "calls those chemicals “sunscreens” 中 those chemicals 是宾语、“sunscreens” 是宾语补足语，即“把这些化学药剂称作防晒霜”；because 从句说明如此称呼的原因。"
+                                      },
+                                      {
+                                          "title":  "不定式作表语",
+                                          "text":  "their goal was to prevent further light damage and rebuild worn polymer fibers 中不定式 to prevent ... and rebuild ... 作表语说明“目的”，注意 and 连接两个并列不定式短语。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "sunscreen",
+                                        "meaning":  "防晒霜",
+                                        "note":  "名词，此处是比喻，指防光的化学药剂。"
+                                    },
+                                    {
+                                        "word":  "prevent",
+                                        "meaning":  "阻止、预防",
+                                        "note":  "动词，prevent further light damage 防止进一步的光损害。"
+                                    },
+                                    {
+                                        "word":  "further",
+                                        "meaning":  "进一步的",
+                                        "note":  "形容词（比较级），此处不是副词“更远”。"
+                                    },
+                                    {
+                                        "word":  "worn",
+                                        "meaning":  "磨损的、破旧的",
+                                        "note":  "形容词，由动词 wear 的过去分词转化而来。"
+                                    },
+                                    {
+                                        "word":  "fiber",
+                                        "meaning":  "纤维",
+                                        "note":  "名词，polymer fibers 高分子纤维。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "prevent further light damage",
+                                          "meaning":  "防止进一步的光损害",
+                                          "note":  "prevent + 名词，表“防止/阻止……发生”。"
+                                      }
+                                  ]
+                  },
+    "2022:A:21":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "be proud that 形容词 + that 从句",
+                                          "text":  "be proud that several sculptures have even gone on display again 中 that 从句说明“自豪”的具体内容；该从句由谓语动词 have gone on display 与副词 again 构成。"
+                                      },
+                                      {
+                                          "title":  "albeit 引导让步",
+                                          "text":  "albeit sometimes beneath protective cases 是让步状语，albeit 意为“尽管”，后面直接接介词短语，是书面语中省略主谓的让步表达，翻译为“尽管……”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "proud",
+                                        "meaning":  "自豪的、骄傲的",
+                                        "note":  "形容词，be proud of/that 均可。"
+                                    },
+                                    {
+                                        "word":  "display",
+                                        "meaning":  "展出、展示",
+                                        "note":  "名词，go on display 得以展出。"
+                                    },
+                                    {
+                                        "word":  "albeit",
+                                        "meaning":  "尽管、虽然",
+                                        "note":  "书面连词，常考，相当于 although，但后接短语而非完整从句。"
+                                    },
+                                    {
+                                        "word":  "protective",
+                                        "meaning":  "起保护作用的",
+                                        "note":  "形容词，protective cases 保护罩。"
+                                    },
+                                    {
+                                        "word":  "case",
+                                        "meaning":  "罩子、盒子",
+                                        "note":  "名词，此处指保护箱/保护罩；注意 case 的多义（情况、案件）。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "go on display",
+                                          "meaning":  "被展出",
+                                          "note":  "固定搭配，on display 展出中。"
+                                      }
+                                  ]
+                  },
+    "2022:A:22":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "Despite 介词短语作让步状语",
+                                          "text":  "句首 Despite success stories like van Oosten’s 是介词短语作让步状语，Despite 后接名词短语（其中 van Oosten’s 省略了 success story），翻译为“尽管有……成功先例”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "despite",
+                                        "meaning":  "尽管",
+                                        "note":  "介词，后接名词/动名词，不接从句；易与 although（连词）混淆。"
+                                    },
+                                    {
+                                        "word":  "preservation",
+                                        "meaning":  "保存、保护",
+                                        "note":  "名词，由 preserve 派生；preservation of plastics 塑料制品的保存。"
+                                    },
+                                    {
+                                        "word":  "likely",
+                                        "meaning":  "很可能地",
+                                        "note":  "副词（也可作形容词），will likely get harder 很可能会变得更难。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "success story",
+                                          "meaning":  "成功案例、成功范例",
+                                          "note":  "固定搭配。"
+                                      }
+                                  ]
+                  },
+    "2022:A:23":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "continue + 不定式",
+                                          "text":  "continue to deteriorate 中不定式作 continue 的宾语，表“继续恶化”，此句承接上文说明旧物件仍在不断劣化。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "deteriorate",
+                                        "meaning":  "恶化、变坏",
+                                        "note":  "动词，名词 deterioration；与 improve 相对。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:A:24":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "过去分词短语作插入定语",
+                                          "text":  "biodegradable plastics, designed to disintegrate, are increasingly common 中 designed to disintegrate 是被动式过去分词短语，夹在主语和谓语之间说明“被设计成可降解”，阅读时先跳过它抓住主干 plastics are increasingly common。"
+                                      },
+                                      {
+                                          "title":  "Worse 作评注性状语",
+                                          "text":  "句首 Worse 是对整句内容的评价，意为“更糟糕的是”，相当于更糟的说法还在后头，阅读时注意其引出负面递进。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "biodegradable",
+                                        "meaning":  "可生物降解的",
+                                        "note":  "形容词，bio-（生物）+ degradable（可降解的），环保话题高频词。"
+                                    },
+                                    {
+                                        "word":  "disintegrate",
+                                        "meaning":  "分解、崩解",
+                                        "note":  "动词，指材料碎裂分解成小颗粒。"
+                                    },
+                                    {
+                                        "word":  "increasingly",
+                                        "meaning":  "日益、越来越",
+                                        "note":  "副词，increasingly common 越来越普遍。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:A:25":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "more ... than 比较结构",
+                                          "text":  "more is at stake here than individual objects 是比较句，more 指代“更多的利害关系”，比较对象是 individual objects（单件物品），即“利害关系远不止单个物品”，阅读时注意 more 是代词而非副词。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "stake",
+                                        "meaning":  "利害关系、风险",
+                                        "note":  "名词，at stake 意为“成败攸关、处于风险中”。"
+                                    },
+                                    {
+                                        "word":  "individual",
+                                        "meaning":  "单个的、个别的",
+                                        "note":  "形容词，individual objects 单个物品。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "at stake",
+                                          "meaning":  "利害攸关、处于风险中",
+                                          "note":  "高频短语，what is at stake 什么面临风险。"
+                                      }
+                                  ]
+                  },
+    "2022:A:26":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "主语 + 同位语说明身份",
+                                          "text":  "主语 Joana Lia Ferreira 后紧跟同位语 an assistant professor of conservation and restoration at the NOVA School of Science and Technology 说明其身份职务，阅读时可先把同位语当作插入信息跳过，主干是 Joana Lia Ferreira notes that ...。"
+                                      },
+                                      {
+                                          "title":  "that 宾语从句 + 破折号举例",
+                                          "text":  "notes that archaeologists first defined ... 中 that 引导宾语从句；从句内破折号 ——Stone Age, Iron Age, and so on—— 是对 material ages 的举例说明，阅读时破折号内容可先跳过。"
+                                      },
+                                      {
+                                          "title":  "after + 动名词短语",
+                                          "text":  "after examining artifacts in museums 是介词+动名词短语作时间状语，说明考古学家“在考察博物馆文物之后”才作出界定。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "conservation",
+                                        "meaning":  "（文物的）保护",
+                                        "note":  "名词，conservation and restoration 保护与修复。"
+                                    },
+                                    {
+                                        "word":  "restoration",
+                                        "meaning":  "修复、恢复",
+                                        "note":  "名词，由 restore 派生。"
+                                    },
+                                    {
+                                        "word":  "archaeologist",
+                                        "meaning":  "考古学家",
+                                        "note":  "名词，archaeology 考古学。"
+                                    },
+                                    {
+                                        "word":  "define",
+                                        "meaning":  "界定、下定义",
+                                        "note":  "动词，first defined 首次界定。"
+                                    },
+                                    {
+                                        "word":  "age",
+                                        "meaning":  "时代",
+                                        "note":  "名词，the great material ages 重大材料时代（石器时代等）。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "and so on",
+                                          "meaning":  "等等",
+                                          "note":  "用于列举未尽事项。"
+                                      }
+                                  ]
+                  },
+    "2022:A:27":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "插入式引述 + 并列主语从句",
+                                          "text":  "she says 插在引语中间作引述分句；引语的主语是并列的两个 what 从句（what we decide to collect today, what we decide to preserve），谓语是 will have a strong impact，两个主语从句夹在破折号/省略号之间，阅读时抓住“决定收藏/保存什么 → 产生影响”的主干。"
+                                      },
+                                      {
+                                          "title":  "how 引导名词性从句作介词宾语",
+                                          "text":  "on how in the future we’ll be seen 中 how 引导的名词性从句作介词 on 的宾语，即“对未来我们被如何看待产生影响”，注意 how 从句内语序为正常陈述语序。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "impact",
+                                        "meaning":  "影响",
+                                        "note":  "名词，have an impact on 对……有影响；动词义为“冲击”。"
+                                    },
+                                    {
+                                        "word":  "collect",
+                                        "meaning":  "收藏、收集",
+                                        "note":  "动词，what we decide to collect 我们决定收藏什么。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "have an impact on",
+                                          "meaning":  "对……产生影响",
+                                          "note":  "impact 常与 have/exert 搭配。"
+                                      }
+                                  ]
+                  },
+    "2022:B:0":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "As 引导时间状语从句",
+                                         "text":  "句首 As the latest crop of students pen their undergraduate application form and weigh up their options 中 As 引导时间状语从句，意为“当……时”，从句内 and 连接 pen 与 weigh up 两个并列谓语。"
+                                     },
+                                     {
+                                         "title":  "it is worth considering + 并列宾语从句",
+                                         "text":  "it may be worth considering 中 it 是形式主语，真正内容是后接的宾语从句；considering 后由 and 连接两个名词性从句 how the point, purpose and value of a degree has changed 和 what Generation Z need to consider，阅读时把 how 从句和 what 从句分别译出。"
+                                     },
+                                     {
+                                         "title":  "as 引导时间状语从句（嵌套）",
+                                         "text":  "what 从句内部的 as they start the third stage of their educational journey 是 as 时间状语从句，说明“在开启教育之旅第三阶段时”需要考虑的内容。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "crop",
+                                       "meaning":  "（同时出现的）一批、一群",
+                                       "note":  "名词，the latest crop of students 最新一届学生；本义“庄稼”。"
+                                   },
+                                   {
+                                       "word":  "pen",
+                                       "meaning":  "v. 书写、填写",
+                                       "note":  "名词 pen（笔）转用作动词，pen the form 填写表格。"
+                                   },
+                                   {
+                                       "word":  "undergraduate",
+                                       "meaning":  "本科的、本科生",
+                                       "note":  "undergraduate application form 本科入学申请表。"
+                                   },
+                                   {
+                                       "word":  "option",
+                                       "meaning":  "选择、选项",
+                                       "note":  "weigh up their options 权衡自己的选择。"
+                                   },
+                                   {
+                                       "word":  "generation",
+                                       "meaning":  "一代人",
+                                       "note":  "Generation Z Z世代。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "weigh up",
+                                         "meaning":  "权衡、斟酌",
+                                         "note":  "短语动词，weigh up options 仔细权衡各种选择。"
+                                     }
+                                 ]
+                 },
+    "2022:B:1":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "被动语态 + that 宾语从句",
+                                         "text":  "Millennials were told that ... 是 tell sb sth 的被动式，that 从句（if you did well in school, got a decent degree, you would be set up for life）是被告诉的内容。"
+                                     },
+                                     {
+                                         "title":  "if 条件状语从句 + 主句结果",
+                                         "text":  "if you did well in school, got a decent degree, you would be set up for life 中 if 从句里并列两个过去时谓语（did well, got），主句用 would 表“条件满足下的结果”，即“只要……，这辈子就有着落”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "millennial",
+                                       "meaning":  "千禧一代（生于1980至1990年代中期的人）",
+                                       "note":  "名词/形容词，常考人口学词汇。"
+                                   },
+                                   {
+                                       "word":  "decent",
+                                       "meaning":  "体面的、像样的",
+                                       "note":  "形容词，a decent degree 一个体面的学位。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "be set up for life",
+                                         "meaning":  "这辈子都有着落、生活无忧",
+                                         "note":  "set up 此处指“安顿好”，固定口语表达。"
+                                     },
+                                     {
+                                         "text":  "do well in",
+                                         "meaning":  "在……方面表现出色",
+                                         "note":  "do well in school 在学校表现优秀。"
+                                     }
+                                 ]
+                 },
+    "2022:B:2":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "find + 宾语 + 宾语补足语（被动）",
+                                         "text":  "has been found wanting 是 find it/them wanting 的被动式，wanting 作主语补足语，意为“被发现有所欠缺”，即这一承诺经检验并不牢靠。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "promise",
+                                       "meaning":  "承诺",
+                                       "note":  "名词；that promise 指上文“读书好就能过上好日子”的承诺。"
+                                   },
+                                   {
+                                       "word":  "wanting",
+                                       "meaning":  "有欠缺的、不够格的",
+                                       "note":  "形容词，find ... wanting 发现……有缺陷，注意不是“想要的”。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "be found wanting",
+                                         "meaning":  "被证明有欠缺、经检验不合格",
+                                         "note":  "固定搭配，be found + 补语表被动结果。"
+                                     }
+                                 ]
+                 },
+    "2022:B:3":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "As 引导原因/时间状语从句",
+                                         "text":  "As degrees became universal 中 As 兼有时间与因果色彩，意为“随着/由于学位普及”，主句 they became devalued 说明随之而来的结果。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "universal",
+                                       "meaning":  "普遍的、普及的",
+                                       "note":  "形容词，degree became universal 学位变得普遍。"
+                                   },
+                                   {
+                                       "word":  "devalue",
+                                       "meaning":  "使贬值、使价值降低",
+                                       "note":  "动词，became devalued 被贬值；反义 appreciate（增值）。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:B:4":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "no longer + 系表结构",
+                                         "text":  "Education was no longer a secure route of social mobility 中 no longer 作状语表“不再”，系动词 was 后接名词短语作表语，否定的是“教育仍是可靠途径”这一旧观念。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "secure",
+                                       "meaning":  "可靠的、有保障的",
+                                       "note":  "形容词，a secure route 可靠的途径；动词义为“使安全”。"
+                                   },
+                                   {
+                                       "word":  "route",
+                                       "meaning":  "途径、路线",
+                                       "note":  "名词，route of social mobility 社会流动的途径。"
+                                   },
+                                   {
+                                       "word":  "mobility",
+                                       "meaning":  "流动性、机动性",
+                                       "note":  "名词，social mobility 社会流动性（跨阶层流动）。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "no longer",
+                                         "meaning":  "不再",
+                                         "note":  "书面语中常置于系动词后。"
+                                     },
+                                     {
+                                         "text":  "social mobility",
+                                         "meaning":  "社会流动性",
+                                         "note":  "社会话题高频搭配，指个人在不同社会阶层间的流动。"
+                                     }
+                                 ]
+                 },
+    "2022:B:5":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "百分数作主语 + 同位语 + 定语从句",
+                                         "text":  "28 per cent of graduates in the UK are in non-graduate roles 中百分数结构作主语，谓语用复数 are；逗号后的 a percentage which is double the average among OECD countries 是前面整个情况的同位语，which 引导定语从句补充说明该比例。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "graduate",
+                                       "meaning":  "毕业生（大学毕业者）",
+                                       "note":  "名词；注意与 undergraduate（本科生）、postgraduate（研究生）区分。"
+                                   },
+                                   {
+                                       "word":  "percentage",
+                                       "meaning":  "百分比、比例",
+                                       "note":  "名词，a percentage which ... 作同位语。"
+                                   },
+                                   {
+                                       "word":  "average",
+                                       "meaning":  "平均水平、平均数",
+                                       "note":  "名词，double the average 是平均数的两倍。"
+                                   },
+                                   {
+                                       "word":  "OECD",
+                                       "meaning":  "经济合作与发展组织",
+                                       "note":  "专有名词缩写，组织名称。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "non-graduate roles",
+                                         "meaning":  "不需要学位的岗位",
+                                         "note":  "与 graduate jobs（毕业生岗位）相对。"
+                                     },
+                                     {
+                                         "text":  "double the average",
+                                         "meaning":  "是平均水平的两倍",
+                                         "note":  "double 作动词/形容词表“两倍”。"
+                                     }
+                                 ]
+                 },
+    "2022:B:6":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "not ... but rather 结构",
+                                         "text":  "This is not to say that ... , but rather stress that ... 是“不是要说……而是要说……”的并列否定+转折结构，but rather 后省略了 to，完整是 This is not to say ..., but (to) rather stress ...，阅读时注意强调的重心在 but rather 之后。"
+                                     },
+                                     {
+                                         "title":  "多个 that 宾语从句并列",
+                                         "text":  "stress 后连续接三个 that 宾语从句：that a degree is not for everyone, that the switch ... is not an inevitable one and that other options are available，用 and 连接，构成排比式列举。"
+                                     },
+                                     {
+                                         "title":  "there is no point in doing sth",
+                                         "text":  "there is no point in getting a degree 是固定句型，意为“获得学位没有意义/不值得”，point 此处指“意义、道理”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "point",
+                                       "meaning":  "意义、用处",
+                                       "note":  "名词，there is no point in doing 做某事没意义。"
+                                   },
+                                   {
+                                       "word":  "switch",
+                                       "meaning":  "转变、切换",
+                                       "note":  "名词，the switch from classroom to lecture hall 从中学课堂到大学讲堂的转变。"
+                                   },
+                                   {
+                                       "word":  "lecture hall",
+                                       "meaning":  "大学讲堂、阶梯教室",
+                                       "note":  "借代大学教育环境。"
+                                   },
+                                   {
+                                       "word":  "inevitable",
+                                       "meaning":  "不可避免的、必然的",
+                                       "note":  "形容词，not an inevitable one 并非必然的选择。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "there is no point in doing",
+                                         "meaning":  "做……没有意义",
+                                         "note":  "高频句型，point 表意义。"
+                                     },
+                                     {
+                                         "text":  "not ... but rather ...",
+                                         "meaning":  "不是……而是……",
+                                         "note":  "书面强调结构，重心在 but rather 后。"
+                                     }
+                                 ]
+                 },
+    "2022:B:7":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "同位语从句",
+                                         "text":  "there are signs that this is already happening 中 that 从句是 signs 的同位语，具体说明“迹象”的内容（这件事已经在发生）。"
+                                     },
+                                     {
+                                         "title":  "with + 名词 + 现在分词 独立结构",
+                                         "text":  "with Generation Z seeking to learn from their millennial predecessors 是 with 复合结构，作伴随状语，说明迹象的具体表现，即“Z世代正试图向千禧一代前辈学习”。"
+                                     },
+                                     {
+                                         "title":  "even if 让步状语从句",
+                                         "text":  "even if parents and teachers tend to be still set in the degree mindset 是让步状语从句，意为“即使家长和老师仍固守学位观念”，与前文形成对比转折。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "thankfully",
+                                       "meaning":  "幸好、所幸",
+                                       "note":  "副词，作评注性状语。"
+                                   },
+                                   {
+                                       "word":  "sign",
+                                       "meaning":  "迹象、征兆",
+                                       "note":  "名词，there are signs that ... 有迹象表明。"
+                                   },
+                                   {
+                                       "word":  "predecessor",
+                                       "meaning":  "前辈、前任",
+                                       "note":  "名词，反义 successor（继任者）。"
+                                   },
+                                   {
+                                       "word":  "mindset",
+                                       "meaning":  "思维模式、心态",
+                                       "note":  "名词，the degree mindset 学位至上的观念。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "be set in",
+                                         "meaning":  "固守于、拘泥于",
+                                         "note":  "be set in the degree mindset 固守学位观念。"
+                                     },
+                                     {
+                                         "text":  "seek to do sth",
+                                         "meaning":  "试图做某事",
+                                         "note":  "书面语，等于 try to do。"
+                                     }
+                                 ]
+                 },
+    "2022:B:8":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "who 引导定语从句",
+                                         "text":  "who often prove themselves to be more committed and loyal employees than graduates 修饰 school leavers，从句内 prove themselves to be ... 意为“证明自己是……”，构成比较结构 more committed and loyal ... than graduates。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "employer",
+                                       "meaning":  "雇主",
+                                       "note":  "名词，注意与 employee（雇员）区分。"
+                                   },
+                                   {
+                                       "word":  "advantage",
+                                       "meaning":  "优势、好处",
+                                       "note":  "名词，see the advantages of ... 看到……的好处。"
+                                   },
+                                   {
+                                       "word":  "committed",
+                                       "meaning":  "敬业的、尽职的",
+                                       "note":  "形容词，be committed to 致力于。"
+                                   },
+                                   {
+                                       "word":  "loyal",
+                                       "meaning":  "忠诚的",
+                                       "note":  "形容词，loyal employees 忠诚的员工。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "school leaver",
+                                         "meaning":  "中学毕业后直接离开学校的人",
+                                         "note":  "英式表达，指不升入大学而直接就业者。"
+                                     },
+                                     {
+                                         "text":  "prove oneself to be",
+                                         "meaning":  "证明自己是……",
+                                         "note":  "prove + 反身代词 + to be 结构。"
+                                     }
+                                 ]
+                 },
+    "2022:B:9":  {
+                     "grammar":  [
+
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "scrap",
+                                       "meaning":  "取消、废除",
+                                       "note":  "动词，scrapping a degree requirement 取消学位要求；本义“报废”。"
+                                   },
+                                   {
+                                       "word":  "requirement",
+                                       "meaning":  "要求、必要条件",
+                                       "note":  "名词，degree requirement 学位要求。"
+                                   },
+                                   {
+                                       "word":  "role",
+                                       "meaning":  "职位、岗位",
+                                       "note":  "名词，certain roles 某些职位。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:B:10":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "介词 + 关系代词 for whom 定语从句",
+                                          "text":  "those for whom a degree is the desired route 中 whom 前带介词 for，for whom 整体引导定语从句修饰 those，即“对这些人而言学位是理想途径”；阅读时把 for whom 还原为“对于……来说”理解。"
+                                      },
+                                      {
+                                          "title":  "祈使句 + that 宾语从句",
+                                          "text":  "consider that this may well be the first of many 是省略主语的祈使句（建议语气），that 从句作 consider 的宾语，may well be 表示“很可能就是”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "desired",
+                                        "meaning":  "理想的、渴望的",
+                                        "note":  "形容词，由动词 desire 派生，the desired route 理想路径。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "may well",
+                                          "meaning":  "很可能、完全可能",
+                                          "note":  "表有把握的推测，语气强于 may。"
+                                      },
+                                      {
+                                          "text":  "the first of many",
+                                          "meaning":  "众多中的第一个",
+                                          "note":  "即“这只是众多学位/阶段里的第一个”。"
+                                      }
+                                  ]
+                  },
+    "2022:B:11":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "it pays to do sth 句型",
+                                          "text":  "it pays to have specific knowledge or skills 中 it 是形式主语，真正主语是不定式 to have ...，pays 意为“值得、划算”，整句即“拥有专门知识或技能是值得的”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "generalist",
+                                        "meaning":  "通才、多面手",
+                                        "note":  "名词，与 specialist（专才）相对。"
+                                    },
+                                    {
+                                        "word":  "specific",
+                                        "meaning":  "专门的、具体的",
+                                        "note":  "形容词，specific knowledge or skills 专门的知识或技能。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "it pays to do sth",
+                                          "meaning":  "做某事是划算的/值得的",
+                                          "note":  "高频句型，pay 此处为“有回报”之意。"
+                                      }
+                                  ]
+                  },
+    "2022:B:12":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "百分数 + 比较级",
+                                          "text":  "earn 40 per cent more than graduates 是“比毕业生多赚40%”的比较结构，数字加比较级表达差额，阅读时注意把 more than 连起来读。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "postgraduate",
+                                        "meaning":  "研究生（硕士/博士）",
+                                        "note":  "名词，与 undergraduate（本科生）对应。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:B:13":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "When 时间状语从句 + it makes sense to do",
+                                          "text":  "When more and more of us have a degree 是时间状语从句；主句 it makes sense to have two 中 it 为形式主语，真正主语是 to have two，make sense 意为“合乎情理”，本句即“当大家都有学位时，再拿一个就合情合理了”。"
+                                      }
+],
+                      "words":  [
+
+                                  ],
+                      "phrases":  [
+                                       {
+                                           "text":  "make sense",
+                                          "meaning":  "有道理、合乎情理",
+                                          "note":  "高频短语，it makes sense to do 做某事说得通。"
+                                      },
+                                      {
+                                          "text":  "more and more",
+                                          "meaning":  "越来越多",
+                                          "note":  "递进式并列结构。"
+                                      }
+                                  ]
+                  },
+    "2022:B:14":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "It is unlikely that 主语从句",
+                                          "text":  "It is unlikely that Generation Z will be done with education at 18 or 21 中 it 为形式主语，that 从句是真正主语，即“Z世代在18或21岁就结束学业是不太可能的”。"
+                                      },
+                                      {
+                                          "title":  "分号连接并列句 + 不定式目的状语",
+                                          "text":  "分号后的 they will need to be constantly up-skilling ... to stay employable 与前半句并列；末尾 to stay employable 是不定式目的状语，说明不断学习的目的。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "unlikely",
+                                        "meaning":  "不太可能的",
+                                        "note":  "形容词，It is unlikely that ... 不太可能……。"
+                                    },
+                                    {
+                                        "word":  "constantly",
+                                        "meaning":  "不断地",
+                                        "note":  "副词，constantly up-skilling 不断学习新技能。"
+                                    },
+                                    {
+                                        "word":  "career",
+                                        "meaning":  "职业生涯",
+                                        "note":  "名词，throughout their career 贯穿整个职业生涯。"
+                                    },
+                                    {
+                                        "word":  "employable",
+                                        "meaning":  "有就业竞争力的、有雇用的价值的",
+                                        "note":  "形容词，由 employ 派生；stay employable 保持就业竞争力。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "be done with",
+                                          "meaning":  "结束、了结",
+                                          "note":  "be done with education 结束学业。"
+                                      },
+                                      {
+                                          "text":  "up-skill",
+                                          "meaning":  "提升技能、学习新技能",
+                                          "note":  "新造动词，up（提高）+ skill。"
+                                      }
+                                  ]
+                  },
+    "2022:B:15":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "It has been estimated that 形式主语",
+                                          "text":  "It has been estimated that ... 中 it 是形式主语，that 从句为真正主语，即“据估计……”；阅读时把 it has been estimated that 整体当作引子，重心在 that 从句。"
+                                      },
+                                      {
+                                          "title":  "插入语造成主谓分隔",
+                                          "text":  "主语 this generation 与谓语 will work ... and have ... 之间插入 due to the pressures of technology, the wish for personal fulfilment and desire for diversity 这一原因短语，阅读时先跳过插入语找到主干。"
+                                      },
+                                      {
+                                          "title":  "并列谓语",
+                                          "text":  "will work for 17 different employers over the course of their working life and have five different careers 由 and 连接两个并列谓语，说明这代人的职业变动情况。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "estimate",
+                                        "meaning":  "估计",
+                                        "note":  "动词，It has been estimated that 据估计。"
+                                    },
+                                    {
+                                        "word":  "pressure",
+                                        "meaning":  "压力",
+                                        "note":  "名词，the pressures of technology 技术带来的压力。"
+                                    },
+                                    {
+                                        "word":  "fulfilment",
+                                        "meaning":  "成就感、满足感",
+                                        "note":  "名词，personal fulfilment 个人成就感。"
+                                    },
+                                    {
+                                        "word":  "diversity",
+                                        "meaning":  "多样性",
+                                        "note":  "名词，desire for diversity 对多样性的渴望。"
+                                    },
+                                    {
+                                        "word":  "employer",
+                                        "meaning":  "雇主",
+                                        "note":  "名词，17 different employers 17个不同的雇主。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "due to",
+                                          "meaning":  "由于",
+                                          "note":  "介词短语表原因，后接名词。"
+                                      },
+                                      {
+                                          "text":  "over the course of",
+                                          "meaning":  "在……的过程中、在整个……期间",
+                                          "note":  "over the course of their working life 在其整个职业生涯中。"
+                                      }
+                                  ]
+                  },
+    "2022:B:16":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "插入语补充说明主语",
+                                          "text":  "Education, and not just knowledge gained on campus, will be a core part ... 中 and not just knowledge gained on campus 是插入语，说明教育不仅指校园所学知识，阅读时先把插入语去掉抓住主干 Education will be a core part。"
+                                      },
+                                      {
+                                          "title":  "过去分词作后置定语",
+                                          "text":  "knowledge gained on campus 中 gained on campus 是过去分词短语作后置定语修饰 knowledge，即“在校园里获得的知识”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "core",
+                                        "meaning":  "核心的",
+                                        "note":  "形容词/名词，a core part 核心组成部分。"
+                                    },
+                                    {
+                                        "word":  "trajectory",
+                                        "meaning":  "轨迹、发展道路",
+                                        "note":  "名词，career trajectory 职业发展轨迹。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "on campus",
+                                          "meaning":  "在校园里",
+                                          "note":  "固定搭配，campus 前不加冠词。"
+                                      },
+                                      {
+                                          "text":  "not just",
+                                          "meaning":  "不仅仅",
+                                          "note":  "表“不只是”，常与 but also 连用。"
+                                      }
+                                  ]
+                  },
+    "2022:B:17":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "冒号引出例证",
+                                          "text":  "冒号后的 ‘I am a geographer’ or ‘I am a classist’ 用两个例句具体说明老一辈人如何用“现在时、以个人身份”谈论学位（把学位身份当成当前自我定义）。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "generation",
+                                        "meaning":  "一代人",
+                                        "note":  "Older generations 老一辈人。"
+                                    },
+                                    {
+                                        "word":  "geographer",
+                                        "meaning":  "地理学家",
+                                        "note":  "名词，由 geography 派生。"
+                                    },
+                                    {
+                                        "word":  "classist",
+                                        "meaning":  "古典学学者",
+                                        "note":  "名词，指研究古典学（classics）的人，注意与 classism（等级歧视）区分。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "talk about",
+                                          "meaning":  "谈论",
+                                          "note":  "常见短语动词。"
+                                      }
+                                  ]
+                  },
+    "2022:B:18":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "分号连接并列句 + as if 状语从句",
+                                          "text":  "分号前是 Their sons or daughters would never say such a thing，分号后 it’s as if they already know that ... 中 as if 引导方式状语从句（用直陈语气 because 已实际知道），说明两者行为的鲜明对比。"
+                                      },
+                                      {
+                                          "title":  "that 宾语从句",
+                                          "text":  "know 后 that their degree won’t define them in the same way 是宾语从句，define them 指“定义他们（的身份人生）”，阅读时理解年轻一代不再以学位作为自我定义。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "define",
+                                        "meaning":  "定义、界定",
+                                        "note":  "动词，degree won’t define them 学位不会定义他们的人生。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "as if",
+                                          "meaning":  "好像、仿佛",
+                                          "note":  "引导方式状语从句，本句用直陈语气（已有事实）。"
+                                      },
+                                      {
+                                          "text":  "in the same way",
+                                          "meaning":  "以同样的方式",
+                                          "note":  "方式状语。"
+                                      }
+                                  ]
+                  },
+    "2022:C:0":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "无动词的形容词片段句（标题式省略）",
+                                         "text":  "Enlightening, challenging, stimulating, fun 是一串并列形容词构成的片段句，省略了主谓，作用是文章开篇先声夺人、直接抛出读者的形容词评价，阅读时体会其强调功能，翻译可补出“（这些体验）发人深省、富有挑战……”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "enlightening",
+                                       "meaning":  "启发人的、发人深省的",
+                                       "note":  "形容词，由 enlighten（启迪）派生。"
+                                   },
+                                   {
+                                       "word":  "stimulating",
+                                       "meaning":  "令人振奋的、激发兴趣的",
+                                       "note":  "形容词，由 stimulate（刺激、激发）派生。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:C:1":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "that 引导定语从句",
+                                         "text":  "that Nature readers used to describe their experience ... 修饰 words，that 在从句中作 used 的宾语（即 used the words to describe），从句内还嵌套多个介词短语 in a series of articles on partnerships between artists and researchers 说明来源。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "collaboration",
+                                       "meaning":  "合作",
+                                       "note":  "名词，art-science collaborations 艺术与科学合作。"
+                                   },
+                                   {
+                                       "word":  "partnership",
+                                       "meaning":  "伙伴关系、合作关系",
+                                       "note":  "名词，由 partner 派生。"
+                                   },
+                                   {
+                                       "word":  "experience",
+                                       "meaning":  "体验、经历",
+                                       "note":  "名词，their experience of ... 他们参与……的体验。"
+                                   },
+                                   {
+                                       "word":  "article",
+                                       "meaning":  "文章",
+                                       "note":  "名词，a series of articles 一系列文章。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "a series of",
+                                         "meaning":  "一系列",
+                                         "note":  "高频搭配。"
+                                     }
+                                 ]
+                 },
+    "2022:C:2":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "定语从句 + 省略 that 的宾语从句",
+                                         "text":  "people who responded to an accompanying poll 中 who 引导定语从句；said 后省略 that 的宾语从句 they had collaborated with artists，用过去完成时表示“在此之前已合作过”。"
+                                     },
+                                     {
+                                         "title":  "分号连接并列句 + consider doing",
+                                         "text":  "分号后的 and almost all said they would consider doing so in future 与前半句并列；consider doing sth 表“考虑做某事”，so 指代“与艺术家合作”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "roughly",
+                                       "meaning":  "大约、大致",
+                                       "note":  "副词，roughly 350 people 约350人。"
+                                   },
+                                   {
+                                       "word":  "respond",
+                                       "meaning":  "回应、回答",
+                                       "note":  "动词，respond to 回应（调查）。"
+                                   },
+                                   {
+                                       "word":  "accompanying",
+                                       "meaning":  "配套的、附带的",
+                                       "note":  "形容词，an accompanying poll 配套进行的调查。"
+                                   },
+                                   {
+                                       "word":  "poll",
+                                       "meaning":  "民意调查",
+                                       "note":  "名词，respond to the poll 参与调查。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "collaborate with",
+                                         "meaning":  "与……合作",
+                                         "note":  "动词搭配，名词 collaboration with。"
+                                     },
+                                     {
+                                         "text":  "respond to",
+                                         "meaning":  "回应、对……作出反应",
+                                         "note":  "respond 为不及物动词，必须接 to。"
+                                     }
+                                 ]
+                 },
+    "2022:C:3":  {
+                     "grammar":  [
+
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "encouraging",
+                                       "meaning":  "令人鼓舞的",
+                                       "note":  "形容词，由 encourage 派生，反义 discouraging。"
+                                   },
+                                   {
+                                       "word":  "result",
+                                       "meaning":  "结果",
+                                       "note":  "名词，Such an encouraging result 如此令人鼓舞的结果。"
+                                   },
+                                   {
+                                       "word":  "surprising",
+                                       "meaning":  "令人惊讶的",
+                                       "note":  "形容词，not surprising 不足为奇。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:C:4":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "不定式作目的状语 + help sb do sth",
+                                         "text":  "seeking out visual artists 后接 to help them communicate their work to new audiences 是不定式目的状语；help sb (to) do sth 中省略 to，即“帮助他们向新受众传播工作成果”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "seek out",
+                                       "meaning":  "主动寻找、寻觅",
+                                       "note":  "短语动词，seek out visual artists 主动寻求视觉艺术家。"
+                                   },
+                                   {
+                                       "word":  "visual",
+                                       "meaning":  "视觉的",
+                                       "note":  "形容词，visual artists 视觉艺术家。"
+                                   },
+                                   {
+                                       "word":  "audience",
+                                       "meaning":  "受众、观众",
+                                       "note":  "名词，new audiences 新的受众。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "communicate sth to sb",
+                                         "meaning":  "把……传达给……",
+                                         "note":  "communicate 后接 to 表对象。"
+                                     }
+                                 ]
+                 },
+    "2022:C:5":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "help sb do sth + 并列不定式",
+                                         "text":  "help scientists reach a broader audience and make emotional connections 中 help 后接省略 to 的不定式并列结构（reach ... and make ...），即“帮助科学家触达更广受众并建立情感联系”。"
+                                     },
+                                     {
+                                         "title":  "that 引导定语从句",
+                                         "text":  "that enhance learning 修饰 emotional connections，说明这类情感联系能促进学习，that 在从句中作主语。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "emotional",
+                                       "meaning":  "情感的、情绪的",
+                                       "note":  "形容词，emotional connections 情感联系/共鸣。"
+                                   },
+                                   {
+                                       "word":  "connection",
+                                       "meaning":  "联系、连接",
+                                       "note":  "名词，make emotional connections 建立情感共鸣。"
+                                   },
+                                   {
+                                       "word":  "enhance",
+                                       "meaning":  "增强、促进",
+                                       "note":  "动词，高频词，enhance learning 促进学习。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "make connections",
+                                         "meaning":  "建立联系",
+                                         "note":  "make + 名词表“建立、缔结”。"
+                                     }
+                                 ]
+                 },
+    "2022:C:6":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "后置引述的简单句",
+                                         "text":  "One respondent said 是被引用内容（上一句引语）之后的主谓引述句，respondent 为“受访者”，said 无宾语（宾语是引语），阅读时注意其承接上文引语的功能。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "respondent",
+                                       "meaning":  "受访者、答卷人",
+                                       "note":  "名词，由 respond 派生，指参与调查的人。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:C:7":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "介词 + how 名词性从句",
+                                         "text":  "One example of how artists and scientists have together rocked the senses 中 how 引导名词性从句作 of 的宾语，说明“例子”的内容，即艺术家与科学家如何共同震撼感官。"
+                                     },
+                                     {
+                                         "title":  "when 引导定语从句修饰时间",
+                                         "text":  "came last month when the Sydney Symphony Orchestra performed a reworked version ... 中 when 引导定语从句修饰 last month，说明发生的时间；主干是 One example came last month。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "rock",
+                                       "meaning":  "v. 使震撼、震动",
+                                       "note":  "此处为动词，rocked the senses 震撼感官，非“摇滚”义。"
+                                   },
+                                   {
+                                       "word":  "senses",
+                                       "meaning":  "感官",
+                                       "note":  "名词复数，see/hear 等五种感官。"
+                                   },
+                                   {
+                                       "word":  "perform",
+                                       "meaning":  "演奏、表演",
+                                       "note":  "动词，performed a reworked version 演奏改编版。"
+                                   },
+                                   {
+                                       "word":  "rework",
+                                       "meaning":  "改编、改写",
+                                       "note":  "动词，reworked version 改编版。"
+                                   },
+                                   {
+                                       "word":  "version",
+                                       "meaning":  "版本",
+                                       "note":  "名词，a version of 某作品的版本。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "rock the senses",
+                                         "meaning":  "震撼感官",
+                                         "note":  "rock 的比喻用法。"
+                                     }
+                                 ]
+                 },
+    "2022:C:8":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "by + 动名词作方式状语",
+                                         "text":  "reimagined the 300-year-old score by injecting the latest climate prediction data for each season 中 by injecting ... 说明“重新演绎”所采取的方式，即注入气候预测数据。"
+                                     },
+                                     {
+                                         "title":  "过去分词作后置定语",
+                                         "text":  "破折号后的 provided by Monash University’s Climate Change Communication Research Hub 是过去分词短语作后置定语修饰 data，说明数据来源，阅读时破折号内容可先跳过。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "reimagine",
+                                       "meaning":  "重新构想、重新演绎",
+                                       "note":  "动词，re-（重新）+ imagine。"
+                                   },
+                                   {
+                                       "word":  "score",
+                                       "meaning":  "（乐曲的）总谱、乐谱",
+                                       "note":  "名词，the 300-year-old score 这首有300年历史的乐曲。"
+                                   },
+                                   {
+                                       "word":  "inject",
+                                       "meaning":  "注入",
+                                       "note":  "动词，injecting ... data 注入数据；本义“注射”。"
+                                   },
+                                   {
+                                       "word":  "prediction",
+                                       "meaning":  "预测",
+                                       "note":  "名词，climate prediction data 气候预测数据。"
+                                   },
+                                   {
+                                       "word":  "hub",
+                                       "meaning":  "中心、枢纽",
+                                       "note":  "名词，Research Hub 研究中心。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:C:9":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "名词短语 + ahead of 时间状语",
+                                         "text":  "was a creative call to action ahead of November’s United Nations Climate Change Conference in Glasgow, UK 中 ahead of 引导时间状语，说明演出发生在气候大会之前；主句主干为 The performance was a creative call to action。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "performance",
+                                       "meaning":  "演出、表演",
+                                       "note":  "名词，由 perform 派生。"
+                                   },
+                                   {
+                                       "word":  "creative",
+                                       "meaning":  "富有创意的",
+                                       "note":  "形容词，名词 creativity（创造力）。"
+                                   },
+                                   {
+                                       "word":  "conference",
+                                       "meaning":  "会议",
+                                       "note":  "名词，UN Climate Change Conference 联合国气候变化大会。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "a call to action",
+                                         "meaning":  "行动号召",
+                                         "note":  "固定搭配，号召人们采取行动。"
+                                     },
+                                     {
+                                         "text":  "ahead of",
+                                         "meaning":  "在……之前",
+                                         "note":  "介词短语，ahead of the conference 在会议之前。"
+                                     }
+                                 ]
+                 },
+    "2022:C:10":  {
+                      "grammar":  [
+
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "genuine",
+                                        "meaning":  "真正的、名副其实的",
+                                        "note":  "形容词，a genuine partnership 真正的合作。"
+                                    },
+                                    {
+                                        "word":  "partnership",
+                                        "meaning":  "伙伴关系、合作",
+                                        "note":  "名词。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "a two-way street",
+                                          "meaning":  "双向的事、对等的合作",
+                                          "note":  "喻义：需要双方共同付出，不能单方面进行。"
+                                      }
+                                  ]
+                  },
+    "2022:C:11":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "比较结构 fewer ... than + 分号转折",
+                                          "text":  "Fewer artists than scientists responded to the Nature poll 是比较句，“参与调查的艺术家比科学家少”；分号后的 however 引出转折，说明尽管人数少，受访者却指出了艺术家的价值。"
+                                      },
+                                      {
+                                          "title":  "assist sb with sth + that 宾语从句",
+                                          "text":  "noted that artists do not simply assist scientists with their communication requirements 中 that 从句作 noted 的宾语，assist sb with sth 意为“在……方面协助某人”，not simply 强调“并非简单地”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "poll",
+                                        "meaning":  "民意调查",
+                                        "note":  "名词，the Nature poll 《自然》杂志的调查。"
+                                    },
+                                    {
+                                        "word":  "assist",
+                                        "meaning":  "协助、帮助",
+                                        "note":  "动词，assist sb with sth 在……方面帮助某人。"
+                                    },
+                                    {
+                                        "word":  "requirement",
+                                        "meaning":  "需求、要求",
+                                        "note":  "名词，communication requirements 传播需求。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "respond to",
+                                          "meaning":  "回应、参与（调查）",
+                                          "note":  "respond 须接 to。"
+                                      },
+                                      {
+                                          "text":  "assist sb with sth",
+                                          "meaning":  "在……方面协助某人",
+                                          "note":  "assist 的高频搭配。"
+                                      }
+                                  ]
+                  },
+    "2022:C:12":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "Nor 句首引起部分倒装",
+                                          "text":  "Nor should their work be considered only as an object of study 中 Nor 置于句首，助动词 should 提前构成部分倒装，表示“也不应该……”，承接上文“艺术家不只是协助传播”，进一步否定“把他们的作品仅当作研究对象”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "object",
+                                        "meaning":  "对象",
+                                        "note":  "名词，an object of study 研究对象。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "be considered as",
+                                          "meaning":  "被视为……",
+                                          "note":  "consider ... as 的被动式。"
+                                      }
+                                  ]
+                  },
+    "2022:C:13":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "when 时间状语从句内三个并列谓语",
+                                          "text":  "when scientists and artists have a shared stake in a project, are able to jointly design it and can critique each other’s work 中 when 从句内含三个并列谓语（have、are able to、can critique），构成合作最有价值的三个条件。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "alliance",
+                                        "meaning":  "联盟、合作关系",
+                                        "note":  "名词，the alliances 指科学家与艺术家的合作。"
+                                    },
+                                    {
+                                        "word":  "valuable",
+                                        "meaning":  "有价值的、宝贵的",
+                                        "note":  "形容词。"
+                                    },
+                                    {
+                                        "word":  "shared",
+                                        "meaning":  "共同的、共享的",
+                                        "note":  "形容词，a shared stake 共同利益。"
+                                    },
+                                    {
+                                        "word":  "stake",
+                                        "meaning":  "利益、利害关系",
+                                        "note":  "名词，have a stake in 在……中有切身利益。"
+                                    },
+                                    {
+                                        "word":  "jointly",
+                                        "meaning":  "共同地",
+                                        "note":  "副词，jointly design 共同设计。"
+                                    },
+                                    {
+                                        "word":  "critique",
+                                        "meaning":  "v. 评论、批评",
+                                        "note":  "动词，critique each other’s work 评论彼此的作品。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "have a stake in",
+                                          "meaning":  "在……中有利益/利害关系",
+                                          "note":  "stake 本义“赌注”，引申为“利益”。"
+                                      }
+                                  ]
+                  },
+    "2022:C:14":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "both ... as well as 并列结构",
+                                          "text":  "can both prompt new research as well as result in powerful art 中 both 与 as well as 搭配，连接两个并列成分 prompt new research 与 result in powerful art，意为“既能……也能……”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "approach",
+                                        "meaning":  "方法、途径",
+                                        "note":  "名词，Such an approach 这种方法。"
+                                    },
+                                    {
+                                        "word":  "prompt",
+                                        "meaning":  "v. 促进、引发",
+                                        "note":  "动词，prompt new research 促进新研究。"
+                                    },
+                                    {
+                                        "word":  "powerful",
+                                        "meaning":  "有力量的、震撼的",
+                                        "note":  "形容词，powerful art 震撼人心的艺术。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "result in",
+                                          "meaning":  "导致、产生",
+                                          "note":  "result in（导致）与 result from（源于）方向相反。"
+                                      }
+                                  ]
+                  },
+    "2022:C:15":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "不定式作目的状语",
+                                          "text":  "opened its Center for Advanced Visual Studies (CAVS) to explore the role of technology in culture 中 to explore ... 是不定式目的状语，说明建立该中心的目的。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "institute",
+                                        "meaning":  "学院、研究所",
+                                        "note":  "名词，Massachusetts Institute of Technology 麻省理工学院（MIT）。"
+                                    },
+                                    {
+                                        "word":  "advanced",
+                                        "meaning":  "高级的、先进的",
+                                        "note":  "形容词，Advanced Visual Studies 高级视觉研究。"
+                                    },
+                                    {
+                                        "word":  "explore",
+                                        "meaning":  "探索",
+                                        "note":  "动词。"
+                                    },
+                                    {
+                                        "word":  "culture",
+                                        "meaning":  "文化",
+                                        "note":  "名词，the role of technology in culture 技术在文化中的作用。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "more than half a century ago",
+                                          "meaning":  "半个多世纪以前",
+                                          "note":  "时间状语，more than 表“超过”。"
+                                      }
+                                  ]
+                  },
+    "2022:C:16":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "hence 引出结果（后接名词短语）",
+                                          "text":  "破折号后的 hence the “visual studies” in the name 中 hence 是副词，直接后接名词短语表示“因此就有了名称中的‘视觉研究’”，是省略了动词的书面表达。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "founder",
+                                        "meaning":  "创始人、创立者",
+                                        "note":  "名词，由 found（创立）派生。"
+                                    },
+                                    {
+                                        "word":  "deliberately",
+                                        "meaning":  "故意地、刻意地",
+                                        "note":  "副词，强调有意的选择。"
+                                    },
+                                    {
+                                        "word":  "hence",
+                                        "meaning":  "因此、由此",
+                                        "note":  "副词，书面语，后接名词或句子。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "focus ... around",
+                                          "meaning":  "把……聚焦于……",
+                                          "note":  "focused their projects around light 把项目围绕光展开。"
+                                      }
+                                  ]
+                  },
+    "2022:C:17":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "that 定语从句 + 介词后置",
+                                          "text":  "a something that both artists and scientists had an interest in 中 that 引导定语从句修饰 something，从句末的 in 本是介词（have an interest in sth），因 that 作介词宾语被提前，故 in 后置，阅读时把“对……感兴趣”还原理解。"
+                                      },
+                                      {
+                                          "title":  "and therefore 并列承接结果",
+                                          "text":  "and therefore could form the basis of collaboration 由 therefore 连接表结果的并列谓语，即光因此能成为合作的基础。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "interest",
+                                        "meaning":  "兴趣",
+                                        "note":  "名词，have an interest in 对……感兴趣。"
+                                    },
+                                    {
+                                        "word":  "basis",
+                                        "meaning":  "基础",
+                                        "note":  "名词，form the basis of 构成……的基础；复数 bases。"
+                                    },
+                                    {
+                                        "word":  "collaboration",
+                                        "meaning":  "合作",
+                                        "note":  "名词。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "have an interest in",
+                                          "meaning":  "对……感兴趣",
+                                          "note":  "介词必须用 in。"
+                                      },
+                                      {
+                                          "text":  "form the basis of",
+                                          "meaning":  "构成……的基础",
+                                          "note":  "basis 常与 form/provide 搭配。"
+                                      }
+                                  ]
+                  },
+    "2022:C:18":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "As 时间状语从句 + 并列谓语",
+                                          "text":  "As science and technology progressed, and divided into more sub-disciplines 中 As 引导时间状语从句，从句内 and 连接两个并列谓语 progressed 与 divided into，说明科学技术进步并分化的过程。"
+                                      },
+                                      {
+                                          "title":  "when 定语从句修饰时间",
+                                          "text":  "looking to a time when leading researchers could also be artists, writers and poets 中 when 引导定语从句修饰 a time，说明展望的那个时代的特征。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "progress",
+                                        "meaning":  "v. 进步、发展",
+                                        "note":  "动词（重音在后）；名词义为“进步”。"
+                                    },
+                                    {
+                                        "word":  "sub-discipline",
+                                        "meaning":  "分支学科",
+                                        "note":  "名词，sub-（分支）+ discipline（学科）。"
+                                    },
+                                    {
+                                        "word":  "simultaneously",
+                                        "meaning":  "同时地",
+                                        "note":  "副词，was simultaneously looking to 同时展望。"
+                                    },
+                                    {
+                                        "word":  "leading",
+                                        "meaning":  "顶尖的、领先的",
+                                        "note":  "形容词，leading researchers 顶尖研究人员。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "divide into",
+                                          "meaning":  "分成",
+                                          "note":  "divide into 分成若干部分。"
+                                      },
+                                      {
+                                          "text":  "vice versa",
+                                          "meaning":  "反之亦然",
+                                          "note":  "拉丁语借词，表“反过来也一样”。"
+                                      }
+                                  ]
+                  },
+    "2022:C:19":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "suggest that 宾语从句 + as ... as ever",
+                                          "text":  "poll findings suggest that this trend is as strong as ever 中 that 从句作 suggest 的宾语，as strong as ever 意为“和以往一样强劲”，阅读时把 as ... as ever 当作整体理解。"
+                                      },
+                                      {
+                                          "title":  "不定式目的状语 + make sth work",
+                                          "text":  "to make a collaboration work 是不定式目的状语，make sth work 意为“使……奏效/成功”；随后 but 后接主句 both sides need to invest time, and embrace surprise and challenge。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "finding",
+                                        "meaning":  "调查结果、发现",
+                                        "note":  "名词，poll findings 调查结果。"
+                                    },
+                                    {
+                                        "word":  "trend",
+                                        "meaning":  "趋势",
+                                        "note":  "名词。"
+                                    },
+                                    {
+                                        "word":  "invest",
+                                        "meaning":  "投入",
+                                        "note":  "动词，invest time 投入时间。"
+                                    },
+                                    {
+                                        "word":  "embrace",
+                                        "meaning":  "欣然接受、拥抱",
+                                        "note":  "动词，embrace surprise and challenge 欣然接受惊喜与挑战。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "as strong as ever",
+                                          "meaning":  "一如既往地强劲",
+                                          "note":  "as ... as ever 表“和过去一样……”。"
+                                      },
+                                      {
+                                          "text":  "make sth work",
+                                          "meaning":  "使……奏效、取得成功",
+                                          "note":  "work 此处为不及物动词“起作用”。"
+                                      }
+                                  ]
+                  },
+    "2022:C:20":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "and 连接并列分句",
+                                          "text":  "and 连接两个并列分句：The reach of art-science tie-ups need to go beyond ... 与 participants must not fall into the trap of stereotyping each other，前者讲合作应超越传播目的，后者讲参与者勿陷入刻板印象。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "reach",
+                                        "meaning":  "（影响力、作用的）范围",
+                                        "note":  "名词，the reach of ... 的影响范围。"
+                                    },
+                                    {
+                                        "word":  "tie-up",
+                                        "meaning":  "合作、联合",
+                                        "note":  "名词，art-science tie-ups 艺术与科学的合作。"
+                                    },
+                                    {
+                                        "word":  "beyond",
+                                        "meaning":  "超出、超越",
+                                        "note":  "介词，go beyond 超越。"
+                                    },
+                                    {
+                                        "word":  "trap",
+                                        "meaning":  "陷阱、圈套",
+                                        "note":  "名词，fall into the trap of 落入……的陷阱。"
+                                    },
+                                    {
+                                        "word":  "stereotype",
+                                        "meaning":  "v. 模式化、对……形成刻板印象",
+                                        "note":  "动词；名词义为“刻板印象”。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "go beyond",
+                                          "meaning":  "超越、超出",
+                                          "note":  "go beyond the necessary purpose 超越必要目的。"
+                                      },
+                                      {
+                                          "text":  "fall into the trap of",
+                                          "meaning":  "落入……的陷阱",
+                                          "note":  "fall into the trap of doing sth 陷入做某事的误区。"
+                                      }
+                                  ]
+                  },
+    "2022:C:21":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "alike 后置修饰主语",
+                                          "text":  "Artists and scientists alike are immersed in discovery and invention 中 alike 置于并列主语之后，意为“两者都”，are immersed in 意为“沉浸于”；and 后第二个分句 challenge and critique are core to both, too 与之并列。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "alike",
+                                        "meaning":  "同样地、都",
+                                        "note":  "副词，放在所修饰的复数名词之后；也可作形容词“相似的”。"
+                                    },
+                                    {
+                                        "word":  "immerse",
+                                        "meaning":  "使沉浸、使浸没",
+                                        "note":  "动词，be immersed in 沉浸于。"
+                                    },
+                                    {
+                                        "word":  "discovery",
+                                        "meaning":  "发现",
+                                        "note":  "名词，由 discover 派生。"
+                                    },
+                                    {
+                                        "word":  "invention",
+                                        "meaning":  "发明、创造",
+                                        "note":  "名词，由 invent 派生。"
+                                    },
+                                    {
+                                        "word":  "critique",
+                                        "meaning":  "批评、评论",
+                                        "note":  "名词（也可作动词）。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "be immersed in",
+                                          "meaning":  "沉浸于、专注于",
+                                          "note":  "immerse 常用被动 be immersed in。"
+                                      },
+                                      {
+                                          "text":  "be core to",
+                                          "meaning":  "对……而言是核心的",
+                                          "note":  "core to both 对双方都很核心。"
+                                      }
+                                  ]
+                  },
+    "2022:D:0":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "prevent sb from doing 结构",
+                                         "text":  "prevent an employer from firing an employee without good cause 是 prevent sb from doing sth 结构，即“阻止雇主在无正当理由的情况下解雇员工”；句首带长定语的主语 The personal grievance provisions of New Zealand’s Employment Relations Act 2000 (ERA) 是法律条款的名称。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "grievance",
+                                       "meaning":  "不满、申诉",
+                                       "note":  "名词，personal grievance provisions 个人申诉条款。"
+                                   },
+                                   {
+                                       "word":  "provision",
+                                       "meaning":  "条款、规定",
+                                       "note":  "名词，法律语境指（法律/合同中的）条文。"
+                                   },
+                                   {
+                                       "word":  "fire",
+                                       "meaning":  "解雇",
+                                       "note":  "动词，口语化表达，firing an employee 解雇员工。"
+                                   },
+                                   {
+                                       "word":  "cause",
+                                       "meaning":  "理由、原因",
+                                       "note":  "名词，good cause 正当理由（法律用语）。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "prevent sb from doing sth",
+                                         "meaning":  "阻止某人做某事",
+                                         "note":  "高频结构，from 后接动名词。"
+                                     },
+                                     {
+                                         "text":  "good cause",
+                                         "meaning":  "正当理由",
+                                         "note":  "法律术语，表合法的解雇理由。"
+                                     }
+                                 ]
+                 },
+    "2022:D:1":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "情态动词被动语态",
+                                         "text":  "dismissals must be justified 是 must + be + 过去分词 的被动语态，即“解雇必须有正当理由”，dismissals 为复数泛指一切解雇行为。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "dismissal",
+                                       "meaning":  "解雇、辞退",
+                                       "note":  "名词，由 dismiss（解雇）派生。"
+                                   },
+                                   {
+                                       "word":  "justified",
+                                       "meaning":  "有正当理由的、合理的",
+                                       "note":  "形容词，be justified 被证明合理。"
+                                   },
+                                   {
+                                       "word":  "instead",
+                                       "meaning":  "相反、代替",
+                                       "note":  "副词，句首表与前文相反的对比。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:D:2":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "both ... and 并列谓语",
+                                         "text":  "must both show cause and act in a procedurally fair way 中 both ... and 连接两个并列谓语 show cause 与 act in ...，强调雇主须同时满足两个要求。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "procedural",
+                                       "meaning":  "程序上的",
+                                       "note":  "形容词，procedurally fair 程序上公平的。"
+                                   },
+                                   {
+                                       "word":  "fair",
+                                       "meaning":  "公平的",
+                                       "note":  "形容词，fair way 公平的方式。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "show cause",
+                                         "meaning":  "说明（解雇的）理由",
+                                         "note":  "法律用语，cause 指正当理由。"
+                                     },
+                                     {
+                                         "text":  "in a ... way",
+                                         "meaning":  "以……的方式",
+                                         "note":  "in a procedurally fair way 以程序公平的方式。"
+                                     }
+                                 ]
+                 },
+    "2022:D:3":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "be designed to 被动结构",
+                                         "text":  "were designed to guard the jobs of ordinary workers from “unjustified dismissals” 中 be designed to 意为“旨在、被设计来”，to guard ... from ... 说明设立的目的；guard sth from sth 保护……免受……。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "procedure",
+                                       "meaning":  "程序",
+                                       "note":  "名词，personal grievance procedures 个人申诉程序。"
+                                   },
+                                   {
+                                       "word":  "guard",
+                                       "meaning":  "保护、守卫",
+                                       "note":  "动词，guard the jobs from ... 保护工作岗位免遭……。"
+                                   },
+                                   {
+                                       "word":  "ordinary",
+                                       "meaning":  "普通的",
+                                       "note":  "形容词，ordinary workers 普通工人。"
+                                   },
+                                   {
+                                       "word":  "unjustified",
+                                       "meaning":  "无正当理由的",
+                                       "note":  "形容词，由 justify 加否定前缀 un- 构成。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "guard sth from",
+                                         "meaning":  "保护……免受……",
+                                         "note":  "与 protect ... from ... 同义。"
+                                     },
+                                     {
+                                         "text":  "be designed to",
+                                         "meaning":  "旨在、被设计用来",
+                                         "note":  "说明设计初衷。"
+                                     }
+                                 ]
+                 },
+    "2022:D:4":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "表语从句",
+                                         "text":  "The premise was that the common law of contract lacked sufficient safeguards ... 中 that 引导表语从句，解释“前提”是什么，即普通合同法缺乏充分保障；从句内 lacked 的宾语为 sufficient safeguards，后接介词短语 for workers against arbitrary conduct 说明保障对象与防范对象。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "premise",
+                                       "meaning":  "前提、前提条件",
+                                       "note":  "名词，the premise was that ... 前提是……。"
+                                   },
+                                   {
+                                       "word":  "safeguard",
+                                       "meaning":  "保障、保护措施",
+                                       "note":  "名词，sufficient safeguards 充分的保障。"
+                                   },
+                                   {
+                                       "word":  "arbitrary",
+                                       "meaning":  "任意的、专断的",
+                                       "note":  "形容词，arbitrary conduct 专断行为。"
+                                   },
+                                   {
+                                       "word":  "conduct",
+                                       "meaning":  "行为、举止",
+                                       "note":  "名词；动词义为“进行（活动）”。"
+                                   },
+                                   {
+                                       "word":  "management",
+                                       "meaning":  "管理层、资方",
+                                       "note":  "名词，by management 由管理层（所为）。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "against arbitrary conduct",
+                                         "meaning":  "抵御/防范专断行为",
+                                         "note":  "against 表“抵御”。"
+                                     }
+                                 ]
+                 },
+    "2022:D:5":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "完全倒装结构",
+                                         "text":  "Long gone are the days ... 是表语前置的完全倒装，正常语序为 The days ... are long gone，即“……的日子已一去不复返”；阅读时把 Long gone are 还原成“早已过去”。"
+                                     },
+                                     {
+                                         "title":  "when 引导定语从句",
+                                         "text":  "when a boss could simply give an employee contractual notice 修饰 the days，说明“那种老板只需按合同通知即可辞退员工的日子”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "gone",
+                                       "meaning":  "（已）过去的、消逝的",
+                                       "note":  "形容词，由 go 的过去分词转化，long gone 早已消失。"
+                                   },
+                                   {
+                                       "word":  "contractual",
+                                       "meaning":  "合同规定的",
+                                       "note":  "形容词，contractual notice 按合同发出的解雇通知。"
+                                   },
+                                   {
+                                       "word":  "notice",
+                                       "meaning":  "（解雇）通知",
+                                       "note":  "名词，give an employee notice 给员工发解雇通知。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:D:6":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "when + 过去分词（省略式状语从句）",
+                                         "text":  "when applied to highly paid managers and executives 是 when (they are) applied to 的省略形式，过去分词作状语，表“当这些条款被适用于高薪经理和高管时”；apply to 意为“适用于”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "provision",
+                                       "meaning":  "条款、规定",
+                                       "note":  "these provisions 指前文的申诉条款。"
+                                   },
+                                   {
+                                       "word":  "highly paid",
+                                       "meaning":  "高薪的",
+                                       "note":  "副词 highly + 过去分词 paid。"
+                                   },
+                                   {
+                                       "word":  "executive",
+                                       "meaning":  "高管、行政人员",
+                                       "note":  "名词，managers and executives 经理与高管。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "apply to",
+                                         "meaning":  "适用于",
+                                         "note":  "be applied to 被应用于。"
+                                     },
+                                     {
+                                         "text":  "create difficulties for",
+                                         "meaning":  "给……造成麻烦",
+                                         "note":  "create difficulties for businesses 给企业带来麻烦。"
+                                     }
+                                 ]
+                 },
+    "2022:D:7":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "As 引导定语从句（置于句首）",
+                                         "text":  "句首 As countless boards and business owners will attest 中 As 是关系代词，指代整个主句内容，在从句中作 attest 的宾语，即“正如无数董事会和企业主将证明的那样”。"
+                                     },
+                                     {
+                                         "title":  "动名词短语作主语",
+                                         "text":  "constraining firms from firing poorly performing, high-earning managers is a handbrake ... 中动名词短语 constraining firms from firing ... 作主语，谓语是 is；结构为 constrain sb from doing（限制某人做某事）。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "countless",
+                                       "meaning":  "无数的",
+                                       "note":  "形容词，count-（数）+ less。"
+                                   },
+                                   {
+                                       "word":  "board",
+                                       "meaning":  "董事会",
+                                       "note":  "名词，boards and business owners 董事会与企业主。"
+                                   },
+                                   {
+                                       "word":  "attest",
+                                       "meaning":  "证明、证实",
+                                       "note":  "动词，正式用语，will attest 会作证。"
+                                   },
+                                   {
+                                       "word":  "constrain",
+                                       "meaning":  "限制、约束",
+                                       "note":  "动词，constrain sb from doing 限制某人做某事。"
+                                   },
+                                   {
+                                       "word":  "handbrake",
+                                       "meaning":  "手刹（比喻阻碍因素）",
+                                       "note":  "名词，a handbrake on 对……的阻碍。"
+                                   },
+                                   {
+                                       "word":  "boost",
+                                       "meaning":  "提升、促进",
+                                       "note":  "动词，boosting productivity 提升生产率。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "constrain sb from doing",
+                                         "meaning":  "限制某人做某事",
+                                         "note":  "与 prevent sb from doing 同构。"
+                                     },
+                                     {
+                                         "text":  "a handbrake on",
+                                         "meaning":  "对……的阻碍",
+                                         "note":  "比喻“刹车”。"
+                                     }
+                                 ]
+                 },
+    "2022:D:8":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "may very well be 推测结构",
+                                         "text":  "may very well be the difference 中 very well 加强 may 的语气，意为“很可能就是”，整句为对称比较“A级与C级经理的差别很可能就是企业成败的差别”，两个 between 短语分别修饰两个 difference。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "difference",
+                                       "meaning":  "差别、差异",
+                                       "note":  "名词，the difference between ... 与……的差别。"
+                                   },
+                                   {
+                                       "word":  "grade",
+                                       "meaning":  "等级、级别",
+                                       "note":  "名词，C-grade and A-grade managers C级与A级经理。"
+                                   },
+                                   {
+                                       "word":  "failure",
+                                       "meaning":  "失败",
+                                       "note":  "名词，与 success 相对。"
+                                   }
+                               ],
+                     "phrases":  [
+                                     {
+                                         "text":  "may very well",
+                                         "meaning":  "很可能、极有可能",
+                                         "note":  "very well 加强推测语气。"
+                                     }
+                                 ]
+                 },
+    "2022:D:9":  {
+                     "grammar":  [
+                                     {
+                                         "title":  "省略句（承接上句的介词短语片段）",
+                                         "text":  "Between preserving the jobs of ordinary workers or losing them 是上一句的延续，省略了主语和谓语（完整为 The difference may be between preserving ... or losing them），意为“（差别就在于）保住工人饭碗还是丢掉饭碗”。"
+                                     }
+                                 ],
+                     "words":  [
+                                   {
+                                       "word":  "preserve",
+                                       "meaning":  "保住、保存",
+                                       "note":  "动词，preserving the jobs 保住工作岗位。"
+                                   }
+                               ],
+                     "phrases":  [
+
+                                 ]
+                 },
+    "2022:D:10":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "no longer + enough + 不定式",
+                                          "text":  "mediocrity is no longer enough to justify a dismissal 中 enough 后接不定式表结果/程度，即“平庸已不再足以成为解雇的理由”，no longer 否定“仍然足够”的旧状况。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "mediocrity",
+                                        "meaning":  "平庸、表现平平",
+                                        "note":  "名词，由 mediocre（平庸的）派生。"
+                                    },
+                                    {
+                                        "word":  "justify",
+                                        "meaning":  "证明……正当、为……辩护",
+                                        "note":  "动词，justify a dismissal 为解雇提供正当理由。"
+                                    }
+                                ],
+                      "phrases":  [
+
+                                  ]
+                  },
+    "2022:D:11":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "过去分词作后置定语 + 主谓分隔",
+                                          "text":  "laws introduced to protect the jobs of ordinary workers 中 introduced to protect ... 是过去分词短语作后置定语修饰 laws，把主语与谓语 may be placing 隔开，阅读时先抓住主干 laws may be placing those jobs at risk。"
+                                      },
+                                      {
+                                          "title":  "破折号插入评注",
+                                          "text":  "Consequently—and paradoxically—laws ... 中破折号内的 and paradoxically 是插入的评注性副词，补充说明“矛盾的是”，阅读时可先跳过。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "consequently",
+                                        "meaning":  "因此、结果",
+                                        "note":  "副词，承接上文表因果。"
+                                    },
+                                    {
+                                        "word":  "paradoxically",
+                                        "meaning":  "矛盾地、看似矛盾的是",
+                                        "note":  "副词，由 paradox（悖论）派生。"
+                                    },
+                                    {
+                                        "word":  "introduce",
+                                        "meaning":  "（此处）制定、引入",
+                                        "note":  "动词，laws introduced 被制定出来的法律。"
+                                    },
+                                    {
+                                        "word":  "risk",
+                                        "meaning":  "风险",
+                                        "note":  "名词，placing those jobs at risk 使那些岗位处于危险中。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "at risk",
+                                          "meaning":  "处于危险中",
+                                          "note":  "place sth at risk 使……面临风险。"
+                                      }
+                                  ]
+                  },
+    "2022:D:12":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "If not + 现在分词（省略主语）",
+                                          "text":  "If not placing jobs at risk 是 If (they are) not placing jobs at risk 的省略形式，意为“即使没有让岗位面临风险”，表让步。"
+                                      },
+                                      {
+                                          "title":  "to the extent (that) 程度状语从句",
+                                          "text":  "to the extent employment protection laws constrain business owners from dismissing under-performing managers 中 to the extent 引导程度状语从句，意为“在……的程度上”，即“只要就业保护法限制了企业主解雇表现不佳的经理”。"
+                                      },
+                                      {
+                                          "title":  "act as + 并列介词短语",
+                                          "text":  "those laws act as a constraint on firm productivity and therefore on workers’ wages 中 act as 意为“充当、起到……作用”，constraint 后 and therefore 连接并列的 on 短语说明制约的对象。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "extent",
+                                        "meaning":  "程度、范围",
+                                        "note":  "名词，to the extent 在……程度上。"
+                                    },
+                                    {
+                                        "word":  "under-performing",
+                                        "meaning":  "表现不佳的、业绩低下的",
+                                        "note":  "形容词，under- + performing。"
+                                    },
+                                    {
+                                        "word":  "constraint",
+                                        "meaning":  "制约、限制",
+                                        "note":  "名词，a constraint on 对……的制约。"
+                                    },
+                                    {
+                                        "word":  "wage",
+                                        "meaning":  "工资",
+                                        "note":  "名词，workers’ wages 工人工资。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "to the extent",
+                                          "meaning":  "在……的程度上",
+                                          "note":  "引导程度状语，常与 that 连用。"
+                                      },
+                                      {
+                                          "text":  "act as",
+                                          "meaning":  "充当、起到……作用",
+                                          "note":  "act as a constraint 起制约作用。"
+                                      }
+                                  ]
+                  },
+    "2022:D:13":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "single out ... as ... 结构",
+                                          "text":  "singled out the low quality of managerial capabilities as a cause of the country’s poor productivity growth record 中 single out A as B 意为“特别指出A是B”，即“明确指出管理能力低下是生产率增长乏力的原因”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "perspective",
+                                        "meaning":  "视角、观点",
+                                        "note":  "名词，An International Perspective on ... 关于……的国际视角。"
+                                    },
+                                    {
+                                        "word":  "paradox",
+                                        "meaning":  "悖论",
+                                        "note":  "名词，productivity paradox 生产率悖论。"
+                                    },
+                                    {
+                                        "word":  "commission",
+                                        "meaning":  "委员会",
+                                        "note":  "名词，the Productivity Commission 生产力委员会。"
+                                    },
+                                    {
+                                        "word":  "managerial",
+                                        "meaning":  "管理的",
+                                        "note":  "形容词，managerial capabilities 管理能力。"
+                                    },
+                                    {
+                                        "word":  "capability",
+                                        "meaning":  "能力",
+                                        "note":  "名词，由 capable 派生。"
+                                    },
+                                    {
+                                        "word":  "record",
+                                        "meaning":  "（成绩）记录",
+                                        "note":  "名词，growth record 增长记录/表现。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "single out ... as ...",
+                                          "meaning":  "特别指出……是……",
+                                          "note":  "single out 单独挑出、明确指认。"
+                                      }
+                                  ]
+                  },
+    "2022:D:14":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "Nor 句首部分倒装",
+                                          "text":  "Nor are highly paid managers themselves immune from the harm ... 中 Nor 置于句首，系动词 are 提前，正常语序为 highly paid managers themselves are not immune from the harm，表示“高薪经理们也不能免于……”。"
+                                      },
+                                      {
+                                          "title":  "过去分词作后置定语",
+                                          "text":  "caused by the ERA’s unjustified dismissal procedures 是过去分词短语作后置定语修饰 the harm，说明伤害的来源。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "immune",
+                                        "meaning":  "免疫的、（此处）不受影响的",
+                                        "note":  "形容词，be immune from/to 免受……影响。"
+                                    },
+                                    {
+                                        "word":  "harm",
+                                        "meaning":  "伤害、损害",
+                                        "note":  "名词，the harm caused by ... 由……造成的伤害。"
+                                    },
+                                    {
+                                        "word":  "procedure",
+                                        "meaning":  "程序",
+                                        "note":  "名词，dismissal procedures 解雇程序。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "be immune from",
+                                          "meaning":  "免于、不受……影响",
+                                          "note":  "immune 与 from/to 搭配。"
+                                      }
+                                  ]
+                  },
+    "2022:D:15":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "make it + 形容词 + 不定式（形式宾语）",
+                                          "text":  "Because employment protection laws make it costlier to fire an employee 中 it 是形式宾语，真正的宾语是不定式 to fire an employee，costlier 作宾语补足语，即“使解雇员工变得更昂贵”。"
+                                      },
+                                      {
+                                          "title":  "be cautious about doing",
+                                          "text":  "主句 employers are more cautious about hiring new staff 中 be cautious about 后接动名词，表“对……谨慎”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "costly",
+                                        "meaning":  "昂贵的、代价高的",
+                                        "note":  "形容词，比较级 costlier。"
+                                    },
+                                    {
+                                        "word":  "cautious",
+                                        "meaning":  "谨慎的",
+                                        "note":  "形容词，be cautious about 对……谨慎。"
+                                    },
+                                    {
+                                        "word":  "staff",
+                                        "meaning":  "员工（集合名词）",
+                                        "note":  "名词，new staff 新员工。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "make it costlier to do",
+                                          "meaning":  "使做某事成本更高",
+                                          "note":  "make + it + 形容词 + to do 结构。"
+                                      },
+                                      {
+                                          "text":  "be cautious about",
+                                          "meaning":  "对……谨慎",
+                                          "note":  "about 后接动名词或名词。"
+                                      }
+                                  ]
+                  },
+    "2022:D:16":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "make it + 形容词 + for sb + 不定式",
+                                          "text":  "makes it harder for the marginal manager to gain employment 中 it 是形式宾语，to gain employment 是真正宾语，for the marginal manager 说明动作的施动者，即“这使边缘经理更难获得工作”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "marginal",
+                                        "meaning":  "边缘的、勉强的",
+                                        "note":  "形容词，the marginal manager 指能力平庸、勉强合格的管理者。"
+                                    },
+                                    {
+                                        "word":  "gain",
+                                        "meaning":  "获得",
+                                        "note":  "动词，gain employment 获得工作。"
+                                    },
+                                    {
+                                        "word":  "employment",
+                                        "meaning":  "就业、工作",
+                                        "note":  "名词，与 unemployment（失业）相对。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "gain employment",
+                                          "meaning":  "获得工作",
+                                          "note":  "正式表达，等于 get a job。"
+                                      }
+                                  ]
+                  },
+    "2022:D:17":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "because 原因状语从句 + 动名词复合结构",
+                                          "text":  "because firms carry the burden of the employment arrangement going wrong 中 the employment arrangement going wrong 是“名词 + 现在分词”的动名词复合结构，作 of 的宾语，意为“雇佣安排出了差错”这件事，即企业要承担雇佣出错的责任。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "burden",
+                                        "meaning":  "负担、责任",
+                                        "note":  "名词，carry the burden 承担负担。"
+                                    },
+                                    {
+                                        "word":  "arrangement",
+                                        "meaning":  "安排",
+                                        "note":  "名词，the employment arrangement 雇佣安排。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "carry the burden of",
+                                          "meaning":  "承担……的负担/责任",
+                                          "note":  "carry 与 burden 常用搭配。"
+                                      },
+                                      {
+                                          "text":  "go wrong",
+                                          "meaning":  "出错、出问题",
+                                          "note":  "going wrong 现在分词作补足语。"
+                                      }
+                                  ]
+                  },
+    "2022:D:18":  {
+                      "grammar":  [
+
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "excessive",
+                                        "meaning":  "过度的、过分的",
+                                        "note":  "形容词，excessive employment protections 过度的就业保护。"
+                                    },
+                                    {
+                                        "word":  "protection",
+                                        "meaning":  "保护",
+                                        "note":  "名词，由 protect 派生。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "suffer from",
+                                          "meaning":  "遭受、受害于",
+                                          "note":  "固定搭配，suffer from excessive protections 深受过度保护之害。"
+                                      }
+                                  ]
+                  },
+    "2022:D:19":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "并列谓语",
+                                          "text":  "Stringent job dismissal regulations adversely affect productivity growth and hamper both prosperity and overall well-being 中 and 连接两个并列谓语 affect 与 hamper，说明严格解雇法规的双重危害。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "stringent",
+                                        "meaning":  "严格的、严厉的",
+                                        "note":  "形容词，正式用语，stringent regulations 严格法规。"
+                                    },
+                                    {
+                                        "word":  "adversely",
+                                        "meaning":  "不利地、有害地",
+                                        "note":  "副词，adversely affect 产生不利影响。"
+                                    },
+                                    {
+                                        "word":  "hamper",
+                                        "meaning":  "妨碍、阻碍",
+                                        "note":  "动词，hamper prosperity 妨碍繁荣。"
+                                    },
+                                    {
+                                        "word":  "prosperity",
+                                        "meaning":  "繁荣",
+                                        "note":  "名词，由 prosperous 派生。"
+                                    },
+                                    {
+                                        "word":  "well-being",
+                                        "meaning":  "福祉、安康",
+                                        "note":  "复合名词，overall well-being 整体福祉。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "adversely affect",
+                                          "meaning":  "对……产生不利影响",
+                                          "note":  "副词 + 动词的高频搭配。"
+                                      }
+                                  ]
+                  },
+    "2022:D:20":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "by + 动名词作方式状语",
+                                          "text":  "deals with the unjustified dismissal paradox by excluding employees ... from the protection ... 中 by excluding ... 说明澳大利亚应对悖论的方式，即通过把高收入员工排除在法律保护之外。"
+                                      },
+                                      {
+                                          "title":  "现在分词作后置定语 + exclude A from B",
+                                          "text":  "employees earning above a specified “high-income threshold” 中 earning ... 是现在分词短语作后置定语修饰 employees，指“收入高于特定门槛的员工”；结构 exclude A from B 意为“把A排除在B之外”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "exclude",
+                                        "meaning":  "排除、把……排除在外",
+                                        "note":  "动词，exclude A from B 把A排除在B之外；反义 include。"
+                                    },
+                                    {
+                                        "word":  "specify",
+                                        "meaning":  "明确规定",
+                                        "note":  "动词，a specified threshold 规定的门槛。"
+                                    },
+                                    {
+                                        "word":  "threshold",
+                                        "meaning":  "门槛、临界点",
+                                        "note":  "名词，high-income threshold 高收入门槛。"
+                                    },
+                                    {
+                                        "word":  "unfair",
+                                        "meaning":  "不公平的",
+                                        "note":  "形容词，unfair dismissal laws 不公平解雇法。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "deal with",
+                                          "meaning":  "应对、处理",
+                                          "note":  "deal with the paradox 应对这一悖论。"
+                                      },
+                                      {
+                                          "text":  "exclude A from B",
+                                          "meaning":  "把A排除在B之外",
+                                          "note":  "exclude 的固定搭配。"
+                                      }
+                                  ]
+                  },
+    "2022:D:21":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "permit sb to do + contract out of",
+                                          "text":  "tried to permit firms and high-income employees to contract out of the unjustified dismissal regime 中 permit sb to do sth 意为“允许某人做某事”，不定式 to contract out of ... 说明允许的内容；contract out of 意为“以合同方式退出/规避”。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "Bill",
+                                        "meaning":  "（议会）法案",
+                                        "note":  "名词，private members’ Bill 议员个人提案（非政府提案）。"
+                                    },
+                                    {
+                                        "word":  "permit",
+                                        "meaning":  "允许",
+                                        "note":  "动词，permit sb to do sth 允许某人做某事。"
+                                    },
+                                    {
+                                        "word":  "regime",
+                                        "meaning":  "（法律）制度、体系",
+                                        "note":  "名词，the unjustified dismissal regime 无正当理由解雇制度。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "contract out of",
+                                          "meaning":  "以合同方式退出、规避（条款）",
+                                          "note":  "法律用语，contract out of 主动脱离某制度的约束。"
+                                      }
+                                  ]
+                  },
+    "2022:D:22":  {
+                      "grammar":  [
+                                      {
+                                          "title":  "过去分词作后置定语 + 并列句",
+                                          "text":  "the mechanisms proposed were unwieldy 中 proposed 是过去分词作后置定语修饰 mechanisms，指“被提议的机制”；and 连接第二个分句 the Bill was voted down following the change in government later that year。"
+                                      },
+                                      {
+                                          "title":  "following 介词用法",
+                                          "text":  "following the change in government later that year 中 following 是介词，意为“在……之后”，说明法案被否决的时间背景。"
+                                      }
+                                  ],
+                      "words":  [
+                                    {
+                                        "word":  "mechanism",
+                                        "meaning":  "机制、办法",
+                                        "note":  "名词，the mechanisms proposed 拟议的机制。"
+                                    },
+                                    {
+                                        "word":  "unwieldy",
+                                        "meaning":  "笨拙的、难以操作的",
+                                        "note":  "形容词，指机制过于复杂不便实施。"
+                                    },
+                                    {
+                                        "word":  "government",
+                                        "meaning":  "政府",
+                                        "note":  "名词，change in government 政府更迭/换届。"
+                                    }
+                                ],
+                      "phrases":  [
+                                      {
+                                          "text":  "vote down",
+                                          "meaning":  "投票否决",
+                                          "note":  "短语动词，was voted down 被否决。"
+                                      },
+                                      {
+                                          "text":  "following",
+                                          "meaning":  "在……之后",
+                                          "note":  "介词用法，类似 after。"
+                                      }
+                                  ]
+                  }
+}

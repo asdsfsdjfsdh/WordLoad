@@ -10,6 +10,7 @@ import type {
   AdminWordDetail,
   AdminWordListResult,
   AdminWordSaveInput,
+  ReadingSentenceKnowledge,
   ReadingSentenceStructure,
 } from '@word-journey/shared';
 import { PrismaService } from '../prisma/prisma.service';
@@ -227,6 +228,7 @@ export class AdminService {
         en: s.en,
         zh: s.zh,
         structure: (s.structure as ReadingSentenceStructure | null) ?? undefined,
+        knowledge: (s.knowledge as ReadingSentenceKnowledge | null) ?? undefined,
       })),
       questions: passage.questions.map((q) => ({
         id: q.id,
@@ -268,6 +270,9 @@ export class AdminService {
     if (input.zh !== undefined) data.zh = input.zh;
     if (input.structure !== undefined) {
       data.structure = input.structure === null ? Prisma.DbNull : (input.structure as unknown as Prisma.InputJsonValue);
+    }
+    if (input.knowledge !== undefined) {
+      data.knowledge = input.knowledge === null ? Prisma.DbNull : (input.knowledge as unknown as Prisma.InputJsonValue);
     }
     await this.prisma.readingSentence.update({ where: { id }, data });
     await this.audit(adminId, 'save', 'readingSentence', String(id), { en: exists.en }, { en: input.en ?? exists.en });

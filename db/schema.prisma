@@ -321,6 +321,7 @@ model ReadingSentence {
   en        String @db.Text
   zh        String @db.Text
   structure Json? // 长难句拆解 { clauses, main }（标注管线写入）
+  knowledge Json? // 逐句知识点 { grammar, words, phrases }（LLM 标注管线写入）
   passage   ReadingPassage @relation(fields: [passageId], references: [id], onDelete: Cascade)
 
   @@unique([passageId, seq])

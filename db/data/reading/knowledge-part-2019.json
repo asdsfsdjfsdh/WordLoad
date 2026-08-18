@@ -1,0 +1,2325 @@
+﻿[
+    {
+        "year":  2019,
+        "code":  "A",
+        "title":  "Text 1",
+        "content":  "Financial regulators in Britain have imposed a rather unusual rule on the bosses of big banks. Starting next year, any guaranteed bonus of top executives could be delayed 10 years if their banks are under investigation for wrongdoing. The main purpose of this “clawback” rule is to hold bankers accountable for harmful risk-taking and to restore public trust in financial institutions. Yet officials also hope for a much larger benefit: more long-term decision- making, not only by banks but by all corporations, to build a stronger economy for future generations. “Short-termism” or the desire for quick profits, has worsened in publicly traded companies, says the Bank of England’s top economist, Andrew Haldane.\n\nHe quotes a giant of classical economics, Alfred Marshall, in describing this financial impatience as acting like “children who pick the plums out of their pudding to eat them at once” rather than putting them aside to be eaten last. The average time for holding a stock in both the United States and Britain, he notes, has dropped from seven years to seven months in recent decades. Transient investors, who demand high quarterly profits from companies, can hinder a firm’s efforts to invest in long- term research or to build up customer loyalty. This has been dubbed “quarterly capitalism.” In addition, new digital technologies have allowed more rapid trading of equities, quicker use of information, and thus shorter attention spans in financial markets. “There seems to be a predominance of short-term thinking at the expense of long-term investing,” said Commissioner Daniel Gallagher of the US Securities and Exchange Commission in a speech this week.\n\nIn the US, the Sarbanes-Oxley Act of 2002 has pushed most public companies to defer performance bonuses for senior executives by about a year, slightly helping reduce “short- termism.” In its latest survey of CEO pay, The Wall Street Journal finds that “a substantial part” of executive pay is now tied to performance. Much more could be done to encourage “long-termism,” such as changes in the tax code and quicker disclosure of stock acquisitions. In France, shareholders who hold onto a company investment for at least two years can sometimes earn more voting rights in a company. Within companies, the right compensation design can provide incentives for executives to think beyond their own time at the company and on behalf of all stakeholders.\n\nBritain’s new rule is a reminder to bankers that society has an interest in their performance, not just for the short term but for the long term.",
+        "sentences":  [
+                          {
+                              "key":  "2019:A:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "Financial regulators in Britain have imposed a rather unusual rule on the bosses of big banks.",
+                              "zh":  "英国金融监管机构对各大银行的高管们实施了一条颇为不同寻常的规则。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Financial regulators in Britain have imposed a rather unusual rule on the bosses of big banks."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Financial regulators in Britain",
+                                                             "predicate":  "have imposed",
+                                                             "object":  "a rather unusual rule on the bosses of big banks"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "Starting next year, any guaranteed bonus of top executives could be delayed 10 years if their banks are under investigation for wrongdoing.",
+                              "zh":  "从明年开始，如果银行因不正当行为受到调查，其高管的任何有保证的奖金都可能被推迟十年发放。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "Starting next year,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "any guaranteed bonus of top executives could be delayed 10 years"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "if their banks are under investigation for wrongdoing"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "any guaranteed bonus of top executives",
+                                                             "predicate":  "could be delayed",
+                                                             "object":  "10 years"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:2",
+                              "seq":  2,
+                              "para":  1,
+                              "en":  "The main purpose of this “clawback” rule is to hold bankers accountable for harmful risk-taking and to restore public trust in financial institutions.",
+                              "zh":  "这一\"追回\"规则的主要目的是让银行家们为其有害的冒险行为承担责任，并恢复公众对金融机构的信任。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The main purpose of this “clawback” rule is to hold bankers accountable for harmful risk-taking and to restore public trust in financial institutions."
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to hold bankers accountable for harmful risk-taking"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and to restore public trust in financial institutions"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The main purpose of this “clawback” rule",
+                                                             "predicate":  "is",
+                                                             "object":  "to hold bankers accountable for harmful risk-taking and to restore public trust in financial institutions"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:3",
+                              "seq":  3,
+                              "para":  1,
+                              "en":  "Yet officials also hope for a much larger benefit: more long-term decision- making, not only by banks but by all corporations, to build a stronger economy for future generations.",
+                              "zh":  "然而，官员们还期望一个更大的好处：不仅银行，而且所有企业都能做出更多着眼于长期的决定，从而为子孙后代建设一个更强大的经济。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Yet officials also hope for a much larger benefit:"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  ": more long-term decision- making, not only by banks but by all corporations, to build a stronger economy for future generations"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "not only by banks but by all corporations"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to build a stronger economy for future generations"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "officials",
+                                                             "predicate":  "hope for",
+                                                             "object":  "a much larger benefit"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:4",
+                              "seq":  4,
+                              "para":  1,
+                              "en":  "“Short-termism” or the desire for quick profits, has worsened in publicly traded companies, says the Bank of England’s top economist, Andrew Haldane.",
+                              "zh":  "英格兰银行首席经济学家安德鲁·霍尔丹表示，在上市公司中，\"短期主义\"或追求快速获利的欲望已经愈演愈烈。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“Short-termism” or the desire for quick profits, has worsened in publicly traded companies,"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "says the Bank of England’s top economist"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  ", Andrew Haldane"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "“Short-termism” or the desire for quick profits",
+                                                             "predicate":  "has worsened",
+                                                             "object":  "in publicly traded companies"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "He quotes a giant of classical economics, Alfred Marshall, in describing this financial impatience as acting like “children who pick the plums out of their pudding to eat them at once” rather than putting them aside to be eaten last.",
+                              "zh":  "他引用古典经济学巨擘阿尔弗雷德·马歇尔的话，把这种金融上的急于求成比作\"从布丁里挑出李子立即吃掉、而不是把它们留到最后再吃的孩子\"。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "He quotes a giant of classical economics, Alfred Marshall, in describing this financial impatience as acting like"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  ", Alfred Marshall,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who pick the plums out of their pudding to eat them at once"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to eat them at once"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "rather than putting them aside to be eaten last"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "He",
+                                                             "predicate":  "quotes",
+                                                             "object":  "a giant of classical economics, Alfred Marshall"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:6",
+                              "seq":  6,
+                              "para":  2,
+                              "en":  "The average time for holding a stock in both the United States and Britain, he notes, has dropped from seven years to seven months in recent decades.",
+                              "zh":  "他指出，近几十年来，美国和英国持有股票的平均时间已从七年下降到七个月。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The average time for holding a stock in both the United States and Britain, he notes, has dropped from seven years to seven months in recent decades."
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  ", he notes,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The average time for holding a stock in both the United States and Britain",
+                                                             "predicate":  "has dropped",
+                                                             "object":  "from seven years to seven months in recent decades"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:7",
+                              "seq":  7,
+                              "para":  2,
+                              "en":  "Transient investors, who demand high quarterly profits from companies, can hinder a firm’s efforts to invest in long- term research or to build up customer loyalty.",
+                              "zh":  "要求公司实现高季度利润的短期投资者，可能会阻碍企业在长期研究或建立客户忠诚度方面的投入。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Transient investors, who demand high quarterly profits from companies, can hinder a firm’s efforts to invest in long- term research or to build up customer loyalty."
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who demand high quarterly profits from companies,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to invest in long- term research"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "or to build up customer loyalty"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Transient investors",
+                                                             "predicate":  "can hinder",
+                                                             "object":  "a firm’s efforts"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:8",
+                              "seq":  8,
+                              "para":  2,
+                              "en":  "This has been dubbed “quarterly capitalism.”",
+                              "zh":  "这被称为\"季度资本主义\"。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "This has been dubbed “quarterly capitalism.”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "This",
+                                                             "predicate":  "has been dubbed",
+                                                             "object":  "“quarterly capitalism.”"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:9",
+                              "seq":  9,
+                              "para":  2,
+                              "en":  "In addition, new digital technologies have allowed more rapid trading of equities, quicker use of information, and thus shorter attention spans in financial markets.",
+                              "zh":  "此外，新的数字技术使股票交易更加迅速、信息利用更加快捷，从而缩短了金融市场上的注意力持续时间。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "In addition, new digital technologies have allowed more rapid trading of equities, quicker use of information, and thus shorter attention spans in financial markets."
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "quicker use of information, and thus shorter attention spans in financial markets"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "new digital technologies",
+                                                             "predicate":  "have allowed",
+                                                             "object":  "more rapid trading of equities, quicker use of information, and thus shorter attention spans in financial markets"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:10",
+                              "seq":  10,
+                              "para":  2,
+                              "en":  "“There seems to be a predominance of short-term thinking at the expense of long-term investing,” said Commissioner Daniel Gallagher of the US Securities and Exchange Commission in a speech this week.",
+                              "zh":  "美国证券交易委员会委员丹尼尔·加拉格尔本周在一次演讲中表示：\"现在似乎是以牺牲长期投资为代价的短期思维占据了主导地位。\"",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“There seems to be a predominance of short-term thinking at the expense of long-term investing,”"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "said Commissioner Daniel Gallagher of the US Securities and Exchange Commission in a speech this week"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "There",
+                                                             "predicate":  "seems to be",
+                                                             "object":  "a predominance of short-term thinking at the expense of long-term investing"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:11",
+                              "seq":  11,
+                              "para":  3,
+                              "en":  "In the US, the Sarbanes-Oxley Act of 2002 has pushed most public companies to defer performance bonuses for senior executives by about a year, slightly helping reduce “short- termism.”",
+                              "zh":  "在美国，2002年的《萨班斯-奥克斯利法案》已促使大多数上市公司将高管的绩效奖金推迟约一年发放，这在一定程度上帮助减少了\"短期主义\"。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "In the US, the Sarbanes-Oxley Act of 2002 has pushed most public companies"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to defer performance bonuses for senior executives by about a year,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "slightly helping reduce “short- termism.”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the Sarbanes-Oxley Act of 2002",
+                                                             "predicate":  "has pushed",
+                                                             "object":  "most public companies"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:12",
+                              "seq":  12,
+                              "para":  3,
+                              "en":  "In its latest survey of CEO pay, The Wall Street Journal finds that “a substantial part” of executive pay is now tied to performance.",
+                              "zh":  "《华尔街日报》在最新的CEO薪酬调查中发现，如今\"相当大一部分\"高管薪酬与业绩挂钩。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "In its latest survey of CEO pay, The Wall Street Journal finds that"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "“a substantial part” of executive pay is now tied to performance"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The Wall Street Journal",
+                                                             "predicate":  "finds",
+                                                             "object":  "that “a substantial part” of executive pay is now tied to performance"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:13",
+                              "seq":  13,
+                              "para":  3,
+                              "en":  "Much more could be done to encourage “long-termism,” such as changes in the tax code and quicker disclosure of stock acquisitions.",
+                              "zh":  "要鼓励\"长期主义\"，还可以做更多的事，比如修改税法、加快股票收购的披露速度等。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Much more could be done to encourage “long-termism,”"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to encourage “long-termism,”"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "such as changes in the tax code and quicker disclosure of stock acquisitions"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Much more",
+                                                             "predicate":  "could be done"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:14",
+                              "seq":  14,
+                              "para":  3,
+                              "en":  "In France, shareholders who hold onto a company investment for at least two years can sometimes earn more voting rights in a company.",
+                              "zh":  "在法国，持有公司投资至少两年的股东有时可以获得更多公司投票权。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "In France, shareholders who hold onto a company investment for at least two years can sometimes earn more voting rights in a company."
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who hold onto a company investment for at least two years"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "shareholders",
+                                                             "predicate":  "can sometimes earn",
+                                                             "object":  "more voting rights in a company"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:15",
+                              "seq":  15,
+                              "para":  3,
+                              "en":  "Within companies, the right compensation design can provide incentives for executives to think beyond their own time at the company and on behalf of all stakeholders.",
+                              "zh":  "在公司内部，合理的薪酬设计可以激励高管不仅考虑自己在公司的任职期，而且为所有利益相关者的利益着想。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Within companies, the right compensation design can provide incentives for executives"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to think beyond their own time at the company and on behalf of all stakeholders"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and on behalf of all stakeholders"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the right compensation design",
+                                                             "predicate":  "can provide",
+                                                             "object":  "incentives for executives"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:A:16",
+                              "seq":  16,
+                              "para":  4,
+                              "en":  "Britain’s new rule is a reminder to bankers that society has an interest in their performance, not just for the short term but for the long term.",
+                              "zh":  "英国的新规提醒银行家们：社会对他们的一举一动感兴趣，不仅关注短期表现，也关注长期表现。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Britain’s new rule is a reminder to bankers that"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that society has an interest in their performance, not just for the short term but for the long term"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "not just for the short term but for the long term"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Britain’s new rule",
+                                                             "predicate":  "is",
+                                                             "object":  "a reminder to bankers"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2019,
+        "code":  "B",
+        "title":  "Text 2",
+        "content":  "Grade inflation — the gradual increase in average GPAs (grade-point averages) over the past few decades — is often considered a product of a consumer era in higher education, in which students are treated like customers to be pleased. But another, related force — a policy often buried deep in course catalogs called “grade forgiveness” is helping raise GPAs. Grade forgiveness allows students to retake a course in which they received a low grade, and the most recent grade or the highest grade is the only one that counts in calculating a student’s overall GPA. The use of this little-known practice has accelerated in recent years, as colleges continue to do their utmost to keep students in school (and paying tuition) and improve their graduation rates. When this practice first started decades ago, it was usually limited to freshmen, to give them a second chance to take a class in their first year if they struggled in their transition to college-level courses. But now most colleges, save for many selective campuses, allow all undergraduates, and even graduate students, to get their low grades forgiven. College officials also tend to emphasize that the goal of grade forgiveness is less about the grade itself and more about encouraging students to retake courses critical to their degree program and graduation without incurring a big penalty.\n\n“Ultimately,” said Jack Miner, Ohio State University’s registrar, “we see students achieve more success because they retake a course and do better in subsequent courses or master the content that allows them to graduate on time.” That said, there is a way in which grade forgiveness satisfies colleges’ own needs as well. For public institutions, state funds are sometimes tied partly to their success on metrics such as graduation rates and student retention — so better grades can, by boosting figures like those, mean more money. And anything that raises GPAs will likely make students — who, at the end of the day, are paying the bill — feel they’ve gotten a better value for their tuition dollars, which is another big concern for colleges. Indeed, grade forgiveness is just another way that universities are responding to consumers’ expectations for higher education.\n\nSince students and parents expect a colleges degree to lead to a job, it is in the best interest of a school to turn out graduates who are as qualified as possible — or at least appear to be.\n\nOn this, students’ and colleges’ incentives seem to be aligned.",
+        "sentences":  [
+                          {
+                              "key":  "2019:B:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "Grade inflation — the gradual increase in average GPAs (grade-point averages) over the past few decades — is often considered a product of a consumer era in higher education, in which students are treated like customers to be pleased.",
+                              "zh":  "分数通胀——过去几十年间平均绩点（GPA）的逐渐上升——通常被视为高等教育消费者时代的产物，在这个时代，学生被当作需要取悦的顾客来对待。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Grade inflation — the gradual increase in average GPAs (grade-point averages) over the past few decades — is often considered a product of a consumer era in higher education,"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "the gradual increase in average GPAs (grade-point averages) over the past few decades"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "in which students are treated like customers to be pleased"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to be pleased"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Grade inflation",
+                                                             "predicate":  "is often considered",
+                                                             "object":  "a product of a consumer era in higher education"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "But another, related force — a policy often buried deep in course catalogs called “grade forgiveness” is helping raise GPAs.",
+                              "zh":  "但另一股相关的力量——一种深藏于课程目录中、名为\"成绩宽恕\"的政策——正在推高绩点。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But another, related force — a policy often buried deep in course catalogs called “grade forgiveness” is helping raise GPAs."
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "a policy often buried deep in course catalogs called “grade forgiveness”"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "buried deep in course catalogs called “grade forgiveness”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "another, related force",
+                                                             "predicate":  "is helping raise",
+                                                             "object":  "GPAs"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:2",
+                              "seq":  2,
+                              "para":  1,
+                              "en":  "Grade forgiveness allows students to retake a course in which they received a low grade, and the most recent grade or the highest grade is the only one that counts in calculating a student’s overall GPA.",
+                              "zh":  "\"成绩宽恕\"允许学生重修一门成绩较差的课程，在计算学生的总绩点时，只计入最近一次成绩或最高分。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Grade forgiveness allows students to retake a course"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to retake a course"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "in which they received a low grade,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  ", and the most recent grade or the highest grade is the only one that counts in calculating a student’s overall GPA"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that counts in calculating a student’s overall GPA"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Grade forgiveness",
+                                                             "predicate":  "allows",
+                                                             "object":  "students"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:3",
+                              "seq":  3,
+                              "para":  1,
+                              "en":  "The use of this little-known practice has accelerated in recent years, as colleges continue to do their utmost to keep students in school (and paying tuition) and improve their graduation rates.",
+                              "zh":  "近年来，随着大学继续竭尽全力留住学生（并让他们继续缴纳学费）并提高毕业率，这种鲜为人知的做法被运用得越来越频繁。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The use of this little-known practice has accelerated in recent years,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "as colleges continue to do their utmost to keep students in school (and paying tuition) and improve their graduation rates"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to keep students in school (and paying tuition)"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and improve their graduation rates"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The use of this little-known practice",
+                                                             "predicate":  "has accelerated"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:4",
+                              "seq":  4,
+                              "para":  1,
+                              "en":  "When this practice first started decades ago, it was usually limited to freshmen, to give them a second chance to take a class in their first year if they struggled in their transition to college-level courses.",
+                              "zh":  "几十年前这种做法刚开始实行时，通常只限于大一新生，目的是让他们在向大学课程过渡遇到困难时，能在第一年获得重修课程的机会。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "When this practice first started decades ago,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "it was usually limited to freshmen,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to give them a second chance to take a class in their first year"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to take a class in their first year"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "if they struggled in their transition to college-level courses"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "it",
+                                                             "predicate":  "was usually limited",
+                                                             "object":  "to freshmen"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:5",
+                              "seq":  5,
+                              "para":  1,
+                              "en":  "But now most colleges, save for many selective campuses, allow all undergraduates, and even graduate students, to get their low grades forgiven.",
+                              "zh":  "但现在，除了许多择优录取的高校外，大多数大学都允许所有本科生乃至研究生免除自己的低分成绩。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But now most colleges, save for many selective campuses, allow all undergraduates, and even graduate students, to get their low grades forgiven."
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "save for many selective campuses,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and even graduate students,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to get their low grades forgiven"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "most colleges",
+                                                             "predicate":  "allow",
+                                                             "object":  "all undergraduates, and even graduate students"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:6",
+                              "seq":  6,
+                              "para":  1,
+                              "en":  "College officials also tend to emphasize that the goal of grade forgiveness is less about the grade itself and more about encouraging students to retake courses critical to their degree program and graduation without incurring a big penalty.",
+                              "zh":  "大学管理人员还往往强调，成绩宽恕的目标与其说关乎分数本身，不如说是为了鼓励学生重修对其学位课程和毕业至关重要的课程，而无需付出重大代价。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "College officials also tend to emphasize that"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that the goal of grade forgiveness is less about the grade itself and more about encouraging students to retake courses critical to their degree program and graduation without incurring a big penalty"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and more about encouraging students to retake courses critical to their degree program and graduation without incurring a big penalty"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to retake courses critical to their degree program and graduation"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "College officials",
+                                                             "predicate":  "tend to emphasize",
+                                                             "object":  "that the goal of grade forgiveness is less about the grade itself and more about encouraging students"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:7",
+                              "seq":  7,
+                              "para":  2,
+                              "en":  "“Ultimately,” said Jack Miner, Ohio State University’s registrar, “we see students achieve more success because they retake a course and do better in subsequent courses or master the content that allows them to graduate on time.”",
+                              "zh":  "俄亥俄州立大学的教务长杰克·迈纳说：\"归根结底，我们看到学生之所以取得更大的成功，是因为他们重修了课程，在随后的课程中表现更好，或者掌握了足以让他们按时毕业的内容。\"",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "“Ultimately,”"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "said Jack Miner, Ohio State University’s registrar,"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "Ohio State University’s registrar,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“we see students achieve more success"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "because they retake a course and do better in subsequent courses or master the content that allows them to graduate on time.”"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that allows them to graduate on time"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to graduate on time"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "we",
+                                                             "predicate":  "see",
+                                                             "object":  "students achieve more success"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:8",
+                              "seq":  8,
+                              "para":  2,
+                              "en":  "That said, there is a way in which grade forgiveness satisfies colleges’ own needs as well.",
+                              "zh":  "话虽如此，成绩宽恕在某种程度上也满足了大学自身的需求。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "That said,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "there is a way"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "in which grade forgiveness satisfies colleges’ own needs as well"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "there",
+                                                             "predicate":  "is",
+                                                             "object":  "a way"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:9",
+                              "seq":  9,
+                              "para":  2,
+                              "en":  "For public institutions, state funds are sometimes tied partly to their success on metrics such as graduation rates and student retention — so better grades can, by boosting figures like those, mean more money.",
+                              "zh":  "对公立院校来说，州政府拨款有时部分取决于它们在某些指标上的表现，如毕业率和学生保持率——因此，更好的成绩可以通过提升这些数字带来更多的资金。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "For public institutions, state funds are sometimes tied partly to their success on metrics such as graduation rates and student retention —"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "so better grades can, by boosting figures like those, mean more money"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "by boosting figures like those"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "state funds",
+                                                             "predicate":  "are sometimes tied",
+                                                             "object":  "to their success on metrics such as graduation rates and student retention"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:10",
+                              "seq":  10,
+                              "para":  2,
+                              "en":  "And anything that raises GPAs will likely make students — who, at the end of the day, are paying the bill — feel they’ve gotten a better value for their tuition dollars, which is another big concern for colleges.",
+                              "zh":  "而且，任何能提高绩点的做法都可能让学生——归根结底，掏钱的是他们——觉得自己的学费花得物有所值，而这也是大学关心的另一大问题。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "And anything that raises GPAs will likely make students —"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that raises GPAs"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who, at the end of the day, are paying the bill"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "they’ve gotten a better value for their tuition dollars,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which is another big concern for colleges"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "anything that raises GPAs",
+                                                             "predicate":  "will likely make",
+                                                             "object":  "students feel they’ve gotten a better value for their tuition dollars"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:11",
+                              "seq":  11,
+                              "para":  2,
+                              "en":  "Indeed, grade forgiveness is just another way that universities are responding to consumers’ expectations for higher education.",
+                              "zh":  "事实上，成绩宽恕只是大学回应消费者对高等教育期望的另一种方式。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Indeed, grade forgiveness is just another way"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that universities are responding to consumers’ expectations for higher education"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "grade forgiveness",
+                                                             "predicate":  "is",
+                                                             "object":  "just another way"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:12",
+                              "seq":  12,
+                              "para":  3,
+                              "en":  "Since students and parents expect a colleges degree to lead to a job, it is in the best interest of a school to turn out graduates who are as qualified as possible — or at least appear to be.",
+                              "zh":  "既然学生和家长都期望大学学位能带来一份工作，那么学校最好能培养出尽可能合格的毕业生——至少表面看来如此。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "Since students and parents expect a colleges degree to lead to a job,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to lead to a job"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "it is in the best interest of a school to turn out graduates"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to turn out graduates"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who are as qualified as possible — or at least appear to be"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "— or at least appear to be"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "it",
+                                                             "predicate":  "is",
+                                                             "object":  "in the best interest of a school to turn out graduates"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:B:13",
+                              "seq":  13,
+                              "para":  4,
+                              "en":  "On this, students’ and colleges’ incentives seem to be aligned.",
+                              "zh":  "在这一点上，学生和大学的动机似乎是一致的。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "On this, students’ and colleges’ incentives seem to be aligned."
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to be aligned"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "students’ and colleges’ incentives",
+                                                             "predicate":  "seem to be aligned"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2019,
+        "code":  "C",
+        "title":  "Text 3",
+        "content":  "This year marks exactly two centuries since the publication of Frankenstein; or, The Modern Prometheus, by Mary Shelley. Even before the invention of the electric light bulb, the author produced a remarkable work of speculative fiction that would foreshadow many ethical questions to be raised by technologies yet to come. Today the rapid growth of artificial intelligence (AI) raises fundamental questions: “What is intelligence, identity, or consciousness? What makes humans humans?” What is being called artificial general intelligence, machines that would imitate the way humans think, continues to evade scientists.\n\nYet humans remain fascinated by the idea of robots that would look, move, and respond like humans, similar to those recently depicted on popular sci-fi TV series such as “Westworld” and “Humans.” Just how people think is still far too complex to be understood, let alone reproduced, says David Eagleman, a Stanford University neuroscientist. “We are just in a situation where there are no good theories explaining what consciousness actually is and how you could ever build a machine to get there.” But that doesn’t mean crucial ethical issues involving AI aren’t at hand.\n\nThe coming use of autonomous vehicles, for example, poses thorny ethical questions. Human drivers sometimes must make split-second decisions. Their reactions may be a complex combination of instant reflexes, input from past driving experiences, and what their eyes and ears tell them in that moment. AI “vision” today is not nearly as sophisticated as that of humans. And to anticipate every imaginable driving situation is a difficult programming problem.\n\nWhenever decisions are based on masses of data, “you quickly get into a lot of ethical questions,” notes Tan Kiat How, chief executive of a Singapore-based agency that is helping the government develop a voluntary code for the ethical use of AI. Along with Singapore, other governments and mega-corporations are beginning to establish their own guidelines. Britain is setting up a data ethics center. India released its AI ethics strategy this spring. On June 7 Google pledged not to “design or deploy AI” that would cause “overall harm,” or to develop AI-directed weapons or use AI for surveillance that would violate international norms. It also pledged not to deploy AI whose use would violate international laws or human rights. While the statement is vague, it represents one starting point. So does the idea that decisions made by AI systems should be explainable, transparent, and fair.\n\nTo put it another way: How can we make sure that the thinking of intelligent machines reflects humanity’s highest values?\n\nOnly then will they be useful servants and not Frankenstein’s out-of-control monster.",
+        "sentences":  [
+                          {
+                              "key":  "2019:C:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "This year marks exactly two centuries since the publication of Frankenstein; or, The Modern Prometheus, by Mary Shelley.",
+                              "zh":  "今年恰好是玛丽·雪莱的《弗兰肯斯坦——或现代普罗米修斯》出版两百周年。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "This year marks exactly two centuries since the publication of Frankenstein; or, The Modern Prometheus, by Mary Shelley."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "This year",
+                                                             "predicate":  "marks",
+                                                             "object":  "exactly two centuries"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "Even before the invention of the electric light bulb, the author produced a remarkable work of speculative fiction that would foreshadow many ethical questions to be raised by technologies yet to come.",
+                              "zh":  "早在电灯泡发明之前，作者就创作了一部杰出的推想小说，预示了未来技术将提出的许多伦理问题。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Even before the invention of the electric light bulb, the author produced a remarkable work of speculative fiction"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that would foreshadow many ethical questions to be raised by technologies yet to come"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to be raised by technologies yet to come"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the author",
+                                                             "predicate":  "produced",
+                                                             "object":  "a remarkable work of speculative fiction"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:2",
+                              "seq":  2,
+                              "para":  1,
+                              "en":  "Today the rapid growth of artificial intelligence (AI) raises fundamental questions: “What is intelligence, identity, or consciousness?",
+                              "zh":  "如今，人工智能（AI）的飞速发展提出了一些根本性的问题：\"什么是智能、身份或意识？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Today the rapid growth of artificial intelligence (AI) raises fundamental questions:"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "“What is intelligence, identity, or consciousness?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the rapid growth of artificial intelligence (AI)",
+                                                             "predicate":  "raises",
+                                                             "object":  "fundamental questions"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:3",
+                              "seq":  3,
+                              "para":  1,
+                              "en":  "What makes humans humans?”",
+                              "zh":  "是什么让人成为人？\"",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "What makes humans humans?”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "What",
+                                                             "predicate":  "makes",
+                                                             "object":  "humans humans?”"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:4",
+                              "seq":  4,
+                              "para":  1,
+                              "en":  "What is being called artificial general intelligence, machines that would imitate the way humans think, continues to evade scientists.",
+                              "zh":  "所谓的人工通用智能——模仿人类思维方式的机器——至今仍是科学家们无法企及的目标。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "What is being called artificial general intelligence"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "machines that would imitate the way humans think"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that would imitate the way humans think"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "continues to evade scientists"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "What is being called artificial general intelligence",
+                                                             "predicate":  "continues to evade",
+                                                             "object":  "scientists"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "Yet humans remain fascinated by the idea of robots that would look, move, and respond like humans, similar to those recently depicted on popular sci-fi TV series such as “Westworld” and “Humans.”",
+                              "zh":  "然而，人类依然对在相貌、动作和反应上都与人类相似的机器人的想法着迷，类似最近在《西部世界》《人形》等热门科幻电视剧中描绘的那种机器人。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Yet humans remain fascinated by the idea of robots"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that would look, move, and respond like humans,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "similar to those recently depicted on popular sci-fi TV series such as “Westworld” and “Humans.”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "humans",
+                                                             "predicate":  "remain fascinated",
+                                                             "object":  "by the idea of robots"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:6",
+                              "seq":  6,
+                              "para":  2,
+                              "en":  "Just how people think is still far too complex to be understood, let alone reproduced, says David Eagleman, a Stanford University neuroscientist.",
+                              "zh":  "斯坦福大学的神经科学家戴维·伊格尔曼说，人类究竟是如何思考的，这个问题仍然过于复杂，难以理解，更不用说复制了。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "Just how people think"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "is still far too complex to be understood, let alone reproduced, says David Eagleman"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  ", a Stanford University neuroscientist"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Just how people think",
+                                                             "predicate":  "is",
+                                                             "object":  "still far too complex to be understood"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:7",
+                              "seq":  7,
+                              "para":  2,
+                              "en":  "“We are just in a situation where there are no good theories explaining what consciousness actually is and how you could ever build a machine to get there.”",
+                              "zh":  "\"我们只是身处这样一种境况：没有好的理论能够解释意识到底是什么，以及你怎样才能造出一台机器达到那种状态。\"",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“We are just in a situation"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "where there are no good theories explaining what consciousness actually is and how you could ever build a machine to get there.”"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "explaining what consciousness actually is and how you could ever build a machine to get there"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "what consciousness actually is"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "how you could ever build a machine to get there"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to get there"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "We",
+                                                             "predicate":  "are",
+                                                             "object":  "just in a situation"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:8",
+                              "seq":  8,
+                              "para":  2,
+                              "en":  "But that doesn’t mean crucial ethical issues involving AI aren’t at hand.",
+                              "zh":  "但这并不意味着涉及AI的关键伦理问题不会出现。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "But that doesn’t mean crucial ethical issues involving AI aren’t at hand."
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "crucial ethical issues involving AI aren’t at hand"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "involving AI"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "that",
+                                                             "predicate":  "doesn’t mean",
+                                                             "object":  "crucial ethical issues involving AI aren’t at hand"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:9",
+                              "seq":  9,
+                              "para":  3,
+                              "en":  "The coming use of autonomous vehicles, for example, poses thorny ethical questions.",
+                              "zh":  "例如，即将投入使用的自动驾驶汽车就带来了棘手的伦理问题。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The coming use of autonomous vehicles, for example, poses thorny ethical questions."
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "for example,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The coming use of autonomous vehicles",
+                                                             "predicate":  "poses",
+                                                             "object":  "thorny ethical questions"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:10",
+                              "seq":  10,
+                              "para":  3,
+                              "en":  "Human drivers sometimes must make split-second decisions.",
+                              "zh":  "人类驾驶员有时必须在瞬间做出决定。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Human drivers sometimes must make split-second decisions."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Human drivers",
+                                                             "predicate":  "must make",
+                                                             "object":  "split-second decisions"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:11",
+                              "seq":  11,
+                              "para":  3,
+                              "en":  "Their reactions may be a complex combination of instant reflexes, input from past driving experiences, and what their eyes and ears tell them in that moment.",
+                              "zh":  "他们的反应可能是本能反应、过往驾驶经验以及那一刻眼睛和耳朵所接收的信息等多种因素复杂结合的结果。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Their reactions may be a complex combination of instant reflexes, input from past driving experiences, and what their eyes and ears tell them in that moment."
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "what their eyes and ears tell them in that moment"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Their reactions",
+                                                             "predicate":  "may be",
+                                                             "object":  "a complex combination of instant reflexes, input from past driving experiences, and what their eyes and ears tell them in that moment"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:12",
+                              "seq":  12,
+                              "para":  3,
+                              "en":  "AI “vision” today is not nearly as sophisticated as that of humans.",
+                              "zh":  "如今，AI的\"视觉\"远不如人类的视觉精密。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "AI “vision” today is not nearly as sophisticated as that of humans."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "AI “vision” today",
+                                                             "predicate":  "is not",
+                                                             "object":  "nearly as sophisticated as that of humans"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:13",
+                              "seq":  13,
+                              "para":  3,
+                              "en":  "And to anticipate every imaginable driving situation is a difficult programming problem.",
+                              "zh":  "而要预见到所有可以想象到的驾驶状况，是一个难以解决的编程问题。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "And to anticipate every imaginable driving situation is a difficult programming problem."
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to anticipate every imaginable driving situation"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "to anticipate every imaginable driving situation",
+                                                             "predicate":  "is",
+                                                             "object":  "a difficult programming problem"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:14",
+                              "seq":  14,
+                              "para":  4,
+                              "en":  "Whenever decisions are based on masses of data, “you quickly get into a lot of ethical questions,” notes Tan Kiat How, chief executive of a Singapore-based agency that is helping the government develop a voluntary code for the ethical use of AI.",
+                              "zh":  "Tan Kiat How表示，只要决策基于海量数据，\"你就会很快陷入大量伦理问题之中\"。Tan Kiat How是一家新加坡机构的首席执行官，该机构正在协助政府制定AI伦理使用的自愿准则。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "Whenever decisions are based on masses of data,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“you quickly get into a lot of ethical questions,”"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "notes Tan Kiat How, chief executive of a Singapore-based agency"
+                                                                },
+                                                                {
+                                                                    "role":  "appositive",
+                                                                    "label":  "同位语",
+                                                                    "text":  "chief executive of a Singapore-based agency"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that is helping the government develop a voluntary code for the ethical use of AI"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "you",
+                                                             "predicate":  "get into",
+                                                             "object":  "a lot of ethical questions"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:15",
+                              "seq":  15,
+                              "para":  4,
+                              "en":  "Along with Singapore, other governments and mega-corporations are beginning to establish their own guidelines.",
+                              "zh":  "与新加坡一样，其他国家和大型企业也正开始制定自己的准则。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Along with Singapore, other governments and mega-corporations are beginning to establish their own guidelines."
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "Along with Singapore,"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to establish their own guidelines"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "other governments and mega-corporations",
+                                                             "predicate":  "are beginning",
+                                                             "object":  "to establish their own guidelines"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:16",
+                              "seq":  16,
+                              "para":  4,
+                              "en":  "Britain is setting up a data ethics center.",
+                              "zh":  "英国正在建立数据伦理中心。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Britain is setting up a data ethics center."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Britain",
+                                                             "predicate":  "is setting up",
+                                                             "object":  "a data ethics center"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:17",
+                              "seq":  17,
+                              "para":  4,
+                              "en":  "India released its AI ethics strategy this spring.",
+                              "zh":  "印度今年春天发布了其AI伦理战略。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "India released its AI ethics strategy this spring."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "India",
+                                                             "predicate":  "released",
+                                                             "object":  "its AI ethics strategy this spring"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:18",
+                              "seq":  18,
+                              "para":  4,
+                              "en":  "On June 7 Google pledged not to “design or deploy AI” that would cause “overall harm,” or to develop AI-directed weapons or use AI for surveillance that would violate international norms.",
+                              "zh":  "6月7日，谷歌承诺不会\"设计或部署\"会造成\"整体危害\"的AI，也不会研发AI武器或利用AI从事违反国际准则的监视活动。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "On June 7 Google pledged not to “design or deploy AI”"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to “design or deploy AI”"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that would cause “overall harm,”"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "or to develop AI-directed weapons or use AI for surveillance that would violate international norms"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that would violate international norms"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Google",
+                                                             "predicate":  "pledged",
+                                                             "object":  "not to “design or deploy AI”"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:19",
+                              "seq":  19,
+                              "para":  4,
+                              "en":  "It also pledged not to deploy AI whose use would violate international laws or human rights.",
+                              "zh":  "它还承诺不会部署其用途会违反国际法或人权的AI。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "It also pledged not to deploy AI"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "whose use would violate international laws or human rights"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "It",
+                                                             "predicate":  "pledged",
+                                                             "object":  "not to deploy AI"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:20",
+                              "seq":  20,
+                              "para":  4,
+                              "en":  "While the statement is vague, it represents one starting point.",
+                              "zh":  "尽管这一声明措辞含糊，但它代表了一个起点。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "While the statement is vague,"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "it represents one starting point."
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "it",
+                                                             "predicate":  "represents",
+                                                             "object":  "one starting point"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:21",
+                              "seq":  21,
+                              "para":  4,
+                              "en":  "So does the idea that decisions made by AI systems should be explainable, transparent, and fair.",
+                              "zh":  "AI系统作出的决策应该可以解释、透明且公平，这一想法同样也是一个起点。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "So does the idea"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "that decisions made by AI systems should be explainable, transparent, and fair"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "made by AI systems"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the idea",
+                                                             "predicate":  "does",
+                                                             "object":  "so"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:22",
+                              "seq":  22,
+                              "para":  5,
+                              "en":  "To put it another way: How can we make sure that the thinking of intelligent machines reflects humanity’s highest values?",
+                              "zh":  "换句话说：我们怎样才能确保智能机器的思考反映出人类最高的价值观？",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "To put it another way:"
+                                                                },
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "How can we make sure that"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "the thinking of intelligent machines reflects humanity’s highest values?"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "we",
+                                                             "predicate":  "can make sure",
+                                                             "object":  "that the thinking of intelligent machines reflects humanity’s highest values"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:C:23",
+                              "seq":  23,
+                              "para":  6,
+                              "en":  "Only then will they be useful servants and not Frankenstein’s out-of-control monster.",
+                              "zh":  "只有到那时，它们才会成为有用的仆人，而不是弗兰肯斯坦那个失控的怪物。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Only then will they be useful servants and not Frankenstein’s out-of-control monster."
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and not Frankenstein’s out-of-control monster"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "they",
+                                                             "predicate":  "will be",
+                                                             "object":  "useful servants and not Frankenstein’s out-of-control monster"
+                                                         }
+                                            }
+                          }
+                      ]
+    },
+    {
+        "year":  2019,
+        "code":  "D",
+        "title":  "Text 4",
+        "content":  "States will be able to force more people to pay sales tax when they make online purchases under a Supreme Court decision Thursday that will leave shoppers with lighter wallets but is a big financial win for states. The Supreme Court’s opinion Thursday overruled a pair of decades-old decisions that states said cost them billions of dollars in lost revenue annually.\n\nThe decisions made it more difficult for states to collect sales tax on certain online purchases. The cases the court overturned said that if a business was shipping a customer’s purchase to a state where the business didn’t have a physical presence such as a warehouse or office, the business didn’t have to collect sales tax for the state. Customers were generally responsible for paying the sales tax to the state themselves if they weren’t charged it, but most didn’t realize they owed it and few paid. Justice Anthony Kennedy wrote that the previous decisions were flawed. “Each year the physical presence rule becomes further removed from economic reality and results in significant revenue losses to the States,” he wrote in an opinion joined by four other justices. Kennedy wrote that the rule “limited states’ ability to seek long-term prosperity and has prevented market participants from competing on an even playing field.”\n\nThe ruling is a victory for big chains with a presence in many states, since they usually collect sales tax on online purchases already. Now, rivals will be charging sales tax where they hadn’t before. Big chains have been collecting sales tax nationwide because they typically have physical stores in whatever state a purchase is being shipped to. Amazon.com, with its network of warehouses, also collects sales tax in every state that charges it, though third-party sellers who use the site don’t have to. Until now, many sellers that have a physical presence in only a single state or a few states have been able to avoid charging sales taxes when they ship to addresses outside those states. Sellers that use eBay and Etsy, which provide platforms for smaller sellers, also haven’t been collecting sales tax nationwide.\n\nUnder the ruling Thursday, states can pass laws requiring out-of-state sellers to collect the state’s sales tax from customers and send it to the state. Retail trade groups praised the ruling, saying it levels the playing field for local and online businesses. The losers, said retail analyst Neil Saunders, are online-only retailers, especially smaller ones. Those retailers may face headaches complying with various state sales tax laws.\n\nThe Small Business \u0026 Entrepreneurship Council advocacy group said in a statement, “Small businesses and internet entrepreneurs are not well served at all by this decision.”",
+        "sentences":  [
+                          {
+                              "key":  "2019:D:0",
+                              "seq":  0,
+                              "para":  1,
+                              "en":  "States will be able to force more people to pay sales tax when they make online purchases under a Supreme Court decision Thursday that will leave shoppers with lighter wallets but is a big financial win for states.",
+                              "zh":  "根据最高法院周四作出的一项裁决，各州将能够迫使更多人在网上购物时缴纳销售税。这项裁决会让购物者的钱包变瘪，但对各州而言却是一场重大的财政胜利。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "States will be able to force more people to pay sales tax"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to force more people to pay sales tax"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to pay sales tax"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "when they make online purchases"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "under a Supreme Court decision Thursday"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that will leave shoppers with lighter wallets but is a big financial win for states"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "States",
+                                                             "predicate":  "will be able",
+                                                             "object":  "to force more people to pay sales tax"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:1",
+                              "seq":  1,
+                              "para":  1,
+                              "en":  "The Supreme Court’s opinion Thursday overruled a pair of decades-old decisions that states said cost them billions of dollars in lost revenue annually.",
+                              "zh":  "最高法院周四的裁决推翻了两项几十年前的裁决，各州称这些裁决每年使它们损失数十亿美元的税收。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The Supreme Court’s opinion Thursday overruled a pair of decades-old decisions"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that states said cost them billions of dollars in lost revenue annually"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The Supreme Court’s opinion Thursday",
+                                                             "predicate":  "overruled",
+                                                             "object":  "a pair of decades-old decisions"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:2",
+                              "seq":  2,
+                              "para":  2,
+                              "en":  "The decisions made it more difficult for states to collect sales tax on certain online purchases.",
+                              "zh":  "这些裁决使各州更难对某些网上购物征收销售税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The decisions made it more difficult for states to collect sales tax on certain online purchases."
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to collect sales tax on certain online purchases"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The decisions",
+                                                             "predicate":  "made",
+                                                             "object":  "it more difficult for states to collect sales tax on certain online purchases"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:3",
+                              "seq":  3,
+                              "para":  2,
+                              "en":  "The cases the court overturned said that if a business was shipping a customer’s purchase to a state where the business didn’t have a physical presence such as a warehouse or office, the business didn’t have to collect sales tax for the state.",
+                              "zh":  "最高法院推翻的案件规定：如果企业将顾客购买的商品运往一个它没有实体存在（如仓库或办公室）的州，那么该企业就不必为该州代收销售税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The cases the court overturned said that"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "the court overturned"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "if a business was shipping a customer’s purchase to a state where the business didn’t have a physical presence such as a warehouse or office, the business didn’t have to collect sales tax for the state"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "if a business was shipping a customer’s purchase to a state where the business didn’t have a physical presence such as a warehouse or office,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "where the business didn’t have a physical presence such as a warehouse or office,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The cases",
+                                                             "predicate":  "said",
+                                                             "object":  "that the business didn’t have to collect sales tax for the state"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:4",
+                              "seq":  4,
+                              "para":  2,
+                              "en":  "Customers were generally responsible for paying the sales tax to the state themselves if they weren’t charged it, but most didn’t realize they owed it and few paid.",
+                              "zh":  "如果商家没有向顾客收取销售税，那么顾客通常有责任自行向所在州缴纳，但大多数人并不知道自己欠这笔税，真正缴纳的人寥寥无几。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Customers were generally responsible for paying the sales tax to the state themselves"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "if they weren’t charged it,"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "but most didn’t realize they owed it and few paid"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "they owed it"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Customers",
+                                                             "predicate":  "were generally responsible for",
+                                                             "object":  "paying the sales tax to the state themselves"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:5",
+                              "seq":  5,
+                              "para":  2,
+                              "en":  "Justice Anthony Kennedy wrote that the previous decisions were flawed.",
+                              "zh":  "大法官安东尼·肯尼迪写道，此前的裁决存在缺陷。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Justice Anthony Kennedy wrote that"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "the previous decisions were flawed"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Justice Anthony Kennedy",
+                                                             "predicate":  "wrote",
+                                                             "object":  "that the previous decisions were flawed"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:6",
+                              "seq":  6,
+                              "para":  2,
+                              "en":  "“Each year the physical presence rule becomes further removed from economic reality and results in significant revenue losses to the States,” he wrote in an opinion joined by four other justices.",
+                              "zh":  "他在一份与其他四位大法官联署的意见书中写道：\"\u0027实际存在\u0027规则每年都更加脱离经济现实，并给各州造成巨大的收入损失。\"",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "“Each year the physical presence rule becomes further removed from economic reality and results in significant revenue losses to the States,”"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and results in significant revenue losses to the States,"
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "he wrote in an opinion joined by four other justices"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "joined by four other justices"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "the physical presence rule",
+                                                             "predicate":  "becomes further removed from",
+                                                             "object":  "economic reality"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:7",
+                              "seq":  7,
+                              "para":  2,
+                              "en":  "Kennedy wrote that the rule “limited states’ ability to seek long-term prosperity and has prevented market participants from competing on an even playing field.”",
+                              "zh":  "肯尼迪写道，这一规则\"限制了各州谋求长期繁荣的能力，也妨碍了市场参与者在公平的竞争环境中一较高下。\"",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Kennedy wrote that"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "the rule “limited states’ ability to seek long-term prosperity and has prevented market participants from competing on an even playing field.”"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and has prevented market participants from competing on an even playing field.”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Kennedy",
+                                                             "predicate":  "wrote",
+                                                             "object":  "that the rule limited states’ ability to seek long-term prosperity and has prevented market participants from competing on an even playing field"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:8",
+                              "seq":  8,
+                              "para":  3,
+                              "en":  "The ruling is a victory for big chains with a presence in many states, since they usually collect sales tax on online purchases already.",
+                              "zh":  "这一裁决对在许多州都有业务的大型连锁企业来说是一场胜利，因为它们通常已经对网上购物征收销售税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The ruling is a victory for big chains with a presence in many states,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "since they usually collect sales tax on online purchases already"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The ruling",
+                                                             "predicate":  "is",
+                                                             "object":  "a victory for big chains"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:9",
+                              "seq":  9,
+                              "para":  3,
+                              "en":  "Now, rivals will be charging sales tax where they hadn’t before.",
+                              "zh":  "而现在，竞争对手也将在以前不征收销售税的地方征收销售税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Now, rivals will be charging sales tax"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "where they hadn’t before"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "rivals",
+                                                             "predicate":  "will be charging",
+                                                             "object":  "sales tax"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:10",
+                              "seq":  10,
+                              "para":  3,
+                              "en":  "Big chains have been collecting sales tax nationwide because they typically have physical stores in whatever state a purchase is being shipped to.",
+                              "zh":  "大型连锁企业之所以一直在全国范围内征收销售税，是因为它们通常在商品运往的任何州都设有实体门店。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Big chains have been collecting sales tax nationwide"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "because they typically have physical stores in whatever state a purchase is being shipped to"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "whatever state a purchase is being shipped to"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Big chains",
+                                                             "predicate":  "have been collecting",
+                                                             "object":  "sales tax nationwide"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:11",
+                              "seq":  11,
+                              "para":  3,
+                              "en":  "Amazon.com, with its network of warehouses, also collects sales tax in every state that charges it, though third-party sellers who use the site don’t have to.",
+                              "zh":  "拥有仓库网络的亚马逊也在每个征收销售税的州代收销售税，不过使用该网站的第三方卖家不必这样做。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Amazon.com, with its network of warehouses, also collects sales tax in every state"
+                                                                },
+                                                                {
+                                                                    "role":  "prep",
+                                                                    "label":  "介词短语",
+                                                                    "text":  "with its network of warehouses,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that charges it,"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "though third-party sellers who use the site don’t have to"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "who use the site"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Amazon.com",
+                                                             "predicate":  "also collects",
+                                                             "object":  "sales tax in every state"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:12",
+                              "seq":  12,
+                              "para":  3,
+                              "en":  "Until now, many sellers that have a physical presence in only a single state or a few states have been able to avoid charging sales taxes when they ship to addresses outside those states.",
+                              "zh":  "迄今为止，许多只在一个州或少数几个州有实体存在的卖家，在向这些州以外的地址发货时，一直得以避免征收销售税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Until now, many sellers that have a physical presence in only a single state or a few states have been able to avoid charging sales taxes"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that have a physical presence in only a single state or a few states"
+                                                                },
+                                                                {
+                                                                    "role":  "adv",
+                                                                    "label":  "状语从句",
+                                                                    "text":  "when they ship to addresses outside those states"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "many sellers",
+                                                             "predicate":  "have been able",
+                                                             "object":  "to avoid charging sales taxes"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:13",
+                              "seq":  13,
+                              "para":  3,
+                              "en":  "Sellers that use eBay and Etsy, which provide platforms for smaller sellers, also haven’t been collecting sales tax nationwide.",
+                              "zh":  "使用为较小卖家提供平台的eBay和Etsy的卖家，此前也一直没有在全国范围内征收销售税。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Sellers that use eBay and Etsy, which provide platforms for smaller sellers, also haven’t been collecting sales tax nationwide."
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "that use eBay and Etsy,"
+                                                                },
+                                                                {
+                                                                    "role":  "adj",
+                                                                    "label":  "定语从句",
+                                                                    "text":  "which provide platforms for smaller sellers,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Sellers that use eBay and Etsy",
+                                                             "predicate":  "haven’t been collecting",
+                                                             "object":  "sales tax nationwide"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:14",
+                              "seq":  14,
+                              "para":  4,
+                              "en":  "Under the ruling Thursday, states can pass laws requiring out-of-state sellers to collect the state’s sales tax from customers and send it to the state.",
+                              "zh":  "根据周四的裁决，各州可以立法要求州外卖家向顾客收取本州的销售税，并将其上缴给该州。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Under the ruling Thursday, states can pass laws"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "requiring out-of-state sellers to collect the state’s sales tax from customers and send it to the state"
+                                                                },
+                                                                {
+                                                                    "role":  "infinitive",
+                                                                    "label":  "不定式",
+                                                                    "text":  "to collect the state’s sales tax from customers"
+                                                                },
+                                                                {
+                                                                    "role":  "coordinate",
+                                                                    "label":  "并列结构",
+                                                                    "text":  "and send it to the state"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "states",
+                                                             "predicate":  "can pass",
+                                                             "object":  "laws"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:15",
+                              "seq":  15,
+                              "para":  4,
+                              "en":  "Retail trade groups praised the ruling, saying it levels the playing field for local and online businesses.",
+                              "zh":  "零售业团体对这一裁决表示赞赏，称它使本地企业和线上企业处于同一起跑线。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Retail trade groups praised the ruling,"
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "saying it levels the playing field for local and online businesses"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Retail trade groups",
+                                                             "predicate":  "praised",
+                                                             "object":  "the ruling"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:16",
+                              "seq":  16,
+                              "para":  4,
+                              "en":  "The losers, said retail analyst Neil Saunders, are online-only retailers, especially smaller ones.",
+                              "zh":  "零售业分析师尼尔·桑德斯说，输家是纯线上零售商，尤其是规模较小的那些。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The losers, said retail analyst Neil Saunders, are online-only retailers, especially smaller ones."
+                                                                },
+                                                                {
+                                                                    "role":  "other",
+                                                                    "label":  "其他成分",
+                                                                    "text":  "said retail analyst Neil Saunders,"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The losers",
+                                                             "predicate":  "are",
+                                                             "object":  "online-only retailers, especially smaller ones"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:17",
+                              "seq":  17,
+                              "para":  4,
+                              "en":  "Those retailers may face headaches complying with various state sales tax laws.",
+                              "zh":  "这些零售商可能要为遵守各州不同的销售税法而头疼不已。",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "Those retailers may face headaches complying with various state sales tax laws."
+                                                                },
+                                                                {
+                                                                    "role":  "participle",
+                                                                    "label":  "分词短语",
+                                                                    "text":  "complying with various state sales tax laws"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "Those retailers",
+                                                             "predicate":  "may face",
+                                                             "object":  "headaches"
+                                                         }
+                                            }
+                          },
+                          {
+                              "key":  "2019:D:18",
+                              "seq":  18,
+                              "para":  5,
+                              "en":  "The Small Business \u0026 Entrepreneurship Council advocacy group said in a statement, “Small businesses and internet entrepreneurs are not well served at all by this decision.”",
+                              "zh":  "倡导组织\"小企业与创业理事会\"在一份声明中表示：\"这项裁决对小企业和互联网创业者来说毫无益处。\"",
+                              "structure":  {
+                                                "clauses":  [
+                                                                {
+                                                                    "role":  "main",
+                                                                    "label":  "主句",
+                                                                    "text":  "The Small Business \u0026 Entrepreneurship Council advocacy group said in a statement,"
+                                                                },
+                                                                {
+                                                                    "role":  "noun",
+                                                                    "label":  "名词性从句",
+                                                                    "text":  "“Small businesses and internet entrepreneurs are not well served at all by this decision.”"
+                                                                }
+                                                            ],
+                                                "main":  {
+                                                             "subject":  "The Small Business \u0026 Entrepreneurship Council advocacy group",
+                                                             "predicate":  "said",
+                                                             "object":  "that small businesses and internet entrepreneurs are not well served at all"
+                                                         }
+                                            }
+                          }
+                      ]
+    }
+]

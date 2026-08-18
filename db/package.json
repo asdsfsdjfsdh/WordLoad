@@ -17,6 +17,8 @@
     "pipeline:import-reading": "tsx pipeline/import-reading.ts",
     "pipeline:structure-export": "tsx pipeline/reading-structure-export.ts",
     "pipeline:structure-import": "tsx pipeline/reading-structure-import.ts",
+    "pipeline:knowledge-export": "tsx pipeline/reading-knowledge-export.ts",
+    "pipeline:knowledge-import": "tsx pipeline/reading-knowledge-import.ts",
     "admin:set": "node scripts/set-admin.mjs",
     "backfill:srs-history": "tsx scripts/backfill-srs-history.ts",
     "test": "vitest run",

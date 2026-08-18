@@ -1,0 +1,1029 @@
+{
+  "2015:A:0": {
+    "grammar": [
+      { "title": "宾语从句（that 省略）", "text": "insisted 后接整个引号内容作宾语从句，引导词 that 省略，从句内又是并列的两句话：\"kings don't abdicate, they die in their sleep\"。读懂应抓住 insisted（坚称）＋直接引用他人原话这一报道结构。" }
+    ],
+    "words": [
+      { "word": "abdicate", "meaning": "v. 退位、逊位", "note": "专指君主放弃王位，与 give up the throne 同义；名词 abdication。" },
+      { "word": "insist", "meaning": "v. 坚称、坚持主张", "note": "接 that 从句时用直陈语气表'坚称'，接 on doing 时表'坚持要求'，注意区分。" }
+    ],
+    "phrases": [
+      { "text": "die in one's sleep", "meaning": "在睡梦中去世", "note": "与 abdicate 形成对比：国王不会退位，只会'一觉睡到死'，呼应后文被迫下台的讽刺。" }
+    ]
+  },
+  "2015:A:1": {
+    "grammar": [
+      { "title": "force + 宾语 + 不定式（宾补）", "text": "主句主干为 embarrassing scandals and the popularity... have forced him to eat his words and stand down，forced him 后用 to 不定式作宾语补足语，说明'迫使他做了什么'；补语由两个并列不定式 eat his words 和 stand down 构成。" },
+      { "title": "并列主语", "text": "主语是 embarrassing scandals 与 the popularity of the republican left 两个并列名词短语，因此谓语用 have forced（复数）。其中 of the republican left 与 in the recent Euro-elections 层层后置修饰 popularity，阅读时要先认清主语核心。" }
+    ],
+    "words": [
+      { "word": "scandal", "meaning": "n. 丑闻", "note": "embarrassing scandals 指'令人难堪的丑闻'；常与 expose、break 搭配。" },
+      { "word": "stand down", "meaning": "v. 下台、退位", "note": "英式用语，表辞职/退位；此处指国王被迫退位，与 abdicate 呼应。" }
+    ],
+    "phrases": [
+      { "text": "eat one's words", "meaning": "收回前言、承认说错", "note": "不是'食言'的贬义，而是被迫承认先前说法错了，与上文 'kings don't abdicate' 形成呼应。" },
+      { "text": "the republican left", "meaning": "共和派左翼", "note": "left 在此为政治名词'左翼'，republican 指'主张共和制的'。" }
+    ]
+  },
+  "2015:A:2": {
+    "grammar": [
+      { "title": "一般疑问句 + 宾语从句", "text": "does 提前构成一般疑问句，主干为 the Spanish crisis suggest that...；that 后接完整宾语从句 monarchy is seeing its last days，是 suggest 的内容。看到 does...suggest 即知后面 that 从句是问句的真正重点。" }
+    ],
+    "words": [
+      { "word": "monarchy", "meaning": "n. 君主制、君主政体", "note": "抽象名词'君主制'；文中反复出现，也指'王室'这一整体。" },
+      { "word": "see its last days", "meaning": "日薄西山、走向终结", "note": "see 在此为'经历、迎来'，表'正在走向末日'，是熟词僻义用法。" }
+    ],
+    "phrases": []
+  },
+  "2015:A:3": {
+    "grammar": [
+      { "title": "宾语从句省略 that", "text": "Does that mean 后直接接 the writing is on the wall...，中间省略 that，属口语化/报刊化省略，不影响理解：'这是否意味着……'。" },
+      { "title": "with 复合结构作伴随状语", "text": "句末 with their magnificent uniforms and majestic lifestyles 补充说明 all European royals 的形象特征，阅读时可先跳过，最后再吸收这层伴随信息。" }
+    ],
+    "words": [
+      { "word": "majestic", "meaning": "adj. 雄伟的、气派威严的", "note": "与 magnificent 同义连用，强化王室'排场豪华'的形象。" },
+      { "word": "royals", "meaning": "n. 王室成员", "note": "royal 的复数名词用法，指王室家族成员。" }
+    ],
+    "phrases": [
+      { "text": "the writing is on the wall", "meaning": "不祥之兆、末日将至", "note": "固定习语，源自《圣经》'墙上的字迹'，意为'失败的预兆已显现'。" }
+    ]
+  },
+  "2015:A:4": {
+    "grammar": [
+      { "title": "简单主谓宾 + 后置修饰", "text": "主干为 The Spanish case provides arguments，宾语 arguments 后接 both for and against monarchy 说明'支持与反对君主制两方面的论据'，读时先把动宾串起来。" }
+    ],
+    "words": [
+      { "word": "provide", "meaning": "v. 提供", "note": "provide arguments for/against sth 为'为……提供论据'。" },
+      { "word": "case", "meaning": "n. 事例、情况", "note": "此处 the Spanish case 指'西班牙（国王退位）这一案例'，不是'案件'。" }
+    ],
+    "phrases": [
+      { "text": "both for and against", "meaning": "既支持又反对", "note": "介词 for/against 直接表示'赞成/反对'，both...and... 并列结构。" }
+    ]
+  },
+  "2015:A:5": {
+    "grammar": [
+      { "title": "When 时间状语从句 + as 插入比较", "text": "句首 When public opinion is particularly polarised 给出时间条件；中间的 as it was following the end of the Franco regime 是 as 引导的补充性从句（'正如佛朗哥政权倒台之后那样'），it 指当时民意状态，是对主句情境的例证。" },
+      { "title": "并列谓语", "text": "主句 monarchs can rise above \"mere\" politics and \"embody\" a spirit of national unity 中，rise above 与 embody 共用主语 monarchs，阅读时勿把 embody 误当另一个主语的开头。" }
+    ],
+    "words": [
+      { "word": "polarised", "meaning": "adj. 两极分化的", "note": "动词 polarise'使两极分化'的过去分词作表语；public opinion is polarised 意为'民意严重对立'。" },
+      { "word": "embody", "meaning": "v. 体现、象征", "note": "后接 a spirit of national unity，表'体现民族团结精神'；名词 embodiment。" },
+      { "word": "regime", "meaning": "n. 政权、政治体制", "note": "the Franco regime 指佛朗哥独裁政权。" }
+    ],
+    "phrases": [
+      { "text": "rise above", "meaning": "超越、凌驾于", "note": "rise above \"mere\" politics 意为'超越纯粹的政治'，表君主不卷入党派之争。" }
+    ]
+  },
+  "2015:A:6": {
+    "grammar": [
+      { "title": "强调句型 It is...that...", "text": "It is this apparent transcendence of politics that explains... 为强调结构，被强调成分是 this apparent transcendence of politics（真正的原因），that 后才是其余部分。翻译应译作'正是这种对政治的超越解释了……'，而非'它是……'。" }
+    ],
+    "words": [
+      { "word": "transcendence", "meaning": "n. 超越、超脱", "note": "动词 transcend'超越'的名词；此处理解为'超越政治（之上）'。" },
+      { "word": "apparent", "meaning": "adj. 表面上的、显然的", "note": "注意双义：既可表'明显的'，也可表'表面上的、貌似'，此处后接 transcendence，译作'这种表面上的政治超脱'更贴切。" },
+      { "word": "heads of state", "meaning": "国家元首", "note": "固定名词词组，head 用复数 heads，as heads of state 表'作为国家元首'。" }
+    ],
+    "phrases": []
+  },
+  "2015:A:7": {
+    "grammar": [
+      { "title": "独立主格结构", "text": "the Middle East excepted 是'名词/代词 + 过去分词'构成的独立主格，逻辑主语 the Middle East 与主句主语 Europe 不同，表示'中东除外'，相当于 if the Middle East is excepted。阅读时识别这类无连词的独立状语。" },
+      { "title": "with + 名词 + 现在分词", "text": "with 10 kingdoms (not counting Vatican City and Andorra) 中，not counting 是现在分词，意为'不包括……'，补充说明 10 个王国的范围。" }
+    ],
+    "words": [
+      { "word": "infested", "meaning": "adj.（被）充斥的", "note": "monarch-infested 为合成形容词，字面'布满君主的'，略带调侃：欧洲是全世界君主最多的地区。" },
+      { "word": "kingdom", "meaning": "n. 王国", "note": "名词，复数 kingdoms；注意与 kingship'王权'区分。" }
+    ],
+    "phrases": [
+      { "text": "not counting", "meaning": "不包括、不计入", "note": "现在分词作状语，表示'除……之外'。" }
+    ]
+  },
+  "2015:A:8": {
+    "grammar": [
+      { "title": "unlike 介词短语 + because 原因状语从句", "text": "句首 unlike their absolutist counterparts... 作对比状语，主句 most royal families have survived 后接 because 原因从句说明存活原因。长句可先读主句再回读 unlike 与 because 两部分，理清'对比—结果—原因'三层逻辑。" },
+      { "title": "allow + 宾语 + 不定式", "text": "they allow voters to avoid the difficult search... 中，voters 是 allow 的宾语，to avoid... 是不定式宾补，意为'使选民免于（费力）……'。" }
+    ],
+    "words": [
+      { "word": "absolutist", "meaning": "adj. 专制主义的", "note": "名词 absolutism'专制君主制'的形容词；absolutist counterparts 指'实行专制的同类（君主）'。" },
+      { "word": "counterpart", "meaning": "n. 相对应的人（或物）", "note": "高频词，指'地位/职能相当的另一方'，此处指海湾和亚洲的君主。" },
+      { "word": "controversial", "meaning": "adj. 有争议的", "note": "非 controversial（无争议的）由前缀 non- 构成，是考点派生词。" }
+    ],
+    "phrases": [
+      { "text": "allow sb to do sth", "meaning": "使某人能够做某事", "note": "此处引申为'使选民免于去做……'，allow 有'给机会/免除'的含义。" },
+      { "text": "public figure", "meaning": "公众人物", "note": "固定搭配，a non-controversial but respected public figure 意为'无争议而受尊敬的公众人物'。" }
+    ]
+  },
+  "2015:A:9": {
+    "grammar": [
+      { "title": "简单主谓宾", "text": "主干为 kings and queens have a downside，undoubtedly 作状语表示'毫无疑问'。读懂 Even so（即便如此）的转折衔接即把握全段立场。" }
+    ],
+    "words": [
+      { "word": "downside", "meaning": "n. 不利的一面、缺点", "note": "反义词 upside'优点'；have a downside 意为'也有其负面'。" },
+      { "word": "undoubtedly", "meaning": "adv. 毫无疑问地", "note": "副词，表强烈肯定，= without doubt。" }
+    ],
+    "phrases": []
+  },
+  "2015:A:10": {
+    "grammar": [
+      { "title": "让步状语从句（表语 + as + 主语 + be）", "text": "Symbolic of national unity as they claim to be 是把表语 symbolic of national unity 提前 + as 构成的倒装让步，意为'尽管他们自称是民族团结的象征'。这是 as 让步的经典句式，阅读时先还原成 as they claim to be symbolic of national unity 再理解。" },
+      { "title": "破折号插入语 + 并列主语", "text": "their very history — and sometimes the way they behave today — 中，破折号插入 the way they behave today 与 history 并列，共同作 embodies 的主语；the way 后省略了引导词 that/in which（they behave today 为定语从句）。谓语 embodies 用单数，说明整体视为同一主语。" }
+    ],
+    "words": [
+      { "word": "symbolic", "meaning": "adj. 象征的", "note": "be symbolic of sth 意为'是……的象征'；名词 symbol，动词 symbolize。" },
+      { "word": "indefensible", "meaning": "adj. 站不住脚的、不可辩护的", "note": "前缀 in- + defensible'可辩护的'；修饰 privileges 意为'无法辩护的特权'。" },
+      { "word": "privilege", "meaning": "n. 特权", "note": "常用复数 privileges，与 inequality 并列，表'特权与不平等'。" }
+    ],
+    "phrases": [
+      { "text": "national unity", "meaning": "民族团结", "note": "全文反复出现的关键概念（unity 意为'团结、统一'）。" }
+    ]
+  },
+  "2015:A:11": {
+    "grammar": [
+      { "title": "when 定语从句修饰 a time", "text": "At a time when... 中 when 引导定语从句修饰 a time，说明'在……的时代'；从句主干为 economists are warning of rising inequality and the increasing power of inherited wealth。识别出 when 是定语从句而非时间状语从句，防止与句首 At a time 重复。" },
+      { "title": "it is bizarre that... should...", "text": "主句 it is bizarre 中 it 为形式主语，真正主语是 that wealthy aristocratic families should still be...；should 在此表'竟然、居然'，传达惊讶不满的语气（'竟仍然是……'）。" }
+    ],
+    "words": [
+      { "word": "bizarre", "meaning": "adj. 怪诞的、匪夷所思的", "note": "表'令人惊讶的怪异'，此处表达作者对现实的反讽态度。" },
+      { "word": "aristocratic", "meaning": "adj. 贵族的", "note": "名词 aristocrat'贵族'；wealthy aristocratic families 指'富有的贵族世家'。" },
+      { "word": "inherited", "meaning": "adj. 继承的", "note": "动词 inherit'继承'；inherited wealth 指'继承而来的财富'。" }
+    ],
+    "phrases": [
+      { "text": "warn of", "meaning": "警告、提醒注意", "note": "warning of rising inequality 意为'警告不平等加剧'；同义 warn against'告诫不要'。" },
+      { "text": "the symbolic heart", "meaning": "象征性核心", "note": "比喻用法，指'作为（国家）象征的核心'。" }
+    ]
+  },
+  "2015:A:12": {
+    "grammar": [
+      { "title": "strive + 不定式（to abandon or hide）", "text": "主干为 The most successful monarchies strive，后接 to abandon or hide their old aristocratic ways 作目的/宾语不定式，不定式内 abandon 与 hide 并列，共接 their old aristocratic ways。" }
+    ],
+    "words": [
+      { "word": "strive", "meaning": "v. 努力、奋力", "note": "strive to do sth'努力做某事'，比 try 更正式、更有'不懈追求'的意味。" },
+      { "word": "abandon", "meaning": "v. 放弃、摒弃", "note": "abandon or hide 连用表'摒弃或掩饰'，后接旧贵族做派。" },
+      { "word": "ways", "meaning": "n. 行为方式、作风", "note": "复数的 way 表'生活方式、做派'，old aristocratic ways 指'旧式贵族作派'。" }
+    ],
+    "phrases": []
+  },
+  "2015:A:13": {
+    "grammar": [
+      { "title": "并列谓语 + not 表否定对比", "text": "Princes and princesses 共管两个谓语 have day-jobs 与 ride bicycles，句末 not horses (or helicopters) 是对 ride 的对比否定，读作'骑自行车，而不是骑马（或乘直升机）'。" }
+    ],
+    "words": [
+      { "word": "day-job", "meaning": "n. 白天的工作、本职工作", "note": "合成词，强调王室成员也像普通人一样'有正经工作'，与旧式贵族作对比。" }
+    ],
+    "phrases": []
+  },
+  "2015:A:14": {
+    "grammar": [
+      { "title": "who 定语从句", "text": "these are wealthy families who party with the international 1% 中，who 引导定语从句修饰 families，party 在此活用为动词'参加社交聚会'。" },
+      { "title": "make + it + 形容词 + 不定式", "text": "media intrusiveness makes it increasingly difficult to maintain the right image 中，it 为形式宾语，真正宾语是 to maintain the right image，意为'媒体的侵扰使维护形象日益困难'。" }
+    ],
+    "words": [
+      { "word": "party", "meaning": "v. 参加聚会、交际应酬", "note": "熟词僻义：party 作动词表'与……社交/聚会'，party with sb 意为'与……往来应酬'。" },
+      { "word": "intrusiveness", "meaning": "n. 侵扰、干涉", "note": "形容词 intrusive'侵入性的'；media intrusiveness 指'媒体无孔不入的侵扰'。" },
+      { "word": "maintain", "meaning": "v. 维持、维护", "note": "maintain the right image 意为'维持恰当的形象'。" }
+    ],
+    "phrases": [
+      { "text": "make it difficult to do", "meaning": "使做某事变得困难", "note": "it 作形式宾语的固定句型，注意其后接不定式。" },
+      { "text": "the international 1%", "meaning": "全球最富有的 1%", "note": "指全球收入最高的百分之一人群，即超级富豪阶层。" }
+    ]
+  },
+  "2015:A:15": {
+    "grammar": [
+      { "title": "While 让步状语从句", "text": "While Europe's monarchies will no doubt be smart enough to survive for some time to come 中，While 表'尽管'（不是'当……时'），主句与从句形成让步转折；enough 后接不定式 to survive 说明'精明到足以存活'。" },
+      { "title": "强调句 it is...who...", "text": "主句 it is the British royals who have most to fear from the Spanish example 是强调句，强调 the British royals（英国王室），翻译为'正是英国王室……最应担忧'。" }
+    ],
+    "words": [
+      { "word": "monarchy", "meaning": "n. 君主制国家、君主制", "note": "此处 Europe's monarchies 指'欧洲各君主国/王室'，作可数名词。" },
+      { "word": "fear", "meaning": "v. 担忧、惧怕", "note": "have most to fear from sth 意为'最该惧怕某事物'。" }
+    ],
+    "phrases": [
+      { "text": "no doubt", "meaning": "毫无疑问", "note": "副词性短语，常作插入语，= without doubt。" },
+      { "text": "for some time to come", "meaning": "在未来的一段时间里", "note": "to come 作后置定语修饰 time，表'即将到来的'。" }
+    ]
+  },
+  "2015:A:16": {
+    "grammar": [
+      { "title": "强调句 it is...who... + only", "text": "It is only the Queen who has preserved... 是强调句，强调 only the Queen（只有女王），说明女王是唯一维系君主制声誉的人。阅读时抓住'只有女王做到，其他人未做到'的对比。" },
+      { "title": "插入语 (if well-heeled)", "text": "括号内 if well-heeled 为省略的让步插入，= if she is well-heeled（尽管她家境阔绰），读时可先跳过再回补。" }
+    ],
+    "words": [
+      { "word": "preserve", "meaning": "v. 维护、保留", "note": "preserve the reputation 意为'维系声誉'，与 preserve（保护、保存）义近。" },
+      { "word": "well-heeled", "meaning": "adj. 富有的、阔绰的", "note": "口语化合成词，字面'鞋跟好'即'有钱'。" },
+      { "word": "granny", "meaning": "n. 奶奶、祖母", "note": "granny style 指'老奶奶式（朴素平实）的风格'，带亲切色彩。" }
+    ],
+    "phrases": []
+  },
+  "2015:A:17": {
+    "grammar": [
+      { "title": "非限制性定语从句 who", "text": "The danger will come with Charles, who has both an expensive taste of lifestyle and a pretty hierarchical view of the world 中，who 引导非限制性定语从句补充说明查尔斯的特征，从句内 both...and... 连接两个宾语。" }
+    ],
+    "words": [
+      { "word": "hierarchical", "meaning": "adj. 等级制的、等级观念的", "note": "名词 hierarchy'等级制度'；hierarchical view of the world 指'等级观念强烈的世界观'。" },
+      { "word": "pretty", "meaning": "adv. 相当、颇", "note": "口语化程度副词，= fairly，修饰 hierarchical。" },
+      { "word": "taste", "meaning": "n. 品味、爱好", "note": "an expensive taste of lifestyle 意为'奢华的（生活方式）品味'。" }
+    ],
+    "phrases": [
+      { "text": "both...and...", "meaning": "既……又……", "note": "连接 an expensive taste of lifestyle 与 a pretty hierarchical view of the world 两个并列宾语。" },
+      { "text": "come with", "meaning": "随……而来", "note": "The danger will come with Charles 意为'危险将伴随查尔斯（登基）而来'。" }
+    ]
+  },
+  "2015:A:18": {
+    "grammar": [
+      { "title": "fail + 不定式 + 宾语从句内嵌原因从句", "text": "He has failed to understand 后接 that 宾语从句；从句主干为 monarchies have largely survived，其后 because they provide a service 说明存活原因，句末 as non-controversial and non-political heads of state 补充'以何种身份提供服务'。读时注意 because 是解释 survived 的原因，别误接 understand。" }
+    ],
+    "words": [
+      { "word": "largely", "meaning": "adv. 大体上、在很大程度上", "note": "表程度，= mostly；largely survived 意为'大体存续下来'。" },
+      { "word": "fail to do", "meaning": "未能做到、没有", "note": "固定搭配，表'没有/没能'，此处指查尔斯'未能明白'。" }
+    ],
+    "phrases": [
+      { "text": "provide a service", "meaning": "提供一种服务/功用", "note": "此处指君主作为国家元首所提供的'象征性服务'。" },
+      { "text": "heads of state", "meaning": "国家元首", "note": "固定复数搭配，as...heads of state 作补足说明。" }
+    ]
+  },
+  "2015:A:19": {
+    "grammar": [
+      { "title": "宾语从句内嵌强调句与插入语", "text": "that 引导宾语从句，从句中先插入 as English history shows（'正如英国历史所显示的'），核心是强调句 it is kings, not republicans, who are the monarchy's worst enemies。not republicans 夹在中间，是对 kings 的对比否定，阅读时先还原'是国王，而非共和派，是君主制最大的敌人'。" },
+      { "title": "ought to", "text": "Charles ought to know 中 ought to 表'应当'（情态动词），语气比 should 略强，表道义上的应该。" }
+    ],
+    "words": [
+      { "word": "enemy", "meaning": "n. 敌人", "note": "复数 enemies；the monarchy's worst enemies 指'君主制最大的敌人'，观点讽刺：国王自己才是威胁。" },
+      { "word": "ought to", "meaning": "情态动词 应当", "note": "= should，ought to know 意为'应当明白'。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:0": {
+    "grammar": [
+      { "title": "特殊疑问句 + 助动词提前", "text": "Just how much does the Constitution protect your digital data? 中 how much 为疑问词，does 为助动词提前，正常语序为 the Constitution protects your digital data how much。Just 加强语气，意为'到底在多大程度上'。" }
+    ],
+    "words": [
+      { "word": "constitution", "meaning": "n. 宪法", "note": "首字母大写 the Constitution 特指'美国宪法'，全文核心概念。" },
+      { "word": "digital", "meaning": "adj. 数字的", "note": "digital data 指'数字数据'，与智能手机内容相关。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:1": {
+    "grammar": [
+      { "title": "whether 宾语从句", "text": "consider 后接 whether police can search... 作宾语从句，whether 表'是否'。宾语从句内又嵌套 if 引导的条件状语从句 if the phone is on or around a person during an arrest，限定'逮捕时手机在身边'这一前提。" },
+      { "title": "介词短语作定语/状语", "text": "the contents of a mobile phone 中 of 短语限定 contents；without a warrant 作状语修饰 search，表示'无搜查令（的情况下）'。" }
+    ],
+    "words": [
+      { "word": "warrant", "meaning": "n. 搜查令、逮捕令", "note": "法律用语，without a warrant 意为'没有搜查令'；动词义'证明……正当'。" },
+      { "word": "consider", "meaning": "v. 考虑、审议", "note": "接 whether 从句时表'审议是否'，法庭语境下指'审理'。" },
+      { "word": "arrest", "meaning": "n. 逮捕", "note": "during an arrest 意为'在逮捕过程中'；动词 arrest'逮捕'。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:2": {
+    "grammar": [
+      { "title": "ask + 宾语 + 不定式（refrain from）", "text": "California has asked the justices to refrain from a sweeping ruling 中，the justices 为宾语，to refrain from... 为宾补，意为'请求法官们不要作出笼统裁决'。" },
+      { "title": "particularly one + 定语从句 + 同位语从句", "text": "particularly one 是 a sweeping ruling 的同位语（'尤其不要作出那样的裁决'），one 后接定语从句 that upsets the old assumption；assumption 后又接 that 同位语从句说明'旧假设'的具体内容。两层 that 从句的归属（定语 vs 同位语）是理解关键。" }
+    ],
+    "words": [
+      { "word": "refrain", "meaning": "v. 克制、避免", "note": "refrain from doing 意为'克制不做某事'，比 avoid 正式。" },
+      { "word": "sweeping", "meaning": "adj. 笼统的、一刀切的", "note": "a sweeping ruling 指'范围过宽的笼统裁决'，sweep 的形容词。" },
+      { "word": "assumption", "meaning": "n. 假设、设想", "note": "the old assumption 指'旧的（法律）假设'，后接同位语从句。" },
+      { "word": "possessions", "meaning": "n. 随身物品、财产", "note": "复数表'个人财物'；the possessions of suspects 指'嫌疑人随身物品'。" }
+    ],
+    "phrases": [
+      { "text": "refrain from", "meaning": "克制、避免（做）", "note": "固定搭配，from 后接名词/动名词。" },
+      { "text": "search through", "meaning": "翻查、搜查", "note": "through 表'从内部翻遍'，search through the possessions 意为'翻查随身物品'。" },
+      { "text": "at the time of", "meaning": "在……的时候", "note": "at the time of their arrest 意为'在他们被捕之时'。" }
+    ]
+  },
+  "2015:B:3": {
+    "grammar": [
+      { "title": "it 形式主语 + for sb to do", "text": "It is hard, the state argues, for judges to assess... 中，it 为形式主语，真正主语是 for judges to assess the implications...，意为'法官们很难评估……'。翻译时按'对法官来说，评估……很困难'处理。" },
+      { "title": "插入语 the state argues", "text": "the state argues（该州辩称）插在主句中间，表明这是加州的立场，阅读时先跳出插入语抓住 It is hard... 主干。" }
+    ],
+    "words": [
+      { "word": "assess", "meaning": "v. 评估、评定", "note": "法律/学术高频词，assess the implications 意为'评估影响/后果'。" },
+      { "word": "implications", "meaning": "n. 影响、后果、含义", "note": "常用复数，指'（潜在的）影响、牵涉'。" },
+      { "word": "rapidly changing", "meaning": "adj. 日新月异的", "note": "rapidly changing technologies 意为'快速变化的技术'。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:4": {
+    "grammar": [
+      { "title": "虚拟条件句（对现在/未来的假设）", "text": "The court would be recklessly modest if it followed California's advice 中，主句 would be 与从句 followed（过去式）构成虚拟语气，表示'如果（真的）听从加州的建议，将会是……'，作者隐含'法院不应采纳'的立场。" }
+    ],
+    "words": [
+      { "word": "recklessly", "meaning": "adv. 鲁莽地、不计后果地", "note": "形容词 reckless'鲁莽的'；recklessly modest 意为'谦逊得过分/不负责任'，表贬义。" },
+      { "word": "modest", "meaning": "adj. 谦逊的、有分寸的", "note": "此处带贬义色彩，'过分谦卑、不作为'。" }
+    ],
+    "phrases": [
+      { "text": "follow one's advice", "meaning": "听从某人的建议", "note": "follow 表'听从'，同 take one's advice。" }
+    ]
+  },
+  "2015:B:5": {
+    "grammar": [
+      { "title": "so that 结果/目的状语从句", "text": "主句 Enough of the implications are discernable, even obvious，其后 so that the justices can and should provide updated guidelines... 说明'因此法官能够而且应当……'，so that 在此表结果。" },
+      { "title": "Enough of + 名词作主语", "text": "Enough of the implications 意为'这些影响中有足够多（可辨别的部分）'，作复数主语，谓语用 are。" }
+    ],
+    "words": [
+      { "word": "discernable", "meaning": "adj. 可辨别的、可识别的", "note": "动词 discern'辨别'；与 obvious 递进并列：'可辨别，甚至显而易见'。" },
+      { "word": "guidelines", "meaning": "n. 指导方针、准则", "note": "常用复数，updated guidelines 指'更新后的指导方针'。" },
+      { "word": "defendants", "meaning": "n. 被告", "note": "法律用语，与 plaintiff'原告'相对；此处与 police、lawyers 并列。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:6": {
+    "grammar": [
+      { "title": "同位语从句（argument that...）", "text": "discarding California's lame argument 后的 that 从句（exploring the contents of a smartphone... is similar to...）解释 argument 的内容，是同位语从句而非定语从句。从句主语是动名词短语 exploring the contents of a smartphone，谓语 is similar to。" },
+      { "title": "破折号同位语 + say 插入语", "text": "a vast storehouse of digital information 是 smartphone 的同位语（'数字信息的巨大宝库'）；say 是插入语，意为'比如说'，后接 going through a suspect's purse（动名词作介词 to 的宾语）。" }
+    ],
+    "words": [
+      { "word": "lame", "meaning": "adj. 站不住脚的、蹩脚的", "note": "lame argument 意为'无力的、站不住脚的论点'，是贬义词。" },
+      { "word": "discard", "meaning": "v. 丢弃、摒弃", "note": "discard an argument 意为'抛弃（错误）论点'。" },
+      { "word": "storehouse", "meaning": "n. 仓库、宝库", "note": "合成词，a vast storehouse of digital information 指'海量数字信息的宝库'。" }
+    ],
+    "phrases": [
+      { "text": "be similar to", "meaning": "与……相似", "note": "固定搭配，to 后接名词/动名词。" },
+      { "text": "go through", "meaning": "翻查、检查", "note": "go through a suspect's purse 意为'翻查嫌疑人的钱包'；与 search through 同义反复使用。" }
+    ]
+  },
+  "2015:B:7": {
+    "grammar": [
+      { "title": "宾语从句 + when 时间状语从句", "text": "The court has ruled that police don't violate the Fourth Amendment 为宾语从句；从句后 when they go through the wallet or pocketbook of an arrestee without a warrant 限定'何时不算违反'（无令翻查时），without a warrant 再作方式状语。" }
+    ],
+    "words": [
+      { "word": "violate", "meaning": "v. 违反、侵犯", "note": "violate the Fourth Amendment 意为'违反宪法第四修正案'。" },
+      { "word": "amendment", "meaning": "n. 修正案", "note": "the Fourth Amendment 指美国宪法第四修正案（禁止无理搜查），全文核心法律概念。" },
+      { "word": "arrestee", "meaning": "n. 被逮捕者", "note": "由 arrest + 后缀 -ee（被动者）构成，同 employee、trainee。" },
+      { "word": "pocketbook", "meaning": "n. 手包、钱包", "note": "美式英语，与 wallet 并列指随身钱夹。" }
+    ],
+    "phrases": [
+      { "text": "go through", "meaning": "翻查、检查", "note": "go through the wallet or pocketbook 意为'翻查钱包或手包'。" }
+    ]
+  },
+  "2015:B:8": {
+    "grammar": [
+      { "title": "动名词短语作主语 + 动名词作介词宾语", "text": "exploring one's smartphone 是主语（动名词短语），谓语 is more like 后接 entering his or her home 作介词 like 的宾语（也是动名词）。整句即'检查手机更像进入人家中'，动名词贯穿主宾两端是理解关键。" }
+    ],
+    "words": [
+      { "word": "explore", "meaning": "v. 探索、检查", "note": "此处为'（详细）检查手机内容'，exploring 反复出现是本文关键词。" }
+    ],
+    "phrases": [
+      { "text": "be more like", "meaning": "更像、更像是", "note": "like 为介词后接动名词；more like 表'与其说……不如说'的比较。" }
+    ]
+  },
+  "2015:B:9": {
+    "grammar": [
+      { "title": "简单句 + 四重并列宾语", "text": "A smartphone may contain 后依次列出 an arrestee's reading history, financial history, medical history and comprehensive records of recent correspondence 四个宾语，历数手机内的隐私信息。阅读时按并列项逐一抓取即可。" }
+    ],
+    "words": [
+      { "word": "comprehensive", "meaning": "adj. 全面的、详尽的", "note": "comprehensive records 意为'完整/全面的记录'。" },
+      { "word": "correspondence", "meaning": "n. 通信、往来信件", "note": "不可数名词，recent correspondence 指'近期的通讯记录'。" },
+      { "word": "medical", "meaning": "adj. 医疗的", "note": "medical history 指'病历、病史'。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:10": {
+    "grammar": [
+      { "title": "so much the + 比较级", "text": "has made that exploration so much the easier 中，so much the easier 是固定表达，意为'（变得）更加容易得多'，the + 比较级前面加 so much 表程度倍增。注意 easier 是形容词比较级，不是 the + 形容词。" },
+      { "title": "插入语 meanwhile", "text": "meanwhile（与此同时）以逗号隔开作插入语，提示与上文'手机信息丰富'并列的时间对比。" }
+    ],
+    "words": [
+      { "word": "meanwhile", "meaning": "adv. 与此同时", "note": "连接副词，表'在（前文所述）的同时'。" },
+      { "word": "exploration", "meaning": "n. 检查、探究", "note": "指上文的 exploring（检查手机内容），注意 that exploration 的指代。" }
+    ],
+    "phrases": [
+      { "text": "cloud computing", "meaning": "云计算", "note": "科技热词，指通过云端存储/同步数据的技术。" }
+    ]
+  },
+  "2015:B:11": {
+    "grammar": [
+      { "title": "take steps + 不定式表目的", "text": "Americans should take steps to protect their digital privacy 中，take steps 为'采取措施'，to protect... 是不定式表目的。段落论点句，结构简单。" }
+    ],
+    "words": [
+      { "word": "privacy", "meaning": "n. 隐私", "note": "digital privacy 指'数字隐私'，全文另一核心概念。" },
+      { "word": "step", "meaning": "n. 步骤、措施", "note": "take steps 意为'采取措施'，同 take measures。" }
+    ],
+    "phrases": [
+      { "text": "take steps to do", "meaning": "采取措施做某事", "note": "固定搭配，step 用复数。" }
+    ]
+  },
+  "2015:B:12": {
+    "grammar": [
+      { "title": "动名词短语作主语", "text": "keeping sensitive information on these devices 是动名词短语作主语，谓语 is increasingly a requirement of normal life。阅读时抓住'保存敏感信息'这个行为作主语中心。" }
+    ],
+    "words": [
+      { "word": "sensitive", "meaning": "adj. 敏感的", "note": "sensitive information 指'敏感信息'，是隐私语境高频词。" },
+      { "word": "requirement", "meaning": "n. 要求、必要条件", "note": "a requirement of normal life 意为'正常生活的必需'。" },
+      { "word": "devices", "meaning": "n. 设备", "note": "these devices 回指上文手机等电子设备。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:13": {
+    "grammar": [
+      { "title": "have a right + 不定式 + expect 宾补", "text": "Citizens still have a right to expect 中，to expect... 是不定式作后置定语修饰 right；expect 后又接复合宾语 private documents to remain private and protected（不定式作宾补），意为'期待私人文件保持私密并受保护'。" }
+    ],
+    "words": [
+      { "word": "prohibition", "meaning": "n. 禁止", "note": "prohibition on unreasonable searches 指'对无理搜查的禁止条款'，on 表'针对'。" },
+      { "word": "unreasonable", "meaning": "adj. 不合理的、无理的", "note": "unreasonable searches 与第四修正案对应，指'无理搜查'。" },
+      { "word": "protected", "meaning": "adj. 受保护的", "note": "remain private and protected 中 protected 为过去分词作表语，'保持私密并受保护'。" }
+    ],
+    "phrases": [
+      { "text": "have a right to do", "meaning": "有权做某事", "note": "固定搭配，to 后接动词原形。" },
+      { "text": "prohibition on", "meaning": "对……的禁止", "note": "名词 prohibition 后接 on，同 prohibition against。" }
+    ]
+  },
+  "2015:B:14": {
+    "grammar": [
+      { "title": "as is often the case 方式状语从句", "text": "As so often is the case 是固定句式，意为'正如经常发生的情况一样'（如同往常一样），as 作关系代词指代主句内容。阅读时先跳过它抓主句。" },
+      { "title": "动名词短语作主语", "text": "stating that principle 是动名词短语作主语（'阐明这一原则'），谓语 doesn't ease the challenge of line-drawing。" }
+    ],
+    "words": [
+      { "word": "ease", "meaning": "v. 缓解、减轻", "note": "ease the challenge 意为'缓解困难'；名词义'轻松'。" },
+      { "word": "principle", "meaning": "n. 原则", "note": "that principle 回指上文'公民隐私受宪法保护'的原则。" },
+      { "word": "challenge", "meaning": "n. 难题、挑战", "note": "the challenge of line-drawing 指'划定界限的难题'。" }
+    ],
+    "phrases": [
+      { "text": "line-drawing", "meaning": "划定界线", "note": "合成名词，指在法律上'划定（允许/禁止）界限'。" },
+      { "text": "as is often the case", "meaning": "情况常常如此", "note": "固定句式，as 从句放在句首表'正如……'。" }
+    ]
+  },
+  "2015:B:15": {
+    "grammar": [
+      { "title": "it 形式主语 + for sb to do", "text": "In many cases, it would not be overly burdensome for authorities to obtain a warrant to search through phone contents 中，it 为形式主语，for authorities 是不定式 to obtain... 的逻辑主语，意为'对当局来说，获取搜查令并非十分繁琐'；第二个不定式 to search through phone contents 表'（搜查令的）目的'。" }
+    ],
+    "words": [
+      { "word": "burdensome", "meaning": "adj. 繁重的、麻烦的", "note": "名词 burden'负担' + 后缀 -some；overly burdensome 意为'过分繁琐'。" },
+      { "word": "authorities", "meaning": "n. 当局、官方", "note": "复数表'（政府）当局'，法律语境高频。" },
+      { "word": "obtain", "meaning": "v. 获得、取得", "note": "obtain a warrant 意为'申请/取得搜查令'。" }
+    ],
+    "phrases": [
+      { "text": "in many cases", "meaning": "在许多情况下", "note": "case 复数，此处表'情形'。" },
+      { "text": "search through", "meaning": "搜查、翻查", "note": "search through phone contents 意为'搜查手机内容'。" }
+    ]
+  },
+  "2015:B:16": {
+    "grammar": [
+      { "title": "分词短语作时间状语（when/while + doing）", "text": "when facing severe, urgent circumstances 与 while waiting for a warrant 都是'连词 + 现在分词'省略主语的状语，分别还原为 when they are facing... 与 while they are waiting for...，表示'面临……时'与'在等待……期间'。" },
+      { "title": "并列主句 + ensure 宾语从句", "text": "and 连接两个并列主句（could invalidate... / could take reasonable measures）；第二个主句内 to ensure 后接 that 宾语从句 phone data are not erased or altered，宾语从句内为被动语态。" }
+    ],
+    "words": [
+      { "word": "invalidate", "meaning": "v. 使无效、使失效", "note": "invalidate protections 意为'使（宪法）保护失效/搁置保护'。" },
+      { "word": "circumstances", "meaning": "n. 情况、情形", "note": "severe, urgent circumstances 意为'严重紧急的情况'。" },
+      { "word": "erased", "meaning": "v. 删除", "note": "erase 的过去分词，be erased or altered 意为'被删除或更改'。" }
+    ],
+    "phrases": [
+      { "text": "take measures", "meaning": "采取措施", "note": "take reasonable measures 意为'采取合理措施'。" },
+      { "text": "wait for", "meaning": "等待", "note": "waiting for a warrant 意为'等待搜查令（下达）'。" }
+    ]
+  },
+  "2015:B:17": {
+    "grammar": [
+      { "title": "allow room for sb to do", "text": "may want to allow room for police to cite situations 中，allow room for 意为'为……留出余地'，for police 后接不定式 to cite situations；room 此处为不可数'空间、余地'。" },
+      { "title": "where 定语从句", "text": "situations 后接 where 引导的定语从句 where they are entitled to more freedom，where 在从句中作地点状语，指'在这些情形下他们有权……'。" }
+    ],
+    "words": [
+      { "word": "cite", "meaning": "v. 引用、援引", "note": "cite situations 意为'援引（某种）情形'。" },
+      { "word": "entitled", "meaning": "adj. 有权的、有资格的", "note": "be entitled to sth 意为'有权享有某物'，为固定搭配。" },
+      { "word": "room", "meaning": "n. 余地、空间", "note": "allow room for 中 room 为抽象'余地'。" }
+    ],
+    "phrases": [
+      { "text": "be entitled to", "meaning": "有权（做/拥有）", "note": "be entitled to more freedom 意为'有权享有更多自由'。" },
+      { "text": "allow room for", "meaning": "为……留出余地", "note": "常用搭配，表'给……留空间'。" }
+    ]
+  },
+  "2015:B:18": {
+    "grammar": [
+      { "title": "swallow + 宾语 + whole（宾补）", "text": "the justices should not swallow California's argument whole 中，whole 作宾语补足语修饰 argument，意为'不应对加州的论点照单全收'。这是作者表态句：法院不应全盘接受。" }
+    ],
+    "words": [
+      { "word": "swallow", "meaning": "v. 吞下、全盘接受", "note": "此处为隐喻'不加批判地接受'，swallow sth whole 为固定表达。" },
+      { "word": "justices", "meaning": "n. 法官", "note": "the justices 特指最高法院大法官，文中与 the court 互换使用。" }
+    ],
+    "phrases": [
+      { "text": "swallow sth whole", "meaning": "全盘接受、囫囵吞枣地接受", "note": "whole 为副词性宾补，字面'整个吞下'。" }
+    ]
+  },
+  "2015:B:19": {
+    "grammar": [
+      { "title": "简单主谓宾", "text": "New, disruptive technology sometimes demands novel applications of the Constitution's protections 为主谓宾简单句，demands 意为'要求'，novel applications 指'新颖的运用方式'。" }
+    ],
+    "words": [
+      { "word": "disruptive", "meaning": "adj. 颠覆性的、破坏性的", "note": "disruptive technology 指'颠覆性技术'，当今热词。" },
+      { "word": "demand", "meaning": "v. 要求、需要", "note": "此处非'强烈要求'而表'（客观上）需要'。" },
+      { "word": "novel", "meaning": "adj. 新颖的、新的", "note": "此处非名词'小说'，而作形容词'新颖的'，是熟词僻义考点。" }
+    ],
+    "phrases": []
+  },
+  "2015:B:20": {
+    "grammar": [
+      { "title": "compare A with B + 冒号后的并列对比", "text": "主干 Orin Kerr... compares the explosion and accessibility of digital information in the 21st century with the establishment of automobile use as a virtual necessity of life in the 20th，用 compare A with B 把'21世纪数字信息'与'20世纪汽车'相类比；冒号后 then...; now... 两句并列，形成'当时……如今……'的时间对比。" },
+      { "title": "同位语 + as 介词短语", "text": "a law professor 是 Orin Kerr 的同位语；as a virtual necessity of life 意为'作为生活中实质上不可或缺的东西'。" }
+    ],
+    "words": [
+      { "word": "explosion", "meaning": "n. 激增、爆炸", "note": "the explosion of digital information 指'数字信息的爆炸式增长'。" },
+      { "word": "accessibility", "meaning": "n. 易获得性、可及性", "note": "名词 access'获得'；与 explosion 并列作 compare 的宾语。" },
+      { "word": "virtual", "meaning": "adj. 实质上的、几乎的", "note": "a virtual necessity 意为'实质上（几乎是）必需的'；注意与'虚拟的'义项区分。" },
+      { "word": "necessity", "meaning": "n. 必需品、必要性", "note": "a virtual necessity of life 指'生活必需品'。" }
+    ],
+    "phrases": [
+      { "text": "compare A with B", "meaning": "把 A 与 B 作比较", "note": "固定搭配，with 也可作 to。" },
+      { "text": "sort out", "meaning": "厘清、解决", "note": "they must sort out how... 意为'他们必须厘清……'。" }
+    ]
+  },
+  "2015:C:0": {
+    "grammar": [
+      { "title": "宾语从句前置 + 报道句倒装", "text": "主句 editor-in-chief Marcia McNutt announced today 置于句末，真正宾语是句首的 The journal Science is adding...（宾语从句，引导词 that 省略）。这是典型的新闻/报道句式：先说报道内容，后补'谁宣布的'，阅读时把两句顺序颠倒更易理解。" }
+    ],
+    "words": [
+      { "word": "peer-review", "meaning": "n. 同行评审", "note": "学术出版核心机制，指由同行专家审稿。" },
+      { "word": "statistical", "meaning": "adj. 统计的", "note": "statistical checks 指'统计审查'，全文关键词。" },
+      { "word": "editor-in-chief", "meaning": "n. 主编", "note": "复合名词，chief editor 的倒序形式。" }
+    ],
+    "phrases": [
+      { "text": "an extra round of", "meaning": "额外一轮", "note": "round 此处表'（审查的）一轮'。" },
+      { "text": "add A to B", "meaning": "把 A 添加到 B", "note": "adding an extra round... to its peer-review process 意为'在同行评审流程中增加一轮……'。" }
+    ]
+  },
+  "2015:C:1": {
+    "grammar": [
+      { "title": "同位语从句（concern that...）", "text": "after widespread concern 后的 that 从句（basic mistakes in data analysis are contributing to the irreproducibility...）说明 concern 的具体内容，是同位语从句。整句逻辑：'这一政策是在其他期刊（采取类似举措）之后出台的，因为人们普遍担心……'。" }
+    ],
+    "words": [
+      { "word": "irreproducibility", "meaning": "n. 不可复现性、无法重现", "note": "reproducible'可复现的'的反义名词，指研究成果无法被重复验证，是本文讨论的核心科学问题。" },
+      { "word": "widespread", "meaning": "adj. 普遍的、广泛的", "note": "widespread concern 意为'普遍的担忧'。" },
+      { "word": "findings", "meaning": "n. 研究结果、发现", "note": "published research findings 指'已发表的研究成果'。" }
+    ],
+    "phrases": [
+      { "text": "contribute to", "meaning": "促成、导致", "note": "are contributing to the irreproducibility 意为'正导致……无法复现'。" },
+      { "text": "data analysis", "meaning": "数据分析", "note": "科研语境核心词，basic mistakes in data analysis 指'数据分析中的基本错误'。" }
+    ]
+  },
+  "2015:C:2": {
+    "grammar": [
+      { "title": "直接引语 + 倒装报道句", "text": "引号内是引语，其后 writes McNutt in an editorial 为主谓倒装（谓语 writes 在主语 McNutt 前），是报道类文章的常见写法。published in our journal 是过去分词短语作后置定语修饰 conclusions。" }
+    ],
+    "words": [
+      { "word": "confidence", "meaning": "n. 信心、信任", "note": "have confidence in sth 意为'对……有信心'。" },
+      { "word": "editorial", "meaning": "n. 社论", "note": "in an editorial 意为'在一篇社论中'；形容词义'编辑的'。" },
+      { "word": "conclusions", "meaning": "n. 结论", "note": "the conclusions published in our journal 指'本刊发表的结论'。" }
+    ],
+    "phrases": [
+      { "text": "have confidence in", "meaning": "对……有信心", "note": "固定搭配，in 后接对象。" }
+    ]
+  },
+  "2015:C:3": {
+    "grammar": [
+      { "title": "现在分词作伴随状语", "text": "Working with the American Statistical Association 位于句首，是现在分词短语作状语，与主句主语 the journal 构成主动关系（'该杂志与美国统计协会合作'）。读时先跳过分词抓主句。" },
+      { "title": "appoint sb to...", "text": "the journal has appointed seven experts to a statistics board of reviewing editors 中，appoint...to... 意为'任命……到（某职位/机构）'。" }
+    ],
+    "words": [
+      { "word": "appoint", "meaning": "v. 任命、委派", "note": "appoint sb to sth 意为'任命某人到某机构/职位'。" },
+      { "word": "association", "meaning": "n. 协会", "note": "the American Statistical Association 为专有名词'美国统计协会'。" },
+      { "word": "experts", "meaning": "n. 专家", "note": "seven experts 指七位统计专家。" }
+    ],
+    "phrases": [
+      { "text": "work with", "meaning": "与……合作", "note": "Working with... 现在分词短语，此处表'与……合作'。" }
+    ]
+  },
+  "2015:C:4": {
+    "grammar": [
+      { "title": "被动语态 + 并列 by 介词短语", "text": "Manuscript will be flagged up 是被动语态（'稿件将被标记出来'），其后连续三个 by 短语（by the journal's internal editors, or by its existing Board of Reviewing Editors or by outside peer reviewers）说明'由谁标记'，阅读时按 or 划分三组并列来源。" }
+    ],
+    "words": [
+      { "word": "manuscript", "meaning": "n. 手稿、稿件", "note": "学术出版语境指'投稿的论文原稿'。" },
+      { "word": "scrutiny", "meaning": "n. 仔细审查", "note": "additional scrutiny 意为'额外的审查'，动词 scrutinize。" },
+      { "word": "flag up", "meaning": "v. 标出、标示", "note": "英式短语，flag up 意为'特别标记出来'。" }
+    ],
+    "phrases": [
+      { "text": "peer reviewers", "meaning": "同行评审人", "note": "outside peer reviewers 指'外部同行评审专家'。" },
+      { "text": "flag up", "meaning": "标记出来", "note": "被动 will be flagged up 意为'将被标示'。" }
+    ]
+  },
+  "2015:C:5": {
+    "grammar": [
+      { "title": "find + 宾语 + 不定式（宾补）", "text": "The SBoRE panel will then find external statisticians to review these manuscripts 中，external statisticians 是宾语，to review... 是不定式作宾补，表示'物色外部统计学家来审查稿件'。" }
+    ],
+    "words": [
+      { "word": "panel", "meaning": "n. 专门小组", "note": "the SBoRE panel 指'统计审稿委员会（人员）'。" },
+      { "word": "statistician", "meaning": "n. 统计学家", "note": "external statisticians 指'外部统计学家'。" },
+      { "word": "external", "meaning": "adj. 外部的", "note": "与 internal'内部的'相对。" }
+    ],
+    "phrases": []
+  },
+  "2015:C:6": {
+    "grammar": [
+      { "title": "过去分词作时间状语（Asked whether...）", "text": "Asked whether any particular papers had impelled the change 是过去分词短语作状语，逻辑主语为 McNutt（'被问及……时'），相当于 When McNutt was asked...。其后 Mcnutt said 后接整段引语作宾语。" },
+      { "title": "引语内双谓语并列 + 省略关系词的定语从句", "text": "引语中 The creation... was motivated by... and is part of... 两个谓语（was motivated 与 is）共用主语 The creation；句末 in the research we publish 中 we publish 是省略 that 的定语从句修饰 the research。" }
+    ],
+    "words": [
+      { "word": "impel", "meaning": "v. 促使、推动", "note": "had impelled the change 意为'促成了这一改变'，impel 比 push 正式。" },
+      { "word": "motivated", "meaning": "adj. 出于……动机的", "note": "be motivated by 意为'受……驱动/出于……原因'。" },
+      { "word": "reproducibility", "meaning": "n. 可复现性", "note": "increase reproducibility 指'提高（研究的）可复现性'，全文核心词。" },
+      { "word": "drive", "meaning": "n. 努力、行动", "note": "overall drive to increase... 意为'提高……的整体努力/推动'。" }
+    ],
+    "phrases": [
+      { "text": "be motivated by", "meaning": "出于……动机", "note": "was motivated by concerns 意为'是出于（对……的）担忧而设立'。" }
+    ]
+  },
+  "2015:C:7": {
+    "grammar": [
+      { "title": "多重同位语", "text": "a biostatistician at the Harvard School of Public Health 与 a member of the SBoRE group 是两个同位语，补充说明 Giovanni Parmigiani 的身份，阅读时可先跳过再回看。" },
+      { "title": "expect sb to do", "text": "says 后省略 that，从句 he expects the board to \"play primarily an advisory role\" 中，the board 为宾语、to play... 为宾补，意为'他预期委员会将主要发挥咨询作用'。" }
+    ],
+    "words": [
+      { "word": "biostatistician", "meaning": "n. 生物统计学家", "note": "bio-（生物）+ statistician（统计学家）。" },
+      { "word": "advisory", "meaning": "adj. 咨询的、顾问的", "note": "advisory role 意为'咨询/顾问角色'，名词 advice 的形容词。" }
+    ],
+    "phrases": [
+      { "text": "play a role", "meaning": "发挥作用", "note": "play primarily an advisory role 意为'主要发挥咨询作用'。" },
+      { "text": "expect sb to do", "meaning": "预期某人做某事", "note": "expects the board to... 为'expect + 宾语 + 不定式'结构。" }
+    ]
+  },
+  "2015:C:8": {
+    "grammar": [
+      { "title": "because 原因状语从句 + find 复合宾语", "text": "because 从句中，he \"found the foresight behind the establishment of the SBoRE to be novel, unique and likely to have a lasting impact\" 用了 find + 宾语 + to be + 补语结构（'发现……是……'），补语由 novel、unique 和 likely to have a lasting impact 三个并列成分构成。" }
+    ],
+    "words": [
+      { "word": "foresight", "meaning": "n. 远见、先见之明", "note": "fore-（预先）+ sight；the foresight behind the establishment 指'设立委员会背后的远见'。" },
+      { "word": "novel", "meaning": "adj. 新颖的", "note": "与 unique（独特）并列；注意熟词僻义，非'小说'。" },
+      { "word": "lasting", "meaning": "adj. 持久的", "note": "a lasting impact 意为'持久的影响'，动词 last'持续'。" }
+    ],
+    "phrases": [
+      { "text": "agree to do", "meaning": "同意做某事", "note": "agreed to join 意为'同意加入（委员会）'。" }
+    ]
+  },
+  "2015:C:9": {
+    "grammar": [
+      { "title": "not only... but...（also 省略）", "text": "This impact will not only be through the publications in Science itself, but hopefully through a larger group of publishing places 中，not only...but... 并列两个 through 介词短语，表'不仅通过……而且通过……'；hopefully 为插入语表'有望'。" },
+      { "title": "that 定语从句 + model A after B", "text": "publishing places 后接 that 定语从句 that may want to model their approach after Science，其中 model A after B 意为'仿照 B 来塑造 A'。" }
+    ],
+    "words": [
+      { "word": "publication", "meaning": "n. 出版物、发表", "note": "the publications in Science itself 指'《科学》杂志自己发表的文章'；publishing places 指'出版机构'。" },
+      { "word": "hopefully", "meaning": "adv. 有希望地", "note": "作插入语，意为'但愿、有望'。" }
+    ],
+    "phrases": [
+      { "text": "model A after B", "meaning": "仿照 B 的模式来塑造 A", "note": "model their approach after Science 意为'效仿《科学》的做法'。" }
+    ]
+  },
+  "2015:C:10": {
+    "grammar": [
+      { "title": "同位语 + 定语从句", "text": "a physician who studies research methodology 是 John Ioannidis 的同位语，其中 who 定语从句修饰 physician，说明其研究方向。" },
+      { "title": "并列表语 + 省略", "text": "says 后 that 从句中，表语为 \"a most welcome step forward\" and \"long overdue\" 并列；long overdue 前省略了 is（应为 is long overdue），表'早该采取的措施'。" }
+    ],
+    "words": [
+      { "word": "methodology", "meaning": "n. 方法论、研究方法", "note": "research methodology 指'科研方法学'。" },
+      { "word": "overdue", "meaning": "adj. 早该发生的、过期未付的", "note": "long overdue 意为'早该如此'，此处表对该政策的肯定。" },
+      { "word": "welcome", "meaning": "adj. 受欢迎的", "note": "a most welcome step forward 意为'非常受欢迎的进步之举'，most 表'非常'。" }
+    ],
+    "phrases": [
+      { "text": "step forward", "meaning": "进步之举、前进的一步", "note": "a step forward 与 a step backward'倒退'相对。" }
+    ]
+  },
+  "2015:C:11": {
+    "grammar": [
+      { "title": "并列句 + what 名词性从句", "text": "and 连接两个并列句：Most journals are weak in statistical review 与 this damages the quality of what they publish；第二个分句中 what they publish 是名词性从句作 of 的宾语（'他们发表的内容'）。" }
+    ],
+    "words": [
+      { "word": "weak", "meaning": "adj. 薄弱的", "note": "be weak in statistical review 意为'在统计审查方面薄弱'。" },
+      { "word": "damage", "meaning": "v. 损害", "note": "damages the quality 意为'损害（出版物的）质量'。" }
+    ],
+    "phrases": [
+      { "text": "be weak in", "meaning": "在……方面薄弱", "note": "固定搭配，in 后接领域名词。" }
+    ]
+  },
+  "2015:C:12": {
+    "grammar": [
+      { "title": "宾语从句 + 插入语 + 比较级", "text": "I think that... statistical review is more essential than expert review 为 that 宾语从句；从句中 for the majority of scientific papers nowadays 是插入的介词短语（'对当今大多数科学论文来说'），主谓是 statistical review is more essential than expert review。" }
+    ],
+    "words": [
+      { "word": "essential", "meaning": "adj. 必不可少的、必要的", "note": "more essential than 意为'比……更必要'。" },
+      { "word": "majority", "meaning": "n. 大多数", "note": "the majority of scientific papers 意为'大多数科学论文'。" }
+    ],
+    "phrases": [
+      { "text": "for the majority of", "meaning": "对……中的大多数而言", "note": "介词短语作插入语，表范围限定。" }
+    ]
+  },
+  "2015:C:13": {
+    "grammar": [
+      { "title": "宾语从句 + such as 举例", "text": "he noted 后 that 宾语从句说明指出的事实；从句中 such as 引出三个期刊名作 biomedical journals 的例子。阅读时 such as 后的列举可略读。" },
+      { "title": "pay attention to", "text": "pay strong attention to statistical review 中，attention 前有 strong 修饰，意为'非常重视统计审查'。" }
+    ],
+    "words": [
+      { "word": "biomedical", "meaning": "adj. 生物医学的", "note": "bio- + medical，指'生物医学的'。" },
+      { "word": "note", "meaning": "v. 指出、注意到", "note": "he noted that 意为'他指出……'，是报道性动词。" },
+      { "word": "attention", "meaning": "n. 重视、注意", "note": "pay strong attention to 意为'高度关注、重视'。" }
+    ],
+    "phrases": [
+      { "text": "pay attention to", "meaning": "重视、关注", "note": "固定搭配，to 后接名词；此处 strong 加强程度。" },
+      { "text": "such as", "meaning": "例如", "note": "引出具体例证（三本期刊名）。" }
+    ]
+  },
+  "2015:C:14": {
+    "grammar": [
+      { "title": "被动语态 + 不定式（be expected to do）", "text": "Professional scientists are expected to know how to analyse data 中，are expected to 意为'理应、被期望'；to know 后接 how to analyse data 作 know 的宾语从句简化形式。" },
+      { "title": "but 转折 + according to 来源标注", "text": "but statistical errors are alarmingly common in published research 与前半句构成'理应会……但实际却……'的转折；according to David Vaux 及同位语 a cell biologist 标注观点来源。" }
+    ],
+    "words": [
+      { "word": "alarmingly", "meaning": "adv. 令人震惊地", "note": "alarmingly common 意为'（多得）令人震惊地普遍'。" },
+      { "word": "analyse", "meaning": "v. 分析", "note": "how to analyse data 意为'如何分析数据'；英式拼写，美式 analyze。" },
+      { "word": "cell", "meaning": "n. 细胞", "note": "a cell biologist 指'细胞生物学家'。" }
+    ],
+    "phrases": [
+      { "text": "be expected to do", "meaning": "理应做某事", "note": "被动结构，表'（社会）期望……'。" },
+      { "text": "according to", "meaning": "根据、按照", "note": "引出信息来源（David Vaux）。" }
+    ]
+  },
+  "2015:C:15": {
+    "grammar": [
+      { "title": "插入语 he wrote in 2012", "text": "he wrote in 2012 插入在两个并列分句之间，标明引述来源与时间；主干为 Researchers should improve their standards, but journals should also take a tougher line，阅读时先跳过插入语。" },
+      { "title": "现在分词短语 + 双重定语从句", "text": "句末 \"engaging reviewers who are statistically literate and editors who can verify the process\" 是现在分词短语作补充说明（'聘用……的审稿人和编辑'），其中 reviewers 与 editors 各带一个 who 定语从句。" }
+    ],
+    "words": [
+      { "word": "standards", "meaning": "n. 水准、标准", "note": "improve their standards 意为'提高自身水准'。" },
+      { "word": "literate", "meaning": "adj. 有（某方面）素养的", "note": "statistically literate 意为'懂统计学的'，literate 原义'识字的'。" },
+      { "word": "verify", "meaning": "v. 核实、验证", "note": "verify the process 意为'核实（统计审查的）过程'。" }
+    ],
+    "phrases": [
+      { "text": "take a tougher line", "meaning": "采取更强硬的立场", "note": "take a line 意为'采取立场/方针'，tougher 是比较级。" }
+    ]
+  },
+  "2015:C:16": {
+    "grammar": [
+      { "title": "宾语从句内嵌表语从句", "text": "Vaux says that Science's idea to pass some papers to statisticians \"has some merit, but a weakness is that it relies on...\"，外层 that 是宾语从句；引语内 a weakness is that... 又含一个表语从句，it 指 Science's idea。句末 in the first place（首先）强调'第一步就依赖委员会甄别'。" }
+    ],
+    "words": [
+      { "word": "merit", "meaning": "n. 可取之处、优点", "note": "has some merit 意为'有一些可取之处'。" },
+      { "word": "scrutiny", "meaning": "n. 仔细审查", "note": "the papers that need scrutiny 意为'需要仔细审查的论文'。" },
+      { "word": "identify", "meaning": "v. 识别、甄别", "note": "identify the papers that need scrutiny 意为'甄别出需要审查的论文'。" },
+      { "word": "weakness", "meaning": "n. 缺点、薄弱环节", "note": "与 merit 形成'优点—缺点'对比。" }
+    ],
+    "phrases": [
+      { "text": "rely on", "meaning": "依赖、依靠", "note": "it relies on the board... to identify 意为'依赖委员会来甄别……'。" },
+      { "text": "in the first place", "meaning": "首先、最初", "note": "强调'第一步'或'本应先……'，此处表'首先就依赖……'。" }
+    ]
+  },
+  "2015:D:0": {
+    "grammar": [
+      { "title": "同位语（Elisabeth）", "text": "Rupert Murdoch's daughter, Elisabeth 中，Elisabeth 是 daughter 的同位语，补充说明女儿的名字；Two years ago 为时间状语。主干为 Elisabeth spoke of the \"unsettling dearth of integrity across so many of our institutions\"。" }
+    ],
+    "words": [
+      { "word": "dearth", "meaning": "n. 缺乏、匮乏", "note": "dearth of integrity 意为'诚信缺失'；全文反复出现的关键词，a dearth of 表'缺乏'。" },
+      { "word": "integrity", "meaning": "n. 诚信、正直", "note": "全文核心概念，指'道德诚信、正直'；也可表'完整'。" },
+      { "word": "unsettling", "meaning": "adj. 令人不安的", "note": "动词 unsettle'使不安'的现在分词；unsettling dearth 意为'令人不安的缺失'。" },
+      { "word": "institutions", "meaning": "n. 机构、制度", "note": "so many of our institutions 指'我们（社会中）如此多的机构'。" }
+    ],
+    "phrases": [
+      { "text": "speak of", "meaning": "谈到、提及", "note": "spoke of 意为'谈到'，比 talk about 正式。" }
+    ]
+  },
+  "2015:D:1": {
+    "grammar": [
+      { "title": "插入语 + because of + 同位语从句", "text": "she argued 插入句中，标明这是伊丽莎白的观点；主干 Integrity had collapsed because of a collective acceptance，句末 that 从句（the only \"sorting mechanism\"... should be profit and the market）是 acceptance 的同位语从句，说明'普遍接受'的具体内容。" }
+    ],
+    "words": [
+      { "word": "collapse", "meaning": "v. 崩溃、瓦解", "note": "Integrity had collapsed 意为'诚信已崩塌'，隐喻式表达。" },
+      { "word": "collective", "meaning": "adj. 集体的、共同的", "note": "a collective acceptance 意为'集体性的接受/共识'。" },
+      { "word": "sorting mechanism", "meaning": "n. 筛选机制", "note": "sorting 为'筛选'，mechanism 为'机制'；指社会'决定谁胜出的规则'，D 篇核心概念。" }
+    ],
+    "phrases": [
+      { "text": "because of", "meaning": "因为、由于", "note": "后接名词短语（a collective acceptance），区别于 because 后接从句。" },
+      { "text": "profit and the market", "meaning": "利润和市场", "note": "被指为社会唯一的'筛选机制'，是作者批判的对象。" }
+    ]
+  },
+  "2015:D:2": {
+    "grammar": [
+      { "title": "强调句 it's...who...（人称代词宾格作表语）", "text": "it's us, human beings, we the people who create the society 是强调句，强调 us/we the people（我们人类）；口语中表语用了 us（宾格）后又改用 we，human beings 与 we the people 是 us 的同位补充。" },
+      { "title": "双重省略定语从句", "text": "who create the society we want 中，we want 是修饰 the society 的定语从句，省略了 that/which；句末 not profit 是对被强调成分的否定对比（'创造社会的不是利润'）。" }
+    ],
+    "words": [],
+    "phrases": []
+  },
+  "2015:D:3": {
+    "grammar": [
+      { "title": "现在分词作状语（Driving her point home）", "text": "Driving her point home 是现在分词短语作伴随/方式状语，逻辑主语为 she（伊丽莎白），意为'为把她的观点讲透'。read 时先跳过开头分词抓主句 she continued。" },
+      { "title": "it 形式主语 + that 从句", "text": "引语内 It's increasingly apparent that the absence of purpose, of a moral language within government, media or business could become... 中，it 是形式主语，真正主语是 that 从句；从句主语 the absence 后接两个并列 of 短语（of purpose 与 of a moral language...）共同修饰。" }
+    ],
+    "words": [
+      { "word": "apparent", "meaning": "adj. 明显的", "note": "increasingly apparent 意为'日益明显'。" },
+      { "word": "absence", "meaning": "n. 缺失、缺乏", "note": "the absence of purpose 指'（社会）缺乏目标/道德'，与 dearth 近义反复。" },
+      { "word": "capitalism", "meaning": "n. 资本主义", "note": "与 freedom 并列，指'资本主义和自由'。" }
+    ],
+    "phrases": [
+      { "text": "drive a point home", "meaning": "把观点讲透、使论点令人信服", "note": "固定表达，drive home 意为'使人透彻理解'。" }
+    ]
+  },
+  "2015:D:4": {
+    "grammar": [
+      { "title": "现在分词作结果状语（making...）", "text": "making it more likely that it would lose its way... 是现在分词短语表结果，逻辑主语为前面整句（'这种缺失'）；it 为形式宾语，that 从句是真正宾语，意为'使（公司）更可能误入歧途'。" },
+      { "title": "as it had 比较/方式从句（省略）", "text": "as it had with widespread illegal telephone hacking 中，it had 后省略了 lose its way（即 as it had lost its way...），意为'正如当年在大规模非法电话窃听中所迷失的那样'。" }
+    ],
+    "words": [
+      { "word": "wound", "meaning": "v. 损害、伤害", "note": "was wounding companies 意为'正在损害公司'，进行时表持续伤害。" },
+      { "word": "widespread", "meaning": "adj. 大规模的、普遍的", "note": "widespread illegal telephone hacking 指'大范围的非法电话窃听'。" }
+    ],
+    "phrases": [
+      { "text": "lose one's way", "meaning": "迷失方向、误入歧途", "note": "隐喻'偏离正轨'，与 moral purpose 缺失呼应。" },
+      { "text": "such as", "meaning": "例如", "note": "companies such as News International 指'新闻国际公司等企业'。" }
+    ]
+  },
+  "2015:D:5": {
+    "grammar": [
+      { "title": "As 时间状语从句 + 破折号插入的分词结构", "text": "As the hacking trial concludes 是时间状语从句（'随着审判结束'）；破折号之间是两个并列的现在分词短语 finding guilty... 与 finding his predecessor... innocent...，补充审判结果，阅读时可先跳过破折号内容直接看主句。" },
+      { "title": "find + 宾语 + 形容词宾补", "text": "finding guilty one ex-editor... 中，宾语 one ex-editor 后置，正常语序为 finding one ex-editor guilty（'认定……有罪'）；第二分句 finding his predecessor... innocent of the same charge（'认定……在同一指控上无罪'）。形容词 guilty/innocent 作宾补。" }
+    ],
+    "words": [
+      { "word": "conspire", "meaning": "v. 合谋、共谋", "note": "for conspiring to hack phones 意为'因合谋窃听电话'；conspire to do 为固定搭配。" },
+      { "word": "predecessor", "meaning": "n. 前任", "note": "his predecessor 指库尔森的前任布鲁克斯；反义词 successor'继任者'。" },
+      { "word": "charge", "meaning": "n. 指控", "note": "innocent of the same charge 意为'在同一指控上无罪'。" },
+      { "word": "guilty", "meaning": "adj. 有罪的", "note": "find sb guilty of... 意为'判定某人犯有……罪'。" }
+    ],
+    "phrases": [
+      { "text": "find sb guilty/innocent", "meaning": "认定某人有罪/无罪", "note": "法律固定搭配，宾语后可加 of + 罪名。" },
+      { "text": "conspire to do", "meaning": "合谋做某事", "note": "for conspiring to hack phones 说明'判罪的原因'。" }
+    ]
+  },
+  "2015:D:6": {
+    "grammar": [
+      { "title": "被动 + 不定式完成式（be known to have done）", "text": "Journalists are known to have hacked the phones... 中，are known to 意为'据悉、据知'，to have hacked 是不定式完成式，表示'（过去）曾做过'，说明'记者们曾窃听……电话'。" }
+    ],
+    "words": [
+      { "word": "hack", "meaning": "v. 侵入、窃取", "note": "to have hacked the phones 意为'窃听过电话'，hacking 贯穿全文是核心词。" },
+      { "word": "up to", "meaning": "多达、高达", "note": "up to 5,500 people 意为'多达 5500 人'，表数量上限。" }
+    ],
+    "phrases": [
+      { "text": "be known to do", "meaning": "据悉、众所周知", "note": "被动形式，可接不定式；完成式表过去动作。" }
+    ]
+  },
+  "2015:D:7": {
+    "grammar": [
+      { "title": "as 方式状语从句（被动）", "text": "as was acknowledged by Glenn Mulcaire 是 as 引导的方式/评注从句，表'正如（格伦·穆尔凯尔）所承认的那样'，as 在从句中作主语。" },
+      { "title": "同位语 + 过去分词后置定语 + 不定式", "text": "the man hired by the News of the World in 2001 to be the point person for phone hacking 是 Glenn Mulcaire 的同位语；hired 是过去分词作后置定语（'被雇用的'），to be... 表目的（'充当联络人'）。" }
+    ],
+    "words": [
+      { "word": "acknowledge", "meaning": "v. 承认", "note": "as was acknowledged 意为'如……所承认的'。" },
+      { "word": "industrial", "meaning": "adj. 产业规模的、工业的", "note": "on an industrial scale 意为'达到产业规模（即大规模）'。" },
+      { "word": "scale", "meaning": "n. 规模", "note": "on a...scale 为固定搭配，表'以……规模'。" }
+    ],
+    "phrases": [
+      { "text": "on an industrial scale", "meaning": "以产业级规模", "note": "表'规模巨大'，此处夸张指窃听规模如同工业生产线。" },
+      { "text": "point person", "meaning": "联系人、负责人", "note": "the point person for phone hacking 指'电话窃听的联络人'。" }
+    ]
+  },
+  "2015:D:8": {
+    "grammar": [
+      { "title": "简单主谓宾", "text": "Others await trial 为主谓宾简单句，Others 回指'其余（涉案）记者'，await 为及物动词'等待'。承接上文'记者窃听'话题的过渡句。" }
+    ],
+    "words": [
+      { "word": "await", "meaning": "v. 等待", "note": "及物动词，直接接宾语 trial，比 wait for 正式。" },
+      { "word": "trial", "meaning": "n. 审判", "note": "await trial 意为'等待受审'。" }
+    ],
+    "phrases": []
+  },
+  "2015:D:9": {
+    "grammar": [
+      { "title": "简单主谓", "text": "This long story still unfolds 为主谓简单句，unfold 意为'（故事）逐渐展开/继续上演'，主语 This long story 回指整个窃听事件。" }
+    ],
+    "words": [
+      { "word": "unfold", "meaning": "v. 展开、逐渐呈现", "note": "此处指'（事件）仍在继续发酵、剧情未落幕'；前缀 un- + fold'折叠'。" }
+    ],
+    "phrases": []
+  },
+  "2015:D:10": {
+    "grammar": [
+      { "title": "not only... but... 并列宾语", "text": "the dearth of moral purpose frames not only the fact of such widespread phone hacking but the terms on which the trial took place 中，not only...but... 连接两个宾语（the fact... 与 the terms...），frames 意为'构成……的背景/框定'。" },
+      { "title": "介词 + which 定语从句", "text": "the terms on which the trial took place 中，on which 引导定语从句修饰 terms，which 指代 terms（'审判据以进行的方式/条款'），还原为 the trial took place on the terms。" }
+    ],
+    "words": [
+      { "word": "respects", "meaning": "n. 方面", "note": "in many respects 意为'在许多方面'，固定搭配。" },
+      { "word": "frames", "meaning": "v. 框定、构成背景", "note": "动词 frame 此处意为'构成（事件）的背景/框架'，是熟词僻义。" },
+      { "word": "terms", "meaning": "n. 条件、条款、方式", "note": "the terms on which the trial took place 意为'审判进行的方式/条件'。" }
+    ],
+    "phrases": [
+      { "text": "in many respects", "meaning": "在许多方面", "note": "固定搭配，respect 用复数表'方面'。" },
+      { "text": "not only... but...", "meaning": "不仅……而且……", "note": "连接两个并列宾语，注意 but 后成分与 not only 后平行。" }
+    ]
+  },
+  "2015:D:11": {
+    "grammar": [
+      { "title": "表语从句并列", "text": "主句 One of the astonishing revelations was 后接三个并列表语：how little Rebekah Brooks knew of what went on in her newsroom、how little she thought to ask、以及 the fact that she never inquired how the stories arrived。" },
+      { "title": "what 从句 + 同位语从句 + how 从句嵌套", "text": "what went on in her newsroom 是 knew of 的宾语从句（'编辑部里发生的事'）；the fact 后接 that 同位语从句，其中又含 how the stories arrived 作 inquired 的宾语从句。多层嵌套是本句难点，按'知道什么—想不想问—有没有问'三层理解。" }
+    ],
+    "words": [
+      { "word": "revelation", "meaning": "n. 揭露、曝光的事实", "note": "astonishing revelations 意为'令人震惊的揭露'，动词 reveal。" },
+      { "word": "newsroom", "meaning": "n. 新闻编辑室", "note": "合成词，指报社编辑部。" },
+      { "word": "inquire", "meaning": "v. 询问、查问", "note": "never inquired how the stories arrived 意为'从不询问新闻是如何得来的'，比 ask 正式。" }
+    ],
+    "phrases": [
+      { "text": "go on", "meaning": "发生", "note": "what went on in her newsroom 意为'编辑部里发生的事'。" },
+      { "text": "how little", "meaning": "多么少", "note": "how little... knew 意为'……知之甚少'，how 感叹/程度用法。" }
+    ]
+  },
+  "2015:D:12": {
+    "grammar": [
+      { "title": "表语从句（that）", "text": "The core of her successful defence was that she knew nothing 中，that 引导表语从句说明'辩护成功的核心'是什么，knew nothing（什么都不知道）正是她辩护的策略与讽刺所在。" }
+    ],
+    "words": [
+      { "word": "core", "meaning": "n. 核心", "note": "the core of her defence 意为'她辩护的核心'。" },
+      { "word": "defence", "meaning": "n. 辩护", "note": "法律语境，her successful defence 意为'她成功的辩护'；美式拼写 defense。" }
+    ],
+    "phrases": []
+  },
+  "2015:D:13": {
+    "grammar": [
+      { "title": "it 形式主语 + that 从句", "text": "it has become normal that well-paid executives should not be accountable... 中，it 为形式主语，真正主语是 that 从句；should 表'（竟然）可以'的客观陈述，即'高薪高管不必负责已成为常态'。" },
+      { "title": "定语从句嵌套", "text": "what happens in the organisations that they run 中，what happens... 是 be accountable for 的宾语从句，其中 that they run 又是修饰 organisations 的定语从句（'他们经营的组织'）。" }
+    ],
+    "words": [
+      { "word": "accountable", "meaning": "adj. 负责任的", "note": "be accountable for 意为'对……负责'，名词 accountability'责任'（D 篇末段关键词）。" },
+      { "word": "executives", "meaning": "n. 高管、主管", "note": "well-paid executives 指'高薪高管'。" },
+      { "word": "organisations", "meaning": "n. 组织、机构", "note": "英式拼写，美式 organizations。" }
+    ],
+    "phrases": [
+      { "text": "be accountable for", "meaning": "对……负责", "note": "固定搭配，与 responsible for 近义。" }
+    ]
+  },
+  "2015:D:14": {
+    "grammar": [
+      { "title": "简单句 + 情态动词", "text": "Perhaps we should not be so surprised 为简单句，Perhaps 表'也许'，should not be 意为'不必'，so surprised 表'如此惊讶'。是承上启下的评论句，回应上文的'常态'。" }
+    ],
+    "words": [
+      { "word": "Perhaps", "meaning": "adv. 也许、大概", "note": "句首副词，表委婉推测的语气。" },
+      { "word": "surprised", "meaning": "adj. 惊讶的", "note": "be surprised 意为'感到惊讶'；注意与 surprising'令人惊讶的'区分。" }
+    ],
+    "phrases": []
+  },
+  "2015:D:15": {
+    "grammar": [
+      { "title": "表语从句（has been that...）", "text": "the collective doctrine has been that the sorting mechanism of society should be profit 中，that 引导表语从句说明'集体信条'的内容；For a generation 为时间状语（'几十年来'）。该句呼应 D:1 的 sorting mechanism 概念。" }
+    ],
+    "words": [
+      { "word": "doctrine", "meaning": "n. 信条、主义", "note": "collective doctrine 意为'集体信奉的信条'。" },
+      { "word": "generation", "meaning": "n. 一代（人）、世代", "note": "For a generation 意为'（持续了）整整一代人的时间'，泛指几十年。" },
+      { "word": "sorting", "meaning": "adj. 筛选的", "note": "the sorting mechanism of society 指'社会的筛选机制'（即决定谁能胜出的规则）。" }
+    ],
+    "phrases": [
+      { "text": "for a generation", "meaning": "持续一代人（的时间）", "note": "时间状语，表'长期以来'。" }
+    ]
+  },
+  "2015:D:16": {
+    "grammar": [
+      { "title": "定语从句 + 长列举表语", "text": "The words that have mattered are... 中 that have mattered 是定语从句修饰 words（'重要的词'）；表语为 efficiency, flexibility, shareholder value, business-friendly, wealth generation, sales, impact and, in newspapers, circulation 的九项长列举，in newspapers 是插入说明（'就报纸而言'）。" }
+    ],
+    "words": [
+      { "word": "matter", "meaning": "v. 重要、要紧", "note": "the words that have mattered 意为'（社会上）重要的词语'，matter 动词'要紧'。" },
+      { "word": "flexibility", "meaning": "n. 灵活性", "note": "商业语境高频词，与 efficiency'效率'并列。" },
+      { "word": "circulation", "meaning": "n. 发行量", "note": "报纸语境指'发行量、销量'；本句列举'重要的词'中最后一个。" }
+    ],
+    "phrases": [
+      { "text": "shareholder value", "meaning": "股东价值", "note": "商业术语，指以股东利益为导向的价值。" }
+    ]
+  },
+  "2015:D:17": {
+    "grammar": [
+      { "title": "过去分词作后置定语", "text": "Words degraded to the margin have been justice, fairness, tolerance, proportionality and accountability 中，degraded to the margin 是过去分词短语作后置定语修饰 Words，意为'被贬到边缘的词语'，即'被边缘化的词'。与 D:16 的'重要的词'形成对比。" }
+    ],
+    "words": [
+      { "word": "degrade", "meaning": "v. 使降级、贬低", "note": "degraded to the margin 意为'被贬到边缘/被边缘化'。" },
+      { "word": "margin", "meaning": "n. 边缘", "note": "to the margin 意为'沦落至边缘地带'。" },
+      { "word": "proportionality", "meaning": "n. 比例原则", "note": "法律术语，指'（处罚与行为的）相称性'，此处作被边缘化的道德词之一。" },
+      { "word": "accountability", "meaning": "n. 责任、问责", "note": "与 D:13 的 accountable 呼应，是作者强调被忽略的道德词。" }
+    ],
+    "phrases": []
+  },
+  "2015:D:18": {
+    "grammar": [
+      { "title": "不定式作表语 + 三重并列否定", "text": "The purpose of editing the News of the World was not to promote reader understanding, to be fair in what was written or to betray any common humanity 中，三个 to 不定式并列作表语，均被 not 否定，说明'编辑这份报纸的目的不是……'。阅读时把 not 的范围覆盖到三个不定式。" }
+    ],
+    "words": [
+      { "word": "promote", "meaning": "v. 促进、增进", "note": "promote reader understanding 意为'增进读者理解'。" },
+      { "word": "betray", "meaning": "v. 背叛、辜负", "note": "betray any common humanity 意为'辜负任何共同人性'。" },
+      { "word": "humanity", "meaning": "n. 人性", "note": "common humanity 指'人类共通的人性'。" }
+    ],
+    "phrases": [
+      { "text": "be fair in", "meaning": "在……方面保持公正", "note": "to be fair in what was written 意为'对所写内容保持公正'。" },
+      { "text": "common humanity", "meaning": "共同人性", "note": "指人类共有的道德情感。" }
+    ]
+  },
+  "2015:D:19": {
+    "grammar": [
+      { "title": "不定式作表语（be to do）", "text": "It was to ruin lives in the quest for circulation and impact 中，was to ruin 为'be + 不定式'表目的/本质，说明其（报纸的）真正目的是'毁掉人们的生活'；It 回指 The purpose。承接上句'不是什么'，此句给出'是什么'的正面回答。" }
+    ],
+    "words": [
+      { "word": "ruin", "meaning": "v. 毁掉、破坏", "note": "ruin lives 意为'毁掉人们的生活'，语气强烈。" },
+      { "word": "quest", "meaning": "n. 追求、探寻", "note": "in the quest for 意为'在追求……的过程中'。" }
+    ],
+    "phrases": [
+      { "text": "in the quest for", "meaning": "在追求……的过程中", "note": "固定搭配，= in pursuit of。" }
+    ]
+  },
+  "2015:D:20": {
+    "grammar": [
+      { "title": "may have done 表推测 + 转折并列", "text": "Ms Brooks may or may not have had suspicions about... 中，may (not) have had 是对过去情况的推测（'或许有、或许没有怀疑'）；but 后转折列举她的不作为：asked no questions, gave no instructions — nor received traceable, recorded answers。" },
+      { "title": "nor 连接的否定并列", "text": "破折号后 nor received traceable, recorded answers 与前面的两个否定谓语并列，均表'既不……也不……也没……'；nor 引导时其后省略了主语 she（即 nor (did she) receive...）。" }
+    ],
+    "words": [
+      { "word": "suspicion", "meaning": "n. 怀疑", "note": "have suspicions about 意为'对……有所怀疑'。" },
+      { "word": "traceable", "meaning": "adj. 可追溯的", "note": "trace 动词'追踪' + -able；traceable answers 意为'可追溯的答复'。" },
+      { "word": "recorded", "meaning": "adj. 有记录的", "note": "recorded answers 意为'留有记录的答复'。" }
+    ],
+    "phrases": [
+      { "text": "may or may not", "meaning": "或许……或许不……", "note": "表不确定的推测，此处说'她或许有怀疑或许没有'。" },
+      { "text": "ask no questions", "meaning": "（从不）提问", "note": "否定式表达，相当于 didn't ask any questions。" }
+    ]
+  }
+}
