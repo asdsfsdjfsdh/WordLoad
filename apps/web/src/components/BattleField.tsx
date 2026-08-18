@@ -165,6 +165,8 @@ const BUFF_RARITY_STROKE: Record<Rarity, string> = {
 };
 
 // ---- 小怪模板：7 种几何怪 ----
+// 经典闯关模式（BattlePage）专用：主角无 buff，难度基准刻意低于生存/肉鸽模式，
+// 血量以 1-2 击为主、移速偏慢，保证多数怪一次作答即可击杀。
 interface Archetype {
   shape: Enemy['shape'];
   size: number;
@@ -177,13 +179,13 @@ interface Archetype {
 }
 
 const ARCHETYPES: Archetype[] = [
-  { name: 'Blob',    shape: 'circle',   size: 22, hp: 2, speed: 35, color: '#ef4444', rotSpeed: 0 },
+  { name: 'Blob',    shape: 'circle',   size: 22, hp: 1, speed: 35, color: '#ef4444', rotSpeed: 0 },
   { name: 'Spike',   shape: 'triangle', size: 16, hp: 1, speed: 48, color: '#f97316', rotSpeed: 6, },
   { name: 'Cube',    shape: 'square',   size: 24, hp: 2, speed: 32, color: '#a855f7',},
-  { name: 'Shield',  shape: 'hexagon',  size: 30, hp: 3, speed: 22, color: '#10b981', rotSpeed: 2 },
-  { name: 'Star',    shape: 'cross',    size: 22, hp: 2, speed: 30, color: '#0ea5e9', splitOnDeath: true },
+  { name: 'Shield',  shape: 'hexagon',  size: 30, hp: 2, speed: 22, color: '#10b981', rotSpeed: 2 },
+  { name: 'Star',    shape: 'cross',    size: 22, hp: 1, speed: 30, color: '#0ea5e9', splitOnDeath: true },
   { name: 'Shard',   shape: 'diamond',  size: 14, hp: 1, speed: 44, color: '#fbbf24', rotSpeed: 9, },
-  { name: 'Crystal', shape: 'pentagon', size: 20, hp: 2, speed: 34, color: '#ec4899', rotSpeed: 3 },
+  { name: 'Crystal', shape: 'pentagon', size: 20, hp: 1, speed: 34, color: '#ec4899', rotSpeed: 3 },
 ];
 
 // Boss 段禁用 Star（避免分裂物堆积）
@@ -882,7 +884,8 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       s.floaters.push({ x: W / 2, y: 70, text: `HP ${hp}`, color: '#fbbf24', life: 2 });
     } else {
       const arch = pickArche(s.bossPhase ? 'boss' : 'study');
-      const baseSpeed = s.bossPhase ? 30 : 40;
+      // 经典闯关模式（无 buff）：基准移速刻意低于生存模式，配合 1-2 击血量降低难度
+      const baseSpeed = s.bossPhase ? 24 : 30;
       const speedScale = arch.speed / 35; // 相对标准速度缩放
       s.enemies.push({
         id: s.enemyId,
