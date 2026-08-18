@@ -252,6 +252,10 @@ model Run {
   bossClearedCount  Int     @default(0)     // 累计击破首领次数
   maxCombo          Int     @default(0)     // 本局最高连击（全局累计口径，结算展示）
   playSeconds       Int     @default(0)     // 本局累计游玩时长（秒；客户端秒表上报，服务端取 max，结算展示）
+  // 结算落库（统计页/历史口径，与 LearningSession 对齐；active 局为默认占位）
+  rating        String   @db.VarChar(4) @default("C") // 结算评级（C~SSS）
+  xpEarned      Int      @default(0)     // 结算实际入账 XP（含 dictation ×1.5）
+  coinsEarned   Int      @default(0)     // 结算实际入账金币（含 unit 首通加成）
   extra         Json     @default("{}")   // 连续低准确天数等
   status        String   @default("active") // active / finished
   createdAt     DateTime @default(now())

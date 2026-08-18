@@ -1653,6 +1653,10 @@ export class RunsService {
           hp: Math.max(0, run.hp),
           surrendered: surrender,
           recordBroken,
+          // 结算统计落库（统计页/历史口径，与 LearningSession 对齐）
+          rating,
+          xpEarned: xpFinal,
+          coinsEarned: coins,
         },
       });
       if (updated.count === 0) throw new BadRequestException('Run 已结算');

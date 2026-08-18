@@ -10,7 +10,7 @@ export class StatsService {
   constructor(private readonly prisma: PrismaService) {}
 
   async overview(userId: number): Promise<StatsOverview> {
-    const [sessions, answered, correct, timeAgg, tierTotals, progress, runs, activeRuns] = await Promise.all([
+    const [sessions, answered, correct, timeAgg, runAns, runCorrect, runTimeAgg, tierTotals, progress, runs, activeRuns] = await Promise.all([
       this.prisma.learningSession.findMany({
         where: { userId },
         select: { result: true, phase: true, bossCleared: true, maxCombo: true, rating: true, xpEarned: true, coinsEarned: true, createdAt: true },
@@ -18,7 +18,9 @@ export class StatsService {
       this.prisma.learningSessionItem.count({ where: { answered: true, session: { userId } } }),
       this.prisma.learningSessionItem.count({ where: { answered: true, correct: true, session: { userId } } }),
       this.prisma.learningSessionItem.aggregate({ where: { answered: true, session: { userId } }, _sum: { elapsedMs: true } }),
-      // 全词库按 tier 聚合，避免每次全表拉取所有词
+      this.prisma.runItem.count({ where: { answered: true, run: { userId } } }),
+      this.prisma.runItem.count({ where: { answered: true, correct: true, run: { userId } } }),
+      this.prisma.runItem.aggregate({ where: { answered: true, run: { userId } }, _sum: { elapsedMs: true } }),
       this.prisma.word.groupBy({ by: ['tier'], _count: { _all: true } }),
       this.prisma.userWordProgress.findMany({
         where: { userId },
@@ -26,7 +28,7 @@ export class StatsService {
       }),
       this.prisma.run.findMany({
         where: { userId, status: 'finished' },
-        select: { day: true, bossClearedCount: true, kind: true, cleared: true },
+        select: { day: true, bossClearedCount: true, kind: true, cleared: true, rating: true, xpEarned: true, coinsEarned: true, maxCombo: true, createdAt: true },
       }),
       this.prisma.run.count({ where: { userId, status: 'active' } }),
     ]);
@@ -37,8 +39,12 @@ export class StatsService {
       const idx = RATINGS.indexOf(s.rating as Rating);
       return idx >= RATINGS.indexOf('B');
     }).length;
-    const totalXpEarned = settled.reduce((acc, s) => acc + s.xpEarned, 0);
-    const totalCoinsEarned = settled.reduce((acc, s) => acc + s.coinsEarned, 0);
+    const totalXpEarned =
+      settled.reduce((acc, s) => acc + s.xpEarned, 0) +
+      runs.reduce((acc, r) => acc + r.xpEarned, 0);
+    const totalCoinsEarned =
+      settled.reduce((acc, s) => acc + s.coinsEarned, 0) +
+      runs.reduce((acc, r) => acc + r.coinsEarned, 0);
     const bestMaxCombo = settled.reduce((acc, s) => Math.max(acc, s.maxCombo), 0);
     const bossSessions = settled.filter((s) => s.phase === 'boss');
     const bossFights = bossSessions.length;
@@ -49,8 +55,16 @@ export class StatsService {
       const r = s.rating as Rating;
       if (RATINGS.includes(r)) ratingCounts[r] += 1;
     }
+    for (const run of runs) {
+      const r = run.rating as Rating;
+      if (RATINGS.includes(r)) ratingCounts[r] += 1;
+    }
 
-    const { current, longest } = this.streaks(sessions.map((s) => toDateStr(s.createdAt)));
+    const activityDates = [
+      ...sessions.map((s) => toDateStr(s.createdAt)),
+      ...runs.map((r) => toDateStr(r.createdAt)),
+    ];
+    const { current, longest } = this.streaks(activityDates);
 
     const mastered = new Set(progress.filter((p) => p.mastery >= 100 && !p.skipped).map((p) => p.wordId));
     const encountered = new Set(progress.map((p) => p.wordId));
@@ -73,13 +87,13 @@ export class StatsService {
       encountered: encounteredTier.get(tier) ?? 0,
     }));
 
-    const totalAnswered = answered;
-    const totalCorrect = correct;
+    const totalAnswered = answered + runAns;
+    const totalCorrect = correct + runCorrect;
     return {
       totalSessions,
       totalWins,
       winRate: totalSessions ? Math.round((totalWins / totalSessions) * 100) : 0,
-      totalStudyMs: timeAgg._sum.elapsedMs ?? 0,
+      totalStudyMs: (timeAgg._sum.elapsedMs ?? 0) + (runTimeAgg._sum.elapsedMs ?? 0),
       totalXpEarned,
       totalCoinsEarned,
       totalAnswered,
@@ -96,7 +110,6 @@ export class StatsService {
       longestStreak: longest,
       ratingCounts,
       tierStats,
-      // survival 与 unit 分口径聚合，避免互相污染
       ...aggregateRuns(
         runs.filter((r) => r.kind !== 'unit'),
         activeRuns,
@@ -108,9 +121,13 @@ export class StatsService {
 
   async trend(userId: number, days: number): Promise<StatsTrendPoint[]> {
     const start = addDays(startOfToday(), -(days - 1));
-    const [sessions, progress] = await Promise.all([
+    const [sessions, runs, progress] = await Promise.all([
       this.prisma.learningSession.findMany({
         where: { userId, createdAt: { gte: start } },
+        select: { id: true, createdAt: true, xpEarned: true, coinsEarned: true },
+      }),
+      this.prisma.run.findMany({
+        where: { userId, status: 'finished', createdAt: { gte: start } },
         select: { id: true, createdAt: true, xpEarned: true, coinsEarned: true },
       }),
       this.prisma.userWordProgress.findMany({
@@ -129,6 +146,13 @@ export class StatsService {
       p.sessions += 1;
       p.xpEarned += s.xpEarned;
       p.coinsEarned += s.coinsEarned;
+      byDate.set(d, p);
+    }
+    for (const r of runs) {
+      const d = toDateStr(r.createdAt);
+      const p = byDate.get(d) ?? emptyPoint(d);
+      p.xpEarned += r.xpEarned;
+      p.coinsEarned += r.coinsEarned;
       byDate.set(d, p);
     }
 
@@ -167,6 +191,41 @@ export class StatsService {
       }
     }
 
+    if (runs.length) {
+      const [items, corrects] = await Promise.all([
+        this.prisma.runItem.groupBy({
+          by: ['runId'],
+          where: { answered: true, run: { userId, createdAt: { gte: start } } },
+          _count: { _all: true },
+          _sum: { elapsedMs: true },
+        }),
+        this.prisma.runItem.groupBy({
+          by: ['runId', 'correct'],
+          where: { answered: true, run: { userId, createdAt: { gte: start } } },
+          _count: { _all: true },
+        }),
+      ]);
+      const dateByRun = new Map(runs.map((r) => [r.id, toDateStr(r.createdAt)]));
+      for (const r of items) {
+        const d = dateByRun.get(r.runId);
+        if (!d) continue;
+        const p = byDate.get(d)!;
+        p.answered += r._count._all;
+        p.studyMs += r._sum.elapsedMs ?? 0;
+      }
+      const correctByRun = new Map<number, number>();
+      for (const r of corrects) {
+        if (r.correct === true) {
+          correctByRun.set(r.runId, (correctByRun.get(r.runId) ?? 0) + r._count._all);
+        }
+      }
+      for (const [runId, c] of correctByRun) {
+        const d = dateByRun.get(runId);
+        if (!d) continue;
+        byDate.get(d)!.correct += c;
+      }
+    }
+
     for (const p of progress) {
       if (!p.firstEncounteredAt) continue;
       const d = toDateStr(p.firstEncounteredAt);
@@ -181,7 +240,6 @@ export class StatsService {
       byDate.get(d)!.mastered += 1;
     }
 
-    // 补齐整段日期（含无活动日）
     const points: StatsTrendPoint[] = [];
     for (let i = 0; i < days; i++) {
       const d = toDateStr(addDays(start, i));
@@ -195,30 +253,52 @@ export class StatsService {
   async heatmap(userId: number, weeks: number): Promise<StatsHeatmapResult> {
     const end = startOfToday();
     const start = addDays(end, -(weeks * 7 - 1));
-    const cells = await this.answeredByDay(userId, start);
-    const out: StatsHeatmapResult['cells'] = [];
+    const [sessionCells, runCells] = await Promise.all([
+      this.answeredByDay(userId, start, 'session'),
+      this.answeredByDay(userId, start, 'run'),
+    ]);
+    const cells: StatsHeatmapResult['cells'] = [];
     for (let i = 0; i < weeks * 7; i++) {
       const d = toDateStr(addDays(start, i));
-      out.push({ date: d, value: cells.get(d) ?? 0 });
+      cells.push({ date: d, value: (sessionCells.get(d) ?? 0) + (runCells.get(d) ?? 0) });
     }
-    return { weeks, start: out[0]?.date ?? toDateStr(start), end: out[out.length - 1]?.date ?? toDateStr(end), cells: out };
+    return { weeks, start: cells[0]?.date ?? toDateStr(start), end: cells[cells.length - 1]?.date ?? toDateStr(end), cells };
   }
 
-  private async answeredByDay(userId: number, start: Date): Promise<Map<string, number>> {
-    const sessions = await this.prisma.learningSession.findMany({
-      where: { userId, createdAt: { gte: start } },
+  private async answeredByDay(userId: number, start: Date, kind: 'session' | 'run'): Promise<Map<string, number>> {
+    const map = new Map<string, number>();
+    if (kind === 'session') {
+      const sessions = await this.prisma.learningSession.findMany({
+        where: { userId, createdAt: { gte: start } },
+        select: { id: true, createdAt: true },
+      });
+      if (!sessions.length) return map;
+      const dateBySession = new Map(sessions.map((s) => [s.id, toDateStr(s.createdAt)]));
+      const rows = await this.prisma.learningSessionItem.groupBy({
+        by: ['sessionId'],
+        where: { answered: true, session: { userId, createdAt: { gte: start } } },
+        _count: { _all: true },
+      });
+      for (const r of rows) {
+        const d = dateBySession.get(r.sessionId);
+        if (!d) continue;
+        map.set(d, (map.get(d) ?? 0) + r._count._all);
+      }
+      return map;
+    }
+    const runs = await this.prisma.run.findMany({
+      where: { userId, status: 'finished', createdAt: { gte: start } },
       select: { id: true, createdAt: true },
     });
-    const map = new Map<string, number>();
-    if (!sessions.length) return map;
-    const dateBySession = new Map(sessions.map((s) => [s.id, toDateStr(s.createdAt)]));
-    const rows = await this.prisma.learningSessionItem.groupBy({
-      by: ['sessionId'],
-      where: { answered: true, session: { userId, createdAt: { gte: start } } },
+    if (!runs.length) return map;
+    const dateByRun = new Map(runs.map((r) => [r.id, toDateStr(r.createdAt)]));
+    const rows = await this.prisma.runItem.groupBy({
+      by: ['runId'],
+      where: { answered: true, run: { userId, createdAt: { gte: start } } },
       _count: { _all: true },
     });
     for (const r of rows) {
-      const d = dateBySession.get(r.sessionId);
+      const d = dateByRun.get(r.runId);
       if (!d) continue;
       map.set(d, (map.get(d) ?? 0) + r._count._all);
     }
@@ -227,7 +307,6 @@ export class StatsService {
 
   private streaks(dates: string[]): { current: number; longest: number } {
     const set = new Set(dates);
-    // 当前连续：从今天（无记录则昨天）向前数
     let current = 0;
     const cursor = new Date();
     if (!set.has(toDateStr(cursor))) cursor.setDate(cursor.getDate() - 1);
@@ -252,7 +331,6 @@ function emptyPoint(date: string): StatsTrendPoint {
   return { date, sessions: 0, answered: 0, correct: 0, accuracy: 0, xpEarned: 0, coinsEarned: 0, studyMs: 0, newWords: 0, mastered: 0 };
 }
 
-// 生存 Run 聚合（纯函数，可单测）
 export interface RunAggregate {
   totalRuns: number;
   bestRunDays: number;
@@ -285,7 +363,7 @@ function addDays(d: Date, n: number): Date {
 function toDateStr(d: Date): string {
   const m = String(d.getMonth() + 1).padStart(2, '0');
   const day = String(d.getDate()).padStart(2, '0');
-  return `${d.getFullYear()}-${m}-${day}`;
+  return d.getFullYear() + '-' + m + '-' + day;
 }
 
 function isNextDay(prev: string, cur: string): boolean {
