@@ -22,6 +22,11 @@ import {
 // 非 Boss 波收尾清场动画时长（缓慢变灰 + 淡出，然后切波）
 export const WAVE_CLEAR_DURATION = 1000;
 
+// 视觉怪速参考屏宽（px）：怪速以 px/sec 记录，位移按「当前屏宽/参考屏宽」缩放，
+// 使抵达玩家所需时间与屏幕尺寸无关（移速相对化）。当前 px/sec 数值是在约手机宽度
+// （390px 量级）上调校的，该宽度下缩放系数为 1，移动端手感不变；PC/平板按宽度等比加速。
+const VISUAL_REF_WIDTH = 390;
+
 export interface BattleFieldHandle {
   // 每次判定结果：correct 触发攻击，wrong 触发受击扣血；isRevenge 双倍伤害；typed 用户实际输入（用于飘字反馈）
   notifyAnswer(correct: boolean, combo: number, isRevenge?: boolean, typed?: string): void;
@@ -638,6 +643,9 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
             survivalHurt(ev.dmg);
             break;
           case 'leak':
+            // 漏怪：引擎已按题结算扣血（HP 与 -X 飘字由 survivalHurt 处理）；
+            // 视觉怪抵达玩家为 cosmetic（下方 e.x >= playerX 分支），
+            // 移速相对化后抵达时机与引擎漏怪在常规节奏下对齐
             survivalHurt(ev.dmg);
             break;
           case 'heal':
@@ -1096,10 +1104,12 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       s.bgParticles = s.bgParticles.filter((p) => p.life > 0);
 
       // 怪移动（冻结的原地不动；连击×7 全怪减速 20%；diamond 蛇形走位）
+      // 移速相对化：按 W/参考屏宽 缩放，任意屏幕抵达玩家耗时一致（绝对 px/sec 会随屏宽改变难度）
       const slowMult = s.slowTimer > 0 ? 0.8 : 1;
+      const speedScale = W / VISUAL_REF_WIDTH;
       for (const e of s.enemies) {
         if (e.hp <= 0 || e.frozen || (e.gray ?? 0) > 0) continue;
-        e.x += e.speed * slowMult * dt;
+        e.x += e.speed * speedScale * slowMult * dt;
         // 蛇形走位
         if (e.snakePhase != null) {
           (e.snakePhase as number) += dt * 5;
