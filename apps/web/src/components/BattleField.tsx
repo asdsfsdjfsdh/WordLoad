@@ -884,8 +884,10 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
       s.floaters.push({ x: W / 2, y: 70, text: `HP ${hp}`, color: '#fbbf24', life: 2 });
     } else {
       const arch = pickArche(s.bossPhase ? 'boss' : 'study');
-      // 经典闯关模式（无 buff）：基准移速刻意低于生存模式，配合 1-2 击血量降低难度
-      const baseSpeed = s.bossPhase ? 24 : 30;
+      // 经典闯关模式（无 buff）：基准移速刻意大幅低于生存模式。
+      // 目标穿越时间：快怪 ~22s、慢怪 ~50s、Boss ~26s（手机 390px 基准），
+      // 保证一个单词（含长词/听写）没打完不会漏怪，漏怪只在连续慢/错几题后发生
+      const baseSpeed = s.bossPhase ? 10 : 12;
       const speedScale = arch.speed / 35; // 相对标准速度缩放
       s.enemies.push({
         id: s.enemyId,
@@ -894,7 +896,7 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         y: 20 + Math.random() * Math.max(30, H - 60),
         hp: arch.hp,
         maxHp: arch.hp,
-        speed: baseSpeed * speedScale + Math.random() * 4,
+        speed: baseSpeed * speedScale + Math.random() * 2,
         size: arch.size,
         color: arch.color,
         rotation: Math.random() * Math.PI * 2,
