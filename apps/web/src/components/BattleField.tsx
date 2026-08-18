@@ -885,9 +885,9 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
     } else {
       const arch = pickArche(s.bossPhase ? 'boss' : 'study');
       // 经典闯关模式（无 buff）：基准移速刻意大幅低于生存模式。
-      // 目标穿越时间：快怪 ~22s、慢怪 ~50s、Boss ~26s（手机 390px 基准），
-      // 保证一个单词（含长词/听写）没打完不会漏怪，漏怪只在连续慢/错几题后发生
-      const baseSpeed = s.bossPhase ? 10 : 12;
+      // 目标穿越时间：快怪 ~27s、慢怪 ~60s、Boss ~33s（390px 基准），
+      // 配合场上限 2 只 + 慢生成，保证一个单词（含长词/听写）没打完不会漏怪
+      const baseSpeed = s.bossPhase ? 8 : 10;
       const speedScale = arch.speed / 35; // 相对标准速度缩放
       s.enemies.push({
         id: s.enemyId,
@@ -1013,16 +1013,18 @@ function BattleFieldInner({ initHp, totalQuestions, onPlayerDown, onBossDefeated
         const anyFrozen = s.enemies.some((e) => e.frozen);
         if (!anyFrozen) {
           // 普通模式：随答题数增长上限；生存模式：场上随答题渐进至 ≤MAX_FIELD（清空立即补）
+          // 经典闯关模式上限压到 2：怪抵达频率 = 上限/穿越时间，4 只 8s 穿越时每 ~2s 漏一只
           const maxEnemies = s.survival
             ? (s.survival.bossActive ? 1 : Math.min(SURVIVAL.MAX_FIELD, Math.floor(s.survival.answered / 3) + 1))
             : s.bossPhase
               ? Math.min(1, Math.floor(s.bossCorrectCount / 2) + 1)
-              : Math.min(4, Math.floor(s.correctCount / 3) + 1);
+              : Math.min(2, Math.floor(s.correctCount / 3) + 1);
           s.spawnTimer -= dt;
           const normalCount = s.enemies.filter((e) => !e.boss && e.hp > 0 && !e.reachedPlayer).length;
           if (!s.waveClear && normalCount < maxEnemies && s.spawnTimer <= 0) {
             if (!(s.survival && s.survival.bossActive)) spawnEnemy(); // 生存Boss波不自动补小怪
-            s.spawnTimer = 0.5 + Math.random() * 0.6;
+            // 经典闯关模式生成放慢（2-3.5s）：击杀后有清场喘息，避免瞬间补满持续施压
+            s.spawnTimer = s.survival ? 0.5 + Math.random() * 0.6 : 2 + Math.random() * 1.5;
           }
           // 场上清空且仍有词/未死 Boss → 立即补怪（生存普通波据此修复空场）
           const answered = s.survival ? s.survival.answered : s.correctCount;
