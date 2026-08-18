@@ -40,6 +40,10 @@ export function ReadingPassagePage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
+  // 单词库状态（生词判定）：初始来自 detail，移出生词后乐观更新，避免整页 refetch
+  const [wordStatus, setWordStatus] = useState<Record<string, { mastered: boolean; learned?: boolean; tier?: string }>>({});
+  // 移出生词失败提示（词库未收录的词无法入图鉴）
+  const [learnError, setLearnError] = useState<string | null>(null);
   const [visibleSeq, setVisibleSeq] = useState<number | null>(null);
   const [readingTheme, setReadingTheme] = useState<ReadingTheme>(() => {
     const saved = localStorage.getItem('reading-theme');
@@ -56,6 +60,7 @@ export function ReadingPassagePage() {
     if (!detail) return;
     setAnswers(detail.progress.answered);
     setSavedWords(new Set(detail.savedWords.map((w) => normalizeReadingWord(w))));
+    setWordStatus(detail.wordStatus ?? {});
     setResult(null);
     setSubmitError(null);
     setActiveWord(null);
@@ -112,6 +117,7 @@ export function ReadingPassagePage() {
   const onWordClick = useCallback(
     (raw: string, entry: ReadingGlossaryEntry | undefined, e: React.MouseEvent) => {
       setSelectedSentence(null);
+      setLearnError(null);
       setActiveWord({ raw, entry, x: e.clientX, y: e.clientY });
       // 篇内词表未命中 → 回退单词库查询
       if (!entry) {
@@ -131,6 +137,16 @@ export function ReadingPassagePage() {
     [id],
   );
 
+      // 把某个词标记为"已学"（入图鉴）：生词高亮随之消失
+  const applyLearned = useCallback((word: string) => {
+    const key = normalizeReadingWord(word);
+    setWordStatus((prev) => {
+      const cur = prev[key];
+      if (cur?.learned) return prev;
+      return { ...prev, [key]: { mastered: cur?.mastered ?? false, learned: true, tier: cur?.tier } };
+    });
+  }, []);
+
   const toggleSave = useCallback(
     (word: string, action: 'save' | 'remove') => {
       setSavedWords((prev) => {
@@ -142,10 +158,28 @@ export function ReadingPassagePage() {
       markReadingWord(id, word, action)
         .then((res) => {
           setSavedWords(new Set(res.savedWords.map((w) => normalizeReadingWord(w))));
+          // 收藏即入图鉴 → 该词不再是生词
+          if (res.learned === true) applyLearned(word);
         })
         .catch(() => undefined);
     },
-    [id],
+    [id, applyLearned],
+  );
+
+  const markLearned = useCallback(
+    (word: string) => {
+      markReadingWord(id, word, 'learn')
+        .then((res) => {
+          if (res.learned === true) {
+            applyLearned(word);
+            setLearnError(null);
+          } else {
+            setLearnError('该词暂未收录到单词库，无法移出生词');
+          }
+        })
+        .catch(() => setLearnError('操作失败，请重试'));
+    },
+    [id, applyLearned],
   );
 
   const onSubmit = useCallback(async () => {
@@ -169,6 +203,9 @@ export function ReadingPassagePage() {
 
   const hasStructure = detail?.sentences.some((s) => s.structure?.clauses?.length) ?? false;
   const hasZh = detail?.sentences.some((s) => s.zh) ?? false;
+  const activeLearned = activeWord
+    ? (wordStatus[normalizeReadingWord(activeWord.raw)]?.learned ?? activeWord.entry?.learned ?? false)
+    : false;
 
   return (
     <div data-reading-theme={readingTheme} className="min-h-screen bg-slate-950 text-slate-100">
@@ -289,7 +326,7 @@ export function ReadingPassagePage() {
             <ReadingText
               sentences={detail.sentences}
               glossary={detail.glossary}
-              wordStatus={detail.wordStatus}
+              wordStatus={wordStatus}
               showZh={showZh}
               highlight={highlight}
               structureOn={structureOn}
@@ -329,7 +366,10 @@ export function ReadingPassagePage() {
         <WordPopover
           state={activeWord}
           saved={savedWords.has(normalizeReadingWord(activeWord.raw))}
+          learned={activeLearned}
+          markError={learnError}
           onToggleSave={toggleSave}
+          onMarkLearned={markLearned}
           onClose={() => setActiveWord(null)}
         />
       )}
@@ -346,6 +386,7 @@ export function ReadingPassagePage() {
             saveReadingProgress(id, { currentSentence: seq }).catch(() => undefined);
           }}
           onToggleSave={toggleSave}
+          onMarkLearned={markLearned}
           lookupWord={async (raw) => {
             const r = await lookupReadingWordApi(id, raw).catch(() => ({ found: false as const }));
             return r.found ? { word: r.word ?? raw, meaning: r.meaning ?? '', phonetic: r.phonetic, source: r.source } : undefined;

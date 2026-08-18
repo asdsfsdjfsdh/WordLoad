@@ -13,11 +13,17 @@ export interface WordPopoverState {
 export interface WordPopoverProps {
   state: WordPopoverState;
   saved: boolean;
+  // 该词是否已入图鉴（移出生词后可解除生词高亮）
+  learned: boolean;
   onToggleSave: (word: string, action: 'save' | 'remove') => void;
+  // 移出生词：标记已学，取消生词高亮
+  onMarkLearned: (word: string) => void;
+  // 移出生词失败提示（词库未收录无法入图鉴）
+  markError?: string | null;
   onClose: () => void;
 }
 
-export function WordPopover({ state, saved, onToggleSave, onClose }: WordPopoverProps) {
+export function WordPopover({ state, saved, learned, onToggleSave, onMarkLearned, markError, onClose }: WordPopoverProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,6 +69,11 @@ export function WordPopover({ state, saved, onToggleSave, onClose }: WordPopover
               已掌握
             </span>
           )}
+          {learned && (
+            <span className="mt-0.5 inline-block rounded bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-medium text-emerald-400">
+              已学
+            </span>
+          )}
         </div>
         <button onClick={onClose} aria-label="关闭" className="text-slate-500 transition hover:text-slate-300">
           <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -72,6 +83,8 @@ export function WordPopover({ state, saved, onToggleSave, onClose }: WordPopover
       </div>
 
       <p className="text-sm leading-6 text-slate-200">{entry?.meaning ?? '（该词暂无收录释义）'}</p>
+
+      {markError && <p className="mt-2 text-xs text-amber-400/90">{markError}</p>}
 
       <div className="mt-3 flex flex-wrap gap-2">
         <button
@@ -85,6 +98,14 @@ export function WordPopover({ state, saved, onToggleSave, onClose }: WordPopover
           </svg>
           朗读
         </button>
+        {!learned && (
+          <button
+            onClick={() => onMarkLearned(state.raw)}
+            className="rounded-lg border border-emerald-600/50 bg-emerald-500/10 px-2.5 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-500/20"
+          >
+            移出生词
+          </button>
+        )}
         <button
           onClick={() => onToggleSave(state.raw, saved ? 'remove' : 'save')}
           className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${

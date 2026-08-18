@@ -126,14 +126,20 @@ export class ReadingService {
         wordId: g.wordId ?? undefined,
         mastered: g.wordId ? (wp?.mastery ?? 0) >= 100 : undefined,
         inVocabBook,
+        learned: g.wordId ? wordProg.has(g.wordId) : false,
       };
     });
 
-    // 单词库掌握度：本篇出现的词（含屈折词形）→ 是否已掌握 + 档位（供"生词"标注判定）
+    // 单词库掌握度：本篇出现的词（含屈折词形）→ 是否已掌握 + 是否已入图鉴 + 档位（供"生词"标注判定）
     const bankMastery = new Map(bankProgress.map((p) => [p.wordId, p.mastery]));
-    const wordStatus: Record<string, { mastered: boolean; tier?: string }> = {};
+    const bankLearned = new Set(bankProgress.map((p) => p.wordId));
+    const wordStatus: Record<string, { mastered: boolean; learned: boolean; tier?: string }> = {};
     for (const w of bankWords) {
-      wordStatus[w.text.toLowerCase()] = { mastered: (bankMastery.get(w.id) ?? 0) >= 100, tier: w.tier };
+      wordStatus[w.text.toLowerCase()] = {
+        mastered: (bankMastery.get(w.id) ?? 0) >= 100,
+        learned: bankLearned.has(w.id),
+        tier: w.tier,
+      };
     }
 
     // 已答选择：取每题的最近一次作答
@@ -161,6 +167,7 @@ export class ReadingService {
         en: s.en,
         zh: s.zh,
         structure: (s.structure as ReadingSentenceStructure | null) ?? undefined,
+        knowledge: (s.knowledge as import('@word-journey/shared').ReadingSentenceKnowledge | null) ?? undefined,
       })),
       questions: passage.questions.map((q) => ({
         seq: q.seq,
@@ -355,20 +362,28 @@ export class ReadingService {
     for (const g of passage.glossary) glossaryMap[g.word] = { word: g.word, meaning: g.meaning, wordId: g.wordId ?? undefined };
     const entry = lookupReadingWord(glossaryMap, body.word);
     const meaning = entry?.meaning ?? '';
-    const wordId = entry?.wordId ?? null;
+    let wordId = entry?.wordId ?? null;
+    // 词表未命中但词库存在该词时，回退单词库拿 wordId（保证"移出生词"能入图鉴）
+    if (wordId === null && body.action === 'learn') {
+      const candidates = readingWordCandidates(body.word);
+      const words = candidates.length
+        ? await this.prisma.word.findMany({ where: { text: { in: candidates } }, select: { id: true } })
+        : [];
+      wordId = words[0]?.id ?? null;
+    }
 
     const saved = body.action === 'save';
 
-    // 收藏写入 + 词库联动放进同一事务
+    // 收藏写入 / 已学标记 + 词库联动放进同一事务
     let inVocabBook: boolean | undefined;
     await this.prisma.$transaction(async (tx) => {
-      if (saved) {
+      if (body.action === 'save') {
         await tx.readingSavedWord.upsert({
           where: { userId_passageId_word: { userId, passageId, word: body.word } },
           create: { userId, passageId, word: body.word, meaning },
           update: { meaning },
         });
-      } else {
+      } else if (body.action === 'remove') {
         await tx.readingSavedWord.deleteMany({ where: { userId, passageId, word: body.word } });
       }
 
@@ -386,6 +401,13 @@ export class ReadingService {
             update: { inVocabBook: true, lastEncounteredAt: new Date() },
           });
           inVocabBook = true;
+        } else if (body.action === 'learn') {
+          // 移出生词：标记已学（入图鉴），不动 mastery / inVocabBook / 复习进度
+          await tx.userWordProgress.upsert({
+            where: { userId_wordId: { userId, wordId } },
+            create: { userId, wordId, firstEncounteredAt: new Date(), lastEncounteredAt: new Date() },
+            update: { lastEncounteredAt: new Date() },
+          });
         } else {
           // 取消收藏：仅当用户在所有篇章都不再收藏命中同一 wordId 的词时，才清掉生词本标记
           const remaining = await tx.readingSavedWord.findMany({
@@ -413,12 +435,24 @@ export class ReadingService {
       }
     });
 
+    // 图鉴状态：词库联动后该词是否已在图鉴（决定阅读中是否仍为生词）
+    let learned: boolean | undefined;
+    if (wordId) {
+      const wp = await this.prisma.userWordProgress.findUnique({
+        where: { userId_wordId: { userId, wordId } },
+        select: { wordId: true },
+      });
+      learned = !!wp;
+    } else {
+      learned = false;
+    }
+
     const savedWords = (await this.prisma.readingSavedWord.findMany({
       where: { userId, passageId },
       select: { word: true },
     })).map((s) => s.word);
 
-    return { word: body.word, saved, savedWords, inVocabBook };
+    return { word: body.word, saved, savedWords, inVocabBook, learned };
   }
 
   // 点词查义：先查篇内词表，未命中则回退单词库（Word 总表，取首个义项）

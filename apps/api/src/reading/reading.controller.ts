@@ -39,8 +39,8 @@ class MarkWordDto {
   @IsString()
   word!: string;
 
-  @IsIn(['save', 'remove'])
-  action!: 'save' | 'remove';
+  @IsIn(['save', 'remove', 'learn'])
+  action!: 'save' | 'remove' | 'learn';
 }
 
 @ApiTags('reading')

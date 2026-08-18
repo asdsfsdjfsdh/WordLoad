@@ -21,8 +21,8 @@ import { StructureCard, StructureLegend } from './StructureCard';
 export interface ReadingTextProps {
   sentences: ReadingSentenceView[];
   glossary: ReadingGlossaryEntry[];
-  // 单词库掌握度：词(小写) → { mastered, tier }（生词判定）
-  wordStatus?: Record<string, { mastered: boolean; tier?: string }>;
+  // 单词库状态：词(小写) → { mastered, learned, tier }（生词判定：未入图鉴即生词）
+  wordStatus?: Record<string, { mastered: boolean; learned?: boolean; tier?: string }>;
   showZh: boolean;
   highlight: boolean;
   structureOn: boolean;
@@ -148,7 +148,7 @@ interface WordSpanProps {
   raw: string;
   word: string;
   entry: ReadingGlossaryEntry | undefined;
-  wordStatus?: Record<string, { mastered: boolean; tier?: string }>;
+  wordStatus?: Record<string, { mastered: boolean; learned?: boolean; tier?: string }>;
   // 是否位于着色 run 内：背景/文字色由外层 run 提供，单词自身不再叠加角色背景
   roleActive: boolean;
   highlight: boolean;
@@ -157,11 +157,12 @@ interface WordSpanProps {
 }
 
 const WordSpan = memo(function WordSpan({ raw, word, entry, wordStatus, roleActive, highlight, saved, onWordClick }: WordSpanProps) {
-  // 生词判定：有学习数据 + 未掌握 + 非基础词 + 非 tier-I 豁免
+  // 生词判定：非基础词、非专有名词（人名/地名/句首大写），且从未入图鉴（无学习进度）即生词
+  // 收藏/标记已学/游戏学习都会使其离开生词
   const st = wordStatus?.[word];
-  const mastered = st?.mastered === true || entry?.mastered === true;
-  const hasData = !!entry || st !== undefined;
-  const isNew = hasData && !mastered && !isReadingBaseWord(word) && st?.tier !== 'I';
+  const learned = !!(st?.learned || entry?.learned);
+  const isCapitalized = /^[A-Z]/.test(raw);
+  const isNew = !isReadingBaseWord(word) && !isCapitalized && !learned;
 
   let cls = 'cursor-pointer transition-colors hover:text-cyan-300';
   if (!roleActive && highlight && isNew) cls += ' rounded-sm bg-amber-400/20';

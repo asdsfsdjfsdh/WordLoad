@@ -49,7 +49,7 @@ export function saveReadingProgress(
 export function markReadingWord(
   passageId: number,
   word: string,
-  action: 'save' | 'remove',
+  action: 'save' | 'remove' | 'learn',
 ): Promise<ReadingMarkWordResponse> {
   return api.post<ReadingMarkWordResponse>(`/reading/passages/${passageId}/words/mark`, { word, action });
 }

@@ -22,6 +22,7 @@ export interface ReadingGlossaryEntry {
   wordId?: string;
   mastered?: boolean; // 用户已掌握该词
   inVocabBook?: boolean; // 该词已在用户生词本
+  learned?: boolean; // 该词已在图鉴（存在学习进度），不再视为生词
   source?: 'glossary' | 'wordbank'; // 释义来源（回退查词时标记）
 }
 
@@ -32,6 +33,8 @@ export interface ReadingSentenceView {
   zh: string;
   // 句子结构（长难句拆解，可选；由标注管线写入）
   structure?: ReadingSentenceStructure;
+  // 逐句知识点（LLM 标注管线写入，可选）
+  knowledge?: ReadingSentenceKnowledge;
 }
 
 // ── 句子结构：长难句拆解（主句/从句/主干）──
@@ -63,6 +66,30 @@ export interface ReadingSentenceMain {
 export interface ReadingSentenceStructure {
   clauses: ReadingSentenceClause[];
   main?: ReadingSentenceMain;
+}
+
+// ── 句子知识点（LLM 标注：真正值得精读掌握的语法/句型/单词/词组）──
+export interface ReadingKnowledgeGrammarPoint {
+  title: string; // 语法/句型名称（如 让步状语从句 / not only...but also）
+  text: string; // 结合本句实际的讲解
+}
+
+export interface ReadingKnowledgeWord {
+  word: string; // 单词
+  meaning: string; // 在本句中的含义
+  note?: string; // 补充讲解（词性/词根/易错点等）
+}
+
+export interface ReadingKnowledgePhrase {
+  text: string; // 词组
+  meaning: string; // 含义
+  note?: string; // 补充讲解
+}
+
+export interface ReadingSentenceKnowledge {
+  grammar: ReadingKnowledgeGrammarPoint[];
+  words: ReadingKnowledgeWord[];
+  phrases: ReadingKnowledgePhrase[];
 }
 
 export const READING_CLAUSE_ROLES = [
@@ -247,8 +274,8 @@ export interface ReadingPassageDetail {
   sentences: ReadingSentenceView[];
   questions: ReadingQuestionView[];
   glossary: ReadingGlossaryEntry[];
-  // 单词库掌握度：词(小写) → { mastered, tier }（仅含本篇中出现且在单词库的词；供"生词"标注）
-  wordStatus?: Record<string, { mastered: boolean; tier?: string }>;
+  // 单词库掌握度：词(小写) → { mastered, learned, tier }（仅含本篇中出现且在单词库的词；供"生词"标注）
+  wordStatus?: Record<string, { mastered: boolean; learned?: boolean; tier?: string }>;
   progress: ReadingProgressView;
   savedWords: string[]; // 已收藏生词（词形集合）
 }
@@ -290,10 +317,10 @@ export interface ReadingProgressUpdateRequest {
   status?: ReadingPassageStatus;
 }
 
-// 生词收集
+// 生词收集 / 已学标记
 export interface ReadingMarkWordRequest {
   word: string;
-  action: 'save' | 'remove';
+  action: 'save' | 'remove' | 'learn'; // save=收藏生词本 / remove=取消收藏 / learn=标记已学（移出生词）
 }
 
 export interface ReadingMarkWordResponse {
@@ -301,6 +328,7 @@ export interface ReadingMarkWordResponse {
   saved: boolean;
   savedWords: string[];
   inVocabBook?: boolean; // 词库联动：同步到图鉴生词本后的状态
+  learned?: boolean; // 词库联动：标记已学后的状态（该词已入图鉴则 true）
 }
 
 // ── 纯函数：原文分词与词表查找（点词 / 生词高亮用，前后端一致）──
@@ -395,81 +423,4 @@ export function lookupReadingWord(
     if (entry) return entry;
   }
   return undefined;
-}
-
-// ── 句子知识：语法要点 / 词组 / 重要单词（由结构角色 + 词表自动派生，无需额外标注）──
-
-const GRAMMAR_NOTE: Record<ReadingClauseRole, string> = {
-  main: '主句：全句主干核心',
-  noun: '名词性从句：充当主语 / 宾语 / 表语',
-  adj: '定语从句：修饰前面的名词',
-  adv: '状语从句：表示时间 / 原因 / 条件 / 让步等',
-  participle: '分词短语：作状语或后置定语',
-  prep: '介词短语：作状语 / 定语 / 表语',
-  infinitive: '不定式：表目的 / 作宾语 / 作定语等',
-  appositive: '同位语：对前文名词作解释说明',
-  coordinate: '并列结构：连接并列成分',
-  other: '其他成分',
-};
-
-export function grammarRoleNote(role: ReadingClauseRole): string {
-  return GRAMMAR_NOTE[role] ?? GRAMMAR_NOTE.other;
-}
-
-export interface SentenceKnowledge {
-  grammar: { role: ReadingClauseRole; label: string; note: string }[];
-  phrases: { text: string; meaning: string }[];
-  keyWords: { word: string; meaning: string }[];
-}
-
-function compact(s: string): string {
-  return s.replace(/\s+/g, '');
-}
-
-// 由句子 + 结构 + 篇内词表派生"语法要点 / 词组 / 重要单词"
-export function deriveSentenceKnowledge(
-  sentence: string,
-  structure: ReadingSentenceStructure | undefined,
-  glossary: ReadingGlossaryEntry[],
-): SentenceKnowledge {
-  // 语法要点：从句角色去重
-  const grammar: SentenceKnowledge['grammar'] = [];
-  if (structure?.clauses?.length) {
-    const seen = new Set<ReadingClauseRole>();
-    for (const c of structure.clauses) {
-      if (!seen.has(c.role)) {
-        seen.add(c.role);
-        grammar.push({ role: c.role, label: c.label || clauseRoleInfo(c.role).label, note: grammarRoleNote(c.role) });
-      }
-    }
-  }
-
-  // 词组：多词词表条目在句中出现（宽容匹配）；重要单词：单词语条经屈折回退命中
-  const glossaryMap: Record<string, ReadingGlossaryEntry> = {};
-  for (const g of glossary) glossaryMap[g.word] = g;
-  const target = compact(sentence);
-
-  const phrases: SentenceKnowledge['phrases'] = [];
-  const phraseSeen = new Set<string>();
-  for (const g of glossary) {
-    if (g.word.includes(' ') && target.includes(compact(g.word))) {
-      if (!phraseSeen.has(g.word)) {
-        phraseSeen.add(g.word);
-        phrases.push({ text: g.word, meaning: g.meaning });
-      }
-    }
-  }
-
-  const keyWords: SentenceKnowledge['keyWords'] = [];
-  const wordSeen = new Set<string>();
-  for (const t of tokenizeReadingSentence(sentence)) {
-    if (!t.word) continue;
-    const e = lookupReadingWord(glossaryMap, t.word);
-    if (e && !e.word.includes(' ') && !wordSeen.has(e.word)) {
-      wordSeen.add(e.word);
-      keyWords.push({ word: e.word, meaning: e.meaning });
-    }
-  }
-
-  return { grammar, phrases, keyWords };
 }

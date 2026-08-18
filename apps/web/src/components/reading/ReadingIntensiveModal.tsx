@@ -1,10 +1,10 @@
 // 逐句精读模式：一句一屏；从句着色 + 句子主干 + 从句列表 + 点词底部释义条
-import { useEffect, useMemo, useState } from 'react';
-import type { ReadingGlossaryEntry, ReadingSentenceStructure, ReadingSentenceView } from '@word-journey/shared';
+import { Fragment, useEffect, useMemo, useState } from 'react';
+import type { ReadingGlossaryEntry, ReadingSentenceStructure, ReadingSentenceView, ReadingTokenRun } from '@word-journey/shared';
 import {
   assignTokenClauses,
   clauseRoleInfo,
-  deriveSentenceKnowledge,
+  groupReadingRoleRuns,
   locateClauseSpans,
   lookupReadingWord,
   normalizeReadingWord,
@@ -20,7 +20,9 @@ export interface ReadingIntensiveModalProps {
   initialSeq: number;
   onClose: () => void;
   onSentenceChange: (seq: number) => void;
-  onToggleSave: (word: string, action: 'save' | 'remove') => void;
+    onToggleSave: (word: string, action: 'save' | 'remove') => void;
+  // 移出生词：标记已学（入图鉴），由父级统一调用 mark 接口
+  onMarkLearned: (word: string) => void;
   lookupWord?: (raw: string) => Promise<ReadingGlossaryEntry | undefined>;
 }
 
@@ -32,6 +34,7 @@ export function ReadingIntensiveModal({
   onClose,
   onSentenceChange,
   onToggleSave,
+  onMarkLearned,
   lookupWord,
 }: ReadingIntensiveModalProps) {
   const [idx, setIdx] = useState(() => Math.max(0, sentences.findIndex((s) => s.seq === initialSeq)));
@@ -56,16 +59,19 @@ export function ReadingIntensiveModal({
     return assignTokenClauses(tokens, spans);
   }, [cur.en, structure, tokens]);
 
+  // 相邻同角色 token 归并为 run：连续着色（与阅读页 ReadingText 一致）
+  const runs = useMemo<ReadingTokenRun[]>(() => {
+    const roles = clauseRoles.length ? clauseRoles : tokens.map(() => undefined);
+    return groupReadingRoleRuns(tokens, roles);
+  }, [tokens, clauseRoles]);
+
   const presentRoles = useMemo(() => {
     if (!structure || !structure.clauses) return [];
     return [...new Set(structure.clauses.map((c) => c.role))];
   }, [structure]);
 
-  // 语法要点 / 词组 / 重要单词（由结构角色 + 词表自动派生）
-  const knowledge = useMemo(
-    () => deriveSentenceKnowledge(cur.en, structure, glossary),
-    [cur.en, structure, glossary],
-  );
+  // 知识点：LLM 标注（无标注时隐藏该区块）
+  const knowledge = cur.knowledge;
 
   const go = (next: number): void => {
     const clamped = Math.max(0, Math.min(sentences.length - 1, next));
@@ -158,28 +164,36 @@ export function ReadingIntensiveModal({
           {/* 句子卡 */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
             <p className="text-base leading-8 text-slate-100 sm:text-lg sm:leading-9">
-              {tokens.map((t, i) => {
-                if (!t.word) {
-                  return <span key={i} className="whitespace-pre-wrap">{t.text}</span>;
-                }
-                const entry = lookupReadingWord(glossaryMap, t.word);
-                const saved = savedWords.has(t.word);
-                const role = clauseRoles[i];
-                const isSelected = popover !== null && normalizeReadingWord(popover.raw) === t.word;
-                const info = role ? clauseRoleInfo(role) : null;
-                let cls = '';
-                if (isSelected) cls = 'rounded-sm bg-cyan-500/25 text-cyan-100';
-                else if (info) cls = info.spanClass;
-                else cls = 'text-slate-300';
-                return (
-                  <button
-                    key={i}
-                    aria-label={`查看单词 ${t.text} 释义`}
-                    className={`inline cursor-pointer rounded-sm px-px transition hover:bg-slate-700/40 ${cls} ${saved ? 'text-amber-300' : ''}`}
-                    onClick={(e) => onWordTap(t.text, entry, e)}
-                  >
-                    {t.text}
-                  </button>
+              {runs.map((run, ri) => {
+                const colored = structureOn && run.role !== undefined;
+                const info = run.role ? clauseRoleInfo(run.role) : null;
+                const children = run.tokens.map((t, i) => {
+                  if (!t.word) {
+                    return <span key={i} className="whitespace-pre-wrap">{t.text}</span>;
+                  }
+                  const entry = lookupReadingWord(glossaryMap, t.word);
+                  const saved = savedWords.has(t.word);
+                  const isSelected = popover !== null && normalizeReadingWord(popover.raw) === t.word;
+                  let cls = '';
+                  if (isSelected) cls = 'rounded-sm bg-cyan-500/25 text-cyan-100';
+                  else if (!colored) cls = 'text-slate-300';
+                  return (
+                    <button
+                      key={i}
+                      aria-label={`查看单词 ${t.text} 释义`}
+                      className={`inline cursor-pointer rounded-sm px-px transition hover:bg-slate-700/40 ${cls} ${saved ? 'text-amber-300' : ''}`}
+                      onClick={(e) => onWordTap(t.text, entry, e)}
+                    >
+                      {t.text}
+                    </button>
+                  );
+                });
+                return colored ? (
+                  <span key={ri} className={info!.spanClass}>
+                    {children}
+                  </span>
+                ) : (
+                  <Fragment key={ri}>{children}</Fragment>
                 );
               })}
             </p>
@@ -220,27 +234,21 @@ export function ReadingIntensiveModal({
             </div>
           )}
 
-          {/* 知识点：语法 / 词组 / 重要单词 */}
-          {knowledge.grammar.length + knowledge.phrases.length + knowledge.keyWords.length > 0 && (
+          {/* 知识点：语法 / 词组 / 重要单词（LLM 标注） */}
+          {knowledge && knowledge.grammar.length + knowledge.phrases.length + knowledge.words.length > 0 && (
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
               <div className="mb-3 text-xs font-semibold uppercase tracking-[.15em] text-slate-500">知识点</div>
               {knowledge.grammar.length > 0 && (
                 <div className="mb-3">
                   <div className="mb-1.5 text-xs font-semibold text-violet-400">语法要点</div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {knowledge.grammar.map((g) => (
-                      <span
-                        key={g.role}
-                        title={g.note}
-                        className={`rounded border px-2 py-0.5 text-xs font-medium ${clauseRoleInfo(g.role).chipClass}`}
-                      >
-                        {g.label}
-                      </span>
-                    ))}
-                  </div>
-                  <ul className="mt-1.5 space-y-0.5">
-                    {knowledge.grammar.map((g) => (
-                      <li key={g.role} className="text-xs leading-5 text-slate-400">· {g.note}</li>
+                  <ul className="space-y-2">
+                    {knowledge.grammar.map((g, i) => (
+                      <li key={i} className="text-sm leading-6">
+                        <span className="mr-1.5 rounded border border-violet-500/30 bg-violet-500/10 px-1.5 py-0.5 text-xs font-medium text-violet-300">
+                          {g.title}
+                        </span>
+                        <span className="text-slate-300">{g.text}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -249,23 +257,25 @@ export function ReadingIntensiveModal({
                 <div className="mb-3">
                   <div className="mb-1.5 text-xs font-semibold text-teal-400">词组搭配</div>
                   <ul className="space-y-1">
-                    {knowledge.phrases.map((p) => (
-                      <li key={p.text} className="text-sm leading-6">
+                    {knowledge.phrases.map((p, i) => (
+                      <li key={i} className="text-sm leading-6">
                         <span className="font-medium text-teal-200">{p.text}</span>
                         <span className="text-slate-500"> · {p.meaning}</span>
+                        {p.note && <span className="text-slate-400"> · {p.note}</span>}
                       </li>
                     ))}
                   </ul>
                 </div>
               )}
-              {knowledge.keyWords.length > 0 && (
+              {knowledge.words.length > 0 && (
                 <div>
                   <div className="mb-1.5 text-xs font-semibold text-amber-400">重要单词</div>
                   <ul className="space-y-1">
-                    {knowledge.keyWords.slice(0, 8).map((w) => (
-                      <li key={w.word} className="text-sm leading-6">
+                    {knowledge.words.map((w, i) => (
+                      <li key={i} className="text-sm leading-6">
                         <span className="font-medium text-amber-200">{w.word}</span>
                         <span className="text-slate-500"> · {w.meaning}</span>
+                        {w.note && <span className="text-slate-400"> · {w.note}</span>}
                       </li>
                     ))}
                   </ul>
@@ -324,7 +334,14 @@ export function ReadingIntensiveModal({
         <WordPopover
           state={popover}
           saved={savedWords.has(normalizeReadingWord(popover.raw))}
+          learned={!!popover.entry?.learned}
           onToggleSave={onToggleSave}
+          onMarkLearned={(word) => {
+            onMarkLearned(word);
+            setPopover((prev) =>
+              prev ? { ...prev, entry: prev.entry ? { ...prev.entry, learned: true } : prev.entry } : prev,
+            );
+          }}
           onClose={() => setPopover(null)}
         />
       )}
