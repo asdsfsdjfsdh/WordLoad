@@ -16,7 +16,8 @@ const STATUSES = [
   { v: '', label: '全部' }, { v: 'new', label: '新遇' },
   { v: 'learning', label: '学习中' }, { v: 'due', label: '待复习' },
   { v: 'mastered', label: '已掌握' }, { v: 'wrongbook', label: '错题本' },
-  { v: 'weak', label: '易错' }, { v: 'vocabbook', label: '生词本' },
+  // 易错 = 累计答错≥3 且未掌握（累计弱点口径，与"错题本"当前状态解耦；摘标词仍在易错里）
+  { v: 'weak', label: '易错(累计)' }, { v: 'vocabbook', label: '生词本' },
   { v: 'skipped', label: '已斩' },
 ];
 const SORTS = [
@@ -167,7 +168,13 @@ export function CollectionsPage() {
           `/collections/words/ids?status=weak&limit=60`,
         );
         if (!res.wordIds.length) return;
-        navigate(`/battle/${res.bankCode ?? reviewBank ?? ''}/0`, {
+        const bank = res.bankCode ?? reviewBank;
+        // 弱词可能来自多本词书（复习战后端已放宽为全局复习）；全无词书归属时无法创建复习会话
+        if (!bank) {
+          alert('复习词均未归属任何词书，无法创建复习战');
+          return;
+        }
+        navigate(`/battle/${bank}/0`, {
           state: { mode: 'review', wordIds: res.wordIds, size: Math.max(10, res.wordIds.length) },
         });
       } finally {
@@ -320,7 +327,7 @@ export function CollectionsPage() {
               <button
                 onClick={handleReviewClick}
                 disabled={reviewIdsLoading}
-                title={status === 'weak' ? '一次拉取全部易错词开复习战（不受分页限制）' : '用当前筛选中这批词开一轮复习战'}
+                title={status === 'weak' ? '一次拉取全部易错（累计答错≥3）词开复习战，不受分页限制、可跨词书' : '用当前筛选中这批词开一轮复习战（可跨词书）'}
                 className="rounded-full border border-emerald-700/60 bg-emerald-950/40 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-900/40 hover:text-emerald-200 disabled:opacity-50"
               >
                 {status === 'weak'

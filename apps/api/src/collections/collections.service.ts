@@ -178,6 +178,8 @@ export class CollectionsService {
     const dueToday = progress.filter(
       (p) => !p.skipped && p.mastery < 100 && p.nextReviewAt != null && p.nextReviewAt.getTime() <= now.getTime(),
     ).length;
+    // 易错 weak：累计答错 ≥3 且未掌握且未斩（累计弱点口径，与"错题本"inWrongBook 当前状态解耦）
+    // 注：错题本摘标（连续答对 2 次）后 wrongCount 仍累计 → 摘标词不在错题本但在"易错"里（薄弱词继续复习，设计如此）
     const weak = progress.filter((p) => p.wrongCount >= 3 && p.mastery < 100 && !p.skipped).length;
     const vocabbook = progress.filter((p) => p.inVocabBook).length;
     const newToday = progress.filter(
@@ -236,7 +238,7 @@ export class CollectionsService {
     }
     switch (opts.status) {
       case 'wrongbook':
-        where.inWrongBook = true;
+        where.inWrongBook = true; // 错题本：当前待补救状态（答错即进，连续对 2 次摘标）
         break;
       case 'skipped':
         where.skipped = true;
@@ -256,6 +258,7 @@ export class CollectionsService {
         where.skipped = false;
         break;
       case 'weak':
+        // 易错：累计答错 ≥3 且未掌握且未斩（累计弱点口径；与 inWrongBook 状态无关）
         where.wrongCount = { gte: 3 };
         where.mastery = { lt: 100 };
         where.skipped = false;

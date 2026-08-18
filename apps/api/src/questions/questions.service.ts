@@ -163,17 +163,34 @@ export class QuestionsService {
       }
     } else {
       // 按 7:2:1 比例抽词：新词 70% / 复习 20% / 错题 10%（allocSessionMix 纯函数，缺额新词补足）
-      const dueFirst = (bw: PoolWord): number => {
+      //
+      // 复习到期纪律（与复习战 createReviewSession 的"错题本→到期→毕业词兜底"同口径）：
+      // - dueReviewPool：已到期（nextReviewAt ≤ now），严格最优先占 20% 复习位
+      // - futureReviewPool：未到期复习词（reviewStage > 0），仅在新词+到期复习不足时兜底占位
+      // - 已掌握词（mastery ≥ 100 未斩）也在 review 池尾部，nextReviewAt 长间隔 → 最后兜底，与"毕业词长间隔重考"一致
+      // allocSessionMix 按数组顺序取头（due 在前），缺口先新词、再未到期复习，保证到期词永不被未到期词挤占
+      const now = Date.now();
+      const isDueReview = (bw: PoolWord): boolean => {
         const p = progressByWord.get(bw.wordId);
-        if (!p?.nextReviewAt) return 0;
-        return p.nextReviewAt.getTime() - Date.now();
+        return !!p?.nextReviewAt && p.nextReviewAt.getTime() <= now;
+      };
+      const byNextReview = (a: PoolWord, b: PoolWord): number => {
+        const pa = progressByWord.get(a.wordId)?.nextReviewAt?.getTime() ?? Number.MAX_SAFE_INTEGER;
+        const pb = progressByWord.get(b.wordId)?.nextReviewAt?.getTime() ?? Number.MAX_SAFE_INTEGER;
+        return pa - pb;
       };
 
       const newPool = [...activePool.filter((bw) => classify(bw) === 'new')].sort(() => Math.random() - 0.5);
-      const reviewPool = activePool.filter((bw) => classify(bw) === 'review').sort((a, b) => dueFirst(a) - dueFirst(b));
+      const dueReviewPool = activePool.filter((bw) => classify(bw) === 'review' && isDueReview(bw)).sort(byNextReview);
+      const futureReviewPool = activePool.filter((bw) => classify(bw) === 'review' && !isDueReview(bw)).sort(byNextReview);
       const wrongPool = [...activePool.filter((bw) => classify(bw) === 'wrongbook')].sort(() => Math.random() - 0.5);
 
-      chosen = allocSessionMix({ fresh: newPool, review: reviewPool, wrongbook: wrongPool, size: sessionSize });
+      chosen = allocSessionMix({
+        fresh: newPool,
+        review: [...dueReviewPool, ...futureReviewPool],
+        wrongbook: wrongPool,
+        size: sessionSize,
+      });
     }
 
     // 记录每题来源（结算时写 item.type）

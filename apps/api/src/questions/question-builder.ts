@@ -43,7 +43,8 @@ export function pickWeighted<T>(
 }
 
 // 按比例混合抽词：fresh/review/wrongbook 三类各取一段，缺额由新词补足（其次复习），保证总和=size
-// 输入数组由调用方预先排序（fresh/wrongbook 随机、review 按到期优先）
+// 输入数组由调用方预先排序（fresh/wrongbook 随机、review 按到期优先——头部为已到期词）。
+// 注意：review 只取头部（到期优先），未到期复习词仅在新词+到期复习不足时兜底占位。
 export function allocSessionMix<T extends { wordId: string }>(opts: {
   fresh: T[];
   review: T[];

@@ -104,19 +104,19 @@ export class SessionsService {
 
     let chosen: ReviewSessionRow[];
     if (opts.wordIds && opts.wordIds.length > 0) {
-      // 图鉴弱词复习：词必须属于该用户且属于该词书（杜绝静默丢词）
+      // 图鉴弱词复习（wordIds 精确指定词集）：词必须属于该用户（杜绝静默丢词）。
+      // 复习战是全局复习：不要求词属于传入的 bankCode（图鉴词可跨多本词书），词书仅作会话记录归属。
       const rows = await this.prisma.userWordProgress.findMany({
         where: {
           userId: opts.userId,
           wordId: { in: opts.wordIds },
-          word: { bankWords: { some: { bankId: bank.id } } },
         },
         include: reviewSessionInclude,
       });
       const found = new Set(rows.map((p) => p.wordId));
       const missing = opts.wordIds.filter((id) => !found.has(id));
       if (missing.length > 0) {
-        throw new BadRequestException(`${missing.length} 个单词不在该词书或尚未学习，无法加入复习`);
+        throw new BadRequestException(`${missing.length} 个单词尚未学习，无法加入复习`);
       }
       if (rows.length === 0) throw new BadRequestException('暂无需要复习的单词');
       chosen = rows;
@@ -655,10 +655,12 @@ export class SessionsService {
 
         const cur = curByWord.get(item.wordId);
         const prevRunningStage = srsByWord.get(item.wordId)?.reviewStage ?? (cur?.reviewStage ?? 0);
-        const srs = srsSchedule(
+        let srs = srsSchedule(
           srsByWord.get(item.wordId) ?? (cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null),
           correctNow,
         );
+        // 听写精通：与生存 Run commitWaveSrs 同口径，dictation 答对额外 +1 档（更快掌握，更高阶挑战的回报）
+        if (session.mode === 'dictation' && correctNow) srs = srsSchedule(srs, true);
         srsByWord.set(item.wordId, { reviewStage: srs.reviewStage, ease: srs.ease });
         const baseHistory =
           historyByWord.get(item.wordId)
