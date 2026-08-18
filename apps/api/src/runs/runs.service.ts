@@ -384,7 +384,7 @@ export class RunsService {
   // ── 金币重抽增益（每波 1 次）──
   async reroll(userId: number, runId: number): Promise<RerollRunResponse> {
     return this.prisma.$transaction(async (tx) => {
-      await tx.$queryRawUnsafe('SELECT id FROM `run` WHERE id = ? FOR UPDATE', runId);
+      await tx.$queryRawUnsafe('SELECT id FROM `Run` WHERE id = ? FOR UPDATE', runId);
       const run = await tx.run.findFirst({ where: { id: runId, userId, status: 'active' } });
       if (!run) throw new NotFoundException('Run 不存在或已结束');
       const pick = readPendingPick(run.extra);
@@ -553,7 +553,7 @@ export class RunsService {
   ): Promise<RunAdvanceResponse> {
     // 行锁 + 事务：并发推进串行化，避免双重推进/重复结算（锁持有至事务提交）
     return this.prisma.$transaction(async (tx) => {
-    await tx.$queryRawUnsafe('SELECT id FROM `run` WHERE id = ? FOR UPDATE', runId);
+    await tx.$queryRawUnsafe('SELECT id FROM `Run` WHERE id = ? FOR UPDATE', runId);
     const run = await tx.run.findFirst({
       where: { id: runId, userId, status: 'active' },
     });
