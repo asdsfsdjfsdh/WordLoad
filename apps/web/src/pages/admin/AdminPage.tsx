@@ -12,8 +12,12 @@ export function AdminPage() {
     );
   }
   const nav = [
+    { to: '/admin/overview', label: '运营总览' },
     { to: '/admin/words', label: '单词库' },
     { to: '/admin/reading', label: '阅读库' },
+    { to: '/admin/users', label: '用户管理' },
+    { to: '/admin/audit', label: '审计日志' },
+    { to: '/admin/feedback', label: '反馈管理' },
   ];
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">

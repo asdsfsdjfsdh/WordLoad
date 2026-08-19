@@ -5,10 +5,12 @@ import type { Bank } from '@word-journey/shared';
 import { api } from '../lib/api';
 import { useAuth } from '../store/auth';
 import { SettingsModal } from '../components/SettingsModal';
+import { FeedbackModal } from '../components/FeedbackModal';
 
 export function LobbyPage() {
   const { user } = useAuth();
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
   const { data: banks, isLoading, isError, error, refetch } = useQuery({
     queryKey: ['banks'],
     queryFn: () => api.get<Bank[]>('/banks'),
@@ -134,7 +136,12 @@ export function LobbyPage() {
         </div>
       )}
 
+      <div className="mx-auto mt-4 flex max-w-sm justify-center">
+        <button onClick={() => setFeedbackOpen(true)} className="flex-1 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2 text-center text-sm font-medium text-slate-300 transition hover:border-cyan-500/40 hover:text-cyan-300">💬 意见反馈</button>
+      </div>
+
       {settingsOpen && <SettingsModal onClose={() => setSettingsOpen(false)} />}
+      {feedbackOpen && <FeedbackModal onClose={() => setFeedbackOpen(false)} />}
     </div>
   );
 }

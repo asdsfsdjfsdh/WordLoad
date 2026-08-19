@@ -17,6 +17,10 @@ const ReadingPassagePage = lazy(() => import('./pages/ReadingPassagePage').then(
 const AdminPage = lazy(() => import('./pages/admin/AdminPage').then((m) => ({ default: m.AdminPage })));
 const AdminWordsPage = lazy(() => import('./pages/admin/AdminWordsPage').then((m) => ({ default: m.AdminWordsPage })));
 const AdminReadingPage = lazy(() => import('./pages/admin/AdminReadingPage').then((m) => ({ default: m.AdminReadingPage })));
+const AdminOverviewPage = lazy(() => import('./pages/admin/AdminOverviewPage').then((m) => ({ default: m.AdminOverviewPage })));
+const AdminUsersPage = lazy(() => import('./pages/admin/AdminUsersPage').then((m) => ({ default: m.AdminUsersPage })));
+const AdminAuditPage = lazy(() => import('./pages/admin/AdminAuditPage').then((m) => ({ default: m.AdminAuditPage })));
+const AdminFeedbackPage = lazy(() => import('./pages/admin/AdminFeedbackPage').then((m) => ({ default: m.AdminFeedbackPage })));
 
 function PageFallback() {
   return <div className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-500">加载中…</div>;
@@ -158,9 +162,13 @@ export function App() {
           </RequireAdmin>
         }
       >
-        <Route index element={<Navigate to="/admin/words" replace />} />
+        <Route index element={<Navigate to="/admin/overview" replace />} />
+        <Route path="overview" element={<Suspense fallback={<PageFallback />}><AdminOverviewPage /></Suspense>} />
         <Route path="words" element={<Suspense fallback={<PageFallback />}><AdminWordsPage /></Suspense>} />
         <Route path="reading" element={<Suspense fallback={<PageFallback />}><AdminReadingPage /></Suspense>} />
+        <Route path="users" element={<Suspense fallback={<PageFallback />}><AdminUsersPage /></Suspense>} />
+        <Route path="audit" element={<Suspense fallback={<PageFallback />}><AdminAuditPage /></Suspense>} />
+        <Route path="feedback" element={<Suspense fallback={<PageFallback />}><AdminFeedbackPage /></Suspense>} />
       </Route>
       <Route path="*" element={<RequireAuth><Navigate to="/lobby" replace /></RequireAuth>} />
     </Routes>

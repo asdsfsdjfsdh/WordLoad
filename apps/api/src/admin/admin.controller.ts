@@ -2,10 +2,15 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsArray, IsIn, IsInt, IsObject, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
+import { IsArray, IsBoolean, IsIn, IsInt, IsObject, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
 import type { Request } from 'express';
 import type {
+  AdminAuditLogListResult,
+  AdminFeedbackListResult,
   AdminPassageEdit,
+  AdminStatsOverview,
+  AdminUserDetail,
+  AdminUserListResult,
   AdminWordCreateInput,
   AdminWordDetail,
   AdminWordListResult,
@@ -14,6 +19,7 @@ import type {
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
 import { AdminGuard } from './admin.guard';
 import { AdminService } from './admin.service';
+import { FeedbackService } from '../feedback/feedback.service';
 
 // ── 单词库 DTO ──
 class WordSenseDto {
@@ -144,12 +150,29 @@ class GlossaryDto {
   meaning?: string;
 }
 
+class SetAdminDto {
+  @IsBoolean()
+  isAdmin!: boolean;
+}
+
+class SetFeedbackDto {
+  @IsIn(['open', 'done', 'ignored'])
+  status!: 'open' | 'done' | 'ignored';
+
+  @IsOptional()
+  @IsString()
+  reply?: string;
+}
+
 @ApiTags('admin')
 @Controller('admin')
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard, AdminGuard)
 export class AdminController {
-  constructor(private readonly admin: AdminService) {}
+  constructor(
+    private readonly admin: AdminService,
+    private readonly feedback: FeedbackService,
+  ) {}
 
   // 单词库
   @Get('words')
@@ -228,4 +251,80 @@ export class AdminController {
   saveGlossary(@Req() req: Request & { user: JwtUser }, @Param('id', ParseIntPipe) id: number, @Body() dto: GlossaryDto) {
     return this.admin.saveGlossary(req.user.sub, id, dto);
   }
+
+  // ── 运营总览 ──
+  @Get('stats/overview')
+  @ApiOperation({ summary: '运营数据总览' })
+  statsOverview(): Promise<AdminStatsOverview> {
+    return this.admin.getStatsOverview();
+  }
+
+  @Get('stats/trend')
+  @ApiOperation({ summary: '运营趋势（近 N 天逐日，默认 14）' })
+  statsTrend(@Query('days') days = '14'): Promise<import('@word-journey/shared').AdminStatsTrend> {
+    return this.admin.getStatsTrend(Number(days) || 14);
+  }
+
+  // ── 用户管理 ──
+  @Get('users')
+  @ApiOperation({ summary: '用户列表（搜索/分页）' })
+  listUsers(
+    @Query('q') q = '',
+    @Query('page') page = '1',
+    @Query('pageSize') pageSize = '20',
+  ): Promise<AdminUserListResult> {
+    return this.admin.listUsers(q, Math.max(1, Number(page) || 1), Math.min(100, Math.max(1, Number(pageSize) || 20)));
+  }
+
+  @Get('users/:id')
+  @ApiOperation({ summary: '用户详情' })
+  getUserDetail(@Param('id', ParseIntPipe) id: number): Promise<AdminUserDetail> {
+    return this.admin.getUserDetail(id);
+  }
+
+  @Put('users/:id/admin')
+  @ApiOperation({ summary: '设置 / 取消管理员' })
+  setUserAdmin(@Req() req: Request & { user: JwtUser }, @Param('id', ParseIntPipe) id: number, @Body() dto: SetAdminDto) {
+    return this.admin.setUserAdmin(req.user.sub, id, dto.isAdmin);
+  }
+
+  // ── 审计日志 ──
+  @Get('audit-logs')
+  @ApiOperation({ summary: '审计日志（筛选/分页）' })
+  listAuditLogs(
+    @Query('table') table?: string,
+    @Query('action') action?: string,
+    @Query('admin') adminUsername?: string,
+    @Query('page') page = '1',
+    @Query('pageSize') pageSize = '20',
+  ): Promise<AdminAuditLogListResult> {
+    return this.admin.listAuditLogs(
+      { table, action, adminUsername },
+      Math.max(1, Number(page) || 1),
+      Math.min(100, Math.max(1, Number(pageSize) || 20)),
+    );
+  }
+
+  // ── 反馈管理 ──
+  @Get('feedback')
+  @ApiOperation({ summary: '反馈列表（筛选/分页）' })
+  listFeedback(
+    @Query('status') status?: string,
+    @Query('type') type?: string,
+    @Query('page') page = '1',
+    @Query('pageSize') pageSize = '20',
+  ): Promise<AdminFeedbackListResult> {
+    return this.feedback.listAdmin(
+      { status, type },
+      Math.max(1, Number(page) || 1),
+      Math.min(100, Math.max(1, Number(pageSize) || 20)),
+    );
+  }
+
+  @Post('feedback/:id/reply')
+  @ApiOperation({ summary: '回复 / 更新反馈状态' })
+  replyFeedback(@Param('id', ParseIntPipe) id: number, @Body() dto: SetFeedbackDto) {
+    return this.feedback.reply(id, dto);
+  }
 }
+

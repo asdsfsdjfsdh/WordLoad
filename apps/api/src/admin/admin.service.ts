@@ -1,11 +1,18 @@
 // 后台管理服务：单词库 / 阅读库 编辑与修正
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import type {
+  AdminAuditLogListResult,
+  AdminAuditLogRow,
   AdminGlossaryUpdate,
   AdminPassageEdit,
   AdminQuestionUpdate,
   AdminSentenceUpdate,
+  AdminStatsOverview,
+  AdminStatsTrend,
+  AdminTrendDay,
+  AdminUserDetail,
+  AdminUserListResult,
   AdminWordCreateInput,
   AdminWordDetail,
   AdminWordListResult,
@@ -307,5 +314,291 @@ export class AdminService {
     });
     await this.audit(adminId, 'save', 'readingGlossary', String(id), { word: exists.word }, { word: input.word ?? exists.word });
     return { ok: true };
+  }
+
+  // ── 运营总览 ──
+  async getStatsOverview(): Promise<AdminStatsOverview> {
+    const now = new Date();
+    const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const recentSignups = await this.prisma.user.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: 5,
+      select: { id: true, username: true, createdAt: true },
+    });
+    const [users, words, runs, sessions, reading] = await Promise.all([
+      Promise.all([
+        this.prisma.user.count(),
+        this.prisma.user.count({ where: { createdAt: { gte: startToday } } }),
+        this.prisma.user.count({ where: { isAdmin: true } }),
+      ]),
+      Promise.all([
+        this.prisma.word.count(),
+        this.prisma.wordSense.count(),
+        this.prisma.wordBank.count(),
+        this.prisma.wordPair.count(),
+      ]),
+      Promise.all([
+        this.prisma.run.count(),
+        this.prisma.run.count({ where: { status: 'active' } }),
+        this.prisma.run.count({ where: { createdAt: { gte: startToday } } }),
+        this.prisma.run.count({ where: { cleared: true } }),
+      ]),
+      Promise.all([
+        this.prisma.learningSession.count(),
+        this.prisma.learningSession.count({ where: { createdAt: { gte: startToday } } }),
+      ]),
+      Promise.all([
+        this.prisma.readingPaper.count(),
+        this.prisma.readingPassage.count(),
+        this.prisma.readingSentence.count(),
+        this.prisma.readingQuestion.count(),
+      ]),
+    ]);
+    const [userCount, todayNewUsers, adminCount] = users;
+    const [wordCount, senseCount, bankCount, pairCount] = words;
+    const [runCount, activeRuns, todayRuns, clearedRuns] = runs;
+    const [sessionCount, todaySessions] = sessions;
+    const [paperCount, passageCount, sentenceCount, questionCount] = reading;
+    return {
+      users: { total: userCount, todayNew: todayNewUsers, admins: adminCount },
+      words: { total: wordCount, senses: senseCount, banks: bankCount, wordPairs: pairCount },
+      runs: { total: runCount, active: activeRuns, todayNew: todayRuns, completed: clearedRuns },
+      sessions: { total: sessionCount, todayNew: todaySessions },
+      reading: { papers: paperCount, passages: passageCount, sentences: sentenceCount, questions: questionCount },
+      recentSignups: recentSignups.map((u) => ({ id: u.id, username: u.username, createdAt: u.createdAt.toISOString() })),
+    };
+  }
+
+  // ── 运营趋势（近 N 天逐日）──
+  async getStatsTrend(days: number): Promise<AdminStatsTrend> {
+    const n = Math.min(60, Math.max(1, Math.floor(days) || 14));
+    const now = new Date();
+    const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (n - 1), 0, 0, 0, 0);
+    const pad = (x: number): string => String(x).padStart(2, '0');
+    const key = (d: Date): string => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+    const dayKeys: string[] = [];
+    const row = new Map<string, AdminTrendDay>();
+    for (let i = 0; i < n; i++) {
+      const d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+      const k = key(d);
+      dayKeys.push(k);
+      row.set(k, { date: k, newUsers: 0, activeUsers: 0, runs: 0, sessions: 0, readingAnswers: 0 });
+    }
+    const activeByDay = new Map<string, Set<number>>();
+    const touch = (k: string, uid: number) => {
+      let s = activeByDay.get(k);
+      if (!s) { s = new Set(); activeByDay.set(k, s); }
+      s.add(uid);
+    };
+
+    // 一次性拉取窗口内原始记录，按本地日期在 JS 端分桶（数据量小，避免了按时间分组跨时区的坑）
+    const [users, runs, sessions, readingAnswers] = await Promise.all([
+      this.prisma.user.findMany({ where: { createdAt: { gte: start } }, select: { id: true, createdAt: true } }),
+      this.prisma.run.findMany({ where: { createdAt: { gte: start } }, select: { userId: true, createdAt: true } }),
+      this.prisma.learningSession.findMany({ where: { createdAt: { gte: start } }, select: { userId: true, createdAt: true } }),
+      this.prisma.readingAnswer.findMany({ where: { submittedAt: { gte: start } }, select: { userId: true, submittedAt: true } }),
+    ]);
+
+    for (const u of users) {
+      const k = key(u.createdAt);
+      const r = row.get(k);
+      if (r) { r.newUsers += 1; touch(k, u.id); }
+    }
+    for (const r of runs) {
+      const k = key(r.createdAt);
+      const d = row.get(k);
+      if (d) { d.runs += 1; touch(k, r.userId); }
+    }
+    for (const s of sessions) {
+      const k = key(s.createdAt);
+      const d = row.get(k);
+      if (d) { d.sessions += 1; touch(k, s.userId); }
+    }
+    for (const a of readingAnswers) {
+      const k = key(a.submittedAt);
+      const d = row.get(k);
+      if (d) { d.readingAnswers += 1; touch(k, a.userId); }
+    }
+
+    return {
+      days: n,
+      daysData: dayKeys.map((k) => ({ ...row.get(k)!, activeUsers: activeByDay.get(k)?.size ?? 0 })),
+    };
+  }
+
+  // ── 用户管理 ──
+  async listUsers(q: string, page: number, pageSize: number): Promise<AdminUserListResult> {
+    const where = q && q.trim() ? { username: { contains: q.trim() } } : {};
+    const [total, users] = await Promise.all([
+      this.prisma.user.count({ where }),
+      this.prisma.user.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip: (page - 1) * pageSize,
+        take: pageSize,
+        select: {
+          id: true,
+          username: true,
+          isAdmin: true,
+          coins: true,
+          createdAt: true,
+          character: { select: { level: true } },
+        },
+      }),
+    ]);
+    const ids = users.map((u) => u.id);
+    if (ids.length === 0) return { items: [], total };
+    const [runAgg, sessAgg, learnedAgg, wrongAgg, runMax, sessMax, readMax] = await Promise.all([
+      this.prisma.run.groupBy({ by: ['userId'], where: { userId: { in: ids } }, _count: { _all: true } }),
+      this.prisma.learningSession.groupBy({ by: ['userId'], where: { userId: { in: ids } }, _count: { _all: true } }),
+      this.prisma.userWordProgress.groupBy({ by: ['userId'], where: { userId: { in: ids }, mastery: { gte: 100 } }, _count: { _all: true } }),
+      this.prisma.userWordProgress.groupBy({ by: ['userId'], where: { userId: { in: ids }, inWrongBook: true }, _count: { _all: true } }),
+      this.prisma.run.groupBy({ by: ['userId'], where: { userId: { in: ids } }, _max: { updatedAt: true } }),
+      this.prisma.learningSession.groupBy({ by: ['userId'], where: { userId: { in: ids } }, _max: { createdAt: true } }),
+      this.prisma.readingProgress.groupBy({ by: ['userId'], where: { userId: { in: ids } }, _max: { lastReadAt: true } }),
+    ]);
+    const toMap = (rows: { userId: number; _count?: { _all: number } }[]): Map<number, number> => {
+      const m = new Map<number, number>();
+      for (const r of rows) if (r._count) m.set(r.userId, r._count._all);
+      return m;
+    };
+    const runMap = toMap(runAgg);
+    const sessMap = toMap(sessAgg);
+    const learnedMap = toMap(learnedAgg);
+    const wrongMap = toMap(wrongAgg);
+    const lastActive = new Map<number, Date>();
+    const stamp = (rows: { userId: number }[], key: 'updatedAt' | 'createdAt' | 'lastReadAt') => {
+      for (const r of rows) {
+        const d = (r as unknown as { _max: Record<string, Date | null> })._max[key];
+        if (d) {
+          const cur = lastActive.get(r.userId);
+          if (!cur || d > cur) lastActive.set(r.userId, d);
+        }
+      }
+    };
+    stamp(runMax, 'updatedAt');
+    stamp(sessMax, 'createdAt');
+    stamp(readMax, 'lastReadAt');
+
+    return {
+      total,
+      items: users.map((u) => ({
+        id: u.id,
+        username: u.username,
+        isAdmin: u.isAdmin,
+        coins: u.coins,
+        createdAt: u.createdAt.toISOString(),
+        lastActiveAt: lastActive.get(u.id)?.toISOString() ?? null,
+        charLevel: u.character?.level ?? 1,
+        runCount: runMap.get(u.id) ?? 0,
+        sessionCount: sessMap.get(u.id) ?? 0,
+        wordsLearned: learnedMap.get(u.id) ?? 0,
+        inWrongBook: wrongMap.get(u.id) ?? 0,
+      })),
+    };
+  }
+
+  async getUserDetail(id: number): Promise<AdminUserDetail> {
+    const user = await this.prisma.user.findUnique({ where: { id }, include: { character: true } });
+    if (!user) throw new NotFoundException('用户不存在');
+    const [runs, sessions, learned, wrong, vocab, senseProg, readingPapers] = await Promise.all([
+      this.prisma.run.findMany({ where: { userId: id }, orderBy: { updatedAt: 'desc' }, take: 20 }),
+      this.prisma.learningSession.findMany({ where: { userId: id }, orderBy: { createdAt: 'desc' }, take: 20 }),
+      this.prisma.userWordProgress.count({ where: { userId: id, mastery: { gte: 100 } } }),
+      this.prisma.userWordProgress.count({ where: { userId: id, inWrongBook: true } }),
+      this.prisma.userWordProgress.count({ where: { userId: id, inVocabBook: true } }),
+      this.prisma.userSenseProgress.count({ where: { userId: id } }),
+      this.prisma.readingProgress.count({ where: { userId: id, status: { not: 'not-started' } } }),
+    ]);
+    return {
+      id: user.id,
+      username: user.username,
+      isAdmin: user.isAdmin,
+      coins: user.coins,
+      createdAt: user.createdAt.toISOString(),
+      character: user.character
+        ? {
+            level: user.character.level,
+            exp: user.character.exp,
+            hpLv: user.character.hpLv,
+            atkLv: user.character.atkLv,
+            defLv: user.character.defLv,
+            executeSpec: user.character.executeSpec,
+            vampireSpec: user.character.vampireSpec,
+          }
+        : null,
+      progress: {
+        wordsLearned: learned,
+        inWrongBook: wrong,
+        inVocabBook: vocab,
+        senseProgress: senseProg,
+        readingPapers,
+      },
+      runs: runs.map((r) => ({
+        id: r.id,
+        kind: r.kind,
+        status: r.status,
+        day: r.day,
+        rating: r.rating,
+        maxCombo: r.maxCombo,
+        cleared: r.cleared,
+        coinsEarned: r.coinsEarned,
+        createdAt: r.createdAt.toISOString(),
+      })),
+      sessions: sessions.map((s) => ({
+        id: s.id,
+        result: s.result,
+        rating: s.rating,
+        xpEarned: s.xpEarned,
+        coinsEarned: s.coinsEarned,
+        createdAt: s.createdAt.toISOString(),
+      })),
+    };
+  }
+
+  async setUserAdmin(adminId: number, targetId: number, isAdmin: boolean): Promise<{ ok: true; isAdmin: boolean }> {
+    if (targetId === adminId) throw new BadRequestException('不能修改自己的管理员状态');
+    const target = await this.prisma.user.findUnique({ where: { id: targetId }, select: { id: true, isAdmin: true } });
+    if (!target) throw new NotFoundException('用户不存在');
+    await this.prisma.user.update({ where: { id: targetId }, data: { isAdmin } });
+    await this.audit(adminId, 'save', 'user', String(targetId), { isAdmin: target.isAdmin }, { isAdmin });
+    return { ok: true, isAdmin };
+  }
+
+  // ── 审计日志 ──
+  async listAuditLogs(
+    filter: { table?: string; action?: string; adminUsername?: string },
+    page: number,
+    pageSize: number,
+  ): Promise<AdminAuditLogListResult> {
+    const where: Record<string, unknown> = {};
+    if (filter.table) where['table'] = filter.table;
+    if (filter.action) where['action'] = filter.action;
+    if (filter.adminUsername && filter.adminUsername.trim()) {
+      where['admin'] = { username: { contains: filter.adminUsername.trim() } };
+    }
+    const [total, items] = await Promise.all([
+      this.prisma.adminAuditLog.count({ where }),
+      this.prisma.adminAuditLog.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip: (page - 1) * pageSize,
+        take: pageSize,
+        include: { admin: { select: { username: true } } },
+      }),
+    ]);
+    return {
+      total,
+      items: items.map((l): AdminAuditLogRow => ({
+        id: l.id,
+        adminUsername: l.admin.username,
+        action: l.action,
+        table: l.table,
+        recordId: l.recordId,
+        before: l.before === undefined || l.before === null ? undefined : (l.before as unknown),
+        after: l.after === undefined || l.after === null ? undefined : (l.after as unknown),
+        createdAt: l.createdAt.toISOString(),
+      })),
+    };
   }
 }

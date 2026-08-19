@@ -6,3 +6,4 @@ export * from './stats.js';
 export * from './srs.js';
 export * from './reading.js';
 export * from './admin.js';
+export * from './feedback.js';

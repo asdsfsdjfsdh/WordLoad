@@ -113,3 +113,92 @@ export interface AdminGlossaryUpdate {
   word?: string;
   meaning?: string;
 }
+
+// ── 后台 · 运营总览 ──
+export interface AdminStatsOverview {
+  users: { total: number; todayNew: number; admins: number };
+  words: { total: number; senses: number; banks: number; wordPairs: number };
+  runs: { total: number; active: number; todayNew: number; completed: number };
+  sessions: { total: number; todayNew: number };
+  reading: { papers: number; passages: number; sentences: number; questions: number };
+  recentSignups: { id: number; username: string; createdAt: string }[];
+}
+
+// 后台 · 运营趋势（近 N 天逐日）
+export interface AdminTrendDay {
+  date: string; // YYYY-MM-DD
+  newUsers: number; // 当日注册
+  activeUsers: number; // 当日活跃（注册/Run/关卡/阅读任一动作去重）
+  runs: number; // 当日发起的 Run
+  sessions: number; // 当日创建的关卡会话
+  readingAnswers: number; // 当日阅读答题数
+}
+
+export interface AdminStatsTrend {
+  days: number; // 覆盖天数
+  daysData: AdminTrendDay[];
+}
+
+// ── 后台 · 用户管理 ──
+export interface AdminUserSummary {
+  id: number;
+  username: string;
+  isAdmin: boolean;
+  coins: number;
+  createdAt: string;
+  lastActiveAt: string | null;
+  charLevel: number;
+  runCount: number;
+  sessionCount: number;
+  wordsLearned: number;
+  inWrongBook: number;
+}
+
+export interface AdminUserListResult {
+  items: AdminUserSummary[];
+  total: number;
+}
+
+export interface AdminUserDetail {
+  id: number;
+  username: string;
+  isAdmin: boolean;
+  coins: number;
+  createdAt: string;
+  character: {
+    level: number;
+    exp: number;
+    hpLv: number;
+    atkLv: number;
+    defLv: number;
+    executeSpec: boolean;
+    vampireSpec: boolean;
+  } | null;
+  progress: {
+    wordsLearned: number;
+    inWrongBook: number;
+    inVocabBook: number;
+    senseProgress: number;
+    readingPapers: number;
+  };
+  runs: { id: number; kind: string; status: string; day: number; rating: string; maxCombo: number; cleared: boolean; coinsEarned: number; createdAt: string }[];
+  sessions: { id: number; result: boolean; rating: string; xpEarned: number; coinsEarned: number; createdAt: string }[];
+}
+
+// ── 后台 · 审计日志 ──
+export interface AdminAuditLogRow {
+  id: number;
+  adminUsername: string;
+  action: string;
+  table: string;
+  recordId: string;
+  before?: unknown;
+  after?: unknown;
+  createdAt: string;
+}
+
+export interface AdminAuditLogListResult {
+  items: AdminAuditLogRow[];
+  total: number;
+}
+

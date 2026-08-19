@@ -14,6 +14,7 @@ import { MaterialsModule } from './materials/materials.module';
 import { RunsModule } from './runs/runs.module';
 import { ReadingModule } from './reading/reading.module';
 import { AdminModule } from './admin/admin.module';
+import { FeedbackModule } from './feedback/feedback.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { AdminModule } from './admin/admin.module';
     RunsModule,
     ReadingModule,
     AdminModule,
+    FeedbackModule,
   ],
   controllers: [AppController],
   providers: [AppService],

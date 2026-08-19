@@ -101,6 +101,7 @@ model User {
   readingAnswers   ReadingAnswer[]
   readingSavedWords ReadingSavedWord[]
   adminAudits      AdminAuditLog[] @relation("adminAudits")
+  feedback         Feedback[]
 }
 
 // 角色三围
@@ -426,3 +427,21 @@ model AdminAuditLog {
   @@index([adminId, createdAt])
   @@index([table, recordId])
 }
+
+// 意见 / Bug 反馈
+model Feedback {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  type      String   @db.VarChar(16) // suggestion / bug / other
+  content   String   @db.VarChar(2000)
+  contact   String?  @db.VarChar(128) // 联系方式（可选）
+  status    String   @db.VarChar(16) @default("open") // open / done / ignored
+  reply     String?  @db.VarChar(2000)
+  createdAt DateTime @default(now())
+  repliedAt DateTime?
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status, createdAt])
+}
+
