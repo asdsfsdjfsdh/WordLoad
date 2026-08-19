@@ -217,11 +217,22 @@ function sentenceContainsStem(en: string, word: string): boolean {
   if (!target) return false;
   const tokens = enBase.replace(/[^a-z']/g, ' ').split(/\s+/).filter(Boolean);
   return tokens.some((t) => {
-    const stem = t.toLowerCase().replace(/[^a-z]/g, '');
-    return (
-      stem === target ||
-      (stem.startsWith(target) && /^(s|es|ed|ing|er|est|'s)$/.test(stem.slice(target.length)))
-    );
+    // 撇号切分（o'clock / haven't / Rock'n'roll）+ 派生后缀匹配
+    const parts = t.toLowerCase().split(/['’]/).map((p) => p.replace(/[^a-z]/g, '')).filter(Boolean);
+    return parts.some((stem) => {
+      if (stem === target) return true;
+      if (stem.startsWith(target)) {
+        if (/^(s|es|ed|ing|er|est|'s|ly|ally|ies|ied|able|ible|ous|ive|tion|sion|ation|ment|ness|ful|ity|ities|al|ial|ical|ize|ise|ic|ist|ism|ian|an)$/.test(stem.slice(target.length))) return true;
+        if (/ise$/.test(target) && stem.startsWith(target.slice(0, -3) + 'ize')) return true;
+        if (/ize$/.test(target) && stem.startsWith(target.slice(0, -3) + 'ise')) return true;
+        if (/our$/.test(target) && stem.startsWith(target.slice(0, -3) + 'or')) return true;
+        if (/or$/.test(target) && stem.startsWith(target.slice(0, -2) + 'our')) return true;
+      }
+      if (target.length > 3 && /[aeiou]$/.test(target) && stem.startsWith(target + target[target.length - 1])) {
+        if (/^(ed|ing|er|est|s|es|ied|ies)$/.test(stem.slice(target.length + 1))) return true;
+      }
+      return false;
+    });
   });
 }
 

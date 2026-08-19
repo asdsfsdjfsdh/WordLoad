@@ -29,18 +29,42 @@ export interface QualityIssue {
 const WORD_RE = /^[a-zA-Z][a-zA-Z'.\- ]*[a-zA-Z]?$/;
 const PHRASE_RE = /\s/; // 短语
 
-// 词干匹配：容忍复数、属格、时态等常见词形
+// 词干匹配：容忍复数、属格、时态、常见派生后缀与撇号切分（o'clock / haven't / Rock'n'roll）
+const STEM_SUFFIX = /^(s|es|ed|ing|er|est|'s|ly|ally|ies|ied|able|ible|ous|ive|tion|sion|ation|ment|ness|ful|ity|ities|al|ial|ical|ize|ise|ic|ist|ism|ian|an)$/;
+
+function stemOf(token: string): string[] {
+  // 先按撇号拆出候选段，再剥离非字母（o'clock → o|clock；haven't → haven|t）
+  return token
+    .toLowerCase()
+    .split(/['’]/)
+    .map((part) => part.replace(/[^a-z]/g, ''))
+    .filter(Boolean);
+}
+
 function stemMatch(token: string, target: string): boolean {
-  const t = token.toLowerCase().replace(/[^a-z]/g, '');
   const w = target.toLowerCase().replace(/[^a-z]/g, '');
-  if (!t || !w) return false;
-  if (t === w) return true;
-  if (t.startsWith(w)) {
-    const suffix = t.slice(w.length);
-    if (/^(s|es|ed|ing|er|est|'s)$/.test(suffix)) return true;
-  }
-  // 不规则但含完整词干（如 antiques -> antique, criteria -> criterion 不含则不匹配）
-  return false;
+  if (!w) return false;
+  return stemOf(token).some((t) => {
+    if (t === w) return true;
+    if (t.startsWith(w)) {
+      if (STEM_SUFFIX.test(t.slice(w.length))) return true;
+      // 拼写变体：-ise/-ize、-our/-or 互换
+      if (/ise$/.test(w) && t.startsWith(w.slice(0, -3) + 'ize')) return true;
+      if (/ize$/.test(w) && t.startsWith(w.slice(0, -3) + 'ise')) return true;
+      if (/our$/.test(w) && t.startsWith(w.slice(0, -3) + 'or')) return true;
+      if (/or$/.test(w) && t.startsWith(w.slice(0, -2) + 'our')) return true;
+    }
+    // 辅音双写（run→running / big→bigger）：词尾元音 + 重复辅音 + 后缀
+    if (
+      w.length > 3 &&
+      /[aeiou]$/.test(w) &&
+      t.startsWith(w + w[w.length - 1]) &&
+      STEM_SUFFIX.test(t.slice(w.length + 1))
+    ) {
+      return true;
+    }
+    return false;
+  });
 }
 
 export interface QualityReport {
