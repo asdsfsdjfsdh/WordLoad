@@ -30,6 +30,7 @@ model Word {
   tier             String   @db.VarChar(8) // I / II / III / IV
   difficultyDims   Json
   mnemonic         String?  @db.VarChar(300) // 记忆锚点：词根/联想一句话（可选，离线批量生成+人工抽查，见 db/data/mnemonic-prompt-template.md）
+  phrases          Json? // 常用词组：[{phrase, meaning}]（考研高频搭配，离线批量生成，见 db/data/word-optimize-prompt-template.md）
   createdAt        DateTime @default(now())
   senses           WordSense[]
   bankWords        BankWord[]
