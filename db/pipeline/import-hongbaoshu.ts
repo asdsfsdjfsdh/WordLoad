@@ -137,11 +137,9 @@ export function enrichEntries(
       }
     }
 
-    let paraphrase: string | null = null;
-    if (hit?.paraphrase) paraphrase = hit.paraphrase;
-    if (!paraphrase) paraphrase = meaningByWord.get(e.word.toLowerCase()) ?? null;
-    // 变体命中但原词缺释义：用 words.json 兜底
-    if (viaVariant && !paraphrase) paraphrase = meaningByWord.get(e.word.toLowerCase()) ?? null;
+    // 红宝书释义优先（含熟词僻义，比 tb_vocabulary 更全），tb_vocabulary 兜底
+    let paraphrase: string | null = meaningByWord.get(e.word.toLowerCase()) ?? null;
+    if (!paraphrase) paraphrase = hit?.paraphrase ?? null;
 
     // 音标：tb_vocabulary 优先，缺则 ECDICT 兜底
     let uk = hit?.UKphonetic ?? null;
@@ -172,16 +170,44 @@ export function stageFor(region: '必考词' | '基础词' | '超纲词', unit: 
   return 300 + unit; // 超纲词
 }
 
-// 与 import.ts 一致的义项切分
-function splitSenses(paraphrase: string | null, word: string): string[] {
+// 词性标记（长词在前，避免 vt/vi/adj/adv 被 v/a 抢先匹配）
+const POS_TOKENS = 'prep|conj|pron|num|int|aux|art|det|vt|vi|adj|adv|n|v';
+
+// 按词性标记切分释义为「词性 + 义项组」段。
+// 兼容红宝书「；」内联格式（n. 地址；网址 vt. 处理）与 tb_vocabulary「\n」分段格式（n.地址\nv.写地址）。
+export function splitSensesByPos(paraphrase: string | null, word: string): string[] {
   if (!paraphrase || !paraphrase.trim()) return [word];
-  let parts: string[] = [];
-  if (paraphrase.includes('\n')) {
-    parts = paraphrase.split('\n').map((s) => s.trim()).filter(Boolean);
-  } else {
-    parts = paraphrase.split(/[/；;]/).map((s) => s.trim()).filter(Boolean);
+  const re = new RegExp(`(?:^|[\\n；;/、]|\\s)(${POS_TOKENS})\\.`, 'g');
+  const starts: number[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(paraphrase)) !== null) {
+    const prefixLen = m[0].length - m[1].length - 1; // 去掉前缀分隔符 + 词性 + '.'
+    starts.push(m.index + prefixLen);
   }
-  return parts.length > 0 ? parts : [word];
+  if (starts.length === 0) {
+    // 无词性标记：回退为 /；;\n 分隔
+    const parts = paraphrase.split(/[\n/；;]/).map((s) => s.trim()).filter(Boolean);
+    return parts.length > 0 ? parts : [word];
+  }
+  const parts: string[] = [];
+  for (let i = 0; i < starts.length; i++) {
+    const start = starts[i];
+    const end = i + 1 < starts.length ? starts[i + 1] : paraphrase.length;
+    const seg = paraphrase.slice(start, end).trim();
+    if (seg) parts.push(seg);
+  }
+  // 合并「纯词性标记」段（如 "vi. vt. 义项" 切出的 "vi. "）到下一段，形成 "vi. vt. 义项"
+  const merged: string[] = [];
+  let pending = '';
+  for (const seg of parts) {
+    if (!/[\u4e00-\u9fff]/.test(seg)) {
+      pending += ' ' + seg.trim();
+    } else {
+      merged.push((pending + ' ' + seg).trim());
+      pending = '';
+    }
+  }
+  return merged.length > 0 ? merged : parts;
 }
 
 // 例句是否含目标词干（与 import.ts 一致）
@@ -236,7 +262,7 @@ async function main(): Promise<void> {
 
   // 难度评估：与 import.ts 一致（书内分位数归一 → 4 档）
   const firstPass = working.map((e) => {
-    const senses = splitSenses(e.paraphrase, e.word);
+    const senses = splitSensesByPos(e.paraphrase, e.word);
     return {
       entry: e,
       senses,
