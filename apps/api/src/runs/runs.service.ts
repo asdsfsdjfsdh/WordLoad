@@ -51,6 +51,8 @@ import {
   appendStageHistory,
   applyWrongbookState,
   computeRating,
+  effectiveIntervalDays,
+  initialEaseForTier,
   intervalDays,
   isAnswerCorrect,
   levelFromExp,
@@ -673,7 +675,7 @@ export class RunsService {
           correct: resolveCorrect(i),
         })),
         tx,
-        run.mode === 'dictation',
+        run.mode as 'zh2en' | 'dictation' | 'choice',
       );
 
       const isBossWave = pending.every((i) => i.type === 'boss');
@@ -1389,9 +1391,12 @@ export class RunsService {
     runId: number,
     items: { wordId: string; senseIdx: number; correct: boolean }[],
     tx: Prisma.TransactionClient,
-    dictation?: boolean,
+    mode?: 'zh2en' | 'dictation' | 'choice',
   ): Promise<void> {
     if (items.length === 0) return;
+    const dictation = mode === 'dictation';
+    // choice（再认）答对不推进档位，仅巩固 ease（记忆学：再认强度不足以推进间隔重复）
+    const recognition = mode === 'choice';
 
     // 词级：按 wordId 顺序链式排程 + 错题本状态累计
     const byWord = new Map<string, (typeof items)[number][]>();
@@ -1403,16 +1408,57 @@ export class RunsService {
     const wordIds = [...byWord.keys()];
     const progress = await tx.userWordProgress.findMany({ where: { userId, wordId: { in: wordIds } } });
     const progressByWord = new Map(progress.map((p) => [p.wordId, p]));
+    // 新词初始 ease 按难度 tier 联动（难词更频繁复习）
+    const wordRows = await tx.word.findMany({
+      where: { id: { in: wordIds } },
+      select: { id: true, tier: true, senses: { select: { idx: true } } },
+    });
+    const tierByWord = new Map(wordRows.map((w) => [w.id, w.tier]));
+    const senseCountByWord = new Map(wordRows.map((w) => [w.id, w.senses.length]));
+
+    // 义项聚合（记忆学）：词级"掌握"需该词所有义项 reviewStage 都达到 MASTER_STAGE。
+    // 先在本地重放义项级排程（与下方义项级写库循环同口径），得到每个词"最弱义项"的最终 stage。
+    const senseHistory = await tx.userSenseProgress.findMany({ where: { userId, wordId: { in: wordIds } } });
+    const senseBaseByKey = new Map<string, { reviewStage: number; ease: number }>();
+    for (const sp of senseHistory) senseBaseByKey.set(`${sp.wordId}:${sp.senseIdx}`, { reviewStage: sp.reviewStage, ease: sp.ease });
+    const bySenseLocal = new Map<string, (typeof items)[number][]>();
+    for (const it of items) {
+      const key = `${it.wordId}:${it.senseIdx}`;
+      const list = bySenseLocal.get(key) ?? [];
+      list.push(it);
+      bySenseLocal.set(key, list);
+    }
+    const senseFinalStageByKey = new Map<string, number>();
+    for (const [key, list] of bySenseLocal) {
+      const base = senseBaseByKey.get(key);
+      let srs = base ? { reviewStage: base.reviewStage, ease: base.ease } : { reviewStage: 0, ease: 2.5 };
+      for (const it of list) {
+        srs = srsSchedule(srs, it.correct, recognition);
+        if (dictation && it.correct) srs = srsSchedule(srs, true);
+      }
+      senseFinalStageByKey.set(key, srs.reviewStage);
+    }
+    const minSenseStageByWord = new Map<string, number>();
+    for (const wordId of wordIds) {
+      const count = senseCountByWord.get(wordId) ?? 1;
+      let minStage = Number.MAX_SAFE_INTEGER;
+      for (let idx = 0; idx < count; idx++) {
+        minStage = Math.min(minStage, senseFinalStageByKey.get(`${wordId}:${idx}`) ?? 0);
+      }
+      minSenseStageByWord.set(wordId, minStage === Number.MAX_SAFE_INTEGER ? 0 : minStage);
+    }
 
     for (const [wordId, list] of byWord) {
       const cur = progressByWord.get(wordId);
-      const srsBase = cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null;
+      const srsBase = cur
+        ? { reviewStage: cur.reviewStage, ease: cur.ease }
+        : { reviewStage: 0, ease: initialEaseForTier(tierByWord.get(wordId)) };
       let srs = srsBase;
       const wb: WrongbookState = cur
         ? { inWrongBook: cur.inWrongBook, wrongStreak: cur.wrongStreak }
         : { inWrongBook: false, wrongStreak: 0 };
       for (const it of list) {
-        srs = srsSchedule(srs, it.correct);
+        srs = srsSchedule(srs, it.correct, recognition);
         // 听写精通：dictation 答对额外 +1 档（更快掌握，更高阶挑战的回报）
         if (dictation && it.correct) srs = srsSchedule(srs, true);
         const next = applyWrongbookState(wb, [{ correct: it.correct }]);
@@ -1425,10 +1471,12 @@ export class RunsService {
       const next = wb.inWrongBook
         ? new Date(now + intervalDays(1) * 86400000)
         : s.reviewStage > 0
-          ? new Date(now + intervalDays(s.reviewStage) * 86400000)
+          ? new Date(now + effectiveIntervalDays(s.reviewStage, s.ease) * 86400000)
           : null;
       const mastery = masteryFromStage(s.reviewStage);
-      const newlyMastered = mastery >= 100 && (cur?.mastery ?? 0) < 100;
+      // 义项聚合：词级 mastered 需词级与所有义项都达到 MASTER_STAGE（多义词不因单义项掌握而提前判掌握）
+      const minSense = minSenseStageByWord.get(wordId) ?? 0;
+      const newlyMastered = mastery >= 100 && (cur?.mastery ?? 0) < 100 && minSense >= MASTER_STAGE;
 
       await tx.userWordProgress.upsert({
         where: { userId_wordId: { userId, wordId } },
@@ -1480,15 +1528,17 @@ export class RunsService {
       const cur = await tx.userSenseProgress.findUnique({
         where: { userId_wordId_senseIdx: { userId, wordId: wordId!, senseIdx } },
       });
-      let srs = cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null;
+      let srs = cur
+        ? { reviewStage: cur.reviewStage, ease: cur.ease }
+        : { reviewStage: 0, ease: initialEaseForTier(tierByWord.get(wordId!)) };
       for (const it of list) {
-        srs = srsSchedule(srs, it.correct);
+        srs = srsSchedule(srs, it.correct, recognition);
         // 听写精通：与词级同口径，dictation 答对额外 +1 档
         if (dictation && it.correct) srs = srsSchedule(srs, true);
       }
       const s = srs ?? { reviewStage: 0, ease: 2.5 };
       const now = Date.now();
-      const next = s.reviewStage > 0 ? new Date(now + intervalDays(s.reviewStage) * 86400000) : null;
+      const next = s.reviewStage > 0 ? new Date(now + effectiveIntervalDays(s.reviewStage, s.ease) * 86400000) : null;
       await tx.userSenseProgress.upsert({
         where: { userId_wordId_senseIdx: { userId, wordId: wordId!, senseIdx } },
         create: {
@@ -1697,6 +1747,23 @@ export class RunsService {
       const wordIds = [...itemsByWord.keys()];
       const progress = await t.userWordProgress.findMany({ where: { userId, wordId: { in: wordIds } } });
       const progressByWord = new Map(progress.map((p) => [p.wordId, p]));
+      // 义项聚合：统计"掌握"需所有义项 reviewStage 都达到 MASTER_STAGE（义项级已由每波 commitWaveSrs 落库）
+      const senseRows = await t.userSenseProgress.findMany({ where: { userId, wordId: { in: wordIds } } });
+      const senseStageByKey = new Map<string, number>();
+      for (const sp of senseRows) senseStageByKey.set(`${sp.wordId}:${sp.senseIdx}`, sp.reviewStage);
+      const wordSenseCounts = await t.word.findMany({
+        where: { id: { in: wordIds } },
+        select: { id: true, senses: { select: { idx: true } } },
+      });
+      const minSenseStageByWord = new Map<string, number>();
+      for (const w of wordSenseCounts) {
+        const count = w.senses.length;
+        let minStage = Number.MAX_SAFE_INTEGER;
+        for (let idx = 0; idx < count; idx++) {
+          minStage = Math.min(minStage, senseStageByKey.get(`${w.id}:${idx}`) ?? 0);
+        }
+        minSenseStageByWord.set(w.id, minStage === Number.MAX_SAFE_INTEGER ? 0 : minStage);
+      }
       let newLearned = 0;
       let reviewed = 0;
       const wrongIds = new Set<string>();
@@ -1710,9 +1777,10 @@ export class RunsService {
         let srs = srsBase;
         for (const item of list) {
           if (item.correct === null) continue; // 未答题不参与 SRS 排程
-          srs = srsSchedule(srs, item.correct);
+          srs = srsSchedule(srs, item.correct, run.mode === 'choice');
         }
-        if (srs && srs.reviewStage >= MASTER_STAGE) masteredIds.add(wordId);
+        const minSense = minSenseStageByWord.get(wordId) ?? 0;
+        if (srs && srs.reviewStage >= MASTER_STAGE && minSense >= MASTER_STAGE) masteredIds.add(wordId);
       }
       wordStats = {
         totalWords: itemsByWord.size,

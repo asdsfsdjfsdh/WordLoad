@@ -1,7 +1,13 @@
 // 会话结算核心（纯函数）：评级 / 经验 / 掉落 / SRS 排程
 import type { Rating } from '@word-journey/shared';
 // 间隔天数唯一定义在 shared（图鉴/结算共用），此处 re-export 保持现有调用方兼容
-export { intervalDays } from '@word-journey/shared';
+export {
+  intervalDays,
+  effectiveIntervalDays,
+  initialEaseForTier,
+  INTERVAL_CAP_DAYS,
+  EASE_BASELINE,
+} from '@word-journey/shared';
 
 // 单题提交结果（客户端上报）
 export interface AnswerInput {
@@ -24,8 +30,9 @@ export function isAnswerCorrect(typed: string | null | undefined, truth: string)
   return typed.trim().toLowerCase() === truth.trim().toLowerCase();
 }
 
-// 掌握度统一口径：reviewStage 达到 MASTER_STAGE 次正确复习视为掌握（mastery 100）
-export const MASTER_STAGE = 3;
+// 掌握度统一口径：reviewStage 达到 MASTER_STAGE 次正确复习视为掌握（mastery 100）。
+// 记忆学：7 天间隔（stage 3）仍属脆弱记忆，真正的长期记忆需跨过 14 天间隔（stage 4），故门槛 3→4。
+export const MASTER_STAGE = 4;
 export function masteryFromStage(stage: number): number {
   return Math.min(100, Math.round((Math.max(0, stage) / MASTER_STAGE) * 100));
 }
@@ -64,14 +71,25 @@ export function applyWrongbookState(
   return state;
 }
 
-export function srsSchedule(state: ReviewState | null, correct: boolean): ReviewState {
-  const ease = (state?.ease ?? 2.5) + (correct ? 0.1 : -0.5);
+export function srsSchedule(
+  state: ReviewState | null,
+  correct: boolean,
+  recognition = false,
+): ReviewState {
+  // 再认（choice）答对只微增 ease（+0.05）、不推进档位——再认强度不足以推进间隔重复；
+  // 回忆（zh2en/dictation）答对才 +1 档并 +0.1 ease。
+  const easeDelta = correct ? (recognition ? 0.05 : 0.1) : -0.5;
+  const ease = (state?.ease ?? 2.5) + easeDelta;
   const clamped = Math.min(Math.max(ease, 1.3), 2.8);
   if (!correct) {
     // 阶梯降级而非归零：错一次降 2 级（不低于 1），避免“前功尽弃”
     const prevStage = state?.reviewStage ?? 0;
     const newStage = Math.max(1, prevStage - 2);
     return { reviewStage: newStage, ease: clamped };
+  }
+  // 再认（choice）答对：不升档，仅巩固 ease（记忆学：再认不产生间隔重复的推进）
+  if (recognition) {
+    return { reviewStage: state?.reviewStage ?? 0, ease: clamped };
   }
   const stage = (state?.reviewStage ?? 0) + 1;
   return { reviewStage: stage, ease: clamped };

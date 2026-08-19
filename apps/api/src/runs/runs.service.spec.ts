@@ -711,6 +711,8 @@ describe('RunsService', () => {
         userMaterial: { upsert: jest.fn() },
         runItem: prisma.runItem,
         userWordProgress: { findMany: jest.fn().mockResolvedValue([]), upsert: jest.fn() },
+        userSenseProgress: { findMany: jest.fn().mockResolvedValue([]), findUnique: jest.fn().mockResolvedValue(null), upsert: jest.fn() },
+        word: { findMany: jest.fn().mockResolvedValue([]) },
         material: prisma.material,
       }));
 
@@ -746,6 +748,8 @@ describe('RunsService', () => {
         userMaterial: { upsert: jest.fn() },
         runItem: prisma.runItem,
         userWordProgress: { findMany: jest.fn().mockResolvedValue([]), upsert: jest.fn() },
+        userSenseProgress: { findMany: jest.fn().mockResolvedValue([]), findUnique: jest.fn().mockResolvedValue(null), upsert: jest.fn() },
+        word: { findMany: jest.fn().mockResolvedValue([]) },
         material: prisma.material,
       }));
 

@@ -15,6 +15,8 @@ import {
   applyWrongbookState,
   computeCoins,
   computeRating,
+  effectiveIntervalDays,
+  initialEaseForTier,
   intervalDays,
   isAnswerCorrect,
   levelFromExp,
@@ -121,8 +123,8 @@ export class SessionsService {
       if (rows.length === 0) throw new BadRequestException('暂无需要复习的单词');
       chosen = rows;
     } else {
-      // 三档优先级：①错题本词 ②到期未掌握词 ③到期毕业词（长间隔重考兜底）
-      const [wrongbookPool, duePool, graduatedDuePool] = await Promise.all([
+      // 三档优先级：①错题本词 ②到期未掌握词 ③到期毕业词（长间隔重考兜底）④到期斩词（180 天长尾抽测）
+      const [wrongbookPool, duePool, graduatedDuePool, skippedDuePool] = await Promise.all([
         this.prisma.userWordProgress.findMany({
           where: {
             userId: opts.userId,
@@ -139,6 +141,7 @@ export class SessionsService {
             nextReviewAt: { lte: now },
             mastery: { lt: 100 },
             inWrongBook: false,
+            skipped: false,
             word: { bankWords: { some: { bankId: bank.id } } },
           },
           include: reviewSessionInclude,
@@ -157,12 +160,26 @@ export class SessionsService {
           orderBy: { nextReviewAt: 'asc' },
           take: sessionSize,
         }),
+        // 第 4 档：到期斩词（长尾抽测）——斩后 180 天到期重考，防止"主观会了"导致的永久遗忘
+        this.prisma.userWordProgress.findMany({
+          where: {
+            userId: opts.userId,
+            nextReviewAt: { lte: now },
+            skipped: true,
+            word: { bankWords: { some: { bankId: bank.id } } },
+          },
+          include: reviewSessionInclude,
+          orderBy: { nextReviewAt: 'asc' },
+          take: sessionSize,
+        }),
       ]);
 
-      // 毕业词仅在错题本+到期未掌握不足时兜底补齐
+      // 毕业词仅在错题本+到期未掌握不足时兜底补齐；到期斩词在仍不足时最后兜底（长尾抽测）
       const fillerSlots = sessionSize - wrongbookPool.length - duePool.length;
       const graduatedFill: ReviewSessionRow[] = fillerSlots > 0 ? graduatedDuePool.slice(0, fillerSlots) : [];
-      chosen = [...wrongbookPool, ...duePool, ...graduatedFill];
+      const skippedFillSlots = fillerSlots - graduatedFill.length;
+      const skippedFill: ReviewSessionRow[] = skippedFillSlots > 0 ? skippedDuePool.slice(0, skippedFillSlots) : [];
+      chosen = [...wrongbookPool, ...duePool, ...graduatedFill, ...skippedFill];
     }
 
     if (chosen.length === 0) throw new BadRequestException('暂无需要复习的单词');
@@ -455,7 +472,7 @@ export class SessionsService {
     for (const wordId of dto.knownIds) {
       const cur = progByWord.get(wordId);
       const srs = srsSchedule(cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null, true);
-      const next = new Date(now + intervalDays(srs.reviewStage) * 86400000);
+      const next = new Date(now + effectiveIntervalDays(srs.reviewStage, srs.ease) * 86400000);
       const mastery = masteryFromStage(srs.reviewStage);
       updates.push(
         this.prisma.userWordProgress.upsert({
@@ -480,7 +497,7 @@ export class SessionsService {
     for (const wordId of dto.unknownIds) {
       const cur = progByWord.get(wordId);
       const srs = srsSchedule(cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null, false);
-      const next = new Date(now + intervalDays(srs.reviewStage) * 86400000);
+      const next = new Date(now + effectiveIntervalDays(srs.reviewStage, srs.ease) * 86400000);
       const mastery = masteryFromStage(srs.reviewStage);
       updates.push(
         this.prisma.userWordProgress.upsert({
@@ -526,9 +543,10 @@ export class SessionsService {
     const wordIds = [...new Set(session.items.map((i) => i.wordId))];
     const wordRows = await this.prisma.word.findMany({
       where: { id: { in: wordIds } },
-      select: { id: true, text: true },
+      select: { id: true, text: true, tier: true },
     });
     const textByWord = new Map(wordRows.map((w) => [w.id, w.text]));
+    const tierByWord = new Map(wordRows.map((w) => [w.id, w.tier]));
 
     const answerBySeq = new Map(answers.map((a) => [a.seq, a]));
 
@@ -655,12 +673,25 @@ export class SessionsService {
 
         const cur = curByWord.get(item.wordId);
         const prevRunningStage = srsByWord.get(item.wordId)?.reviewStage ?? (cur?.reviewStage ?? 0);
-        let srs = srsSchedule(
-          srsByWord.get(item.wordId) ?? (cur ? { reviewStage: cur.reviewStage, ease: cur.ease } : null),
-          correctNow,
-        );
+        // 新词初始 ease 按难度 tier 联动（难词更频繁复习）；choice（再认）答对不推进档位
+        const recognition = session.mode === 'choice';
+        const initial = srsByWord.get(item.wordId)
+          ?? (cur ? { reviewStage: cur.reviewStage, ease: cur.ease }
+                  : { reviewStage: 0, ease: initialEaseForTier(tierByWord.get(item.wordId)) });
+        let srs = srsSchedule(initial, correctNow, recognition);
         // 听写精通：与生存 Run commitWaveSrs 同口径，dictation 答对额外 +1 档（更快掌握，更高阶挑战的回报）
         if (session.mode === 'dictation' && correctNow) srs = srsSchedule(srs, true);
+        // 斩词长尾抽测：答对续斩（锁档 6 + 再延长 180 天），答错反斩回学习队列（降档到 2）
+        let skippedNow = cur?.skipped ?? false;
+        if (cur?.skipped) {
+          if (correctNow) {
+            srs = { reviewStage: 6, ease: srs.ease };
+            skippedNow = true;
+          } else {
+            srs = { reviewStage: 2, ease: srs.ease };
+            skippedNow = false;
+          }
+        }
         srsByWord.set(item.wordId, { reviewStage: srs.reviewStage, ease: srs.ease });
         const baseHistory =
           historyByWord.get(item.wordId)
@@ -684,8 +715,10 @@ export class SessionsService {
         );
         wrongbookByWord.set(item.wordId, wb);
         // 进错题本 → 次日短间隔再考（强化即时巩固），覆盖 SRS 长间隔
-        const next = new Date(now + intervalDays(srs.reviewStage) * 86400000);
-        const nextOrNull = wb.inWrongBook ? new Date(now + intervalDays(1) * 86400000) : (srs.reviewStage > 0 ? next : null);
+        const next = new Date(now + effectiveIntervalDays(srs.reviewStage, srs.ease) * 86400000);
+        let nextOrNull = wb.inWrongBook ? new Date(now + intervalDays(1) * 86400000) : (srs.reviewStage > 0 ? next : null);
+        // 斩词长尾抽测答对 → 再延长 180 天（而非普通 SRS 间隔）
+        if (cur?.skipped && correctNow) nextOrNull = new Date(now + 180 * 86400000);
 
         await tx.userWordProgress.upsert({
           where: { userId_wordId: { userId, wordId: item.wordId } },
@@ -698,6 +731,7 @@ export class SessionsService {
             inWrongBook: wb.inWrongBook,
             wrongStreak: wb.wrongStreak,
             inVocabBook: true,
+            skipped: skippedNow,
             mastery,
             reviewStage: srs.reviewStage,
             nextReviewAt: nextOrNull,
@@ -713,6 +747,7 @@ export class SessionsService {
             inWrongBook: wb.inWrongBook,
             wrongStreak: wb.wrongStreak,
             inVocabBook: true,
+            skipped: skippedNow,
             mastery,
             reviewStage: srs.reviewStage,
             nextReviewAt: nextOrNull,

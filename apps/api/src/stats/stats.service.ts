@@ -24,7 +24,7 @@ export class StatsService {
       this.prisma.word.groupBy({ by: ['tier'], _count: { _all: true } }),
       this.prisma.userWordProgress.findMany({
         where: { userId },
-        select: { wordId: true, mastery: true, inWrongBook: true, skipped: true, word: { select: { tier: true } } },
+        select: { wordId: true, mastery: true, inWrongBook: true, skipped: true, masteredAt: true, word: { select: { tier: true } } },
       }),
       this.prisma.run.findMany({
         where: { userId, status: 'finished' },
@@ -66,7 +66,7 @@ export class StatsService {
     ];
     const { current, longest } = this.streaks(activityDates);
 
-    const mastered = new Set(progress.filter((p) => p.mastery >= 100 && !p.skipped).map((p) => p.wordId));
+    const mastered = new Set(progress.filter((p) => p.masteredAt != null && !p.skipped).map((p) => p.wordId));
     const encountered = new Set(progress.map((p) => p.wordId));
     const wrongbook = new Set(progress.filter((p) => p.inWrongBook).map((p) => p.wordId));
     const skipped = new Set(progress.filter((p) => p.skipped).map((p) => p.wordId));

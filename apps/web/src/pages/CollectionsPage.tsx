@@ -156,7 +156,8 @@ export function CollectionsPage() {
   const totalPages = total ? Math.ceil(total / PAGE_SIZE) : 0;
 
   // 弱词复习 CTA：仅在行动导向筛选下出现；weak 用 /words/ids 拉全量（不受分页 50 限制）
-  const reviewable = status === 'due' || status === 'wrongbook' || status === 'weak' || status === 'learning';
+  const reviewable =
+    status === 'due' || status === 'wrongbook' || status === 'weak' || status === 'learning' || status === 'vocabbook';
   const reviewBank = words?.find((w) => w.bankCode)?.bankCode;
   const [reviewIdsLoading, setReviewIdsLoading] = useState(false);
 

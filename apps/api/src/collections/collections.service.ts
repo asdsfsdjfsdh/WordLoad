@@ -169,7 +169,7 @@ export class CollectionsService {
     const totalByTier = new Map<string, number>();
     for (const g of tierTotals) totalByTier.set(g.tier, g._count._all);
 
-    const mastered = new Set(progress.filter((p) => p.mastery >= 100 && !p.skipped).map((p) => p.wordId));
+    const mastered = new Set(progress.filter((p) => p.masteredAt != null && !p.skipped).map((p) => p.wordId));
     const encountered = new Set(progress.map((p) => p.wordId));
     const wrongbook = new Set(progress.filter((p) => p.inWrongBook).map((p) => p.wordId));
     const skipped = new Set(progress.filter((p) => p.skipped).map((p) => p.wordId));
@@ -244,7 +244,8 @@ export class CollectionsService {
         where.skipped = true;
         break;
       case 'mastered':
-        where.mastery = 100;
+        // 已掌握口径统一用 masteredAt（首次达掌握时刻），与义项聚合/掌握门槛一致
+        where.masteredAt = { not: null };
         where.skipped = false;
         break;
       case 'learning':

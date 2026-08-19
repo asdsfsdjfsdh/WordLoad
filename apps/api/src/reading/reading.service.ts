@@ -395,6 +395,8 @@ export class ReadingService {
               userId,
               wordId,
               inVocabBook: true,
+              // 生词本纳入复习：新收藏词立即到期（nextReviewAt=now），进入复习战 due 队列，不再永远躺在生词本
+              nextReviewAt: new Date(),
               firstEncounteredAt: new Date(),
               lastEncounteredAt: new Date(),
             },

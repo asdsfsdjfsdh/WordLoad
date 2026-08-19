@@ -39,9 +39,11 @@ interface PoolWord {
 export class QuestionsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  // 标记单词为已掌握（一键斩）：设为 mastery 100、skipped=true，以后不再出题
+  // 标记单词为已掌握（一键斩）：设为 mastery 100、skipped=true，以后不再常规出题；
+  // 但保留 180 天长尾抽测（记忆学：主观"会了"≠长期记忆，防止斩后永久遗忘）。
   async skipWord(userId: number, wordId: string): Promise<void> {
     const now = new Date();
+    const longTailAt = new Date(now.getTime() + 180 * 86400000);
     const cur = await this.prisma.userWordProgress.findUnique({
       where: { userId_wordId: { userId, wordId } },
     });
@@ -52,6 +54,7 @@ export class QuestionsService {
         mastery: 100, reviewStage: 6,
         correctCount: 1, inVocabBook: true,
         skipped: true, inWrongBook: false, wrongStreak: 0,
+        nextReviewAt: longTailAt,
         firstEncounteredAt: now, lastEncounteredAt: now,
         srsHistory: [{ stage: 6, at: now.toISOString() }],
         masteredAt: now,
@@ -59,6 +62,7 @@ export class QuestionsService {
       update: {
         mastery: 100, reviewStage: 6,
         skipped: true, inWrongBook: false, wrongStreak: 0,
+        nextReviewAt: longTailAt,
         lastEncounteredAt: now,
         srsHistory: appendStageHistory(cur?.srsHistory, cur?.reviewStage ?? 0, 6, now),
         masteredAt: cur?.masteredAt ?? now,
