@@ -6,6 +6,7 @@ import { LobbyPage } from './pages/LobbyPage';
 import { StageMapPage } from './pages/StageMapPage';
 import { LevelMapPage } from './pages/LevelMapPage';
 import { BattlePage } from './pages/BattlePage';
+import { ExamPage } from './pages/ExamPage';
 import { ResultPage } from './pages/ResultPage';
 import { CharacterPage } from './pages/CharacterPage';
 import { CollectionsPage } from './pages/CollectionsPage';
@@ -97,6 +98,14 @@ export function App() {
         element={
           <RequireAuth>
             <BattlePage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/exam/:bankCode/:stageId"
+        element={
+          <RequireAuth>
+            <ExamPage />
           </RequireAuth>
         }
       />

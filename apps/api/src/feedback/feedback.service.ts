@@ -43,8 +43,9 @@ export class FeedbackService {
     const where: Record<string, unknown> = {};
     if (filter.status) where['status'] = filter.status;
     if (filter.type) where['type'] = filter.type;
-    const [total, items] = await Promise.all([
+    const [total, openCount, items] = await Promise.all([
       this.prisma.feedback.count({ where }),
+      this.prisma.feedback.count({ where: { status: 'open' } }),
       this.prisma.feedback.findMany({
         where,
         orderBy: { createdAt: 'desc' },
@@ -55,6 +56,7 @@ export class FeedbackService {
     ]);
     return {
       total,
+      openCount,
       items: items.map((f) => ({ ...this.toView(f), userId: f.userId, username: f.user.username })),
     };
   }

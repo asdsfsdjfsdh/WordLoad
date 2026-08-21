@@ -51,13 +51,23 @@ export class BanksService {
     }
 
     // 今日已学：按词书聚合（只统计实际已答题目，忽略未作答/中途阵亡的题）
+    // 复习会话（stageId=0：图鉴/大厅复习战走的 /sessions/review）不计入"今日已学"——复习≠新学
     const sessionsToday = await this.prisma.learningSession.findMany({
-      where: { userId, createdAt: { gte: startOfDay() }, result: true },
+      where: { userId, createdAt: { gte: startOfDay() }, result: true, stageId: { gt: 0 } },
       select: { bankId: true, _count: { select: { items: { where: { elapsedMs: { gt: 0 } } } } } },
     });
     const learnedByBank = new Map<number, number>();
     for (const s of sessionsToday) {
       learnedByBank.set(s.bankId, (learnedByBank.get(s.bankId) ?? 0) + s._count.items);
+    }
+    // 红宝书（hierarchical）走 Unit 肉鸽 Run（Run/RunItem，不落 LearningSession），
+    // 今日已学需单独按今日创建的 Run 的已答题目统计，否则该词书"今日"恒为 0
+    const runsToday = await this.prisma.run.findMany({
+      where: { userId, createdAt: { gte: startOfDay() } },
+      select: { bankId: true, _count: { select: { items: { where: { answered: true } } } } },
+    });
+    for (const r of runsToday) {
+      learnedByBank.set(r.bankId, (learnedByBank.get(r.bankId) ?? 0) + r._count.items);
     }
 
     return banks.map((b) => {

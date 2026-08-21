@@ -1,7 +1,7 @@
 import { Body, Controller, Param, ParseIntPipe, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { ArrayMaxSize, IsArray, IsBoolean, IsIn, IsInt, IsNumber, IsOptional, IsString, Max, Min, ValidateNested } from 'class-validator';
+import { ArrayMaxSize, IsArray, IsBoolean, IsIn, IsInt, IsNumber, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
 import type { Request } from 'express';
 import type { EnterBossResponse, BossExtendResponse, SessionFinish } from '@word-journey/shared';
 import { JwtAuthGuard, type JwtUser } from '../auth/jwt-auth.guard';
@@ -39,7 +39,6 @@ class CreateSessionDto {
   @IsOptional()
   @IsInt()
   @Min(10)
-  @Max(60)
   size?: number;
 
   @IsOptional()
@@ -80,7 +79,6 @@ class CreateReviewDto {
   @IsOptional()
   @IsInt()
   @Min(10)
-  @Max(60)
   size?: number;
 
   // 图鉴弱词复习：精确指定词集（上限与 size 一致）

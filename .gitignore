@@ -43,3 +43,17 @@ test-results/
 playwright-report/
 # obsidian editor state
 .obsidian/workspace.json
+
+# once-only db scripts (hardcoded creds)
+db/scripts/_*.cjs
+db/scripts/_*.py
+db/scripts/probe-*.cjs
+db/scripts/probe*.py
+db/scripts/dbquality.cjs
+db/scripts/dbtest.cjs
+db/scripts/analyze-data.py
+# vocab backups
+db/data/*.bak
+# build archives
+*.tar.gz
+*.zip

@@ -71,23 +71,34 @@ export class CollectionsService {
     return { words, total, page, pageSize };
   }
 
-  // 全量弱词复习：仅返回匹配词 id（无分页/无重负载），供图鉴 CTA 一次拉全量后跳复习战
+  // 匹配词 id 列表（无分页/无重负载），供图鉴 CTA 一次拉取后跳复习战
+  // shuffle=true 时：全量匹配词 Fisher-Yates 洗牌后随机截断（"复习随机抽取"），否则保持原有排序取前 limit
   async listWordIds(
     userId: number,
-    opts: { status?: StatusFilter; limit?: number },
+    opts: { status?: StatusFilter; limit?: number; tier?: string; search?: string; shuffle?: boolean },
   ): Promise<{ wordIds: string[]; bankCode?: string }> {
     const where = this.buildWhere(userId, opts);
-    const orderBy = this.buildOrderBy(opts.status, opts.status === 'due' ? 'due' : 'firstEncounteredAt');
-    const limit = Math.min(60, Math.max(1, opts.limit ?? 60));
-    const rows = await this.prisma.userWordProgress.findMany({
-      where,
-      orderBy,
-      take: limit,
-      select: {
-        wordId: true,
-        word: { select: { bankWords: { take: 1, select: { bank: { select: { code: true } } } } } },
-      },
-    });
+    const limit = Math.min(100, Math.max(1, opts.limit ?? 60));
+    const select = {
+      wordId: true,
+      word: { select: { bankWords: { take: 1, select: { bank: { select: { code: true } } } } } },
+    } as const;
+    let rows: { wordId: string; word: { bankWords: { bank: { code: string } }[] } }[];
+    if (opts.shuffle) {
+      // 随机抽取：先取全量匹配 id，再洗牌截断（每点一次复习都是新的随机子集）
+      const all = await this.prisma.userWordProgress.findMany({ where, select });
+      // Fisher-Yates 洗牌（noUncheckedIndexedAccess 下用临时变量交换）
+      for (let i = all.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = all[i]!;
+        all[i] = all[j]!;
+        all[j] = tmp;
+      }
+      rows = all.slice(0, limit);
+    } else {
+      const orderBy = this.buildOrderBy(opts.status, opts.status === 'due' ? 'due' : 'firstEncounteredAt');
+      rows = await this.prisma.userWordProgress.findMany({ where, orderBy, take: limit, select });
+    }
     return {
       wordIds: rows.map((r) => r.wordId),
       bankCode: rows[0]?.word.bankWords[0]?.bank.code ?? undefined,

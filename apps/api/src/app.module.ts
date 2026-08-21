@@ -15,6 +15,7 @@ import { RunsModule } from './runs/runs.module';
 import { ReadingModule } from './reading/reading.module';
 import { AdminModule } from './admin/admin.module';
 import { FeedbackModule } from './feedback/feedback.module';
+import { ExamModule } from './exam/exam.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { FeedbackModule } from './feedback/feedback.module';
     ReadingModule,
     AdminModule,
     FeedbackModule,
+    ExamModule,
   ],
   controllers: [AppController],
   providers: [AppService],

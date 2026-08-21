@@ -155,7 +155,7 @@ export function BattlePage() {
     mutationFn: async () => {
       const r = await api.post<CreateSessionResult>('/sessions/review', {
         bankCode,
-        size: routeState?.size ?? 30,
+        size: Math.min(60, routeState?.size ?? 30),
         wordIds: routeState?.wordIds,
       });
       setSessionId(r.sessionId);

@@ -1,9 +1,19 @@
 // 后台管理布局
+import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
+import { fetchAdminFeedback } from '../../lib/admin';
 
 export function AdminPage() {
   const { user } = useAuth();
+  const [openCount, setOpenCount] = useState(0);
+  useEffect(() => {
+    let alive = true;
+    void fetchAdminFeedback({ page: 1, pageSize: 1 })
+      .then((r) => { if (alive) setOpenCount(r.openCount); })
+      .catch(() => undefined);
+    return () => { alive = false; };
+  }, []);
   if (!user?.isAdmin) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-400">
@@ -17,7 +27,7 @@ export function AdminPage() {
     { to: '/admin/reading', label: '阅读库' },
     { to: '/admin/users', label: '用户管理' },
     { to: '/admin/audit', label: '审计日志' },
-    { to: '/admin/feedback', label: '反馈管理' },
+    { to: '/admin/feedback', label: '反馈管理', badge: openCount },
   ];
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
@@ -30,12 +40,17 @@ export function AdminPage() {
                 key={n.to}
                 to={n.to}
                 className={({ isActive }) =>
-                  `rounded-lg px-3 py-1.5 text-sm font-medium transition ${
+                  `relative rounded-lg px-3 py-1.5 text-sm font-medium transition ${
                     isActive ? 'bg-cyan-500/20 text-cyan-300' : 'text-slate-400 hover:text-slate-200'
                   }`
                 }
               >
                 {n.label}
+                {n.badge ? (
+                  <span className="absolute -right-1.5 -top-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold leading-none text-white">
+                    {n.badge > 99 ? '99+' : n.badge}
+                  </span>
+                ) : null}
               </NavLink>
             ))}
           </nav>

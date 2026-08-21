@@ -36,6 +36,8 @@ export interface AdminFeedbackRow extends FeedbackView {
 export interface AdminFeedbackListResult {
   items: AdminFeedbackRow[];
   total: number;
+  /** 未处理(open)反馈总数,不随分页变化,用于导航角标 */
+  openCount: number;
 }
 
 // 后台回复/改状态入参

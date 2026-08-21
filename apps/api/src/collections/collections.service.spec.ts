@@ -148,6 +148,30 @@ describe('listWordIds', () => {
     expect(res.wordIds).toEqual([]);
     expect(res.bankCode).toBeUndefined();
   });
+
+  it('shuffle=true：全量拉取（无 take）后随机截断，且携带 tier/search 过滤', async () => {
+    const rows = Array.from({ length: 5 }, (_, i) => ({
+      wordId: 'w' + (i + 1),
+      word: { bankWords: [{ bank: { code: 'hongbaoshu_engl1' } }] },
+    }));
+    prisma.userWordProgress.findMany.mockResolvedValue(rows);
+    const res = await service.listWordIds(1, { status: 'learning', tier: 'I', search: 'ab', limit: 3, shuffle: true });
+    const call = (prisma.userWordProgress.findMany as jest.Mock).mock.calls[0]![0];
+    // 随机抽取：不取 orderBy / take（全量洗牌后内存截断）
+    expect(call.take).toBeUndefined();
+    expect(call.orderBy).toBeUndefined();
+    // tier + search 过滤透传
+    expect(call.where.word.tier).toBe('I');
+    expect(call.where.word.OR).toEqual([
+      { text: { contains: 'ab' } },
+      { senses: { some: { meaning: { contains: 'ab' } } } },
+    ]);
+    // 结果是从全量池中截取的子集（长度 ≤ limit，且不重复）
+    expect(res.wordIds.length).toBe(3);
+    expect(new Set(res.wordIds).size).toBe(3);
+    expect(res.wordIds.every((id) => rows.some((r) => r.wordId === id))).toBe(true);
+    expect(res.bankCode).toBe('hongbaoshu_engl1');
+  });
 });
 
 describe('srsTrajectory', () => {

@@ -129,6 +129,9 @@ export class SessionsService {
           where: {
             userId: opts.userId,
             inWrongBook: true,
+            // 到期门控：错题词也只在到期时才进复习（答后 nextReviewAt 被推未来），
+            // 否则最低 streak 的错词恒占队首、每轮复习总是同一批 → "总是复习相同单词"
+            nextReviewAt: { lte: now },
             word: { bankWords: { some: { bankId: bank.id } } },
           },
           include: reviewSessionInclude,

@@ -186,6 +186,7 @@ export function LevelMapPage() {
                 <LevelCard
                   level={l}
                   onBattle={() => navigate(`/battle/${code}/${l.id}`)}
+                  onExam={() => navigate(`/exam/${code}/${l.id}`)}
                   onOpenBoard={() => setBoardStageId(l.id)}
                   onOpenWords={() => setWordsLevelId(l.id)}
                 />
@@ -294,9 +295,10 @@ function WordsModal({ stageId, words, loading, onClose }: {
   );
 }
 
-function LevelCard({ level, onBattle, onOpenBoard, onOpenWords }: {
+function LevelCard({ level, onBattle, onExam, onOpenBoard, onOpenWords }: {
   level: LevelInfo;
   onBattle: () => void;
+  onExam: () => void;
   onOpenBoard: () => void;
   onOpenWords: () => void;
 }) {
@@ -358,6 +360,13 @@ function LevelCard({ level, onBattle, onOpenBoard, onOpenWords }: {
               className="rounded-lg px-3 py-2.5 text-sm font-bold transition active:scale-95 bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-cyan-300"
             >
               📖 单词
+            </button>
+            <button
+              onClick={onExam}
+              title="Unit 试卷：看中填英，交卷自动批改"
+              className="rounded-lg px-3 py-2.5 text-sm font-bold transition active:scale-95 bg-amber-500/15 text-amber-300 hover:bg-amber-500/25"
+            >
+              📝 试卷
             </button>
             <button onClick={onBattle} className={`rounded-lg px-5 py-2.5 text-sm font-bold transition active:scale-95 ${s.btn}`}>
               出战

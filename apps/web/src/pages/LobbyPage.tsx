@@ -86,7 +86,7 @@ export function LobbyPage() {
 
                   {b.dueReviews > 0 && (
                     <div className="mb-3">
-                      <Link to={`/battle/${b.code}/review`} state={{ mode: 'zh2en', size: b.dueReviews, review: true }}
+                      <Link to={`/battle/${b.code}/review`} state={{ mode: 'zh2en', size: Math.min(b.dueReviews, 60), review: true }}
                         className="block rounded-xl border border-orange-500/30 bg-orange-500/10 px-3 py-2 text-center text-sm hover:bg-orange-500/20 transition-colors">
                         <span className="font-bold text-orange-400">{b.dueReviews}</span>
                         <span className="ml-1 text-orange-300">词待复习 →</span>

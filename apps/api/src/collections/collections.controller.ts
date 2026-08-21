@@ -42,12 +42,15 @@ export class CollectionsController {
   }
 
   @Get('words/ids')
-  @ApiOperation({ summary: '图鉴全量弱词复习 wordIds' })
+  @ApiOperation({ summary: '图鉴复习 wordIds（shuffle=1 时随机抽取）' })
   @ApiOkResponse({ description: '匹配词 id 列表 + 词书 code' })
   async wordIds(
     @Req() req: Request & { user: JwtUser },
     @Query('status') status?: string,
     @Query('limit') limit?: string,
+    @Query('tier') tier?: string,
+    @Query('search') search?: string,
+    @Query('shuffle') shuffle?: string,
   ): Promise<{ wordIds: string[]; bankCode?: string }> {
     return this.collections.listWordIds(req.user.sub, {
       status: status as
@@ -61,6 +64,9 @@ export class CollectionsController {
         | 'vocabbook'
         | undefined,
       limit: limit ? Number.parseInt(limit, 10) : undefined,
+      tier,
+      search,
+      shuffle: shuffle === '1' || shuffle === 'true',
     });
   }
 

@@ -155,39 +155,41 @@ export function CollectionsPage() {
   const { words, total } = wordsQuery.data ?? {};
   const totalPages = total ? Math.ceil(total / PAGE_SIZE) : 0;
 
-  // 弱词复习 CTA：仅在行动导向筛选下出现；weak 用 /words/ids 拉全量（不受分页 50 限制）
+  // 复习 CTA：仅在行动导向筛选下出现；统一走 /words/ids 按当前筛选拉取（shuffle=1 随机抽取，
+  // 不受分页 50 限制、可跨词书；weak=全部易错，其余=随机 50 词）
   const reviewable =
     status === 'due' || status === 'wrongbook' || status === 'weak' || status === 'learning' || status === 'vocabbook';
   const reviewBank = words?.find((w) => w.bankCode)?.bankCode;
+  // total 为当前筛选全量匹配数（wordsQuery 未加载时为 0，按钮不显示）
+  const reviewCount = status === 'weak' ? (stats?.weak ?? 0) : (total != null ? Math.min(total, 50) : 0);
   const [reviewIdsLoading, setReviewIdsLoading] = useState(false);
 
   const handleReviewClick = async () => {
-    if (status === 'weak') {
-      setReviewIdsLoading(true);
-      try {
-        const res = await api.get<{ wordIds: string[]; bankCode?: string }>(
-          `/collections/words/ids?status=weak&limit=60`,
-        );
-        if (!res.wordIds.length) return;
-        const bank = res.bankCode ?? reviewBank;
-        // 弱词可能来自多本词书（复习战后端已放宽为全局复习）；全无词书归属时无法创建复习会话
-        if (!bank) {
-          alert('复习词均未归属任何词书，无法创建复习战');
-          return;
-        }
-        navigate(`/battle/${bank}/0`, {
-          state: { mode: 'review', wordIds: res.wordIds, size: Math.max(10, res.wordIds.length) },
-        });
-      } finally {
-        setReviewIdsLoading(false);
+    setReviewIdsLoading(true);
+    try {
+      const params = new URLSearchParams();
+      if (status) params.set('status', status);
+      if (tier) params.set('tier', tier);
+      if (debouncedSearch) params.set('search', debouncedSearch);
+      // 易错=全部（上限 60）；其余=随机抽取最多 50 个
+      params.set('limit', String(status === 'weak' ? 60 : Math.min(total ?? 50, 50)));
+      params.set('shuffle', '1');
+      const res = await api.get<{ wordIds: string[]; bankCode?: string }>(
+        `/collections/words/ids?${params.toString()}`,
+      );
+      if (!res.wordIds.length) return;
+      const bank = res.bankCode ?? reviewBank;
+      // 词可能来自多本词书（复习战后端已放宽为全局复习）；全无词书归属时无法创建复习会话
+      if (!bank) {
+        alert('复习词均未归属任何词书，无法创建复习战');
+        return;
       }
-      return;
+      navigate(`/battle/${bank}/0`, {
+        state: { mode: 'review', wordIds: res.wordIds, size: Math.min(60, Math.max(10, res.wordIds.length)) },
+      });
+    } finally {
+      setReviewIdsLoading(false);
     }
-    if (!words?.length || !reviewBank) return;
-    const wordIds = words.slice(0, 60).map((w) => w.wordId);
-    navigate(`/battle/${reviewBank}/0`, {
-      state: { mode: 'review', wordIds, size: Math.max(10, wordIds.length) },
-    });
   };
 
   return (
@@ -324,16 +326,16 @@ export function CollectionsPage() {
             );
           })}
           <div className="ml-auto flex items-center gap-2">
-            {reviewable && (status === 'weak' ? (stats?.weak ?? 0) > 0 : reviewBank && (words?.length ?? 0) > 0) && (
+            {reviewable && reviewCount > 0 && (reviewBank || status === 'weak') && (
               <button
                 onClick={handleReviewClick}
                 disabled={reviewIdsLoading}
-                title={status === 'weak' ? '一次拉取全部易错（累计答错≥3）词开复习战，不受分页限制、可跨词书' : '用当前筛选中这批词开一轮复习战（可跨词书）'}
+                title={status === 'weak' ? '一次拉取全部易错（累计答错≥3）词开复习战，不受分页限制、可跨词书' : '从当前筛选中随机抽取（每次点击不同）最多 50 词开复习战，不受分页限制、可跨词书'}
                 className="rounded-full border border-emerald-700/60 bg-emerald-950/40 px-3 py-1.5 text-xs font-medium text-emerald-300 transition hover:bg-emerald-900/40 hover:text-emerald-200 disabled:opacity-50"
               >
                 {status === 'weak'
                   ? (reviewIdsLoading ? '加载中…' : `🎯 复习全部易错 ${stats?.weak ?? 0} 词`)
-                  : `🎯 复习当前 ${Math.min(words!.length, 60)} 词`}
+                  : (reviewIdsLoading ? '加载中…' : `🎯 随机复习 ${reviewCount} 词`)}
               </button>
             )}
             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
